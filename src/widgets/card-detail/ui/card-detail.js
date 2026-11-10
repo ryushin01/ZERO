@@ -77,7 +77,7 @@ export function cardDetail(cardId) {
         { class: "label muted" },
         pantheon ? `${pantheon.name} · ${CONTINENT_LABEL[pantheon.continent]}` : "Ark 사서의 카드",
       ),
-      h("p", { class: "card-detail__en display", lang: "en" }, card.nameEn),
+      h("p", { class: "card-detail__en display fit", lang: "en", style: { "--len": card.nameEn.length } }, card.nameEn),
       h("p", { class: "card-detail__epithet serif" }, card.epithet),
       h("p", { class: "card-detail__summary" }, card.summary),
       card.domains.length

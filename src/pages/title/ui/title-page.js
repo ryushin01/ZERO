@@ -73,6 +73,7 @@ function view(ctx) {
               )
             : null,
           h("a", { href: "#/new", class: ["button", !resumable && "button--solid"] }, "새 기록 시작"),
+          h("a", { href: "#/new/daily", class: "button" }, "오늘의 신화"),
           h("a", { href: "#/guide", class: "button button--quiet" }, "처음이라면 도움말"),
         ),
       ),
@@ -84,6 +85,7 @@ function view(ctx) {
         "p",
         { class: "label" },
         `신과 영웅 ${FIGURES.length} · 신화 계열 ${PANTHEONS.length} · 괴물 ${ENEMIES.length} · 유물 ${RELICS.length}`,
+        records.seen.length > 0 ? ` · 서가 복원 ${records.seen.length}/${FIGURES.length}` : "",
         records.runs > 0 ? ` · 지금까지 ${records.runs}판, 승리 ${records.wins}` : "",
       ),
       h(

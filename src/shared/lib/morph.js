@@ -61,13 +61,14 @@ export function morphChildren(parent, next) {
   const used = new Set();
   let cursor = 0;
 
-  incoming.forEach((target, index) => {
+  // 1) 새 자식마다 짝이 될 기존 노드를 찾습니다.
+  const matches = incoming.map((target) => {
     const key = keyOf(target);
     /** @type {Node | undefined} */
     let match;
     if (key) {
       match = keyed.get(key);
-      if (match && !same(match, target)) match = undefined;
+      if (match && (used.has(match) || !same(match, target))) match = undefined;
     } else {
       for (let i = cursor; i < existing.length; i += 1) {
         const candidate = existing[i];
@@ -78,18 +79,22 @@ export function morphChildren(parent, next) {
         }
       }
     }
-    const reference = parent.childNodes[index] ?? null;
-    if (match) {
-      used.add(match);
-      morphNode(match, target);
-      if (match !== reference) parent.insertBefore(match, reference);
-    } else {
-      parent.insertBefore(target, reference);
-      used.add(target);
-    }
+    if (match) used.add(match);
+    return match;
   });
 
+  // 2) 짝이 없는 기존 노드를 먼저 지웁니다. 그래야 남은 노드가 제자리에 있어 옮길 필요가 없습니다.
+  //    (노드를 옮기면 CSS 애니메이션이 처음부터 다시 돕니다.)
   for (const node of existing) {
     if (!used.has(node) && node.parentNode === parent) parent.removeChild(node);
   }
+
+  // 3) 차례대로 고치고, 순서가 실제로 다를 때만 옮기거나 넣습니다.
+  incoming.forEach((target, index) => {
+    const match = matches[index];
+    const node = match ?? target;
+    if (match) morphNode(match, target);
+    const reference = parent.childNodes[index] ?? null;
+    if (node !== reference) parent.insertBefore(node, reference);
+  });
 }

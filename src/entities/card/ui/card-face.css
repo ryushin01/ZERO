@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   width: var(--card-w);
-  aspect-ratio: 5 / 7.4;
+  /* 기본은 5:7.4 비율이고, 효과 글이 길면 카드가 아래로 조금 길어집니다. */
+  min-height: calc(var(--card-w) * 1.48);
   padding: 0;
   overflow: hidden;
   background: var(--paper);
@@ -25,7 +26,7 @@
 }
 
 .card--s .card__art {
-  flex-basis: 34%;
+  height: calc(var(--card-w) * 0.5);
 }
 
 .card--l {
@@ -81,7 +82,9 @@ button.card[aria-disabled="true"]:hover {
   position: relative;
   order: -1;
   display: block;
-  flex: 0 0 44%;
+  /* 그림 칸은 카드 폭으로 높이를 정하고, 글은 그 아래에서 필요한 만큼 늘어납니다. */
+  flex: none;
+  height: calc(var(--card-w) * 0.65);
   overflow: hidden;
   background: var(--ink);
 }
@@ -113,7 +116,7 @@ button.card:focus-visible .card__art img {
 
 .card__body {
   display: flex;
-  flex: 1;
+  flex: 1 0 auto;
   flex-direction: column;
   gap: 2px;
   min-height: 0;
@@ -127,10 +130,12 @@ button.card:focus-visible .card__art img {
 }
 
 .card__name {
+  /* 긴 이름(8 사슴 재규어 발톱 등)도 한 줄에 들어가도록 글자 수(--len)로 줄입니다. */
   font-family: var(--font-serif-ko);
-  font-size: calc(var(--card-w) * 0.092);
+  font-size: min(calc(var(--card-w) * 0.092), calc((var(--card-w) - 20px) / var(--len, 6)));
   font-weight: 600;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .card__plus {
@@ -193,6 +198,18 @@ button.card:focus-visible .card__art img {
   font-size: 0.625rem;
 }
 
+.card__badge {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  z-index: 2;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bone);
+  font-size: 0.625rem;
+}
+
 .card__note {
   position: absolute;
   bottom: calc(56% + 6px);
@@ -220,6 +237,6 @@ button.card:focus-visible .card__art img {
   }
 
   .card__name {
-    font-size: 0.8125rem;
+    font-size: min(0.8125rem, calc((var(--card-w) - 20px) / var(--len, 6)));
   }
 }

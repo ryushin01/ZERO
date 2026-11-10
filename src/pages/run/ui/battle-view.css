@@ -37,6 +37,7 @@
 }
 
 .enemy__inner {
+  container-type: inline-size;
   display: grid;
   justify-items: center;
   gap: 8px;
@@ -73,11 +74,11 @@
 }
 
 .enemy__en {
-  font-size: clamp(2rem, 4.6vw, 4rem);
+  --fit-max: 4rem;
 }
 
 .enemy--boss .enemy__en {
-  font-size: clamp(2.5rem, 7vw, 6rem);
+  --fit-max: 6rem;
 }
 
 .enemy__ko {
@@ -333,4 +334,37 @@
     min-width: 0;
     flex: 1;
   }
+}
+
+/* 떠오르는 숫자 (battle-fx.js) */
+.fx-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.fx-float {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 0.6);
+}
+
+.fx-float--damage {
+  color: var(--dark-signal);
+}
+
+.fx-float--heal {
+  color: var(--bone);
+}
+
+.fx-float--block {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bone);
 }
