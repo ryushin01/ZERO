@@ -136,19 +136,22 @@ function cardsTab(ctx) {
             ? "아직 복원한 신이 없습니다. 한 판을 시작하면 길잡이 신화의 신부터 기록됩니다."
             : "맞는 카드가 없습니다. 거르기를 풀어 보세요.",
         ),
-    hiddenSection(ctx.records.found),
+    hiddenSection(),
   ];
 }
 
-/** 찾은 히든 카드만 보여 줍니다. 아직 찾지 못했다면 아무것도 그리지 않습니다. @param {string[]} found */
-function hiddenSection(found) {
-  const cards = HIDDEN_CARDS.filter((card) => found.includes(card.id));
-  if (!cards.length) return null;
+/** 히든 카드. 새 기록을 시작할 때 바로 데려갈 수 있습니다. */
+function hiddenSection() {
+  const cards = HIDDEN_CARDS;
   return h(
     "section",
     { class: "codex__hidden", "aria-labelledby": "codex-hidden" },
     h("h2", { id: "codex-hidden", class: "codex__hidden-title serif" }, "히든"),
-    h("p", { class: "muted codex__intro" }, "Ark에 기록되지 않은 자. 붉은 방에서 만났습니다."),
+    h(
+      "p",
+      { class: "muted codex__intro" },
+      "Ark에 기록되지 않은 자. 새 기록을 시작할 때 함께 데려갈 수 있고, 드물게 붉은 방에서도 만납니다.",
+    ),
     h(
       "ul",
       { class: "codex__cards" },
@@ -227,9 +230,8 @@ function enemiesTab() {
   );
 }
 
-/** @param {Ctx} ctx */
-function armamentsTab(ctx) {
-  const hidden = HIDDEN_ARMAMENTS.filter((arm) => arm.owners.some((id) => ctx.records.found.includes(id)));
+function armamentsTab() {
+  const hidden = HIDDEN_ARMAMENTS;
   return [
     h(
       "p",
@@ -334,7 +336,7 @@ function view(ctx) {
         : tab === "enemies"
           ? enemiesTab()
           : tab === "armaments"
-            ? armamentsTab(ctx)
+            ? armamentsTab()
             : tab === "factions"
               ? factionsTab()
               : relicsTab(),

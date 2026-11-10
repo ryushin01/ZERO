@@ -28,9 +28,9 @@ test.describe("처음 화면", () => {
 });
 
 test.describe("한 판", () => {
-  test("길잡이를 고르면 11장으로 시작하고 지도가 접근성 검사를 통과합니다 @mobile", async ({ page }) => {
+  test("길잡이를 고르면 유신을 더해 12장으로 시작하고 지도가 접근성 검사를 통과합니다 @mobile", async ({ page }) => {
     await startRun(page);
-    await expect(page.getByRole("button", { name: "덱 11장" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "덱 12장" })).toBeVisible();
     await expectAccessible(page);
   });
 
@@ -78,14 +78,14 @@ test.describe("한 판", () => {
     await page.locator("[data-action='take-card']").first().click();
     await expect(page.getByRole("heading", { name: "카드를 덱에 넣었습니다" })).toBeVisible();
     await page.getByRole("button", { name: "지도로 돌아가기" }).click();
-    await expect(page.getByRole("button", { name: "덱 12장" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "덱 13장" })).toBeVisible();
   });
 
   test("덱 보기 대화상자는 닫으면 초점을 돌려줍니다", async ({ page }) => {
     await startRun(page);
-    const deck = page.getByRole("button", { name: "덱 11장" });
+    const deck = page.getByRole("button", { name: "덱 12장" });
     await deck.click();
-    const dialog = page.getByRole("dialog", { name: /내 덱 11장/ });
+    const dialog = page.getByRole("dialog", { name: /내 덱 12장/ });
     await expect(dialog).toBeVisible();
     await expectAccessible(page, "dialog");
     await page.keyboard.press("Escape");
@@ -97,7 +97,7 @@ test.describe("한 판", () => {
 test.describe("무구와 세력", () => {
   test("길잡이 신화의 무구를 들고 시작하고, 키보드로 휘두릅니다", async ({ page }) => {
     await startRun(page);
-    await expect(page.getByRole("heading", { name: "무구 1" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "무구 2" })).toBeVisible();
     await page.locator("[data-action='enter']").first().click();
     // 첫 무구에 적이 쓰러지지 않도록 적의 체력을 넉넉히 둔 상태에서 시작합니다.
     await page.evaluate(() => {
@@ -125,7 +125,7 @@ test.describe("무구와 세력", () => {
     await page.goto("/#/codex");
     await page.getByRole("button", { name: "무구", exact: true }).click();
     await expect(page.getByRole("heading", { name: "묠니르" })).toBeVisible();
-    await expect(page.locator(".codex__arms > li")).toHaveCount(39);
+    await expect(page.locator(".codex__arms > li")).toHaveCount(40);
     await expectAccessible(page);
     await page.getByRole("button", { name: "세력", exact: true }).click();
     await expect(page.getByRole("table", { name: /세력/ })).toBeVisible();
@@ -157,9 +157,19 @@ test.describe("히든", () => {
     await expectAccessible(page, "dialog");
   });
 
-  test("찾기 전에는 도감에 보이지 않습니다", async ({ page }) => {
-    await page.goto("/#/codex");
-    await expect(page.getByRole("heading", { name: "히든" })).toHaveCount(0);
+  test("유신 없이 시작할 수도 있고, 오늘의 신화에서는 고를 수 없습니다", async ({ page }) => {
+    await page.goto("/#/new");
+    const toggle = page.getByRole("button", { name: "히든 캐릭터 유신과 함께 시작" });
+    await expect(toggle).toHaveAttribute("aria-pressed", "true");
+    await toggle.click();
+    await expect(toggle).toHaveAttribute("aria-pressed", "false");
+    await page
+      .getByRole("button", { name: /로 시작$/ })
+      .first()
+      .click();
+    await expect(page.getByRole("button", { name: "덱 11장" })).toBeVisible();
+    await page.goto("/#/new/daily");
+    await expect(page.getByRole("button", { name: "히든 캐릭터 유신과 함께 시작" })).toHaveCount(0);
   });
 });
 

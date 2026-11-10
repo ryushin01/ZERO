@@ -26,6 +26,14 @@ describe("createRun", () => {
     expect(new Set(run.deck.map((c) => c.uid)).size).toBe(11);
   });
 
+  it("히든 캐릭터와 함께 시작하면 유신과 영혼의 검을 처음부터 듭니다", () => {
+    const run = createRun({ seed: 1, guide: "greek", hidden: true });
+    expect(run.deck).toHaveLength(12);
+    expect(run.deck.some((c) => c.id === "yushin")).toBe(true);
+    expect(run.armaments).toContain("soul-sword");
+    expect(run.armaments).toHaveLength(2);
+  });
+
   it("길잡이 후보는 신이 셋 이상인 계열 세 개입니다", () => {
     const options = guideOptions(5);
     expect(options).toHaveLength(3);

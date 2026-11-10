@@ -69,10 +69,10 @@ export function guideCards(pantheonSlug) {
 }
 
 /**
- * @param {{ seed: number, guide: string, daily?: string | null }} options
+ * @param {{ seed: number, guide: string, daily?: string | null, hidden?: boolean }} options
  * @returns {Run}
  */
-export function createRun({ seed, guide, daily = null }) {
+export function createRun({ seed, guide, daily = null, hidden = false }) {
   /** @type {Run} */
   const run = {
     version: RUN_VERSION,
@@ -110,6 +110,11 @@ export function createRun({ seed, guide, daily = null }) {
   // 길잡이 신화에 전해지는 무구가 있으면 그것을, 없으면 아무 무구나 하나 들고 떠납니다.
   const native = ARMAMENTS.filter((a) => a.pantheon === guide);
   run.armaments = [roll(run, (rng) => rng.pick(native.length ? native : ARMAMENTS)).id];
+  // 히든 캐릭터와 함께 시작하면 유신과 영혼의 검을 처음부터 듭니다. (무구 자리와 따로)
+  if (hidden) {
+    run.deck.push(makeCard(run, "yushin"));
+    run.armaments.push("soul-sword");
+  }
   return run;
 }
 
