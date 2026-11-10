@@ -1,4 +1,5 @@
 import { REGIONS } from "#entities/figure/@x/enemy.js";
+import { mix } from "#shared/ui/illustration/index.js";
 
 /**
  * 괴물의 일러스트 사양. 신과 같은 화풍으로, 기운은 불길한 색을 씁니다.
@@ -98,6 +99,8 @@ export function monsterSpec(id, tier) {
     form: /** @type {SceneSpec["form"]} */ (m.form ?? "figure"),
     motif: region.motif,
     sky: /** @type {[string, string]} */ (m.sky ?? region.sky),
+    // 괴물은 신보다 어두운 배경으로 불길하게 둡니다.
+    accent: mix((m.sky ?? region.sky)[1], "#000000", 0.45),
     glow: m.glow,
     skin: m.skin ?? region.skin,
     cloth: region.cloth,
