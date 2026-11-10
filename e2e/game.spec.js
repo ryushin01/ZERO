@@ -94,6 +94,46 @@ test.describe("한 판", () => {
   });
 });
 
+test.describe("무구와 세력", () => {
+  test("길잡이 신화의 무구를 들고 시작하고, 키보드로 휘두릅니다", async ({ page }) => {
+    await startRun(page);
+    await expect(page.getByRole("heading", { name: "무구 1" })).toBeVisible();
+    await page.locator("[data-action='enter']").first().click();
+    // 첫 무구에 적이 쓰러지지 않도록 적의 체력을 넉넉히 둔 상태에서 시작합니다.
+    await page.evaluate(() => {
+      const run = JSON.parse(localStorage.getItem("zero:run"));
+      run.combat.enemies = run.combat.enemies.map((e) => ({ ...e, hp: 999, maxHp: 999 }));
+      localStorage.setItem("zero:run", JSON.stringify(run));
+    });
+    await page.reload();
+    const arm = page.locator("[data-action='arm']").first();
+    await expect(arm).toBeVisible();
+    await arm.focus();
+    await page.keyboard.press("Enter");
+    const target = page.locator("[data-action='target']").first();
+    if (await target.count()) {
+      await expect(target).toBeFocused();
+      await page.keyboard.press("Enter");
+    }
+    await expect(page.locator("[data-announcer]")).not.toBeEmpty();
+    await expect(arm).toHaveAttribute("aria-disabled", "true");
+    await expect(arm).toContainText("턴 뒤");
+    await expectAccessible(page);
+  });
+
+  test("도감에서 무구 14점과 41개 계열의 세력을 봅니다 @mobile", async ({ page }) => {
+    await page.goto("/#/codex");
+    await page.getByRole("button", { name: "무구", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "묠니르" })).toBeVisible();
+    await expect(page.locator(".codex__arms > li")).toHaveCount(14);
+    await expectAccessible(page);
+    await page.getByRole("button", { name: "세력", exact: true }).click();
+    await expect(page.getByRole("table", { name: /세력/ })).toBeVisible();
+    await expect(page.getByRole("rowheader", { name: "한국 신화" })).toBeVisible();
+    await expectAccessible(page);
+  });
+});
+
 test.describe("오늘의 신화와 서가 복원", () => {
   test("오늘의 신화로 시작하면 길잡이 신화의 신 둘이 서가에 복원됩니다", async ({ page }) => {
     await page.goto("/#/new/daily");
@@ -162,7 +202,7 @@ test.describe("도감", () => {
     await expect(page.getByRole("heading", { name: /히드라/ })).toBeVisible();
     await expectAccessible(page);
     await page.getByRole("button", { name: "유물" }).click();
-    await expect(page.getByRole("heading", { name: "아이기스" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "아리아드네의 실" })).toBeVisible();
   });
 });
 
@@ -191,4 +231,10 @@ test.describe("모바일 @mobile", () => {
     expect(overflow).toBeLessThanOrEqual(0);
     await expectAccessible(page);
   });
+});
+
+test("빌드에 함께 들어간 Storybook이 열립니다", async ({ page }) => {
+  const response = await page.goto("/storybook/index.html");
+  expect(response?.status()).toBe(200);
+  await expect(page).toHaveTitle(/Storybook/);
 });

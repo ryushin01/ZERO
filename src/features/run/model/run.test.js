@@ -8,9 +8,11 @@ import {
   createRun,
   enterNode,
   guideCards,
+  migrateRun,
   guideOptions,
   leaveReward,
   resolvePick,
+  takeArmament,
   takeCard,
   updateCombat,
 } from "./run.js";
@@ -28,6 +30,61 @@ describe("createRun", () => {
     const options = guideOptions(5);
     expect(options).toHaveLength(3);
     expect(new Set(options.map((p) => p.slug)).size).toBe(3);
+  });
+});
+
+describe("migrateRun", () => {
+  it("0.2.0 저장을 옮기고, 무기였던 유물은 무구로 바꿉니다", () => {
+    const old = { ...createRun({ seed: 9, guide: "greek" }), version: 1, relics: ["aegis", "ankh"] };
+    delete old.armaments;
+    old.reward = {
+      title: "",
+      cards: [],
+      relics: ["mjolnir", "sampo"],
+      relicPick: true,
+      cardTaken: false,
+      relicTaken: false,
+    };
+    old.combat = { relics: ["aegis", "ankh"], hand: [], enemies: [] };
+    const run = migrateRun(old);
+    expect(run.version).toBe(2);
+    expect(run.relics).toEqual(["ankh"]);
+    expect(run.armaments).toEqual(["aegis"]);
+    expect(run.reward.relics).toEqual(["sampo"]);
+    expect(run.combat).toMatchObject({ playedFigures: [], perks: {}, armaments: [{ id: "aegis", cd: 0 }] });
+  });
+
+  it("알 수 없는 저장은 버립니다", () => {
+    expect(migrateRun(null)).toBeNull();
+    expect(migrateRun({ version: 99 })).toBeNull();
+  });
+});
+
+describe("무구와 세력", () => {
+  it("길잡이 신화의 무구 하나를 들고 시작합니다", () => {
+    expect(["mjolnir", "gungnir", "brisingamen"]).toContain(createRun({ seed: 1, guide: "norse" }).armaments[0]);
+    expect(createRun({ seed: 1, guide: "finnish" }).armaments).toHaveLength(1);
+  });
+
+  it("덱의 세력 효과를 전투에 넘깁니다", () => {
+    let run = createRun({ seed: 6, guide: "korean" });
+    run = {
+      ...run,
+      deck: [...run.deck, { uid: "x1", id: "sansin", up: false }, { uid: "x2", id: "jeseok", up: false }],
+    };
+    run = enterNode(run, run.map.rows[0][0].id);
+    expect(run.combat.perks).toEqual({ turnHeal: 1 });
+  });
+
+  it("정예를 이기면 무구 후보 둘 가운데 하나를 고릅니다", () => {
+    let run = createRun({ seed: 7, guide: "greek" });
+    run = enterNode(run, run.map.rows[0][0].id);
+    run = updateCombat(run, { ...run.combat, tier: "elite", outcome: "win" });
+    expect(run.reward.armaments).toHaveLength(2);
+    const [first, second] = run.reward.armaments;
+    run = takeArmament(run, first);
+    expect(run.armaments).toContain(first);
+    expect(takeArmament(run, second).armaments).not.toContain(second);
   });
 });
 

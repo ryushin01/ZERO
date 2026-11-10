@@ -26,7 +26,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px 48px;
-  min-height: 300px;
+  min-height: 260px;
   align-content: center;
 }
 
@@ -36,7 +36,37 @@
   transition: opacity 0.6s var(--ease);
 }
 
+/* 괴물 그림은 이름 뒤에 깔아 높이를 쓰지 않습니다. 큰 글자와 그림이 겹치는 구도입니다. */
+.enemy__art {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: auto;
+  height: 118%;
+  max-width: 100%;
+  aspect-ratio: 200 / 260;
+  object-fit: cover;
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
+  -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent);
+  mask-image: radial-gradient(closest-side, #000 55%, transparent);
+  pointer-events: none;
+}
+
+.enemy__inner > :not(.enemy__art) {
+  text-shadow:
+    0 1px 3px #000,
+    0 0 12px #000;
+}
+
+.enemy--dead .enemy__art {
+  opacity: 0.2;
+}
+
 .enemy__inner {
+  position: relative;
+  isolation: isolate;
   container-type: inline-size;
   display: grid;
   justify-items: center;
@@ -237,6 +267,71 @@
   line-height: 1;
 }
 
+.player__arms ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.arm {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+  max-width: 220px;
+  padding: 6px 10px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-align: left;
+  transition: border-color 0.2s ease-out;
+}
+
+.arm:hover {
+  border-color: var(--fg);
+}
+
+.arm[aria-pressed="true"] {
+  outline: 3px solid var(--signal);
+  outline-offset: 2px;
+}
+
+.arm[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.arm__art {
+  width: 40px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.arm__text {
+  display: grid;
+  gap: 1px;
+  font-size: var(--fs-xs);
+}
+
+.arm__name {
+  font-family: var(--font-serif-ko);
+  font-size: var(--fs-s);
+  font-weight: 600;
+}
+
+.arm__effect {
+  font-weight: 600;
+}
+
+.arm__owner {
+  color: var(--signal);
+}
+
+.arm--owner {
+  border-color: var(--signal);
+}
+
 .player__turn {
   display: flex;
   flex-wrap: wrap;
@@ -311,6 +406,71 @@
   .player__piles {
     grid-column: 1 / -1;
     order: 3;
+  }
+
+  .player__arms ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .arm {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+    gap: 8px;
+    min-height: 56px;
+    max-width: 220px;
+    padding: 6px 10px 6px 6px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    text-align: left;
+    transition: border-color 0.2s ease-out;
+  }
+
+  .arm:hover {
+    border-color: var(--fg);
+  }
+
+  .arm[aria-pressed="true"] {
+    outline: 3px solid var(--signal);
+    outline-offset: 2px;
+  }
+
+  .arm[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .arm__art {
+    width: 40px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .arm__text {
+    display: grid;
+    gap: 1px;
+    font-size: var(--fs-xs);
+  }
+
+  .arm__name {
+    font-family: var(--font-serif-ko);
+    font-size: var(--fs-s);
+    font-weight: 600;
+  }
+
+  .arm__effect {
+    font-weight: 600;
+  }
+
+  .arm__owner {
+    color: var(--signal);
+  }
+
+  .arm--owner {
+    border-color: var(--signal);
   }
 
   .player__turn {

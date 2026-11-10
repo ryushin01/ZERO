@@ -1,13 +1,13 @@
-import { FIGURE_CARDS } from "#entities/card/index.js";
+import { cardIllustration, FIGURE_CARDS } from "#entities/card/index.js";
 import { ENEMIES } from "#entities/enemy/index.js";
-import { FIGURES, getArt, PANTHEONS } from "#entities/figure/index.js";
+import { FIGURES, PANTHEONS } from "#entities/figure/index.js";
 import { RELICS } from "#entities/relic/index.js";
 import { h } from "#shared/lib/index.js";
 
 import "./title-page.css";
 
-/** 고리에 놓을 신들: 그림이 있는 전설 카드 */
-const RING = FIGURE_CARDS.filter((c) => c.rarity === "legend" && c.figureSlug && getArt(c.figureSlug)).slice(0, 18);
+/** 고리에 놓을 신들: 신화권이 고루 섞이도록 전설 카드를 골라 씁니다. */
+const RING = FIGURE_CARDS.filter((c) => c.rarity === "legend").slice(0, 18);
 
 /** 자리마다 크기를 조금씩 달리합니다 (고정값) */
 const SIZES = [120, 96, 140, 104, 128, 92, 150, 112, 100, 136, 118, 90, 146, 108, 124, 98, 132, 114];
@@ -28,9 +28,6 @@ function view(ctx) {
         "div",
         { class: "title__ring", "aria-hidden": "true", "data-morph": "skip" },
         RING.map((card, index) => {
-          const art = /** @type {NonNullable<ReturnType<typeof getArt>>} */ (
-            getArt(/** @type {string} */ (card.figureSlug))
-          );
           return h(
             "figure",
             {
@@ -41,7 +38,7 @@ function view(ctx) {
                 "--n": RING.length,
               },
             },
-            h("img", { src: art.src, alt: "", decoding: "async" }),
+            h("img", { src: cardIllustration(card), alt: "", decoding: "async" }),
             h("figcaption", { class: "label" }, card.nameEn),
           );
         }),

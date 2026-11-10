@@ -1,3 +1,6 @@
+import { armamentIllustration, describeArmament, getArmament } from "#entities/armament/index.js";
+import { getCard } from "#entities/card/index.js";
+import { describePerk, factionStatus, TIERS } from "#entities/faction/index.js";
 import { ACT_INFO, LANES, NODE_INFO, reachableNodes } from "#entities/map/index.js";
 import { getRelic } from "#entities/relic/index.js";
 import { enterNode, guideName } from "#features/run/index.js";
@@ -30,6 +33,31 @@ function links(map, row, path) {
     "aria-hidden": "true",
     html: `<svg viewBox="0 0 300 100" preserveAspectRatio="none">${lines.join("")}</svg>`,
   });
+}
+
+/** 덱의 세력: 같은 계열 3장이면 1단계, 5장이면 2단계 @param {NonNullable<Ctx["run"]>} run */
+function factionList(run) {
+  const status = factionStatus(run.deck.map((c) => getCard(c.id).pantheonSlug)).slice(0, 4);
+  if (!status.length)
+    return h("p", { class: "muted map__none" }, "같은 신화 계열의 신을 3장 모으면 세력의 힘이 깨어납니다.");
+  return h(
+    "ul",
+    { class: "map__factions" },
+    status.map((f) =>
+      h(
+        "li",
+        { "data-key": f.pantheon, class: f.tier ? "is-active" : null },
+        h("strong", null, `${f.name} · ${f.title}`),
+        h(
+          "span",
+          null,
+          f.tier
+            ? `${f.tier}단계: ${describePerk(f.perk, f.values[f.tier - 1])}`
+            : `${f.count}/${TIERS[0]}장 — ${describePerk(f.perk, f.values[0])}`,
+        ),
+      ),
+    ),
+  );
 }
 
 /** @param {Ctx} ctx */
@@ -78,6 +106,27 @@ export function mapView(ctx) {
           h("dt", null, "지나온 칸"),
           h("dd", null, `${run.stats.floors}칸`),
         ),
+        h("h2", { class: "label muted" }, `무구 ${run.armaments.length}`),
+        h(
+          "ul",
+          { class: "map__arms" },
+          run.armaments.map((id) => {
+            const arm = getArmament(id);
+            return h(
+              "li",
+              { "data-key": id },
+              h("img", { src: armamentIllustration(arm), alt: "", width: 200, height: 260 }),
+              h(
+                "span",
+                null,
+                h("strong", null, arm.name),
+                h("span", null, `에너지 ${arm.cost} · ${describeArmament(arm).join(", ")}`),
+              ),
+            );
+          }),
+        ),
+        h("h2", { class: "label muted" }, "세력"),
+        factionList(run),
         h("h2", { class: "label muted" }, `유물 ${run.relics.length}`),
         run.relics.length
           ? h(

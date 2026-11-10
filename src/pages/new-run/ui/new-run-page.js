@@ -1,9 +1,29 @@
+import { ARMAMENTS } from "#entities/armament/index.js";
 import { cardFace, getCard } from "#entities/card/index.js";
+import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { figuresOf, getPantheon } from "#entities/figure/index.js";
 import { createRun, dailyKey, dailyLabel, dailySeed, guideCards, guideOptions } from "#features/run/index.js";
 import { h, randomSeed } from "#shared/lib/index.js";
 
 import "./new-run-page.css";
+
+/** 길잡이 신화의 세력과 처음 들고 갈 무구 @param {string} slug */
+function newRunExtras(slug) {
+  const faction = factionOf(slug);
+  const native = ARMAMENTS.filter((a) => a.pantheon === slug);
+  return h(
+    "dl",
+    { class: "new-run__extras" },
+    h("dt", { class: "label muted" }, "세력"),
+    h("dd", null, `${faction.title} · ${TIERS[0]}장이면 ${describePerk(faction.perk, faction.values[0])}`),
+    h("dt", { class: "label muted" }, "무구"),
+    h(
+      "dd",
+      null,
+      native.length ? `${native.map((a) => a.name).join(", ")} 가운데 하나` : "신화의 무구 가운데 하나를 무작위로",
+    ),
+  );
+}
 
 /** @param {import("#app/render/app.js").PageContext} ctx */
 const isDaily = (ctx) => ctx.route.params[0] === "daily";
@@ -75,6 +95,7 @@ function view(ctx) {
           h("h2", { class: "new-run__name serif" }, pantheon.name),
           h("p", { class: "label muted" }, `${pantheon.region} · ${pantheon.eraLabel} · 신과 영웅 ${count}`),
           h("p", { class: "new-run__summary" }, pantheon.summary),
+          newRunExtras(pantheon.slug),
           h(
             "ul",
             { class: "new-run__cards", "aria-label": `${pantheon.name}가 처음 덱에 넣어 주는 카드` },

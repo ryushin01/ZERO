@@ -1,5 +1,7 @@
-import { ASPECTS, cardFace, getCard, KEYWORDS } from "#entities/card/index.js";
+import { ARMAMENTS, armamentCard } from "#entities/armament/index.js";
+import { ASPECTS, cardFace, cardIllustration, getCard, KEYWORDS } from "#entities/card/index.js";
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
+import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { CONTINENT_LABEL, getArt, getPantheon } from "#entities/figure/index.js";
 import { arkFigureUrl, arkPantheonUrl } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
@@ -27,6 +29,10 @@ export function cardDetail(cardId) {
   const pantheon = card.pantheonSlug ? getPantheon(card.pantheonSlug) : null;
   const art = card.figureSlug ? getArt(card.figureSlug) : undefined;
   const nemesisOf = ENEMIES.filter((enemy) => isNemesis(enemy, card));
+  const faction = card.pantheonSlug ? factionOf(card.pantheonSlug) : null;
+  const owned = card.figureSlug
+    ? ARMAMENTS.filter((a) => a.owners.includes(/** @type {string} */ (card.figureSlug)))
+    : [];
   const text = [
     ...card.effects.map((e) => e.op),
     card.retain && "보존",
@@ -47,13 +53,26 @@ export function cardDetail(cardId) {
     "article",
     { class: "card-detail" },
     h(
-      "figure",
+      "div",
       { class: "card-detail__art" },
+      h(
+        "figure",
+        null,
+        h("img", {
+          class: "card-detail__illust",
+          src: cardIllustration(card),
+          alt: `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
+        }),
+        h("figcaption", { class: "card-detail__credit" }, "ZERO 일러스트 · 코드로 그린 그림"),
+      ),
       art
-        ? [
+        ? h(
+            "figure",
+            { class: "card-detail__source" },
+            h("figcaption", { class: "label muted" }, "Ark 소장 자료"),
             h("img", { src: art.src, alt: art.alt, loading: "lazy" }),
             h(
-              "figcaption",
+              "p",
               { class: "card-detail__credit" },
               h("strong", null, art.title),
               [art.dateLabel, art.holder].filter(Boolean).join(" · "),
@@ -66,8 +85,8 @@ export function cardDetail(cardId) {
                 external(art.credit.sourceUrl, "Wikimedia Commons"),
               ),
             ),
-          ]
-        : h("div", { class: "card-detail__noart" }, cardFace(card, { size: "l" })),
+          )
+        : null,
     ),
     h(
       "div",
@@ -94,6 +113,14 @@ export function cardDetail(cardId) {
               card.secondary ? ` · 보조 ${ASPECTS[card.secondary].mark} ${ASPECTS[card.secondary].label}` : "",
               h("span", { class: "muted" }, ` — ${ASPECTS[card.aspect].summary}`),
             ),
+            faction ? h("dt", null, "세력") : null,
+            faction
+              ? h(
+                  "dd",
+                  null,
+                  `${faction.title} — ${TIERS[0]}장: ${describePerk(faction.perk, faction.values[0])}, ${TIERS[1]}장: ${describePerk(faction.perk, faction.values[1])}`,
+                )
+              : null,
             nemesisOf.length ? h("dt", null, "천적") : null,
             nemesisOf.length ? h("dd", null, `${nemesisOf.map((e) => e.name).join(", ")}에게 피해 50% 증가`) : null,
           )
@@ -109,6 +136,14 @@ export function cardDetail(cardId) {
             "dl",
             { class: "card-detail__terms" },
             terms.map((k) => [h("dt", null, k.term), h("dd", null, k.text)]),
+          )
+        : null,
+      owned.length
+        ? h(
+            "section",
+            { class: "card-detail__arms", "aria-label": `${card.name}의 무구` },
+            h("p", { class: "label muted" }, "이 신의 무구 · 함께 쓰면 강해집니다"),
+            owned.map((arm) => armamentCard(arm)),
           )
         : null,
       card.figureSlug

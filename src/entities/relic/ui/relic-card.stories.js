@@ -1,13 +1,13 @@
-import { getRelic } from "../model/relics.js";
+import { getRelic, RELICS } from "../model/relics.js";
 
 import { relicCard } from "./relic-card.js";
 
 export default {
   title: "entities/relic/RelicCard",
   parameters: { surface: "light" },
-  args: { id: "aegis", owned: false },
+  args: { id: "ariadne", owned: false },
   argTypes: {
-    id: { control: "select", options: ["aegis", "draupnir", "yeouiju", "ankh", "kusanagi", "mjolnir", "sampo"] },
+    id: { control: "select", options: RELICS.map((r) => r.id) },
   },
   render: ({ id, owned }) => {
     const wrap = document.createElement("div");
@@ -18,4 +18,4 @@ export default {
 };
 
 export const Default = {};
-export const Owned = { args: { id: "mjolnir", owned: true } };
+export const Owned = { args: { id: "golden-apple", owned: true } };

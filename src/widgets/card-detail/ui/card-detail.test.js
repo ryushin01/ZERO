@@ -10,10 +10,19 @@ describe("cardDetail", () => {
     expect(link?.textContent).toContain("(새 창)");
   });
 
-  it("자료 그림에는 Ark의 대체 텍스트와 출처를 붙입니다", () => {
+  it("새 일러스트에 대체 텍스트를 붙이고, Ark 소장 자료는 출처와 함께 보여 줍니다", () => {
     const el = cardDetail("odin");
-    expect(el.querySelector("img")?.getAttribute("alt")).toBeTruthy();
-    expect(el.querySelector("figcaption")?.textContent).toContain("Wikimedia Commons");
+    expect(el.querySelector(".card-detail__illust")?.getAttribute("alt")).toContain("오딘의 일러스트");
+    const source = el.querySelector(".card-detail__source");
+    expect(source?.textContent).toContain("Ark 소장 자료");
+    expect(source?.querySelector("img")?.getAttribute("alt")).toBeTruthy();
+    expect(source?.textContent).toContain("Wikimedia Commons");
+  });
+
+  it("세력과 주인 신의 무구를 보여 줍니다", () => {
+    const el = cardDetail("thor");
+    expect(el.textContent).toContain("아스가르드");
+    expect(el.querySelector(".card-detail__arms")?.textContent).toContain("묠니르");
   });
 
   it("천적인 괴물을 알려 줍니다", () => {

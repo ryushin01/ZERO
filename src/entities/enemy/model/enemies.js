@@ -124,7 +124,7 @@ export const ENEMIES = [
     lore: "크레타 미궁의 소머리 괴물. 길을 잃게 하는 것이 그의 무기입니다.",
     tier: "elite",
     act: 1,
-    hp: [72, 76],
+    hp: [76, 81],
     order: "cycle",
     intents: [
       { name: "돌진", actions: [{ op: "attack", value: 12 }] },
@@ -153,7 +153,7 @@ export const ENEMIES = [
     lore: "레르나 늪의 머리 여럿 달린 물뱀. 머리 하나를 자르면 둘이 자랍니다.",
     tier: "boss",
     act: 1,
-    hp: [118, 118],
+    hp: [125, 125],
     heads: 2,
     order: "cycle",
     intents: [
@@ -185,7 +185,7 @@ export const ENEMIES = [
     lore: "쇠몽둥이를 든 뿔 달린 귀신. 저승의 문지기라고도 합니다.",
     tier: "normal",
     act: 2,
-    hp: [60, 64],
+    hp: [67, 72],
     order: "cycle",
     intents: [
       { name: "쇠몽둥이", actions: [{ op: "attack", value: 14 }] },
@@ -208,7 +208,7 @@ export const ENEMIES = [
     lore: "모습을 바꾸는 밤의 귀신. 「라마야나」에서 라마와 하누만에 맞섰습니다.",
     tier: "normal",
     act: 2,
-    hp: [38, 42],
+    hp: [43, 47],
     order: "cycle",
     intents: [
       {
@@ -231,7 +231,7 @@ export const ENEMIES = [
     lore: "천 년을 산 아홉 꼬리 여우. 사람의 기억을 먹고 사람이 되려 합니다.",
     tier: "normal",
     act: 2,
-    hp: [52, 56],
+    hp: [58, 63],
     order: "cycle",
     intents: [
       {
@@ -260,7 +260,7 @@ export const ENEMIES = [
     lore: "해가 뜨고 지는 마슈산의 문을 지키는 전갈 인간.",
     tier: "normal",
     act: 2,
-    hp: [58, 62],
+    hp: [65, 69],
     order: "cycle",
     intents: [
       {
@@ -283,7 +283,7 @@ export const ENEMIES = [
     lore: "악어 머리, 사자 몸, 하마 다리의 '죽은 이를 먹는 자'. 깃털보다 무거운 심장을 삼킵니다.",
     tier: "elite",
     act: 2,
-    hp: [112, 116],
+    hp: [125, 130],
     order: "cycle",
     intents: [
       { name: "심장 삼키기", actions: [{ op: "attack", value: 16 }] },
@@ -315,7 +315,7 @@ export const ENEMIES = [
     lore: "밤마다 태양의 배를 삼키려 드는 혼돈의 큰 뱀.",
     tier: "boss",
     act: 2,
-    hp: [176, 176],
+    hp: [197, 197],
     order: "cycle",
     intents: [
       { name: "똬리", actions: [{ op: "attack", value: 9, times: 2 }] },
@@ -347,7 +347,7 @@ export const ENEMIES = [
     lore: "세계가 생기기 전 얼음에서 태어난 거인의 후예.",
     tier: "normal",
     act: 3,
-    hp: [72, 76],
+    hp: [81, 85],
     order: "cycle",
     intents: [
       { name: "얼음 망치", actions: [{ op: "attack", value: 18 }] },
@@ -376,7 +376,7 @@ export const ENEMIES = [
     lore: "일식 때 내려와 세상을 삼킨다는 별의 악령.",
     tier: "normal",
     act: 3,
-    hp: [44, 48],
+    hp: [49, 54],
     order: "cycle",
     intents: [
       { name: "별똥 세례", actions: [{ op: "attack", value: 5, times: 3 }] },
@@ -397,7 +397,7 @@ export const ENEMIES = [
     lore: "불사의 감로를 훔쳐 마시다 머리만 남은 아수라. 해와 달을 삼켜 일식을 일으킵니다.",
     tier: "normal",
     act: 3,
-    hp: [70, 74],
+    hp: [78, 83],
     order: "cycle",
     intents: [
       {
@@ -426,7 +426,7 @@ export const ENEMIES = [
     lore: "천 년을 기다렸으나 용이 되지 못한 큰 뱀. 그 원한이 물길을 막습니다.",
     tier: "normal",
     act: 3,
-    hp: [76, 80],
+    hp: [85, 90],
     order: "cycle",
     intents: [
       {
@@ -449,7 +449,7 @@ export const ENEMIES = [
     lore: "라그나로크에 사슬을 끊고 오딘을 삼킨다는 거대한 늑대.",
     tier: "elite",
     act: 3,
-    hp: [148, 152],
+    hp: [166, 170],
     order: "cycle",
     intents: [
       { name: "물어뜯기", actions: [{ op: "attack", value: 10, times: 2 }] },
@@ -472,7 +472,7 @@ export const ENEMIES = [
     lore: "세계가 생기기 전의 공허. 그리스의 카오스, 북유럽의 긴눙가가프, 이집트의 눈이 가리키는 그것. 모든 기록을 처음으로 되돌리려 합니다.",
     tier: "boss",
     act: 3,
-    hp: [300, 300],
+    hp: [336, 336],
     order: "cycle",
     intents: [
       {

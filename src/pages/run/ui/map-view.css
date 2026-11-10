@@ -31,6 +31,41 @@
   text-underline-offset: 0.3em;
 }
 
+.map__arms,
+.map__factions {
+  display: grid;
+  gap: 10px;
+  font-size: var(--fs-s);
+}
+
+.map__arms li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.map__arms img {
+  width: 36px;
+  height: 47px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.map__arms span,
+.map__factions li {
+  display: grid;
+}
+
+.map__factions li {
+  padding-left: 10px;
+  border-left: 2px solid var(--line);
+}
+
+.map__factions li.is-active {
+  border-left-color: var(--signal);
+}
+
 .map__relics {
   display: grid;
   gap: 10px;

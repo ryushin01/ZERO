@@ -132,6 +132,17 @@
   gap: 24px;
 }
 
+.reward__arms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.reward__arms > li {
+  width: min(300px, 100%);
+}
+
 .reward__relics > li {
   width: min(280px, 100%);
 }

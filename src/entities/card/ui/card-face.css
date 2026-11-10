@@ -93,25 +93,21 @@ button.card[aria-disabled="true"]:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
-  filter: grayscale(0.35) contrast(1.05);
+  object-position: center 22%;
   transition: filter 0.4s ease-out;
 }
 
 button.card:hover .card__art img,
 button.card:focus-visible .card__art img {
-  filter: none;
+  transform: scale(1.04);
 }
 
-.card__glyph {
-  display: grid;
-  place-items: center;
-  height: 100%;
-  color: var(--bone);
-  font-family: var(--font-display);
-  font-size: calc(var(--card-w) * 0.38);
-  font-weight: 300;
-  line-height: 1;
+.card__art img {
+  transition: transform 0.5s var(--ease);
+}
+
+.card__art--item img {
+  object-position: center 72%;
 }
 
 .card__body {

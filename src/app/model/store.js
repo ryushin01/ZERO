@@ -1,4 +1,4 @@
-import { emptyRecords, isRun, normalizeRecords, recordRun } from "#features/run/index.js";
+import { emptyRecords, migrateRun, normalizeRecords, recordRun } from "#features/run/index.js";
 import { STORAGE_KEYS } from "#shared/config/index.js";
 import { storage } from "#shared/lib/index.js";
 
@@ -12,7 +12,8 @@ export function createStore() {
   const savedRun = storage.read(STORAGE_KEYS.run, null);
 
   const state = {
-    run: isRun(savedRun) ? savedRun : null,
+    // 이전 버전의 저장도 지금 형식으로 옮겨 이어 할 수 있게 합니다.
+    run: migrateRun(savedRun),
     settings: { motion: prefersReduced ? "off" : "on", ...storage.read(STORAGE_KEYS.settings, {}) },
     records: normalizeRecords(storage.read(STORAGE_KEYS.records, null)),
     /** @type {Record<string, Record<string, any>>} */

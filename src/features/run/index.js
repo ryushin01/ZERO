@@ -16,6 +16,7 @@ export {
   guideName,
   guideOptions,
   isRun,
+  migrateRun,
   leaveReward,
   pickableCards,
   requestPick,
@@ -25,9 +26,11 @@ export {
   skipToMap,
   sortDeck,
   START_HP,
+  takeArmament,
   takeCard,
   takeRelic,
   updateCombat,
 } from "./model/run.js";
 export { dailyKey, dailyLabel, dailySeed, shareText } from "./model/daily.js";
 export { emptyRecords, normalizeRecords, recordRun } from "./model/records.js";
+export { canUseArmament, previewArmament, useArmament } from "./model/combat.js";

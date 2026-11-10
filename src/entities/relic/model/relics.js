@@ -1,5 +1,5 @@
 /**
- * 신화 속 보물. 정예와 보스를 쓰러뜨리면 얻습니다.
+ * 신화 속 보물. 정예와 보스를 쓰러뜨리면 얻습니다. 휘두르는 무기는 무구(entities/armament)로 따로 둡니다.
  * 효과는 전투 엔진이 id로 확인합니다.
  *
  * @typedef {{ id: string, name: string, origin: string, text: string, lore: string }} RelicDef
@@ -7,13 +7,6 @@
 
 /** @type {RelicDef[]} */
 export const RELICS = [
-  {
-    id: "aegis",
-    name: "아이기스",
-    origin: "그리스",
-    text: "전투가 시작되면 방어 10을 얻습니다.",
-    lore: "제우스와 아테나가 든 방패.",
-  },
   {
     id: "draupnir",
     name: "드라우프니르",
@@ -36,25 +29,11 @@ export const RELICS = [
     lore: "신들이 손에 든 생명의 표지.",
   },
   {
-    id: "kusanagi",
-    name: "쿠사나기",
-    origin: "일본",
-    text: "턴마다 처음 내는 공격 카드의 피해가 4 늘어납니다.",
-    lore: "스사노오가 야마타노오로치의 꼬리에서 꺼낸 칼.",
-  },
-  {
     id: "feather",
     name: "마아트의 깃털",
     origin: "이집트",
     text: "전투가 시작되면 모든 적에게 약화 1을 겁니다.",
     lore: "죽은 이의 심장과 무게를 견주는 진리의 깃털.",
-  },
-  {
-    id: "cheonbuin",
-    name: "천부인",
-    origin: "한국",
-    text: "전투 첫 턴에 카드를 2장 더 뽑습니다.",
-    lore: "환인이 환웅에게 내린 세 가지 보물.",
   },
   {
     id: "amrita",
@@ -64,13 +43,6 @@ export const RELICS = [
     lore: "신들과 아수라가 우유 바다를 저어 얻은 불사의 감로.",
   },
   {
-    id: "mjolnir",
-    name: "묠니르",
-    origin: "북유럽",
-    text: "공명할 때마다 모든 적에게 피해 3을 줍니다.",
-    lore: "던지면 반드시 돌아오는 토르의 망치.",
-  },
-  {
     id: "sampo",
     name: "삼포",
     origin: "핀란드",
@@ -78,11 +50,18 @@ export const RELICS = [
     lore: "일마리넨이 벼려 낸, 끝없이 곡식과 소금과 돈을 내는 맷돌.",
   },
   {
-    id: "gungnir",
-    name: "궁니르",
+    id: "ariadne",
+    name: "아리아드네의 실",
+    origin: "그리스",
+    text: "전투 첫 턴에 카드를 2장 더 뽑습니다.",
+    lore: "테세우스가 미궁에서 길을 잃지 않게 해 준 실타래.",
+  },
+  {
+    id: "golden-apple",
+    name: "이둔의 사과",
     origin: "북유럽",
-    text: "전투 첫 턴에 에너지 1을 더 얻습니다.",
-    lore: "던지면 빗나가지 않는 오딘의 창.",
+    text: "장이 바뀔 때 체력을 모두 회복합니다.",
+    lore: "신들을 늙지 않게 하는 이둔의 황금 사과.",
   },
   {
     id: "fleece",

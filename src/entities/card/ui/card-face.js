@@ -1,6 +1,7 @@
-import { getArt, getPantheon } from "#entities/figure/@x/card.js";
+import { getPantheon } from "#entities/figure/@x/card.js";
 import { h } from "#shared/lib/index.js";
 
+import { cardIllustration } from "../lib/illustration.js";
 import { ASPECTS } from "../model/aspects.js";
 import { describeCard, RARITY_LABEL, TYPE_LABEL } from "../model/describe.js";
 
@@ -32,7 +33,6 @@ const CHAIN_LABEL = { resonance: "공명", echo: "울림" };
 export function cardFace(card, { tag = "div", lines, chain = null, attrs = {}, size = "m", note, badge } = {}) {
   const keywords = [card.retain && "보존", card.exhaust && "소멸", card.type === "power" && "권능"].filter(Boolean);
   const effectLines = lines ? [...lines, ...keywords] : describeCard(card);
-  const art = card.figureSlug ? getArt(card.figureSlug) : undefined;
   const pantheon = card.pantheonSlug ? getPantheon(card.pantheonSlug) : null;
   const aspect = ASPECTS[card.aspect];
 
@@ -73,10 +73,8 @@ export function cardFace(card, { tag = "div", lines, chain = null, attrs = {}, s
     badge ? h("span", { class: "card__badge label" }, badge) : null,
     h(
       "span",
-      { class: "card__art", "aria-hidden": "true" },
-      art
-        ? h("img", { src: art.src, alt: "", loading: "lazy", decoding: "async", width: 280, height: 420 })
-        : h("span", { class: "card__glyph" }, card.figureSlug ? card.nameEn.charAt(0) : aspect.mark),
+      { class: ["card__art", !card.figureSlug && "card__art--item"], "aria-hidden": "true" },
+      h("img", { src: cardIllustration(card), alt: "", decoding: "async", width: 200, height: 260 }),
     ),
   );
 }
