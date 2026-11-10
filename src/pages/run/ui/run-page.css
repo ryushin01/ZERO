@@ -1,0 +1,208 @@
+/* 쉼터 · 성소 · 사건 */
+.scene {
+  display: grid;
+  justify-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.scene--art {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: start;
+  gap: 48px;
+}
+
+.scene__art img {
+  width: 100%;
+  max-height: 72svh;
+  object-fit: contain;
+  background: var(--ink);
+}
+
+.scene__art figcaption {
+  margin-top: 8px;
+}
+
+.scene__body {
+  display: grid;
+  gap: 16px;
+  max-width: 36em;
+  text-align: center;
+  justify-items: center;
+}
+
+.scene--art .scene__body {
+  text-align: left;
+  justify-items: start;
+}
+
+.scene__en {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.scene__title {
+  font-size: var(--fs-l);
+  font-weight: 400;
+}
+
+.scene__lead {
+  font-size: 1.0625rem;
+}
+
+.choices {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.choice {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  min-height: 64px;
+  padding: 14px 20px;
+  border: 1px solid var(--fg);
+  border-radius: 6px;
+  text-align: left;
+  transition:
+    background-color 0.2s ease-out,
+    color 0.2s ease-out;
+}
+
+.choice:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.choice__label {
+  font-family: var(--font-serif-ko);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.choice__detail {
+  font-size: var(--fs-s);
+}
+
+.choice[aria-disabled="true"] {
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.choice[aria-disabled="true"]:hover {
+  background: none;
+  color: var(--muted);
+}
+
+/* 보상 */
+.reward__group {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.reward__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.reward__cards > li {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.reward__more {
+  min-height: 36px;
+  padding: 4px 12px;
+  font-size: var(--fs-xs);
+}
+
+.reward__relics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.reward__relics > li {
+  width: min(280px, 100%);
+}
+
+/* 카드 고르기 */
+.pick__bar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 24px;
+  margin: 0 auto 32px;
+  padding: 12px 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.pick__preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pick__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 24px 16px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 결과 */
+.end__en {
+  font-size: clamp(2.5rem, 9vw, 7rem) !important;
+}
+
+.end__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  max-width: 960px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.end__stats dd {
+  font-family: var(--font-serif-ko);
+  font-size: 1.125rem;
+}
+
+.end__deck-title {
+  margin: 48px 0 16px;
+  text-align: center;
+}
+
+.end__deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .scene--art {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pick__cards {
+    grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
+  }
+}

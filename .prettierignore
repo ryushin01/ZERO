@@ -1,0 +1,7 @@
+dist
+storybook-static
+test-results
+playwright-report
+pnpm-lock.yaml
+src/entities/figure/data
+public

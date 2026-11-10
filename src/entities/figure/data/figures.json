@@ -1,0 +1,1844 @@
+[
+  {
+    "slug": "zeus",
+    "pantheonSlug": "greek",
+    "name": "제우스",
+    "nameEn": "Zeus",
+    "epithet": "하늘과 번개의 신",
+    "domains": [
+      "하늘",
+      "번개",
+      "법과 질서"
+    ],
+    "summary": "아버지 크로노스를 몰아내고 올림포스의 신들을 다스리게 된 신들의 왕입니다.",
+    "order": 1
+  },
+  {
+    "slug": "athena",
+    "pantheonSlug": "greek",
+    "name": "아테나",
+    "nameEn": "Athena",
+    "epithet": "지혜와 전략의 여신",
+    "domains": [
+      "지혜",
+      "전쟁의 전략",
+      "공예"
+    ],
+    "summary": "제우스의 머리에서 완전 무장한 채 태어났다고 전하는 아테네의 수호 여신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "apollo",
+    "pantheonSlug": "greek",
+    "name": "아폴론",
+    "nameEn": "Apollo",
+    "epithet": "빛과 예언, 음악의 신",
+    "domains": [
+      "예언",
+      "음악",
+      "치유",
+      "궁술"
+    ],
+    "summary": "델포이 신탁의 주인으로, 리라를 연주하는 젊은 신의 모습으로 자주 표현됩니다.",
+    "order": 3
+  },
+  {
+    "slug": "aphrodite",
+    "pantheonSlug": "greek",
+    "name": "아프로디테",
+    "nameEn": "Aphrodite",
+    "epithet": "사랑과 아름다움의 여신",
+    "domains": [
+      "사랑",
+      "아름다움",
+      "욕망"
+    ],
+    "summary": "바다 거품에서 태어났다고 전하는 사랑의 여신으로, 로마에서는 베누스라 불렸습니다.",
+    "order": 4
+  },
+  {
+    "slug": "poseidon",
+    "pantheonSlug": "greek",
+    "name": "포세이돈",
+    "nameEn": "Poseidon",
+    "epithet": "바다와 지진의 신",
+    "domains": [
+      "바다",
+      "지진",
+      "말"
+    ],
+    "summary": "삼지창으로 바다를 다스리고 땅을 뒤흔드는 신입니다.",
+    "order": 5
+  },
+  {
+    "slug": "odin",
+    "pantheonSlug": "norse",
+    "name": "오딘",
+    "nameEn": "Odin",
+    "epithet": "지혜와 죽음, 전쟁의 신",
+    "domains": [
+      "지혜",
+      "시",
+      "전쟁",
+      "죽음"
+    ],
+    "summary": "지혜를 얻으려 한쪽 눈을 내놓은, 아스가르드의 주신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "thor",
+    "pantheonSlug": "norse",
+    "name": "토르",
+    "nameEn": "Thor",
+    "epithet": "천둥의 신",
+    "domains": [
+      "천둥",
+      "힘",
+      "인간의 수호"
+    ],
+    "summary": "망치 묠니르로 거인들과 싸우며 신과 사람의 세계를 지키는 신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "freyja",
+    "pantheonSlug": "norse",
+    "name": "프레이야",
+    "nameEn": "Freyja",
+    "epithet": "사랑과 풍요, 마법의 여신",
+    "domains": [
+      "사랑",
+      "풍요",
+      "세이드 마법"
+    ],
+    "summary": "목걸이 브리싱가멘의 주인이자, 전사한 이들의 절반을 맞이하는 바니르 신족의 여신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "loki",
+    "pantheonSlug": "norse",
+    "name": "로키",
+    "nameEn": "Loki",
+    "epithet": "꾀와 변신의 신",
+    "domains": [
+      "속임수",
+      "변신",
+      "혼란"
+    ],
+    "summary": "신들을 돕기도, 곤경에 빠뜨리기도 하는 변신의 명수입니다.",
+    "order": 4
+  },
+  {
+    "slug": "osiris",
+    "pantheonSlug": "egyptian",
+    "name": "오시리스",
+    "nameEn": "Osiris",
+    "epithet": "저승과 부활의 신",
+    "domains": [
+      "저승",
+      "부활",
+      "농경"
+    ],
+    "summary": "동생 세트에게 죽임을 당했다가 되살아나 저승의 왕이 된 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "isis",
+    "pantheonSlug": "egyptian",
+    "name": "이시스",
+    "nameEn": "Isis",
+    "epithet": "마법과 모성의 여신",
+    "domains": [
+      "마법",
+      "모성",
+      "치유"
+    ],
+    "summary": "죽은 남편 오시리스를 되살리고 아들 호루스를 지켜 낸 여신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "anubis",
+    "pantheonSlug": "egyptian",
+    "name": "아누비스",
+    "nameEn": "Anubis",
+    "epithet": "미라와 무덤의 신",
+    "domains": [
+      "장례",
+      "미라",
+      "저승 안내"
+    ],
+    "summary": "자칼의 머리를 한 신으로, 죽은 이를 저승으로 이끌고 심장의 무게를 단다고 여겨졌습니다.",
+    "order": 3
+  },
+  {
+    "slug": "gilgamesh",
+    "pantheonSlug": "mesopotamian",
+    "name": "길가메시",
+    "nameEn": "Gilgamesh",
+    "epithet": "우루크의 왕",
+    "domains": [
+      "영웅",
+      "왕권",
+      "죽음과 영생"
+    ],
+    "summary": "친구 엔키두를 잃고 영원한 삶을 찾아 떠난 우루크의 영웅 왕입니다.",
+    "order": 1
+  },
+  {
+    "slug": "ishtar",
+    "pantheonSlug": "mesopotamian",
+    "name": "이슈타르",
+    "nameEn": "Ishtar",
+    "epithet": "사랑과 전쟁의 여신",
+    "domains": [
+      "사랑",
+      "전쟁",
+      "금성"
+    ],
+    "summary": "수메르에서는 인안나라고 불린, 사랑과 전쟁을 함께 다스리는 여신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "marduk",
+    "pantheonSlug": "mesopotamian",
+    "name": "마르두크",
+    "nameEn": "Marduk",
+    "epithet": "바빌론의 수호신",
+    "domains": [
+      "창조",
+      "왕권",
+      "정의"
+    ],
+    "summary": "혼돈의 여신 티아마트를 무찌르고 그 몸으로 하늘과 땅을 만든 바빌론의 주신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "vishnu",
+    "pantheonSlug": "hindu",
+    "name": "비슈누",
+    "nameEn": "Vishnu",
+    "epithet": "세계를 유지하는 신",
+    "domains": [
+      "유지",
+      "보호",
+      "화신(아바타라)"
+    ],
+    "summary": "세상의 질서가 무너질 때마다 화신으로 내려와 세계를 지키는 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "shiva",
+    "pantheonSlug": "hindu",
+    "name": "시바",
+    "nameEn": "Shiva",
+    "epithet": "파괴와 재생의 신",
+    "domains": [
+      "파괴",
+      "재생",
+      "고행",
+      "춤"
+    ],
+    "summary": "낡은 우주를 허물어 새 우주가 태어나게 하는 신으로, 춤의 왕 나타라자로도 표현됩니다.",
+    "order": 2
+  },
+  {
+    "slug": "ganesha",
+    "pantheonSlug": "hindu",
+    "name": "가네샤",
+    "nameEn": "Ganesha",
+    "epithet": "지혜와 시작의 신",
+    "domains": [
+      "지혜",
+      "시작",
+      "장애 제거"
+    ],
+    "summary": "코끼리 머리를 한 시바와 파르바티의 아들로, 새로운 일을 시작할 때 먼저 찾는 신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "izanagi-izanami",
+    "pantheonSlug": "japanese",
+    "name": "이자나기와 이자나미",
+    "nameEn": "Izanagi & Izanami",
+    "epithet": "국토를 낳은 부부 신",
+    "domains": [
+      "창조",
+      "국토",
+      "삶과 죽음"
+    ],
+    "summary": "하늘의 창으로 바다를 휘저어 첫 섬을 만들고 일본의 섬들과 신들을 낳은 부부 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "amaterasu",
+    "pantheonSlug": "japanese",
+    "name": "아마테라스",
+    "nameEn": "Amaterasu",
+    "epithet": "태양의 여신",
+    "domains": [
+      "태양",
+      "다카마가하라 통치"
+    ],
+    "summary": "동굴에 숨어 세상을 어둠에 빠뜨렸다가 신들의 꾀로 다시 나온 태양의 여신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "susanoo",
+    "pantheonSlug": "japanese",
+    "name": "스사노오",
+    "nameEn": "Susanoo",
+    "epithet": "폭풍과 바다의 신",
+    "domains": [
+      "폭풍",
+      "바다"
+    ],
+    "summary": "하늘에서 쫓겨난 뒤 이즈모에서 머리 여덟 개 달린 큰 뱀 야마타노오로치를 물리친 신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "raijin",
+    "pantheonSlug": "japanese",
+    "name": "라이진",
+    "nameEn": "Raijin",
+    "epithet": "번개와 천둥의 신",
+    "domains": [
+      "천둥",
+      "번개",
+      "비"
+    ],
+    "summary": "북을 둥글게 두르고 두드려 천둥을 울린다고 여겨진 신으로, 바람의 신 후진과 짝을 이룹니다.",
+    "order": 4
+  },
+  {
+    "slug": "hera",
+    "pantheonSlug": "greek",
+    "name": "헤라",
+    "nameEn": "Hera",
+    "epithet": "신들의 여왕",
+    "domains": [
+      "결혼",
+      "가정",
+      "여성"
+    ],
+    "summary": "제우스의 아내이자 누나로, 결혼과 가정을 지키는 올림포스의 여왕입니다.",
+    "order": 6
+  },
+  {
+    "slug": "artemis",
+    "pantheonSlug": "greek",
+    "name": "아르테미스",
+    "nameEn": "Artemis",
+    "epithet": "사냥과 달의 여신",
+    "domains": [
+      "사냥",
+      "야생",
+      "달",
+      "소녀의 수호"
+    ],
+    "summary": "아폴론의 쌍둥이 누이로, 활을 들고 숲과 산의 짐승을 다스리는 처녀 여신입니다.",
+    "order": 7
+  },
+  {
+    "slug": "hermes",
+    "pantheonSlug": "greek",
+    "name": "헤르메스",
+    "nameEn": "Hermes",
+    "epithet": "신들의 전령",
+    "domains": [
+      "전령",
+      "여행",
+      "상업",
+      "도둑"
+    ],
+    "summary": "날개 달린 신발을 신고 신들의 말을 전하며, 죽은 이의 영혼을 저승으로 이끄는 신입니다.",
+    "order": 8
+  },
+  {
+    "slug": "hades",
+    "pantheonSlug": "greek",
+    "name": "하데스",
+    "nameEn": "Hades",
+    "epithet": "저승의 왕",
+    "domains": [
+      "저승",
+      "죽은 이",
+      "땅속의 부"
+    ],
+    "summary": "제우스·포세이돈과 세계를 나눠 저승을 맡은 신으로, 올림포스 열두 신에는 들지 않습니다.",
+    "order": 9
+  },
+  {
+    "slug": "baldr",
+    "pantheonSlug": "norse",
+    "name": "발드르",
+    "nameEn": "Baldr",
+    "epithet": "빛과 순수의 신",
+    "domains": [
+      "빛",
+      "정의",
+      "아름다움"
+    ],
+    "summary": "모든 것에게서 사랑받았지만 겨우살이에 맞아 죽은 오딘의 아들입니다.",
+    "order": 5
+  },
+  {
+    "slug": "heimdall",
+    "pantheonSlug": "norse",
+    "name": "헤임달",
+    "nameEn": "Heimdall",
+    "epithet": "신들의 파수꾼",
+    "domains": [
+      "경계",
+      "파수"
+    ],
+    "summary": "무지개다리 비프로스트를 지키며, 라그나로크가 오면 뿔피리 걀라르호른을 불어 알리는 신입니다.",
+    "order": 6
+  },
+  {
+    "slug": "ra",
+    "pantheonSlug": "egyptian",
+    "name": "라",
+    "nameEn": "Ra",
+    "epithet": "태양신",
+    "domains": [
+      "태양",
+      "창조",
+      "왕권"
+    ],
+    "summary": "태양의 배를 타고 낮에는 하늘을, 밤에는 저승을 건너는 이집트의 최고신입니다.",
+    "order": 4
+  },
+  {
+    "slug": "horus",
+    "pantheonSlug": "egyptian",
+    "name": "호루스",
+    "nameEn": "Horus",
+    "epithet": "하늘과 왕권의 신",
+    "domains": [
+      "하늘",
+      "왕권",
+      "수호"
+    ],
+    "summary": "오시리스와 이시스의 아들로, 아버지를 죽인 세트와 싸워 이집트의 왕위를 되찾은 매의 신입니다.",
+    "order": 5
+  },
+  {
+    "slug": "thoth",
+    "pantheonSlug": "egyptian",
+    "name": "토트",
+    "nameEn": "Thoth",
+    "epithet": "지혜와 문자의 신",
+    "domains": [
+      "문자",
+      "지혜",
+      "기록",
+      "달"
+    ],
+    "summary": "따오기 또는 개코원숭이의 모습으로 그려지는, 문자를 만든 지혜의 신입니다.",
+    "order": 6
+  },
+  {
+    "slug": "enki",
+    "pantheonSlug": "mesopotamian",
+    "name": "엔키",
+    "nameEn": "Enki",
+    "epithet": "물과 지혜의 신",
+    "domains": [
+      "민물",
+      "지혜",
+      "마법",
+      "창조"
+    ],
+    "summary": "수메르에서는 엔키, 아카드에서는 에아라 불린, 땅속 민물과 지혜를 다스리는 신입니다.",
+    "order": 4
+  },
+  {
+    "slug": "tiamat",
+    "pantheonSlug": "mesopotamian",
+    "name": "티아마트",
+    "nameEn": "Tiamat",
+    "epithet": "원초의 바다",
+    "domains": [
+      "바닷물",
+      "혼돈"
+    ],
+    "summary": "민물의 신 압수와 함께 처음의 신들을 낳았고, 끝내 마르두크에게 쓰러진 바다의 여신입니다.",
+    "order": 5
+  },
+  {
+    "slug": "brahma",
+    "pantheonSlug": "hindu",
+    "name": "브라흐마",
+    "nameEn": "Brahma",
+    "epithet": "창조의 신",
+    "domains": [
+      "창조",
+      "베다",
+      "지혜"
+    ],
+    "summary": "네 얼굴로 사방을 보는 창조의 신으로, 비슈누·시바와 함께 세 주신(트리무르티)을 이룹니다.",
+    "order": 4
+  },
+  {
+    "slug": "krishna",
+    "pantheonSlug": "hindu",
+    "name": "크리슈나",
+    "nameEn": "Krishna",
+    "epithet": "비슈누의 여덟 번째 화신",
+    "domains": [
+      "사랑",
+      "보호",
+      "가르침"
+    ],
+    "summary": "목동들 사이에서 자란 비슈누의 화신으로, 「바가바드 기타」에서 아르주나에게 가르침을 주는 신입니다.",
+    "order": 5
+  },
+  {
+    "slug": "fujin",
+    "pantheonSlug": "japanese",
+    "name": "후진",
+    "nameEn": "Fujin",
+    "epithet": "바람의 신",
+    "domains": [
+      "바람"
+    ],
+    "summary": "바람이 든 자루를 메고 하늘을 달리는 신으로, 천둥의 신 라이진과 짝을 이룹니다.",
+    "order": 5
+  },
+  {
+    "slug": "inari",
+    "pantheonSlug": "japanese",
+    "name": "이나리",
+    "nameEn": "Inari",
+    "epithet": "벼와 풍요의 신",
+    "domains": [
+      "벼농사",
+      "풍요",
+      "장사의 번성"
+    ],
+    "summary": "여우를 사자로 부리는 곡식의 신으로, 붉은 도리이가 늘어선 이나리 신사에서 모십니다.",
+    "order": 6
+  },
+  {
+    "slug": "pangu",
+    "pantheonSlug": "chinese",
+    "name": "반고",
+    "nameEn": "Pangu",
+    "epithet": "천지를 연 거인",
+    "domains": [
+      "창조",
+      "하늘과 땅"
+    ],
+    "summary": "혼돈의 알에서 깨어나 하늘과 땅을 갈라놓고, 죽은 뒤 몸이 세상 만물이 된 거인입니다.",
+    "order": 1
+  },
+  {
+    "slug": "nuwa",
+    "pantheonSlug": "chinese",
+    "name": "여와",
+    "nameEn": "Nüwa",
+    "epithet": "사람을 빚은 여신",
+    "domains": [
+      "인류 창조",
+      "혼인",
+      "하늘을 기움"
+    ],
+    "summary": "황토로 사람을 빚고, 무너진 하늘을 오색 돌로 기운 뱀 몸의 여신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "xiwangmu",
+    "pantheonSlug": "chinese",
+    "name": "서왕모",
+    "nameEn": "Xiwangmu",
+    "epithet": "곤륜산의 여신",
+    "domains": [
+      "불사",
+      "신선"
+    ],
+    "summary": "곤륜산에 살며 먹으면 늙지 않는 복숭아를 기르는, 도교 신선들의 여왕입니다.",
+    "order": 3
+  },
+  {
+    "slug": "change",
+    "pantheonSlug": "chinese",
+    "name": "항아",
+    "nameEn": "Chang'e",
+    "epithet": "달의 여신",
+    "domains": [
+      "달"
+    ],
+    "summary": "불사의 약을 먹고 달로 올라가 월궁에 살게 된 여신으로, 상아라고도 부릅니다.",
+    "order": 4
+  },
+  {
+    "slug": "cernunnos",
+    "pantheonSlug": "celtic",
+    "name": "케르눈노스",
+    "nameEn": "Cernunnos",
+    "epithet": "뿔 달린 신",
+    "domains": [
+      "동물",
+      "풍요",
+      "숲"
+    ],
+    "summary": "사슴뿔을 단 채 다리를 꼬고 앉은 모습으로 켈트 유물에 남은, 이름조차 확실하지 않은 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "cuchulainn",
+    "pantheonSlug": "celtic",
+    "name": "쿠 훌린",
+    "nameEn": "Cú Chulainn",
+    "epithet": "얼스터의 영웅",
+    "domains": [
+      "영웅",
+      "전쟁"
+    ],
+    "summary": "어린 나이에 홀로 얼스터를 지킨, 아일랜드 신화에서 가장 이름난 영웅입니다.",
+    "order": 2
+  },
+  {
+    "slug": "brigid",
+    "pantheonSlug": "celtic",
+    "name": "브리지트",
+    "nameEn": "Brigid",
+    "epithet": "불과 시, 치유의 여신",
+    "domains": [
+      "불",
+      "시",
+      "치유",
+      "대장장이 기술"
+    ],
+    "summary": "시인과 치유사, 대장장이를 돕는 여신으로, 같은 이름의 성녀 브리지다와 겹쳐 전해집니다.",
+    "order": 3
+  },
+  {
+    "slug": "morrigan",
+    "pantheonSlug": "celtic",
+    "name": "모리안",
+    "nameEn": "The Morrígan",
+    "epithet": "전쟁과 운명의 여신",
+    "domains": [
+      "전쟁",
+      "운명",
+      "예언"
+    ],
+    "summary": "까마귀로 변해 전장을 날며 승패와 죽음을 예고하는 아일랜드의 여신입니다.",
+    "order": 4
+  },
+  {
+    "slug": "quetzalcoatl",
+    "pantheonSlug": "aztec",
+    "name": "케찰코아틀",
+    "nameEn": "Quetzalcoatl",
+    "epithet": "깃털 달린 뱀",
+    "domains": [
+      "바람",
+      "지혜",
+      "문명"
+    ],
+    "summary": "‘깃털 달린 뱀’이라는 이름의, 메소아메리카 전역에서 숭배된 바람과 지혜의 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "tezcatlipoca",
+    "pantheonSlug": "aztec",
+    "name": "테스카틀리포카",
+    "nameEn": "Tezcatlipoca",
+    "epithet": "연기 나는 거울",
+    "domains": [
+      "밤",
+      "운명",
+      "권력",
+      "마법"
+    ],
+    "summary": "흑요석 거울로 세상을 보는 밤과 운명의 신으로, 케찰코아틀의 맞수입니다.",
+    "order": 2
+  },
+  {
+    "slug": "huitzilopochtli",
+    "pantheonSlug": "aztec",
+    "name": "우이칠로포치틀리",
+    "nameEn": "Huitzilopochtli",
+    "epithet": "태양과 전쟁의 신",
+    "domains": [
+      "태양",
+      "전쟁"
+    ],
+    "summary": "멕시카(아즈텍) 사람들을 이끌어 테노치티틀란을 세우게 한 태양과 전쟁의 신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "tlaloc",
+    "pantheonSlug": "aztec",
+    "name": "틀랄록",
+    "nameEn": "Tlaloc",
+    "epithet": "비와 번개의 신",
+    "domains": [
+      "비",
+      "번개",
+      "농사"
+    ],
+    "summary": "고글 같은 눈 테와 송곳니로 알아볼 수 있는, 비와 농사를 다스리는 신입니다.",
+    "order": 4
+  },
+  {
+    "slug": "dangun",
+    "pantheonSlug": "korean",
+    "name": "단군",
+    "nameEn": "Dangun",
+    "epithet": "고조선을 세운 시조",
+    "domains": [
+      "건국",
+      "시조"
+    ],
+    "summary": "하늘에서 내려온 환웅과 곰에서 사람이 된 웅녀 사이에서 태어나 고조선을 세웠다고 전하는 시조입니다.",
+    "order": 1
+  },
+  {
+    "slug": "bari",
+    "pantheonSlug": "korean",
+    "name": "바리공주",
+    "nameEn": "Princess Bari",
+    "epithet": "무당의 조상신",
+    "domains": [
+      "저승 안내",
+      "무속",
+      "치유"
+    ],
+    "summary": "일곱째 딸이라 버려졌지만, 저승에서 약물을 구해 와 부모를 살려 낸 무당들의 조상신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "sansin",
+    "pantheonSlug": "korean",
+    "name": "산신",
+    "nameEn": "Sansin",
+    "epithet": "산을 다스리는 신",
+    "domains": [
+      "산",
+      "마을의 수호",
+      "장수"
+    ],
+    "summary": "범을 거느린 노인의 모습으로 그려지는, 산과 마을을 지키는 신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "jeseok",
+    "pantheonSlug": "korean",
+    "name": "제석",
+    "nameEn": "Jeseok",
+    "epithet": "자손과 수명의 신",
+    "domains": [
+      "자손",
+      "수명",
+      "풍요"
+    ],
+    "summary": "불교의 제석천(인드라)에서 이름을 얻은, 자손과 수명, 곡식을 내려 준다고 믿은 무속의 신입니다.",
+    "order": 4
+  },
+  {
+    "slug": "vainamoinen",
+    "pantheonSlug": "finnish",
+    "name": "베이네뫼이넨",
+    "nameEn": "Väinämöinen",
+    "epithet": "노래하는 현자",
+    "domains": [
+      "노래",
+      "지혜",
+      "주술"
+    ],
+    "summary": "공기의 여신 일마타르의 아들로, 노래와 주문으로 세상을 움직이는 「칼레발라」의 늙은 현자입니다.",
+    "order": 1
+  },
+  {
+    "slug": "ilmarinen",
+    "pantheonSlug": "finnish",
+    "name": "일마리넨",
+    "nameEn": "Ilmarinen",
+    "epithet": "하늘을 두드린 대장장이",
+    "domains": [
+      "대장장이",
+      "하늘"
+    ],
+    "summary": "하늘의 둥근 지붕을 두드려 만들었다는 대장장이로, 행운을 낳는 보물 삼포를 벼려 냈습니다.",
+    "order": 2
+  },
+  {
+    "slug": "louhi",
+    "pantheonSlug": "finnish",
+    "name": "로우히",
+    "nameEn": "Louhi",
+    "epithet": "포흐욜라의 여주인",
+    "domains": [
+      "북쪽 땅",
+      "주술",
+      "역병"
+    ],
+    "summary": "북쪽 나라 포흐욜라를 다스리는 강력한 마녀로, 삼포를 되찾으려 거대한 독수리로 변해 영웅들과 싸웁니다.",
+    "order": 3
+  },
+  {
+    "slug": "lemminkainen",
+    "pantheonSlug": "finnish",
+    "name": "레민케이넨",
+    "nameEn": "Lemminkäinen",
+    "epithet": "무모한 영웅",
+    "domains": [
+      "모험",
+      "사랑"
+    ],
+    "summary": "북쪽 나라의 처녀를 얻으려다 죽었지만, 어머니가 조각난 몸을 모아 되살린 영웅입니다.",
+    "order": 4
+  },
+  {
+    "slug": "itzamna",
+    "pantheonSlug": "maya",
+    "name": "이참나",
+    "nameEn": "Itzamna",
+    "epithet": "하늘과 지혜의 늙은 신",
+    "domains": [
+      "하늘",
+      "지혜",
+      "문자",
+      "치유"
+    ],
+    "summary": "‘이구아나의 집’이라는 뜻으로 풀이되는, 문자와 달력을 전했다고 여겨진 늙은 창조신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "kukulkan",
+    "pantheonSlug": "maya",
+    "name": "쿠쿨칸",
+    "nameEn": "Kukulkan",
+    "epithet": "깃털 달린 뱀",
+    "domains": [
+      "바람",
+      "비",
+      "권력"
+    ],
+    "summary": "아즈텍의 케찰코아틀에 해당하는, 마야 유카탄의 깃털 달린 뱀 신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "chaac",
+    "pantheonSlug": "maya",
+    "name": "차크",
+    "nameEn": "Chaac",
+    "epithet": "비의 신",
+    "domains": [
+      "비",
+      "번개",
+      "농사"
+    ],
+    "summary": "도끼로 구름을 내리쳐 번개와 비를 부른다고 여겨진, 긴 코를 가진 비의 신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "maize-god",
+    "pantheonSlug": "maya",
+    "name": "옥수수 신",
+    "nameEn": "Maize God",
+    "epithet": "옥수수와 다시 태어남의 신",
+    "domains": [
+      "옥수수",
+      "풍요",
+      "부활"
+    ],
+    "summary": "해마다 베어지고 다시 자라는 옥수수처럼, 죽었다가 다시 살아나는 젊고 아름다운 신입니다.",
+    "order": 4
+  },
+  {
+    "slug": "dionysus",
+    "pantheonSlug": "greek",
+    "name": "디오니소스",
+    "nameEn": "Dionysus",
+    "epithet": "포도주와 축제의 신",
+    "domains": [
+      "포도주",
+      "축제",
+      "연극"
+    ],
+    "summary": "인간 어머니에게서 태어나 신이 된 포도주의 신으로, 축제와 연극의 수호신입니다.",
+    "order": 10
+  },
+  {
+    "slug": "hephaestus",
+    "pantheonSlug": "greek",
+    "name": "헤파이스토스",
+    "nameEn": "Hephaestus",
+    "epithet": "불과 대장장이의 신",
+    "domains": [
+      "불",
+      "대장장이",
+      "공예"
+    ],
+    "summary": "신들의 무기와 궁전을 만든 대장장이 신으로, 아프로디테의 남편입니다.",
+    "order": 11
+  },
+  {
+    "slug": "heracles",
+    "pantheonSlug": "greek",
+    "name": "헤라클레스",
+    "nameEn": "Heracles",
+    "epithet": "열두 과업의 영웅",
+    "domains": [
+      "영웅",
+      "힘"
+    ],
+    "summary": "헤라의 미움을 받아 열두 가지 과업을 해낸 끝에 신이 된 그리스 최고의 영웅입니다.",
+    "order": 12
+  },
+  {
+    "slug": "medusa",
+    "pantheonSlug": "greek",
+    "name": "메두사",
+    "nameEn": "Medusa",
+    "epithet": "고르곤 세 자매의 막내",
+    "domains": [
+      "괴물",
+      "보호의 상징"
+    ],
+    "summary": "눈을 마주친 이를 돌로 바꾼다는 고르곤으로, 영웅 페르세우스에게 목이 베였습니다.",
+    "order": 13
+  },
+  {
+    "slug": "set",
+    "pantheonSlug": "egyptian",
+    "name": "세트",
+    "nameEn": "Set",
+    "epithet": "사막과 폭풍의 신",
+    "domains": [
+      "사막",
+      "폭풍",
+      "혼돈"
+    ],
+    "summary": "형 오시리스를 죽이고 왕위를 빼앗았지만, 라의 배를 지켜 뱀 아포피스와 싸우기도 한 신입니다.",
+    "order": 7
+  },
+  {
+    "slug": "hathor",
+    "pantheonSlug": "egyptian",
+    "name": "하토르",
+    "nameEn": "Hathor",
+    "epithet": "사랑과 음악의 여신",
+    "domains": [
+      "사랑",
+      "음악",
+      "출산",
+      "저승 안내"
+    ],
+    "summary": "암소의 귀를 가진 여인이나 암소로 그려지는, 사랑과 음악, 기쁨의 여신입니다.",
+    "order": 8
+  },
+  {
+    "slug": "bastet",
+    "pantheonSlug": "egyptian",
+    "name": "바스테트",
+    "nameEn": "Bastet",
+    "epithet": "고양이의 여신",
+    "domains": [
+      "가정",
+      "보호",
+      "즐거움"
+    ],
+    "summary": "처음에는 사나운 암사자의 여신이었다가, 점차 집과 아이를 지키는 고양이의 여신이 되었습니다.",
+    "order": 9
+  },
+  {
+    "slug": "lakshmi",
+    "pantheonSlug": "hindu",
+    "name": "락슈미",
+    "nameEn": "Lakshmi",
+    "epithet": "부와 행운의 여신",
+    "domains": [
+      "부",
+      "행운",
+      "아름다움"
+    ],
+    "summary": "우유 바다를 휘저을 때 연꽃 위로 나타났다는, 비슈누의 아내이자 부와 행운의 여신입니다.",
+    "order": 6
+  },
+  {
+    "slug": "hanuman",
+    "pantheonSlug": "hindu",
+    "name": "하누만",
+    "nameEn": "Hanuman",
+    "epithet": "원숭이 영웅",
+    "domains": [
+      "힘",
+      "헌신",
+      "용기"
+    ],
+    "summary": "「라마야나」에서 라마를 도와 납치된 시타를 찾아낸 원숭이 장군으로, 지금은 널리 섬기는 신입니다.",
+    "order": 7
+  },
+  {
+    "slug": "durga",
+    "pantheonSlug": "hindu",
+    "name": "두르가",
+    "nameEn": "Durga",
+    "epithet": "악을 무찌르는 여신",
+    "domains": [
+      "전쟁",
+      "보호",
+      "악을 물리침"
+    ],
+    "summary": "신들이 이기지 못한 물소 악마 마히샤를 여러 팔로 무찌른, 사자를 탄 전쟁의 여신입니다.",
+    "order": 8
+  },
+  {
+    "slug": "frigg",
+    "pantheonSlug": "norse",
+    "name": "프리그",
+    "nameEn": "Frigg",
+    "epithet": "신들의 여왕",
+    "domains": [
+      "결혼",
+      "가정",
+      "예지"
+    ],
+    "summary": "오딘의 아내이자 발드르의 어머니로, 모든 운명을 알지만 말하지 않는다는 여신입니다.",
+    "order": 7
+  },
+  {
+    "slug": "tyr",
+    "pantheonSlug": "norse",
+    "name": "티르",
+    "nameEn": "Tyr",
+    "epithet": "전쟁과 맹세의 신",
+    "domains": [
+      "전쟁",
+      "법",
+      "맹세",
+      "용기"
+    ],
+    "summary": "늑대 펜리르를 묶기 위해 한 손을 그 입에 넣었다가 잃은 용감한 신입니다.",
+    "order": 8
+  },
+  {
+    "slug": "ahura-mazda",
+    "pantheonSlug": "iranian",
+    "name": "아후라 마즈다",
+    "nameEn": "Ahura Mazda",
+    "epithet": "지혜의 주",
+    "domains": [
+      "선",
+      "지혜",
+      "창조"
+    ],
+    "summary": "조로아스터교의 최고신으로, 빛과 진리의 편에서 악과 싸우는 창조주입니다.",
+    "order": 1
+  },
+  {
+    "slug": "mithra",
+    "pantheonSlug": "iranian",
+    "name": "미트라",
+    "nameEn": "Mithra",
+    "epithet": "계약과 빛의 신",
+    "domains": [
+      "계약",
+      "맹세",
+      "빛",
+      "태양"
+    ],
+    "summary": "약속과 맹세를 지키는 빛의 신으로, 로마 제국에서는 미트라스 신앙으로 퍼졌습니다.",
+    "order": 2
+  },
+  {
+    "slug": "anahita",
+    "pantheonSlug": "iranian",
+    "name": "아나히타",
+    "nameEn": "Anahita",
+    "epithet": "물과 생명의 여신",
+    "domains": [
+      "물",
+      "풍요",
+      "출산"
+    ],
+    "summary": "모든 물과 생명을 맑게 하는 여신으로, 페르시아 왕들이 왕권을 내려 주는 신으로 새겼습니다.",
+    "order": 3
+  },
+  {
+    "slug": "baal",
+    "pantheonSlug": "canaanite",
+    "name": "바알",
+    "nameEn": "Baal",
+    "epithet": "폭풍과 비의 신",
+    "domains": [
+      "폭풍",
+      "비",
+      "풍요",
+      "왕권"
+    ],
+    "summary": "번개를 창처럼 들고 바다와 죽음의 신에 맞선, 가나안의 폭풍과 풍요의 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "astarte",
+    "pantheonSlug": "canaanite",
+    "name": "아스타르테",
+    "nameEn": "Astarte",
+    "epithet": "사랑과 전쟁의 여신",
+    "domains": [
+      "사랑",
+      "풍요",
+      "전쟁"
+    ],
+    "summary": "메소포타미아의 이슈타르와 뿌리가 같은, 페니키아와 가나안의 사랑과 전쟁의 여신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "teshub",
+    "pantheonSlug": "hittite",
+    "name": "테슈브",
+    "nameEn": "Teshub",
+    "epithet": "폭풍의 신",
+    "domains": [
+      "폭풍",
+      "하늘",
+      "왕권"
+    ],
+    "summary": "황소가 끄는 수레를 타고 번개를 든, 후르리와 히타이트 신들의 왕입니다.",
+    "order": 1
+  },
+  {
+    "slug": "illuyanka",
+    "pantheonSlug": "hittite",
+    "name": "일루얀카",
+    "nameEn": "Illuyanka",
+    "epithet": "폭풍의 신과 싸운 뱀",
+    "domains": [
+      "혼돈",
+      "뱀"
+    ],
+    "summary": "폭풍의 신을 한때 이겼지만, 꾀에 빠져 결국 죽임을 당한 거대한 뱀입니다.",
+    "order": 2
+  },
+  {
+    "slug": "allat",
+    "pantheonSlug": "arabian",
+    "name": "알라트",
+    "nameEn": "Allat",
+    "epithet": "여신",
+    "domains": [
+      "대지",
+      "보호"
+    ],
+    "summary": "‘여신’이라는 뜻의 이름을 가진, 이슬람 이전 아라비아에서 가장 널리 섬긴 여신의 하나입니다.",
+    "order": 1
+  },
+  {
+    "slug": "dushara",
+    "pantheonSlug": "arabian",
+    "name": "두샤라",
+    "nameEn": "Dushara",
+    "epithet": "나바테아의 주신",
+    "domains": [
+      "산",
+      "왕권",
+      "포도"
+    ],
+    "summary": "페트라를 세운 나바테아 왕국의 최고신으로, 흔히 네모난 돌 기둥으로 표현되었습니다.",
+    "order": 2
+  },
+  {
+    "slug": "perun",
+    "pantheonSlug": "slavic",
+    "name": "페룬",
+    "nameEn": "Perun",
+    "epithet": "천둥의 신",
+    "domains": [
+      "천둥",
+      "번개",
+      "전쟁"
+    ],
+    "summary": "참나무와 높은 언덕에서 섬긴, 슬라브 신들의 왕이자 천둥의 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "svetovid",
+    "pantheonSlug": "slavic",
+    "name": "스뱌토비트",
+    "nameEn": "Svetovid",
+    "epithet": "네 얼굴의 신",
+    "domains": [
+      "전쟁",
+      "풍요",
+      "예언"
+    ],
+    "summary": "네 얼굴로 사방을 본다고 전하는 서슬라브의 신으로, 발트해 연안 아르코나에 큰 신전이 있었습니다.",
+    "order": 2
+  },
+  {
+    "slug": "baba-yaga",
+    "pantheonSlug": "slavic",
+    "name": "바바 야가",
+    "nameEn": "Baba Yaga",
+    "epithet": "숲속의 마녀",
+    "domains": [
+      "숲",
+      "죽음과 시험",
+      "지혜"
+    ],
+    "summary": "닭다리 위에 선 오두막에 살며 절구를 타고 나는, 슬라브 민담의 무서운 마녀입니다.",
+    "order": 3
+  },
+  {
+    "slug": "perkunas",
+    "pantheonSlug": "baltic",
+    "name": "페르쿠나스",
+    "nameEn": "Perkūnas",
+    "epithet": "천둥의 신",
+    "domains": [
+      "천둥",
+      "하늘",
+      "정의"
+    ],
+    "summary": "참나무를 신성하게 여긴 발트족의 천둥의 신으로, 악을 쫓고 비를 내린다고 믿었습니다.",
+    "order": 1
+  },
+  {
+    "slug": "laima",
+    "pantheonSlug": "baltic",
+    "name": "라이마",
+    "nameEn": "Laima",
+    "epithet": "운명의 여신",
+    "domains": [
+      "운명",
+      "출산",
+      "행운"
+    ],
+    "summary": "아기가 태어날 때 그 삶의 운명을 정한다는 발트의 운명의 여신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "kalevipoeg",
+    "pantheonSlug": "estonian",
+    "name": "칼레비포에그",
+    "nameEn": "Kalevipoeg",
+    "epithet": "칼레브의 아들",
+    "domains": [
+      "영웅",
+      "힘"
+    ],
+    "summary": "에스토니아 땅을 지키며 거인의 힘으로 바위를 던지고 숲을 갈았다는 민족 서사시의 영웅입니다.",
+    "order": 1
+  },
+  {
+    "slug": "vanapagan",
+    "pantheonSlug": "estonian",
+    "name": "바나파간",
+    "nameEn": "Vanapagan",
+    "epithet": "옛 이교도",
+    "domains": [
+      "지하 세계",
+      "속임수"
+    ],
+    "summary": "에스토니아 민담에서 꾀에 자주 넘어가는 어리숙한 악마로, 칼레비포에그의 맞수입니다.",
+    "order": 2
+  },
+  {
+    "slug": "tinia",
+    "pantheonSlug": "etruscan",
+    "name": "티니아",
+    "nameEn": "Tinia",
+    "epithet": "하늘의 신",
+    "domains": [
+      "하늘",
+      "번개",
+      "신들의 왕"
+    ],
+    "summary": "번개를 던지는 에트루리아 신들의 왕으로, 그리스의 제우스, 로마의 유피테르와 겹쳐집니다.",
+    "order": 1
+  },
+  {
+    "slug": "charun",
+    "pantheonSlug": "etruscan",
+    "name": "카룬",
+    "nameEn": "Charun",
+    "epithet": "저승의 안내자",
+    "domains": [
+      "죽음",
+      "저승"
+    ],
+    "summary": "망치를 든 푸른 피부의 존재로, 죽은 이를 저승으로 데려가는 에트루리아의 저승 안내자입니다.",
+    "order": 2
+  },
+  {
+    "slug": "menrva",
+    "pantheonSlug": "etruscan",
+    "name": "멘르바",
+    "nameEn": "Menrva",
+    "epithet": "지혜와 전쟁의 여신",
+    "domains": [
+      "지혜",
+      "전쟁",
+      "예술"
+    ],
+    "summary": "투구와 방패를 갖춘 지혜의 여신으로, 로마의 미네르바가 이 이름에서 나왔습니다.",
+    "order": 3
+  },
+  {
+    "slug": "snake-goddess",
+    "pantheonSlug": "minoan",
+    "name": "뱀의 여신",
+    "nameEn": "Minoan Snake Goddess",
+    "epithet": "뱀을 든 여신",
+    "domains": [
+      "대지",
+      "가정의 수호",
+      "재생"
+    ],
+    "summary": "크노소스 궁전 터에서 나온, 양손에 뱀을 든 여인 소상으로 알려진 미노스의 여신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "mistress-of-animals",
+    "pantheonSlug": "minoan",
+    "name": "동물의 여주인",
+    "nameEn": "Mistress of Animals",
+    "epithet": "짐승을 거느린 여신",
+    "domains": [
+      "야생",
+      "짐승"
+    ],
+    "summary": "양옆에 사자나 새 같은 짐승을 거느린 여신의 모습으로, 지중해 곳곳에서 보이는 오래된 도상입니다.",
+    "order": 2
+  },
+  {
+    "slug": "anahit",
+    "pantheonSlug": "armenian",
+    "name": "아나히트",
+    "nameEn": "Anahit",
+    "epithet": "어머니 여신",
+    "domains": [
+      "풍요",
+      "지혜",
+      "출산"
+    ],
+    "summary": "이란의 아나히타에서 비롯한 아르메니아의 어머니 여신으로, 금으로 만든 신상이 있었다고 전합니다.",
+    "order": 1
+  },
+  {
+    "slug": "vahagn",
+    "pantheonSlug": "armenian",
+    "name": "바하근",
+    "nameEn": "Vahagn",
+    "epithet": "용을 물리친 신",
+    "domains": [
+      "불",
+      "번개",
+      "용기"
+    ],
+    "summary": "갈대 줄기 속에서 불꽃으로 태어나 용을 물리쳤다는 아르메니아의 불과 번개의 신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "turul",
+    "pantheonSlug": "hungarian",
+    "name": "투룰",
+    "nameEn": "Turul",
+    "epithet": "신성한 새",
+    "domains": [
+      "왕가의 시작",
+      "하늘"
+    ],
+    "summary": "헝가리 왕가의 시작을 알렸다는 신화 속 맹금으로, 오늘날까지 헝가리의 상징으로 쓰입니다.",
+    "order": 1
+  },
+  {
+    "slug": "emese",
+    "pantheonSlug": "hungarian",
+    "name": "에메세",
+    "nameEn": "Emese",
+    "epithet": "왕가의 어머니",
+    "domains": [
+      "어머니",
+      "예지몽"
+    ],
+    "summary": "투룰 새의 꿈을 꾸고 아르파드 왕가의 시조 알모시를 낳았다는 전설 속 어머니입니다.",
+    "order": 2
+  },
+  {
+    "slug": "weland",
+    "pantheonSlug": "anglo-saxon",
+    "name": "웨일랜드",
+    "nameEn": "Weland",
+    "epithet": "대장장이",
+    "domains": [
+      "대장장이",
+      "복수"
+    ],
+    "summary": "붙잡혀 다리 힘줄이 잘린 채 일하다가 왕에게 복수하고 날개를 만들어 달아난 전설의 대장장이입니다.",
+    "order": 1
+  },
+  {
+    "slug": "beowulf",
+    "pantheonSlug": "anglo-saxon",
+    "name": "베오울프",
+    "nameEn": "Beowulf",
+    "epithet": "괴물을 물리친 영웅",
+    "domains": [
+      "영웅",
+      "용기"
+    ],
+    "summary": "괴물 그렌델과 그 어미, 그리고 늙어서는 용과 싸운 고대 영어 서사시의 영웅입니다.",
+    "order": 2
+  },
+  {
+    "slug": "thracian-heros",
+    "pantheonSlug": "thracian",
+    "name": "트라키아의 기수",
+    "nameEn": "Thracian Heros",
+    "epithet": "말을 탄 영웅신",
+    "domains": [
+      "수호",
+      "사냥",
+      "저승"
+    ],
+    "summary": "말을 타고 사냥하는 모습으로 수천 점의 봉헌 부조에 새겨진, 이름이 확실하지 않은 트라키아의 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "zalmoxis",
+    "pantheonSlug": "thracian",
+    "name": "잘목시스",
+    "nameEn": "Zalmoxis",
+    "epithet": "게타이족의 신",
+    "domains": [
+      "불멸",
+      "저승"
+    ],
+    "summary": "헤로도토스가 전한, 죽은 이를 불멸의 세계로 맞이한다는 트라키아 게타이족의 신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "shango",
+    "pantheonSlug": "yoruba",
+    "name": "샹고",
+    "nameEn": "Shango",
+    "epithet": "천둥과 번개의 오리샤",
+    "domains": [
+      "천둥",
+      "번개",
+      "정의",
+      "춤"
+    ],
+    "summary": "옛 오요 왕국의 왕이었다가 신이 되었다고 전하는, 양날 도끼를 든 천둥의 오리샤입니다.",
+    "order": 1
+  },
+  {
+    "slug": "eshu",
+    "pantheonSlug": "yoruba",
+    "name": "에슈",
+    "nameEn": "Eshu",
+    "epithet": "길과 전언의 오리샤",
+    "domains": [
+      "길",
+      "전언",
+      "장난",
+      "운명의 갈림길"
+    ],
+    "summary": "사람과 신 사이에서 말과 제물을 전하는, 장난스럽고 예측할 수 없는 갈림길의 오리샤입니다.",
+    "order": 2
+  },
+  {
+    "slug": "orunmila",
+    "pantheonSlug": "yoruba",
+    "name": "오룬밀라",
+    "nameEn": "Orunmila",
+    "epithet": "지혜와 점술의 오리샤",
+    "domains": [
+      "지혜",
+      "점술",
+      "운명"
+    ],
+    "summary": "모든 사람의 운명을 알고 있다는 지혜의 오리샤로, 이파 점술의 수호신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "nommo",
+    "pantheonSlug": "dogon",
+    "name": "놈모",
+    "nameEn": "Nommo",
+    "epithet": "물의 정령",
+    "domains": [
+      "물",
+      "질서",
+      "가르침"
+    ],
+    "summary": "창조신 암마가 처음 만든 물고기 같은 몸의 쌍둥이 정령으로, 사람에게 말과 질서를 전했다고 합니다.",
+    "order": 1
+  },
+  {
+    "slug": "amma",
+    "pantheonSlug": "dogon",
+    "name": "암마",
+    "nameEn": "Amma",
+    "epithet": "창조신",
+    "domains": [
+      "창조",
+      "하늘"
+    ],
+    "summary": "우주의 알 속에서 세상을 계획하고 만들었다는 도곤족의 최고신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "gu",
+    "pantheonSlug": "fon",
+    "name": "구",
+    "nameEn": "Gu",
+    "epithet": "쇠와 전쟁의 신",
+    "domains": [
+      "쇠",
+      "대장장이",
+      "전쟁"
+    ],
+    "summary": "사람에게 쇠를 다루는 기술을 주고 숲을 개간하게 한, 폰족의 쇠와 전쟁의 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "mawu-lisa",
+    "pantheonSlug": "fon",
+    "name": "마우-리사",
+    "nameEn": "Mawu-Lisa",
+    "epithet": "달과 해의 창조신",
+    "domains": [
+      "창조",
+      "달",
+      "해"
+    ],
+    "summary": "달의 여신 마우와 해의 신 리사가 한 몸을 이룬, 폰족의 창조신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "inti",
+    "pantheonSlug": "inca",
+    "name": "인티",
+    "nameEn": "Inti",
+    "epithet": "태양신",
+    "domains": [
+      "태양",
+      "왕권",
+      "농사"
+    ],
+    "summary": "잉카 왕가의 조상으로 여겨진 태양신으로, 쿠스코의 황금 신전 코리칸차에서 섬겼습니다.",
+    "order": 1
+  },
+  {
+    "slug": "viracocha",
+    "pantheonSlug": "inca",
+    "name": "비라코차",
+    "nameEn": "Viracocha",
+    "epithet": "창조신",
+    "domains": [
+      "창조",
+      "바다",
+      "문명"
+    ],
+    "summary": "티티카카호에서 나타나 해와 달, 사람을 만들고 바다 너머로 떠났다는 안데스의 창조신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "pachamama",
+    "pantheonSlug": "inca",
+    "name": "파차마마",
+    "nameEn": "Pachamama",
+    "epithet": "대지의 어머니",
+    "domains": [
+      "대지",
+      "풍요",
+      "농사"
+    ],
+    "summary": "곡식을 키우고 산과 땅을 품은 안데스의 대지 여신으로, 오늘날에도 제물을 바쳐 섬깁니다.",
+    "order": 3
+  },
+  {
+    "slug": "raven",
+    "pantheonSlug": "haida",
+    "name": "까마귀",
+    "nameEn": "Raven",
+    "epithet": "장난꾸러기 창조자",
+    "domains": [
+      "창조",
+      "장난",
+      "변신"
+    ],
+    "summary": "조개껍데기 속 첫 사람들을 꾀어내고, 상자에 갇힌 해와 달을 훔쳐 세상에 빛을 가져온 까마귀입니다.",
+    "order": 1
+  },
+  {
+    "slug": "were-jaguar",
+    "pantheonSlug": "olmec",
+    "name": "재규어 인간",
+    "nameEn": "Olmec Were-Jaguar",
+    "epithet": "재규어와 사람이 섞인 존재",
+    "domains": [
+      "비",
+      "풍요",
+      "권력"
+    ],
+    "summary": "찡그린 입과 송곳니를 가진 아기 같은 얼굴로 새겨진, 올멕 유물의 사람과 재규어가 섞인 존재입니다.",
+    "order": 1
+  },
+  {
+    "slug": "cocijo",
+    "pantheonSlug": "zapotec",
+    "name": "코시호",
+    "nameEn": "Cocijo",
+    "epithet": "비와 번개의 신",
+    "domains": [
+      "비",
+      "번개",
+      "농사"
+    ],
+    "summary": "갈라진 혀와 화려한 머리 장식으로 표현된 사포텍의 비와 번개의 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "eight-deer",
+    "pantheonSlug": "mixtec",
+    "name": "8 사슴 재규어 발톱",
+    "nameEn": "Eight Deer Jaguar Claw",
+    "epithet": "전설적인 정복 왕",
+    "domains": [
+      "왕권",
+      "정복"
+    ],
+    "summary": "11세기 무렵 믹스텍의 여러 왕국을 하나로 묶었다고 그림 문서가 전하는 전설적인 왕입니다.",
+    "order": 1
+  },
+  {
+    "slug": "maui",
+    "pantheonSlug": "polynesian",
+    "name": "마우이",
+    "nameEn": "Māui",
+    "epithet": "꾀 많은 반신",
+    "domains": [
+      "모험",
+      "꾀",
+      "불"
+    ],
+    "summary": "낚싯바늘로 바다에서 섬을 낚아 올리고, 밧줄로 해를 붙잡아 느리게 가게 했다는 폴리네시아의 반신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "tangaroa",
+    "pantheonSlug": "polynesian",
+    "name": "탕가로아",
+    "nameEn": "Tangaroa",
+    "epithet": "바다의 신",
+    "domains": [
+      "바다",
+      "물고기",
+      "창조"
+    ],
+    "summary": "바다와 물고기를 다스리는 신으로, 섬에 따라 세상을 만든 창조신으로도 섬겨졌습니다.",
+    "order": 2
+  },
+  {
+    "slug": "ku",
+    "pantheonSlug": "polynesian",
+    "name": "쿠",
+    "nameEn": "Kū",
+    "epithet": "전쟁의 신",
+    "domains": [
+      "전쟁",
+      "정치",
+      "수호"
+    ],
+    "summary": "하와이의 네 주신 가운데 하나로, 깃털로 만든 무서운 얼굴의 신상으로 섬긴 전쟁의 신입니다.",
+    "order": 3
+  },
+  {
+    "slug": "makemake",
+    "pantheonSlug": "rapa-nui",
+    "name": "마케마케",
+    "nameEn": "Makemake",
+    "epithet": "창조신",
+    "domains": [
+      "창조",
+      "풍요",
+      "새"
+    ],
+    "summary": "새의 머리를 한 사람의 모습으로 바위에 새겨진, 라파누이의 창조신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "moai",
+    "pantheonSlug": "rapa-nui",
+    "name": "모아이",
+    "nameEn": "Moai",
+    "epithet": "신이 된 조상",
+    "domains": [
+      "조상",
+      "수호"
+    ],
+    "summary": "섬을 바라보며 마을을 지키도록 세운, 신격화된 조상의 거대한 석상입니다.",
+    "order": 2
+  },
+  {
+    "slug": "kimun-kamuy",
+    "pantheonSlug": "ainu",
+    "name": "키무은 카무이",
+    "nameEn": "Kimun Kamuy",
+    "epithet": "산의 신 (곰)",
+    "domains": [
+      "산",
+      "사냥",
+      "선물"
+    ],
+    "summary": "곰의 모습으로 사람 세상을 찾아와 고기와 털가죽을 선물한다는 아이누의 산의 신입니다.",
+    "order": 1
+  },
+  {
+    "slug": "gesar",
+    "pantheonSlug": "tibetan",
+    "name": "게사르 왕",
+    "nameEn": "King Gesar",
+    "epithet": "링 왕국의 영웅 왕",
+    "domains": [
+      "영웅",
+      "정의",
+      "악귀 퇴치"
+    ],
+    "summary": "하늘에서 내려와 악한 왕과 마귀들을 물리친, 티베트 서사시 속 링 왕국의 왕입니다.",
+    "order": 1
+  },
+  {
+    "slug": "palden-lhamo",
+    "pantheonSlug": "tibetan",
+    "name": "팔덴 라모",
+    "nameEn": "Palden Lhamo",
+    "epithet": "티베트의 수호 여신",
+    "domains": [
+      "수호",
+      "분노",
+      "정의"
+    ],
+    "summary": "노새를 타고 피의 바다를 건너는 무서운 모습의, 티베트와 달라이 라마의 수호 여신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "thanh-giong",
+    "pantheonSlug": "vietnamese",
+    "name": "타인지옹",
+    "nameEn": "Thánh Gióng",
+    "epithet": "하늘로 올라간 소년 영웅",
+    "domains": [
+      "영웅",
+      "나라 지키기"
+    ],
+    "summary": "세 살까지 말도 못 하다가 외적이 쳐들어오자 거인이 되어 쇠 말을 타고 싸운 베트남의 영웅입니다.",
+    "order": 1
+  },
+  {
+    "slug": "lac-long-quan",
+    "pantheonSlug": "vietnamese",
+    "name": "락롱꾸언",
+    "nameEn": "Lạc Long Quân",
+    "epithet": "용의 군주",
+    "domains": [
+      "건국",
+      "바다",
+      "조상"
+    ],
+    "summary": "산의 선녀 어우꺼와 혼인해 백 개의 알에서 백 명의 아들을 얻었다는 베트남 사람들의 조상입니다.",
+    "order": 2
+  },
+  {
+    "slug": "thotsakan",
+    "pantheonSlug": "thai",
+    "name": "톳사깐",
+    "nameEn": "Thotsakan",
+    "epithet": "열 머리의 마왕",
+    "domains": [
+      "마귀",
+      "욕망"
+    ],
+    "summary": "「라마끼안」에서 프라 람의 아내 시다를 납치한 열 머리의 마왕으로, 「라마야나」의 라바나입니다.",
+    "order": 1
+  },
+  {
+    "slug": "mae-phosop",
+    "pantheonSlug": "thai",
+    "name": "매포솝",
+    "nameEn": "Mae Phosop",
+    "epithet": "벼의 여신",
+    "domains": [
+      "벼",
+      "풍요"
+    ],
+    "summary": "벼의 영혼으로 여겨진 타이의 여신으로, 농부들이 모내기와 수확 때 정성껏 모셨습니다.",
+    "order": 2
+  },
+  {
+    "slug": "mahagiri",
+    "pantheonSlug": "burmese",
+    "name": "마하기리",
+    "nameEn": "Mahagiri",
+    "epithet": "집의 수호 낫",
+    "domains": [
+      "집",
+      "가정의 수호"
+    ],
+    "summary": "불에 타 죽은 대장장이가 신이 되었다는, 미얀마 집집마다 모시는 집의 수호 낫입니다.",
+    "order": 1
+  },
+  {
+    "slug": "thagyamin",
+    "pantheonSlug": "burmese",
+    "name": "따자민",
+    "nameEn": "Thagyamin",
+    "epithet": "낫들의 왕",
+    "domains": [
+      "하늘",
+      "수호",
+      "불교"
+    ],
+    "summary": "불교의 제석천(인드라)이 미얀마의 신령 신앙에 들어와 37 낫의 우두머리가 된 신입니다.",
+    "order": 2
+  },
+  {
+    "slug": "barong",
+    "pantheonSlug": "indonesian",
+    "name": "바롱",
+    "nameEn": "Barong",
+    "epithet": "선한 수호자",
+    "domains": [
+      "수호",
+      "선"
+    ],
+    "summary": "사자와 개를 닮은 거대한 가면과 옷으로 표현되는, 발리 마을을 지키는 선의 수호자입니다.",
+    "order": 1
+  },
+  {
+    "slug": "rangda",
+    "pantheonSlug": "indonesian",
+    "name": "랑다",
+    "nameEn": "Rangda",
+    "epithet": "마녀의 여왕",
+    "domains": [
+      "악",
+      "주술",
+      "죽음"
+    ],
+    "summary": "긴 흰 머리와 혀, 송곳니를 가진 발리의 마녀 여왕으로, 바롱의 영원한 맞수입니다.",
+    "order": 2
+  },
+  {
+    "slug": "dewi-sri",
+    "pantheonSlug": "indonesian",
+    "name": "데위 스리",
+    "nameEn": "Dewi Sri",
+    "epithet": "벼의 여신",
+    "domains": [
+      "벼",
+      "풍요",
+      "생명"
+    ],
+    "summary": "죽은 몸에서 벼와 여러 작물이 자라났다고 전하는 자와와 발리의 벼의 여신입니다.",
+    "order": 3
+  }
+]

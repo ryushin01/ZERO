@@ -1,0 +1,412 @@
+[
+  {
+    "slug": "egyptian",
+    "name": "이집트 신화",
+    "nameEn": "Egyptian",
+    "region": "나일강 유역",
+    "continent": "africa",
+    "eraLabel": "기원전 24세기경",
+    "eraYear": -2400,
+    "summary": "죽음 이후의 삶과 심판, 태양의 순환을 중심으로 삼천 년 넘게 이어진 신화입니다."
+  },
+  {
+    "slug": "mesopotamian",
+    "name": "메소포타미아 신화",
+    "nameEn": "Mesopotamian",
+    "region": "티그리스·유프라테스강 유역",
+    "continent": "asia",
+    "eraLabel": "기원전 21세기경",
+    "eraYear": -2100,
+    "summary": "점토판에 쐐기문자로 새긴, 인류가 남긴 가장 오래된 영웅 서사가 있는 신화입니다."
+  },
+  {
+    "slug": "minoan",
+    "name": "미노스 신화",
+    "nameEn": "Minoan",
+    "region": "크레타",
+    "continent": "europe",
+    "eraLabel": "기원전 17세기경",
+    "eraYear": -1650,
+    "summary": "청동기 시대 크레타의 미노스 문명에서 섬긴 여신들로, 글이 해독되지 않아 유물로만 짐작합니다."
+  },
+  {
+    "slug": "hittite",
+    "name": "히타이트 신화",
+    "nameEn": "Hittite",
+    "region": "아나톨리아",
+    "continent": "asia",
+    "eraLabel": "기원전 16세기경",
+    "eraYear": -1600,
+    "summary": "폭풍의 신 테슈브가 뱀 일루얀카와 싸우고, ‘천 명의 신’을 섬긴 아나톨리아 히타이트 왕국의 신화입니다."
+  },
+  {
+    "slug": "hindu",
+    "name": "인도 신화",
+    "nameEn": "Hindu",
+    "region": "인도 아대륙",
+    "continent": "asia",
+    "eraLabel": "기원전 15세기경",
+    "eraYear": -1500,
+    "summary": "창조와 유지, 파괴가 끝없이 되풀이되는 우주관 위에 수많은 신과 화신이 등장합니다."
+  },
+  {
+    "slug": "canaanite",
+    "name": "가나안 신화",
+    "nameEn": "Canaanite",
+    "region": "레반트 (가나안)",
+    "continent": "asia",
+    "eraLabel": "기원전 14세기경",
+    "eraYear": -1350,
+    "summary": "폭풍의 신 바알이 바다의 신 얌, 죽음의 신 모트와 싸우는 이야기가 우가리트 점토판에 남은 레반트의 신화입니다."
+  },
+  {
+    "slug": "olmec",
+    "name": "올멕 신화",
+    "nameEn": "Olmec",
+    "region": "멕시코만 연안",
+    "continent": "americas",
+    "eraLabel": "기원전 12세기경",
+    "eraYear": -1200,
+    "summary": "메소아메리카 최초의 문명으로 꼽히는 올멕의 신앙으로, 사람과 재규어가 섞인 모습이 자주 새겨졌습니다."
+  },
+  {
+    "slug": "iranian",
+    "name": "이란 신화",
+    "nameEn": "Iranian",
+    "region": "이란고원",
+    "continent": "asia",
+    "eraLabel": "기원전 1천년기경",
+    "eraYear": -1000,
+    "summary": "선한 지혜의 신 아후라 마즈다와 악의 영 앙그라 마이뉴가 맞서는, 조로아스터교와 그 이전 페르시아의 신화입니다."
+  },
+  {
+    "slug": "greek",
+    "name": "그리스 신화",
+    "nameEn": "Greek",
+    "region": "에게해 연안",
+    "continent": "europe",
+    "eraLabel": "기원전 8세기경",
+    "eraYear": -800,
+    "summary": "올림포스의 열두 신과 영웅들의 이야기로, 서양 예술과 문학의 뿌리가 된 신화입니다."
+  },
+  {
+    "slug": "etruscan",
+    "name": "에트루리아 신화",
+    "nameEn": "Etruscan",
+    "region": "이탈리아 중부",
+    "continent": "europe",
+    "eraLabel": "기원전 7세기경",
+    "eraYear": -650,
+    "summary": "로마 이전 이탈리아 중부의 에트루리아인이 섬긴 신들로, 그리스 신화와 많은 이야기를 나눠 가졌습니다."
+  },
+  {
+    "slug": "arabian",
+    "name": "아랍 신화 (이슬람 이전)",
+    "nameEn": "Pre-Islamic Arabian",
+    "region": "아라비아반도",
+    "continent": "asia",
+    "eraLabel": "기원전 1천년기",
+    "eraYear": -500,
+    "summary": "이슬람 이전 아라비아에서 섬긴 알라트, 우짜, 마나트 같은 여신들과 나바테아의 신 두샤라의 신화입니다."
+  },
+  {
+    "slug": "zapotec",
+    "name": "사포텍 신화",
+    "nameEn": "Zapotec",
+    "region": "오악사카 (멕시코)",
+    "continent": "americas",
+    "eraLabel": "기원전 6세기경",
+    "eraYear": -500,
+    "summary": "산 위의 도시 몬테 알반을 세운 사포텍 사람들이 비와 번개의 신 코시호를 섬긴 신화입니다."
+  },
+  {
+    "slug": "thracian",
+    "name": "트라키아 신화",
+    "nameEn": "Thracian",
+    "region": "발칸반도 동부",
+    "continent": "europe",
+    "eraLabel": "기원전 5세기경",
+    "eraYear": -450,
+    "summary": "말을 탄 영웅신을 수천 개의 부조로 남긴, 발칸반도 동부 트라키아인의 신앙입니다."
+  },
+  {
+    "slug": "chinese",
+    "name": "중국 신화",
+    "nameEn": "Chinese",
+    "region": "황허·창장 유역",
+    "continent": "asia",
+    "eraLabel": "기원전 4세기경",
+    "eraYear": -350,
+    "summary": "하늘과 땅을 가른 거인 반고, 사람을 빚은 여와, 불사의 복숭아를 기르는 서왕모의 이야기가 여러 책에 흩어져 전하는 신화입니다."
+  },
+  {
+    "slug": "maya",
+    "name": "마야 신화",
+    "nameEn": "Maya",
+    "region": "유카탄반도·과테말라 고지",
+    "continent": "americas",
+    "eraLabel": "3~9세기 (고전기 비문)",
+    "eraYear": 250,
+    "summary": "옥수수로 사람을 빚은 창조 신들과, 저승의 신들을 꺾은 영웅 쌍둥이가 등장하는 마야 문명의 신화입니다."
+  },
+  {
+    "slug": "armenian",
+    "name": "아르메니아 신화",
+    "nameEn": "Armenian",
+    "region": "아르메니아고원",
+    "continent": "europe",
+    "eraLabel": "5세기경",
+    "eraYear": 450,
+    "summary": "용을 물리친 불과 번개의 신 바하근과 어머니 여신 아나히트를 섬긴 아르메니아의 옛 신화입니다."
+  },
+  {
+    "slug": "japanese",
+    "name": "일본 신화",
+    "nameEn": "Japanese",
+    "region": "일본 열도",
+    "continent": "asia",
+    "eraLabel": "712년",
+    "eraYear": 712,
+    "summary": "천지가 열리고 섬들이 태어나는 이야기에서 시작해 태양신의 후손으로 이어지는 신화입니다."
+  },
+  {
+    "slug": "anglo-saxon",
+    "name": "앵글로색슨 신화",
+    "nameEn": "Anglo-Saxon",
+    "region": "잉글랜드",
+    "continent": "europe",
+    "eraLabel": "8세기경",
+    "eraYear": 750,
+    "summary": "브리튼으로 건너간 게르만족 앵글로색슨인의 신화로, 영웅 서사시 「베오울프」와 대장장이 웨일랜드 이야기가 전합니다."
+  },
+  {
+    "slug": "tibetan",
+    "name": "티베트 신화",
+    "nameEn": "Tibetan",
+    "region": "티베트고원",
+    "continent": "asia",
+    "eraLabel": "11세기 이후",
+    "eraYear": 1050,
+    "summary": "세계에서 가장 긴 서사시로 꼽히는 「게사르 왕」과, 불교와 뵌교가 섞인 수호신들의 신화입니다."
+  },
+  {
+    "slug": "burmese",
+    "name": "미얀마 신화",
+    "nameEn": "Burmese",
+    "region": "미얀마",
+    "continent": "asia",
+    "eraLabel": "11세기 (낫 신앙 정비)",
+    "eraYear": 1050,
+    "summary": "불교와 함께 지금도 섬기는, ‘낫’이라 부르는 신령들의 신앙입니다."
+  },
+  {
+    "slug": "celtic",
+    "name": "켈트 신화",
+    "nameEn": "Celtic",
+    "region": "아일랜드·브리튼·갈리아",
+    "continent": "europe",
+    "eraLabel": "12세기",
+    "eraYear": 1100,
+    "summary": "사슴뿔을 단 신, 까마귀로 날아다니는 전쟁의 여신, 아일랜드의 영웅 쿠 훌린이 등장하는 서유럽 켈트족의 신화입니다."
+  },
+  {
+    "slug": "slavic",
+    "name": "슬라브 신화",
+    "nameEn": "Slavic",
+    "region": "동유럽",
+    "continent": "europe",
+    "eraLabel": "12세기 초",
+    "eraYear": 1113,
+    "summary": "천둥의 신 페룬과 숲속 마녀 바바 야가가 등장하는, 동유럽 슬라브족의 신화입니다."
+  },
+  {
+    "slug": "hungarian",
+    "name": "헝가리 신화",
+    "nameEn": "Hungarian",
+    "region": "카르파티아 분지",
+    "continent": "europe",
+    "eraLabel": "1200년경",
+    "eraYear": 1200,
+    "summary": "신성한 새 투룰이 헝가리 왕가의 시작을 알렸다는 이야기가 전하는 마자르족의 신화입니다."
+  },
+  {
+    "slug": "norse",
+    "name": "북유럽 신화",
+    "nameEn": "Norse",
+    "region": "스칸디나비아·아이슬란드",
+    "continent": "europe",
+    "eraLabel": "13세기",
+    "eraYear": 1220,
+    "summary": "거인과 싸우는 신들, 그리고 피할 수 없는 종말 라그나로크로 끝나는 신화입니다."
+  },
+  {
+    "slug": "baltic",
+    "name": "발트 신화",
+    "nameEn": "Baltic",
+    "region": "리투아니아·라트비아",
+    "continent": "europe",
+    "eraLabel": "13세기",
+    "eraYear": 1250,
+    "summary": "천둥의 신 페르쿠나스와 운명의 여신 라이마를 섬긴, 유럽에서 가장 늦게까지 이어진 옛 신앙의 하나입니다."
+  },
+  {
+    "slug": "korean",
+    "name": "한국 신화",
+    "nameEn": "Korean",
+    "region": "한반도",
+    "continent": "asia",
+    "eraLabel": "13세기",
+    "eraYear": 1281,
+    "summary": "하늘에서 내려온 환웅과 웅녀의 아들 단군, 버려졌다가 저승길을 연 바리공주가 등장하는 신화입니다."
+  },
+  {
+    "slug": "mixtec",
+    "name": "믹스텍 신화",
+    "nameEn": "Mixtec",
+    "region": "오악사카 (멕시코)",
+    "continent": "americas",
+    "eraLabel": "14~15세기",
+    "eraYear": 1400,
+    "summary": "사슴 가죽 그림 문서에 신들과 왕들의 계보를 그린 믹스텍 사람들의 신화와 전설입니다."
+  },
+  {
+    "slug": "indonesian",
+    "name": "인도네시아 신화",
+    "nameEn": "Indonesian",
+    "region": "자와·발리",
+    "continent": "asia",
+    "eraLabel": "15세기경",
+    "eraYear": 1450,
+    "summary": "벼의 여신 데위 스리와, 선의 바롱과 악의 랑다가 끝없이 겨루는 자와와 발리의 신화입니다."
+  },
+  {
+    "slug": "vietnamese",
+    "name": "베트남 신화",
+    "nameEn": "Vietnamese",
+    "region": "베트남 북부",
+    "continent": "asia",
+    "eraLabel": "15세기경",
+    "eraYear": 1490,
+    "summary": "용의 아들과 선녀가 낳은 백 개의 알에서 베트남 사람들이 나왔다는 건국 신화와 영웅 전설입니다."
+  },
+  {
+    "slug": "aztec",
+    "name": "아즈텍 신화",
+    "nameEn": "Aztec",
+    "region": "멕시코 중앙 고원",
+    "continent": "americas",
+    "eraLabel": "15~16세기",
+    "eraYear": 1500,
+    "summary": "네 번 무너진 세상 뒤의 다섯 번째 태양 아래에서, 깃털 달린 뱀과 연기 나는 거울의 신이 맞서는 신화입니다."
+  },
+  {
+    "slug": "inca",
+    "name": "잉카 신화",
+    "nameEn": "Inca",
+    "region": "안데스",
+    "continent": "americas",
+    "eraLabel": "16세기",
+    "eraYear": 1550,
+    "summary": "창조신 비라코차, 왕가의 조상인 태양신 인티, 대지의 어머니 파차마마를 섬긴 안데스 잉카 제국의 신화입니다."
+  },
+  {
+    "slug": "finnish",
+    "name": "핀란드 신화",
+    "nameEn": "Finnish",
+    "region": "핀란드·카렐리아",
+    "continent": "europe",
+    "eraLabel": "1551년",
+    "eraYear": 1551,
+    "summary": "노래로 세상을 움직이는 현자 베이네뫼이넨과 북쪽 나라의 여주인 로우히가 보물 삼포를 두고 다투는 신화입니다."
+  },
+  {
+    "slug": "thai",
+    "name": "타이 신화",
+    "nameEn": "Thai",
+    "region": "타이",
+    "continent": "asia",
+    "eraLabel": "1797년 (현존 판본)",
+    "eraYear": 1797,
+    "summary": "인도의 「라마야나」를 타이식으로 다시 쓴 「라마끼안」과, 벼의 여신 매포솝 같은 민간 신앙이 함께 전합니다."
+  },
+  {
+    "slug": "polynesian",
+    "name": "폴리네시아 신화",
+    "nameEn": "Polynesian",
+    "region": "태평양 폴리네시아",
+    "continent": "oceania",
+    "eraLabel": "구전",
+    "eraYear": 1840,
+    "summary": "바다에서 섬을 낚아 올린 마우이, 바다의 신 탕가로아가 등장하는, 하와이에서 뉴질랜드까지 이어진 태평양의 신화입니다."
+  },
+  {
+    "slug": "yoruba",
+    "name": "요루바 신화",
+    "nameEn": "Yoruba",
+    "region": "나이지리아 서남부",
+    "continent": "africa",
+    "eraLabel": "구전 (19세기 기록)",
+    "eraYear": 1850,
+    "summary": "최고신 올로두마레 아래 수많은 오리샤가 사람의 삶을 돌보는, 서아프리카 요루바족의 신화입니다."
+  },
+  {
+    "slug": "estonian",
+    "name": "에스토니아 신화",
+    "nameEn": "Estonian",
+    "region": "에스토니아",
+    "continent": "europe",
+    "eraLabel": "1857~1861년",
+    "eraYear": 1857,
+    "summary": "거인 영웅 칼레비포에그가 지하 세계의 악마 바나파간과 겨루는, 에스토니아의 민족 서사시와 민간 신앙입니다."
+  },
+  {
+    "slug": "fon",
+    "name": "폰 신화 (다호메)",
+    "nameEn": "Fon (Dahomey)",
+    "region": "베냉",
+    "continent": "africa",
+    "eraLabel": "구전",
+    "eraYear": 1860,
+    "summary": "달과 해의 쌍둥이 신 마우-리사와 쇠의 신 구가 등장하는, 옛 다호메 왕국 폰족의 신화입니다."
+  },
+  {
+    "slug": "rapa-nui",
+    "name": "라파누이 신화",
+    "nameEn": "Rapa Nui",
+    "region": "라파누이 (이스터섬)",
+    "continent": "oceania",
+    "eraLabel": "구전",
+    "eraYear": 1860,
+    "summary": "창조신 마케마케와, 해마다 새알을 두고 겨룬 새 사람 의식이 전하는 이스터섬의 신화입니다."
+  },
+  {
+    "slug": "haida",
+    "name": "하이다 신화",
+    "nameEn": "Haida",
+    "region": "하이다 과이 (캐나다 서해안)",
+    "continent": "americas",
+    "eraLabel": "구전",
+    "eraYear": 1880,
+    "summary": "장난꾸러기이자 창조자인 까마귀가 세상에 빛과 사람을 가져왔다는 북서 해안 하이다족의 신화입니다."
+  },
+  {
+    "slug": "ainu",
+    "name": "아이누 신화",
+    "nameEn": "Ainu",
+    "region": "홋카이도·사할린",
+    "continent": "asia",
+    "eraLabel": "1923년 「아이누 신요집」",
+    "eraYear": 1923,
+    "summary": "곰과 올빼미, 불과 바다 같은 자연의 모든 것을 신 ‘카무이’로 여긴 아이누 사람들의 신화입니다."
+  },
+  {
+    "slug": "dogon",
+    "name": "도곤 신화",
+    "nameEn": "Dogon",
+    "region": "말리 반디아가라 절벽",
+    "continent": "africa",
+    "eraLabel": "구전 (20세기 기록)",
+    "eraYear": 1930,
+    "summary": "창조신 암마가 빚은 물의 정령 놈모가 세상에 질서를 가져왔다는 말리 도곤족의 신화입니다."
+  }
+]

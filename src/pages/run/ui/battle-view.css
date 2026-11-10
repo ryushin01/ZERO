@@ -1,0 +1,336 @@
+.battle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-areas:
+    "head head"
+    "enemies log"
+    "player player"
+    "hand hand";
+  gap: 24px 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.battle__head {
+  grid-area: head;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+/* 적: 넓은 자간의 영문 대문자를 크게 */
+.battle__enemies {
+  grid-area: enemies;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 48px;
+  min-height: 300px;
+  align-content: center;
+}
+
+.enemy {
+  flex: 1 1 280px;
+  max-width: 520px;
+  transition: opacity 0.6s var(--ease);
+}
+
+.enemy__inner {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.enemy--dead {
+  opacity: 0.35;
+}
+
+.enemy__intent {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-height: 64px;
+}
+
+.enemy__action {
+  color: var(--signal);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.enemy__intent-name {
+  font-size: var(--fs-xs);
+}
+
+.enemy__name {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  font-weight: 400;
+}
+
+.enemy__en {
+  font-size: clamp(2rem, 4.6vw, 4rem);
+}
+
+.enemy--boss .enemy__en {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+}
+
+.enemy__ko {
+  font-size: 1.125rem;
+}
+
+.enemy__block {
+  font-weight: 600;
+}
+
+.enemy__nemesis {
+  max-width: 30em;
+  color: var(--muted);
+}
+
+.enemy__target {
+  margin-top: 6px;
+}
+
+.bar {
+  width: min(260px, 100%);
+}
+
+.bar__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.bar__value {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1;
+}
+
+.bar__track {
+  display: block;
+  height: 2px;
+  background: var(--line);
+}
+
+.bar__fill {
+  display: block;
+  height: 100%;
+  width: calc(var(--ratio) * 100%);
+  background: var(--fg);
+  transition: width 0.6s var(--ease);
+}
+
+.statuses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.status {
+  padding: 2px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+}
+
+.status--vulnerable,
+.status--erosion,
+.status--weak,
+.status--eclipse {
+  border-color: var(--signal);
+}
+
+/* 전투 기록 */
+.battle__log {
+  grid-area: log;
+  align-self: start;
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+  font-size: var(--fs-s);
+}
+
+.battle__log ol {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.battle__log li {
+  color: var(--muted);
+}
+
+.battle__log li:last-child {
+  color: var(--fg);
+}
+
+.log--enemy::before {
+  content: "— ";
+  color: var(--signal);
+}
+
+/* 나 */
+.battle__player {
+  grid-area: player;
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) auto auto minmax(200px, 1fr);
+  align-items: center;
+  gap: 16px 32px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.player__vitals {
+  display: grid;
+  gap: 6px;
+}
+
+.player__vitals .statuses {
+  justify-content: start;
+}
+
+.player__block {
+  font-weight: 600;
+}
+
+.player__energy {
+  display: grid;
+  justify-items: center;
+}
+
+.player__energy-value {
+  font-size: 3rem;
+  letter-spacing: 0.04em;
+}
+
+.player__piles {
+  display: flex;
+  gap: 8px;
+}
+
+.pile {
+  display: grid;
+  justify-items: center;
+  min-width: 72px;
+  min-height: 56px;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.pile:hover {
+  border-color: var(--fg);
+}
+
+.pile__count {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.player__turn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px 16px;
+}
+
+.player__hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-s);
+}
+
+.player__hint:empty {
+  display: none;
+}
+
+/* 손 */
+.battle__hand-wrap {
+  grid-area: hand;
+}
+
+.battle__hand {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.battle__hand > li {
+  animation: card-in 0.45s var(--ease) both;
+  animation-delay: calc(var(--i) * 40ms);
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+.battle__empty {
+  text-align: center;
+  padding: 40px 0;
+}
+
+@media (max-width: 1024px) {
+  .battle {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "enemies"
+      "player"
+      "hand"
+      "log";
+  }
+
+  .battle__log {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+
+  .battle__player {
+    grid-template-columns: 1fr auto;
+  }
+
+  .player__piles {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+
+  .player__turn {
+    grid-column: 1 / -1;
+    order: 4;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 640px) {
+  .battle__enemies {
+    min-height: 0;
+    gap: 24px;
+  }
+
+  .battle__hand {
+    gap: 8px;
+  }
+
+  .pile {
+    min-width: 0;
+    flex: 1;
+  }
+}

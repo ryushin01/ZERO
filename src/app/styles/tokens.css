@@ -1,0 +1,61 @@
+/*
+ * 두 톤 위에 신호색 하나. cipher.tv의 먹색과 뼈색을 바탕으로 했습니다.
+ * 표면(surface)마다 글자색과 보조색을 바꿔, 어느 화면이든 명도 대비 4.5:1 이상을 지킵니다.
+ */
+:root {
+  --ink: #060403;
+  --bone: #e9eae4;
+  --paper: #f3f2ec;
+
+  /* 어두운 표면 */
+  --dark-bg: var(--ink);
+  --dark-fg: var(--bone);
+  --dark-muted: #9a988f; /* 7.07:1 */
+  --dark-line: rgb(233 234 228 / 0.18);
+  --dark-signal: #ff6a33; /* 7.17:1 */
+
+  /* 밝은 표면 */
+  --light-bg: var(--bone);
+  --light-fg: var(--ink);
+  --light-muted: #5b5a55; /* 5.71:1 */
+  --light-line: rgb(6 4 3 / 0.16);
+  --light-signal: #a8360c; /* 5.43:1 */
+
+  --font-display: "Cormorant Garamond Variable", "AppleMyungjo", "Nanum Myeongjo", "Noto Serif KR", serif;
+  --font-serif-ko: "AppleMyungjo", "Nanum Myeongjo", "Noto Serif KR", "Cormorant Garamond Variable", serif;
+  --font-sans:
+    "Familjen Grotesk Variable", "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+
+  --fs-xxs: 0.6875rem; /* 11 */
+  --fs-xs: 0.75rem; /* 12 */
+  --fs-s: 0.875rem;
+  --fs-m: 1rem;
+  --fs-l: 1.5rem;
+  --fs-xl: clamp(2rem, 5vw, 3.5rem);
+  --fs-xxl: clamp(3rem, 12vw, 9rem);
+
+  --tracking-wide: 0.14em;
+  --tracking-label: 0.08em;
+  --gutter: clamp(16px, 2vw, 24px);
+  --header-h: 56px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --focus: 2px solid currentColor;
+}
+
+[data-surface="dark"] {
+  --bg: var(--dark-bg);
+  --fg: var(--dark-fg);
+  --muted: var(--dark-muted);
+  --line: var(--dark-line);
+  --signal: var(--dark-signal);
+  color-scheme: dark;
+}
+
+[data-surface="light"] {
+  --bg: var(--light-bg);
+  --fg: var(--light-fg);
+  --muted: var(--light-muted);
+  --line: var(--light-line);
+  --signal: var(--light-signal);
+  color-scheme: light;
+}

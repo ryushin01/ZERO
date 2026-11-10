@@ -1,0 +1,38 @@
+.new-run__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 48px 32px;
+  max-width: 1280px;
+  margin: 0 auto 48px;
+}
+
+.new-run__option {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.new-run__en {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.new-run__name {
+  font-size: 1.375rem;
+  font-weight: 400;
+}
+
+.new-run__summary {
+  max-width: 28em;
+  font-size: var(--fs-s);
+}
+
+.new-run__cards {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 8px 0;
+}

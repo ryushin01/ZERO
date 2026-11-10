@@ -1,0 +1,24 @@
+.relic {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.relic__name {
+  font-family: var(--font-serif-ko);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.relic__lore {
+  font-size: var(--fs-s);
+}
+
+.relic--owned {
+  border-color: var(--fg);
+}

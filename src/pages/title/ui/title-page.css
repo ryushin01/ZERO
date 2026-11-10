@@ -1,0 +1,131 @@
+.title {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: calc(100svh - var(--header-h) - 88px);
+}
+
+.title__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.title__ring {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.title__tile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--w);
+  margin: 0;
+  /* 자바스크립트가 자리를 잡기 전에도 고리 모양이 되도록 각도로 미리 놓습니다. */
+  transform: translate(-50%, -50%) rotate(calc(var(--i) / var(--n) * 360deg)) translateX(min(42vw, 620px))
+    rotate(calc(var(--i) / var(--n) * -360deg));
+  will-change: transform;
+}
+
+.title__tile img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  filter: grayscale(0.2);
+}
+
+.title__tile figcaption {
+  margin-top: 4px;
+  font-size: 0.5625rem;
+  color: var(--muted);
+}
+
+.title__center {
+  position: relative;
+  z-index: 200;
+  display: grid;
+  justify-items: center;
+  gap: 28px;
+  max-width: 760px;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.title__center::before {
+  /* 그림 위에서도 글자가 읽히도록 가운데를 어둡게 덮습니다. */
+  content: "";
+  position: absolute;
+  inset: -40px -40px;
+  z-index: -1;
+  background: radial-gradient(closest-side, var(--ink) 55%, transparent);
+}
+
+.title__heading .display {
+  display: block;
+  font-size: var(--fs-xxl);
+  letter-spacing: 0.22em;
+  margin-right: -0.22em;
+}
+
+.title__tagline {
+  display: grid;
+  gap: 12px;
+}
+
+.title__tagline .display {
+  font-size: clamp(1.125rem, 2.6vw, 1.75rem);
+  line-height: 1.25;
+}
+
+.title__tagline .serif {
+  color: var(--muted);
+}
+
+.title__actions .label {
+  opacity: 0.7;
+}
+
+.title__foot {
+  position: relative;
+  z-index: 300;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-top: 24px;
+  color: var(--muted);
+}
+
+.title__motion {
+  min-height: 44px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.title__motion:hover {
+  color: var(--fg);
+}
+
+@media (max-width: 640px) {
+  .title__stage {
+    min-height: 620px;
+  }
+
+  .title__tile {
+    width: calc(var(--w) * 0.55);
+  }
+
+  .title__tile figcaption {
+    display: none;
+  }
+
+  .title__heading .display {
+    letter-spacing: 0.14em;
+    margin-right: -0.14em;
+  }
+}

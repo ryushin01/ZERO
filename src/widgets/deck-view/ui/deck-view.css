@@ -1,0 +1,12 @@
+.deck-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 16px;
+  justify-items: center;
+}
+
+@media (max-width: 640px) {
+  .deck-view {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
