@@ -1,6 +1,6 @@
 {
   "name": "zero",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "private": true,
   "description": "Ark의 신과 영웅 133명을 카드로 쓰는 순수 자바스크립트 신화 덱빌딩 게임",
   "type": "module",

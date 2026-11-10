@@ -174,6 +174,44 @@ const ICONS = {
   dangun: { f: { body: "robed", head: "crown", beard: true, hair: "#1a120a", item: "sword", pose: "hold" } },
   bari: { f: { body: "gown", head: "veil", item: "bell", pose: "cast" } },
   sansin: { f: { body: "robed", head: "bare", beard: true, hair: "#e8e2d4", item: "staff", pose: "hold" } },
+  // 한국 신화: 건국 신화·무속 신화·설화에 전해지는 모습
+  hwanin: { f: { body: "robed", head: "crown", beard: true, hair: "#e8e2d4", item: "orb", pose: "cast", cape: true } },
+  hwanung: { f: { body: "robed", head: "crown", beard: true, hair: "#1a120a", item: "bell", pose: "raise" } },
+  ungnyeo: { f: { body: "gown", head: "bare", hair: "#1a120a", item: "sheaf", pose: "hold" } },
+  haemosu: {
+    f: { body: "warrior", head: "sun", beard: true, hair: "#1a120a", item: "sword", pose: "raise", cape: true },
+  },
+  yuhwa: { f: { body: "gown", head: "bare", hair: "#1a120a", item: "sheaf", pose: "cast" } },
+  dongmyeong: { f: { body: "warrior", head: "bare", hair: "#1a120a", item: "bow", pose: "cast", cape: true } },
+  hyeokgeose: { f: { body: "robed", head: "crown", hair: "#1a120a", item: "orb", pose: "hold" } },
+  suro: { f: { body: "robed", head: "crown", beard: true, hair: "#1a120a", item: "orb", pose: "cast" } },
+  seolmundae: {
+    scale: 1.2,
+    f: { body: "gown", head: "bare", hair: "#3a3a3a", item: "none", pose: "rest", build: 1.12 },
+  },
+  samsin: { f: { body: "gown", head: "veil", hair: "#e8e2d4", item: "flower", pose: "cast" } },
+  jacheongbi: { f: { body: "gown", head: "bare", hair: "#1a120a", item: "sheaf", pose: "raise" } },
+  gangnim: { f: { body: "robed", head: "widehat", item: "scroll", pose: "hold", cape: true } },
+  siwang: {
+    f: { body: "robed", head: "crown", beard: true, hair: "#1a120a", item: "scroll", pose: "hold", build: 1.08 },
+  },
+  cheoyong: {
+    f: { body: "robed", head: "bare", beard: true, hair: "#1a120a", item: "flower", pose: "raise", sleeves: true },
+  },
+  ilwol: { form: "pair", f: { head: "moon", hair: "#1a120a", item: "orb" } },
+  choeyeong: {
+    f: { body: "warrior", head: "helm", beard: true, hair: "#1a120a", item: "sword", pose: "guard", cape: true },
+  },
+  jangseung: { form: "post" },
+  chiyou: {
+    thunder: true,
+    f: { body: "giant", head: "horned", beard: true, hair: "#1a120a", item: "doubleaxe", pose: "smite" },
+  },
+  jeseok: { f: { body: "robed", head: "cap", item: "bell", pose: "cast" } },
+  utturi: { f: { body: "warrior", head: "bare", hair: "#1a120a", item: "sword", pose: "leap", wings: "light" } },
+  "seol-jukhwa": {
+    f: { body: "warrior", head: "helm", hair: "#1a120a", item: "sword", pose: "charge", hairStyle: "long" },
+  },
   vainamoinen: { f: { body: "robed", head: "bare", beard: true, hair: "#e8e2d4", item: "lyre", pose: "cast" } },
   ilmarinen: {
     fire: true,
@@ -393,6 +431,12 @@ const EXTRAS = {
   ishtar: { companion: "lion", hairStyle: "long" },
   gilgamesh: { companion: "lion", pose: "smite" },
   dangun: { companion: "bear" },
+  sansin: { companion: "tiger" },
+  // 유화는 아들 주몽에게 비둘기 편에 보리씨를 보냈다고 전합니다.
+  yuhwa: { companion: "dove", hairStyle: "long" },
+  dongmyeong: { hairStyle: "topknot" },
+  samsin: { hairStyle: "long" },
+  jacheongbi: { hairStyle: "braid" },
   hwanung: { companion: "tiger" },
   ungnyeo: { companion: "bear", hairStyle: "long" },
   susanoo: { companion: "serpent", pose: "charge" },
@@ -570,7 +614,7 @@ export function portraitSpec(figure, { aspect, legend }) {
     cloth: icon.cloth ?? tint(region.cloth, figure.slug),
     metal: region.metal,
     legend,
-    scale: legend ? 1.12 : 1.04,
+    scale: icon.scale ?? (legend ? 1.12 : 1.04),
     thunder: icon.thunder,
     fire: icon.fire,
     figure: /** @type {any} */ ({ ...fig, ...EXTRAS[figure.slug] }),
