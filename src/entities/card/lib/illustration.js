@@ -23,10 +23,11 @@ export function cardIllustration(card) {
     drawArmament({
       id: card.id,
       item: card.id === "shelf" ? "book" : "quill",
-      sky: ["#0b0806", "#2a2420"],
+      sky: ["#0b0806", "#4a3e32"],
       glow: "#e9eae4",
       metal: "#c9a24a",
-      cloth: "#5a4632",
+      // 스케치 화풍에서 먹색에 섞이므로 밝은 색을 줘야 책장이 보입니다.
+      cloth: "#e8e2d4",
     }),
   );
 }

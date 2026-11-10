@@ -43,7 +43,9 @@ test.describe("한 판", () => {
 
     const energy = page.locator(".player__energy-value");
     await expect(energy).toContainText("3");
+    // 비용 0인 카드(유신 등)는 에너지가 그대로이고, 뽑기 카드는 손이 늘어나므로 알림에 나온 카드 이름으로 확인합니다.
     const firstCard = page.locator("[data-hand] button.card").first();
+    const name = ((await firstCard.locator(".card__name").textContent()) ?? "").replace("+", "").trim();
     await firstCard.focus();
     await page.keyboard.press("Enter");
     const target = page.locator("[data-action='target']").first();
@@ -51,9 +53,8 @@ test.describe("한 판", () => {
       await expect(target).toBeFocused();
       await page.keyboard.press("Enter");
     }
-    await expect(energy).not.toHaveText(/^3/);
     // 일어난 일은 화면 낭독기에 알립니다.
-    await expect(page.locator("[data-announcer]")).not.toBeEmpty();
+    await expect(page.locator("[data-announcer]")).toContainText(name);
 
     await page.getByRole("button", { name: "턴 끝내기" }).click();
     await expect(page.getByText(/턴 2/)).toBeVisible();

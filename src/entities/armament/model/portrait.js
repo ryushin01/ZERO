@@ -1,4 +1,4 @@
-import { PANTHEON_REGION, REGIONS } from "#entities/figure/@x/armament.js";
+import { MONO_ACCENT, MONO_PANTHEONS, PANTHEON_REGION, REGIONS } from "#entities/figure/@x/armament.js";
 
 /** 무구 그림 사양 @param {import("./armaments.js").ArmamentDef} arm */
 export function armamentSpec(arm) {
@@ -17,5 +17,7 @@ export function armamentSpec(arm) {
             : "#fff0b0",
     metal: region.metal,
     cloth: region.cloth,
+    // 한국 신화의 무구는 흑백
+    accent: MONO_PANTHEONS.has(arm.pantheon) ? MONO_ACCENT.light : undefined,
   };
 }

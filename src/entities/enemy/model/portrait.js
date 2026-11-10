@@ -1,11 +1,12 @@
-import { REGIONS } from "#entities/figure/@x/enemy.js";
+import { MONO_ACCENT, REGIONS } from "#entities/figure/@x/enemy.js";
+import { mix } from "#shared/ui/illustration/index.js";
 
 /**
  * 괴물의 일러스트 사양. 신과 같은 화풍으로, 기운은 불길한 색을 씁니다.
  * @typedef {import("#shared/ui/illustration/index.js").SceneSpec} SceneSpec
  */
 
-/** @type {Record<string, { region: keyof typeof REGIONS, glow: string, skin?: string } & Partial<SceneSpec> & { f?: Record<string, any>, c?: Record<string, any> }>} */
+/** @type {Record<string, { region: keyof typeof REGIONS, glow: string, skin?: string, mono?: boolean } & Partial<SceneSpec> & { f?: Record<string, any>, c?: Record<string, any> }>} */
 const MONSTERS = {
   harpy: {
     region: "greek",
@@ -26,6 +27,7 @@ const MONSTERS = {
   },
   dokkaebi: {
     region: "eastAsia",
+    mono: true,
     glow: "#ff8a6a",
     skin: "#a8462a",
     f: { body: "demon", head: "demon", hair: "#1a120a", item: "club", pose: "raise" },
@@ -71,7 +73,7 @@ const MONSTERS = {
     f: { body: "demon", head: "feathers", item: "none", pose: "raise", wings: "dark" },
   },
   rahu: { region: "india", glow: "#ffd27a", form: "head" },
-  imugi: { region: "eastAsia", glow: "#7af0d6", form: "serpent", c: { heads: 1, scale: "#2a4a4a" } },
+  imugi: { mono: true, region: "eastAsia", glow: "#7af0d6", form: "serpent", c: { heads: 1, scale: "#2a4a4a" } },
   fenrir: { region: "north", glow: "#9fd4ff", form: "beast", c: { beast: "wolf", chained: true } },
   grendel: {
     region: "north",
@@ -98,6 +100,9 @@ export function monsterSpec(id, tier) {
     form: /** @type {SceneSpec["form"]} */ (m.form ?? "figure"),
     motif: region.motif,
     sky: /** @type {[string, string]} */ (m.sky ?? region.sky),
+    // 괴물은 신보다 어두운 배경으로 불길하게 둡니다.
+    // 한국 민담의 괴물(도깨비, 이무기)은 흑백으로 둡니다.
+    accent: m.mono ? MONO_ACCENT.dark : mix((m.sky ?? region.sky)[1], "#000000", 0.45),
     glow: m.glow,
     skin: m.skin ?? region.skin,
     cloth: region.cloth,
