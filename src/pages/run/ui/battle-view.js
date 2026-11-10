@@ -1,4 +1,4 @@
-import { armamentIllustration, getArmament } from "#entities/armament/index.js";
+import { armamentIllustration, getArmament, isOncePerBattle } from "#entities/armament/index.js";
 import { cardFace, getCard } from "#entities/card/index.js";
 import { describeAction, enemyIllustration, getEnemy, intentKind, isNemesis } from "#entities/enemy/index.js";
 import { getFigure, getPantheon } from "#entities/figure/index.js";
@@ -264,7 +264,7 @@ export function battleView(ctx) {
                       h(
                         "span",
                         { class: "arm__meta label" },
-                        slot.cd >= 50 ? "다 씀 · " : slot.cd > 0 ? `${slot.cd}턴 뒤 · ` : "",
+                        slot.cd > 0 && isOncePerBattle(arm) ? "다 씀 · " : slot.cd > 0 ? `${slot.cd}턴 뒤 · ` : "",
                         `에너지 ${arm.cost}`,
                       ),
                       h(

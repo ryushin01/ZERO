@@ -95,6 +95,10 @@ function cardsTab(ctx) {
         toggle("source", "all", source === "all", "모든 출처"),
         toggle("source", "ark", source === "ark", "Ark의 기록"),
         toggle("source", "zero", source === "zero", "전설 확장"),
+      ),
+      h(
+        "div",
+        { class: "codex__group", role: "group", "aria-label": "서가 복원" },
         h(
           "button",
           { type: "button", class: "chip", "data-action": "seen-only", "aria-pressed": seenOnly ? "true" : "false" },

@@ -1,4 +1,4 @@
-import { getArmament } from "#entities/armament/index.js";
+import { getArmament, isOncePerBattle } from "#entities/armament/index.js";
 import { describeEffect, getCard } from "#entities/card/index.js";
 import { getEnemy, isNemesis } from "#entities/enemy/index.js";
 import { createRng, withJosa } from "#shared/lib/index.js";
@@ -181,7 +181,9 @@ function beginPlayerTurn(state) {
     player.hp = Math.min(player.maxHp, player.hp + state.perks.turnHeal);
     log(state, `세력의 힘으로 체력 ${state.perks.turnHeal} 회복`, "player");
   }
-  if (state.turn > 1) for (const arm of state.armaments) arm.cd = Math.max(0, arm.cd - 1);
+  // 전투마다 한 번 쓰는 무구는 턴이 지나도 돌아오지 않습니다.
+  if (state.turn > 1)
+    for (const arm of state.armaments) if (!isOncePerBattle(getArmament(arm.id))) arm.cd = Math.max(0, arm.cd - 1);
   if (player.statuses.foundation > 0) {
     player.block += player.statuses.foundation;
     log(state, `권능으로 ${withJosa(`방어 ${player.statuses.foundation}`, "을/를")} 얻었습니다.`, "player");
@@ -587,10 +589,9 @@ export function canUseArmament(state, id) {
   if (slot.cd > 0)
     return {
       ok: false,
-      reason:
-        slot.cd >= 50
-          ? `${withJosa(arm.name, "은/는")} 이번 전투에서 이미 썼습니다.`
-          : `${withJosa(arm.name, "은/는")} ${slot.cd}턴 뒤에 다시 쓸 수 있습니다.`,
+      reason: isOncePerBattle(arm)
+        ? `${withJosa(arm.name, "은/는")} 이번 전투에서 이미 썼습니다.`
+        : `${withJosa(arm.name, "은/는")} ${slot.cd}턴 뒤에 다시 쓸 수 있습니다.`,
     };
   if (arm.cost > state.energy)
     return { ok: false, reason: `에너지가 부족합니다. (필요 ${arm.cost}, 남은 ${state.energy})` };

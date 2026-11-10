@@ -162,7 +162,13 @@ describe("무구", () => {
 
   it("바사비 샥티는 전투마다 한 번만 씁니다", () => {
     let state = useArmament(withArms(["vasavi-shakti"]), "vasavi-shakti");
-    for (let i = 0; i < 4; i += 1) state = endTurn(state);
+    // 전투가 아무리 길어져도 다시 돌아오지 않습니다.
+    for (let i = 0; i < 120; i += 1) {
+      state.player.hp = state.player.maxHp;
+      state.player.block = 9999;
+      for (const enemy of state.enemies) enemy.hp = enemy.maxHp;
+      state = endTurn(state);
+    }
     expect(canUseArmament(state, "vasavi-shakti")).toMatchObject({ ok: false });
     expect(canUseArmament(state, "vasavi-shakti").reason).toContain("이미 썼습니다");
   });
