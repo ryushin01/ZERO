@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import { getCard } from "#entities/card/index.js";
+
 import { cardDetail } from "./card-detail.js";
 
 describe("cardDetail", () => {
@@ -29,13 +31,11 @@ describe("cardDetail", () => {
     expect(cardDetail("heracles").textContent).toContain("히드라에게 피해 50% 증가");
   });
 
-  it("전설 확장의 인물은 Ark 대신 위키백과로 잇습니다", () => {
+  it("Ark로 옮겨 간 전설의 영웅은 Ark로 잇고, 희귀도는 전설 확장의 것을 따릅니다", () => {
     const el = cardDetail("king-arthur");
-    expect(el.textContent).toContain("ZERO 전설 확장");
-    expect(el.querySelector("a[href^='https://ko.wikipedia.org/']")?.textContent).toContain(
-      "위키백과에서 아서 왕 읽기",
-    );
-    expect(el.querySelector("a[href*='ark-ryushin01']")).toBeNull();
+    expect(el.textContent).not.toContain("ZERO 전설 확장");
+    expect(el.querySelector("a[href$='/figures/king-arthur']")?.textContent).toContain("Ark에서 아서 왕 읽기");
     expect(el.querySelector(".card-detail__arms")?.textContent).toContain("엑스칼리버");
+    expect(getCard("achilles").rarity).toBe("legend");
   });
 });

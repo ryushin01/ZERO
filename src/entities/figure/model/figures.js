@@ -15,13 +15,20 @@ import pantheonData from "../data/pantheons.json" with { type: "json" };
  * @typedef {{ src: string, title: string, alt: string, holder: string | null, dateLabel: string | null, credit: Credit }} Art
  */
 
+const arkPantheonSlugs = new Set(/** @type {Pantheon[]} */ (pantheonData).map((p) => p.slug));
+const arkFigureSlugs = new Set(/** @type {Figure[]} */ (figureData).map((f) => f.slug));
+/** 전설 확장에서 Ark로 옮겨 간 인물은 희귀도만 전설 확장의 것을 따릅니다. */
+const legendRarity = new Map(/** @type {Figure[]} */ (legendData.figures).map((f) => [f.slug, f.rarity]));
+
 /**
- * 신화 계열: Ark에서 가져온 계열(오래된 문헌 순) 뒤에 ZERO 전설 확장의 계열을 붙입니다.
+ * 신화 계열: Ark에서 가져온 계열(오래된 문헌 순) 뒤에, 아직 Ark에 없는 ZERO 전설 확장의 계열을 붙입니다.
  * @type {(Pantheon & { source?: Source, wiki?: string })[]}
  */
 export const PANTHEONS = [
   .../** @type {Pantheon[]} */ (pantheonData).map((p) => ({ ...p, source: /** @type {Source} */ ("ark") })),
-  .../** @type {Pantheon[]} */ (legendData.pantheons).map((p) => ({ ...p, source: /** @type {Source} */ ("zero") })),
+  .../** @type {Pantheon[]} */ (legendData.pantheons)
+    .filter((p) => !arkPantheonSlugs.has(p.slug))
+    .map((p) => ({ ...p, source: /** @type {Source} */ ("zero") })),
 ];
 
 /**
@@ -30,8 +37,14 @@ export const PANTHEONS = [
  * @type {Figure[]}
  */
 export const FIGURES = [
-  .../** @type {Figure[]} */ (figureData).map((f) => ({ ...f, source: /** @type {Source} */ ("ark") })),
-  .../** @type {Figure[]} */ (legendData.figures).map((f) => ({ ...f, source: /** @type {Source} */ ("zero") })),
+  .../** @type {Figure[]} */ (figureData).map((f) => ({
+    ...f,
+    rarity: legendRarity.get(f.slug),
+    source: /** @type {Source} */ ("ark"),
+  })),
+  .../** @type {Figure[]} */ (legendData.figures)
+    .filter((f) => !arkFigureSlugs.has(f.slug))
+    .map((f) => ({ ...f, source: /** @type {Source} */ ("zero") })),
 ];
 
 /** Ark에서 가져온 신과 영웅의 수 */

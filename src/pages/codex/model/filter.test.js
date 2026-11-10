@@ -16,10 +16,9 @@ describe("filterCards", () => {
   });
 
   it("출처로 거릅니다", () => {
-    const zero = filterCards(FIGURE_CARDS, { source: "zero" });
-    expect(zero.map((c) => c.id)).toContain("king-arthur");
-    expect(zero.every((c) => c.source === "zero")).toBe(true);
-    expect(filterCards(FIGURE_CARDS, { source: "ark" }).map((c) => c.id)).not.toContain("king-arthur");
+    const cards = [...FIGURE_CARDS, { ...FIGURE_CARDS[0], id: "legend-only", source: /** @type {const} */ ("zero") }];
+    expect(filterCards(cards, { source: "zero" }).map((c) => c.id)).toEqual(["legend-only"]);
+    expect(filterCards(cards, { source: "ark" }).map((c) => c.id)).not.toContain("legend-only");
   });
 
   it("복원한 신만 볼 수 있습니다", () => {

@@ -61,7 +61,7 @@ function view(ctx) {
       h(
         "p",
         null,
-        `세계 신화 도서관 Ark에는 다섯 대륙의 신과 영웅 ${ARK_FIGURE_COUNT}명이 기록되어 있고, ZERO는 아서왕 전설과 인도 서사시처럼 Ark에 아직 없는 전설의 영웅 ${FIGURES.length - ARK_FIGURE_COUNT}명을 더했습니다. 어느 날부터 혼돈의 괴물들이 서가를 갉아먹기 시작했습니다. 기록이 지워진 신은 아무도 기억하지 못하게 되고, 모든 것이 지워지면 세계는 처음의 공허로 돌아갑니다.`,
+        `세계 신화 도서관 Ark에는 다섯 대륙의 신과 영웅, 아서왕 전설과 천일야화의 인물까지 ${ARK_FIGURE_COUNT}명이 기록되어 있습니다.${FIGURES.length > ARK_FIGURE_COUNT ? ` ZERO는 Ark에 아직 없는 전설의 영웅 ${FIGURES.length - ARK_FIGURE_COUNT}명을 더했습니다.` : ""} 어느 날부터 혼돈의 괴물들이 서가를 갉아먹기 시작했습니다. 기록이 지워진 신은 아무도 기억하지 못하게 되고, 모든 것이 지워지면 세계는 처음의 공허로 돌아갑니다.`,
       ),
       h(
         "p",

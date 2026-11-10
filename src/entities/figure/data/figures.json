@@ -1840,5 +1840,2271 @@
     ],
     "summary": "죽은 몸에서 벼와 여러 작물이 자라났다고 전하는 자와와 발리의 벼의 여신입니다.",
     "order": 3
+  },
+  {
+    "slug": "hwanin",
+    "pantheonSlug": "korean",
+    "name": "환인",
+    "nameEn": "Hwanin",
+    "epithet": "하늘의 임금",
+    "domains": [
+      "하늘",
+      "주재"
+    ],
+    "summary": "「삼국유사」 단군 이야기에서 아들 환웅을 사람 세상에 내려보낸 하늘의 임금입니다.",
+    "order": 5
+  },
+  {
+    "slug": "hwanung",
+    "pantheonSlug": "korean",
+    "name": "환웅",
+    "nameEn": "Hwanung",
+    "epithet": "신시를 연 하늘의 아들",
+    "domains": [
+      "하늘",
+      "다스림",
+      "농사"
+    ],
+    "summary": "무리 3천을 이끌고 태백산 신단수 아래로 내려와 신시를 열고, 사람 세상의 360여 가지 일을 맡았다는 하늘의 아들입니다.",
+    "order": 6
+  },
+  {
+    "slug": "ungnyeo",
+    "pantheonSlug": "korean",
+    "name": "웅녀",
+    "nameEn": "Ungnyeo",
+    "epithet": "곰에서 사람이 된 여인",
+    "domains": [
+      "인내",
+      "출산",
+      "조상"
+    ],
+    "summary": "쑥과 마늘을 먹으며 굴속에서 견뎌 사람이 되고, 환웅과 혼인해 단군을 낳은 여인입니다.",
+    "order": 7
+  },
+  {
+    "slug": "haemosu",
+    "pantheonSlug": "korean",
+    "name": "해모수",
+    "nameEn": "Haemosu",
+    "epithet": "하늘에서 내려온 해의 아들",
+    "domains": [
+      "하늘",
+      "해",
+      "왕권"
+    ],
+    "summary": "다섯 마리 용이 끄는 수레를 타고 하늘에서 내려와 북부여를 세웠다는 천제의 아들입니다.",
+    "order": 8
+  },
+  {
+    "slug": "yuhwa",
+    "pantheonSlug": "korean",
+    "name": "유화",
+    "nameEn": "Yuhwa",
+    "epithet": "고구려 건국 신화의 어머니 영웅",
+    "domains": [
+      "물",
+      "곡식",
+      "어머니"
+    ],
+    "summary": "물의 신 하백의 딸로, 알을 낳아 주몽을 기른 고구려 건국 신화의 영웅입니다. 고구려에서는 뒤에 ‘부여신’으로 모셨습니다.",
+    "order": 9
+  },
+  {
+    "slug": "dongmyeong",
+    "pantheonSlug": "korean",
+    "name": "동명성왕",
+    "nameEn": "King Dongmyeong (Jumong)",
+    "epithet": "고구려를 세운 건국 영웅",
+    "domains": [
+      "건국",
+      "활쏘기"
+    ],
+    "summary": "알에서 태어나 활을 잘 쏘아 ‘주몽’이라 불렸고, 부여를 떠나 고구려를 세운 건국 영웅입니다.",
+    "order": 10
+  },
+  {
+    "slug": "hyeokgeose",
+    "pantheonSlug": "korean",
+    "name": "박혁거세",
+    "nameEn": "Bak Hyeokgeose",
+    "epithet": "신라를 세운 건국 영웅",
+    "domains": [
+      "건국",
+      "빛"
+    ],
+    "summary": "나정 옆 자줏빛 알에서 태어나 몸에서 빛을 냈다는, 신라를 세운 건국 영웅입니다.",
+    "order": 11
+  },
+  {
+    "slug": "suro",
+    "pantheonSlug": "korean",
+    "name": "수로왕",
+    "nameEn": "King Suro",
+    "epithet": "가락국을 세운 건국 영웅",
+    "domains": [
+      "건국",
+      "하늘"
+    ],
+    "summary": "구지봉에서 사람들이 노래하며 춤추자 하늘에서 내려온 황금 알에서 태어나 가락국을 세운 건국 영웅입니다.",
+    "order": 12
+  },
+  {
+    "slug": "seolmundae",
+    "pantheonSlug": "korean",
+    "name": "설문대할망",
+    "nameEn": "Seolmundae Halmang",
+    "epithet": "제주를 만든 거인 여신",
+    "domains": [
+      "창조",
+      "섬",
+      "대지"
+    ],
+    "summary": "치마폭에 흙을 날라 한라산을 쌓고 제주섬을 만들었다는 거인 여신입니다.",
+    "order": 13
+  },
+  {
+    "slug": "samsin",
+    "pantheonSlug": "korean",
+    "name": "삼신할미",
+    "nameEn": "Samsin Halmi",
+    "epithet": "아기를 점지하는 여신",
+    "domains": [
+      "출산",
+      "아기",
+      "생명"
+    ],
+    "summary": "아기를 점지하고 태어난 아이와 산모를 돌본다는 출산의 여신입니다.",
+    "order": 14
+  },
+  {
+    "slug": "jacheongbi",
+    "pantheonSlug": "korean",
+    "name": "자청비",
+    "nameEn": "Jacheongbi",
+    "epithet": "농사의 여신",
+    "domains": [
+      "농사",
+      "사랑",
+      "씨앗"
+    ],
+    "summary": "사랑을 찾아 하늘까지 오르고, 다섯 곡식의 씨앗을 받아 내려와 농사의 신이 된 제주 「세경본풀이」의 주인공입니다.",
+    "order": 15
+  },
+  {
+    "slug": "gangnim",
+    "pantheonSlug": "korean",
+    "name": "강림도령",
+    "nameEn": "Gangnim Doryeong",
+    "epithet": "저승에서 염라대왕을 잡아 온 차사",
+    "domains": [
+      "저승",
+      "죽음",
+      "심부름"
+    ],
+    "summary": "원님의 명으로 저승에 가서 염라대왕을 잡아 오고, 그 재주로 사람의 혼을 데려가는 저승차사가 되었다는 제주 「차사본풀이」의 주인공입니다.",
+    "order": 16
+  },
+  {
+    "slug": "siwang",
+    "pantheonSlug": "korean",
+    "name": "시왕",
+    "nameEn": "Ten Kings of the Underworld",
+    "epithet": "저승의 열 대왕",
+    "domains": [
+      "저승",
+      "심판"
+    ],
+    "summary": "죽은 사람을 차례로 심판하는 저승의 열 대왕으로, 다섯째가 염라대왕입니다.",
+    "order": 17
+  },
+  {
+    "slug": "cheoyong",
+    "pantheonSlug": "korean",
+    "name": "처용",
+    "nameEn": "Cheoyong",
+    "epithet": "역신을 물리친 용의 아들",
+    "domains": [
+      "병 막이",
+      "춤",
+      "노래"
+    ],
+    "summary": "아내를 범한 역신 앞에서 노래하고 춤추며 물러나, 역신을 스스로 굴복시킨 동해 용왕의 아들입니다.",
+    "order": 18
+  },
+  {
+    "slug": "ilwol",
+    "pantheonSlug": "korean",
+    "name": "일월성신",
+    "nameEn": "Sun and Moon Gods",
+    "epithet": "해와 달, 별의 신",
+    "domains": [
+      "해",
+      "달",
+      "별"
+    ],
+    "summary": "해와 달, 별을 신으로 모신 무속의 하늘 신으로, 무신도에서는 해와 달을 머리에 인 두 신으로 그립니다.",
+    "order": 19
+  },
+  {
+    "slug": "choeyeong",
+    "pantheonSlug": "korean",
+    "name": "최영",
+    "nameEn": "Choe Yeong",
+    "epithet": "왜구를 물리친 고려의 영웅",
+    "domains": [
+      "장수",
+      "청렴",
+      "수호"
+    ],
+    "summary": "왜구와 홍건적을 물리친 고려 말의 명장으로, 억울하게 죽은 뒤 무속에서 장군으로 모셔진 영웅입니다.",
+    "order": 20
+  },
+  {
+    "slug": "jangseung",
+    "pantheonSlug": "korean",
+    "name": "장승",
+    "nameEn": "Jangseung",
+    "epithet": "마을 어귀의 수호신",
+    "domains": [
+      "마을 수호",
+      "길",
+      "액막이"
+    ],
+    "summary": "마을 어귀나 길가에 세워 나쁜 기운을 막은 나무나 돌 기둥으로, 흔히 천하대장군과 지하여장군이 짝을 이룹니다.",
+    "order": 21
+  },
+  {
+    "slug": "chiyou",
+    "pantheonSlug": "korean",
+    "name": "치우",
+    "nameEn": "Chiyou",
+    "epithet": "황제와 싸운 전쟁의 신",
+    "domains": [
+      "전쟁",
+      "무기",
+      "비바람"
+    ],
+    "summary": "구리 머리에 쇠 이마를 가졌다는 전쟁의 신으로, 옛 기록에서 황제와 탁록에서 싸웠다고 전하며 한국에서는 붉은악마의 상징으로 널리 알려졌습니다.",
+    "order": 22
+  },
+  {
+    "slug": "poiyaunpe",
+    "pantheonSlug": "ainu",
+    "name": "포이야운페",
+    "nameEn": "Poiyaunpe",
+    "epithet": "아이누 서사시의 소년 영웅",
+    "domains": [
+      "영웅",
+      "전쟁"
+    ],
+    "summary": "아이누의 영웅 서사시 유카르에서 갑옷을 입고 하늘을 날며 싸우는 소년 영웅입니다.",
+    "order": 2
+  },
+  {
+    "slug": "shitonai",
+    "pantheonSlug": "ainu",
+    "name": "시토나이",
+    "nameEn": "Shitonai",
+    "epithet": "유카르의 소년",
+    "domains": [
+      "모험",
+      "용기"
+    ],
+    "summary": "아이누 옛이야기에 나오는 소년으로, 사람을 해치는 괴물과 맞서는 이야기로 전합니다.",
+    "order": 3
+  },
+  {
+    "slug": "paul-bunyan",
+    "pantheonSlug": "american-folklore",
+    "name": "폴 버니언",
+    "nameEn": "Paul Bunyan",
+    "epithet": "거인 벌목꾼",
+    "domains": [
+      "힘",
+      "숲",
+      "대지"
+    ],
+    "summary": "푸른 황소 베이브와 함께 다니는 거인 벌목꾼입니다.",
+    "order": 1
+  },
+  {
+    "slug": "john-henry",
+    "pantheonSlug": "american-folklore",
+    "name": "존 헨리",
+    "nameEn": "John Henry",
+    "epithet": "증기 드릴과 겨룬 사나이",
+    "domains": [
+      "힘",
+      "헌신"
+    ],
+    "summary": "증기 드릴과 바위 뚫기 시합을 해 이기고 숨을 거둔 철도 노동자입니다.",
+    "order": 2
+  },
+  {
+    "slug": "scheherazade",
+    "pantheonSlug": "arabian-nights",
+    "name": "셰에라자드",
+    "nameEn": "Scheherazade",
+    "epithet": "천 하룻밤의 이야기꾼",
+    "domains": [
+      "지혜",
+      "속임수",
+      "이야기"
+    ],
+    "summary": "날마다 신부를 죽이던 샤리아르 왕에게 밤마다 이야기를 들려주어 살아남은 왕비입니다.",
+    "order": 1
+  },
+  {
+    "slug": "sinbad",
+    "pantheonSlug": "arabian-nights",
+    "name": "신드바드",
+    "nameEn": "Sinbad the Sailor",
+    "epithet": "일곱 번 항해한 뱃사람",
+    "domains": [
+      "모험",
+      "바다",
+      "행운"
+    ],
+    "summary": "일곱 번의 항해에서 고래 섬과 거대한 새 로크를 만난 바그다드의 상인입니다.",
+    "order": 2
+  },
+  {
+    "slug": "aladdin",
+    "pantheonSlug": "arabian-nights",
+    "name": "알라딘",
+    "nameEn": "Aladdin",
+    "epithet": "램프의 주인",
+    "domains": [
+      "행운",
+      "꾀",
+      "모험"
+    ],
+    "summary": "요술 램프의 정령을 부려 공주와 결혼한 가난한 소년입니다.",
+    "order": 3
+  },
+  {
+    "slug": "ali-baba",
+    "pantheonSlug": "arabian-nights",
+    "name": "알리바바",
+    "nameEn": "Ali Baba",
+    "epithet": "열려라 참깨",
+    "domains": [
+      "행운",
+      "꾀",
+      "부"
+    ],
+    "summary": "'열려라 참깨'라는 주문으로 도적의 동굴을 연 나무꾼입니다.",
+    "order": 4
+  },
+  {
+    "slug": "king-arthur",
+    "pantheonSlug": "arthurian",
+    "name": "아서 왕",
+    "nameEn": "King Arthur",
+    "epithet": "브리튼의 왕",
+    "domains": [
+      "왕권",
+      "영웅",
+      "정의"
+    ],
+    "summary": "바위에 꽂힌 검을 뽑아 왕이 되었다는 브리튼의 전설적인 왕입니다.",
+    "order": 1
+  },
+  {
+    "slug": "merlin",
+    "pantheonSlug": "arthurian",
+    "name": "멀린",
+    "nameEn": "Merlin",
+    "epithet": "왕을 만든 마법사",
+    "domains": [
+      "마법",
+      "예언",
+      "지혜"
+    ],
+    "summary": "아서를 왕으로 이끈 예언자이자 마법사입니다.",
+    "order": 2
+  },
+  {
+    "slug": "lancelot",
+    "pantheonSlug": "arthurian",
+    "name": "랜슬롯",
+    "nameEn": "Lancelot",
+    "epithet": "호수의 기사",
+    "domains": [
+      "전쟁",
+      "용기",
+      "사랑"
+    ],
+    "summary": "원탁에서 가장 뛰어난 기사로 꼽히지만 왕비 귀네비어와의 사랑으로 원탁을 무너뜨린 기사입니다.",
+    "order": 3
+  },
+  {
+    "slug": "gawain",
+    "pantheonSlug": "arthurian",
+    "name": "가웨인",
+    "nameEn": "Gawain",
+    "epithet": "태양의 기사",
+    "domains": [
+      "용기",
+      "맹세",
+      "태양"
+    ],
+    "summary": "아서의 조카로, 「가웨인 경과 녹색 기사」의 주인공입니다.",
+    "order": 4
+  },
+  {
+    "slug": "tristan",
+    "pantheonSlug": "arthurian",
+    "name": "트리스탄",
+    "nameEn": "Tristan",
+    "epithet": "비련의 기사",
+    "domains": [
+      "사랑",
+      "음악",
+      "전쟁"
+    ],
+    "summary": "콘월의 기사로, 이졸데와의 비극적인 사랑으로 유명합니다.",
+    "order": 5
+  },
+  {
+    "slug": "bedivere",
+    "pantheonSlug": "arthurian",
+    "name": "베디비어",
+    "nameEn": "Bedivere",
+    "epithet": "마지막 기사",
+    "domains": [
+      "맹세",
+      "수호"
+    ],
+    "summary": "캄란 전투 뒤 엑스칼리버를 호수에 돌려준 기사입니다.",
+    "order": 6
+  },
+  {
+    "slug": "percival",
+    "pantheonSlug": "arthurian",
+    "name": "퍼시벌",
+    "nameEn": "Percival",
+    "epithet": "성배를 찾은 기사",
+    "domains": [
+      "모험",
+      "운명"
+    ],
+    "summary": "성배 탐색 이야기의 주인공으로 처음 등장한 순박한 기사입니다.",
+    "order": 7
+  },
+  {
+    "slug": "mordred",
+    "pantheonSlug": "arthurian",
+    "name": "모드레드",
+    "nameEn": "Mordred",
+    "epithet": "반역의 기사",
+    "domains": [
+      "전쟁",
+      "복수",
+      "혼돈"
+    ],
+    "summary": "아서에게 반역해 캄란 전투에서 아서와 함께 쓰러진 기사입니다.",
+    "order": 8
+  },
+  {
+    "slug": "morgan-le-fay",
+    "pantheonSlug": "arthurian",
+    "name": "모르간 르 페이",
+    "nameEn": "Morgan le Fay",
+    "epithet": "아발론의 마녀",
+    "domains": [
+      "마법",
+      "치유",
+      "변신"
+    ],
+    "summary": "아서의 이부 누이로, 치유자이자 아서를 괴롭히는 마녀로 그려지는 인물입니다.",
+    "order": 9
+  },
+  {
+    "slug": "gareth",
+    "pantheonSlug": "arthurian",
+    "name": "가레스",
+    "nameEn": "Gareth",
+    "epithet": "부엌의 기사",
+    "domains": [
+      "용기",
+      "수호"
+    ],
+    "summary": "신분을 숨기고 부엌일을 하다 기사가 된 가웨인의 동생입니다.",
+    "order": 10
+  },
+  {
+    "slug": "galahad",
+    "pantheonSlug": "arthurian",
+    "name": "갤러해드",
+    "nameEn": "Galahad",
+    "epithet": "성배를 이룬 기사",
+    "domains": [
+      "정의",
+      "맹세",
+      "운명"
+    ],
+    "summary": "랜슬롯의 아들로, 위험한 자리에 앉아 성배 탐색을 완수한 가장 순결한 기사입니다.",
+    "order": 11
+  },
+  {
+    "slug": "lohengrin",
+    "pantheonSlug": "arthurian",
+    "name": "로엔그린",
+    "nameEn": "Lohengrin",
+    "epithet": "백조의 기사",
+    "domains": [
+      "맹세",
+      "수호"
+    ],
+    "summary": "백조가 끄는 배를 타고 와 공주를 지킨 성배의 기사입니다.",
+    "order": 12
+  },
+  {
+    "slug": "kirta",
+    "pantheonSlug": "canaanite",
+    "name": "키르타",
+    "nameEn": "Kirta",
+    "epithet": "자손을 얻은 왕",
+    "domains": [
+      "왕권",
+      "자손"
+    ],
+    "summary": "우가리트의 서사시에서 신의 꿈에 따라 원정해 새 왕비와 자손을 얻은 왕입니다.",
+    "order": 3
+  },
+  {
+    "slug": "charlemagne",
+    "pantheonSlug": "carolingian",
+    "name": "샤를마뉴",
+    "nameEn": "Charlemagne",
+    "epithet": "열두 기사의 황제",
+    "domains": [
+      "왕권",
+      "정의",
+      "정복"
+    ],
+    "summary": "무훈시 속에서 열두 기사를 거느리고 사라센과 싸우는 전설의 황제입니다.",
+    "order": 1
+  },
+  {
+    "slug": "roland",
+    "pantheonSlug": "carolingian",
+    "name": "롤랑",
+    "nameEn": "Roland",
+    "epithet": "론세스바예스의 기사",
+    "domains": [
+      "영웅",
+      "맹세",
+      "용기"
+    ],
+    "summary": "「롤랑의 노래」의 주인공으로, 끝까지 뿔피리를 불지 않고 싸운 샤를마뉴의 조카입니다.",
+    "order": 2
+  },
+  {
+    "slug": "astolfo",
+    "pantheonSlug": "carolingian",
+    "name": "아스톨포",
+    "nameEn": "Astolfo",
+    "epithet": "달까지 간 기사",
+    "domains": [
+      "모험",
+      "마법"
+    ],
+    "summary": "히포그리프를 타고 달까지 날아가 롤랑의 잃어버린 정신을 찾아온 잉글랜드의 기사입니다.",
+    "order": 3
+  },
+  {
+    "slug": "bradamante",
+    "pantheonSlug": "carolingian",
+    "name": "브라다만테",
+    "nameEn": "Bradamante",
+    "epithet": "흰 깃털의 여기사",
+    "domains": [
+      "전쟁",
+      "사랑"
+    ],
+    "summary": "「광란의 오를란도」에 나오는 샤를마뉴의 여기사입니다.",
+    "order": 4
+  },
+  {
+    "slug": "mandricardo",
+    "pantheonSlug": "carolingian",
+    "name": "만드리카르도",
+    "nameEn": "Mandricardo",
+    "epithet": "타타르의 왕",
+    "domains": [
+      "전쟁",
+      "분노"
+    ],
+    "summary": "「광란의 오를란도」에서 헥토르의 갑옷을 얻은 타타르의 왕입니다.",
+    "order": 5
+  },
+  {
+    "slug": "ogier",
+    "pantheonSlug": "carolingian",
+    "name": "오지에 르 다누아",
+    "nameEn": "Ogier the Dane",
+    "epithet": "잠든 덴마크의 기사",
+    "domains": [
+      "영웅",
+      "수호"
+    ],
+    "summary": "샤를마뉴의 열두 기사 가운데 하나로, 덴마크가 위험할 때 깨어난다는 기사입니다.",
+    "order": 6
+  },
+  {
+    "slug": "renaud",
+    "pantheonSlug": "carolingian",
+    "name": "르노 드 몽토방",
+    "nameEn": "Renaud de Montauban",
+    "epithet": "아이몽의 아들",
+    "domains": [
+      "모험",
+      "용기"
+    ],
+    "summary": "명마 바야르를 타고 샤를마뉴와 맞선 아이몽의 네 아들 가운데 맏이입니다.",
+    "order": 7
+  },
+  {
+    "slug": "scathach",
+    "pantheonSlug": "celtic",
+    "name": "스카하크",
+    "nameEn": "Scáthach",
+    "epithet": "그림자 섬의 여전사",
+    "domains": [
+      "전쟁",
+      "가르침"
+    ],
+    "summary": "쿠 훌린에게 무예를 가르친 스코틀랜드 그림자 섬의 여전사입니다.",
+    "order": 5
+  },
+  {
+    "slug": "diarmuid",
+    "pantheonSlug": "celtic",
+    "name": "디어무드",
+    "nameEn": "Diarmuid Ua Duibhne",
+    "epithet": "사랑의 점을 지닌 전사",
+    "domains": [
+      "전쟁",
+      "사랑"
+    ],
+    "summary": "피아나 기사단의 전사로, 핀의 약혼녀 그라냐와 도망친 이야기로 유명합니다.",
+    "order": 6
+  },
+  {
+    "slug": "fergus",
+    "pantheonSlug": "celtic",
+    "name": "퍼거스",
+    "nameEn": "Fergus mac Róich",
+    "epithet": "옛 울스터의 왕",
+    "domains": [
+      "전쟁",
+      "왕권",
+      "힘"
+    ],
+    "summary": "울스터의 옛 왕이자 쿠 훌린의 양부 같은 전사입니다.",
+    "order": 7
+  },
+  {
+    "slug": "fionn",
+    "pantheonSlug": "celtic",
+    "name": "핀 막 쿨",
+    "nameEn": "Fionn mac Cumhaill",
+    "epithet": "피아나의 수장",
+    "domains": [
+      "영웅",
+      "지혜",
+      "사냥"
+    ],
+    "summary": "지혜의 연어를 먹고 지혜를 얻은 피아나 기사단의 수장입니다.",
+    "order": 8
+  },
+  {
+    "slug": "medb",
+    "pantheonSlug": "celtic",
+    "name": "메이브",
+    "nameEn": "Medb",
+    "epithet": "코노트의 여왕",
+    "domains": [
+      "왕권",
+      "전쟁",
+      "욕망"
+    ],
+    "summary": "울스터의 갈색 황소를 빼앗으려 전쟁을 일으킨 코노트의 여왕입니다.",
+    "order": 9
+  },
+  {
+    "slug": "manannan",
+    "pantheonSlug": "celtic",
+    "name": "마나난 막 리르",
+    "nameEn": "Manannán mac Lir",
+    "epithet": "바다의 신",
+    "domains": [
+      "바다",
+      "마법",
+      "여행"
+    ],
+    "summary": "바다를 땅처럼 마차로 달린다는 아일랜드의 바다 신입니다.",
+    "order": 10
+  },
+  {
+    "slug": "oisin",
+    "pantheonSlug": "celtic",
+    "name": "오신",
+    "nameEn": "Oisín",
+    "epithet": "청춘의 나라에 간 시인",
+    "domains": [
+      "시",
+      "사랑",
+      "여행"
+    ],
+    "summary": "요정 니아브를 따라 청춘의 나라 티르 너 노그에 갔던 핀의 아들입니다.",
+    "order": 11
+  },
+  {
+    "slug": "nezha",
+    "pantheonSlug": "chinese",
+    "name": "나타",
+    "nameEn": "Nezha",
+    "epithet": "바람불 바퀴의 소년",
+    "domains": [
+      "전쟁",
+      "재생",
+      "악귀 퇴치"
+    ],
+    "summary": "「봉신연의」와 「서유기」에 나오는 소년 신으로, 바람불 바퀴를 타고 싸웁니다.",
+    "order": 5
+  },
+  {
+    "slug": "jiang-ziya",
+    "pantheonSlug": "chinese",
+    "name": "강태공",
+    "nameEn": "Jiang Ziya",
+    "epithet": "봉신의 군사",
+    "domains": [
+      "지혜",
+      "왕권"
+    ],
+    "summary": "주나라 문왕을 도운 군사로, 「봉신연의」에서 신들의 자리를 정했습니다.",
+    "order": 6
+  },
+  {
+    "slug": "huang-feihu",
+    "pantheonSlug": "chinese",
+    "name": "황비호",
+    "nameEn": "Huang Feihu",
+    "epithet": "오색 신우를 탄 장수",
+    "domains": [
+      "전쟁",
+      "용기"
+    ],
+    "summary": "「봉신연의」에서 상나라를 떠나 주나라에 가담한 장수입니다.",
+    "order": 7
+  },
+  {
+    "slug": "huyan-zhuo",
+    "pantheonSlug": "chinese",
+    "name": "호연작",
+    "nameEn": "Huyan Zhuo",
+    "epithet": "쌍채찍 장수",
+    "domains": [
+      "전쟁",
+      "용기"
+    ],
+    "summary": "「수호전」 양산박 108 호걸 가운데 하나로, 두 자루 쇠채찍을 쓰는 장수입니다.",
+    "order": 8
+  },
+  {
+    "slug": "jade-rabbit",
+    "pantheonSlug": "chinese",
+    "name": "옥토끼",
+    "nameEn": "Moon Rabbit",
+    "epithet": "달의 토끼",
+    "domains": [
+      "달",
+      "치유"
+    ],
+    "summary": "달에서 불사의 약을 찧는다는 토끼입니다.",
+    "order": 9
+  },
+  {
+    "slug": "sun-wukong",
+    "pantheonSlug": "chinese",
+    "name": "손오공",
+    "nameEn": "Sun Wukong",
+    "epithet": "제천대성",
+    "domains": [
+      "변신",
+      "힘",
+      "속임수"
+    ],
+    "summary": "돌에서 태어나 하늘을 어지럽힌 원숭이 왕으로, 삼장법사를 지켜 서천으로 간 「서유기」의 주인공입니다.",
+    "order": 10
+  },
+  {
+    "slug": "hou-yi",
+    "pantheonSlug": "chinese",
+    "name": "후예",
+    "nameEn": "Hou Yi",
+    "epithet": "열 개의 해를 쏜 궁수",
+    "domains": [
+      "궁술",
+      "영웅",
+      "태양"
+    ],
+    "summary": "하늘에 뜬 열 개의 해 가운데 아홉을 쏘아 떨어뜨린 명궁입니다.",
+    "order": 11
+  },
+  {
+    "slug": "hua-mulan",
+    "pantheonSlug": "chinese",
+    "name": "화목란",
+    "nameEn": "Hua Mulan",
+    "epithet": "아버지 대신 나선 여전사",
+    "domains": [
+      "헌신",
+      "전쟁",
+      "용기"
+    ],
+    "summary": "늙은 아버지 대신 남장을 하고 전쟁에 나간 여인입니다.",
+    "order": 12
+  },
+  {
+    "slug": "yellow-emperor",
+    "pantheonSlug": "chinese",
+    "name": "황제",
+    "nameEn": "Yellow Emperor",
+    "epithet": "중화의 시조",
+    "domains": [
+      "왕권",
+      "문명",
+      "전쟁"
+    ],
+    "summary": "치우와 탁록에서 싸워 이긴 중국 전설의 제왕입니다.",
+    "order": 13
+  },
+  {
+    "slug": "nitocris",
+    "pantheonSlug": "egyptian",
+    "name": "니토크리스",
+    "nameEn": "Nitocris",
+    "epithet": "전설의 여왕",
+    "domains": [
+      "왕권",
+      "복수"
+    ],
+    "summary": "헤로도토스가 전한 이집트의 전설적인 여왕입니다.",
+    "order": 10
+  },
+  {
+    "slug": "robin-hood",
+    "pantheonSlug": "european-folklore",
+    "name": "로빈 후드",
+    "nameEn": "Robin Hood",
+    "epithet": "셔우드의 의적",
+    "domains": [
+      "궁술",
+      "정의",
+      "숲"
+    ],
+    "summary": "셔우드 숲에서 부자의 재물을 빼앗아 가난한 이에게 나눈 잉글랜드의 의적입니다.",
+    "order": 1
+  },
+  {
+    "slug": "william-tell",
+    "pantheonSlug": "european-folklore",
+    "name": "빌헬름 텔",
+    "nameEn": "William Tell",
+    "epithet": "사과를 쏜 명사수",
+    "domains": [
+      "궁술",
+      "정의",
+      "용기"
+    ],
+    "summary": "아들 머리 위의 사과를 쏘아 맞힌 스위스의 명사수입니다.",
+    "order": 2
+  },
+  {
+    "slug": "saint-george",
+    "pantheonSlug": "european-folklore",
+    "name": "성 게오르기우스",
+    "nameEn": "Saint George",
+    "epithet": "용을 물리친 기사",
+    "domains": [
+      "악귀 퇴치",
+      "용기",
+      "수호"
+    ],
+    "summary": "제물로 바쳐질 공주를 구하려 용을 물리쳤다는 전설의 기사입니다.",
+    "order": 3
+  },
+  {
+    "slug": "melusine",
+    "pantheonSlug": "european-folklore",
+    "name": "멜뤼진",
+    "nameEn": "Melusine",
+    "epithet": "물의 요정",
+    "domains": [
+      "물",
+      "변신",
+      "뱀"
+    ],
+    "summary": "토요일마다 허리 아래가 뱀(또는 물고기)이 된다는 프랑스 전설의 요정입니다.",
+    "order": 4
+  },
+  {
+    "slug": "habetrot",
+    "pantheonSlug": "european-folklore",
+    "name": "하베트롯",
+    "nameEn": "Habetrot",
+    "epithet": "실 잣는 요정",
+    "domains": [
+      "공예",
+      "치유"
+    ],
+    "summary": "실을 잣는 일을 도와주는 스코틀랜드 국경 지방의 요정입니다.",
+    "order": 5
+  },
+  {
+    "slug": "oberon",
+    "pantheonSlug": "european-folklore",
+    "name": "오베론",
+    "nameEn": "Oberon",
+    "epithet": "요정의 왕",
+    "domains": [
+      "마법",
+      "숲"
+    ],
+    "summary": "중세 프랑스 로망스와 셰익스피어의 「한여름 밤의 꿈」에 나오는 요정의 왕입니다.",
+    "order": 6
+  },
+  {
+    "slug": "britomart",
+    "pantheonSlug": "european-folklore",
+    "name": "브리토마트",
+    "nameEn": "Britomart",
+    "epithet": "정절의 여기사",
+    "domains": [
+      "맹세",
+      "전쟁"
+    ],
+    "summary": "스펜서의 서사시 「요정 여왕」에 나오는 정절의 여기사입니다.",
+    "order": 7
+  },
+  {
+    "slug": "el-cid",
+    "pantheonSlug": "european-folklore",
+    "name": "엘 시드",
+    "nameEn": "El Cid",
+    "epithet": "캄페아도르",
+    "domains": [
+      "전쟁",
+      "영웅"
+    ],
+    "summary": "「엘 시드의 노래」에서 추방당한 뒤 발렌시아를 정복한 카스티야의 기사입니다.",
+    "order": 8
+  },
+  {
+    "slug": "prester-john",
+    "pantheonSlug": "european-folklore",
+    "name": "사제왕 요한",
+    "nameEn": "Prester John",
+    "epithet": "동방의 전설적인 왕",
+    "domains": [
+      "왕권",
+      "부"
+    ],
+    "summary": "먼 동방에 기독교 왕국을 다스린다고 중세 유럽이 믿은 전설의 왕입니다.",
+    "order": 9
+  },
+  {
+    "slug": "saint-margaret",
+    "pantheonSlug": "european-folklore",
+    "name": "안티오키아의 마르가리타",
+    "nameEn": "Margaret the Virgin",
+    "epithet": "용의 배를 가른 성녀",
+    "domains": [
+      "악귀 퇴치",
+      "맹세"
+    ],
+    "summary": "용에게 삼켜졌다가 십자가로 배를 가르고 나왔다는 성녀입니다.",
+    "order": 10
+  },
+  {
+    "slug": "siegfried",
+    "pantheonSlug": "germanic",
+    "name": "지크프리트",
+    "nameEn": "Siegfried",
+    "epithet": "용의 피를 뒤집어쓴 영웅",
+    "domains": [
+      "영웅",
+      "힘",
+      "불사"
+    ],
+    "summary": "용을 죽이고 그 피로 목욕해 칼이 들지 않게 된 「니벨룽겐의 노래」의 영웅입니다.",
+    "order": 1
+  },
+  {
+    "slug": "kriemhild",
+    "pantheonSlug": "germanic",
+    "name": "크림힐트",
+    "nameEn": "Kriemhild",
+    "epithet": "복수의 왕비",
+    "domains": [
+      "복수",
+      "사랑"
+    ],
+    "summary": "지크프리트의 아내로, 남편을 죽인 이들에게 처절하게 복수한 부르군트의 공주입니다.",
+    "order": 2
+  },
+  {
+    "slug": "dietrich",
+    "pantheonSlug": "germanic",
+    "name": "베른의 디트리히",
+    "nameEn": "Dietrich von Bern",
+    "epithet": "망명한 왕",
+    "domains": [
+      "영웅",
+      "왕권",
+      "불"
+    ],
+    "summary": "왕국을 빼앗기고 훈족의 궁정에서 오래 망명한 게르만 전설의 왕입니다.",
+    "order": 3
+  },
+  {
+    "slug": "hildebrand",
+    "pantheonSlug": "germanic",
+    "name": "힐데브란트",
+    "nameEn": "Hildebrand",
+    "epithet": "디트리히의 스승",
+    "domains": [
+      "가르침",
+      "전쟁"
+    ],
+    "summary": "디트리히를 섬긴 노장으로, 「힐데브란트의 노래」에서 아들과 마주친 비극으로 알려졌습니다.",
+    "order": 4
+  },
+  {
+    "slug": "walter-of-aquitaine",
+    "pantheonSlug": "germanic",
+    "name": "아키텐의 발터",
+    "nameEn": "Walter of Aquitaine",
+    "epithet": "훈족에게서 탈출한 영웅",
+    "domains": [
+      "모험",
+      "용기"
+    ],
+    "summary": "훈족의 볼모였다가 연인 힐데군트와 함께 보물을 들고 탈출한 영웅입니다.",
+    "order": 5
+  },
+  {
+    "slug": "achilles",
+    "pantheonSlug": "greek",
+    "name": "아킬레우스",
+    "nameEn": "Achilles",
+    "epithet": "트로이 전쟁의 영웅",
+    "domains": [
+      "영웅",
+      "전쟁",
+      "분노"
+    ],
+    "summary": "「일리아스」의 주인공으로, 그리스군에서 가장 뛰어난 전사입니다.",
+    "order": 14
+  },
+  {
+    "slug": "hector",
+    "pantheonSlug": "greek",
+    "name": "헥토르",
+    "nameEn": "Hector",
+    "epithet": "트로이의 방패",
+    "domains": [
+      "수호",
+      "용기",
+      "전쟁"
+    ],
+    "summary": "트로이의 왕자이자 가장 뛰어난 장수입니다.",
+    "order": 15
+  },
+  {
+    "slug": "odysseus",
+    "pantheonSlug": "greek",
+    "name": "오디세우스",
+    "nameEn": "Odysseus",
+    "epithet": "꾀 많은 영웅",
+    "domains": [
+      "꾀",
+      "모험",
+      "궁술"
+    ],
+    "summary": "트로이 목마를 고안하고 10년 동안 바다를 떠돈 이타카의 왕입니다.",
+    "order": 16
+  },
+  {
+    "slug": "jason",
+    "pantheonSlug": "greek",
+    "name": "이아손",
+    "nameEn": "Jason",
+    "epithet": "아르고호의 선장",
+    "domains": [
+      "모험",
+      "왕권"
+    ],
+    "summary": "아르고호 원정대를 이끌고 황금 양털을 찾아 나선 영웅입니다.",
+    "order": 17
+  },
+  {
+    "slug": "medea",
+    "pantheonSlug": "greek",
+    "name": "메데이아",
+    "nameEn": "Medea",
+    "epithet": "콜키스의 마녀",
+    "domains": [
+      "마법",
+      "복수"
+    ],
+    "summary": "이아손을 도와 황금 양털을 얻게 한 콜키스의 공주이자 마녀입니다.",
+    "order": 18
+  },
+  {
+    "slug": "atalanta",
+    "pantheonSlug": "greek",
+    "name": "아탈란테",
+    "nameEn": "Atalanta",
+    "epithet": "발 빠른 사냥꾼",
+    "domains": [
+      "사냥",
+      "궁술",
+      "야생"
+    ],
+    "summary": "곰이 길렀다는 사냥꾼으로, 칼리돈의 멧돼지 사냥에서 처음 화살을 맞혔습니다.",
+    "order": 19
+  },
+  {
+    "slug": "asclepius",
+    "pantheonSlug": "greek",
+    "name": "아스클레피오스",
+    "nameEn": "Asclepius",
+    "epithet": "의술의 신",
+    "domains": [
+      "치유",
+      "생명"
+    ],
+    "summary": "죽은 사람까지 살려 냈다는 의술의 신입니다.",
+    "order": 20
+  },
+  {
+    "slug": "chiron",
+    "pantheonSlug": "greek",
+    "name": "케이론",
+    "nameEn": "Chiron",
+    "epithet": "현명한 켄타우로스",
+    "domains": [
+      "가르침",
+      "지혜",
+      "치유"
+    ],
+    "summary": "아킬레우스, 이아손, 아스클레피오스를 가르친 현명한 켄타우로스입니다.",
+    "order": 21
+  },
+  {
+    "slug": "orion",
+    "pantheonSlug": "greek",
+    "name": "오리온",
+    "nameEn": "Orion",
+    "epithet": "거인 사냥꾼",
+    "domains": [
+      "사냥",
+      "힘"
+    ],
+    "summary": "포세이돈의 아들이라 전하는 거인 사냥꾼으로, 밤하늘의 오리온자리가 되었습니다.",
+    "order": 22
+  },
+  {
+    "slug": "europa",
+    "pantheonSlug": "greek",
+    "name": "에우로페",
+    "nameEn": "Europa",
+    "epithet": "황소가 데려간 공주",
+    "domains": [
+      "대지",
+      "왕권"
+    ],
+    "summary": "흰 황소로 변한 제우스가 크레타로 데려간 페니키아의 공주입니다.",
+    "order": 23
+  },
+  {
+    "slug": "dioscuri",
+    "pantheonSlug": "greek",
+    "name": "디오스쿠로이",
+    "nameEn": "Dioscuri",
+    "epithet": "쌍둥이 형제",
+    "domains": [
+      "수호",
+      "바다",
+      "말"
+    ],
+    "summary": "카스토르와 폴리데우케스 쌍둥이로, 뱃사람을 지키는 별자리 쌍둥이자리가 되었습니다.",
+    "order": 24
+  },
+  {
+    "slug": "paris",
+    "pantheonSlug": "greek",
+    "name": "파리스",
+    "nameEn": "Paris",
+    "epithet": "트로이의 왕자",
+    "domains": [
+      "사랑",
+      "궁술"
+    ],
+    "summary": "헬레네를 데려와 트로이 전쟁을 일으킨 트로이의 왕자입니다.",
+    "order": 25
+  },
+  {
+    "slug": "theseus",
+    "pantheonSlug": "greek",
+    "name": "테세우스",
+    "nameEn": "Theseus",
+    "epithet": "미궁의 영웅",
+    "domains": [
+      "영웅",
+      "건국",
+      "용기"
+    ],
+    "summary": "크레타의 미궁에서 미노타우로스를 물리친 아테네의 영웅입니다.",
+    "order": 26
+  },
+  {
+    "slug": "andromeda",
+    "pantheonSlug": "greek",
+    "name": "안드로메다",
+    "nameEn": "Andromeda",
+    "epithet": "바다 괴물의 제물",
+    "domains": [
+      "운명",
+      "바다"
+    ],
+    "summary": "바다 괴물에게 바쳐졌다가 페르세우스에게 구출된 에티오피아의 공주입니다.",
+    "order": 27
+  },
+  {
+    "slug": "hippolyta",
+    "pantheonSlug": "greek",
+    "name": "히폴리테",
+    "nameEn": "Hippolyta",
+    "epithet": "아마조네스의 여왕",
+    "domains": [
+      "전쟁",
+      "왕권"
+    ],
+    "summary": "여성 전사 부족 아마조네스의 여왕입니다.",
+    "order": 28
+  },
+  {
+    "slug": "daedalus",
+    "pantheonSlug": "greek",
+    "name": "다이달로스",
+    "nameEn": "Daedalus",
+    "epithet": "미궁을 지은 장인",
+    "domains": [
+      "공예",
+      "지혜"
+    ],
+    "summary": "크레타의 미궁을 설계한 전설적인 장인이자 발명가입니다.",
+    "order": 29
+  },
+  {
+    "slug": "demeter",
+    "pantheonSlug": "greek",
+    "name": "데메테르",
+    "nameEn": "Demeter",
+    "epithet": "곡물의 여신",
+    "domains": [
+      "농사",
+      "풍요",
+      "어머니"
+    ],
+    "summary": "곡물과 수확을 다스리는 올림포스의 여신입니다.",
+    "order": 30
+  },
+  {
+    "slug": "astraea",
+    "pantheonSlug": "greek",
+    "name": "아스트라이아",
+    "nameEn": "Astraea",
+    "epithet": "별의 처녀",
+    "domains": [
+      "정의",
+      "하늘"
+    ],
+    "summary": "황금시대가 끝나자 마지막으로 땅을 떠난 정의의 여신입니다.",
+    "order": 31
+  },
+  {
+    "slug": "galatea",
+    "pantheonSlug": "greek",
+    "name": "갈라테이아",
+    "nameEn": "Galatea",
+    "epithet": "살아난 조각상",
+    "domains": [
+      "사랑",
+      "생명"
+    ],
+    "summary": "조각가 피그말리온이 사랑한 상아 조각상이 아프로디테의 은총으로 사람이 되었다는 이야기의 주인공입니다.",
+    "order": 32
+  },
+  {
+    "slug": "caeneus",
+    "pantheonSlug": "greek",
+    "name": "카이네우스",
+    "nameEn": "Caeneus",
+    "epithet": "칼이 들지 않는 전사",
+    "domains": [
+      "전쟁",
+      "변신"
+    ],
+    "summary": "포세이돈의 힘으로 몸에 칼이 들지 않게 된 라피타이족의 전사입니다.",
+    "order": 33
+  },
+  {
+    "slug": "euryale",
+    "pantheonSlug": "greek",
+    "name": "에우리알레",
+    "nameEn": "Euryale",
+    "epithet": "고르곤의 둘째",
+    "domains": [
+      "괴물",
+      "불사"
+    ],
+    "summary": "메두사의 언니로, 죽지 않는 고르곤 자매 가운데 하나입니다.",
+    "order": 34
+  },
+  {
+    "slug": "ascalaphus",
+    "pantheonSlug": "greek",
+    "name": "아스칼라포스",
+    "nameEn": "Ascalaphus",
+    "epithet": "저승 정원지기",
+    "domains": [
+      "저승",
+      "속임수"
+    ],
+    "summary": "페르세포네가 저승의 석류를 먹었다고 일러바친 저승의 정원지기입니다.",
+    "order": 35
+  },
+  {
+    "slug": "perseus",
+    "pantheonSlug": "greek",
+    "name": "페르세우스",
+    "nameEn": "Perseus",
+    "epithet": "메두사를 벤 영웅",
+    "domains": [
+      "영웅",
+      "모험",
+      "괴물"
+    ],
+    "summary": "신들에게 빌린 하르페와 방패로 메두사의 목을 벤 영웅입니다.",
+    "order": 36
+  },
+  {
+    "slug": "bellerophon",
+    "pantheonSlug": "greek",
+    "name": "벨레로폰",
+    "nameEn": "Bellerophon",
+    "epithet": "페가수스의 기수",
+    "domains": [
+      "영웅",
+      "괴물",
+      "하늘"
+    ],
+    "summary": "날개 달린 말 페가수스를 타고 괴물 키마이라를 물리친 영웅입니다.",
+    "order": 37
+  },
+  {
+    "slug": "orpheus",
+    "pantheonSlug": "greek",
+    "name": "오르페우스",
+    "nameEn": "Orpheus",
+    "epithet": "저승을 노래로 연 시인",
+    "domains": [
+      "음악",
+      "저승",
+      "사랑"
+    ],
+    "summary": "노래로 짐승과 바위까지 움직였다는 트라키아의 시인입니다.",
+    "order": 38
+  },
+  {
+    "slug": "diomedes",
+    "pantheonSlug": "greek",
+    "name": "디오메데스",
+    "nameEn": "Diomedes",
+    "epithet": "신에게 상처를 입힌 영웅",
+    "domains": [
+      "전쟁",
+      "용기"
+    ],
+    "summary": "트로이 전쟁에서 아테나의 도움으로 아레스와 아프로디테에게 상처를 입힌 아르고스의 왕입니다.",
+    "order": 39
+  },
+  {
+    "slug": "meleager",
+    "pantheonSlug": "greek",
+    "name": "멜레아그로스",
+    "nameEn": "Meleager",
+    "epithet": "칼리돈의 사냥꾼",
+    "domains": [
+      "사냥",
+      "운명"
+    ],
+    "summary": "칼리돈의 멧돼지 사냥을 이끈 영웅으로, 장작 한 토막에 목숨이 묶여 있었습니다.",
+    "order": 40
+  },
+  {
+    "slug": "ajax",
+    "pantheonSlug": "greek",
+    "name": "대 아이아스",
+    "nameEn": "Ajax the Great",
+    "epithet": "그리스군의 성벽",
+    "domains": [
+      "수호",
+      "힘",
+      "전쟁"
+    ],
+    "summary": "커다란 탑 같은 방패를 든, 아킬레우스 다음가는 그리스의 장수입니다.",
+    "order": 41
+  },
+  {
+    "slug": "cadmus",
+    "pantheonSlug": "greek",
+    "name": "카드모스",
+    "nameEn": "Cadmus",
+    "epithet": "테바이의 건국자",
+    "domains": [
+      "건국",
+      "문자",
+      "괴물"
+    ],
+    "summary": "용의 이빨을 뿌려 전사들을 길러 내고 테바이를 세운 영웅입니다.",
+    "order": 42
+  },
+  {
+    "slug": "cyrene",
+    "pantheonSlug": "greek",
+    "name": "키레네",
+    "nameEn": "Cyrene",
+    "epithet": "사자와 씨름한 님프",
+    "domains": [
+      "사냥",
+      "용기"
+    ],
+    "summary": "맨손으로 사자와 싸우다 아폴론의 눈에 든 라피타이족의 공주입니다.",
+    "order": 43
+  },
+  {
+    "slug": "psyche",
+    "pantheonSlug": "greek",
+    "name": "프시케",
+    "nameEn": "Psyche",
+    "epithet": "사랑을 찾은 영혼",
+    "domains": [
+      "사랑",
+      "모험",
+      "불사"
+    ],
+    "summary": "에로스와 사랑에 빠져 아프로디테의 시련을 견딘 끝에 신이 된 공주입니다.",
+    "order": 44
+  },
+  {
+    "slug": "penthesilea",
+    "pantheonSlug": "greek",
+    "name": "펜테실레이아",
+    "nameEn": "Penthesilea",
+    "epithet": "트로이에 온 아마조네스 여왕",
+    "domains": [
+      "전쟁",
+      "용기"
+    ],
+    "summary": "트로이를 돕다가 아킬레우스와 싸워 쓰러진 아마조네스의 여왕입니다.",
+    "order": 45
+  },
+  {
+    "slug": "antiope",
+    "pantheonSlug": "greek",
+    "name": "안티오페",
+    "nameEn": "Antiope",
+    "epithet": "아마조네스의 전사",
+    "domains": [
+      "전쟁",
+      "사랑"
+    ],
+    "summary": "테세우스에게 끌려가 그의 아내가 되었다는 아마조네스의 전사입니다.",
+    "order": 46
+  },
+  {
+    "slug": "britomartis",
+    "pantheonSlug": "greek",
+    "name": "브리토마르티스",
+    "nameEn": "Britomartis",
+    "epithet": "크레타의 그물 여신",
+    "domains": [
+      "사냥",
+      "바다"
+    ],
+    "summary": "미노스 왕을 피해 바다로 뛰어들었다가 어부의 그물에 건져졌다는 크레타의 여신입니다.",
+    "order": 47
+  },
+  {
+    "slug": "arjuna",
+    "pantheonSlug": "hindu",
+    "name": "아르주나",
+    "nameEn": "Arjuna",
+    "epithet": "판다바의 궁수",
+    "domains": [
+      "궁술",
+      "영웅",
+      "전쟁"
+    ],
+    "summary": "「마하바라타」의 판다바 형제 가운데 셋째로, 비할 데 없는 궁수입니다.",
+    "order": 9
+  },
+  {
+    "slug": "karna",
+    "pantheonSlug": "hindu",
+    "name": "카르나",
+    "nameEn": "Karna",
+    "epithet": "태양의 아들",
+    "domains": [
+      "궁술",
+      "맹세",
+      "선물"
+    ],
+    "summary": "태양신 수리야의 아들로, 갑옷과 귀걸이를 지니고 태어난 「마하바라타」의 비극적 영웅입니다.",
+    "order": 10
+  },
+  {
+    "slug": "rama",
+    "pantheonSlug": "hindu",
+    "name": "라마",
+    "nameEn": "Rama",
+    "epithet": "「라마야나」의 왕자",
+    "domains": [
+      "영웅",
+      "정의",
+      "궁술"
+    ],
+    "summary": "비슈누의 일곱 번째 화신으로, 납치된 아내 시타를 되찾으려 락샤사의 왕 라바나와 싸운 왕자입니다.",
+    "order": 11
+  },
+  {
+    "slug": "indra",
+    "pantheonSlug": "hindu",
+    "name": "인드라",
+    "nameEn": "Indra",
+    "epithet": "신들의 왕",
+    "domains": [
+      "번개",
+      "비",
+      "신들의 왕"
+    ],
+    "summary": "「리그베다」에서 가장 많이 찬양된 천둥과 비의 신이자 신들의 왕입니다.",
+    "order": 12
+  },
+  {
+    "slug": "parvati",
+    "pantheonSlug": "hindu",
+    "name": "파르바티",
+    "nameEn": "Parvati",
+    "epithet": "산의 딸",
+    "domains": [
+      "사랑",
+      "어머니",
+      "산"
+    ],
+    "summary": "히말라야의 딸이자 시바의 아내이며 가네샤의 어머니입니다.",
+    "order": 13
+  },
+  {
+    "slug": "kama",
+    "pantheonSlug": "hindu",
+    "name": "카마",
+    "nameEn": "Kama",
+    "epithet": "사랑의 신",
+    "domains": [
+      "사랑",
+      "욕망"
+    ],
+    "summary": "사탕수수 활과 꽃 화살을 든 사랑과 욕망의 신입니다.",
+    "order": 14
+  },
+  {
+    "slug": "ashwatthama",
+    "pantheonSlug": "hindu",
+    "name": "아슈바타만",
+    "nameEn": "Ashwatthama",
+    "epithet": "죽지 않는 전사",
+    "domains": [
+      "분노",
+      "불사",
+      "전쟁"
+    ],
+    "summary": "이마에 보석을 지니고 태어난 「마하바라타」의 전사로, 불사의 저주를 받았습니다.",
+    "order": 15
+  },
+  {
+    "slug": "bhima",
+    "pantheonSlug": "hindu",
+    "name": "비마",
+    "nameEn": "Bhima",
+    "epithet": "곤봉의 장사",
+    "domains": [
+      "힘",
+      "분노",
+      "전쟁"
+    ],
+    "summary": "바람의 신 바유의 아들로, 판다바 형제 가운데 가장 힘이 센 둘째입니다.",
+    "order": 16
+  },
+  {
+    "slug": "duryodhana",
+    "pantheonSlug": "hindu",
+    "name": "두료다나",
+    "nameEn": "Duryodhana",
+    "epithet": "카우라바의 맏이",
+    "domains": [
+      "왕권",
+      "권력",
+      "전쟁"
+    ],
+    "summary": "판다바와 왕국을 두고 크루크셰트라 전쟁을 벌인 카우라바 백 형제의 맏이입니다.",
+    "order": 17
+  },
+  {
+    "slug": "vritra",
+    "pantheonSlug": "hindu",
+    "name": "브리트라",
+    "nameEn": "Vritra",
+    "epithet": "물을 가둔 뱀",
+    "domains": [
+      "혼돈",
+      "뱀",
+      "물"
+    ],
+    "summary": "세상의 물을 가두어 가뭄을 일으킨 거대한 뱀 또는 아수라입니다.",
+    "order": 18
+  },
+  {
+    "slug": "parashurama",
+    "pantheonSlug": "hindu",
+    "name": "파라슈라마",
+    "nameEn": "Parashurama",
+    "epithet": "도끼를 든 화신",
+    "domains": [
+      "분노",
+      "전쟁",
+      "복수"
+    ],
+    "summary": "시바에게 받은 도끼 파라슈를 든 비슈누의 여섯 번째 화신입니다.",
+    "order": 19
+  },
+  {
+    "slug": "arash",
+    "pantheonSlug": "iranian",
+    "name": "아라시",
+    "nameEn": "Arash the Archer",
+    "epithet": "국경을 정한 궁수",
+    "domains": [
+      "궁술",
+      "헌신",
+      "나라 지키기"
+    ],
+    "summary": "목숨을 바친 화살 한 발로 이란과 투란의 국경을 정했다는 전설의 궁수입니다.",
+    "order": 4
+  },
+  {
+    "slug": "rostam",
+    "pantheonSlug": "iranian",
+    "name": "루스탐",
+    "nameEn": "Rostam",
+    "epithet": "「샤나메」의 영웅",
+    "domains": [
+      "영웅",
+      "힘",
+      "전쟁"
+    ],
+    "summary": "애마 락시를 타고 일곱 시련을 넘은 페르시아 최고의 영웅입니다.",
+    "order": 5
+  },
+  {
+    "slug": "fereydun",
+    "pantheonSlug": "iranian",
+    "name": "페레이둔",
+    "nameEn": "Fereydun",
+    "epithet": "폭군을 묶은 왕",
+    "domains": [
+      "왕권",
+      "정의"
+    ],
+    "summary": "뱀 어깨의 폭군 자하크를 쓰러뜨리고 다마반드산에 묶은 왕입니다.",
+    "order": 6
+  },
+  {
+    "slug": "kaveh",
+    "pantheonSlug": "iranian",
+    "name": "카베",
+    "nameEn": "Kaveh the Blacksmith",
+    "epithet": "가죽 앞치마의 대장장이",
+    "domains": [
+      "대장장이",
+      "정의",
+      "용기"
+    ],
+    "summary": "폭군 자하크에게 아들들을 잃고 가죽 앞치마를 깃발로 삼아 봉기한 대장장이입니다.",
+    "order": 7
+  },
+  {
+    "slug": "garshasp",
+    "pantheonSlug": "iranian",
+    "name": "케레사스파",
+    "nameEn": "Garshasp",
+    "epithet": "용을 죽인 영웅",
+    "domains": [
+      "영웅",
+      "괴물"
+    ],
+    "summary": "「아베스타」에 나오는 용 퇴치의 영웅입니다.",
+    "order": 8
+  },
+  {
+    "slug": "yamato-takeru",
+    "pantheonSlug": "japanese",
+    "name": "야마토타케루",
+    "nameEn": "Yamato Takeru",
+    "epithet": "동서를 평정한 왕자",
+    "domains": [
+      "영웅",
+      "전쟁",
+      "꾀"
+    ],
+    "summary": "「고사기」와 「일본서기」에 나오는 게이코 천황의 아들로, 동서를 원정한 전설적인 왕자입니다.",
+    "order": 7
+  },
+  {
+    "slug": "kiyohime",
+    "pantheonSlug": "japanese",
+    "name": "키요히메",
+    "nameEn": "Kiyohime",
+    "epithet": "큰 뱀이 된 여인",
+    "domains": [
+      "복수",
+      "변신",
+      "뱀"
+    ],
+    "summary": "자신을 버린 승려 안친을 쫓다 큰 뱀이 된 여인으로, 도조지 전설의 주인공입니다.",
+    "order": 8
+  },
+  {
+    "slug": "tamamo-no-mae",
+    "pantheonSlug": "japanese",
+    "name": "다마모노마에",
+    "nameEn": "Tamamo-no-Mae",
+    "epithet": "아홉 꼬리 여우",
+    "domains": [
+      "변신",
+      "속임수",
+      "혼돈"
+    ],
+    "summary": "도바 상황을 홀린 미녀로, 정체는 아홉 꼬리 여우였다고 전합니다.",
+    "order": 9
+  },
+  {
+    "slug": "shuten-doji",
+    "pantheonSlug": "japanese",
+    "name": "슈텐도지",
+    "nameEn": "Shuten-dōji",
+    "epithet": "오에산의 귀신 왕",
+    "domains": [
+      "괴물",
+      "악",
+      "힘"
+    ],
+    "summary": "오에산에 살며 도읍을 어지럽힌 오니들의 우두머리입니다.",
+    "order": 10
+  },
+  {
+    "slug": "ibaraki-doji",
+    "pantheonSlug": "japanese",
+    "name": "이바라키도지",
+    "nameEn": "Ibaraki-dōji",
+    "epithet": "라쇼몬의 오니",
+    "domains": [
+      "괴물",
+      "복수"
+    ],
+    "summary": "슈텐도지를 따르던 오니로, 라쇼몬에서 와타나베노 쓰나에게 팔을 잘렸습니다.",
+    "order": 11
+  },
+  {
+    "slug": "ibuki-doji",
+    "pantheonSlug": "japanese",
+    "name": "이부키도지",
+    "nameEn": "Ibuki-dōji",
+    "epithet": "이부키산의 귀신",
+    "domains": [
+      "괴물",
+      "산"
+    ],
+    "summary": "이부키산의 귀신으로, 슈텐도지와 같은 존재로도 전해집니다.",
+    "order": 12
+  },
+  {
+    "slug": "minamoto-no-raiko",
+    "pantheonSlug": "japanese",
+    "name": "미나모토노 라이코",
+    "nameEn": "Minamoto no Raikō",
+    "epithet": "오니 퇴치의 무장",
+    "domains": [
+      "악귀 퇴치",
+      "영웅",
+      "전쟁"
+    ],
+    "summary": "사천왕을 거느리고 슈텐도지와 거미 요괴를 물리친 헤이안 시대의 무장입니다.",
+    "order": 13
+  },
+  {
+    "slug": "sakata-kintoki",
+    "pantheonSlug": "japanese",
+    "name": "사카타노 긴토키",
+    "nameEn": "Sakata no Kintoki",
+    "epithet": "금태랑",
+    "domains": [
+      "힘",
+      "악귀 퇴치"
+    ],
+    "summary": "산속에서 곰과 씨름하며 자란 괴력의 소년 '긴타로'가 자라 라이코의 사천왕이 된 무사입니다.",
+    "order": 14
+  },
+  {
+    "slug": "watanabe-no-tsuna",
+    "pantheonSlug": "japanese",
+    "name": "와타나베노 쓰나",
+    "nameEn": "Watanabe no Tsuna",
+    "epithet": "오니의 팔을 벤 무사",
+    "domains": [
+      "악귀 퇴치",
+      "용기"
+    ],
+    "summary": "라이코의 사천왕 가운데 하나로, 이바라키도지의 팔을 벤 무사입니다.",
+    "order": 15
+  },
+  {
+    "slug": "tawara-toda",
+    "pantheonSlug": "japanese",
+    "name": "다와라 도타",
+    "nameEn": "Tawara Tōda",
+    "epithet": "큰 지네를 쏜 무사",
+    "domains": [
+      "궁술",
+      "악귀 퇴치"
+    ],
+    "summary": "용궁의 부탁으로 미카미산의 큰 지네를 활로 쏘아 죽인 무사입니다.",
+    "order": 16
+  },
+  {
+    "slug": "suzuka-gozen",
+    "pantheonSlug": "japanese",
+    "name": "스즈카고젠",
+    "nameEn": "Suzuka Gozen",
+    "epithet": "스즈카산의 천녀",
+    "domains": [
+      "마법",
+      "전쟁",
+      "사랑"
+    ],
+    "summary": "스즈카산의 도적 또는 천녀로, 사카노우에노 다무라마로와 얽힌 전설의 여인입니다.",
+    "order": 17
+  },
+  {
+    "slug": "benkei",
+    "pantheonSlug": "japanese",
+    "name": "벤케이",
+    "nameEn": "Benkei",
+    "epithet": "선 채로 죽은 승병",
+    "domains": [
+      "힘",
+      "헌신",
+      "수호"
+    ],
+    "summary": "요시쓰네를 끝까지 지킨 승병으로, 고조 대교에서 천 번째 칼을 노리다 요시쓰네에게 진 이야기로 유명합니다.",
+    "order": 18
+  },
+  {
+    "slug": "daikokuten",
+    "pantheonSlug": "japanese",
+    "name": "다이코쿠텐",
+    "nameEn": "Daikokuten",
+    "epithet": "부엌과 풍요의 신",
+    "domains": [
+      "부",
+      "풍요",
+      "행운"
+    ],
+    "summary": "쌀가마 위에서 망치를 든 칠복신의 하나입니다.",
+    "order": 19
+  },
+  {
+    "slug": "hanasaka-jiisan",
+    "pantheonSlug": "japanese",
+    "name": "꽃 피우는 할아버지",
+    "nameEn": "Hanasaka Jiisan",
+    "epithet": "마른 나무에 꽃을 피운 노인",
+    "domains": [
+      "선",
+      "풍요"
+    ],
+    "summary": "재를 뿌려 마른 나무에 꽃을 피웠다는 일본 옛이야기의 착한 할아버지입니다.",
+    "order": 20
+  },
+  {
+    "slug": "koga-saburo",
+    "pantheonSlug": "japanese",
+    "name": "고가 사부로",
+    "nameEn": "Kōga Saburō",
+    "epithet": "땅속 나라를 떠돈 무사",
+    "domains": [
+      "모험",
+      "변신",
+      "뱀"
+    ],
+    "summary": "사라진 공주를 찾아 땅속 나라를 떠돌다 큰 뱀이 되었다는 무사입니다.",
+    "order": 21
+  },
+  {
+    "slug": "daebyeol-sobyeol",
+    "pantheonSlug": "korean",
+    "name": "대별왕과 소별왕",
+    "nameEn": "Daebyeol and Sobyeol",
+    "epithet": "이승과 저승의 형제",
+    "domains": [
+      "궁술",
+      "저승",
+      "질서"
+    ],
+    "summary": "해와 달이 둘씩 떠 혼란하던 세상에서 하나씩 활로 쏘아 질서를 세운 쌍둥이 형제입니다.",
+    "order": 23
+  },
+  {
+    "slug": "geotaji",
+    "pantheonSlug": "korean",
+    "name": "거타지",
+    "nameEn": "Geotaji",
+    "epithet": "늙은 여우를 쏜 궁사",
+    "domains": [
+      "궁술",
+      "악귀 퇴치"
+    ],
+    "summary": "서해 용왕을 괴롭히던 늙은 여우를 활로 쏘아 죽인 신라의 궁사입니다.",
+    "order": 24
+  },
+  {
+    "slug": "utturi",
+    "pantheonSlug": "korean",
+    "name": "우투리",
+    "nameEn": "Utturi",
+    "epithet": "날개 달린 아기 장수",
+    "domains": [
+      "영웅",
+      "운명"
+    ],
+    "summary": "겨드랑이에 날개를 달고 태어났으나 뜻을 이루지 못한 지리산 전설의 아기 장수입니다.",
+    "order": 25
+  },
+  {
+    "slug": "jeon-u-chi",
+    "pantheonSlug": "korean",
+    "name": "전우치",
+    "nameEn": "Jeon Woo-chi",
+    "epithet": "도술을 부리는 선비",
+    "domains": [
+      "마법",
+      "속임수",
+      "정의"
+    ],
+    "summary": "도술로 탐관오리를 골탕 먹이고 백성을 도운 「전우치전」의 주인공입니다.",
+    "order": 26
+  },
+  {
+    "slug": "hong-gil-dong",
+    "pantheonSlug": "korean",
+    "name": "홍길동",
+    "nameEn": "Hong Gildong",
+    "epithet": "활빈당의 의적",
+    "domains": [
+      "정의",
+      "변신",
+      "속임수"
+    ],
+    "summary": "서자로 태어나 활빈당을 이끌며 탐관오리의 재물을 빼앗아 백성에게 나눈 의적입니다.",
+    "order": 27
+  },
+  {
+    "slug": "seol-jukhwa",
+    "pantheonSlug": "korean",
+    "name": "설죽화",
+    "nameEn": "Seol Juk-hwa",
+    "epithet": "남장한 여장수",
+    "domains": [
+      "전쟁",
+      "용기",
+      "헌신"
+    ],
+    "summary": "남장을 하고 거란군과 싸웠다는 고려의 여장수 전설입니다.",
+    "order": 28
+  },
+  {
+    "slug": "enkidu",
+    "pantheonSlug": "mesopotamian",
+    "name": "엔키두",
+    "nameEn": "Enkidu",
+    "epithet": "들판에서 빚어진 벗",
+    "domains": [
+      "야생",
+      "힘",
+      "짐승"
+    ],
+    "summary": "신들이 길가메시와 맞서도록 진흙으로 빚은 야생의 사람으로, 길가메시의 둘도 없는 벗이 되었습니다.",
+    "order": 6
+  },
+  {
+    "slug": "ereshkigal",
+    "pantheonSlug": "mesopotamian",
+    "name": "에레쉬키갈",
+    "nameEn": "Ereshkigal",
+    "epithet": "저승의 여왕",
+    "domains": [
+      "저승",
+      "죽음"
+    ],
+    "summary": "메소포타미아 저승 쿠르를 다스리는 여왕으로, 이슈타르의 언니입니다.",
+    "order": 7
+  },
+  {
+    "slug": "semiramis",
+    "pantheonSlug": "mesopotamian",
+    "name": "세미라미스",
+    "nameEn": "Semiramis",
+    "epithet": "전설의 여왕",
+    "domains": [
+      "왕권",
+      "정복"
+    ],
+    "summary": "그리스 역사가들이 전한 아시리아의 전설적인 여왕입니다.",
+    "order": 8
+  },
+  {
+    "slug": "sigurd",
+    "pantheonSlug": "norse",
+    "name": "시구르드",
+    "nameEn": "Sigurd",
+    "epithet": "용을 죽인 자",
+    "domains": [
+      "영웅",
+      "용기",
+      "운명"
+    ],
+    "summary": "용 파프니르를 죽이고 그 피로 새의 말을 알아듣게 된 볼숭 가문의 영웅입니다.",
+    "order": 9
+  },
+  {
+    "slug": "brynhild",
+    "pantheonSlug": "norse",
+    "name": "브륀힐드",
+    "nameEn": "Brynhild",
+    "epithet": "불꽃 속의 발키리",
+    "domains": [
+      "전쟁",
+      "운명",
+      "복수"
+    ],
+    "summary": "오딘의 뜻을 거슬러 불꽃 울타리 속에 잠든 발키리입니다.",
+    "order": 10
+  },
+  {
+    "slug": "skadi",
+    "pantheonSlug": "norse",
+    "name": "스카디",
+    "nameEn": "Skaði",
+    "epithet": "눈과 사냥의 여신",
+    "domains": [
+      "사냥",
+      "산",
+      "복수"
+    ],
+    "summary": "아버지 티아지의 복수를 위해 아스가르드를 찾아온 거인 출신의 여신입니다.",
+    "order": 11
+  },
+  {
+    "slug": "tjalfi",
+    "pantheonSlug": "norse",
+    "name": "티알피",
+    "nameEn": "Þjálfi",
+    "epithet": "토르의 시종",
+    "domains": [
+      "여행",
+      "헌신"
+    ],
+    "summary": "토르와 함께 거인들의 땅을 여행한 발 빠른 시종입니다.",
+    "order": 12
+  },
+  {
+    "slug": "skirnir",
+    "pantheonSlug": "norse",
+    "name": "스키르니르",
+    "nameEn": "Skírnir",
+    "epithet": "프레이의 사자",
+    "domains": [
+      "전령",
+      "여행"
+    ],
+    "summary": "프레이를 대신해 거인 게르드에게 청혼하러 간 사자입니다.",
+    "order": 13
+  },
+  {
+    "slug": "romulus",
+    "pantheonSlug": "roman",
+    "name": "로물루스",
+    "nameEn": "Romulus",
+    "epithet": "로마의 건국자",
+    "domains": [
+      "건국",
+      "전쟁",
+      "왕권"
+    ],
+    "summary": "늑대가 젖을 먹여 기른 쌍둥이 가운데 하나로, 로마를 세운 첫 왕입니다.",
+    "order": 1
+  },
+  {
+    "slug": "camilla",
+    "pantheonSlug": "roman",
+    "name": "카밀라",
+    "nameEn": "Camilla",
+    "epithet": "볼스키의 여전사",
+    "domains": [
+      "전쟁",
+      "사냥"
+    ],
+    "summary": "「아이네이스」에서 아이네이아스에 맞서 싸운 볼스키족의 여전사입니다.",
+    "order": 2
+  },
+  {
+    "slug": "aeneas",
+    "pantheonSlug": "roman",
+    "name": "아이네이아스",
+    "nameEn": "Aeneas",
+    "epithet": "트로이의 생존자",
+    "domains": [
+      "건국",
+      "운명",
+      "헌신"
+    ],
+    "summary": "불타는 트로이에서 아버지를 업고 빠져나와 로마의 시조가 된 영웅입니다.",
+    "order": 3
+  },
+  {
+    "slug": "dobrynya",
+    "pantheonSlug": "slavic",
+    "name": "도브리냐 니키티치",
+    "nameEn": "Dobrynya Nikitich",
+    "epithet": "뱀을 물리친 용사",
+    "domains": [
+      "영웅",
+      "용기",
+      "악귀 퇴치"
+    ],
+    "summary": "러시아 서사시 브일리나의 세 용사 가운데 하나로, 용 고리니치를 물리쳤습니다.",
+    "order": 4
+  },
+  {
+    "slug": "ilya-muromets",
+    "pantheonSlug": "slavic",
+    "name": "일리야 무로메츠",
+    "nameEn": "Ilya Muromets",
+    "epithet": "서른셋에 일어선 용사",
+    "domains": [
+      "힘",
+      "영웅",
+      "수호"
+    ],
+    "summary": "서른세 해 동안 걷지 못하다 순례자의 힘을 얻어 일어선 러시아 브일리나의 으뜸 용사입니다.",
+    "order": 5
+  },
+  {
+    "slug": "koschei",
+    "pantheonSlug": "slavic",
+    "name": "죽지 않는 코셰이",
+    "nameEn": "Koschei the Deathless",
+    "epithet": "죽음을 숨긴 마법사",
+    "domains": [
+      "불사",
+      "마법",
+      "악"
+    ],
+    "summary": "자신의 죽음을 바늘 끝에 숨겨 죽지 않는다는 러시아 옛이야기의 악당입니다.",
+    "order": 6
+  },
+  {
+    "slug": "marko-kraljevic",
+    "pantheonSlug": "slavic",
+    "name": "마르코 크랄례비치",
+    "nameEn": "Prince Marko",
+    "epithet": "세르비아 서사시의 왕자",
+    "domains": [
+      "영웅",
+      "힘",
+      "정의"
+    ],
+    "summary": "얼룩말 샤라츠를 타고 다니는 세르비아 서사시의 영웅입니다.",
+    "order": 7
+  },
+  {
+    "slug": "bruncvik",
+    "pantheonSlug": "slavic",
+    "name": "브룬츠비크",
+    "nameEn": "Bruncvík",
+    "epithet": "사자를 데려온 기사",
+    "domains": [
+      "영웅",
+      "모험",
+      "짐승"
+    ],
+    "summary": "사자를 구해 함께 돌아왔다는 체코 전설의 기사로, 프라하의 상징이 되었습니다.",
+    "order": 8
+  },
+  {
+    "slug": "erkhii-mergen",
+    "pantheonSlug": "turko-mongol",
+    "name": "에르히 메르겡",
+    "nameEn": "Erkhii Mergen",
+    "epithet": "해를 쏜 명궁",
+    "domains": [
+      "궁술",
+      "태양"
+    ],
+    "summary": "하늘에 뜬 일곱 해 가운데 여섯을 쏘아 떨어뜨렸다는 몽골의 명궁입니다.",
+    "order": 1
+  },
+  {
+    "slug": "alip-manash",
+    "pantheonSlug": "turko-mongol",
+    "name": "알립마나시",
+    "nameEn": "Alyp-Manash",
+    "epithet": "알타이의 용사",
+    "domains": [
+      "영웅",
+      "모험"
+    ],
+    "summary": "알타이 서사시의 용사로, 오랜 포로 생활 끝에 고향으로 돌아와 배신자들을 벌했습니다.",
+    "order": 2
   }
 ]
