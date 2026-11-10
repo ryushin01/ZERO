@@ -42,6 +42,8 @@ function cardsTab(ctx) {
   const { query = "", continent = "all", aspect = "all", seenOnly = false, source = "all" } = ctx.ui;
   const { seen } = ctx.records;
   const cards = filterCards(FIGURE_CARDS, { query, continent, aspect, seenOnly, seen, source });
+  // 히든 카드도 같은 검색어와 거르기로 찾습니다. (서가 복원과 출처 거르기에는 들지 않음)
+  const hidden = seenOnly || source !== "all" ? [] : filterCards(HIDDEN_CARDS, { query, continent, aspect });
   const ratio = seen.length / FIGURE_CARDS.length;
   return [
     h(
@@ -112,8 +114,12 @@ function cardsTab(ctx) {
         ),
       ),
     ),
-    h("p", { class: "codex__count label", role: "status" }, `${FIGURE_CARDS.length}장 가운데 ${cards.length}장`),
-    cards.length
+    h(
+      "p",
+      { class: "codex__count label", role: "status" },
+      `${FIGURE_CARDS.length}장 가운데 ${cards.length}장${hidden.length ? ` · 히든 ${hidden.length}장` : ""}`,
+    ),
+    cards.length || hidden.length
       ? h(
           "ul",
           { class: "codex__cards" },
@@ -136,13 +142,13 @@ function cardsTab(ctx) {
             ? "아직 복원한 신이 없습니다. 한 판을 시작하면 길잡이 신화의 신부터 기록됩니다."
             : "맞는 카드가 없습니다. 거르기를 풀어 보세요.",
         ),
-    hiddenSection(),
+    hiddenSection(hidden),
   ];
 }
 
-/** 히든 카드. 새 기록을 시작할 때 바로 데려갈 수 있습니다. */
-function hiddenSection() {
-  const cards = HIDDEN_CARDS;
+/** 히든 카드. 새 기록을 시작할 때 바로 데려갈 수 있습니다. @param {typeof HIDDEN_CARDS} cards 거르기를 거친 히든 카드 */
+function hiddenSection(cards) {
+  if (!cards.length) return null;
   return h(
     "section",
     { class: "codex__hidden", "aria-labelledby": "codex-hidden" },

@@ -117,7 +117,8 @@ test.describe("무구와 세력", () => {
     }
     await expect(page.locator("[data-announcer]")).not.toBeEmpty();
     await expect(arm).toHaveAttribute("aria-disabled", "true");
-    await expect(arm).toContainText("턴 뒤");
+    // 전투마다 한 번 쓰는 무구(아라시의 화살 등)는 “다 씀”으로 바뀝니다.
+    await expect(arm).toContainText(/턴 뒤|다 씀/);
     await expectAccessible(page);
   });
 
@@ -155,6 +156,14 @@ test.describe("히든", () => {
     const dialog = page.getByRole("dialog", { name: "유신" });
     await expect(dialog.getByRole("heading", { name: "영혼의 검" })).toBeVisible();
     await expectAccessible(page, "dialog");
+  });
+
+  test("도감에서 유신을 찾으면 히든 카드로 보여 줍니다", async ({ page }) => {
+    await page.goto("/#/codex");
+    await page.getByLabel("이름·영역으로 찾기").fill("유신");
+    await expect(page.getByRole("status").filter({ hasText: "히든 1장" })).toBeVisible();
+    await expect(page.getByText("맞는 카드가 없습니다")).toHaveCount(0);
+    await expect(page.getByRole("button", { name: /^유신 / })).toBeVisible();
   });
 
   test("유신 없이 시작할 수도 있고, 오늘의 신화에서는 고를 수 없습니다", async ({ page }) => {
