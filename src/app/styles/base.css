@@ -115,11 +115,14 @@ main:focus {
 
 /*
  * 칸 폭에 맞춘 큰 글자: 글자 수(--len)와 가장 가까운 컨테이너(container-type)의 폭(cqi)으로 크기를 정합니다.
- * 긴 영문 이름(MESOPOTAMIAN 등)이 옆 칸으로 넘치지 않고, --fit-max보다 커지지 않습니다.
+ * 긴 영문 이름(MESOPOTAMIAN 등)이 옆 칸으로 넘치지 않고, --fit-min과 --fit-max 사이에 머뭅니다.
  */
 .fit {
   max-width: 100%;
-  font-size: min(var(--fit-max, 3.5rem), calc(100cqi / (var(--len, 8) * 0.92)));
+  /* 너무 작아지지 않도록 rem 최소값을 두고(글자 크기 설정을 따름), 그래도 넘치면 줄을 바꿉니다. */
+  font-size: clamp(var(--fit-min, 1.5rem), calc(100cqi / (var(--len, 8) * 0.92)), var(--fit-max, 3.5rem));
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 /* 작은 대문자 라벨 */
