@@ -7,8 +7,16 @@ import { f } from "./kit.js";
  * @typedef {import("./figure.js").FigureSpec} FigureSpec
  */
 
-/** 굽이치는 큰 뱀이나 용. heads가 여럿이면 히드라처럼 목이 갈라집니다. @param {FigureSpec & { heads?: number, feathered?: boolean, scale?: string }} s */
+/** 굽이치는 큰 뱀이나 용. heads가 여럿이면 히드라처럼 목이 갈라지고, wings면 용처럼 날개를 폅니다. @param {FigureSpec & { heads?: number, feathered?: boolean, scale?: string, wings?: boolean }} s */
 export function serpent(s) {
+  const wingArt = s.wings
+    ? [-1, 1]
+        .map(
+          (side) =>
+            `<path d="M10 -96 Q${10 + side * 40} -170 ${10 + side * 86} -150 Q${10 + side * 64} -132 ${10 + side * 72} -112 Q${10 + side * 50} -116 ${10 + side * 48} -96 Q${10 + side * 30} -104 10 -88Z" fill="url(#dark)" opacity=".92"/><path d="M10 -96 L${10 + side * 86} -150 M10 -96 L${10 + side * 72} -112 M10 -96 L${10 + side * 48} -96" stroke="${s.scale ?? "#3a3a3a"}" stroke-width="1.6" opacity=".8"/>`,
+        )
+        .join("")
+    : "";
   const body = `M-60 -4 C-90 -30 -40 -60 -10 -50 C30 -40 50 -80 20 -110`;
   const scale = s.scale ?? "url(#cloth)";
   const coil = `<path d="${body}" stroke="url(#dark)" stroke-width="26" fill="none" stroke-linecap="round"/><path d="${body}" stroke="${scale}" stroke-width="20" fill="none" stroke-linecap="round"/><path d="${body}" stroke="url(#metal)" stroke-width="2" stroke-dasharray="3 6" fill="none" opacity=".7"/>`;
@@ -27,7 +35,7 @@ export function serpent(s) {
       : "";
     return `<path d="${neck}" stroke="url(#dark)" stroke-width="15" fill="none" stroke-linecap="round"/><path d="${neck}" stroke="${scale}" stroke-width="11" fill="none" stroke-linecap="round"/>${feathers}<path d="M${f(hx - 9)} ${f(hy)} Q${f(hx)} ${f(hy - 12)} ${f(hx + 16)} ${f(hy + 2)} L${f(hx + 6)} ${f(hy + 6)} L${f(hx + 14)} ${f(hy + 10)} Q${f(hx)} ${f(hy + 12)} ${f(hx - 9)} ${f(hy)}Z" fill="url(#dark)"/><circle cx="${f(hx + 2)}" cy="${f(hy - 2)}" r="1.8" fill="${s.glow}"/>`;
   }).join("");
-  return `${coil}${necks}`;
+  return `${wingArt}${coil}${necks}`;
 }
 
 /** 사람 상체에 뱀 꼬리 (여와, 놈모) @param {FigureSpec} s */
@@ -52,8 +60,11 @@ export function bird(s) {
   return `${wing(-1)}${wing(1)}<ellipse cx="0" cy="-80" rx="20" ry="34" fill="${fill}"/><circle cx="0" cy="-122" r="13" fill="${fill}"/><path d="M10 -124 L26 -118 L10 -114Z" fill="url(#metal)"/><circle cx="4" cy="-126" r="2" fill="${s.glow}"/><path d="M-8 -46 L-12 0 M8 -46 L12 0" stroke="url(#metal)" stroke-width="4"/>${held}`;
 }
 
-/** 네발짐승 (곰, 사자, 늑대, 여우, 재규어, 아미트) @param {FigureSpec & { beast: string, tails?: number }} s */
+/** 네발짐승 (곰, 사자, 늑대, 여우, 재규어, 아미트). chained면 펜리르처럼 사슬에 묶입니다. @param {FigureSpec & { beast: string, tails?: number, chained?: boolean }} s */
 export function beast(s) {
+  // 달의 옥토끼: 하얀 몸과 긴 귀, 절구를 찧는 공이
+  if (s.beast === "rabbit")
+    return `<ellipse cx="-4" cy="-44" rx="30" ry="26" fill="#efe9dc"/><circle cx="20" cy="-70" r="17" fill="#efe9dc"/><path d="M12 -84 Q6 -122 14 -128 Q22 -120 20 -86Z M24 -84 Q28 -124 36 -126 Q40 -116 30 -84Z" fill="#efe9dc"/><path d="M15 -90 Q12 -114 15 -120 M27 -90 Q31 -114 34 -118" stroke="#e8a8a0" stroke-width="2.4" fill="none"/><circle cx="27" cy="-72" r="2.2" fill="#a83a3a"/><circle cx="-34" cy="-36" r="7" fill="#efe9dc"/><path d="M-20 -2 h22 M8 -2 h18" stroke="#efe9dc" stroke-width="8" stroke-linecap="round"/><path d="M40 -8 L60 -8 L56 10 L44 10Z" fill="url(#dark)"/><path d="M30 -60 L52 -18" stroke="url(#metal)" stroke-width="4" stroke-linecap="round"/>`;
   const fur = s.beast === "wolf" || s.beast === "bear" ? "url(#dark)" : "url(#cloth)";
   const big = s.beast === "bear" ? 1.15 : 1;
   const legs = [-44, -26, 24, 42]
@@ -81,7 +92,10 @@ export function beast(s) {
     s.beast === "wolf" || s.beast === "ammit"
       ? `<path d="M70 -90 L90 -84 M74 -88 L76 -82 M82 -86 L84 -80" stroke="#f4efe0" stroke-width="2"/>`
       : "";
-  return `${tails}${legs}<ellipse cx="0" cy="-74" rx="${f(56 * big)}" ry="${f(32 * big)}" fill="${fur}"/>${s.beast === "jaguar" ? Array.from({ length: 10 }, (_, i) => `<circle cx="${-40 + i * 9}" cy="${-78 + (i % 2) * 10}" r="3" fill="#1a120a" opacity=".7"/>`).join("") : ""}${headShape}${ears}${snout}${jaw}<circle cx="60" cy="-106" r="2.2" fill="${s.glow}"/>`;
+  const chain = s.chained
+    ? `<path d="M-60 -2 Q-30 -40 0 -60 Q30 -78 50 -84" stroke="url(#metal)" stroke-width="3.4" stroke-dasharray="6 3" fill="none"/><path d="M40 -84 Q54 -70 66 -86" stroke="url(#metal)" stroke-width="3" stroke-dasharray="5 3" fill="none"/>`
+    : "";
+  return `${tails}${legs}<ellipse cx="0" cy="-74" rx="${f(56 * big)}" ry="${f(32 * big)}" fill="${fur}"/>${s.beast === "jaguar" ? Array.from({ length: 10 }, (_, i) => `<circle cx="${-40 + i * 9}" cy="${-78 + (i % 2) * 10}" r="3" fill="#1a120a" opacity=".7"/>`).join("") : ""}${headShape}${ears}${snout}${jaw}<circle cx="60" cy="-106" r="2.2" fill="${s.glow}"/>${chain}`;
 }
 
 /** 말 탄 영웅 @param {FigureSpec} s */

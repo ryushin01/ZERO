@@ -7,6 +7,7 @@
  * @typedef {import("./figures.js").Figure} Figure
  * @typedef {import("#shared/ui/illustration/index.js").SceneSpec} SceneSpec
  */
+import { mix } from "#shared/ui/illustration/index.js";
 
 /** 신화권의 색과 배경 */
 const REGIONS = {
@@ -360,11 +361,121 @@ const ICONS = {
   koschei: { f: { body: "hag", head: "crown", item: "staff", pose: "hold" } },
   enkidu: { f: { body: "warrior", head: "bare", hair: "#3a2a1a", item: "none", pose: "cast" } },
   ereshkigal: { f: { body: "gown", head: "horned", hair: "#1a120a", item: "staff", pose: "hold", wings: "dark" } },
-  "jade-rabbit": { form: "beast", c: { beast: "fox", tails: 1 } },
+  "jade-rabbit": { form: "beast", c: { beast: "rabbit" } },
   oberon: { f: { body: "robed", head: "crown", item: "orb", pose: "cast", wings: "light" } },
   melusine: { form: "naga", f: { head: "crown", hair: "#d9a441", item: "none", pose: "cast" } },
   rangda: { f: { body: "hag", head: "demon", hair: "#e8e2d4", item: "none", pose: "raise" } },
 };
+
+/**
+ * 신화 속 도상에서 가져온 동반 동물과 움직이는 자세, 머리 모양.
+ * 오딘의 까마귀, 아테나의 올빼미, 두르가의 사자처럼 전해지는 상징만 씁니다.
+ * @type {Record<string, Record<string, any>>}
+ */
+const EXTRAS = {
+  zeus: { companion: "eagle" },
+  odin: { companion: "ravens" },
+  thor: { companion: "goat", pose: "smite" },
+  athena: { companion: "owl", pose: "guard" },
+  freyja: { companion: "cat", hairStyle: "braid" },
+  artemis: { companion: "deer", hairStyle: "long" },
+  hera: { companion: "peacock", hairStyle: "long" },
+  aphrodite: { companion: "dove", hairStyle: "long" },
+  hades: { companion: "dog" },
+  dionysus: { companion: "tiger" },
+  tyr: { companion: "wolf", pose: "guard" },
+  horus: { companion: "eagle" },
+  bastet: { companion: "cat" },
+  anubis: { companion: "dog" },
+  durga: { companion: "lion", pose: "charge" },
+  shiva: { companion: "serpent" },
+  vishnu: { companion: "eagle" },
+  ishtar: { companion: "lion", hairStyle: "long" },
+  gilgamesh: { companion: "lion", pose: "smite" },
+  dangun: { companion: "bear" },
+  hwanung: { companion: "tiger" },
+  ungnyeo: { companion: "bear", hairStyle: "long" },
+  susanoo: { companion: "serpent", pose: "charge" },
+  cernunnos: { companion: "deer" },
+  morrigan: { companion: "ravens", hairStyle: "long" },
+  quetzalcoatl: { companion: "serpent" },
+  huitzilopochtli: { companion: "eagle", pose: "charge" },
+  romulus: { companion: "wolf" },
+  merlin: { companion: "owl" },
+  "morgan-le-fay": { companion: "raven", hairStyle: "long" },
+  "hou-yi": { companion: "raven", hairStyle: "topknot" },
+  "saint-george": { pose: "charge" },
+  // 움직이는 자세
+  sigurd: { pose: "smite", hairStyle: "braid" },
+  rostam: { pose: "smite" },
+  "paul-bunyan": { pose: "smite" },
+  "john-henry": { pose: "smite" },
+  parashurama: { pose: "smite" },
+  "sakata-kintoki": { pose: "smite" },
+  achilles: { pose: "charge" },
+  lancelot: { pose: "charge" },
+  nezha: { pose: "charge", hairStyle: "topknot" },
+  karna: { pose: "charge" },
+  bellerophon: { pose: "leap" },
+  perseus: { pose: "leap" },
+  "sun-wukong": { pose: "leap" },
+  "yamato-takeru": { pose: "leap", hairStyle: "topknot" },
+  "hong-gil-dong": { pose: "leap", hairStyle: "topknot" },
+  hector: { pose: "guard" },
+  galahad: { pose: "guard" },
+  roland: { pose: "guard" },
+  bedivere: { pose: "guard" },
+  brynhild: { pose: "charge", hairStyle: "braid" },
+  loki: { hairStyle: "wild" },
+  scathach: { pose: "charge", hairStyle: "braid" },
+  gareth: { pose: "guard" },
+};
+
+/** 옷 색을 신마다 밝게·어둡게, 혹은 다른 색 쪽으로 조금 옮깁니다. @param {string} cloth @param {string} slug */
+function tint(cloth, slug) {
+  const r = seedOf(`${slug}:cloth`);
+  const accents = ["#e8e2d4", "#1a1612", "#7a2a22", "#2a4a6a", "#4a5a2a", "#6a4a8a", "#a8742a"];
+  return mix(cloth, accents[Math.floor(r * accents.length)], 0.18 + r * 0.22);
+}
+
+/** 이름에서 얻는 고정 난수 (같은 신은 늘 같은 모습) @param {string} text */
+function seedOf(text) {
+  let h = 2166136261;
+  for (const ch of text) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
+  return (h >>> 0) / 4294967296;
+}
+
+/**
+ * 표에 없는 모습을 이름으로 고르게 섞습니다: 체격, 머리 모양, 싸우는 신의 자세.
+ * @param {Figure} figure @param {string} region @param {Record<string, any>} f
+ */
+function variety(figure, region, f) {
+  const r = seedOf(figure.slug);
+  const r2 = seedOf(`${figure.slug}:2`);
+  const female = f.body === "gown";
+  const fighter = f.body === "warrior" || f.body === "giant";
+  const eastern = region === "eastAsia";
+  return {
+    build: 0.92 + r * 0.18,
+    hairStyle: female
+      ? r2 < 0.5
+        ? "long"
+        : "braid"
+      : eastern && r2 < 0.5
+        ? "topknot"
+        : r2 > 0.85
+          ? "wild"
+          : undefined,
+    pose:
+      fighter && f.pose === "raise" && !f.shield
+        ? ["raise", "smite", "charge", "leap"][Math.floor(r2 * 4)]
+        : fighter && f.pose === "thrust"
+          ? r2 < 0.5
+            ? "charge"
+            : "thrust"
+          : f.pose,
+  };
+}
 
 const has = (domains, list) => domains.some((d) => list.includes(d));
 
@@ -434,8 +545,11 @@ function infer(figure) {
  * @returns {SceneSpec}
  */
 export function portraitSpec(figure, { aspect, legend }) {
-  const region = REGIONS[PANTHEON_REGION[figure.pantheonSlug] ?? "greek"] ?? REGIONS.greek;
+  const regionKey = PANTHEON_REGION[figure.pantheonSlug] ?? "greek";
+  const region = REGIONS[regionKey] ?? REGIONS.greek;
   const icon = ICONS[figure.slug] ?? infer(figure);
+  const base = icon.f ?? {};
+  const fig = icon.form && icon.form !== "figure" ? base : { ...base, ...variety(figure, regionKey, base) };
   return {
     id: figure.slug,
     form: /** @type {SceneSpec["form"]} */ (icon.form ?? "figure"),
@@ -443,13 +557,14 @@ export function portraitSpec(figure, { aspect, legend }) {
     sky: /** @type {[string, string]} */ (region.sky),
     glow: GLOW[aspect] ?? GLOW.sky,
     skin: icon.skin ?? region.skin,
-    cloth: region.cloth,
+    // 같은 신화권이라도 신마다 옷 색의 밝기와 기운이 조금씩 다릅니다.
+    cloth: icon.cloth ?? tint(region.cloth, figure.slug),
     metal: region.metal,
     legend,
     scale: legend ? 1.12 : 1.04,
     thunder: icon.thunder,
     fire: icon.fire,
-    figure: /** @type {any} */ (icon.f),
+    figure: /** @type {any} */ ({ ...fig, ...EXTRAS[figure.slug] }),
     creature: icon.c,
   };
 }

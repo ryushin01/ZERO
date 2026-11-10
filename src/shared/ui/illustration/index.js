@@ -146,3 +146,4 @@ export function illustrationUrl(key, make) {
 }
 
 export { ITEM_KINDS } from "./items.js";
+export { mix } from "./kit.js";
