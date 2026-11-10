@@ -5,7 +5,7 @@ import { cardDetail } from "./card-detail.js";
 describe("cardDetail", () => {
   it("Ark의 신 상세로 새 창 링크를 걸고 새 창임을 알립니다", () => {
     const el = cardDetail("odin");
-    const link = el.querySelector("a[href='https://ark-indol.vercel.app/figures/odin']");
+    const link = el.querySelector("a[href='https://ark-ryushin01.vercel.app/figures/odin']");
     expect(link?.getAttribute("target")).toBe("_blank");
     expect(link?.textContent).toContain("(새 창)");
   });

@@ -106,7 +106,7 @@ test.describe("도감", () => {
     const dialog = page.getByRole("dialog", { name: "제우스" });
     await expect(dialog.getByRole("link", { name: /Ark에서 제우스 읽기/ })).toHaveAttribute(
       "href",
-      "https://ark-indol.vercel.app/figures/zeus",
+      "https://ark-ryushin01.vercel.app/figures/zeus",
     );
     await expectAccessible(page, "dialog");
   });
