@@ -140,6 +140,16 @@
     "summary": "하늘과 땅을 가른 거인 반고, 사람을 빚은 여와, 불사의 복숭아를 기르는 서왕모의 이야기가 여러 책에 흩어져 전하는 신화입니다."
   },
   {
+    "slug": "roman",
+    "name": "로마 건국 전설",
+    "nameEn": "Roman",
+    "region": "이탈리아 반도",
+    "continent": "europe",
+    "eraLabel": "기원전 1세기경",
+    "eraYear": -30,
+    "summary": "늑대가 기른 쌍둥이 로물루스와 레무스, 트로이에서 건너온 아이네이아스의 후예가 로마를 세웠다는 전설입니다."
+  },
+  {
     "slug": "maya",
     "name": "마야 신화",
     "nameEn": "Maya",
@@ -180,6 +190,16 @@
     "summary": "브리튼으로 건너간 게르만족 앵글로색슨인의 신화로, 영웅 서사시 「베오울프」와 대장장이 웨일랜드 이야기가 전합니다."
   },
   {
+    "slug": "arabian-nights",
+    "name": "천일야화",
+    "nameEn": "One Thousand and One Nights",
+    "region": "페르시아·아라비아",
+    "continent": "asia",
+    "eraLabel": "9세기경",
+    "eraYear": 850,
+    "summary": "셰에라자드가 왕에게 밤마다 이야기를 들려주는 틀 속에 신드바드, 알라딘 같은 이야기가 담긴 중동의 설화 모음입니다."
+  },
+  {
     "slug": "tibetan",
     "name": "티베트 신화",
     "nameEn": "Tibetan",
@@ -210,6 +230,16 @@
     "summary": "사슴뿔을 단 신, 까마귀로 날아다니는 전쟁의 여신, 아일랜드의 영웅 쿠 훌린이 등장하는 서유럽 켈트족의 신화입니다."
   },
   {
+    "slug": "carolingian",
+    "name": "샤를마뉴 전설",
+    "nameEn": "Matter of France",
+    "region": "프랑크 왕국",
+    "continent": "europe",
+    "eraLabel": "11세기경",
+    "eraYear": 1100,
+    "summary": "샤를마뉴 대제와 열두 기사(팔라딘)가 사라센과 싸우는 이야기로, 「롤랑의 노래」에서 시작된 무훈시 전통입니다."
+  },
+  {
     "slug": "slavic",
     "name": "슬라브 신화",
     "nameEn": "Slavic",
@@ -220,6 +250,16 @@
     "summary": "천둥의 신 페룬과 숲속 마녀 바바 야가가 등장하는, 동유럽 슬라브족의 신화입니다."
   },
   {
+    "slug": "arthurian",
+    "name": "아서왕 전설",
+    "nameEn": "Arthurian",
+    "region": "브리튼",
+    "continent": "europe",
+    "eraLabel": "12세기경",
+    "eraYear": 1136,
+    "summary": "브리튼의 왕 아서와 원탁의 기사들, 마법사 멀린과 성배 탐색을 그린 중세 유럽의 기사 전설입니다."
+  },
+  {
     "slug": "hungarian",
     "name": "헝가리 신화",
     "nameEn": "Hungarian",
@@ -228,6 +268,16 @@
     "eraLabel": "1200년경",
     "eraYear": 1200,
     "summary": "신성한 새 투룰이 헝가리 왕가의 시작을 알렸다는 이야기가 전하는 마자르족의 신화입니다."
+  },
+  {
+    "slug": "germanic",
+    "name": "게르만 영웅 전설",
+    "nameEn": "Germanic heroic legend",
+    "region": "독일·라인강 유역",
+    "continent": "europe",
+    "eraLabel": "13세기 초",
+    "eraYear": 1200,
+    "summary": "「니벨룽겐의 노래」의 지크프리트와 크림힐트, 베른의 디트리히처럼 중세 독일어 서사시로 전해진 영웅 전설입니다."
   },
   {
     "slug": "norse",
@@ -268,6 +318,16 @@
     "eraLabel": "14~15세기",
     "eraYear": 1400,
     "summary": "사슴 가죽 그림 문서에 신들과 왕들의 계보를 그린 믹스텍 사람들의 신화와 전설입니다."
+  },
+  {
+    "slug": "european-folklore",
+    "name": "유럽 민담",
+    "nameEn": "European folklore",
+    "region": "잉글랜드·스위스·프랑스",
+    "continent": "europe",
+    "eraLabel": "14세기 이후",
+    "eraYear": 1400,
+    "summary": "셔우드 숲의 의적, 아들 머리 위의 사과를 쏜 명사수, 용을 물리친 성인처럼 유럽 곳곳에서 전해 온 민간 전설입니다."
   },
   {
     "slug": "indonesian",
@@ -380,6 +440,16 @@
     "summary": "창조신 마케마케와, 해마다 새알을 두고 겨룬 새 사람 의식이 전하는 이스터섬의 신화입니다."
   },
   {
+    "slug": "turko-mongol",
+    "name": "몽골·알타이 신화",
+    "nameEn": "Turko-Mongol",
+    "region": "몽골 초원·알타이산맥",
+    "continent": "asia",
+    "eraLabel": "구전 (19세기 채록)",
+    "eraYear": 1870,
+    "summary": "해를 쏜 명궁 에르히 메르겡, 저승을 다녀온 영웅 알립마나시처럼 초원과 산맥의 유목민이 구전으로 전한 신화와 영웅 서사시입니다."
+  },
+  {
     "slug": "haida",
     "name": "하이다 신화",
     "nameEn": "Haida",
@@ -388,6 +458,16 @@
     "eraLabel": "구전",
     "eraYear": 1880,
     "summary": "장난꾸러기이자 창조자인 까마귀가 세상에 빛과 사람을 가져왔다는 북서 해안 하이다족의 신화입니다."
+  },
+  {
+    "slug": "american-folklore",
+    "name": "북아메리카 민담",
+    "nameEn": "American folklore",
+    "region": "북아메리카",
+    "continent": "americas",
+    "eraLabel": "20세기 초",
+    "eraYear": 1910,
+    "summary": "벌목꾼들이 모닥불 곁에서 주고받던 허풍담에서 태어난, 거인 벌목꾼 폴 버니언 같은 북아메리카의 민담입니다."
   },
   {
     "slug": "ainu",

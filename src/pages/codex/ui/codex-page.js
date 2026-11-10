@@ -34,6 +34,9 @@ const toggle = (action, value, pressed, label) =>
     label,
   );
 
+/** Ark에 아직 없는 전설 확장 카드가 있는지 */
+const HAS_LEGENDS = FIGURE_CARDS.some((card) => card.source === "zero");
+
 /** @param {Ctx} ctx */
 function cardsTab(ctx) {
   const { query = "", continent = "all", aspect = "all", seenOnly = false, source = "all" } = ctx.ui;
@@ -89,13 +92,16 @@ function cardsTab(ctx) {
         toggle("aspect", "all", aspect === "all", "모든 속성"),
         Object.entries(ASPECTS).map(([key, a]) => toggle("aspect", key, aspect === key, `${a.mark} ${a.label}`)),
       ),
-      h(
-        "div",
-        { class: "codex__group", role: "group", "aria-label": "출처" },
-        toggle("source", "all", source === "all", "모든 출처"),
-        toggle("source", "ark", source === "ark", "Ark의 기록"),
-        toggle("source", "zero", source === "zero", "전설 확장"),
-      ),
+      // 전설 확장이 모두 Ark로 옮겨 가면 출처로 거를 일이 없으므로 감춥니다.
+      HAS_LEGENDS
+        ? h(
+            "div",
+            { class: "codex__group", role: "group", "aria-label": "출처" },
+            toggle("source", "all", source === "all", "모든 출처"),
+            toggle("source", "ark", source === "ark", "Ark의 기록"),
+            toggle("source", "zero", source === "zero", "전설 확장"),
+          )
+        : null,
       h(
         "div",
         { class: "codex__group", role: "group", "aria-label": "서가 복원" },
@@ -310,7 +316,9 @@ function view(ctx) {
       h(
         "p",
         null,
-        "Ark에 기록된 신과 영웅, 그리고 ZERO가 더한 아서왕 전설·인도 서사시·동아시아 설화 같은 전설의 영웅이 카드가 되었습니다. 카드를 누르면 소개와 함께 Ark 또는 위키백과로 이어집니다.",
+        HAS_LEGENDS
+          ? "Ark에 기록된 신과 영웅, 그리고 ZERO가 더한 전설의 영웅이 카드가 되었습니다. 카드를 누르면 소개와 함께 Ark 또는 위키백과로 이어집니다."
+          : "Ark에 기록된 신과 영웅, 아서왕 전설과 천일야화의 인물이 모두 카드가 되었습니다. 카드를 누르면 소개와 함께 Ark로 이어집니다.",
       ),
     ),
     h(
