@@ -134,7 +134,10 @@ function beginPlayerTurn(state) {
     player.statuses.erosion -= 1;
     if (checkDefeat(state)) return;
   }
-  if (player.statuses.foundation > 0) player.block += player.statuses.foundation;
+  if (player.statuses.foundation > 0) {
+    player.block += player.statuses.foundation;
+    log(state, `권능으로 ${withJosa(`방어 ${player.statuses.foundation}`, "을/를")} 얻었습니다.`, "player");
+  }
 
   let energy = BASE_ENERGY - player.statuses.eclipse;
   if (player.statuses.eclipse > 0) log(state, `일식으로 에너지가 ${player.statuses.eclipse} 줄었습니다.`, "enemy");

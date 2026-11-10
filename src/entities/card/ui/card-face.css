@@ -211,8 +211,9 @@ button.card:focus-visible .card__art img {
 }
 
 .card__note {
+  /* 그림 칸의 높이는 카드 폭으로 정해지므로, 카드가 길어져도 그림 아래쪽에 붙어 있습니다. */
   position: absolute;
-  bottom: calc(56% + 6px);
+  top: calc(var(--card-w) * 0.65 - 22px);
   left: 6px;
   right: 6px;
   z-index: 2;

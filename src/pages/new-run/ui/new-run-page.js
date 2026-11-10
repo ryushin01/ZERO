@@ -9,12 +9,15 @@ import "./new-run-page.css";
 const isDaily = (ctx) => ctx.route.params[0] === "daily";
 
 /** 오늘의 신화는 날짜로, 자유 도전은 화면에 담아 둔 무작위 시드로 @param {import("#app/render/app.js").PageContext} ctx */
-const seedOf = (ctx) => (isDaily(ctx) ? dailySeed(dailyKey()) : ctx.ui.seed);
+const seedOf = (ctx) => (isDaily(ctx) ? dailySeed(shownDay(ctx)) : ctx.ui.seed);
+
+/** 화면에 보여 준 날짜. 자정을 넘겨 고르면 지금 날짜와 달라집니다. @param {import("#app/render/app.js").PageContext} ctx */
+const shownDay = (ctx) => ctx.ui.day ?? dailyKey();
 
 /** @param {import("#app/render/app.js").PageContext} ctx */
 function view(ctx) {
   const daily = isDaily(ctx);
-  const today = dailyKey();
+  const today = shownDay(ctx);
   const seed = seedOf(ctx);
   const options = seed ? guideOptions(seed) : [];
   const ongoing = ctx.run && ctx.run.phase !== "victory" && ctx.run.phase !== "defeat";
@@ -104,7 +107,8 @@ export const newRunPage = {
   context: (ctx) => (isDaily(ctx) ? "오늘의 신화" : "새 기록"),
   view,
   mount(ctx) {
-    if (!ctx.ui.seed) ctx.setUi({ seed: randomSeed() });
+    if (isDaily(ctx)) ctx.setUi({ day: dailyKey() });
+    else if (!ctx.ui.seed) ctx.setUi({ seed: randomSeed() });
   },
   actions: {
     reroll(ctx) {
@@ -113,7 +117,13 @@ export const newRunPage = {
     },
     start(ctx, el) {
       const guide = /** @type {string} */ (el.dataset.slug);
-      const daily = isDaily(ctx) ? dailyKey() : null;
+      if (isDaily(ctx) && shownDay(ctx) !== dailyKey()) {
+        // 화면을 연 뒤 날짜가 바뀌었습니다. 오늘의 후보로 다시 그리고 다시 고르게 합니다.
+        ctx.setUi({ day: dailyKey() });
+        ctx.announce("날짜가 바뀌어 오늘의 신화 후보가 바뀌었습니다. 다시 골라 주세요.");
+        return;
+      }
+      const daily = isDaily(ctx) ? shownDay(ctx) : null;
       const seed = seedOf(ctx) ?? randomSeed();
       if (!daily) ctx.setUi({ seed: randomSeed() });
       ctx.setRun(createRun({ seed, guide, daily }));

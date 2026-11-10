@@ -9,6 +9,9 @@ import { h } from "#shared/lib/index.js";
 
 const SITE_URL = "https://zero-ryushin01.vercel.app/";
 
+/** 판마다 다른 값. 복사 표시가 다음 판으로 넘어가지 않게 씁니다. @param {NonNullable<Ctx["run"]>} run */
+const runKey = (run) => `${run.seed}:${run.path.length}:${run.daily ?? ""}`;
+
 /** @param {Ctx} ctx */
 export function endView(ctx) {
   const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
@@ -61,7 +64,11 @@ export function endView(ctx) {
       h("a", { href: "#/codex", class: "button" }, "도감 보기"),
       h("a", { href: "#/", class: "button button--quiet" }, "처음 화면"),
     ),
-    h("p", { class: "end__copied label", role: "status" }, ctx.ui.copied ? "결과를 복사했습니다." : ""),
+    h(
+      "p",
+      { class: "end__copied label", role: "status" },
+      ctx.ui.copiedRun === runKey(run) ? "결과를 복사했습니다." : "",
+    ),
     discovered.length
       ? [
           h("h2", { class: "label muted end__deck-title" }, `이번 판에 새로 복원한 신 ${discovered.length}명`),
@@ -92,7 +99,7 @@ export const endActions = {
     const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
     try {
       await navigator.clipboard.writeText(shareText(run, SITE_URL));
-      ctx.setUi({ copied: true });
+      ctx.setUi({ copiedRun: runKey(run) });
     } catch {
       ctx.announce("이 브라우저에서는 복사할 수 없습니다.");
     }

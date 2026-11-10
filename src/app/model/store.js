@@ -22,6 +22,15 @@ export function createStore() {
   const listeners = new Set();
   const emit = () => listeners.forEach((fn) => fn());
 
+  // 다른 탭에서 기록이 바뀌면 이 탭의 도감과 결과에도 반영합니다.
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", (event) => {
+      if (event.key !== STORAGE_KEYS.records) return;
+      state.records = normalizeRecords(storage.read(STORAGE_KEYS.records, null));
+      emit();
+    });
+  }
+
   return {
     state,
     subscribe(fn) {
@@ -31,12 +40,12 @@ export function createStore() {
     /** @param {import("#features/run/index.js").Run | null} run */
     setRun(run) {
       // 덱에 들어온 신과 끝난 판의 결과를 여러 판에 걸친 기록에 반영합니다.
+      // 다른 탭이 먼저 저장한 기록을 지우지 않도록, 저장된 최신 기록 위에 반영합니다.
       if (run) {
-        const result = recordRun(state.records, run);
-        if (result.records !== state.records) {
-          state.records = result.records;
-          storage.write(STORAGE_KEYS.records, state.records);
-        }
+        const latest = normalizeRecords(storage.read(STORAGE_KEYS.records, state.records));
+        const result = recordRun(latest, run);
+        if (result.records !== latest) storage.write(STORAGE_KEYS.records, result.records);
+        state.records = result.records;
         run = result.run;
       }
       state.run = run;
