@@ -16,6 +16,15 @@ describe("recordRun", () => {
     expect(again.run).toBe(next);
   });
 
+  it("히든 카드는 서가 복원과 따로 찾은 목록에 남깁니다", () => {
+    const run = createRun({ seed: 1, guide: "greek" });
+    run.deck.push({ uid: "y", id: "yushin", up: false });
+    const { records, run: next } = recordRun(emptyRecords(), run);
+    expect(records.seen).not.toContain("yushin");
+    expect(records.found).toEqual(["yushin"]);
+    expect(next.discovered).not.toContain("yushin");
+  });
+
   it("끝난 판은 한 번만 셉니다", () => {
     const run = { ...createRun({ seed: 2, guide: "norse" }), phase: "victory" };
     const first = recordRun(emptyRecords(), run);

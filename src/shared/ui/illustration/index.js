@@ -120,6 +120,7 @@ export function drawArmament(s) {
 
 /** 길쭉한 무구는 비스듬히 세우고, 작은 무구는 크게 키워 가운데 둡니다. */
 const LONG = new Set([
+  "ssangsudo",
   "spear",
   "trident",
   "bident",

@@ -92,6 +92,8 @@ export function backdrop(motif, tone, r) {
   const g = (inner) => `<g fill="${tone}" opacity=".85">${inner}</g>`;
   const hill = `<path d="M0 205 Q40 186 80 198 T160 192 T200 200 V260 H0Z"/>`;
   switch (motif) {
+    case "none":
+      return "";
     case "columns": {
       const cols = [18, 40, 160, 182]
         .map((x, i) => {

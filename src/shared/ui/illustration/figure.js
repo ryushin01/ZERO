@@ -6,11 +6,12 @@ import { f, mix } from "./kit.js";
  * 팔다리는 굵은 둥근 선으로 그려 관절 각도만으로 자세를 바꿉니다.
  *
  * @typedef {"warrior" | "robed" | "gown" | "giant" | "demon" | "hag"} Body
- * @typedef {"raise" | "thrust" | "hold" | "cast" | "rest"} Pose
+ * @typedef {"raise" | "thrust" | "hold" | "cast" | "rest" | "ground"} Pose
  * @typedef {{
  *   body: Body, head: string, item: string, pose: Pose,
  *   shield?: boolean, cape?: boolean, wings?: string | false, arms?: 2 | 4,
  *   oneHand?: boolean, beard?: boolean, hair?: string, noLegs?: boolean,
+ *   longHair?: boolean, collar?: string, sleeves?: boolean, hipHand?: boolean,
  *   skin: string, cloth: string, metal: string, glow: string, dark: string,
  * }} FigureSpec
  */
@@ -31,6 +32,7 @@ const POSES = {
   hold: { elbow: [32, -114], hand: [36, -98], angle: 0 },
   cast: { elbow: [40, -124], hand: [54, -142], angle: 20 },
   rest: { elbow: [28, -110], hand: [30, -88], angle: -8 },
+  ground: { elbow: [30, -112], hand: [34, -94], angle: 176 },
 };
 
 /** @param {number[][]} pts @param {string} stroke @param {number} w */
@@ -168,8 +170,15 @@ export function figure(s) {
   const torso = `<path d="M${-22 * bulk} -140 Q${-26 * bulk} -122 ${-15 * bulk} -100 H${15 * bulk} Q${26 * bulk} -122 ${22 * bulk} -140 Q0 -148 ${-22 * bulk} -140Z" fill="${torsoFill}"/>${armor ? `<path d="M-12 -128 Q0 -122 12 -128 M-10 -114 Q0 -110 10 -114" stroke="${s.dark}" stroke-opacity=".45" stroke-width="1.4" fill="none"/>` : ""}<path d="M-18 -101 H18 V-96 H-18Z" fill="url(#metal)"/>`;
 
   // 뒤쪽 팔(그림의 왼쪽): 방패를 들거나 내립니다. 티르처럼 한 손이 없을 수도 있습니다.
-  const backHand = s.shield ? [-32, -118] : s.oneHand ? [-24, -112] : [-30, -92];
-  const backArm = limb([P.shoulderL, [-30, -114], backHand], skin, 10 * bulk);
+  // 허리에 얹은 손: 팔꿈치를 바깥으로 꺾고 손을 허리띠에 둡니다.
+  const backHand = s.hipHand ? [-14, -98] : s.shield ? [-32, -118] : s.oneHand ? [-24, -112] : [-30, -92];
+  const backElbow = s.hipHand ? [-38, -112] : [-30, -114];
+  // 소매: 팔을 천으로 굵게 그리고 손만 살빛으로 둡니다.
+  const arm = (pts) =>
+    s.sleeves
+      ? limb(pts, cloth, 15 * bulk) + `<circle cx="${pts[2][0]}" cy="${pts[2][1]}" r="4.6" fill="${skin}"/>`
+      : limb(pts, skin, 10 * bulk);
+  const backArm = arm([P.shoulderL, backElbow, backHand]);
   const shieldArt = s.shield ? `<g transform="translate(-36 -116)">${shield(s)}</g>` : "";
 
   // 팔이 넷인 신: 뒤에 팔 한 쌍을 더 둡니다.
@@ -196,9 +205,21 @@ export function figure(s) {
         `<g transform="translate(-50 -168)">${item("flower", s)}</g><g transform="translate(48 -170)">${item("bell", s)}</g>`
       : "";
 
-  const frontArm = limb([P.shoulderR, pose.elbow, pose.hand], skin, 10 * bulk);
+  const frontArm = arm([P.shoulderR, pose.elbow, pose.hand]);
   const held = `<g transform="translate(${pose.hand[0]} ${pose.hand[1]}) rotate(${pose.angle})">${item(s.item, s, 92)}</g>`;
   const neck = `<path d="M-5 -150 H5 V-140 H-5Z" fill="${skin}"/>`;
+  // 등 뒤로 늘어뜨린 긴 머리
+  const backHair = s.longHair
+    ? `<path d="M-12 -164 Q-20 -130 -16 -96 Q-4 -88 4 -96 Q14 -120 12 -164Z" fill="${s.hair ?? "#111"}"/>`
+    : "";
+  // 한복 깃: 흰 동정이 V자로 여며지고 고름 두 가닥이 늘어집니다.
+  const collar = s.collar
+    ? `<path d="M-12 -144 L4 -112 M12 -144 L-2 -124" stroke="${s.collar}" stroke-width="3.4" stroke-linecap="round" fill="none"/><path d="M4 -112 Q8 -96 6 -70 M4 -112 Q12 -98 13 -78" stroke="${s.collar}" stroke-width="2.6" stroke-linecap="round" fill="none"/>`
+    : "";
+  // 앞머리가 한쪽 눈을 가립니다.
+  const bangs = s.longHair
+    ? `<path d="M-11 -163 Q0 -175 11 -166 Q13 -156 10 -146 Q8 -155 3 -159 Q-4 -162 -11 -163Z" fill="${s.hair ?? "#111"}"/>`
+    : "";
 
-  return `${wings(s)}${cape}${extra}${backArm}${legs}${skirt}${torso}${neck}${head(s)}${shieldArt}${frontArm}${held}`;
+  return `${wings(s)}${backHair}${cape}${extra}${backArm}${legs}${skirt}${torso}${collar}${neck}${head(s)}${bangs}${shieldArt}${frontArm}${held}`;
 }

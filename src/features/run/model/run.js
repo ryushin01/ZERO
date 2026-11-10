@@ -8,7 +8,7 @@ import { RELICS } from "#entities/relic/index.js";
 import { createRng, withJosa } from "#shared/lib/index.js";
 
 import { startCombat } from "./combat.js";
-import { getEvent } from "./events.js";
+import { getEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
 
 /**
  * 한 판의 흐름. 모든 함수는 run을 복사해 새 run을 돌려줍니다.
@@ -172,7 +172,11 @@ export function enterNode(prev, nodeId) {
       break;
     case "event":
       run.phase = "event";
-      run.event = roll(run, (rng) => rng.pick(["oracle", "mimir", "library", "lethe", "forge", "bari", "loki"]));
+      run.event = roll(run, (rng) =>
+        !run.deck.some((c) => c.id === "yushin") && rng.float() < HIDDEN_EVENT_CHANCE
+          ? HIDDEN_EVENT.id
+          : rng.pick(["oracle", "mimir", "library", "lethe", "forge", "bari", "loki"]),
+      );
       break;
     default:
       break;

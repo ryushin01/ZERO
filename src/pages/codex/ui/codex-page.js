@@ -1,5 +1,5 @@
-import { ARMAMENTS, armamentCard } from "#entities/armament/index.js";
-import { ASPECTS, cardFace, FIGURE_CARDS } from "#entities/card/index.js";
+import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
+import { ASPECTS, cardFace, FIGURE_CARDS, HIDDEN_CARDS } from "#entities/card/index.js";
 import { describeAction, enemyIllustration, ENEMIES } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { CONTINENT_LABEL, CONTINENTS, figuresOf, getFigure, getPantheon, PANTHEONS } from "#entities/figure/index.js";
@@ -130,7 +130,31 @@ function cardsTab(ctx) {
             ? "아직 복원한 신이 없습니다. 한 판을 시작하면 길잡이 신화의 신부터 기록됩니다."
             : "맞는 카드가 없습니다. 거르기를 풀어 보세요.",
         ),
+    hiddenSection(ctx.records.found),
   ];
+}
+
+/** 찾은 히든 카드만 보여 줍니다. 아직 찾지 못했다면 아무것도 그리지 않습니다. @param {string[]} found */
+function hiddenSection(found) {
+  const cards = HIDDEN_CARDS.filter((card) => found.includes(card.id));
+  if (!cards.length) return null;
+  return h(
+    "section",
+    { class: "codex__hidden", "aria-labelledby": "codex-hidden" },
+    h("h2", { id: "codex-hidden", class: "codex__hidden-title serif" }, "히든"),
+    h("p", { class: "muted codex__intro" }, "Ark에 기록되지 않은 자. 붉은 방에서 만났습니다."),
+    h(
+      "ul",
+      { class: "codex__cards" },
+      cards.map((card) =>
+        h(
+          "li",
+          { "data-key": card.id },
+          cardFace(card, { tag: "button", attrs: { "data-action": "open-card", "data-id": card.id } }),
+        ),
+      ),
+    ),
+  );
 }
 
 function enemiesTab() {
@@ -197,7 +221,9 @@ function enemiesTab() {
   );
 }
 
-function armamentsTab() {
+/** @param {Ctx} ctx */
+function armamentsTab(ctx) {
+  const hidden = HIDDEN_ARMAMENTS.filter((arm) => arm.owners.some((id) => ctx.records.found.includes(id)));
   return [
     h(
       "p",
@@ -207,7 +233,9 @@ function armamentsTab() {
     h(
       "ul",
       { class: "codex__arms" },
-      ARMAMENTS.map((arm) => h("li", { "data-key": arm.id }, armamentCard(arm, { heading: "h2", full: true }))),
+      [...ARMAMENTS, ...hidden].map((arm) =>
+        h("li", { "data-key": arm.id }, armamentCard(arm, { heading: "h2", full: true })),
+      ),
     ),
   ];
 }
@@ -298,7 +326,7 @@ function view(ctx) {
         : tab === "enemies"
           ? enemiesTab()
           : tab === "armaments"
-            ? armamentsTab()
+            ? armamentsTab(ctx)
             : tab === "factions"
               ? factionsTab()
               : relicsTab(),

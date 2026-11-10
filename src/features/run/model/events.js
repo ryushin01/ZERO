@@ -12,7 +12,7 @@
  *   pickPantheon: () => { slug: string, name: string },
  * }} EventTools
  * @typedef {{ id: string, label: string, result: string, available?: (run: Run) => boolean, apply: (run: Run, tools: EventTools) => void }} EventChoice
- * @typedef {{ id: string, title: string, en: string, figure: string, text: string[], choices: EventChoice[] }} EventDef
+ * @typedef {{ id: string, title: string, en: string, figure?: string, card?: string, text: string[], choices: EventChoice[] }} EventDef
  */
 
 /** @param {Run} run @param {number} amount */
@@ -214,7 +214,40 @@ export const EVENTS = [
   },
 ];
 
-const BY_ID = new Map(EVENTS.map((e) => [e.id, e]));
+/**
+ * 히든 사건. 사건 칸에서 드물게(HIDDEN_EVENT_CHANCE) 열리며, 유신과 영혼의 검을 얻습니다.
+ * @type {EventDef}
+ */
+export const HIDDEN_EVENT = {
+  id: "crimson",
+  title: "붉은 방",
+  en: "THE CRIMSON ROOM",
+  card: "yushin",
+  text: [
+    "서가 사이에 없던 문이 열리고, 온통 붉은 방이 나옵니다. 검은 도포를 입은 사내가 눈을 감은 채 긴 칼에 손을 얹고 서 있습니다.",
+    "“기록되지 않은 자는 지워지지도 않지.” 사내의 이름은 Ark 어디에도 없습니다.",
+  ],
+  choices: [
+    {
+      id: "follow",
+      label: "사내와 함께 간다 · 최대 체력 10을 잃고 유신 카드와 무구 영혼의 검 얻기",
+      result: "유신이 영혼의 검을 들고 덱에 들어왔습니다.",
+      apply(run, { makeCard }) {
+        run.maxHp = Math.max(1, run.maxHp - 10);
+        run.hp = Math.min(run.hp, run.maxHp);
+        run.deck.push(makeCard("yushin"));
+        // 무구 자리(3점)를 넘어도 함께 듭니다.
+        if (!run.armaments.includes("soul-sword")) run.armaments.push("soul-sword");
+      },
+    },
+    { ...leave, label: "문을 닫는다" },
+  ],
+};
+
+/** 사건 칸에서 히든 사건이 열릴 확률 (덱에 유신이 없을 때) */
+export const HIDDEN_EVENT_CHANCE = 0.08;
+
+const BY_ID = new Map([...EVENTS, HIDDEN_EVENT].map((e) => [e.id, e]));
 
 /** @param {string} id */
 export function getEvent(id) {

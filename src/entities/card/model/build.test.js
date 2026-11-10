@@ -18,6 +18,14 @@ describe("영역과 속성", () => {
   });
 });
 
+describe("히든 카드", () => {
+  it("유신은 신 카드와 서가 진행도에 들지 않지만 카드로 찾을 수 있습니다", () => {
+    expect(FIGURE_CARDS.some((c) => c.id === "yushin")).toBe(false);
+    expect(getCard("yushin")).toMatchObject({ source: "hidden", rarity: "hidden", cost: 0, retain: true });
+    expect(describeCard(getCard("yushin"))[0]).toContain("모든 적");
+  });
+});
+
 describe("신 카드", () => {
   it("Ark의 신과 영웅과 ZERO 전설 확장이 모두 카드가 됩니다", () => {
     expect(FIGURE_CARDS).toHaveLength(FIGURES.length);

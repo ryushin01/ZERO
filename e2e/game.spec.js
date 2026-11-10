@@ -134,6 +134,35 @@ test.describe("무구와 세력", () => {
   });
 });
 
+test.describe("히든", () => {
+  test("붉은 방에서 유신과 영혼의 검을 얻고, 도감에 히든으로 남습니다", async ({ page }) => {
+    await startRun(page);
+    await page.evaluate(() => {
+      const run = JSON.parse(localStorage.getItem("zero:run"));
+      localStorage.setItem("zero:run", JSON.stringify({ ...run, phase: "event", event: "crimson" }));
+    });
+    await page.reload();
+    await expect(page.getByRole("heading", { level: 1, name: "붉은 방" })).toBeVisible();
+    await expect(page.getByRole("img", { name: /유신의 일러스트/ })).toBeVisible();
+    await expectAccessible(page);
+    await page.getByRole("button", { name: /사내와 함께 간다/ }).click();
+    await expect(page.getByRole("heading", { name: "무구 2" })).toBeVisible();
+    await expect(page.getByText("유신이 영혼의 검을 들고 덱에 들어왔습니다.").first()).toBeVisible();
+
+    await page.goto("/#/codex");
+    await expect(page.getByRole("heading", { name: "히든" })).toBeVisible();
+    await page.getByRole("button", { name: /^유신 / }).click();
+    const dialog = page.getByRole("dialog", { name: "유신" });
+    await expect(dialog.getByRole("heading", { name: "영혼의 검" })).toBeVisible();
+    await expectAccessible(page, "dialog");
+  });
+
+  test("찾기 전에는 도감에 보이지 않습니다", async ({ page }) => {
+    await page.goto("/#/codex");
+    await expect(page.getByRole("heading", { name: "히든" })).toHaveCount(0);
+  });
+});
+
 test.describe("오늘의 신화와 서가 복원", () => {
   test("오늘의 신화로 시작하면 길잡이 신화의 신 둘이 서가에 복원됩니다", async ({ page }) => {
     await page.goto("/#/new/daily");

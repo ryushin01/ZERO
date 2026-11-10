@@ -173,6 +173,20 @@ describe("무구", () => {
     expect(canUseArmament(state, "vasavi-shakti").reason).toContain("이미 썼습니다");
   });
 
+  it("영혼의 검은 에너지 없이 모든 적의 방어를 뚫고, 체력을 되찾고, 다음 턴에 돌아옵니다", () => {
+    let state = withArms(["soul-sword"]);
+    state.player.hp = 50;
+    state.enemies[0].block = 30;
+    const hp = state.enemies[0].hp;
+    state = useArmament(state, "soul-sword");
+    expect(state.enemies[0].hp).toBe(Math.max(0, hp - 24));
+    expect(state.player.hp).toBe(56);
+    expect(state.energy).toBe(3);
+    expect(canUseArmament(state, "soul-sword").ok).toBe(false);
+    state = endTurn(state);
+    expect(canUseArmament(state, "soul-sword").ok).toBe(true);
+  });
+
   it("우자트의 눈은 약화·취약·침식을 씻어 냅니다", () => {
     const state = withArms(["wedjat"]);
     state.player.statuses.weak = 2;

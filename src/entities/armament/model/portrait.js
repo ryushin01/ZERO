@@ -7,7 +7,14 @@ export function armamentSpec(arm) {
     id: `arm-${arm.id}`,
     item: arm.item,
     sky: /** @type {[string, string]} */ (region.sky),
-    glow: arm.item === "fireserpent" ? "#ff8a3a" : arm.item === "eye" ? "#7af0d6" : "#fff0b0",
+    glow:
+      arm.item === "fireserpent"
+        ? "#ff8a3a"
+        : arm.item === "eye"
+          ? "#7af0d6"
+          : arm.pantheon === "hidden"
+            ? "#f4efe0"
+            : "#fff0b0",
     metal: region.metal,
     cloth: region.cloth,
   };

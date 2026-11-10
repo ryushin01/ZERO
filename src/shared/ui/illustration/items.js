@@ -11,6 +11,9 @@ const WOOD = "#3b2a1c";
 
 /** @type {Record<string, (c: ItemColors, len: number) => string>} */
 const ITEMS = {
+  // 쌍수도: 곧고 아주 긴 외날, 둥근 놋쇠 코등이, 붉은 실을 감은 두 손 자루 (손잡이가 0, 위로 날)
+  ssangsudo: (c, l) =>
+    `<path d="M-2.6 -9 V${-l * 1.15} Q-1.4 ${-l * 1.22} 2.8 ${-l * 1.2} L2.8 -9Z" fill="url(#metal)"/><path d="M-0.4 -11 V${-l * 1.14}" stroke="#ffffff" stroke-opacity=".45" stroke-width=".7"/><rect x="-8" y="-9.5" width="16" height="4" rx="2" fill="#d9b25a"/><rect x="-2.8" y="-5.5" width="5.6" height="26" fill="#a3161a"/>${[0, 1, 2, 3, 4, 5].map((i) => `<path d="M-2.8 ${-4 + i * 4} L2.8 ${-1 + i * 4} M2.8 ${-4 + i * 4} L-2.8 ${-1 + i * 4}" stroke="#5e0a0c" stroke-width=".8"/>`).join("")}<rect x="-3.2" y="20" width="6.4" height="3" rx="1" fill="#d9b25a"/>`,
   spear: (c, l) =>
     `<path d="M-1.6 ${l * 0.35} V${-l}" stroke="${WOOD}" stroke-width="3.2"/><path d="M0 ${-l - 22} L5 ${-l - 4} L0 ${-l + 2} L-5 ${-l - 4}Z" fill="url(#metal)"/>`,
   sword: (c, l) =>
