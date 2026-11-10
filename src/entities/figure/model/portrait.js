@@ -438,6 +438,14 @@ function tint(cloth, slug) {
   return mix(cloth, accents[Math.floor(r * accents.length)], 0.18 + r * 0.22);
 }
 
+/**
+ * 한국 신화권은 색 없이 흑백으로 그립니다: 신과 무구는 한지 같은 밝은 회색, 괴물은 먹 같은 짙은 회색.
+ */
+export const MONO_ACCENT = { light: "#d4cfc5", dark: "#2a2927" };
+
+/** 흑백으로 그리는 신화 계열 */
+const MONO_PANTHEONS = new Set(["korean"]);
+
 /** 이름에서 얻는 고정 난수 (같은 신은 늘 같은 모습) @param {string} text */
 function seedOf(text) {
   let h = 2166136261;
@@ -557,6 +565,7 @@ export function portraitSpec(figure, { aspect, legend }) {
     sky: /** @type {[string, string]} */ (region.sky),
     glow: GLOW[aspect] ?? GLOW.sky,
     skin: icon.skin ?? region.skin,
+    accent: MONO_PANTHEONS.has(figure.pantheonSlug) ? MONO_ACCENT.light : undefined,
     // 같은 신화권이라도 신마다 옷 색의 밝기와 기운이 조금씩 다릅니다.
     cloth: icon.cloth ?? tint(region.cloth, figure.slug),
     metal: region.metal,
@@ -569,4 +578,4 @@ export function portraitSpec(figure, { aspect, legend }) {
   };
 }
 
-export { PANTHEON_REGION, REGIONS };
+export { MONO_PANTHEONS, PANTHEON_REGION, REGIONS };
