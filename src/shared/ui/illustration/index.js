@@ -1,4 +1,17 @@
-import { beast, bird, giantHead, moai, naga, pair, rider, scorpionMan, serpent, stone, voidRing } from "./creatures.js";
+import {
+  beast,
+  bird,
+  giantHead,
+  moai,
+  naga,
+  pair,
+  post,
+  rider,
+  scorpionMan,
+  serpent,
+  stone,
+  voidRing,
+} from "./creatures.js";
 import { figure } from "./figure.js";
 import { item } from "./items.js";
 import {
@@ -23,7 +36,7 @@ import {
  *
  * @typedef {{
  *   id: string,
- *   form: "figure" | "serpent" | "naga" | "bird" | "beast" | "rider" | "stone" | "moai" | "pair" | "head" | "void" | "scorpion",
+ *   form: "figure" | "serpent" | "naga" | "bird" | "beast" | "rider" | "stone" | "post" | "moai" | "pair" | "head" | "void" | "scorpion",
  *   motif: string,
  *   sky: [string, string],
  *   glow: string, skin: string, cloth: string, metal: string, dark?: string,
@@ -58,6 +71,8 @@ function subject(s) {
       return rider(spec);
     case "stone":
       return stone(spec);
+    case "post":
+      return post(spec);
     case "moai":
       return moai(spec);
     case "pair":

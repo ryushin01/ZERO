@@ -141,3 +141,8 @@ export function scorpionMan(s) {
   const tail = `M-10 -90 Q-60 -110 -56 -170 Q-50 -200 -24 -190`;
   return `<path d="${tail}" stroke="url(#dark)" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="12 3"/><path d="M-24 -190 L-10 -186 L-22 -178Z" fill="url(#metal)"/>${figure({ ...s, body: "warrior" })}`;
 }
+
+/** 장승: 갓을 쓴 나무 기둥에 부릅뜬 눈과 드러낸 이를 새긴 마을의 수호신 @param {FigureSpec} _s */
+export function post(_s) {
+  return `<path d="M-20 0 L-18 -150 Q0 -160 18 -150 L20 0Z" fill="url(#dark)"/><path d="M-12 -40 V-6 M0 -60 V-6 M12 -40 V-6" stroke="#000" stroke-opacity=".35" stroke-width="1.6"/><ellipse cx="0" cy="-160" rx="34" ry="6" fill="url(#dark)"/><path d="M-14 -162 Q-14 -186 0 -186 Q14 -186 14 -162Z" fill="url(#dark)"/><circle cx="-9" cy="-130" r="7" fill="#ece4da"/><circle cx="9" cy="-130" r="7" fill="#ece4da"/><circle cx="-9" cy="-130" r="3" fill="#000"/><circle cx="9" cy="-130" r="3" fill="#000"/><path d="M-4 -124 L0 -110 L4 -124" fill="none" stroke="#000" stroke-width="2"/><path d="M-12 -102 H12 V-94 H-12Z" fill="#ece4da"/><path d="M-8 -102 V-94 M-3 -102 V-94 M3 -102 V-94 M8 -102 V-94" stroke="#000" stroke-width="1.2"/><path d="M-14 -84 V-20 M14 -84 V-20" stroke="#000" stroke-opacity=".25" stroke-width="1"/>`;
+}
