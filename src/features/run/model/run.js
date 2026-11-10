@@ -1,6 +1,8 @@
+import { ARMAMENT_SLOTS, ARMAMENTS } from "#entities/armament/index.js";
 import { FIGURE_CARDS, getCard } from "#entities/card/index.js";
 import { ENCOUNTERS } from "#entities/enemy/index.js";
 import { figuresOf, getPantheon, PANTHEONS } from "#entities/figure/index.js";
+import { factionStatus, perksOf } from "#entities/faction/index.js";
 import { generateMap, reachableNodes } from "#entities/map/index.js";
 import { RELICS } from "#entities/relic/index.js";
 import { createRng, withJosa } from "#shared/lib/index.js";
@@ -15,10 +17,13 @@ import { getEvent } from "./events.js";
  * @typedef {import("./combat.js").CombatState} CombatState
  * @typedef {"map" | "battle" | "reward" | "rest" | "shrine" | "event" | "pick" | "victory" | "defeat"} Phase
  * @typedef {{ purpose: "remove" | "upgrade", count: number, title: string, then: Phase, cost?: { hp?: number } }} PickRequest
- * @typedef {{ cards: string[], relics: string[], relicPick: boolean, cardTaken: boolean, relicTaken: boolean, title: string }} Reward
+ * @typedef {{
+ *   cards: string[], relics: string[], relicPick: boolean, cardTaken: boolean, relicTaken: boolean, title: string,
+ *   armaments?: string[], armamentTaken?: boolean,
+ * }} Reward
  * @typedef {{
  *   version: number, seed: number, rng: number, guide: string,
- *   hp: number, maxHp: number, deck: CardInstance[], relics: string[], ankhUsed: boolean,
+ *   hp: number, maxHp: number, deck: CardInstance[], relics: string[], ankhUsed: boolean, armaments: string[],
  *   act: 1 | 2 | 3, map: import("#entities/map/index.js").ActMap, position: { row: number, lane: number } | null,
  *   phase: Phase, combat: CombatState | null, reward: Reward | null, event: string | null, pick: PickRequest | null,
  *   lastEncounter: string, nextUid: number, notice: string | null, path: string[], recorded?: boolean,
@@ -78,6 +83,7 @@ export function createRun({ seed, guide, daily = null }) {
     maxHp: START_HP,
     deck: [],
     relics: [],
+    armaments: [],
     ankhUsed: false,
     act: 1,
     map: generateMap(1, seed),
@@ -101,6 +107,9 @@ export function createRun({ seed, guide, daily = null }) {
     ...guideCards(guide),
   ];
   run.deck = ids.map((id) => makeCard(run, id));
+  // 길잡이 신화에 전해지는 무구가 있으면 그것을, 없으면 아무 무구나 하나 들고 떠납니다.
+  const native = ARMAMENTS.filter((a) => a.pantheon === guide);
+  run.armaments = [roll(run, (rng) => rng.pick(native.length ? native : ARMAMENTS)).id];
   return run;
 }
 
@@ -125,6 +134,8 @@ function beginBattle(run, enemyIds, tier) {
     seed: roll(run, (rng) => rng.int(1, 2 ** 30)),
     tier,
     ankhUsed: run.ankhUsed,
+    armaments: run.armaments,
+    perks: perksOf(factionStatus(run.deck.map((c) => getCard(c.id).pantheonSlug))),
   });
 }
 
@@ -243,6 +254,8 @@ export function updateCombat(prev, combat) {
 
   run.combat = null;
   if (run.relics.includes("yeouiju")) run.hp = Math.min(run.maxHp, run.hp + 5);
+  const endHeal = combat.perks?.endHeal ?? 0;
+  if (endHeal) run.hp = Math.min(run.maxHp, run.hp + endHeal);
   const { tier } = combat;
   if (tier === "normal") run.stats.battles += 1;
   if (tier === "elite") run.stats.elites += 1;
@@ -256,6 +269,8 @@ export function updateCombat(prev, combat) {
     relicPick: tier === "boss",
     cardTaken: false,
     relicTaken: false,
+    armaments: tier === "elite" && run.armaments.length < ARMAMENT_SLOTS ? rollArmaments(run, 2) : [],
+    armamentTaken: false,
   };
   return run;
 }
@@ -266,6 +281,23 @@ export function takeCard(prev, cardId) {
   const run = clone(prev);
   run.deck.push(makeCard(run, cardId));
   /** @type {Reward} */ (run.reward).cardTaken = true;
+  return run;
+}
+
+/** 아직 없는 무구 후보 @param {Run} run @param {number} count */
+function rollArmaments(run, count) {
+  const unowned = ARMAMENTS.filter((a) => !run.armaments.includes(a.id)).map((a) => a.id);
+  return roll(run, (rng) => rng.sample(unowned, count));
+}
+
+/** 보상 무구 하나를 고릅니다 @param {Run} prev @param {string} id */
+export function takeArmament(prev, id) {
+  const reward = prev.reward;
+  if (!reward || reward.armamentTaken || !reward.armaments?.includes(id)) return prev;
+  if (prev.armaments.length >= ARMAMENT_SLOTS) return prev;
+  const run = clone(prev);
+  run.armaments.push(id);
+  /** @type {Reward} */ (run.reward).armamentTaken = true;
   return run;
 }
 
@@ -302,7 +334,9 @@ export function leaveReward(prev) {
   run.act = /** @type {2 | 3} */ (run.act + 1);
   run.map = generateMap(run.act, run.seed);
   run.position = null;
-  run.hp = Math.min(run.maxHp, run.hp + Math.ceil((run.maxHp - run.hp) * 0.6));
+  run.hp = run.relics.includes("golden-apple")
+    ? run.maxHp
+    : Math.min(run.maxHp, run.hp + Math.ceil((run.maxHp - run.hp) * 0.6));
   run.phase = "map";
   return run;
 }

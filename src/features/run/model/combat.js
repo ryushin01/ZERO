@@ -1,3 +1,4 @@
+import { getArmament } from "#entities/armament/index.js";
 import { describeEffect, getCard } from "#entities/card/index.js";
 import { getEnemy, isNemesis } from "#entities/enemy/index.js";
 import { createRng, withJosa } from "#shared/lib/index.js";
@@ -20,6 +21,7 @@ import { createRng, withJosa } from "#shared/lib/index.js";
  *   draw: CardInstance[], hand: CardInstance[], discard: CardInstance[], exhaust: CardInstance[], powers: CardInstance[],
  *   chain: { pantheon: string, continent: string | null } | null,
  *   attackPlayed: boolean, relics: string[], ankhUsed: boolean,
+ *   armaments: { id: string, cd: number }[], playedFigures: string[], perks: import("#entities/faction/index.js").Perks,
  *   rng: number, log: LogEntry[], history: LogEntry[], outcome: "win" | "lose" | null, tier: "normal" | "elite" | "boss",
  * }} CombatState
  */
@@ -52,10 +54,22 @@ function withRng(state, fn) {
  * @param {{
  *   deck: CardInstance[], hp: number, maxHp: number, relics: string[],
  *   enemyIds: string[], seed: number, tier?: CombatState["tier"], ankhUsed?: boolean,
+ *   armaments?: string[], perks?: CombatState["perks"],
  * }} options
  * @returns {CombatState}
  */
-export function startCombat({ deck, hp, maxHp, relics, enemyIds, seed, tier = "normal", ankhUsed = false }) {
+export function startCombat({
+  deck,
+  hp,
+  maxHp,
+  relics,
+  enemyIds,
+  seed,
+  tier = "normal",
+  ankhUsed = false,
+  armaments = [],
+  perks = {},
+}) {
   const rng = createRng(seed);
   /** @type {CombatState} */
   const state = {
@@ -87,6 +101,9 @@ export function startCombat({ deck, hp, maxHp, relics, enemyIds, seed, tier = "n
     attackPlayed: false,
     relics,
     ankhUsed,
+    armaments: armaments.map((id) => ({ id, cd: 0 })),
+    playedFigures: [],
+    perks,
     rng: rng.state,
     log: [],
     history: [],
@@ -94,10 +111,7 @@ export function startCombat({ deck, hp, maxHp, relics, enemyIds, seed, tier = "n
     tier,
   };
 
-  if (relics.includes("aegis")) {
-    state.player.block += 10;
-    log(state, "아이기스: 방어 10");
-  }
+  applyStartPerks(state);
   if (relics.includes("feather")) {
     for (const enemy of state.enemies) enemy.statuses.weak += 1;
     log(state, "마아트의 깃털: 모든 적에게 약화 1");
@@ -106,6 +120,34 @@ export function startCombat({ deck, hp, maxHp, relics, enemyIds, seed, tier = "n
   log(state, `${withJosa(names, "이/가")} 나타났습니다.`, "enemy");
   beginPlayerTurn(state);
   return remember(state);
+}
+
+/** 세력이 전투 시작에 거는 효과 @param {CombatState} state */
+function applyStartPerks(state) {
+  const p = state.perks;
+  const parts = [];
+  if (p.startBlock) {
+    state.player.block += p.startBlock;
+    parts.push(`방어 ${p.startBlock}`);
+  }
+  if (p.startStrength) {
+    state.player.statuses.strength += p.startStrength;
+    parts.push(`힘 ${p.startStrength}`);
+  }
+  for (const [kind, status, label] of /** @type {const} */ ([
+    ["startWeakAll", "weak", "약화"],
+    ["startVulnAll", "vulnerable", "취약"],
+    ["startErosionAll", "erosion", "침식"],
+  ])) {
+    if (!p[kind]) continue;
+    for (const enemy of state.enemies) enemy.statuses[status] += p[kind];
+    parts.push(`모든 적에게 ${label} ${p[kind]}`);
+  }
+  if (p.startDamageAll) {
+    for (const enemy of state.enemies) hitEnemy(state, enemy, p.startDamageAll);
+    parts.push(`모든 적에게 피해 ${p.startDamageAll}`);
+  }
+  if (parts.length) log(state, `세력의 힘: ${parts.join(", ")}`, "player");
 }
 
 /** @param {CombatState} state @param {number} count */
@@ -134,6 +176,12 @@ function beginPlayerTurn(state) {
     player.statuses.erosion -= 1;
     if (checkDefeat(state)) return;
   }
+  if (state.perks.turnBlock) player.block += state.perks.turnBlock;
+  if (state.perks.turnHeal && player.hp < player.maxHp) {
+    player.hp = Math.min(player.maxHp, player.hp + state.perks.turnHeal);
+    log(state, `세력의 힘으로 체력 ${state.perks.turnHeal} 회복`, "player");
+  }
+  if (state.turn > 1) for (const arm of state.armaments) arm.cd = Math.max(0, arm.cd - 1);
   if (player.statuses.foundation > 0) {
     player.block += player.statuses.foundation;
     log(state, `권능으로 ${withJosa(`방어 ${player.statuses.foundation}`, "을/를")} 얻었습니다.`, "player");
@@ -142,14 +190,16 @@ function beginPlayerTurn(state) {
   let energy = BASE_ENERGY - player.statuses.eclipse;
   if (player.statuses.eclipse > 0) log(state, `일식으로 에너지가 ${player.statuses.eclipse} 줄었습니다.`, "enemy");
   player.statuses.eclipse = 0;
-  if (state.turn === 1 && state.relics.includes("gungnir")) energy += 1;
+  if (state.turn === 1) energy += state.perks.firstEnergy ?? 0;
   if (state.turn % 3 === 0 && state.relics.includes("draupnir")) energy += 1;
   state.energy = Math.max(0, energy);
   state.maxEnergy = BASE_ENERGY;
 
   state.chain = null;
   state.attackPlayed = false;
-  drawCards(state, HAND_SIZE + (state.turn === 1 && state.relics.includes("cheonbuin") ? 2 : 0));
+  state.playedFigures = [];
+  const extra = state.turn === 1 ? (state.relics.includes("ariadne") ? 2 : 0) + (state.perks.firstDraw ?? 0) : 0;
+  drawCards(state, HAND_SIZE + extra);
 }
 
 /** 쓰러졌는지 보고, 앙크가 있으면 한 번 되살립니다 @param {CombatState} state */
@@ -191,7 +241,9 @@ export function chainOf(state, card) {
   return null;
 }
 
-const CHAIN_RATE = { resonance: RESONANCE, echo: ECHO };
+/** 공명·울림의 배율. 운명의 서판 세력은 공명을 더 키웁니다. @param {CombatState} state @param {"resonance" | "echo"} chain */
+const chainRate = (state, chain) =>
+  chain === "resonance" ? RESONANCE + (state.perks?.resonanceBoost ?? 0) / 100 : ECHO;
 
 /**
  * 손에 든 카드가 지금 내면 어떤 수치가 되는지. 대상별 취약·천적은 빼고 계산합니다.
@@ -200,20 +252,27 @@ const CHAIN_RATE = { resonance: RESONANCE, echo: ECHO };
 export function previewCard(state, instance) {
   const card = getCard(instance.id, instance.up);
   const chain = chainOf(state, card);
-  const rate = chain ? CHAIN_RATE[chain] : 1;
+  const rate = chain ? chainRate(state, chain) : 1;
+  const effects = scaleEffects(state, card.effects, rate);
+  return { card, chain, effects, lines: effects.map(describeEffect) };
+}
+
+/**
+ * 효과 수치에 배율·힘·약화를 반영합니다. 카드와 무구가 함께 씁니다.
+ * @param {CombatState} state @param {any[]} list @param {number} rate
+ */
+function scaleEffects(state, list, rate) {
   const strength = state.player.statuses.strength;
   const weak = state.player.statuses.weak > 0;
-  const kusanagi = card.type === "attack" && !state.attackPlayed && state.relics.includes("kusanagi") ? 4 : 0;
-  const effects = card.effects.map((effect) => {
+  return list.map((effect) => {
     if (effect.op === "damage") {
-      let value = Math.floor(effect.value * rate) + strength + kusanagi;
+      let value = Math.floor(effect.value * rate) + strength;
       if (weak) value = Math.floor(value * 0.75);
       return { ...effect, value: Math.max(0, value) };
     }
     if (["block", "heal", "erosion"].includes(effect.op)) return { ...effect, value: Math.floor(effect.value * rate) };
     return effect;
   });
-  return { card, chain, effects, lines: effects.map(describeEffect) };
 }
 
 /** @param {CombatState} state @param {string} uid */
@@ -234,9 +293,9 @@ export const livingEnemies = (state) => state.enemies.filter((e) => e.hp > 0);
  * 적에게 피해를 줍니다. 반환값은 실제로 깎인 체력.
  * @param {CombatState} state @param {EnemyState} enemy @param {number} amount
  */
-function hitEnemy(state, enemy, amount) {
+function hitEnemy(state, enemy, amount, pierce = false) {
   let rest = amount;
-  if (enemy.block > 0) {
+  if (enemy.block > 0 && !pierce) {
     const absorbed = Math.min(enemy.block, rest);
     enemy.block -= absorbed;
     rest -= absorbed;
@@ -247,27 +306,13 @@ function hitEnemy(state, enemy, amount) {
 }
 
 /**
- * 카드를 냅니다.
- * @param {CombatState} prev @param {string} uid @param {string | null} [targetUid]
- * @returns {CombatState}
+ * 효과를 차례로 적용합니다. 카드와 무구가 함께 씁니다.
+ * @param {CombatState} state @param {any[]} effects @param {EnemyState | null} target
+ * @param {{ figureSlug: string | null, pantheonSlug: string | null, domains: string[] }} source 천적 판정에 쓰는 출처
+ * @param {string[]} parts 기록할 문장
  */
-export function playCard(prev, uid, targetUid = null) {
-  const check = canPlay(prev, uid);
-  if (!check.ok) return prev;
-  const state = clone(prev);
-  state.log = [];
-  const index = state.hand.findIndex((c) => c.uid === uid);
-  const [instance] = state.hand.splice(index, 1);
-  const { card, chain, effects } = previewCard(prev, instance);
-
-  const alive = livingEnemies(state);
-  const target = card.target === "enemy" ? (alive.find((e) => e.uid === targetUid) ?? alive[0] ?? null) : null;
-
-  state.energy -= card.cost;
-  const parts = [];
-  if (chain === "resonance") parts.push("공명");
-  if (chain === "echo") parts.push("울림");
-
+function applyEffects(state, effects, target, source, parts) {
+  const card = source;
   for (const effect of effects) {
     switch (effect.op) {
       case "damage": {
@@ -280,7 +325,7 @@ export function playCard(prev, uid, targetUid = null) {
           if (enemy.statuses.vulnerable > 0) value = Math.floor(value * 1.5);
           let dealt = 0;
           for (let i = 0; i < (effect.times ?? 1); i += 1) {
-            if (enemy.hp > 0) dealt += hitEnemy(state, enemy, value);
+            if (enemy.hp > 0) dealt += hitEnemy(state, enemy, value, Boolean(effect.pierce));
           }
           parts.push(`${def.name}에게 피해 ${dealt}${nemesis ? " (천적)" : ""}`);
         }
@@ -323,10 +368,43 @@ export function playCard(prev, uid, targetUid = null) {
         );
         break;
       }
+      case "cleanse": {
+        const st = state.player.statuses;
+        st.weak = 0;
+        st.vulnerable = 0;
+        st.erosion = 0;
+        parts.push("약화·취약·침식을 씻어 냄");
+        break;
+      }
       default:
         break;
     }
   }
+}
+
+/**
+ * 카드를 냅니다.
+ * @param {CombatState} prev @param {string} uid @param {string | null} [targetUid]
+ * @returns {CombatState}
+ */
+export function playCard(prev, uid, targetUid = null) {
+  const check = canPlay(prev, uid);
+  if (!check.ok) return prev;
+  const state = clone(prev);
+  state.log = [];
+  const index = state.hand.findIndex((c) => c.uid === uid);
+  const [instance] = state.hand.splice(index, 1);
+  const { card, chain, effects } = previewCard(prev, instance);
+
+  const alive = livingEnemies(state);
+  const target = card.target === "enemy" ? (alive.find((e) => e.uid === targetUid) ?? alive[0] ?? null) : null;
+
+  state.energy -= card.cost;
+  const parts = [];
+  if (chain === "resonance") parts.push("공명");
+  if (chain === "echo") parts.push("울림");
+
+  applyEffects(state, effects, target, card, parts);
 
   if (card.type === "attack") state.attackPlayed = true;
   if (card.type === "power") state.powers.push(instance);
@@ -335,10 +413,7 @@ export function playCard(prev, uid, targetUid = null) {
 
   log(state, `${card.name}${card.upgraded ? "+" : ""}: ${parts.join(", ")}`, "player");
 
-  if (chain === "resonance" && state.relics.includes("mjolnir")) {
-    for (const enemy of livingEnemies(state)) hitEnemy(state, enemy, 3);
-    log(state, "묠니르: 모든 적에게 피해 3", "player");
-  }
+  if (card.figureSlug) state.playedFigures.push(card.figureSlug);
   state.chain = card.pantheonSlug ? { pantheon: card.pantheonSlug, continent: card.continent } : null;
 
   checkVictory(state);
@@ -481,4 +556,60 @@ export function endTurn(prev) {
 function remember(state) {
   state.history = [...state.history, ...state.log].slice(-40);
   return state;
+}
+
+/**
+ * 무구가 지금 어떤 수치가 되는지. 주인 신의 카드를 이번 턴에 냈다면 효과가 늘어납니다.
+ * @param {CombatState} state @param {string} id
+ */
+export function previewArmament(state, id) {
+  const arm = getArmament(id);
+  const withOwner = arm.owners.some((slug) => state.playedFigures.includes(slug));
+  const rate = withOwner && arm.bonus === "power" ? 1.5 : 1;
+  const effects = scaleEffects(state, arm.effects, rate);
+  const target = effects.some((e) => ["damage", "erosion", "vulnerable", "weak"].includes(e.op) && !e.all)
+    ? "enemy"
+    : "none";
+  return { arm, withOwner, effects, target };
+}
+
+/** @param {CombatState} state @param {string} id */
+export function canUseArmament(state, id) {
+  if (state.outcome) return { ok: false, reason: "전투가 끝났습니다." };
+  const slot = state.armaments.find((a) => a.id === id);
+  if (!slot) return { ok: false, reason: "지니지 않은 무구입니다." };
+  const arm = getArmament(id);
+  if (slot.cd > 0)
+    return { ok: false, reason: `${withJosa(arm.name, "은/는")} ${slot.cd}턴 뒤에 다시 쓸 수 있습니다.` };
+  if (arm.cost > state.energy)
+    return { ok: false, reason: `에너지가 부족합니다. (필요 ${arm.cost}, 남은 ${state.energy})` };
+  return { ok: true, reason: "" };
+}
+
+/**
+ * 무구를 씁니다.
+ * @param {CombatState} prev @param {string} id @param {string | null} [targetUid]
+ * @returns {CombatState}
+ */
+export function useArmament(prev, id, targetUid = null) {
+  if (!canUseArmament(prev, id).ok) return prev;
+  const state = clone(prev);
+  state.log = [];
+  const { arm, withOwner, effects, target: kind } = previewArmament(prev, id);
+  const alive = livingEnemies(state);
+  const target = kind === "enemy" ? (alive.find((e) => e.uid === targetUid) ?? alive[0] ?? null) : null;
+  state.energy -= arm.cost;
+
+  const parts = withOwner ? [`${withJosa(arm.owner, "과/와")} 함께`] : [];
+  // 주인 신을 천적으로 둔 괴물에게는 무구도 천적으로 통합니다. (비슈누의 원반과 라후 등)
+  const source = { figureSlug: arm.owners[0], pantheonSlug: arm.pantheon, domains: [] };
+  applyEffects(state, effects, target, source, parts);
+
+  const slot = /** @type {{ id: string, cd: number }} */ (state.armaments.find((a) => a.id === id));
+  slot.cd = withOwner && arm.bonus === "return" ? 0 : arm.cooldown;
+  if (withOwner && arm.bonus === "return") parts.push(`${withJosa(arm.name, "이/가")} 손으로 돌아옴`);
+  log(state, `${arm.name}: ${parts.join(", ")}`, "player");
+
+  checkVictory(state);
+  return remember(state);
 }

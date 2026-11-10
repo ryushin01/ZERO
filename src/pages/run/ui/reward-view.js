@@ -1,6 +1,7 @@
+import { ARMAMENT_SLOTS, armamentCard, getArmament } from "#entities/armament/index.js";
 import { cardFace, getCard } from "#entities/card/index.js";
 import { getRelic, relicCard } from "#entities/relic/index.js";
-import { leaveReward, takeCard, takeRelic } from "#features/run/index.js";
+import { leaveReward, takeArmament, takeCard, takeRelic } from "#features/run/index.js";
 import { h, withJosa } from "#shared/lib/index.js";
 
 /** @typedef {import("#app/render/app.js").PageContext} Ctx */
@@ -63,6 +64,43 @@ export function rewardView(ctx) {
           ),
         )
       : null,
+    reward.armaments?.length
+      ? h(
+          "section",
+          { class: "reward__group", "aria-labelledby": "reward-arms" },
+          h(
+            "h2",
+            { id: "reward-arms", class: "label muted" },
+            reward.armamentTaken ? "무구를 들었습니다" : `무구 하나 고르기 (최대 ${ARMAMENT_SLOTS}점)`,
+          ),
+          h(
+            "ul",
+            { class: "reward__arms" },
+            reward.armaments.map((id) => {
+              const arm = getArmament(id);
+              const owned = run.armaments.includes(id);
+              return h(
+                "li",
+                { "data-key": `arm-${id}` },
+                armamentCard(arm, {
+                  full: true,
+                  footer: h(
+                    "button",
+                    {
+                      type: "button",
+                      class: ["button", !reward.armamentTaken && "button--solid"],
+                      "data-action": "take-armament",
+                      "data-id": id,
+                      "aria-disabled": reward.armamentTaken ? "true" : null,
+                    },
+                    owned ? "들었음" : `${arm.name} 들기`,
+                  ),
+                }),
+              );
+            }),
+          ),
+        )
+      : null,
     reward.relics.length
       ? h(
           "section",
@@ -120,6 +158,16 @@ export const rewardActions = {
     const id = /** @type {string} */ (el.dataset.id);
     ctx.setRun(takeCard(run, id));
     ctx.announce(`${withJosa(getCard(id).name, "을/를")} 덱에 넣었습니다. 덱 ${run.deck.length + 1}장.`);
+  },
+  "take-armament"(ctx, el) {
+    const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
+    if (run.reward?.armamentTaken) {
+      ctx.announce("이번 보상에서는 무구를 이미 골랐습니다.");
+      return;
+    }
+    const arm = getArmament(/** @type {string} */ (el.dataset.id));
+    ctx.setRun(takeArmament(run, arm.id));
+    ctx.announce(`${withJosa(arm.name, "을/를")} 들었습니다. 전투에서 에너지 ${arm.cost}로 휘두를 수 있습니다.`);
   },
   "take-relic"(ctx, el) {
     const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);

@@ -2,7 +2,15 @@ import { getCard } from "#entities/card/index.js";
 import { getEnemy } from "#entities/enemy/index.js";
 import { reachableNodes } from "#entities/map/index.js";
 
-import { canPlay, endTurn, livingEnemies, playCard, previewCard } from "../model/combat.js";
+import {
+  canPlay,
+  canUseArmament,
+  endTurn,
+  livingEnemies,
+  playCard,
+  previewCard,
+  useArmament,
+} from "../model/combat.js";
 import { getEvent } from "../model/events.js";
 import {
   chooseEvent,
@@ -12,6 +20,7 @@ import {
   requestPick,
   resolvePick,
   rest,
+  takeArmament,
   takeCard,
   takeRelic,
   updateCombat,
@@ -64,6 +73,14 @@ export function autoBattle(start, maxTurns = 60) {
       const target = livingEnemies(state).reduce((a, b) => (b.hp < a.hp ? b : a));
       state = playCard(state, best.uid, target.uid);
     }
+    // 남은 에너지로 쓸 수 있는 무구를 휘두릅니다.
+    for (const slot of state.armaments) {
+      if (state.outcome) break;
+      if (canUseArmament(state, slot.id).ok) {
+        const target = livingEnemies(state).reduce((a, b) => (b.hp < a.hp ? b : a));
+        state = useArmament(state, slot.id, target.uid);
+      }
+    }
     if (!state.outcome) state = endTurn(state);
   }
   return state;
@@ -97,6 +114,7 @@ export function autoRun(start, random) {
           run = takeCard(run, best);
         }
         if (reward.relics.length) run = takeRelic(run, reward.relics[0]);
+        if (reward.armaments?.length) run = takeArmament(run, reward.armaments[0]);
         run = leaveReward(run);
         break;
       }

@@ -1,6 +1,8 @@
+import { ARMAMENTS, armamentCard } from "#entities/armament/index.js";
 import { ASPECTS, cardFace, FIGURE_CARDS } from "#entities/card/index.js";
-import { describeAction, ENEMIES } from "#entities/enemy/index.js";
-import { CONTINENT_LABEL, CONTINENTS, getFigure, getPantheon } from "#entities/figure/index.js";
+import { describeAction, enemyIllustration, ENEMIES } from "#entities/enemy/index.js";
+import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
+import { CONTINENT_LABEL, CONTINENTS, figuresOf, getFigure, getPantheon, PANTHEONS } from "#entities/figure/index.js";
 import { relicCard, RELICS } from "#entities/relic/index.js";
 import { h } from "#shared/lib/index.js";
 
@@ -13,6 +15,8 @@ import "./codex-page.css";
 const TABS = [
   { id: "cards", label: "신과 영웅" },
   { id: "enemies", label: "괴물" },
+  { id: "armaments", label: "무구" },
+  { id: "factions", label: "세력" },
   { id: "relics", label: "유물" },
 ];
 
@@ -130,6 +134,14 @@ function enemiesTab() {
       h(
         "li",
         { class: "codex-enemy", "data-key": enemy.id },
+        h("img", {
+          class: "codex-enemy__art",
+          src: enemyIllustration(enemy.id),
+          alt: "",
+          width: 200,
+          height: 260,
+          loading: "lazy",
+        }),
         h(
           "p",
           { class: "label muted" },
@@ -178,6 +190,69 @@ function enemiesTab() {
   );
 }
 
+function armamentsTab() {
+  return [
+    h(
+      "p",
+      { class: "codex__intro muted" },
+      "신화 속 무구는 전투에서 에너지를 써서 직접 휘두르고, 쓰고 나면 몇 턴 쉬어야 합니다. 주인 신의 카드를 낸 턴에 쓰면 더 강해집니다. 이야기와 생김새는 위키백과와 나무위키를 참고했습니다.",
+    ),
+    h(
+      "ul",
+      { class: "codex__arms" },
+      ARMAMENTS.map((arm) => h("li", { "data-key": arm.id }, armamentCard(arm, { heading: "h2", full: true }))),
+    ),
+  ];
+}
+
+function factionsTab() {
+  const rows = PANTHEONS.map((p) => ({ p, f: factionOf(p.slug), count: figuresOf(p.slug).length }));
+  return [
+    h(
+      "p",
+      { class: "codex__intro muted" },
+      `같은 신화 계열의 신을 덱에 ${TIERS[0]}장 모으면 1단계, ${TIERS[1]}장 모으면 2단계 세력의 힘이 전투에 붙습니다. 신이 많은 계열은 고유한 세력을, 나머지는 신화권의 공통 세력을 갖습니다.`,
+    ),
+    h(
+      "div",
+      { class: "guide__table-wrap", role: "region", "aria-labelledby": "faction-caption", tabindex: "0" },
+      h(
+        "table",
+        { class: "codex__table" },
+        h("caption", { id: "faction-caption" }, `신화 계열 ${PANTHEONS.length}개의 세력`),
+        h(
+          "thead",
+          null,
+          h(
+            "tr",
+            null,
+            h("th", { scope: "col" }, "신화 계열"),
+            h("th", { scope: "col" }, "세력"),
+            h("th", { scope: "col" }, `${TIERS[0]}장`),
+            h("th", { scope: "col" }, `${TIERS[1]}장`),
+            h("th", { scope: "col" }, "신과 영웅"),
+          ),
+        ),
+        h(
+          "tbody",
+          null,
+          rows.map(({ p, f, count }) =>
+            h(
+              "tr",
+              { "data-key": p.slug },
+              h("th", { scope: "row" }, p.name),
+              h("td", null, h("strong", null, f.title), h("br"), h("span", { class: "muted" }, f.motto)),
+              h("td", null, describePerk(f.perk, f.values[0])),
+              h("td", null, describePerk(f.perk, f.values[1])),
+              h("td", null, `${count}명`),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ];
+}
+
 function relicsTab() {
   return h(
     "ul",
@@ -211,7 +286,15 @@ function view(ctx) {
     h(
       "div",
       { class: "codex__panel" },
-      tab === "cards" ? cardsTab(ctx) : tab === "enemies" ? enemiesTab() : relicsTab(),
+      tab === "cards"
+        ? cardsTab(ctx)
+        : tab === "enemies"
+          ? enemiesTab()
+          : tab === "armaments"
+            ? armamentsTab()
+            : tab === "factions"
+              ? factionsTab()
+              : relicsTab(),
     ),
   );
 }

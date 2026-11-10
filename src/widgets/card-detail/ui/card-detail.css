@@ -4,11 +4,40 @@
   gap: 32px;
 }
 
-.card-detail__art img {
+.card-detail__art {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+}
+
+.card-detail__illust {
   width: 100%;
-  max-height: 70svh;
+  border-radius: 6px;
+  background: var(--ink);
+}
+
+.card-detail__source {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 4px 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--light-line);
+}
+
+.card-detail__source figcaption {
+  grid-column: 1 / -1;
+}
+
+.card-detail__source img {
+  width: 96px;
+  max-height: 140px;
   object-fit: contain;
   background: var(--ink);
+}
+
+.card-detail__arms {
+  display: grid;
+  gap: 8px;
 }
 
 .card-detail__credit {
@@ -22,13 +51,6 @@
 .card-detail__credit strong {
   color: var(--light-fg);
   font-weight: 600;
-}
-
-.card-detail__noart {
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background: var(--ink);
 }
 
 .card-detail__info {

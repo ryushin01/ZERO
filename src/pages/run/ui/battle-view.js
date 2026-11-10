@@ -1,7 +1,18 @@
+import { armamentIllustration, getArmament } from "#entities/armament/index.js";
 import { cardFace, getCard } from "#entities/card/index.js";
-import { describeAction, getEnemy, intentKind, isNemesis } from "#entities/enemy/index.js";
+import { describeAction, enemyIllustration, getEnemy, intentKind, isNemesis } from "#entities/enemy/index.js";
 import { getFigure, getPantheon } from "#entities/figure/index.js";
-import { canPlay, endTurn, livingEnemies, playCard, previewCard, updateCombat } from "#features/run/index.js";
+import {
+  canPlay,
+  canUseArmament,
+  endTurn,
+  livingEnemies,
+  playCard,
+  previewArmament,
+  previewCard,
+  updateCombat,
+  useArmament,
+} from "#features/run/index.js";
 import { h, withJosa } from "#shared/lib/index.js";
 
 import "./battle-view.css";
@@ -87,6 +98,14 @@ function enemyPlate(combat, enemy, targeting) {
     h(
       "article",
       { class: "enemy__inner", "aria-labelledby": `enemy-${enemy.uid}` },
+      h("img", {
+        class: "enemy__art",
+        src: enemyIllustration(enemy.id),
+        alt: "",
+        width: 200,
+        height: 260,
+        decoding: "async",
+      }),
       dead
         ? h("p", { class: "enemy__intent label" }, "쓰러짐")
         : h(
@@ -141,6 +160,13 @@ export function battleView(ctx) {
   const combat = /** @type {CombatState} */ (run.combat);
   const selectedUid = combat.hand.some((c) => c.uid === ctx.ui.selected) ? ctx.ui.selected : null;
   const selectedCard = selectedUid ? combat.hand.find((c) => c.uid === selectedUid) : null;
+  const selectedArm =
+    typeof ctx.ui.selected === "string" && ctx.ui.selected.startsWith("arm:") ? ctx.ui.selected.slice(4) : null;
+  const selectedName = selectedCard
+    ? getCard(selectedCard.id, selectedCard.up).name
+    : selectedArm
+      ? getArmament(selectedArm).name
+      : null;
   const alive = livingEnemies(combat);
 
   return h(
@@ -155,7 +181,7 @@ export function battleView(ctx) {
     h(
       "ul",
       { class: "battle__enemies", "aria-label": "적" },
-      combat.enemies.map((e) => enemyPlate(combat, e, Boolean(selectedUid))),
+      combat.enemies.map((e) => enemyPlate(combat, e, Boolean(selectedName))),
     ),
     h(
       "div",
@@ -206,14 +232,62 @@ export function battleView(ctx) {
           h("span", { class: "pile__count" }, combat.exhaust.length + combat.powers.length),
         ),
       ),
+      combat.armaments.length
+        ? h(
+            "div",
+            { class: "player__arms" },
+            h("h2", { class: "sr-only" }, "무구"),
+            h(
+              "ul",
+              null,
+              combat.armaments.map((slot) => {
+                const { arm, withOwner, effects } = previewArmament(combat, slot.id);
+                const ok = canUseArmament(combat, slot.id).ok;
+                return h(
+                  "li",
+                  { "data-key": slot.id },
+                  h(
+                    "button",
+                    {
+                      type: "button",
+                      class: ["arm", withOwner && "arm--owner"],
+                      "data-action": "arm",
+                      "data-arm-id": slot.id,
+                      "aria-disabled": ok ? null : "true",
+                      "aria-pressed": selectedArm === slot.id ? "true" : "false",
+                    },
+                    h("img", { class: "arm__art", src: armamentIllustration(arm), alt: "", width: 200, height: 260 }),
+                    h(
+                      "span",
+                      { class: "arm__text" },
+                      h("span", { class: "arm__name" }, arm.name),
+                      h(
+                        "span",
+                        { class: "arm__meta label" },
+                        slot.cd > 0 ? `${slot.cd}턴 뒤 · ` : "",
+                        `에너지 ${arm.cost}`,
+                      ),
+                      h(
+                        "span",
+                        { class: "arm__effect" },
+                        effects.map((e) => (e.op === "cleanse" ? "정화" : describeEffectShort(e))).join(", "),
+                      ),
+                      withOwner ? h("span", { class: "arm__owner label" }, `${arm.owner}과 함께`) : null,
+                    ),
+                  ),
+                );
+              }),
+            ),
+          )
+        : null,
       h(
         "div",
         { class: "player__turn" },
-        selectedCard
+        selectedName
           ? h(
               "p",
               { class: "player__hint", role: "status" },
-              `${getCard(selectedCard.id, selectedCard.up).name}: 대상을 고르세요.`,
+              `${selectedName}: 대상을 고르세요.`,
               h("button", { type: "button", class: "button button--quiet", "data-action": "cancel-target" }, "취소"),
             )
           : h("p", { class: "player__hint", role: "status" }),
@@ -277,6 +351,23 @@ export function battleView(ctx) {
   );
 }
 
+/** 무구 버튼의 짧은 효과 글 @param {any} e */
+function describeEffectShort(e) {
+  const map = {
+    damage: "피해",
+    block: "방어",
+    draw: "뽑기",
+    heal: "회복",
+    energy: "에너지",
+    strength: "힘",
+    erosion: "침식",
+    vulnerable: "취약",
+    weak: "약화",
+  };
+  const times = (e.times ?? 1) > 1 ? `×${e.times}` : "";
+  return `${e.all ? "전체 " : ""}${map[e.op] ?? e.op} ${e.value}${times}${e.pierce ? " 관통" : ""}`;
+}
+
 /** 카드를 낸 뒤 초점을 옆 카드나 턴 끝내기 버튼으로 옮깁니다. @param {number} index */
 function refocus(index) {
   const cards = /** @type {HTMLElement[]} */ ([...document.querySelectorAll("[data-hand] button.card")]);
@@ -291,6 +382,15 @@ function commit(ctx, next, index) {
   ctx.setRun(updateCombat(run, next));
   ctx.announce(next.log.map((entry) => entry.text));
   if (!next.outcome) refocus(index);
+}
+
+/** 무구를 쓴 뒤 상태를 반영하고, 초점은 그 무구 버튼에 둡니다. @param {Ctx} ctx @param {CombatState} next @param {string} id */
+function commitArm(ctx, next, id) {
+  const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
+  ctx.setUi({ selected: null });
+  ctx.setRun(updateCombat(run, next));
+  ctx.announce(next.log.map((entry) => entry.text));
+  if (!next.outcome) /** @type {HTMLElement | null} */ (document.querySelector(`[data-arm-id="${id}"]`))?.focus();
 }
 
 /** @type {Record<string, (ctx: Ctx, el: HTMLElement, event: Event) => void>} */
@@ -322,17 +422,45 @@ export const battleActions = {
     }
     commit(ctx, playCard(combat, uid, alive[0]?.uid ?? null), index);
   },
+  arm(ctx, el) {
+    const combat = /** @type {CombatState} */ (ctx.run?.combat);
+    const id = /** @type {string} */ (el.dataset.armId);
+    const check = canUseArmament(combat, id);
+    if (!check.ok) {
+      ctx.announce(check.reason);
+      return;
+    }
+    if (ctx.ui.selected === `arm:${id}`) {
+      ctx.setUi({ selected: null });
+      ctx.announce("무구 선택을 취소했습니다.");
+      return;
+    }
+    const { arm, target } = previewArmament(combat, id);
+    const alive = livingEnemies(combat);
+    if (target === "enemy" && alive.length > 1) {
+      ctx.setUi({ selected: `arm:${id}` });
+      ctx.announce(`${withJosa(arm.name, "을/를")} 휘두를 대상을 고르세요.`);
+      /** @type {HTMLElement | null} */ (document.querySelector("[data-action='target']"))?.focus();
+      return;
+    }
+    commitArm(ctx, useArmament(combat, id, alive[0]?.uid ?? null), id);
+  },
   target(ctx, el) {
     const combat = /** @type {CombatState} */ (ctx.run?.combat);
     const uid = ctx.ui.selected;
     if (!uid) return;
+    if (uid.startsWith("arm:")) {
+      commitArm(ctx, useArmament(combat, uid.slice(4), el.dataset.uid ?? null), uid.slice(4));
+      return;
+    }
     const index = combat.hand.findIndex((c) => c.uid === uid);
     commit(ctx, playCard(combat, uid, el.dataset.uid ?? null), index);
   },
   "cancel-target"(ctx) {
     const uid = ctx.ui.selected;
     ctx.setUi({ selected: null });
-    /** @type {HTMLElement | null} */ (document.querySelector(`[data-uid="${uid}"]`))?.focus();
+    const selector = uid?.startsWith("arm:") ? `[data-arm-id="${uid.slice(4)}"]` : `[data-uid="${uid}"]`;
+    /** @type {HTMLElement | null} */ (document.querySelector(selector))?.focus();
   },
   "end-turn"(ctx) {
     const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);

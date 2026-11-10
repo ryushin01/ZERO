@@ -1,4 +1,5 @@
-import { getArt, getFigure } from "#entities/figure/index.js";
+import { cardIllustration, getCard } from "#entities/card/index.js";
+import { getFigure } from "#entities/figure/index.js";
 import { getEvent, requestPick, rest, restAmount, skipToMap } from "#features/run/index.js";
 import { chooseEvent } from "#features/run/index.js";
 import { arkFigureUrl } from "#shared/config/index.js";
@@ -9,7 +10,7 @@ import { h } from "#shared/lib/index.js";
 /** @param {{ en: string, title: string, lead: string, figure?: string }} head @param {Node[]} body */
 function scene(head, body) {
   const figure = head.figure ? getFigure(head.figure) : null;
-  const art = head.figure ? getArt(head.figure) : null;
+  const art = figure ? cardIllustration(getCard(figure.slug)) : null;
   return h(
     "section",
     { class: ["scene", art && "scene--art"] },
@@ -17,11 +18,11 @@ function scene(head, body) {
       ? h(
           "figure",
           { class: "scene__art" },
-          h("img", { src: art.src, alt: art.alt }),
+          h("img", { src: art, alt: `${figure.name}의 일러스트` }),
           h(
             "figcaption",
             { class: "label muted" },
-            `${figure.name} · ${art.title}`,
+            `${figure.name} · ${figure.epithet}`,
             " · ",
             h(
               "a",

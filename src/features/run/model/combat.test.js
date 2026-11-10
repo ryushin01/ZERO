@@ -2,7 +2,17 @@ import { describe, expect, it } from "vitest";
 
 import { getCard } from "#entities/card/index.js";
 
-import { canPlay, chainOf, endTurn, playCard, previewCard, startCombat } from "./combat.js";
+import {
+  canPlay,
+  canUseArmament,
+  chainOf,
+  endTurn,
+  playCard,
+  previewArmament,
+  previewCard,
+  startCombat,
+  useArmament,
+} from "./combat.js";
 
 const base = (id) => getCard(id).effects[0].value;
 
@@ -24,17 +34,22 @@ describe("startCombat", () => {
     expect(state.draw).toHaveLength(5);
   });
 
-  it("유물 아이기스와 궁니르가 첫 턴에 적용됩니다", () => {
+  it("세력 효과가 전투 시작과 첫 턴에 적용됩니다", () => {
+    const deck = Array.from({ length: 10 }, () => card("quill"));
     const state = startCombat({
-      deck: [],
-      hp: 72,
+      deck,
+      hp: 60,
       maxHp: 72,
-      relics: ["aegis", "gungnir"],
+      relics: ["ariadne"],
       enemyIds: ["harpy"],
       seed: 3,
+      perks: { startBlock: 6, startStrength: 1, firstEnergy: 1, firstDraw: 1, turnHeal: 2 },
     });
-    expect(state.player.block).toBe(10);
+    expect(state.player.block).toBe(6);
+    expect(state.player.statuses.strength).toBe(1);
     expect(state.energy).toBe(4);
+    expect(state.hand).toHaveLength(5 + 2 + 1); // 아리아드네의 실 2장, 세력 1장
+    expect(state.player.hp).toBe(62);
   });
 });
 
@@ -88,6 +103,62 @@ describe("playCard", () => {
     const state = setup({ hand: ["quill"] });
     state.enemies[0].hp = 3;
     expect(playCard(state, state.hand[0].uid, state.enemies[0].uid).outcome).toBe("win");
+  });
+});
+
+describe("무구", () => {
+  const withArms = (armaments, hand = []) => {
+    const state = startCombat({ deck: [], hp: 70, maxHp: 72, relics: [], enemyIds: ["jotunn"], seed: 5, armaments });
+    return { ...state, hand: hand.map((id) => card(id)), draw: [], discard: [] };
+  };
+
+  it("묠니르는 모든 적을 치고 대기시간이 생깁니다", () => {
+    let state = withArms(["mjolnir"]);
+    const hp = state.enemies[0].hp;
+    state = useArmament(state, "mjolnir");
+    expect(state.enemies[0].hp).toBeLessThan(hp);
+    expect(state.energy).toBe(2);
+    expect(canUseArmament(state, "mjolnir").ok).toBe(false);
+    expect(state.armaments[0].cd).toBe(2);
+  });
+
+  it("토르의 카드를 낸 턴에는 묠니르가 바로 돌아옵니다", () => {
+    let state = withArms(["mjolnir"], ["thor"]);
+    state = playCard(state, state.hand[0].uid);
+    state = useArmament(state, "mjolnir");
+    expect(state.armaments[0].cd).toBe(0);
+    expect(state.log.at(-1).text).toContain("손으로 돌아옴");
+  });
+
+  it("궁니르는 방어를 무시합니다", () => {
+    const state = withArms(["gungnir"]);
+    state.enemies[0].block = 50;
+    const hp = state.enemies[0].hp;
+    const after = useArmament(state, "gungnir", state.enemies[0].uid);
+    expect(after.enemies[0].hp).toBe(hp - 11);
+  });
+
+  it("대기시간은 내 턴이 시작될 때마다 줄어듭니다", () => {
+    let state = useArmament(withArms(["kerykeion"]), "kerykeion");
+    expect(state.armaments[0].cd).toBe(2);
+    state = endTurn(state);
+    expect(state.armaments[0].cd).toBe(1);
+  });
+
+  it("주인 신과 함께 쓰면 효과가 50% 늘어납니다", () => {
+    const state = withArms(["kusanagi"], ["susanoo"]);
+    expect(previewArmament(state, "kusanagi").effects[0].value).toBe(6);
+    const after = playCard(state, state.hand[0].uid, state.enemies[0].uid);
+    expect(previewArmament(after, "kusanagi")).toMatchObject({ withOwner: true });
+    expect(previewArmament(after, "kusanagi").effects[1].value).toBe(6); // 방어 4 × 1.5
+  });
+
+  it("우자트의 눈은 약화·취약·침식을 씻어 냅니다", () => {
+    const state = withArms(["wedjat"]);
+    state.player.statuses.weak = 2;
+    state.player.statuses.erosion = 5;
+    const after = useArmament(state, "wedjat");
+    expect(after.player.statuses).toMatchObject({ weak: 0, erosion: 0 });
   });
 });
 
