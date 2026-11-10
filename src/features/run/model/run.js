@@ -22,6 +22,7 @@ import { getEvent } from "./events.js";
  *   act: 1 | 2 | 3, map: import("#entities/map/index.js").ActMap, position: { row: number, lane: number } | null,
  *   phase: Phase, combat: CombatState | null, reward: Reward | null, event: string | null, pick: PickRequest | null,
  *   lastEncounter: string, nextUid: number, notice: string | null, path: string[], recorded?: boolean,
+ *   daily?: string | null, discovered?: string[],
  *   stats: { floors: number, battles: number, elites: number, bosses: number, defeatedBy: string | null },
  * }} Run
  */
@@ -63,10 +64,10 @@ export function guideCards(pantheonSlug) {
 }
 
 /**
- * @param {{ seed: number, guide: string }} options
+ * @param {{ seed: number, guide: string, daily?: string | null }} options
  * @returns {Run}
  */
-export function createRun({ seed, guide }) {
+export function createRun({ seed, guide, daily = null }) {
   /** @type {Run} */
   const run = {
     version: RUN_VERSION,
@@ -90,6 +91,8 @@ export function createRun({ seed, guide }) {
     nextUid: 0,
     notice: null,
     path: [],
+    daily,
+    discovered: [],
     stats: { floors: 0, battles: 0, elites: 0, bosses: 0, defeatedBy: null },
   };
   const ids = [

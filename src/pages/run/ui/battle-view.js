@@ -77,7 +77,13 @@ function enemyPlate(combat, enemy, targeting) {
 
   return h(
     "li",
-    { class: ["enemy", dead && "enemy--dead", def.tier !== "normal" && `enemy--${def.tier}`], "data-key": enemy.uid },
+    {
+      class: ["enemy", dead && "enemy--dead", def.tier !== "normal" && `enemy--${def.tier}`],
+      "data-key": enemy.uid,
+      "data-vital": enemy.uid,
+      "data-hp": enemy.hp,
+      "data-block": enemy.block,
+    },
     h(
       "article",
       { class: "enemy__inner", "aria-labelledby": `enemy-${enemy.uid}` },
@@ -93,7 +99,11 @@ function enemyPlate(combat, enemy, targeting) {
       h(
         "h2",
         { class: "enemy__name", id: `enemy-${enemy.uid}` },
-        h("span", { class: "display enemy__en", lang: "en", "aria-hidden": "true" }, def.nameEn),
+        h(
+          "span",
+          { class: "display enemy__en fit", lang: "en", "aria-hidden": "true", style: { "--len": def.nameEn.length } },
+          def.nameEn,
+        ),
         h("span", { class: "serif enemy__ko" }, def.name),
       ),
       h(
@@ -152,7 +162,12 @@ export function battleView(ctx) {
       { class: "battle__player" },
       h(
         "div",
-        { class: "player__vitals" },
+        {
+          class: "player__vitals",
+          "data-vital": "player",
+          "data-hp": combat.player.hp,
+          "data-block": combat.player.block,
+        },
         h("h2", { class: "sr-only" }, "나의 상태"),
         bar(combat.player.hp, combat.player.maxHp, "체력"),
         h("p", { class: ["player__block", combat.player.block === 0 && "muted"] }, `방어 ${combat.player.block}`),

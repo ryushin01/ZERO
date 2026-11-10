@@ -24,6 +24,8 @@
 }
 
 .scene__body {
+  container-type: inline-size;
+  width: 100%;
   display: grid;
   gap: 16px;
   max-width: 36em;
@@ -37,7 +39,7 @@
 }
 
 .scene__en {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  --fit-max: 3.5rem;
 }
 
 .scene__title {
@@ -182,6 +184,12 @@
 .end__stats dd {
   font-family: var(--font-serif-ko);
   font-size: 1.125rem;
+}
+
+.end__copied {
+  min-height: 1.3em;
+  margin-top: 12px;
+  text-align: center;
 }
 
 .end__deck-title {

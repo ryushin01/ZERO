@@ -32,13 +32,14 @@
 }
 
 .card-detail__info {
+  container-type: inline-size;
   display: grid;
   align-content: start;
   gap: 10px;
 }
 
 .card-detail__en {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  --fit-max: 2.75rem;
 }
 
 .card-detail__epithet {

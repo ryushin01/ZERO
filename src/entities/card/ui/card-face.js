@@ -15,6 +15,7 @@ import "./card-face.css";
  *   attrs?: Record<string, any>,
  *   size?: "s" | "m" | "l",
  *   note?: string,
+ *   badge?: string,
  * }} CardFaceOptions
  */
 
@@ -28,7 +29,7 @@ const CHAIN_LABEL = { resonance: "공명", echo: "울림" };
  * @param {CardDef} card
  * @param {CardFaceOptions} [options]
  */
-export function cardFace(card, { tag = "div", lines, chain = null, attrs = {}, size = "m", note } = {}) {
+export function cardFace(card, { tag = "div", lines, chain = null, attrs = {}, size = "m", note, badge } = {}) {
   const keywords = [card.retain && "보존", card.exhaust && "소멸", card.type === "power" && "권능"].filter(Boolean);
   const effectLines = lines ? [...lines, ...keywords] : describeCard(card);
   const art = card.figureSlug ? getArt(card.figureSlug) : undefined;
@@ -46,7 +47,12 @@ export function cardFace(card, { tag = "div", lines, chain = null, attrs = {}, s
     h(
       "span",
       { class: "card__body" },
-      h("span", { class: "card__name" }, card.name, card.upgraded ? h("span", { class: "card__plus" }, "+") : null),
+      h(
+        "span",
+        { class: "card__name", style: { "--len": card.name.length + (card.upgraded ? 1 : 0) } },
+        card.name,
+        card.upgraded ? h("span", { class: "card__plus" }, "+") : null,
+      ),
       h("span", { class: "card__en display", lang: "en", "aria-hidden": "true" }, card.nameEn),
       h("span", { class: "card__meta label" }, pantheon ? pantheon.name : "사서", " · ", TYPE_LABEL[card.type]),
       h(
@@ -64,6 +70,7 @@ export function cardFace(card, { tag = "div", lines, chain = null, attrs = {}, s
     h("span", { class: "card__cost" }, h("span", { class: "sr-only" }, "비용 "), card.cost),
     chain ? h("span", { class: "card__chain label" }, CHAIN_LABEL[chain]) : null,
     note ? h("span", { class: "card__note label" }, note) : null,
+    badge ? h("span", { class: "card__badge label" }, badge) : null,
     h(
       "span",
       { class: "card__art", "aria-hidden": "true" },

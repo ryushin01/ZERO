@@ -36,7 +36,7 @@ function scene(head, body) {
     h(
       "div",
       { class: "scene__body" },
-      h("p", { class: "display scene__en", lang: "en" }, head.en),
+      h("p", { class: "display scene__en fit", lang: "en", style: { "--len": head.en.length } }, head.en),
       h("h1", { class: "scene__title serif" }, head.title),
       h("p", { class: "scene__lead" }, head.lead),
       ...body,

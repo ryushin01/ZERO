@@ -32,6 +32,26 @@ describe("morphChildren", () => {
     expect(root.children[2]).toBe(a);
   });
 
+  it("앞의 항목이 빠져도 뒤 항목은 옮기지 않습니다 (애니메이션이 다시 돌지 않게)", () => {
+    const root = h(
+      "ul",
+      null,
+      h("li", { "data-key": "a" }),
+      h("li", { "data-key": "b" }),
+      h("li", { "data-key": "c" }),
+    );
+    const [, b, c] = root.children;
+    const moved = [];
+    const original = root.insertBefore.bind(root);
+    root.insertBefore = (node, ref) => {
+      moved.push(node);
+      return original(node, ref);
+    };
+    morphChildren(root, frag(h("li", { "data-key": "b" }), h("li", { "data-key": "c" })));
+    expect([...root.children]).toEqual([b, c]);
+    expect(moved).toEqual([]);
+  });
+
   it("없어진 자식은 지웁니다", () => {
     const root = h("div", null, h("p", null, "1"), h("p", null, "2"));
     morphChildren(root, frag(h("p", null, "1")));

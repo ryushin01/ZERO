@@ -15,6 +15,11 @@ describe("filterCards", () => {
     expect(filterCards(FIGURE_CARDS, { query: "ODIN" }).map((c) => c.id)).toContain("odin");
   });
 
+  it("복원한 신만 볼 수 있습니다", () => {
+    const cards = filterCards(FIGURE_CARDS, { seenOnly: true, seen: ["zeus", "odin"] });
+    expect(cards.map((c) => c.id).sort()).toEqual(["odin", "zeus"]);
+  });
+
   it("대륙과 속성으로 거릅니다", () => {
     const cards = filterCards(FIGURE_CARDS, { continent: "oceania", aspect: "all" });
     expect(cards.length).toBeGreaterThan(0);

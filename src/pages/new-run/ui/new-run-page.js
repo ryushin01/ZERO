@@ -1,15 +1,27 @@
 import { cardFace, getCard } from "#entities/card/index.js";
-import { figuresOf } from "#entities/figure/index.js";
-import { createRun, guideCards, guideOptions } from "#features/run/index.js";
+import { figuresOf, getPantheon } from "#entities/figure/index.js";
+import { createRun, dailyKey, dailyLabel, dailySeed, guideCards, guideOptions } from "#features/run/index.js";
 import { h, randomSeed } from "#shared/lib/index.js";
 
 import "./new-run-page.css";
 
 /** @param {import("#app/render/app.js").PageContext} ctx */
+const isDaily = (ctx) => ctx.route.params[0] === "daily";
+
+/** 오늘의 신화는 날짜로, 자유 도전은 화면에 담아 둔 무작위 시드로 @param {import("#app/render/app.js").PageContext} ctx */
+const seedOf = (ctx) => (isDaily(ctx) ? dailySeed(shownDay(ctx)) : ctx.ui.seed);
+
+/** 화면에 보여 준 날짜. 자정을 넘겨 고르면 지금 날짜와 달라집니다. @param {import("#app/render/app.js").PageContext} ctx */
+const shownDay = (ctx) => ctx.ui.day ?? dailyKey();
+
+/** @param {import("#app/render/app.js").PageContext} ctx */
 function view(ctx) {
-  const seed = ctx.ui.seed;
+  const daily = isDaily(ctx);
+  const today = shownDay(ctx);
+  const seed = seedOf(ctx);
   const options = seed ? guideOptions(seed) : [];
   const ongoing = ctx.run && ctx.run.phase !== "victory" && ctx.run.phase !== "defeat";
+  const best = ctx.records.daily[today];
 
   return h(
     "section",
@@ -17,14 +29,23 @@ function view(ctx) {
     h(
       "header",
       { class: "page-head" },
-      h("p", { class: "display", lang: "en" }, "Choose your guide"),
-      h("h1", null, "길잡이 신화를 고르세요"),
+      h("p", { class: "display", lang: "en" }, daily ? "Myth of the day" : "Choose your guide"),
+      h("h1", null, daily ? `오늘의 신화 · ${dailyLabel(today)}` : "길잡이 신화를 고르세요"),
       h(
         "p",
         null,
-        "고른 신화의 신 둘이 처음 덱에 들어오고, 보상에도 그 신화의 카드가 자주 나옵니다. 같은 신화의 카드를 이어 내면 공명합니다.",
+        daily
+          ? "오늘은 누구나 같은 신화 셋과 같은 지도로 시작합니다. 여러 번 도전할 수 있고, 가장 좋은 결과가 남습니다."
+          : "고른 신화의 신 둘이 처음 덱에 들어오고, 보상에도 그 신화의 카드가 자주 나옵니다. 같은 신화의 카드를 이어 내면 공명합니다.",
       ),
     ),
+    daily && best
+      ? h(
+          "p",
+          { class: "notice" },
+          `오늘의 기록: ${getPantheon(best.guide)?.name ?? ""} · ${best.won ? "승리" : `${best.act}장에서 쓰러짐`} · ${best.floors}칸`,
+        )
+      : null,
     ongoing
       ? h(
           "p",
@@ -41,7 +62,16 @@ function view(ctx) {
         return h(
           "li",
           { class: "new-run__option", "data-key": pantheon.slug },
-          h("p", { class: "new-run__en display", lang: "en", "aria-hidden": "true" }, pantheon.nameEn),
+          h(
+            "p",
+            {
+              class: "new-run__en display fit",
+              lang: "en",
+              "aria-hidden": "true",
+              style: { "--len": pantheon.nameEn.length },
+            },
+            pantheon.nameEn,
+          ),
           h("h2", { class: "new-run__name serif" }, pantheon.name),
           h("p", { class: "label muted" }, `${pantheon.region} · ${pantheon.eraLabel} · 신과 영웅 ${count}`),
           h("p", { class: "new-run__summary" }, pantheon.summary),
@@ -61,7 +91,10 @@ function view(ctx) {
     h(
       "div",
       { class: "actions" },
-      h("button", { type: "button", class: "button", "data-action": "reroll" }, "다른 신화 셋 보기"),
+      daily
+        ? h("a", { href: "#/new", class: "button" }, "자유 도전으로")
+        : h("button", { type: "button", class: "button", "data-action": "reroll" }, "다른 신화 셋 보기"),
+      daily ? null : h("a", { href: "#/new/daily", class: "button" }, "오늘의 신화"),
       h("a", { href: "#/", class: "button button--quiet" }, "처음 화면으로"),
     ),
   );
@@ -69,12 +102,13 @@ function view(ctx) {
 
 /** @type {import("#app/render/app.js").Page} */
 export const newRunPage = {
-  title: () => "길잡이 신화 고르기",
+  title: (ctx) => (isDaily(ctx) ? "오늘의 신화" : "길잡이 신화 고르기"),
   surface: () => "light",
-  context: () => "새 기록",
+  context: (ctx) => (isDaily(ctx) ? "오늘의 신화" : "새 기록"),
   view,
   mount(ctx) {
-    if (!ctx.ui.seed) ctx.setUi({ seed: randomSeed() });
+    if (isDaily(ctx)) ctx.setUi({ day: dailyKey() });
+    else if (!ctx.ui.seed) ctx.setUi({ seed: randomSeed() });
   },
   actions: {
     reroll(ctx) {
@@ -83,9 +117,16 @@ export const newRunPage = {
     },
     start(ctx, el) {
       const guide = /** @type {string} */ (el.dataset.slug);
-      const seed = ctx.ui.seed ?? randomSeed();
-      ctx.setUi({ seed: randomSeed() });
-      ctx.setRun(createRun({ seed, guide }));
+      if (isDaily(ctx) && shownDay(ctx) !== dailyKey()) {
+        // 화면을 연 뒤 날짜가 바뀌었습니다. 오늘의 후보로 다시 그리고 다시 고르게 합니다.
+        ctx.setUi({ day: dailyKey() });
+        ctx.announce("날짜가 바뀌어 오늘의 신화 후보가 바뀌었습니다. 다시 골라 주세요.");
+        return;
+      }
+      const daily = isDaily(ctx) ? shownDay(ctx) : null;
+      const seed = seedOf(ctx) ?? randomSeed();
+      if (!daily) ctx.setUi({ seed: randomSeed() });
+      ctx.setRun(createRun({ seed, guide, daily }));
       ctx.navigate("#/run");
     },
   },

@@ -94,6 +94,51 @@ test.describe("한 판", () => {
   });
 });
 
+test.describe("오늘의 신화와 서가 복원", () => {
+  test("오늘의 신화로 시작하면 길잡이 신화의 신 둘이 서가에 복원됩니다", async ({ page }) => {
+    await page.goto("/#/new/daily");
+    await expect(page.getByRole("heading", { level: 1, name: /오늘의 신화 · \d+월 \d+일/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: "다른 신화 셋 보기" })).toHaveCount(0);
+    await expectAccessible(page);
+    await page
+      .getByRole("button", { name: /로 시작$/ })
+      .first()
+      .click();
+    await expect(page.getByRole("heading", { level: 1, name: /1장/ })).toBeVisible();
+
+    await page.goto("/#/codex");
+    await expect(page.getByText("2 / 133")).toBeVisible();
+    await page.getByRole("button", { name: "복원한 신만" }).click();
+    await expect(page.getByText("133장 가운데 2장")).toBeVisible();
+    await expect(page.locator(".card__badge")).toHaveCount(2);
+  });
+
+  test("판이 끝나면 새로 복원한 신을 보여 주고 결과를 복사합니다", async ({ page, context }) => {
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+    await page.goto("/#/new/daily");
+    await page
+      .getByRole("button", { name: /로 시작$/ })
+      .first()
+      .click();
+    await expect(page.getByRole("heading", { level: 1, name: /1장/ })).toBeVisible();
+    await page.evaluate(() => {
+      const run = JSON.parse(localStorage.getItem("zero:run"));
+      localStorage.setItem(
+        "zero:run",
+        JSON.stringify({ ...run, phase: "defeat", stats: { ...run.stats, defeatedBy: "kappa" } }),
+      );
+    });
+    await page.goto("/#/run");
+    await page.reload();
+    await expect(page.getByRole("heading", { level: 1, name: "기록이 지워졌습니다" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "이번 판에 새로 복원한 신 2명" })).toBeVisible();
+    await expectAccessible(page);
+    await page.getByRole("button", { name: "결과 복사하기" }).click();
+    await expect(page.getByRole("status").filter({ hasText: "결과를 복사했습니다." })).toBeVisible();
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("ZERO 오늘의 신화");
+  });
+});
+
 test.describe("도감", () => {
   test("영역으로 찾고 카드 상세에서 Ark로 이어집니다 @mobile", async ({ page }) => {
     await page.goto("/#/codex");

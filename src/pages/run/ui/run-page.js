@@ -1,5 +1,6 @@
 import { ACT_INFO } from "#entities/map/index.js";
 
+import { battleEffects } from "./battle-fx.js";
 import { battleActions, battleKeydown, battleView } from "./battle-view.js";
 import { campActions, eventView, restView, shrineView } from "./camp-view.js";
 import { endActions, endView } from "./end-view.js";
@@ -41,6 +42,9 @@ export const runPage = {
   },
   view: (ctx) => phaseOf(ctx).view(ctx),
   actions: { ...mapActions, ...battleActions, ...rewardActions, ...campActions, ...pickActions, ...endActions },
+  afterRender: (ctx, main) => {
+    if (ctx.run?.phase === "battle") battleEffects(main);
+  },
   keydown: (ctx, event) => {
     if (ctx.run?.phase === "battle") battleKeydown(ctx, event);
   },

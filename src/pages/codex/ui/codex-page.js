@@ -32,9 +32,31 @@ const toggle = (action, value, pressed, label) =>
 
 /** @param {Ctx} ctx */
 function cardsTab(ctx) {
-  const { query = "", continent = "all", aspect = "all" } = ctx.ui;
-  const cards = filterCards(FIGURE_CARDS, { query, continent, aspect });
+  const { query = "", continent = "all", aspect = "all", seenOnly = false } = ctx.ui;
+  const { seen } = ctx.records;
+  const cards = filterCards(FIGURE_CARDS, { query, continent, aspect, seenOnly, seen });
+  const ratio = seen.length / FIGURE_CARDS.length;
   return [
+    h(
+      "div",
+      { class: "codex__progress" },
+      h(
+        "p",
+        { class: "label" },
+        h("span", { class: "muted" }, "서가 복원 "),
+        `${seen.length} / ${FIGURE_CARDS.length}`,
+      ),
+      h(
+        "span",
+        { class: "codex__track", "aria-hidden": "true" },
+        h("span", { class: "codex__fill", style: { "--ratio": ratio } }),
+      ),
+      h(
+        "p",
+        { class: "muted codex__progress-text" },
+        "판을 거듭하며 덱에 넣은 신은 서가에 복원되어 ‘복원’ 표시가 붙습니다.",
+      ),
+    ),
     h(
       "div",
       { class: "codex__filters" },
@@ -63,6 +85,15 @@ function cardsTab(ctx) {
         toggle("aspect", "all", aspect === "all", "모든 속성"),
         Object.entries(ASPECTS).map(([key, a]) => toggle("aspect", key, aspect === key, `${a.mark} ${a.label}`)),
       ),
+      h(
+        "div",
+        { class: "codex__group" },
+        h(
+          "button",
+          { type: "button", class: "chip", "data-action": "seen-only", "aria-pressed": seenOnly ? "true" : "false" },
+          "복원한 신만",
+        ),
+      ),
     ),
     h("p", { class: "codex__count label", role: "status" }, `${FIGURE_CARDS.length}장 가운데 ${cards.length}장`),
     cards.length
@@ -73,11 +104,21 @@ function cardsTab(ctx) {
             h(
               "li",
               { "data-key": card.id },
-              cardFace(card, { tag: "button", attrs: { "data-action": "open-card", "data-id": card.id } }),
+              cardFace(card, {
+                tag: "button",
+                badge: seen.includes(card.id) ? "복원" : undefined,
+                attrs: { "data-action": "open-card", "data-id": card.id },
+              }),
             ),
           ),
         )
-      : h("p", { class: "muted codex__empty" }, "맞는 카드가 없습니다. 거르기를 풀어 보세요."),
+      : h(
+          "p",
+          { class: "muted codex__empty" },
+          seenOnly && seen.length === 0
+            ? "아직 복원한 신이 없습니다. 한 판을 시작하면 길잡이 신화의 신부터 기록됩니다."
+            : "맞는 카드가 없습니다. 거르기를 풀어 보세요.",
+        ),
   ];
 }
 
@@ -97,7 +138,11 @@ function enemiesTab() {
         h(
           "h2",
           { class: "codex-enemy__name" },
-          h("span", { class: "display", lang: "en", "aria-hidden": "true" }, enemy.nameEn),
+          h(
+            "span",
+            { class: "display fit", lang: "en", "aria-hidden": "true", style: { "--len": enemy.nameEn.length } },
+            enemy.nameEn,
+          ),
           h("span", { class: "serif" }, enemy.name),
         ),
         h("p", null, enemy.lore),
@@ -181,6 +226,7 @@ export const codexPage = {
     tab: (ctx, el) => ctx.setUi({ tab: el.dataset.value }),
     continent: (ctx, el) => ctx.setUi({ continent: el.dataset.value }),
     aspect: (ctx, el) => ctx.setUi({ aspect: el.dataset.value }),
+    "seen-only": (ctx) => ctx.setUi({ seenOnly: !ctx.ui.seenOnly }),
     "open-card": (ctx, el) => ctx.openCard(/** @type {string} */ (el.dataset.id)),
   },
   inputs: {

@@ -42,6 +42,7 @@ function view(ctx) {
           ["battle", "전투"],
           ["card", "카드 읽는 법"],
           ["aspects", "여섯 속성"],
+          ["records", "서가 복원과 오늘의 신화"],
           ["terms", "용어"],
           ["sources", "자료와 출처"],
           ["settings", "설정"],
@@ -183,6 +184,20 @@ function view(ctx) {
       ),
     ),
     section(
+      "records",
+      "서가 복원과 오늘의 신화",
+      h(
+        "p",
+        null,
+        "판을 거듭하며 덱에 넣은 신은 Ark의 서가에 복원됩니다. 도감에서 복원한 신에는 ‘복원’ 표시가 붙고, 133명 가운데 몇 명을 되찾았는지 볼 수 있습니다. 판이 끝나면 이번에 새로 복원한 신을 알려 드립니다.",
+      ),
+      h(
+        "p",
+        null,
+        "‘오늘의 신화’는 한국 시간 날짜로 정한 같은 길잡이 후보와 같은 지도로 모두가 겨루는 도전입니다. 하루에 여러 번 도전할 수 있고 가장 좋은 결과가 남습니다. 결과 화면의 ‘결과 복사하기’로 기록을 나눌 수 있습니다.",
+      ),
+    ),
+    section(
       "terms",
       "용어",
       h(
@@ -238,7 +253,7 @@ function view(ctx) {
         h(
           "span",
           { class: "muted" },
-          `지금까지 ${ctx.records.runs}판, 승리 ${ctx.records.wins}. 진행 중인 판과 기록을 이 브라우저에서 지웁니다.`,
+          `지금까지 ${ctx.records.runs}판, 승리 ${ctx.records.wins}, 서가 복원 ${ctx.records.seen.length}명. 진행 중인 판과 기록을 이 브라우저에서 지웁니다.`,
         ),
       ),
     ),

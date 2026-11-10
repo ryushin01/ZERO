@@ -29,6 +29,7 @@ import { navigate, parseRoute } from "../routing/router.js";
  *   inputs?: Record<string, (ctx: PageContext, el: HTMLInputElement, event: Event) => void>,
  *   keydown?: (ctx: PageContext, event: KeyboardEvent) => void,
  *   mount?: (ctx: PageContext, main: HTMLElement) => (() => void) | void,
+ *   afterRender?: (ctx: PageContext, main: HTMLElement) => void,
  * }} Page
  */
 
@@ -42,7 +43,7 @@ const PAGES = {
   "not-found": notFoundPage,
 };
 
-/** @param {ReturnType<typeof createStore>} store @param {{ name: string }} route @param {string} uiKey */
+/** @param {ReturnType<typeof createStore>} store @param {{ name: string, params: string[] }} route @param {string} uiKey */
 function makeContext(store, route, uiKey) {
   const { state } = store;
   return {
@@ -78,7 +79,7 @@ export function createApp({ header, main }) {
     const route = parseRoute();
     const page = PAGES[route.name] ?? notFoundPage;
     const probe = makeContext(store, route, route.name);
-    const screen = page.screen ? page.screen(probe) : route.name;
+    const screen = page.screen ? page.screen(probe) : [route.name, ...route.params].join("/");
     return { route, page, screen, ctx: makeContext(store, route, screen) };
   }
 
@@ -128,6 +129,7 @@ export function createApp({ header, main }) {
       next.append(...nodes);
       morphChildren(main, next);
     }
+    page.afterRender?.(ctx, main);
   }
 
   /** @type {Record<string, (ctx: PageContext) => void>} */
