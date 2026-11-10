@@ -1,3 +1,4 @@
+import { companion } from "./companion.js";
 import { item, shield } from "./items.js";
 import { f, mix } from "./kit.js";
 
@@ -6,12 +7,14 @@ import { f, mix } from "./kit.js";
  * 팔다리는 굵은 둥근 선으로 그려 관절 각도만으로 자세를 바꿉니다.
  *
  * @typedef {"warrior" | "robed" | "gown" | "giant" | "demon" | "hag"} Body
- * @typedef {"raise" | "thrust" | "hold" | "cast" | "rest" | "ground"} Pose
+ * @typedef {"raise" | "thrust" | "hold" | "cast" | "rest" | "ground" | "charge" | "leap" | "smite" | "guard"} Pose
  * @typedef {{
  *   body: Body, head: string, item: string, pose: Pose,
  *   shield?: boolean, cape?: boolean, wings?: string | false, arms?: 2 | 4,
  *   oneHand?: boolean, beard?: boolean, hair?: string, noLegs?: boolean,
  *   longHair?: boolean, collar?: string, sleeves?: boolean, hipHand?: boolean,
+ *   hairStyle?: "short" | "long" | "braid" | "topknot" | "wild", build?: number,
+ *   companion?: import("./companion.js").Companion,
  *   skin: string, cloth: string, metal: string, glow: string, dark: string,
  * }} FigureSpec
  */
@@ -33,6 +36,55 @@ const POSES = {
   cast: { elbow: [40, -124], hand: [54, -142], angle: 20 },
   rest: { elbow: [28, -110], hand: [30, -88], angle: -8 },
   ground: { elbow: [30, -112], hand: [34, -94], angle: 176 },
+  // 다리까지 움직이는 자세
+  charge: { elbow: [40, -128], hand: [60, -124], angle: 72 },
+  leap: { elbow: [34, -158], hand: [40, -182], angle: 18 },
+  smite: { elbow: [24, -164], hand: [8, -188], angle: -18 },
+  guard: { elbow: [30, -114], hand: [42, -106], angle: 46 },
+};
+
+/** 자세별 다리: [무릎, 발] (왼쪽, 오른쪽). 없으면 기본으로 섭니다. */
+const LEGS = {
+  charge: {
+    L: [
+      [-22, -42],
+      [-42, -2],
+    ],
+    R: [
+      [28, -54],
+      [38, -2],
+    ],
+  },
+  leap: {
+    L: [
+      [-14, -44],
+      [-20, -2],
+    ],
+    R: [
+      [24, -68],
+      [20, -38],
+    ],
+  },
+  smite: {
+    L: [
+      [-22, -46],
+      [-34, -2],
+    ],
+    R: [
+      [22, -46],
+      [34, -2],
+    ],
+  },
+  guard: {
+    L: [
+      [-18, -44],
+      [-30, -2],
+    ],
+    R: [
+      [20, -50],
+      [26, -2],
+    ],
+  },
 };
 
 /** @param {number[][]} pts @param {string} stroke @param {number} w */
@@ -119,6 +171,8 @@ function head(s) {
       return `${face}<path d="M-12 ${y - 6} H12 V${y + 6} H-12Z" fill="#1f8a7a"/><circle cx="-5" cy="${y}" r="3.6" fill="none" stroke="#e3b23c" stroke-width="1.6"/><circle cx="5" cy="${y}" r="3.6" fill="none" stroke="#e3b23c" stroke-width="1.6"/><path d="M-12 ${y - 6} L-6 ${y - 22} L0 ${y - 10} L6 ${y - 22} L12 ${y - 6}Z" fill="#e3b23c"/>`;
     case "wreath":
       return `${hair}${face}${beard}${Array.from({ length: 7 }, (_, i) => `<ellipse cx="${-11 + i * 3.6}" cy="${y - 12 - Math.sin((i / 6) * Math.PI) * 3}" rx="2.4" ry="4" fill="#4f7a3a" transform="rotate(${-40 + i * 13} ${-11 + i * 3.6} ${y - 12})"/>`).join("")}`;
+    case "cyclops":
+      return `${hair}<ellipse cx="${x}" cy="${y}" rx="11" ry="13" fill="${skin}"/><ellipse cx="0" cy="${y - 3}" rx="5" ry="4" fill="#f4efe0"/><circle cx="0" cy="${y - 3}" r="2.4" fill="${s.glow}"/><path d="M-7 ${y - 9} Q0 ${y - 12} 7 ${y - 9}" stroke="#000" stroke-opacity=".6" stroke-width="2.4" fill="none"/><path d="M-5 ${y + 7} Q0 ${y + 4} 5 ${y + 7}" stroke="#000" stroke-opacity=".5" stroke-width="1.6" fill="none"/>${beard}`;
     case "hag":
       return `<path d="M-14 ${y + 16} Q-18 ${y - 20} 0 ${y - 22} Q18 ${y - 20} 14 ${y + 16}Z" fill="#c9c2b0"/>${face}<path d="M0 ${y - 2} L6 ${y + 6} L0 ${y + 6}Z" fill="url(#skin)"/>`;
     case "bare":
@@ -139,6 +193,36 @@ function wings(s) {
   return feathers(-1) + feathers(1);
 }
 
+/** 머리 모양: 등 뒤로 늘어뜨린 긴 머리, 땋은 머리, 상투, 헝클어진 머리 @param {FigureSpec} s */
+function hairBack(s) {
+  const color = s.hair ?? "#111";
+  switch (s.hairStyle ?? (s.longHair ? "long" : undefined)) {
+    case "long":
+      return `<path d="M-12 -164 Q-20 -130 -16 -96 Q-4 -88 4 -96 Q14 -120 12 -164Z" fill="${color}"/>`;
+    case "braid":
+      return `<path d="M-8 -160 Q-18 -136 -14 -104" stroke="${color}" stroke-width="7" stroke-dasharray="5 2" fill="none" stroke-linecap="round"/><circle cx="-14" cy="-100" r="3" fill="url(#metal)"/>`;
+    default:
+      return "";
+  }
+}
+
+/** 머리 위에 얹는 머리 모양 @param {FigureSpec} s */
+function hairTop(s) {
+  const color = s.hair ?? "#111";
+  switch (s.hairStyle) {
+    case "topknot":
+      return `<circle cx="0" cy="-176" r="6" fill="${color}"/><path d="M-4 -176 H4" stroke="url(#metal)" stroke-width="2"/>`;
+    case "wild":
+      return Array.from(
+        { length: 7 },
+        (_, i) =>
+          `<path d="M${-10 + i * 3.4} -166 l${f(-6 + i * 2)} -12" stroke="${color}" stroke-width="3.4" stroke-linecap="round"/>`,
+      ).join("");
+    default:
+      return "";
+  }
+}
+
 /**
  * @param {FigureSpec} s
  * @returns {string} 발이 (0,0)인 그룹 내용
@@ -147,39 +231,91 @@ export function figure(s) {
   const pose = POSES[s.pose] ?? POSES.hold;
   const skin = "url(#skin)";
   const cloth = "url(#cloth)";
+  const metal = "url(#metal)";
   const armor = s.body === "warrior" || s.body === "giant";
-  const torsoFill = armor ? "url(#metal)" : cloth;
+  const torsoFill = armor ? metal : cloth;
   const robe = s.body === "robed" || s.body === "gown" || s.body === "hag";
-  const bulk = s.body === "giant" ? 1.18 : s.body === "gown" ? 0.9 : 1;
+  // 체격: 신마다 어깨와 몸통 너비가 조금씩 다릅니다.
+  const build = s.build ?? 1;
+  const bulk = (s.body === "giant" ? 1.18 : s.body === "gown" ? 0.9 : 1) * build;
+  const legs = LEGS[s.pose];
 
   const cape = s.cape
-    ? `<path d="M-20 -140 Q-46 -80 -58 -4 Q-30 -12 -8 -2 Q-4 -70 -2 -128Z" fill="${cloth}"/><path d="M20 -140 Q34 -90 30 -40 L18 -60Z" fill="${cloth}" opacity=".8"/>`
+    ? `<path d="M-20 -140 Q-46 -80 ${legs ? -66 : -58} -4 Q-30 -12 -8 -2 Q-4 -70 -2 -128Z" fill="${cloth}"/><path d="M20 -140 Q34 -90 30 -40 L18 -60Z" fill="${cloth}" opacity=".8"/><path d="M-20 -140 Q-46 -80 ${legs ? -66 : -58} -4" stroke="${s.dark}" stroke-opacity=".4" stroke-width="1.2" fill="none"/>`
     : "";
 
-  const legs =
+  /** 다리 하나: 갑옷이면 정강이 보호대를 덧댑니다. @param {number[]} hip @param {number[][]} leg */
+  const legOf = (hip, [knee, foot]) => {
+    const thick = 13 * bulk;
+    const shin = armor ? limb([knee, foot], metal, thick * 0.78) : "";
+    const boot = `<path d="M${f(foot[0] - 7)} ${f(foot[1])} h14 v4 h-14Z" fill="url(#dark)"/>`;
+    return limb([hip, knee, foot], skin, thick) + shin + boot;
+  };
+  const legArt =
     robe || s.noLegs
       ? ""
-      : limb([P.hipL, [-15, -46], [-24, -2]], skin, 13 * bulk) +
-        limb([P.hipR, [16, -46], [22, -2]], skin, 13 * bulk) +
-        `<path d="M-30 -2 H-14 V2 H-30Z M16 -2 H30 V2 H16Z" fill="url(#dark)"/>`;
+      : legOf(
+          P.hipL,
+          legs?.L ?? [
+            [-15 * build, -46],
+            [-24 * build, -2],
+          ],
+        ) +
+        legOf(
+          P.hipR,
+          legs?.R ?? [
+            [16 * build, -46],
+            [22 * build, -2],
+          ],
+        );
 
+  // 긴 옷은 자세에 따라 자락이 바람에 날립니다.
+  const sway = legs ? 10 : 0;
+  const hem = s.body === "gown" ? 40 : 34;
   const skirt = robe
-    ? `<path d="M-16 -100 Q-30 -40 ${s.body === "gown" ? -40 : -34} 0 Q0 8 ${s.body === "gown" ? 40 : 34} 0 Q30 -40 16 -100Z" fill="${cloth}"/><path d="M-6 -96 Q-10 -40 -12 2 M8 -96 Q12 -40 14 2" stroke="${s.dark}" stroke-opacity=".35" stroke-width="1.4" fill="none"/>`
-    : `<path d="M-16 -98 L-22 -62 Q0 -56 22 -62 L16 -98Z" fill="${cloth}"/>${armor ? `<path d="M-20 -72 H20" stroke="url(#metal)" stroke-width="3"/>` : ""}`;
+    ? `<path d="M-16 -100 Q-30 -40 ${-hem - sway} 0 Q0 8 ${hem + sway / 2} 0 Q30 -40 16 -100Z" fill="${cloth}"/><path d="M-6 -96 Q-10 -40 -12 2 M8 -96 Q12 -40 14 2 M-18 -60 Q-24 -30 -26 0" stroke="${s.dark}" stroke-opacity=".35" stroke-width="1.4" fill="none"/><path d="M${-hem - sway} 0 Q0 8 ${hem + sway / 2} 0" stroke="${metal}" stroke-width="2.4" fill="none" opacity=".8"/>`
+    : `<path d="M-16 -98 L-22 -62 Q0 -56 22 -62 L16 -98Z" fill="${cloth}"/><path d="M-8 -96 L-10 -60 M6 -96 L8 -60" stroke="${s.dark}" stroke-opacity=".3" stroke-width="1.2"/>${armor ? `<path d="M-20 -72 H20" stroke="url(#metal)" stroke-width="3"/>` : ""}`;
 
-  const torso = `<path d="M${-22 * bulk} -140 Q${-26 * bulk} -122 ${-15 * bulk} -100 H${15 * bulk} Q${26 * bulk} -122 ${22 * bulk} -140 Q0 -148 ${-22 * bulk} -140Z" fill="${torsoFill}"/>${armor ? `<path d="M-12 -128 Q0 -122 12 -128 M-10 -114 Q0 -110 10 -114" stroke="${s.dark}" stroke-opacity=".45" stroke-width="1.4" fill="none"/>` : ""}<path d="M-18 -101 H18 V-96 H-18Z" fill="url(#metal)"/>`;
+  // 긴 옷의 가슴 장식: 목걸이와 어깨에 두른 숄
+  const adorn =
+    s.body === "gown"
+      ? `<path d="M-10 -142 Q0 -128 10 -142" stroke="${metal}" stroke-width="2.2" fill="none"/><circle cx="0" cy="-131" r="2.6" fill="${s.glow}"/><path d="M-20 -138 Q-6 -118 16 -104" stroke="${s.dark}" stroke-opacity=".35" stroke-width="5" fill="none"/>`
+      : s.body === "robed"
+        ? `<path d="M-14 -140 L4 -102" stroke="${metal}" stroke-width="2" opacity=".75"/>`
+        : "";
+  const torso = `<path d="M${-22 * bulk} -140 Q${-26 * bulk} -122 ${-15 * bulk} -100 H${15 * bulk} Q${26 * bulk} -122 ${22 * bulk} -140 Q0 -148 ${-22 * bulk} -140Z" fill="${torsoFill}"/>${armor ? `<path d="M-12 -128 Q0 -122 12 -128 M-10 -114 Q0 -110 10 -114 M0 -138 V-104" stroke="${s.dark}" stroke-opacity=".45" stroke-width="1.4" fill="none"/>` : `<path d="M-14 -138 Q-4 -120 -10 -100 M12 -136 Q6 -118 10 -100" stroke="${s.dark}" stroke-opacity=".3" stroke-width="1.2" fill="none"/>`}<path d="M-18 -101 H18 V-96 H-18Z" fill="url(#metal)"/>`;
+  // 갑옷의 어깨 보호대
+  const pauldrons = armor
+    ? `<ellipse cx="${f(-21 * bulk)}" cy="-138" rx="${f(9 * bulk)}" ry="6" fill="${metal}"/><ellipse cx="${f(21 * bulk)}" cy="-138" rx="${f(9 * bulk)}" ry="6" fill="${metal}"/>`
+    : "";
 
-  // 뒤쪽 팔(그림의 왼쪽): 방패를 들거나 내립니다. 티르처럼 한 손이 없을 수도 있습니다.
-  // 허리에 얹은 손: 팔꿈치를 바깥으로 꺾고 손을 허리띠에 둡니다.
-  const backHand = s.hipHand ? [-14, -98] : s.shield ? [-32, -118] : s.oneHand ? [-24, -112] : [-30, -92];
-  const backElbow = s.hipHand ? [-38, -112] : [-30, -114];
-  // 소매: 팔을 천으로 굵게 그리고 손만 살빛으로 둡니다.
+  /** 팔: 소매면 천으로 굵게, 갑옷이면 팔목 보호대를 덧댑니다. @param {number[][]} pts */
   const arm = (pts) =>
     s.sleeves
       ? limb(pts, cloth, 15 * bulk) + `<circle cx="${pts[2][0]}" cy="${pts[2][1]}" r="4.6" fill="${skin}"/>`
-      : limb(pts, skin, 10 * bulk);
-  const backArm = arm([P.shoulderL, backElbow, backHand]);
-  const shieldArt = s.shield ? `<g transform="translate(-36 -116)">${shield(s)}</g>` : "";
+      : limb(pts, skin, 10 * bulk) + (armor ? limb([pts[1], pts[2]], metal, 7.4 * bulk) : "");
+
+  // 뒤쪽 팔(그림의 왼쪽): 자세에 따라 방패를 들거나, 허리에 얹거나, 균형을 잡거나, 두 손으로 무기를 쥡니다.
+  const backPose =
+    s.pose === "smite"
+      ? { elbow: [-18, -162], hand: [4, -186] }
+      : s.pose === "leap"
+        ? { elbow: [-38, -124], hand: [-54, -134] }
+        : s.pose === "guard" && s.shield
+          ? { elbow: [-26, -120], hand: [-8, -122] }
+          : s.hipHand
+            ? { elbow: [-38, -112], hand: [-14, -98] }
+            : s.shield
+              ? { elbow: [-30, -114], hand: [-32, -118] }
+              : s.oneHand
+                ? { elbow: [-30, -114], hand: [-24, -112] }
+                : s.pose === "charge"
+                  ? { elbow: [-34, -122], hand: [-46, -110] }
+                  : { elbow: [-30, -114], hand: [-30, -92] };
+  const backArm = arm([P.shoulderL, backPose.elbow, backPose.hand]);
+  const shieldArt = s.shield
+    ? `<g transform="translate(${s.pose === "guard" ? "-10 -122" : "-36 -116"})">${shield(s)}</g>`
+    : "";
 
   // 팔이 넷인 신: 뒤에 팔 한 쌍을 더 둡니다.
   const extra =
@@ -208,10 +344,6 @@ export function figure(s) {
   const frontArm = arm([P.shoulderR, pose.elbow, pose.hand]);
   const held = `<g transform="translate(${pose.hand[0]} ${pose.hand[1]}) rotate(${pose.angle})">${item(s.item, s, 92)}</g>`;
   const neck = `<path d="M-5 -150 H5 V-140 H-5Z" fill="${skin}"/>`;
-  // 등 뒤로 늘어뜨린 긴 머리
-  const backHair = s.longHair
-    ? `<path d="M-12 -164 Q-20 -130 -16 -96 Q-4 -88 4 -96 Q14 -120 12 -164Z" fill="${s.hair ?? "#111"}"/>`
-    : "";
   // 한복 깃: 흰 동정이 V자로 여며지고 고름 두 가닥이 늘어집니다.
   const collar = s.collar
     ? `<path d="M-12 -144 L4 -112 M12 -144 L-2 -124" stroke="${s.collar}" stroke-width="3.4" stroke-linecap="round" fill="none"/><path d="M4 -112 Q8 -96 6 -70 M4 -112 Q12 -98 13 -78" stroke="${s.collar}" stroke-width="2.6" stroke-linecap="round" fill="none"/>`
@@ -220,6 +352,9 @@ export function figure(s) {
   const bangs = s.longHair
     ? `<path d="M-11 -163 Q0 -175 11 -166 Q13 -156 10 -146 Q8 -155 3 -159 Q-4 -162 -11 -163Z" fill="${s.hair ?? "#111"}"/>`
     : "";
+  const pet = companion(s.companion, s);
 
-  return `${wings(s)}${backHair}${cape}${extra}${backArm}${legs}${skirt}${torso}${collar}${neck}${head(s)}${bangs}${shieldArt}${frontArm}${held}`;
+  // 두 손으로 내려찍는 자세는 무기를 머리 뒤로 넘겨 얼굴을 가리지 않게 합니다.
+  const behind = s.pose === "smite";
+  return `${pet.back}${wings(s)}${hairBack(s)}${cape}${extra}${behind ? held : ""}${backArm}${legArt}${skirt}${torso}${adorn}${pauldrons}${collar}${neck}${hairTop(s)}${head(s)}${bangs}${shieldArt}${frontArm}${behind ? "" : held}${pet.front}`;
 }

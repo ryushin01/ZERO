@@ -22,7 +22,7 @@ const MONSTERS = {
     region: "north",
     glow: "#9fd4ff",
     skin: "#6a7a80",
-    f: { body: "warrior", head: "helm", item: "sword", pose: "raise", shield: true },
+    f: { body: "warrior", head: "helm", item: "sword", pose: "charge", shield: true },
   },
   dokkaebi: {
     region: "eastAsia",
@@ -34,14 +34,14 @@ const MONSTERS = {
     region: "greek",
     glow: "#ff7a3a",
     skin: "#5a3a26",
-    f: { body: "giant", head: "horned", hair: "#2a1a10", item: "doubleaxe", pose: "raise" },
+    f: { body: "giant", head: "horned", hair: "#2a1a10", item: "doubleaxe", pose: "smite" },
   },
-  hydra: { region: "greek", glow: "#b8f08a", c: { heads: 5, scale: "#3a5a2a" }, form: "serpent" },
+  hydra: { region: "greek", glow: "#b8f08a", c: { heads: 7, scale: "#3a5a2a" }, form: "serpent" },
   oni: {
     region: "eastAsia",
     glow: "#ff6a4a",
     skin: "#9a2a22",
-    f: { body: "giant", head: "demon", hair: "#1a120a", item: "club", pose: "raise" },
+    f: { body: "giant", head: "demon", hair: "#1a120a", item: "club", pose: "smite", hairStyle: "wild" },
   },
   rakshasa: {
     region: "india",
@@ -62,7 +62,7 @@ const MONSTERS = {
     region: "north",
     glow: "#9fd4ff",
     skin: "#8aa4b8",
-    f: { body: "giant", head: "horned", beard: true, hair: "#e8f0f8", item: "club", pose: "raise" },
+    f: { body: "giant", head: "horned", beard: true, hair: "#e8f0f8", item: "club", pose: "smite", build: 1.1 },
   },
   tzitzimitl: {
     region: "americas",
@@ -72,20 +72,20 @@ const MONSTERS = {
   },
   rahu: { region: "india", glow: "#ffd27a", form: "head" },
   imugi: { region: "eastAsia", glow: "#7af0d6", form: "serpent", c: { heads: 1, scale: "#2a4a4a" } },
-  fenrir: { region: "north", glow: "#9fd4ff", form: "beast", c: { beast: "wolf" } },
+  fenrir: { region: "north", glow: "#9fd4ff", form: "beast", c: { beast: "wolf", chained: true } },
   grendel: {
     region: "north",
     glow: "#7af0d6",
     skin: "#4a5048",
-    f: { body: "giant", head: "demon", hair: "#1a120a", item: "none", pose: "raise" },
+    f: { body: "giant", head: "demon", hair: "#1a120a", item: "none", pose: "charge", hairStyle: "wild", build: 1.1 },
   },
   cyclops: {
     region: "greek",
     glow: "#ffb35c",
     skin: "#8a6a4a",
-    f: { body: "giant", head: "bare", beard: true, hair: "#2a1a10", item: "club", pose: "raise" },
+    f: { body: "giant", head: "cyclops", beard: true, hair: "#2a1a10", item: "club", pose: "smite", build: 1.08 },
   },
-  fafnir: { region: "north", glow: "#b8f08a", form: "serpent", c: { heads: 1, scale: "#6a5a1a" } },
+  fafnir: { region: "north", glow: "#b8f08a", form: "serpent", c: { heads: 1, scale: "#6a5a1a", wings: true } },
   zero: { region: "greek", glow: "#f4efe0", form: "void", sky: ["#000000", "#0b0806"] },
 };
 
