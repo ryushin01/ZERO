@@ -7,7 +7,7 @@
   "packageManager": "pnpm@12.16.1",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && storybook build -o dist/storybook --quiet",
     "preview": "vite preview --port 4173",
     "sync:ark": "node scripts/sync-ark.mjs",
     "lint": "eslint .",

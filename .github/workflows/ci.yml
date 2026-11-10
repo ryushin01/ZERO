@@ -30,8 +30,8 @@ jobs:
       - run: pnpm lint:fsd
       - run: pnpm check
       - run: pnpm test
+      # 앱과 Storybook(dist/storybook)을 함께 빌드합니다.
       - run: pnpm build
-      - run: pnpm build-storybook
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v7

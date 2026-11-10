@@ -6,7 +6,7 @@
 
 세계 신화 도서관 [Ark](https://github.com/ryushin01/Ark)의 신과 영웅 133명을 카드로 모으고 묠니르·궁니르 같은 신화 무구를 휘둘러, 기록을 지우려는 괴물과 태초의 공허 ‘영(零)’에 맞서는 웹 덱빌딩 게임입니다.
 
-**[바로 플레이하기](https://zero-ryushin01.vercel.app/)** · 설치 없이 브라우저에서 키보드나 마우스, 터치로 플레이합니다.
+**[바로 플레이하기](https://zero-ryushin01.vercel.app/)** · [Storybook](https://zero-ryushin01.vercel.app/storybook/index.html) · 설치 없이 브라우저에서 키보드나 마우스, 터치로 플레이합니다.
 
 > **프로젝트 상태:** 프레임워크 없이 순수 자바스크립트로 만든 **포트폴리오 프로젝트**입니다. 신과 신화 계열의 소개는 Ark에서 가져왔고, 카드·괴물·무구 일러스트는 Mythic Battles 시리즈의 분위기를 참고해 코드(SVG)로 새로 그렸습니다. 카드 상세에는 Ark가 소장한 Wikimedia Commons 자료를 저작자·라이선스와 함께 보여 줍니다. 진행 상황은 브라우저에만 저장합니다.
 
@@ -76,14 +76,14 @@ pnpm install
 pnpm dev        # http://localhost:5173
 ```
 
-| 명령                                         | 설명                                                       |
-| -------------------------------------------- | ---------------------------------------------------------- |
-| `pnpm build` / `pnpm preview`                | 프로덕션 빌드 / 빌드 결과 실행 (`http://localhost:4173`)   |
-| `pnpm lint` / `pnpm lint:fsd` / `pnpm check` | ESLint / FSD 구조 / 타입 검사                              |
-| `pnpm test`                                  | 규칙·전투·화면 단위 테스트와 자동 플레이 100판 난이도 검사 |
-| `pnpm test:e2e`                              | 프로덕션 빌드의 실제 화면과 axe 검사 (먼저 `build` 필요)   |
-| `pnpm storybook`                             | Storybook 개발 서버 (`http://localhost:6006`)              |
-| `pnpm sync:ark`                              | 옆 폴더의 Ark에서 신·계열·그림을 다시 가져오기             |
+| 명령                                         | 설명                                                                          |
+| -------------------------------------------- | ----------------------------------------------------------------------------- |
+| `pnpm build` / `pnpm preview`                | 앱과 Storybook(`/storybook/`) 빌드 / 빌드 결과 실행 (`http://localhost:4173`) |
+| `pnpm lint` / `pnpm lint:fsd` / `pnpm check` | ESLint / FSD 구조 / 타입 검사                                                 |
+| `pnpm test`                                  | 규칙·전투·화면 단위 테스트와 자동 플레이 100판 난이도 검사                    |
+| `pnpm test:e2e`                              | 프로덕션 빌드의 실제 화면과 axe 검사 (먼저 `build` 필요)                      |
+| `pnpm storybook`                             | Storybook 개발 서버 (`http://localhost:6006`)                                 |
+| `pnpm sync:ark`                              | 옆 폴더의 Ark에서 신·계열·그림을 다시 가져오기                                |
 
 ## 프로젝트 구조
 

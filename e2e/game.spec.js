@@ -225,3 +225,9 @@ test.describe("모바일 @mobile", () => {
     await expectAccessible(page);
   });
 });
+
+test("빌드에 함께 들어간 Storybook이 열립니다", async ({ page }) => {
+  const response = await page.goto("/storybook/index.html");
+  expect(response?.status()).toBe(200);
+  await expect(page).toHaveTitle(/Storybook/);
+});
