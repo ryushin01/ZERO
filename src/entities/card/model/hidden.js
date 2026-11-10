@@ -3,7 +3,6 @@
  * 밸런스를 일부러 깨는 카드이므로 신 카드(FIGURE_CARDS)와 서가 복원 진행도에 넣지 않습니다.
  *
  * @typedef {import("./build.js").CardDef} CardDef
- * @typedef {import("#shared/ui/illustration/index.js").SceneSpec} SceneSpec
  */
 
 /** @type {CardDef[]} */
@@ -37,31 +36,14 @@ export const HIDDEN_CARDS = [
   },
 ];
 
-/** 히든 카드의 그림 사양: 붉은 배경에 긴 검은 머리, 흰 동정과 고름의 검은 도포, 허리에 얹은 손 */
-/** @type {Record<string, SceneSpec>} */
-export const HIDDEN_SCENES = {
+/**
+ * 히든 카드의 그림. 코드로 그리지 않고, 그린 분의 허락을 받은 그림을 그대로 씁니다.
+ * @type {Record<string, { src: string, alt: string, credit: string }>}
+ */
+export const HIDDEN_ART = {
   yushin: {
-    id: "yushin",
-    form: "figure",
-    motif: "none",
-    sky: ["#1a0304", "#a3161a"],
-    glow: "#f4efe0",
-    skin: "#efe4d8",
-    cloth: "#232227",
-    metal: "#d9b25a",
-    dark: "#08070a",
-    legend: false,
-    scale: 1.14,
-    figure: {
-      body: "robed",
-      head: "bare",
-      hair: "#0d0c10",
-      longHair: true,
-      collar: "#f4efe0",
-      sleeves: true,
-      hipHand: true,
-      item: "ssangsudo",
-      pose: "ground",
-    },
+    src: "/art/hidden/yushin.jpg",
+    alt: "붉은 배경 앞에서 눈을 감고 허리에 손을 얹은 유신. 긴 검은 머리가 한쪽 눈을 가리고, 흰 동정과 고름이 달린 검은 도포를 입었습니다.",
+    credit: "허락을 받아 실은 그림",
   },
 };

@@ -42,6 +42,8 @@ function cardsTab(ctx) {
   const { query = "", continent = "all", aspect = "all", seenOnly = false, source = "all" } = ctx.ui;
   const { seen } = ctx.records;
   const cards = filterCards(FIGURE_CARDS, { query, continent, aspect, seenOnly, seen, source });
+  // 히든 카드도 같은 검색어와 거르기로 찾습니다. (서가 복원과 출처 거르기에는 들지 않음)
+  const hidden = seenOnly || source !== "all" ? [] : filterCards(HIDDEN_CARDS, { query, continent, aspect });
   const ratio = seen.length / FIGURE_CARDS.length;
   return [
     h(
@@ -112,8 +114,12 @@ function cardsTab(ctx) {
         ),
       ),
     ),
-    h("p", { class: "codex__count label", role: "status" }, `${FIGURE_CARDS.length}장 가운데 ${cards.length}장`),
-    cards.length
+    h(
+      "p",
+      { class: "codex__count label", role: "status" },
+      `${FIGURE_CARDS.length}장 가운데 ${cards.length}장${hidden.length ? ` · 히든 ${hidden.length}장` : ""}`,
+    ),
+    cards.length || hidden.length
       ? h(
           "ul",
           { class: "codex__cards" },
@@ -136,19 +142,22 @@ function cardsTab(ctx) {
             ? "아직 복원한 신이 없습니다. 한 판을 시작하면 길잡이 신화의 신부터 기록됩니다."
             : "맞는 카드가 없습니다. 거르기를 풀어 보세요.",
         ),
-    hiddenSection(ctx.records.found),
+    hiddenSection(hidden),
   ];
 }
 
-/** 찾은 히든 카드만 보여 줍니다. 아직 찾지 못했다면 아무것도 그리지 않습니다. @param {string[]} found */
-function hiddenSection(found) {
-  const cards = HIDDEN_CARDS.filter((card) => found.includes(card.id));
+/** 히든 카드. 새 기록을 시작할 때 바로 데려갈 수 있습니다. @param {typeof HIDDEN_CARDS} cards 거르기를 거친 히든 카드 */
+function hiddenSection(cards) {
   if (!cards.length) return null;
   return h(
     "section",
     { class: "codex__hidden", "aria-labelledby": "codex-hidden" },
     h("h2", { id: "codex-hidden", class: "codex__hidden-title serif" }, "히든"),
-    h("p", { class: "muted codex__intro" }, "Ark에 기록되지 않은 자. 붉은 방에서 만났습니다."),
+    h(
+      "p",
+      { class: "muted codex__intro" },
+      "Ark에 기록되지 않은 자. 새 기록을 시작할 때 함께 데려갈 수 있고, 드물게 붉은 방에서도 만납니다.",
+    ),
     h(
       "ul",
       { class: "codex__cards" },
@@ -227,9 +236,8 @@ function enemiesTab() {
   );
 }
 
-/** @param {Ctx} ctx */
-function armamentsTab(ctx) {
-  const hidden = HIDDEN_ARMAMENTS.filter((arm) => arm.owners.some((id) => ctx.records.found.includes(id)));
+function armamentsTab() {
+  const hidden = HIDDEN_ARMAMENTS;
   return [
     h(
       "p",
@@ -334,7 +342,7 @@ function view(ctx) {
         : tab === "enemies"
           ? enemiesTab()
           : tab === "armaments"
-            ? armamentsTab(ctx)
+            ? armamentsTab()
             : tab === "factions"
               ? factionsTab()
               : relicsTab(),

@@ -26,6 +26,14 @@ describe("createRun", () => {
     expect(new Set(run.deck.map((c) => c.uid)).size).toBe(11);
   });
 
+  it("히든 캐릭터와 함께 시작하면 유신과 영혼의 검을 처음부터 듭니다", () => {
+    const run = createRun({ seed: 1, guide: "greek", hidden: true });
+    expect(run.deck).toHaveLength(12);
+    expect(run.deck.some((c) => c.id === "yushin")).toBe(true);
+    expect(run.armaments).toContain("soul-sword");
+    expect(run.armaments).toHaveLength(2);
+  });
+
   it("길잡이 후보는 신이 셋 이상인 계열 세 개입니다", () => {
     const options = guideOptions(5);
     expect(options).toHaveLength(3);
@@ -157,6 +165,37 @@ describe("히든 사건 붉은 방", () => {
     const { run, nodeId } = atEvent(seed);
     run.deck.push({ uid: "y", id: "yushin", up: false });
     expect(enterNode(run, nodeId).event).not.toBe("crimson");
+  });
+
+  it("오늘의 신화에서는 열리지 않습니다", () => {
+    const events = Array.from({ length: 200 }, (_, i) => {
+      const { run, nodeId } = atEvent(i + 1);
+      run.daily = "2026-11-10";
+      return enterNode(run, nodeId).event;
+    });
+    expect(events).not.toContain("crimson");
+  });
+
+  it("영혼의 검은 무구 자리에 세지 않아 보통 무구를 세 점까지 모읍니다", () => {
+    /** @param {string[]} armaments @param {string} offer */
+    const offered = (armaments, offer) => ({
+      ...createRun({ seed: 3, guide: "norse", hidden: true }),
+      armaments,
+      reward: {
+        title: "",
+        cards: [],
+        relics: [],
+        relicPick: false,
+        cardTaken: false,
+        relicTaken: false,
+        armaments: [offer],
+        armamentTaken: false,
+      },
+    });
+    const third = takeArmament(offered(["mjolnir", "gungnir", "soul-sword"], "aegis"), "aegis");
+    expect(third.armaments).toEqual(["mjolnir", "gungnir", "soul-sword", "aegis"]);
+    const fourth = takeArmament(offered(third.armaments, "trident"), "trident");
+    expect(fourth.armaments).not.toContain("trident");
   });
 
   it("사내를 따르면 최대 체력 10을 잃고 유신과 영혼의 검을 얻습니다 (무구 자리를 넘어도)", () => {

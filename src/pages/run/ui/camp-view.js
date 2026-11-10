@@ -1,4 +1,4 @@
-import { cardIllustration, getCard } from "#entities/card/index.js";
+import { cardIllustration, getCard, HIDDEN_ART } from "#entities/card/index.js";
 import { getFigure } from "#entities/figure/index.js";
 import { getEvent, requestPick, rest, restAmount, skipToMap } from "#features/run/index.js";
 import { chooseEvent } from "#features/run/index.js";
@@ -20,7 +20,10 @@ function scene(head, body) {
       ? h(
           "figure",
           { class: "scene__art" },
-          h("img", { src: art, alt: `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.` }),
+          h("img", {
+            src: art,
+            alt: HIDDEN_ART[card.id]?.alt ?? `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
+          }),
           h("figcaption", { class: "label muted" }, `${card.name} · ${card.epithet}`),
         )
       : null,

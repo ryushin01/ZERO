@@ -1,4 +1,4 @@
-import { ARMAMENT_SLOTS, ARMAMENTS } from "#entities/armament/index.js";
+import { ARMAMENT_SLOTS, ARMAMENTS, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
 import { FIGURE_CARDS, getCard } from "#entities/card/index.js";
 import { ENCOUNTERS } from "#entities/enemy/index.js";
 import { figuresOf, getPantheon, PANTHEONS } from "#entities/figure/index.js";
@@ -69,10 +69,10 @@ export function guideCards(pantheonSlug) {
 }
 
 /**
- * @param {{ seed: number, guide: string, daily?: string | null }} options
+ * @param {{ seed: number, guide: string, daily?: string | null, hidden?: boolean }} options
  * @returns {Run}
  */
-export function createRun({ seed, guide, daily = null }) {
+export function createRun({ seed, guide, daily = null, hidden = false }) {
   /** @type {Run} */
   const run = {
     version: RUN_VERSION,
@@ -110,8 +110,16 @@ export function createRun({ seed, guide, daily = null }) {
   // 길잡이 신화에 전해지는 무구가 있으면 그것을, 없으면 아무 무구나 하나 들고 떠납니다.
   const native = ARMAMENTS.filter((a) => a.pantheon === guide);
   run.armaments = [roll(run, (rng) => rng.pick(native.length ? native : ARMAMENTS)).id];
+  // 히든 캐릭터와 함께 시작하면 유신과 영혼의 검을 처음부터 듭니다. (무구 자리와 따로)
+  if (hidden) {
+    run.deck.push(makeCard(run, "yushin"));
+    run.armaments.push("soul-sword");
+  }
   return run;
 }
+
+/** 무구 자리(3점)를 차지하는 보통 무구의 수. 히든 무구는 자리와 따로 듭니다. @param {Run} run */
+const normalArmaments = (run) => run.armaments.filter((id) => !HIDDEN_ARMAMENTS.some((a) => a.id === id)).length;
 
 /** 적 무리를 고릅니다. 같은 무리가 연달아 나오지 않게 합니다. @param {Run} run @param {"easy" | "normal" | "elite"} pool */
 function chooseEncounter(run, pool) {
@@ -173,7 +181,8 @@ export function enterNode(prev, nodeId) {
     case "event":
       run.phase = "event";
       run.event = roll(run, (rng) =>
-        !run.deck.some((c) => c.id === "yushin") && rng.float() < HIDDEN_EVENT_CHANCE
+        // 오늘의 신화는 모두 같은 조건으로 겨루므로 히든 사건이 열리지 않습니다.
+        !run.daily && !run.deck.some((c) => c.id === "yushin") && rng.float() < HIDDEN_EVENT_CHANCE
           ? HIDDEN_EVENT.id
           : rng.pick(["oracle", "mimir", "library", "lethe", "forge", "bari", "loki"]),
       );
@@ -273,7 +282,7 @@ export function updateCombat(prev, combat) {
     relicPick: tier === "boss",
     cardTaken: false,
     relicTaken: false,
-    armaments: tier === "elite" && run.armaments.length < ARMAMENT_SLOTS ? rollArmaments(run, 2) : [],
+    armaments: tier === "elite" && normalArmaments(run) < ARMAMENT_SLOTS ? rollArmaments(run, 2) : [],
     armamentTaken: false,
   };
   return run;
@@ -298,7 +307,7 @@ function rollArmaments(run, count) {
 export function takeArmament(prev, id) {
   const reward = prev.reward;
   if (!reward || reward.armamentTaken || !reward.armaments?.includes(id)) return prev;
-  if (prev.armaments.length >= ARMAMENT_SLOTS) return prev;
+  if (normalArmaments(prev) >= ARMAMENT_SLOTS) return prev;
   const run = clone(prev);
   run.armaments.push(id);
   /** @type {Reward} */ (run.reward).armamentTaken = true;

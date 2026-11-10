@@ -25,6 +25,9 @@ function newRunExtras(slug) {
   );
 }
 
+/** 히든 캐릭터와 함께 시작할지 (자유 도전에서만, 기본은 함께) @param {import("#app/render/app.js").PageContext} ctx */
+const withHidden = (ctx) => !isDaily(ctx) && ctx.ui.hidden !== false;
+
 /** @param {import("#app/render/app.js").PageContext} ctx */
 const isDaily = (ctx) => ctx.route.params[0] === "daily";
 
@@ -73,6 +76,27 @@ function view(ctx) {
           `진행 중인 판(${ctx.run.act}장 ${ctx.run.stats.floors}층)이 있습니다. 새로 시작하면 지금 판은 지워집니다.`,
         )
       : null,
+    daily
+      ? null
+      : h(
+          "div",
+          { class: "new-run__hidden" },
+          h(
+            "button",
+            {
+              type: "button",
+              class: "chip",
+              "data-action": "toggle-hidden",
+              "aria-pressed": withHidden(ctx) ? "true" : "false",
+            },
+            "히든 캐릭터 유신과 함께 시작",
+          ),
+          h(
+            "p",
+            { class: "muted" },
+            "유신 카드와 무구 영혼의 검을 처음부터 듭니다. 밸런스를 일부러 깨는 성능이라 오늘의 신화에서는 시작 선택도, 붉은 방도 없습니다.",
+          ),
+        ),
     h(
       "ol",
       { class: "new-run__list" },
@@ -132,6 +156,11 @@ export const newRunPage = {
     else if (!ctx.ui.seed) ctx.setUi({ seed: randomSeed() });
   },
   actions: {
+    "toggle-hidden"(ctx) {
+      const next = !withHidden(ctx);
+      ctx.setUi({ hidden: next });
+      ctx.announce(next ? "유신과 함께 시작합니다." : "유신 없이 시작합니다.");
+    },
     reroll(ctx) {
       ctx.setUi({ seed: randomSeed() });
       ctx.announce("다른 신화 셋을 불러왔습니다.");
@@ -147,7 +176,7 @@ export const newRunPage = {
       const daily = isDaily(ctx) ? shownDay(ctx) : null;
       const seed = seedOf(ctx) ?? randomSeed();
       if (!daily) ctx.setUi({ seed: randomSeed() });
-      ctx.setRun(createRun({ seed, guide, daily }));
+      ctx.setRun(createRun({ seed, guide, daily, hidden: withHidden(ctx) }));
       ctx.navigate("#/run");
     },
   },
