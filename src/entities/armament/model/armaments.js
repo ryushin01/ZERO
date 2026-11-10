@@ -659,7 +659,37 @@ export const ARMAMENTS = [
   },
 ];
 
-const BY_ID = new Map(ARMAMENTS.map((a) => [a.id, a]));
+/**
+ * 히든 무구. 보상이나 길잡이 무구로 나오지 않고, 히든 사건에서 주인과 함께 얻습니다.
+ * 밸런스를 일부러 깨는 성능입니다.
+ * @type {ArmamentDef[]}
+ */
+export const HIDDEN_ARMAMENTS = [
+  {
+    id: "soul-sword",
+    name: "영혼의 검",
+    owner: "유신",
+    owners: ["yushin"],
+    pantheon: "hidden",
+    item: "ssangsudo",
+    cost: 0,
+    cooldown: 1,
+    effects: [
+      { op: "damage", value: 24, all: true, pierce: true },
+      { op: "heal", value: 6 },
+    ],
+    bonus: "power",
+    lore: "유신이 쥔 긴 칼. 조선의 두 손 칼 쌍수도를 닮아 날 길이만 150cm에 이르고, 벤 것의 혼을 거두어 주인의 상처를 메운다고 합니다. 혼을 벤다는 이야기는 ZERO가 지은 것입니다.",
+    look: "곧고 아주 긴 외날, 둥근 놋쇠 코등이, 붉은 실을 감은 두 손 자루",
+    sources: [
+      "https://namu.wiki/w/쌍수도",
+      "https://en.wikipedia.org/wiki/Korean_sword",
+      "http://www.dogum.co.kr/shop/shop/item.php?it_id=1292980231",
+    ],
+  },
+];
+
+const BY_ID = new Map([...ARMAMENTS, ...HIDDEN_ARMAMENTS].map((a) => [a.id, a]));
 
 /** @param {string} id */
 export function getArmament(id) {

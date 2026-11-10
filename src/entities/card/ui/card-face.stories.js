@@ -8,7 +8,7 @@ export default {
   argTypes: {
     id: {
       control: "select",
-      options: ["zeus", "odin", "athena", "heracles", "loki", "osiris", "quill", "shelf", "were-jaguar"],
+      options: ["zeus", "odin", "athena", "heracles", "loki", "osiris", "quill", "shelf", "were-jaguar", "yushin"],
     },
     tag: { control: "inline-radio", options: ["button", "article", "div"] },
     size: { control: "inline-radio", options: ["s", "m", "l"] },
@@ -46,3 +46,6 @@ export const Disabled = {
 
 /** 밝은 표면 위의 작은 카드 */
 export const Small = { args: { id: "isis", size: "s", tag: "div" }, parameters: { surface: "light" } };
+
+/** 히든: 붉은 겹선 테두리 */
+export const Hidden = { args: { id: "yushin" } };

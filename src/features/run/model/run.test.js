@@ -133,6 +133,43 @@ describe("사건과 카드 고르기", () => {
   });
 });
 
+describe("히든 사건 붉은 방", () => {
+  /** 첫 줄 칸을 모두 사건으로 바꾼 run @param {number} seed */
+  const atEvent = (seed) => {
+    const run = createRun({ seed, guide: "korean" });
+    run.map = {
+      ...run.map,
+      rows: run.map.rows.map((row, i) => (i === 0 ? row.map((n) => ({ ...n, type: "event" })) : row)),
+    };
+    return { run, nodeId: run.map.rows[0][0].id };
+  };
+
+  it("사건 칸에서 드물게 열리고, 유신이 덱에 있으면 열리지 않습니다", () => {
+    const events = Array.from({ length: 300 }, (_, i) => {
+      const { run, nodeId } = atEvent(i + 1);
+      return enterNode(run, nodeId).event;
+    });
+    const hidden = events.filter((e) => e === "crimson").length;
+    expect(hidden).toBeGreaterThan(5);
+    expect(hidden).toBeLessThan(60);
+
+    const seed = events.indexOf("crimson") + 1;
+    const { run, nodeId } = atEvent(seed);
+    run.deck.push({ uid: "y", id: "yushin", up: false });
+    expect(enterNode(run, nodeId).event).not.toBe("crimson");
+  });
+
+  it("사내를 따르면 최대 체력 10을 잃고 유신과 영혼의 검을 얻습니다 (무구 자리를 넘어도)", () => {
+    let run = { ...createRun({ seed: 6, guide: "korean" }), phase: "event", event: "crimson" };
+    run.armaments = ["mjolnir", "gungnir", "aegis"];
+    const maxHp = run.maxHp;
+    run = chooseEvent(run, "follow");
+    expect(run.maxHp).toBe(maxHp - 10);
+    expect(run.deck.some((c) => c.id === "yushin")).toBe(true);
+    expect(run.armaments).toEqual(["mjolnir", "gungnir", "aegis", "soul-sword"]);
+  });
+});
+
 describe("자동 플레이", () => {
   it("여러 시드로 한 판을 끝까지 막힘 없이 진행합니다", () => {
     for (let seed = 1; seed <= 12; seed += 1) {

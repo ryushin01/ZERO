@@ -85,6 +85,19 @@
   background: transparent;
 }
 
+.codex__hidden {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid #a3161a;
+}
+
+.codex__hidden-title {
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #a3161a;
+}
+
 .codex__count {
   margin-bottom: 20px;
   text-align: center;

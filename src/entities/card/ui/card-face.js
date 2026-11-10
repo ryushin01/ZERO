@@ -54,7 +54,13 @@ export function cardFace(card, { tag = "div", lines, chain = null, attrs = {}, s
         card.upgraded ? h("span", { class: "card__plus" }, "+") : null,
       ),
       h("span", { class: "card__en display", lang: "en", "aria-hidden": "true" }, card.nameEn),
-      h("span", { class: "card__meta label" }, pantheon ? pantheon.name : "사서", " · ", TYPE_LABEL[card.type]),
+      h(
+        "span",
+        { class: "card__meta label" },
+        pantheon ? pantheon.name : card.source === "hidden" ? "히든" : "사서",
+        " · ",
+        TYPE_LABEL[card.type],
+      ),
       h(
         "span",
         { class: "card__text" },

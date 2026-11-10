@@ -1,10 +1,11 @@
 import { FIGURES, getPantheon } from "#entities/figure/@x/card.js";
 
 import { hasAny, pickAspects, SKY_CREATION, SKY_SUN, TRAITS } from "./aspects.js";
+import { HIDDEN_CARDS } from "./hidden.js";
 
 /**
  * @typedef {import("./aspects.js").Aspect} Aspect
- * @typedef {"basic" | "common" | "rare" | "legend"} Rarity
+ * @typedef {"basic" | "common" | "rare" | "legend" | "hidden"} Rarity
  * @typedef {"attack" | "skill" | "power"} CardType
  * @typedef {"damage" | "block" | "draw" | "heal" | "energy" | "strength" | "foundation" | "erosion" | "vulnerable" | "weak"} EffectOp
  * @typedef {{ op: EffectOp, value: number, times?: number, all?: boolean }} Effect
@@ -28,7 +29,7 @@ import { hasAny, pickAspects, SKY_CREATION, SKY_SUN, TRAITS } from "./aspects.js
  *   retain: boolean,
  *   target: "enemy" | "none",
  *   upgraded: boolean,
- *   source: "ark" | "zero" | "basic", wiki: string | null,
+ *   source: "ark" | "zero" | "basic" | "hidden", wiki: string | null,
  * }} CardDef
  */
 
@@ -237,7 +238,7 @@ export const BASIC_CARDS = [
 /** 신 카드 전체 (Ark의 신과 영웅 순서) */
 export const FIGURE_CARDS = FIGURES.map(buildFigureCard);
 
-const CATALOG = new Map([...BASIC_CARDS, ...FIGURE_CARDS].map((card) => [card.id, card]));
+const CATALOG = new Map([...BASIC_CARDS, ...FIGURE_CARDS, ...HIDDEN_CARDS].map((card) => [card.id, card]));
 
 /** @param {number} value @param {EffectOp} op */
 function raise(value, op) {

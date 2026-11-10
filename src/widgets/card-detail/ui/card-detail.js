@@ -1,4 +1,4 @@
-import { ARMAMENTS, armamentCard } from "#entities/armament/index.js";
+import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
 import { ASPECTS, cardFace, cardIllustration, getCard, KEYWORDS } from "#entities/card/index.js";
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
@@ -31,7 +31,7 @@ export function cardDetail(cardId) {
   const nemesisOf = ENEMIES.filter((enemy) => isNemesis(enemy, card));
   const faction = card.pantheonSlug ? factionOf(card.pantheonSlug) : null;
   const owned = card.figureSlug
-    ? ARMAMENTS.filter((a) => a.owners.includes(/** @type {string} */ (card.figureSlug)))
+    ? [...ARMAMENTS, ...HIDDEN_ARMAMENTS].filter((a) => a.owners.includes(/** @type {string} */ (card.figureSlug)))
     : [];
   const text = [
     ...card.effects.map((e) => e.op),
@@ -96,7 +96,9 @@ export function cardDetail(cardId) {
         { class: "label muted" },
         pantheon
           ? `${pantheon.name} · ${CONTINENT_LABEL[pantheon.continent]}${card.source === "zero" ? " · ZERO 전설 확장" : ""}`
-          : "Ark 사서의 카드",
+          : card.source === "hidden"
+            ? "히든 · Ark에 기록되지 않은 자"
+            : "Ark 사서의 카드",
       ),
       h("p", { class: "card-detail__en display fit", lang: "en", style: { "--len": card.nameEn.length } }, card.nameEn),
       h("p", { class: "card-detail__epithet serif" }, card.epithet),
@@ -154,7 +156,7 @@ export function cardDetail(cardId) {
             owned.map((arm) => armamentCard(arm)),
           )
         : null,
-      card.figureSlug
+      card.figureSlug && card.source !== "hidden"
         ? h(
             "p",
             { class: "card-detail__links" },

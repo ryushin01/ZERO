@@ -8,7 +8,8 @@
 export function describeEffect(e) {
   switch (e.op) {
     case "damage":
-      if (e.all) return `모든 적에게 피해 ${e.value}`;
+      if (e.all)
+        return (e.times ?? 1) > 1 ? `모든 적에게 피해 ${e.value}씩 ${e.times}번` : `모든 적에게 피해 ${e.value}`;
       if ((e.times ?? 1) > 1) return `피해 ${e.value}씩 ${e.times}번`;
       return `피해 ${e.value}`;
     case "block":
@@ -44,7 +45,7 @@ export function describeCard(card) {
 }
 
 export const TYPE_LABEL = { attack: "공격", skill: "기술", power: "권능" };
-export const RARITY_LABEL = { basic: "기본", common: "일반", rare: "희귀", legend: "전설" };
+export const RARITY_LABEL = { basic: "기본", common: "일반", rare: "희귀", legend: "전설", hidden: "히든" };
 
 /** 용어 풀이. 도움말과 카드 상세가 함께 씁니다. */
 export const KEYWORDS = [

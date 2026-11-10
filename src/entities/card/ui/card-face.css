@@ -176,7 +176,12 @@ button.card:focus-visible .card__art img {
   border: 3px double var(--ink);
 }
 
-.card--legend .card__cost {
+.card--hidden {
+  border: 3px double #a3161a;
+}
+
+.card--legend .card__cost,
+.card--hidden .card__cost {
   box-shadow:
     0 0 0 2px var(--paper),
     0 0 0 3px var(--ink);

@@ -7,13 +7,23 @@ import { h } from "#shared/lib/index.js";
 
 /** @typedef {import("#app/render/app.js").PageContext} Ctx */
 
-/** @param {{ en: string, title: string, lead: string, figure?: string }} head @param {Node[]} body */
+/** @param {{ en: string, title: string, lead: string, figure?: string, card?: string }} head @param {Node[]} body */
 function scene(head, body) {
   const figure = head.figure ? getFigure(head.figure) : null;
-  const art = figure ? cardIllustration(getCard(figure.slug)) : null;
+  // Ark에 없는 카드(히든)는 카드 그림만 보여 주고 Ark로 잇지 않습니다.
+  const card = head.card ? getCard(head.card) : null;
+  const art = figure ? cardIllustration(getCard(figure.slug)) : card ? cardIllustration(card) : null;
   return h(
     "section",
     { class: ["scene", art && "scene--art"] },
+    card && art
+      ? h(
+          "figure",
+          { class: "scene__art" },
+          h("img", { src: art, alt: `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.` }),
+          h("figcaption", { class: "label muted" }, `${card.name} · ${card.epithet}`),
+        )
+      : null,
     art && figure
       ? h(
           "figure",
@@ -122,7 +132,7 @@ export function shrineView(ctx) {
 export function eventView(ctx) {
   const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
   const event = getEvent(/** @type {string} */ (run.event));
-  return scene({ en: event.en, title: event.title, lead: event.text[0], figure: event.figure }, [
+  return scene({ en: event.en, title: event.title, lead: event.text[0], figure: event.figure, card: event.card }, [
     ...event.text.slice(1).map((p) => h("p", null, p)),
     h(
       "ul",

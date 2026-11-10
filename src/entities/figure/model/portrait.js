@@ -23,6 +23,7 @@ const REGIONS = {
   arctic: { motif: "totem", sky: ["#061219", "#21424e"], skin: "#a87a58", cloth: "#2a3a4a", metal: "#c97a3a" },
   medieval: { motif: "stones", sky: ["#0d0f16", "#33384e"], skin: "#d6b49a", cloth: "#6a1e22", metal: "#b8c0c8" },
   frontier: { motif: "mountains", sky: ["#0c1410", "#2e4a36"], skin: "#c99a74", cloth: "#7a2a22", metal: "#9aa4ac" },
+  crimson: { motif: "none", sky: ["#1a0304", "#a3161a"], skin: "#efe4d8", cloth: "#232227", metal: "#d9b25a" },
   steppe: { motif: "mountains", sky: ["#0e1018", "#4a3e2a"], skin: "#c08a60", cloth: "#2a5a8a", metal: "#d6b25a" },
 };
 
@@ -78,6 +79,8 @@ const PANTHEON_REGION = {
   "american-folklore": "frontier",
   "turko-mongol": "steppe",
   "arabian-nights": "nearEast",
+  // 히든
+  hidden: "crimson",
 };
 
 /** 주 속성의 기운 색 */
