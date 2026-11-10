@@ -32,7 +32,7 @@ import { getEvent } from "./events.js";
  * }} Run
  */
 
-export const RUN_VERSION = 1;
+export const RUN_VERSION = 2;
 export const START_HP = 72;
 
 /** @param {Run} run */
@@ -443,6 +443,41 @@ export function sortDeck(deck) {
 /** 저장된 run이 이 버전에서 읽을 수 있는지 @param {unknown} value @returns {value is Run} */
 export function isRun(value) {
   return Boolean(value && typeof value === "object" && /** @type {Run} */ (value).version === RUN_VERSION);
+}
+
+/** 0.3.0에서 무구로 옮긴 옛 유물 */
+const MOVED_RELICS = ["aegis", "kusanagi", "cheonbuin", "mjolnir", "gungnir"];
+
+/**
+ * 이전 버전의 저장을 지금 형식으로 옮깁니다. 옮길 수 없으면 null.
+ * 1 → 2: 무구와 세력이 생겼고, 무기였던 유물이 무구가 되었습니다.
+ * @param {unknown} value
+ * @returns {Run | null}
+ */
+export function migrateRun(value) {
+  if (!value || typeof value !== "object") return null;
+  const saved = /** @type {any} */ (structuredClone(value));
+  if (saved.version === RUN_VERSION) return saved;
+  if (saved.version !== 1 || !Array.isArray(saved.deck)) return null;
+
+  // 옛 유물 가운데 무기는 같은 이름의 무구로 바꿔 줍니다. (천부인 유물은 무구 천부인)
+  const moved = (saved.relics ?? []).filter((id) => MOVED_RELICS.includes(id));
+  saved.relics = (saved.relics ?? []).filter((id) => !MOVED_RELICS.includes(id));
+  const native = ARMAMENTS.filter((a) => a.pantheon === saved.guide).map((a) => a.id);
+  saved.armaments = [...new Set([...moved, ...(native.length ? [native[0]] : ["kerykeion"])])].slice(0, ARMAMENT_SLOTS);
+  if (saved.reward) {
+    saved.reward.relics = (saved.reward.relics ?? []).filter((id) => !MOVED_RELICS.includes(id));
+    saved.reward.armaments = saved.reward.armaments ?? [];
+    saved.reward.armamentTaken = saved.reward.armamentTaken ?? false;
+  }
+  if (saved.combat) {
+    saved.combat.relics = saved.relics;
+    saved.combat.armaments = saved.combat.armaments ?? saved.armaments.map((id) => ({ id, cd: 0 }));
+    saved.combat.playedFigures = saved.combat.playedFigures ?? [];
+    saved.combat.perks = saved.combat.perks ?? {};
+  }
+  saved.version = RUN_VERSION;
+  return saved;
 }
 
 /** 길잡이 계열 이름 @param {Run} run */

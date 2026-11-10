@@ -166,7 +166,12 @@ export const rewardActions = {
       return;
     }
     const arm = getArmament(/** @type {string} */ (el.dataset.id));
-    ctx.setRun(takeArmament(run, arm.id));
+    const next = takeArmament(run, arm.id);
+    if (next === run) {
+      ctx.announce(`무구는 ${ARMAMENT_SLOTS}점까지만 들 수 있어 ${withJosa(arm.name, "을/를")} 들지 못했습니다.`);
+      return;
+    }
+    ctx.setRun(next);
     ctx.announce(`${withJosa(arm.name, "을/를")} 들었습니다. 전투에서 에너지 ${arm.cost}로 휘두를 수 있습니다.`);
   },
   "take-relic"(ctx, el) {

@@ -99,6 +99,13 @@ test.describe("무구와 세력", () => {
     await startRun(page);
     await expect(page.getByRole("heading", { name: "무구 1" })).toBeVisible();
     await page.locator("[data-action='enter']").first().click();
+    // 첫 무구에 적이 쓰러지지 않도록 적의 체력을 넉넉히 둔 상태에서 시작합니다.
+    await page.evaluate(() => {
+      const run = JSON.parse(localStorage.getItem("zero:run"));
+      run.combat.enemies = run.combat.enemies.map((e) => ({ ...e, hp: 999, maxHp: 999 }));
+      localStorage.setItem("zero:run", JSON.stringify(run));
+    });
+    await page.reload();
     const arm = page.locator("[data-action='arm']").first();
     await expect(arm).toBeVisible();
     await arm.focus();

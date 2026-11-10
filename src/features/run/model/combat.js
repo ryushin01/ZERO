@@ -565,8 +565,13 @@ function remember(state) {
 export function previewArmament(state, id) {
   const arm = getArmament(id);
   const withOwner = arm.owners.some((slug) => state.playedFigures.includes(slug));
-  const rate = withOwner && arm.bonus === "power" ? 1.5 : 1;
-  const effects = scaleEffects(state, arm.effects, rate);
+  const boosted = withOwner && arm.bonus === "power";
+  // 피해·방어·회복·침식은 50% 늘리고, 뽑기·에너지·힘·약화·취약처럼 작은 수는 절반(최소 1)을 더합니다.
+  const effects = scaleEffects(state, arm.effects, boosted ? 1.5 : 1).map((e) =>
+    boosted && ["draw", "energy", "strength", "weak", "vulnerable"].includes(e.op)
+      ? { ...e, value: e.value + Math.max(1, Math.floor(e.value / 2)) }
+      : e,
+  );
   const target = effects.some((e) => ["damage", "erosion", "vulnerable", "weak"].includes(e.op) && !e.all)
     ? "enemy"
     : "none";

@@ -153,6 +153,13 @@ describe("무구", () => {
     expect(previewArmament(after, "kusanagi").effects[1].value).toBe(6); // 방어 4 × 1.5
   });
 
+  it("뽑기·에너지·힘 무구도 주인과 함께면 더 강해집니다", () => {
+    const state = withArms(["kerykeion"], ["hermes"]);
+    expect(previewArmament(state, "kerykeion").effects[0].value).toBe(2);
+    const after = playCard(state, state.hand[0].uid);
+    expect(previewArmament(after, "kerykeion").effects[0].value).toBe(3);
+  });
+
   it("우자트의 눈은 약화·취약·침식을 씻어 냅니다", () => {
     const state = withArms(["wedjat"]);
     state.player.statuses.weak = 2;

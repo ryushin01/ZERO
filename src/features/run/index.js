@@ -16,6 +16,7 @@ export {
   guideName,
   guideOptions,
   isRun,
+  migrateRun,
   leaveReward,
   pickableCards,
   requestPick,

@@ -8,6 +8,7 @@ import {
   createRun,
   enterNode,
   guideCards,
+  migrateRun,
   guideOptions,
   leaveReward,
   resolvePick,
@@ -29,6 +30,33 @@ describe("createRun", () => {
     const options = guideOptions(5);
     expect(options).toHaveLength(3);
     expect(new Set(options.map((p) => p.slug)).size).toBe(3);
+  });
+});
+
+describe("migrateRun", () => {
+  it("0.2.0 저장을 옮기고, 무기였던 유물은 무구로 바꿉니다", () => {
+    const old = { ...createRun({ seed: 9, guide: "greek" }), version: 1, relics: ["aegis", "ankh"] };
+    delete old.armaments;
+    old.reward = {
+      title: "",
+      cards: [],
+      relics: ["mjolnir", "sampo"],
+      relicPick: true,
+      cardTaken: false,
+      relicTaken: false,
+    };
+    old.combat = { relics: ["aegis", "ankh"], hand: [], enemies: [] };
+    const run = migrateRun(old);
+    expect(run.version).toBe(2);
+    expect(run.relics).toEqual(["ankh"]);
+    expect(run.armaments).toEqual(["aegis"]);
+    expect(run.reward.relics).toEqual(["sampo"]);
+    expect(run.combat).toMatchObject({ playedFigures: [], perks: {}, armaments: [{ id: "aegis", cd: 0 }] });
+  });
+
+  it("알 수 없는 저장은 버립니다", () => {
+    expect(migrateRun(null)).toBeNull();
+    expect(migrateRun({ version: 99 })).toBeNull();
   });
 });
 
