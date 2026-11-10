@@ -28,6 +28,14 @@ const REGION_RULES = {
   africa: { title: "오리샤의 길", motto: "갈림길마다 길잡이가 있습니다.", perk: "turnHeal", values: [1, 2] },
   oceania: { title: "바다를 건넌 이들", motto: "파도는 집이 됩니다.", perk: "turnBlock", values: [2, 4] },
   arctic: { title: "까마귀의 해안", motto: "빛은 훔쳐 온 것입니다.", perk: "firstDraw", values: [1, 2] },
+  medieval: { title: "기사의 서약", motto: "서약한 자는 물러서지 않습니다.", perk: "turnBlock", values: [2, 4] },
+  frontier: {
+    title: "개척자의 허풍",
+    motto: "이야기가 커질수록 사람도 커집니다.",
+    perk: "startStrength",
+    values: [1, 2],
+  },
+  steppe: { title: "초원의 궁수", motto: "말 위에서 쏜 화살은 해까지 닿습니다.", perk: "startVulnAll", values: [1, 2] },
 };
 
 /** 신이 많은 계열의 고유 세력 @type {Record<string, FactionRule>} */
@@ -68,6 +76,21 @@ const PANTHEON_RULES = {
     motto: "태양을 움직이려면 불이 필요합니다.",
     perk: "startDamageAll",
     values: [4, 8],
+  },
+  // ZERO 전설 확장
+  arthurian: { title: "원탁의 기사", motto: "원탁에는 윗자리가 없습니다.", perk: "turnBlock", values: [3, 5] },
+  carolingian: {
+    title: "열두 기사",
+    motto: "뿔피리를 불기 전까지 물러서지 않습니다.",
+    perk: "startStrength",
+    values: [1, 2],
+  },
+  germanic: { title: "니벨룽의 보물", motto: "용의 보물은 피를 부릅니다.", perk: "startDamageAll", values: [4, 8] },
+  "arabian-nights": {
+    title: "천 하룻밤",
+    motto: "이야기가 끝나지 않는 한 밤은 계속됩니다.",
+    perk: "firstDraw",
+    values: [1, 2],
   },
 };
 

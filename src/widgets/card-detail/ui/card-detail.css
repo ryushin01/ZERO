@@ -70,6 +70,12 @@
   font-size: 1.125rem;
 }
 
+.card-detail__description {
+  max-width: 36em;
+  font-size: var(--fs-s);
+  color: var(--light-muted);
+}
+
 .card-detail__summary {
   max-width: 36em;
 }

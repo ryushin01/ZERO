@@ -59,6 +59,15 @@
 - 그림은 macOS `sips`로 긴 변 420px JPEG로 줄여 `public/art/`에 둡니다. (124점, 약 3.8MB)
 - 결과물을 커밋하므로 Ark 저장소가 없어도 빌드됩니다.
 
+## 전설 확장 데이터
+
+Ark에 아직 없는 전설의 영웅·인물 149명(아서왕 전설, 샤를마뉴 전설, 게르만 영웅 전설, 천일야화 등 새 계열 8개)은 `scripts/legends/`에서 만듭니다.
+
+- `data.py`에 계열과 인물(이름, 별칭, 관장 영역, 소개 두 문단, 희귀도, 위키백과 제목)을 Ark와 같은 모양으로 적습니다.
+- `python3 scripts/legends/build.py`가 위키백과 API로 문서가 있는지 확인해(한국어 문서가 있으면 한국어, 없으면 영어) `src/entities/figure/data/legends.json`을 씁니다.
+- `entities/figure`가 Ark 데이터(`source: "ark"`)와 합쳐 쓰며, 전설 확장(`source: "zero"`)은 카드 상세에서 Ark 대신 위키백과로 잇고 소개 문단을 직접 보여 줍니다.
+- 같은 인물이 Ark에 들어오면 `pnpm sync:ark` 뒤 `legends.json`에서 빼서 Ark의 기록을 따릅니다.
+
 ## 검사
 
 | 검사             | 명령             | 내용                                                                                                                                                                                 |

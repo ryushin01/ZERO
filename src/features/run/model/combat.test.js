@@ -160,6 +160,19 @@ describe("무구", () => {
     expect(previewArmament(after, "kerykeion").effects[0].value).toBe(3);
   });
 
+  it("바사비 샥티는 전투마다 한 번만 씁니다", () => {
+    let state = useArmament(withArms(["vasavi-shakti"]), "vasavi-shakti");
+    // 전투가 아무리 길어져도 다시 돌아오지 않습니다.
+    for (let i = 0; i < 120; i += 1) {
+      state.player.hp = state.player.maxHp;
+      state.player.block = 9999;
+      for (const enemy of state.enemies) enemy.hp = enemy.maxHp;
+      state = endTurn(state);
+    }
+    expect(canUseArmament(state, "vasavi-shakti")).toMatchObject({ ok: false });
+    expect(canUseArmament(state, "vasavi-shakti").reason).toContain("이미 썼습니다");
+  });
+
   it("우자트의 눈은 약화·취약·침식을 씻어 냅니다", () => {
     const state = withArms(["wedjat"]);
     state.player.statuses.weak = 2;

@@ -28,4 +28,14 @@ describe("cardDetail", () => {
   it("천적인 괴물을 알려 줍니다", () => {
     expect(cardDetail("heracles").textContent).toContain("히드라에게 피해 50% 증가");
   });
+
+  it("전설 확장의 인물은 Ark 대신 위키백과로 잇습니다", () => {
+    const el = cardDetail("king-arthur");
+    expect(el.textContent).toContain("ZERO 전설 확장");
+    expect(el.querySelector("a[href^='https://ko.wikipedia.org/']")?.textContent).toContain(
+      "위키백과에서 아서 왕 읽기",
+    );
+    expect(el.querySelector("a[href*='ark-ryushin01']")).toBeNull();
+    expect(el.querySelector(".card-detail__arms")?.textContent).toContain("엑스칼리버");
+  });
 });

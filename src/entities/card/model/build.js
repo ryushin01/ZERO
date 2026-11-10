@@ -28,6 +28,7 @@ import { hasAny, pickAspects, SKY_CREATION, SKY_SUN, TRAITS } from "./aspects.js
  *   retain: boolean,
  *   target: "enemy" | "none",
  *   upgraded: boolean,
+ *   source: "ark" | "zero" | "basic", wiki: string | null,
  * }} CardDef
  */
 
@@ -147,7 +148,7 @@ export function buildFigureCard(figure) {
   const { domains } = figure;
   const { primary, secondary } = pickAspects(domains);
   /** @type {Rarity} */
-  const rarity = figure.order === 1 ? "legend" : figure.order <= 3 ? "rare" : "common";
+  const rarity = figure.rarity ?? (figure.order === 1 ? "legend" : figure.order <= 3 ? "rare" : "common");
   const trick = hasAny(domains, TRAITS.trick);
   const units = BUDGET[trick ? "trick" : "normal"][rarity];
   const cost = trick ? 0 : rarity === "legend" ? 2 : 1;
@@ -178,6 +179,8 @@ export function buildFigureCard(figure) {
     retain: hasAny(domains, TRAITS.rebirth),
     target: needsTarget(effects) ? "enemy" : "none",
     upgraded: false,
+    source: figure.source ?? "ark",
+    wiki: figure.wiki ?? null,
   };
 }
 
@@ -203,6 +206,8 @@ export const BASIC_CARDS = [
     retain: false,
     target: "enemy",
     upgraded: false,
+    source: "basic",
+    wiki: null,
   },
   {
     id: "shelf",
@@ -224,6 +229,8 @@ export const BASIC_CARDS = [
     retain: false,
     target: "none",
     upgraded: false,
+    source: "basic",
+    wiki: null,
   },
 ];
 

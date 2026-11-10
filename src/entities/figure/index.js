@@ -1,6 +1,7 @@
 export {
   CONTINENT_LABEL,
   CONTINENTS,
+  ARK_FIGURE_COUNT,
   FIGURES,
   figuresOf,
   getArt,

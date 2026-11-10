@@ -36,9 +36,9 @@ const toggle = (action, value, pressed, label) =>
 
 /** @param {Ctx} ctx */
 function cardsTab(ctx) {
-  const { query = "", continent = "all", aspect = "all", seenOnly = false } = ctx.ui;
+  const { query = "", continent = "all", aspect = "all", seenOnly = false, source = "all" } = ctx.ui;
   const { seen } = ctx.records;
-  const cards = filterCards(FIGURE_CARDS, { query, continent, aspect, seenOnly, seen });
+  const cards = filterCards(FIGURE_CARDS, { query, continent, aspect, seenOnly, seen, source });
   const ratio = seen.length / FIGURE_CARDS.length;
   return [
     h(
@@ -91,7 +91,14 @@ function cardsTab(ctx) {
       ),
       h(
         "div",
-        { class: "codex__group" },
+        { class: "codex__group", role: "group", "aria-label": "출처" },
+        toggle("source", "all", source === "all", "모든 출처"),
+        toggle("source", "ark", source === "ark", "Ark의 기록"),
+        toggle("source", "zero", source === "zero", "전설 확장"),
+      ),
+      h(
+        "div",
+        { class: "codex__group", role: "group", "aria-label": "서가 복원" },
         h(
           "button",
           { type: "button", class: "chip", "data-action": "seen-only", "aria-pressed": seenOnly ? "true" : "false" },
@@ -275,7 +282,7 @@ function view(ctx) {
       h(
         "p",
         null,
-        "Ark에 기록된 신과 영웅이 그대로 카드가 되었습니다. 카드를 누르면 Ark의 소개와 자료, 출처를 볼 수 있습니다.",
+        "Ark에 기록된 신과 영웅, 그리고 ZERO가 더한 아서왕 전설·인도 서사시·동아시아 설화 같은 전설의 영웅이 카드가 되었습니다. 카드를 누르면 소개와 함께 Ark 또는 위키백과로 이어집니다.",
       ),
     ),
     h(
@@ -310,6 +317,7 @@ export const codexPage = {
     continent: (ctx, el) => ctx.setUi({ continent: el.dataset.value }),
     aspect: (ctx, el) => ctx.setUi({ aspect: el.dataset.value }),
     "seen-only": (ctx) => ctx.setUi({ seenOnly: !ctx.ui.seenOnly }),
+    source: (ctx, el) => ctx.setUi({ source: el.dataset.value }),
     "open-card": (ctx, el) => ctx.openCard(/** @type {string} */ (el.dataset.id)),
   },
   inputs: {

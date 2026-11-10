@@ -121,11 +121,11 @@ test.describe("무구와 세력", () => {
     await expectAccessible(page);
   });
 
-  test("도감에서 무구 14점과 41개 계열의 세력을 봅니다 @mobile", async ({ page }) => {
+  test("도감에서 무구와 모든 계열의 세력을 봅니다 @mobile", async ({ page }) => {
     await page.goto("/#/codex");
     await page.getByRole("button", { name: "무구", exact: true }).click();
     await expect(page.getByRole("heading", { name: "묠니르" })).toBeVisible();
-    await expect(page.locator(".codex__arms > li")).toHaveCount(14);
+    await expect(page.locator(".codex__arms > li")).toHaveCount(39);
     await expectAccessible(page);
     await page.getByRole("button", { name: "세력", exact: true }).click();
     await expect(page.getByRole("table", { name: /세력/ })).toBeVisible();
@@ -147,9 +147,9 @@ test.describe("오늘의 신화와 서가 복원", () => {
     await expect(page.getByRole("heading", { level: 1, name: /1장/ })).toBeVisible();
 
     await page.goto("/#/codex");
-    await expect(page.getByText("2 / 133")).toBeVisible();
+    await expect(page.getByText(/서가 복원 2 \/ \d+/)).toBeVisible();
     await page.getByRole("button", { name: "복원한 신만" }).click();
-    await expect(page.getByText("133장 가운데 2장")).toBeVisible();
+    await expect(page.getByText(/\d+장 가운데 2장/)).toBeVisible();
     await expect(page.locator(".card__badge")).toHaveCount(2);
   });
 
@@ -182,9 +182,9 @@ test.describe("오늘의 신화와 서가 복원", () => {
 test.describe("도감", () => {
   test("영역으로 찾고 카드 상세에서 Ark로 이어집니다 @mobile", async ({ page }) => {
     await page.goto("/#/codex");
-    await expect(page.getByRole("status").filter({ hasText: "133장 가운데 133장" })).toBeVisible();
+    await expect(page.getByRole("status").filter({ hasText: /(\d+)장 가운데 \1장/ })).toBeVisible();
     await page.getByLabel("이름·영역으로 찾기").fill("번개");
-    await expect(page.getByText(/133장 가운데 \d장/)).toBeVisible();
+    await expect(page.getByText(/\d+장 가운데 \d+장/)).toBeVisible();
     await expectAccessible(page);
 
     await page.getByRole("button", { name: /^제우스 / }).click();

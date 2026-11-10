@@ -73,6 +73,19 @@ const MONSTERS = {
   rahu: { region: "india", glow: "#ffd27a", form: "head" },
   imugi: { region: "eastAsia", glow: "#7af0d6", form: "serpent", c: { heads: 1, scale: "#2a4a4a" } },
   fenrir: { region: "north", glow: "#9fd4ff", form: "beast", c: { beast: "wolf" } },
+  grendel: {
+    region: "north",
+    glow: "#7af0d6",
+    skin: "#4a5048",
+    f: { body: "giant", head: "demon", hair: "#1a120a", item: "none", pose: "raise" },
+  },
+  cyclops: {
+    region: "greek",
+    glow: "#ffb35c",
+    skin: "#8a6a4a",
+    f: { body: "giant", head: "bare", beard: true, hair: "#2a1a10", item: "club", pose: "raise" },
+  },
+  fafnir: { region: "north", glow: "#b8f08a", form: "serpent", c: { heads: 1, scale: "#6a5a1a" } },
   zero: { region: "greek", glow: "#f4efe0", form: "void", sky: ["#000000", "#0b0806"] },
 };
 

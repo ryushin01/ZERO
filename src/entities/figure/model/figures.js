@@ -1,19 +1,41 @@
 import artData from "../data/art.json" with { type: "json" };
 import figureData from "../data/figures.json" with { type: "json" };
+import legendData from "../data/legends.json" with { type: "json" };
 import pantheonData from "../data/pantheons.json" with { type: "json" };
 
 /**
  * @typedef {"asia" | "europe" | "africa" | "americas" | "oceania"} Continent
  * @typedef {{ slug: string, name: string, nameEn: string, region: string, continent: Continent, eraLabel: string, eraYear: number, summary: string }} Pantheon
- * @typedef {{ slug: string, pantheonSlug: string, name: string, nameEn: string, epithet: string, domains: string[], summary: string, order: number }} Figure
+ * @typedef {"ark" | "zero"} Source Ark에서 가져온 기록인지, ZERO가 더한 전설 확장인지
+ * @typedef {{
+ *   slug: string, pantheonSlug: string, name: string, nameEn: string, epithet: string, domains: string[], summary: string, order: number,
+ *   source?: Source, rarity?: "common" | "rare" | "legend", description?: string[], wiki?: string,
+ * }} Figure
  * @typedef {{ artist: string, license: string, licenseUrl: string | null, sourceUrl: string }} Credit
  * @typedef {{ src: string, title: string, alt: string, holder: string | null, dateLabel: string | null, credit: Credit }} Art
  */
 
-/** Ark에서 가져온 신화 계열 (오래된 문헌 순) */
-export const PANTHEONS = /** @type {Pantheon[]} */ (pantheonData);
-/** Ark에서 가져온 신과 영웅 */
-export const FIGURES = /** @type {Figure[]} */ (figureData);
+/**
+ * 신화 계열: Ark에서 가져온 계열(오래된 문헌 순) 뒤에 ZERO 전설 확장의 계열을 붙입니다.
+ * @type {(Pantheon & { source?: Source, wiki?: string })[]}
+ */
+export const PANTHEONS = [
+  .../** @type {Pantheon[]} */ (pantheonData).map((p) => ({ ...p, source: /** @type {Source} */ ("ark") })),
+  .../** @type {Pantheon[]} */ (legendData.pantheons).map((p) => ({ ...p, source: /** @type {Source} */ ("zero") })),
+];
+
+/**
+ * 신과 영웅: Ark의 기록 뒤에 ZERO 전설 확장(아서왕 전설, 인도 서사시의 영웅 등)을 붙입니다.
+ * 전설 확장은 Ark와 같은 모양으로 두어, 나중에 Ark로 그대로 옮길 수 있습니다.
+ * @type {Figure[]}
+ */
+export const FIGURES = [
+  .../** @type {Figure[]} */ (figureData).map((f) => ({ ...f, source: /** @type {Source} */ ("ark") })),
+  .../** @type {Figure[]} */ (legendData.figures).map((f) => ({ ...f, source: /** @type {Source} */ ("zero") })),
+];
+
+/** Ark에서 가져온 신과 영웅의 수 */
+export const ARK_FIGURE_COUNT = figureData.length;
 const ART = /** @type {Record<string, Art>} */ (artData);
 
 export const CONTINENTS = /** @type {const} */ (["asia", "europe", "africa", "americas", "oceania"]);

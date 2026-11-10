@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import { aspectOf, pickAspects } from "./aspects.js";
+import { FIGURES } from "#entities/figure/@x/card.js";
+
 import { BASIC_CARDS, FIGURE_CARDS, getCard } from "./build.js";
 import { describeCard } from "./describe.js";
 
@@ -17,9 +19,10 @@ describe("영역과 속성", () => {
 });
 
 describe("신 카드", () => {
-  it("Ark의 신과 영웅 133명이 모두 카드가 됩니다", () => {
-    expect(FIGURE_CARDS).toHaveLength(133);
-    expect(new Set(FIGURE_CARDS.map((c) => c.id)).size).toBe(133);
+  it("Ark의 신과 영웅과 ZERO 전설 확장이 모두 카드가 됩니다", () => {
+    expect(FIGURE_CARDS).toHaveLength(FIGURES.length);
+    expect(FIGURE_CARDS.filter((c) => c.source === "ark").length).toBeGreaterThanOrEqual(133);
+    expect(new Set(FIGURE_CARDS.map((c) => c.id)).size).toBe(FIGURES.length);
   });
 
   it("모든 카드에 효과가 있고 수치는 양수입니다", () => {
