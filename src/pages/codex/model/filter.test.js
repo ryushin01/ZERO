@@ -15,6 +15,13 @@ describe("filterCards", () => {
     expect(filterCards(FIGURE_CARDS, { query: "ODIN" }).map((c) => c.id)).toContain("odin");
   });
 
+  it("출처로 거릅니다", () => {
+    const zero = filterCards(FIGURE_CARDS, { source: "zero" });
+    expect(zero.map((c) => c.id)).toContain("king-arthur");
+    expect(zero.every((c) => c.source === "zero")).toBe(true);
+    expect(filterCards(FIGURE_CARDS, { source: "ark" }).map((c) => c.id)).not.toContain("king-arthur");
+  });
+
   it("복원한 신만 볼 수 있습니다", () => {
     const cards = filterCards(FIGURE_CARDS, { seenOnly: true, seen: ["zeus", "odin"] });
     expect(cards.map((c) => c.id).sort()).toEqual(["odin", "zeus"]);

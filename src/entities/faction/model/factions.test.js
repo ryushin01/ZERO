@@ -30,3 +30,14 @@ describe("세력", () => {
     expect(describePerk("turnHeal", 2)).toBe("매 턴 시작에 체력 2 회복");
   });
 });
+
+describe("전설 확장의 세력", () => {
+  it("모든 신화 계열에 세력이 있습니다", async () => {
+    const { PANTHEONS } = await import("#entities/figure/@x/faction.js");
+    for (const p of PANTHEONS) expect(factionOf(p.slug).title, p.slug).toBeTruthy();
+  });
+
+  it("아서왕 전설은 원탁의 기사입니다", () => {
+    expect(factionOf("arthurian")).toMatchObject({ title: "원탁의 기사", perk: "turnBlock" });
+  });
+});

@@ -1,6 +1,7 @@
 import { h } from "#shared/lib/index.js";
 
 import { armamentIllustration } from "../lib/illustration.js";
+import { isOncePerBattle } from "../model/armaments.js";
 import { bonusText, describeArmament } from "../model/describe.js";
 
 import "./armament-card.css";
@@ -27,7 +28,11 @@ export function armamentCard(arm, { heading = "h3", full = false, footer = null 
       { class: "armament__body" },
       h("p", { class: "label muted" }, `${arm.owner}의 무구`),
       h(heading, { class: "armament__name" }, arm.name),
-      h("p", { class: "armament__cost label" }, `에너지 ${arm.cost} · 쓰고 나면 ${arm.cooldown}턴 쉼`),
+      h(
+        "p",
+        { class: "armament__cost label" },
+        `에너지 ${arm.cost} · ${isOncePerBattle(arm) ? "전투마다 한 번" : `쓰고 나면 ${arm.cooldown}턴 쉼`}`,
+      ),
       h("p", { class: "armament__effect" }, describeArmament(arm).join(". ")),
       h("p", { class: "armament__bonus muted" }, bonusText(arm)),
       full ? h("p", { class: "armament__lore" }, arm.lore) : null,

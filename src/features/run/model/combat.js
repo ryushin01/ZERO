@@ -585,7 +585,13 @@ export function canUseArmament(state, id) {
   if (!slot) return { ok: false, reason: "지니지 않은 무구입니다." };
   const arm = getArmament(id);
   if (slot.cd > 0)
-    return { ok: false, reason: `${withJosa(arm.name, "은/는")} ${slot.cd}턴 뒤에 다시 쓸 수 있습니다.` };
+    return {
+      ok: false,
+      reason:
+        slot.cd >= 50
+          ? `${withJosa(arm.name, "은/는")} 이번 전투에서 이미 썼습니다.`
+          : `${withJosa(arm.name, "은/는")} ${slot.cd}턴 뒤에 다시 쓸 수 있습니다.`,
+    };
   if (arm.cost > state.energy)
     return { ok: false, reason: `에너지가 부족합니다. (필요 ${arm.cost}, 남은 ${state.energy})` };
   return { ok: true, reason: "" };

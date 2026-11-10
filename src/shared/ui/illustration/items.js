@@ -92,6 +92,18 @@ const ITEMS = {
     `<path d="M-1 12 Q-16 -20 -2 -54 Q10 -76 26 -88 Q22 -56 12 -30 Q6 -8 3 12Z" fill="#f4efe0"/><path d="M-1 10 Q4 -30 24 -84" stroke="${c.dark}" stroke-width="1.4" fill="none" opacity=".6"/>${[-60, -46, -32, -18].map((y, k) => `<path d="M${2 + k * 2} ${y} l-10 6 M${4 + k * 2} ${y} l9 4" stroke="${c.dark}" stroke-width=".7" opacity=".35"/>`).join("")}<path d="M-2 10 L0 22 L3 10Z" fill="url(#metal)"/>`,
   book: () =>
     `<rect x="-22" y="-16" width="44" height="12" fill="url(#cloth)"/><rect x="-18" y="-30" width="38" height="12" fill="url(#dark)" stroke="url(#metal)" stroke-width=".8"/><rect x="-20" y="-44" width="40" height="12" fill="url(#cloth)"/><path d="M-20 -38 H20 M-18 -24 H20 M-22 -10 H22" stroke="url(#metal)" stroke-width="1"/>`,
+  bow: (c) =>
+    `<path d="M-4 30 Q-30 -10 -4 -70" stroke="#4a3220" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M-4 30 L-4 -70" stroke="#e8dcbc" stroke-width=".9"/><path d="M-4 -20 L34 -26" stroke="#4a3220" stroke-width="2"/><path d="M34 -26 l-8 -4 l1 8Z" fill="url(#metal)"/><path d="M-4 -20 l-5 -4 M-4 -20 l-5 4" stroke="${c.glow}" stroke-width="1.4"/>`,
+  lamp: (c) =>
+    `<circle cx="10" cy="-26" r="14" fill="${c.glow}" opacity=".3" filter="url(#soft)"/><path d="M-16 -8 Q-12 -20 4 -18 Q16 -18 22 -26 L26 -24 Q18 -10 6 -8Z" fill="url(#metal)"/><path d="M-16 -8 Q-24 -12 -20 -18" stroke="url(#metal)" stroke-width="2" fill="none"/><path d="M24 -26 Q30 -40 18 -50 Q26 -40 14 -38" stroke="${c.glow}" stroke-width="2" fill="none" opacity=".8"/>`,
+  ring: (c) =>
+    `<circle cy="-16" r="16" fill="${c.glow}" opacity=".25" filter="url(#soft)"/><circle cy="-16" r="10" fill="none" stroke="url(#metal)" stroke-width="4"/><circle cy="-27" r="3" fill="${c.glow}"/>`,
+  cloud: (c) =>
+    `<path d="M-30 -10 Q-34 -24 -20 -26 Q-16 -40 0 -36 Q12 -46 22 -34 Q36 -34 32 -20 Q40 -8 26 -6 L-24 -6 Q-36 -6 -30 -10Z" fill="#f4efe0" opacity=".9"/><path d="M-22 -12 Q-4 -20 20 -12" stroke="${c.glow}" stroke-width="1.6" fill="none" opacity=".7"/>`,
+  belt: () =>
+    `<path d="M-26 -20 Q0 -8 26 -20 L26 -10 Q0 2 -26 -10Z" fill="url(#metal)"/><rect x="-6" y="-20" width="12" height="14" rx="2" fill="url(#cloth)" stroke="url(#metal)" stroke-width="1.4"/>`,
+  cloak: (c) =>
+    `<path d="M-8 -40 Q-30 -10 -24 14 Q0 22 24 14 Q30 -10 8 -40Z" fill="url(#dark)" opacity=".85"/><path d="M-8 -40 Q-30 -10 -24 14" stroke="${c.glow}" stroke-width="1.2" fill="none" opacity=".6"/>`,
   none: () => "",
 };
 

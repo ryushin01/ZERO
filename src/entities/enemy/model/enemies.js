@@ -117,6 +117,52 @@ export const ENEMIES = [
     nemesis: { pantheons: ["korean"], note: "한국 신화의 신들은 도깨비를 다스릴 줄 압니다." },
   },
   {
+    id: "grendel",
+    name: "그렌델",
+    nameEn: "Grendel",
+    origin: "고대 영어 서사시",
+    lore: "밤마다 헤오로트 궁전의 잔치 소리에 성나 전사들을 끌고 간 늪지의 괴물.",
+    tier: "normal",
+    act: 1,
+    hp: [46, 50],
+    order: "cycle",
+    intents: [
+      { name: "움켜쥐기", actions: [{ op: "attack", value: 10 }] },
+      {
+        name: "늪의 어둠",
+        actions: [
+          { op: "block", value: 8 },
+          { op: "weak", value: 1 },
+        ],
+      },
+      { name: "끌고 가기", actions: [{ op: "attack", value: 5, times: 2 }] },
+    ],
+    nemesis: { figures: ["beowulf"], note: "베오울프는 맨손으로 그렌델의 팔을 뜯어냈습니다." },
+  },
+  {
+    id: "cyclops",
+    name: "폴리페모스",
+    nameEn: "Cyclops",
+    origin: "그리스 신화",
+    lore: "외눈박이 거인 키클롭스. 동굴에 들어온 오디세우스 일행을 가두었습니다.",
+    tier: "normal",
+    act: 1,
+    hp: [52, 56],
+    order: "cycle",
+    intents: [
+      { name: "바위 던지기", actions: [{ op: "attack", value: 13 }] },
+      { name: "동굴 막기", actions: [{ op: "block", value: 12 }] },
+      {
+        name: "짓밟기",
+        actions: [
+          { op: "attack", value: 7 },
+          { op: "vulnerable", value: 1 },
+        ],
+      },
+    ],
+    nemesis: { figures: ["odysseus"], note: "오디세우스는 '아무도 아니다'라고 이름을 속이고 거인의 눈을 찔렀습니다." },
+  },
+  {
     id: "minotaur",
     name: "미노타우로스",
     nameEn: "Minotaur",
@@ -143,7 +189,11 @@ export const ENEMIES = [
         ],
       },
     ],
-    nemesis: { pantheons: ["minoan"], note: "미궁이 있던 크레타의 신들은 그 길을 압니다." },
+    nemesis: {
+      figures: ["theseus"],
+      pantheons: ["minoan"],
+      note: "테세우스는 아리아드네의 실을 따라 미궁에 들어가 미노타우로스를 쓰러뜨렸습니다.",
+    },
   },
   {
     id: "hydra",
@@ -198,7 +248,11 @@ export const ENEMIES = [
       },
       { name: "연타", actions: [{ op: "attack", value: 6, times: 2 }] },
     ],
-    nemesis: { figures: ["susanoo"], domains: ["악귀 퇴치"], note: "스사노오는 머리 여덟 달린 뱀도 베었습니다." },
+    nemesis: {
+      figures: ["susanoo", "minamoto-no-raiko", "sakata-kintoki", "watanabe-no-tsuna"],
+      domains: ["악귀 퇴치"],
+      note: "미나모토노 라이코와 사천왕은 오에산의 오니 슈텐도지를 쓰러뜨렸습니다.",
+    },
   },
   {
     id: "rakshasa",
@@ -221,7 +275,10 @@ export const ENEMIES = [
       { name: "난도질", actions: [{ op: "attack", value: 5, times: 2 }] },
       { name: "밤의 저주", actions: [{ op: "erosion", value: 4 }] },
     ],
-    nemesis: { figures: ["hanuman", "durga", "vishnu"], note: "하누만과 두르가는 락샤사와 아수라를 물리쳤습니다." },
+    nemesis: {
+      figures: ["rama", "hanuman", "durga", "vishnu"],
+      note: "라마와 하누만은 랑카에 건너가 락샤사의 왕 라바나를 쓰러뜨렸습니다.",
+    },
   },
   {
     id: "gumiho",
@@ -305,6 +362,39 @@ export const ENEMIES = [
     nemesis: {
       figures: ["anubis", "thoth", "osiris"],
       note: "심장의 무게를 다는 자리에는 아누비스와 토트, 오시리스가 있었습니다.",
+    },
+  },
+  {
+    id: "fafnir",
+    name: "파프니르",
+    nameEn: "Fafnir",
+    origin: "북유럽 신화",
+    lore: "보물을 탐내다 용이 된 드베르그. 독을 내뿜으며 그니타헤이드의 황금을 지킵니다.",
+    tier: "elite",
+    act: 2,
+    hp: [120, 124],
+    order: "cycle",
+    intents: [
+      {
+        name: "독 숨결",
+        actions: [
+          { op: "erosion", value: 5 },
+          { op: "attack", value: 8 },
+        ],
+      },
+      {
+        name: "공포의 투구",
+        actions: [
+          { op: "weak", value: 2 },
+          { op: "block", value: 14 },
+        ],
+      },
+      { name: "꼬리 휘두르기", actions: [{ op: "attack", value: 9, times: 2 }] },
+      { name: "황금 위의 똬리", actions: [{ op: "strength", value: 3 }] },
+    ],
+    nemesis: {
+      figures: ["sigurd", "siegfried"],
+      note: "시구르드는 구덩이에 숨어 있다가 그람으로 파프니르의 배를 찔렀습니다.",
     },
   },
   {
@@ -512,14 +602,22 @@ export function getEnemy(id) {
 export const ENCOUNTERS = {
   1: {
     easy: [["kappa"], ["draugr"], ["harpy"]],
-    normal: [["harpy", "harpy"], ["dokkaebi"], ["kappa", "harpy"], ["draugr"], ["dokkaebi", "harpy"]],
+    normal: [
+      ["harpy", "harpy"],
+      ["dokkaebi"],
+      ["kappa", "harpy"],
+      ["draugr"],
+      ["dokkaebi", "harpy"],
+      ["grendel"],
+      ["cyclops"],
+    ],
     elite: [["minotaur"]],
     boss: ["hydra"],
   },
   2: {
     easy: [["rakshasa"], ["gumiho"]],
     normal: [["oni"], ["rakshasa", "rakshasa"], ["gumiho"], ["girtablullu"], ["rakshasa", "gumiho"]],
-    elite: [["ammit"]],
+    elite: [["ammit"], ["fafnir"]],
     boss: ["apep"],
   },
   3: {

@@ -2,7 +2,7 @@ import { ARMAMENTS, armamentCard } from "#entities/armament/index.js";
 import { ASPECTS, cardFace, cardIllustration, getCard, KEYWORDS } from "#entities/card/index.js";
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
-import { CONTINENT_LABEL, getArt, getPantheon } from "#entities/figure/index.js";
+import { CONTINENT_LABEL, getArt, getFigure, getPantheon } from "#entities/figure/index.js";
 import { arkFigureUrl, arkPantheonUrl } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
 import { openDialog } from "#shared/ui/index.js";
@@ -94,11 +94,19 @@ export function cardDetail(cardId) {
       h(
         "p",
         { class: "label muted" },
-        pantheon ? `${pantheon.name} · ${CONTINENT_LABEL[pantheon.continent]}` : "Ark 사서의 카드",
+        pantheon
+          ? `${pantheon.name} · ${CONTINENT_LABEL[pantheon.continent]}${card.source === "zero" ? " · ZERO 전설 확장" : ""}`
+          : "Ark 사서의 카드",
       ),
       h("p", { class: "card-detail__en display fit", lang: "en", style: { "--len": card.nameEn.length } }, card.nameEn),
       h("p", { class: "card-detail__epithet serif" }, card.epithet),
       h("p", { class: "card-detail__summary" }, card.summary),
+      // 전설 확장은 Ark의 소개 페이지가 없으므로 소개 문단을 여기서 보여 줍니다.
+      card.source === "zero"
+        ? (getFigure(/** @type {string} */ (card.figureSlug))?.description ?? []).map((text) =>
+            h("p", { class: "card-detail__description" }, text),
+          )
+        : null,
       card.domains.length
         ? h(
             "dl",
@@ -150,8 +158,15 @@ export function cardDetail(cardId) {
         ? h(
             "p",
             { class: "card-detail__links" },
-            external(arkFigureUrl(card.figureSlug), `Ark에서 ${card.name} 읽기`),
-            pantheon ? external(arkPantheonUrl(pantheon.slug), `Ark의 ${pantheon.name}`) : null,
+            // Ark에 있는 신은 Ark로, ZERO가 더한 전설의 영웅은 위키백과로 잇습니다.
+            card.source === "zero"
+              ? card.wiki
+                ? external(card.wiki, `위키백과에서 ${card.name} 읽기`)
+                : null
+              : [
+                  external(arkFigureUrl(card.figureSlug), `Ark에서 ${card.name} 읽기`),
+                  pantheon ? external(arkPantheonUrl(pantheon.slug), `Ark의 ${pantheon.name}`) : null,
+                ],
           )
         : null,
     ),
