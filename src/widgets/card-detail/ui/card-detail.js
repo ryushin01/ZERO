@@ -1,5 +1,5 @@
 import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
-import { ASPECTS, cardFace, cardIllustration, getCard, KEYWORDS } from "#entities/card/index.js";
+import { ASPECTS, cardFace, cardIllustration, getCard, HIDDEN_ART, KEYWORDS } from "#entities/card/index.js";
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { CONTINENT_LABEL, getArt, getFigure, getPantheon } from "#entities/figure/index.js";
@@ -30,6 +30,7 @@ export function cardDetail(cardId) {
   const art = card.figureSlug ? getArt(card.figureSlug) : undefined;
   const nemesisOf = ENEMIES.filter((enemy) => isNemesis(enemy, card));
   const faction = card.pantheonSlug ? factionOf(card.pantheonSlug) : null;
+  const hiddenArt = HIDDEN_ART[card.id];
   const owned = card.figureSlug
     ? [...ARMAMENTS, ...HIDDEN_ARMAMENTS].filter((a) => a.owners.includes(/** @type {string} */ (card.figureSlug)))
     : [];
@@ -61,9 +62,13 @@ export function cardDetail(cardId) {
         h("img", {
           class: "card-detail__illust",
           src: cardIllustration(card),
-          alt: `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
+          alt: hiddenArt?.alt ?? `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
         }),
-        h("figcaption", { class: "card-detail__credit" }, "ZERO 일러스트 · 코드로 그린 그림"),
+        h(
+          "figcaption",
+          { class: "card-detail__credit" },
+          hiddenArt ? `${card.name} 일러스트 · ${hiddenArt.credit}` : "ZERO 일러스트 · 코드로 그린 그림",
+        ),
       ),
       art
         ? h(

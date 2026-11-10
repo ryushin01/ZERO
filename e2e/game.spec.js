@@ -143,7 +143,7 @@ test.describe("히든", () => {
     });
     await page.reload();
     await expect(page.getByRole("heading", { level: 1, name: "붉은 방" })).toBeVisible();
-    await expect(page.getByRole("img", { name: /유신의 일러스트/ })).toBeVisible();
+    await expect(page.getByRole("img", { name: /허리에 손을 얹은 유신/ })).toBeVisible();
     await expectAccessible(page);
     await page.getByRole("button", { name: /사내와 함께 간다/ }).click();
     await expect(page.getByRole("heading", { name: "무구 2" })).toBeVisible();
