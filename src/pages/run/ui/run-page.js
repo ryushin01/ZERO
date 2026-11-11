@@ -4,6 +4,7 @@ import { battleEffects } from "./battle-fx.js";
 import { battleActions, battleKeydown, battleView } from "./battle-view.js";
 import { campActions, eventView, restView, shrineView } from "./camp-view.js";
 import { endActions, endView } from "./end-view.js";
+import { gearActions, gearView } from "./gear-view.js";
 import { mapActions, mapView } from "./map-view.js";
 import { pickActions, pickView } from "./pick-view.js";
 import { rewardActions, rewardView } from "./reward-view.js";
@@ -20,6 +21,7 @@ const VIEWS = {
   shrine: { view: shrineView, title: "성소", surface: "light" },
   event: { view: eventView, title: "사건", surface: "light" },
   pick: { view: pickView, title: "카드 고르기", surface: "light" },
+  gear: { view: gearView, title: "장착", surface: "light" },
   victory: { view: endView, title: "승리", surface: "dark" },
   defeat: { view: endView, title: "패배", surface: "dark" },
 };
@@ -41,7 +43,15 @@ export const runPage = {
     return `${run.act}장 · ${ACT_INFO[run.act].title} — 체력 ${run.combat ? run.combat.player.hp : run.hp}/${run.maxHp}`;
   },
   view: (ctx) => phaseOf(ctx).view(ctx),
-  actions: { ...mapActions, ...battleActions, ...rewardActions, ...campActions, ...pickActions, ...endActions },
+  actions: {
+    ...mapActions,
+    ...battleActions,
+    ...rewardActions,
+    ...campActions,
+    ...pickActions,
+    ...gearActions,
+    ...endActions,
+  },
   afterRender: (ctx, main) => {
     if (ctx.run?.phase === "battle") battleEffects(main);
   },

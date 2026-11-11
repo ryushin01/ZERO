@@ -315,7 +315,7 @@ export function battleView(ctx) {
             "ul",
             { class: "battle__hand", "data-hand": "", style: { "--count": combat.hand.length } },
             combat.hand.map((instance, index) => {
-              const { card, chain, terrain, lines } = previewCard(combat, instance);
+              const { card, chain, terrain, lines, cost } = previewCard(combat, instance);
               const playable = canPlay(combat, instance.uid).ok;
               const nemesis = alive.some((enemy) => isNemesis(getEnemy(enemy.id), card));
               return h(
@@ -325,6 +325,8 @@ export function battleView(ctx) {
                   tag: "button",
                   lines,
                   chain,
+                  // 탈것·동반자의 결속으로 줄어든 비용
+                  cost,
                   // 천적과 지형 공명(이 전장 신화권의 카드)을 함께 알립니다.
                   note: [nemesis && "천적", terrain && "지형"].filter(Boolean).join(" · ") || undefined,
                   attrs: {

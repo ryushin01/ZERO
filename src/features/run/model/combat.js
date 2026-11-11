@@ -1,4 +1,5 @@
 import { getArmament, isOncePerBattle } from "#entities/armament/index.js";
+import { bondEffects, bondOf, partnerOf } from "#entities/bond/index.js";
 import { describeEffect, getCard } from "#entities/card/index.js";
 import { getEnemy, isNemesis } from "#entities/enemy/index.js";
 import { createRng, withJosa } from "#shared/lib/index.js";
@@ -7,13 +8,14 @@ import { createRng, withJosa } from "#shared/lib/index.js";
  * 전투 엔진. 모든 함수는 상태를 복사해 새 상태를 돌려주는 순수 함수입니다.
  * 화면은 상태만 그리고, 규칙은 모두 여기 있습니다.
  *
- * @typedef {{ uid: string, id: string, up: boolean }} CardInstance
+ * @typedef {{ arm?: string, partner?: { uid: string, id: string, up: boolean } }} Gear 카드에 끼운 무구와 탈것·동반자
+ * @typedef {{ uid: string, id: string, up: boolean, gear?: Gear }} CardInstance
  * @typedef {{ strength: number, weak: number, vulnerable: number, erosion: number }} Statuses
  * @typedef {{
  *   uid: string, id: string, hp: number, maxHp: number, block: number,
  *   statuses: Statuses, heads: number, intent: number,
  * }} EnemyState
- * @typedef {{ hp: number, maxHp: number, block: number, statuses: Statuses & { eclipse: number, foundation: number } }} PlayerState
+ * @typedef {{ hp: number, maxHp: number, block: number, statuses: Statuses & { eclipse: number, foundation: number, evade?: number } }} PlayerState
  * @typedef {{ text: string, tone: "player" | "enemy" | "info" }} LogEntry
  * @typedef {{
  *   turn: number, energy: number, maxEnergy: number,
@@ -99,7 +101,7 @@ export function startCombat({
     turn: 0,
     energy: 0,
     maxEnergy: BASE_ENERGY,
-    player: { hp, maxHp, block: 0, statuses: { ...emptyStatuses(), eclipse: 0, foundation: 0 } },
+    player: { hp, maxHp, block: 0, statuses: { ...emptyStatuses(), eclipse: 0, foundation: 0, evade: 0 } },
     enemies: enemyIds.map((id, index) => {
       const def = getEnemy(id);
       const maxHpRoll = rng.int(def.hp[0], def.hp[1]);
@@ -135,6 +137,9 @@ export function startCombat({
     tier,
   };
 
+  // 선제: 탈것·동반자의 힘으로 첫 턴에 반드시 손에 들어오는 카드는 뽑을 카드 맨 위로 올립니다.
+  const innate = state.draw.filter((c) => gearOf(c)?.innate);
+  if (innate.length) state.draw = [...innate, ...state.draw.filter((c) => !gearOf(c)?.innate)];
   applyStartPerks(state, state.perks, "세력의 힘");
   applyFieldStart(state);
   if (relics.includes("feather")) {
@@ -283,6 +288,9 @@ export function chainOf(state, card) {
   return null;
 }
 
+/** 탈것인지 동반자인지 @param {string} cardId */
+const relationLabel = (cardId) => (partnerOf(getCard(cardId).figureSlug)?.relation === "mount" ? "탈것" : "동반자");
+
 /** 이 전장의 신화권 카드인지 (지형 공명) @param {CombatState} state @param {{ pantheonSlug: string | null }} card */
 export const onTerrain = (state, card) =>
   Boolean(card.pantheonSlug && state.field?.pantheons.includes(card.pantheonSlug));
@@ -301,7 +309,24 @@ export function previewCard(state, instance) {
   const terrain = onTerrain(state, card);
   const rate = (chain ? chainRate(state, chain) : 1) * (terrain ? TERRAIN : 1);
   const effects = scaleEffects(state, card.effects, rate);
-  return { card, chain, terrain, effects, lines: effects.map(describeEffect) };
+  const armed = armEffectsOf(state, instance);
+  const bond = gearOf(instance);
+  // 카드 앞면에는 짧게 적습니다. 자세한 효과는 장착 화면과 전투 기록에 나옵니다.
+  const partner = instance.gear?.partner;
+  const gearLines = [
+    armed ? `무구 ${armed.arm.name}${armed.owner ? " (주인)" : ""}` : null,
+    bond && partner
+      ? `${relationLabel(partner.id)} ${getCard(partner.id).name}${bondOf(card.figureSlug, getCard(partner.id).figureSlug ?? "") ? " (결속)" : ""}`
+      : null,
+  ].filter((line) => line !== null);
+  return {
+    card,
+    chain,
+    terrain,
+    effects,
+    cost: costOf(instance),
+    lines: [...effects.map(describeEffect), ...gearLines],
+  };
 }
 
 /**
@@ -323,13 +348,43 @@ function scaleEffects(state, list, rate) {
 }
 
 /** @param {CombatState} state @param {string} uid */
+/**
+ * 카드에 끼운 탈것·동반자의 효과. 없으면 null
+ * @param {CardInstance} instance
+ */
+export function gearOf(instance) {
+  const partner = instance.gear?.partner;
+  if (!partner) return null;
+  return bondEffects(getCard(instance.id).figureSlug, /** @type {string} */ (getCard(partner.id).figureSlug));
+}
+
+/** 장착을 반영한 비용 @param {CardInstance} instance */
+export const costOf = (instance) =>
+  Math.max(0, getCard(instance.id, instance.up).cost + (gearOf(instance)?.costDelta ?? 0));
+
+/**
+ * 카드에 끼운 무구가 그 카드를 낼 때 함께 터지는 효과. 주인 신의 카드면 50% 강해집니다. 에너지와 대기시간은 들지 않습니다.
+ * @param {CombatState} state @param {CardInstance} instance
+ */
+function armEffectsOf(state, instance) {
+  const id = instance.gear?.arm;
+  if (!id) return null;
+  const arm = getArmament(id);
+  const owner = arm.owners.includes(/** @type {string} */ (getCard(instance.id).figureSlug));
+  const effects = scaleEffects(state, arm.effects, owner ? 1.5 : 1).map((e) =>
+    owner && ["draw", "energy", "strength", "weak", "vulnerable"].includes(e.op)
+      ? { ...e, value: e.value + Math.max(1, Math.floor(e.value / 2)) }
+      : e,
+  );
+  return { arm, owner, effects };
+}
+
 export function canPlay(state, uid) {
   if (state.outcome) return { ok: false, reason: "전투가 끝났습니다." };
   const instance = state.hand.find((c) => c.uid === uid);
   if (!instance) return { ok: false, reason: "손에 없는 카드입니다." };
-  const card = getCard(instance.id, instance.up);
-  if (card.cost > state.energy)
-    return { ok: false, reason: `에너지가 부족합니다. (필요 ${card.cost}, 남은 ${state.energy})` };
+  const cost = costOf(instance);
+  if (cost > state.energy) return { ok: false, reason: `에너지가 부족합니다. (필요 ${cost}, 남은 ${state.energy})` };
   return { ok: true, reason: "" };
 }
 
@@ -415,6 +470,10 @@ function applyEffects(state, effects, target, source, parts) {
         );
         break;
       }
+      case "evade":
+        state.player.statuses.evade = (state.player.statuses.evade ?? 0) + effect.value;
+        parts.push(`받는 공격 ${effect.value}회 피해 절반`);
+        break;
       case "cleanse": {
         const st = state.player.statuses;
         st.weak = 0;
@@ -446,13 +505,24 @@ export function playCard(prev, uid, targetUid = null) {
   const alive = livingEnemies(state);
   const target = card.target === "enemy" ? (alive.find((e) => e.uid === targetUid) ?? alive[0] ?? null) : null;
 
-  state.energy -= card.cost;
+  state.energy -= costOf(instance);
   const parts = [];
   if (chain === "resonance") parts.push("공명");
   if (chain === "echo") parts.push("울림");
   if (terrain) parts.push("지형 공명");
 
   applyEffects(state, effects, target, card, parts);
+  // 카드에 끼운 무구와 탈것·동반자가 함께 터집니다.
+  const armed = armEffectsOf(state, instance);
+  if (armed) {
+    parts.push(armed.arm.name);
+    applyEffects(state, armed.effects, target ?? alive[0] ?? null, card, parts);
+  }
+  const bond = gearOf(instance);
+  if (bond && bond.effects.length) {
+    parts.push(bond.title);
+    applyEffects(state, scaleEffects(state, bond.effects, 1), target ?? alive[0] ?? null, card, parts);
+  }
 
   if (card.type === "attack") state.attackPlayed = true;
   if (card.type === "power") state.powers.push(instance);
@@ -498,6 +568,11 @@ function enemyAct(state, enemy) {
         let value = action.value + enemy.statuses.strength;
         if (enemy.statuses.weak > 0) value = Math.floor(value * 0.75);
         if (state.player.statuses.vulnerable > 0) value = Math.floor(value * 1.5);
+        // 비행: 받는 다음 공격 1회의 피해를 절반으로 줄입니다.
+        if ((state.player.statuses.evade ?? 0) > 0) {
+          value = Math.floor(value / 2);
+          state.player.statuses.evade = (state.player.statuses.evade ?? 0) - 1;
+        }
         value = Math.max(0, value);
         let lost = 0;
         for (let i = 0; i < times; i += 1) {

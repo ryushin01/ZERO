@@ -317,3 +317,41 @@ describe("전장", () => {
     expect(state.player.hp).toBe(53);
   });
 });
+
+describe("장착", () => {
+  /** @param {any[]} hand */
+  const withHand = (hand) => {
+    const state = startCombat({ deck: [], hp: 50, maxHp: 72, relics: [], enemyIds: ["jotunn"], seed: 6 });
+    return { ...state, hand, draw: [], discard: [], energy: 3 };
+  };
+
+  it("카드에 끼운 무구는 그 카드를 낼 때 에너지 없이 함께 터지고, 주인이면 50% 강해집니다", () => {
+    const thor = { uid: "t1", id: "thor", up: false, gear: { arm: "mjolnir" } };
+    const zeus = { uid: "z1", id: "zeus", up: false, gear: { arm: "mjolnir" } };
+    const owner = previewCard(withHand([thor]), thor);
+    const other = previewCard(withHand([zeus]), zeus);
+    expect(owner.lines).toContain("무구 묠니르 (주인)");
+    expect(other.lines).toContain("무구 묠니르");
+    const state = withHand([thor]);
+    const hp = state.enemies[0].hp;
+    const after = playCard(state, "t1", state.enemies[0].uid);
+    expect(after.energy).toBe(3 - getCard("thor").cost);
+    expect(after.enemies[0].hp).toBeLessThan(hp - getCard("thor").effects.filter((e) => e.op === "damage").length);
+  });
+
+  it("오딘과 슬레이프니르는 결속으로 비용이 1 줄고, 전투 첫 턴에 손에 들어옵니다", () => {
+    const odin = { uid: "o1", id: "odin", up: false, gear: { partner: { uid: "s1", id: "sleipnir", up: false } } };
+    expect(previewCard(withHand([odin]), odin).cost).toBe(Math.max(0, getCard("odin").cost - 1));
+    expect(previewCard(withHand([odin]), odin).lines).toContain("탈것 슬레이프니르 (결속)");
+    const deck = [...Array.from({ length: 12 }, () => card("quill")), odin];
+    const state = startCombat({ deck, hp: 70, maxHp: 72, relics: [], enemyIds: ["kappa"], seed: 3 });
+    expect(state.hand.some((c) => c.uid === "o1")).toBe(true);
+  });
+
+  it("비행은 받는 다음 공격의 피해를 절반으로 줄입니다", () => {
+    const athena = { uid: "a1", id: "athena", up: false, gear: { partner: { uid: "p1", id: "pegasus", up: false } } };
+    const state = withHand([athena]);
+    const played = playCard(state, "a1", state.enemies[0].uid);
+    expect(played.player.statuses.evade).toBe(1);
+  });
+});

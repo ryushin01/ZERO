@@ -6,13 +6,18 @@ import { createRng } from "#shared/lib/index.js";
 import { autoRun } from "../lib/autoplay.js";
 import {
   chooseEvent,
+  closeGear,
   createRun,
   currentField,
   enterNode,
+  equipArm,
+  equippedArms,
+  equipPartner,
   fieldsFor,
   guideCards,
   migrateRun,
   guideOptions,
+  openGear,
   leaveReward,
   resolvePick,
   takeArmament,
@@ -259,5 +264,44 @@ describe("전장", () => {
     const saved = /** @type {any} */ (createRun({ seed: 7, guide: "greek" }));
     delete saved.fields;
     expect(migrateRun(saved)?.fields).toEqual(fieldsFor(7));
+  });
+});
+
+describe("장착", () => {
+  const gearRun = () => {
+    const run = createRun({ seed: 2, guide: "norse" });
+    const odin = { uid: "odin-x", id: "odin", up: false };
+    const sleipnir = { uid: "sleip-x", id: "sleipnir", up: false };
+    return openGear({ ...run, deck: [...run.deck, odin, sleipnir], armaments: ["mjolnir", "gungnir"] });
+  };
+
+  it("무구를 끼우면 사서의 무구 목록에서 빠지고, 다른 카드로 옮겨 끼울 수 있습니다", () => {
+    let run = equipArm(gearRun(), "odin-x", "gungnir");
+    expect(run.deck.find((c) => c.uid === "odin-x")?.gear?.arm).toBe("gungnir");
+    expect(equippedArms(run)).toEqual(["gungnir"]);
+    run = equipArm(run, "sleip-x", "gungnir");
+    expect(run.deck.find((c) => c.uid === "odin-x")?.gear).toBeUndefined();
+    expect(run.deck.find((c) => c.uid === "sleip-x")?.gear?.arm).toBe("gungnir");
+  });
+
+  it("탈것을 끼우면 덱에서 빠져 한 장이 되고, 빼면 돌아옵니다", () => {
+    const before = gearRun();
+    const on = equipPartner(before, "odin-x", "sleip-x");
+    expect(on.deck).toHaveLength(before.deck.length - 1);
+    expect(on.deck.find((c) => c.uid === "odin-x")?.gear?.partner?.id).toBe("sleipnir");
+    const off = equipPartner(on, "odin-x", null);
+    expect(off.deck).toHaveLength(before.deck.length);
+    expect(off.deck.find((c) => c.uid === "odin-x")?.gear).toBeUndefined();
+  });
+
+  it("탈것·동반자가 아닌 카드나 기본 카드에는 끼울 수 없습니다", () => {
+    const run = gearRun();
+    const quill = run.deck.find((c) => c.id === "quill");
+    expect(equipPartner(run, "odin-x", /** @type {string} */ (quill?.uid))).toBe(run);
+    expect(equipArm(run, /** @type {string} */ (quill?.uid), "mjolnir")).toBe(run);
+  });
+
+  it("장착 화면을 닫으면 지도로 돌아갑니다", () => {
+    expect(closeGear(gearRun()).phase).toBe("map");
   });
 });
