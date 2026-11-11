@@ -207,6 +207,13 @@ test.describe("2인 듀얼", () => {
     await page.getByRole("button", { name: "차례 끝내기" }).click();
     await expect(page.getByRole("heading", { level: 1, name: "플레이어 2의 차례" })).toBeFocused();
     await expect(page.locator("[data-action='duel-card']")).toHaveCount(0);
+
+    // 새로 고침해도 듀얼이 이어지고, 손을 펼친 뒤였더라도 넘기기 화면부터 다시 나옵니다.
+    await page.getByRole("button", { name: /패 보기/ }).click();
+    await expect(page.locator("[data-action='duel-card']").first()).toBeVisible();
+    await page.reload();
+    await expect(page.getByRole("heading", { level: 1, name: "플레이어 2의 차례" })).toBeVisible();
+    await expect(page.locator("[data-action='duel-card']")).toHaveCount(0);
   });
 });
 

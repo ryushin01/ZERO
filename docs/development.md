@@ -79,3 +79,11 @@ Ark에 아직 없는 전설의 영웅·인물은 `scripts/legends/`에서 먼저
 | 스토리           | `pnpm storybook` | 카드 앞면, 무구, 유물, 머리글, 카드 상세, 일러스트 엔진. addon-a11y로 접근성을 봅니다. `pnpm build`가 `dist/storybook`에 함께 빌드해 배포 주소의 `/storybook/index.html`로 열립니다. |
 
 E2E는 동작 줄이기(`reducedMotion: "reduce"`) 환경에서 돕니다. 화면 전환 중 배경색이 바뀌는 사이에 명도 대비를 재는 오탐을 막고, 동작 줄이기 경로도 함께 검사합니다.
+
+## 배포
+
+Vercel 프로젝트 `zero-myth`가 GitHub에 연결되어 `main`에 합치면 프로덕션(https://zero-ryushin01.vercel.app/)에 배포합니다.
+
+- PR 브랜치(`feat/`, `fix/`, `docs/`, `chore/`, `content/`)는 `vercel.json`의 `git.deploymentEnabled`로 배포하지 않습니다. 무료 플랜은 하루 배포가 100회라, PR마다 미리보기를 만들면 하루에 한도를 다 써 버리기 때문입니다. 빌드를 건너뛰는 `ignoreCommand`는 취소된 배포도 한도에 세므로 쓰지 않습니다.
+- 미리보기 대신 CI가 프로덕션 빌드로 E2E(axe 포함)를 돌립니다. 화면을 직접 보려면 `pnpm build && pnpm preview`로 확인합니다.
+- 한도에 걸렸을 때는 다음 날 임시 복제본에서 `vercel link --yes --project zero-myth`, `vercel deploy --prod --yes`로 올리고, 끝나면 복제본을 `.env.local`째 지웁니다.

@@ -63,6 +63,7 @@ export function createStore() {
     resetRecords() {
       state.records = emptyRecords();
       storage.remove(STORAGE_KEYS.records);
+      storage.remove(STORAGE_KEYS.duel);
       emit();
     },
     /** @param {string} key @param {Record<string, any>} patch */

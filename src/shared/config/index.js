@@ -8,6 +8,7 @@ export const arkPantheonUrl = (slug) => `${ARK_URL}/pantheons/${slug}`;
 
 export const STORAGE_KEYS = {
   run: "zero:run",
+  duel: "zero:duel",
   settings: "zero:settings",
   records: "zero:records",
 };
