@@ -292,7 +292,13 @@ export const duelPage = {
       setDuel(ctx, endDuelTurn(/** @type {DuelState} */ (duelOf(ctx))));
     },
     rematch(ctx) {
-      setDuel(ctx, startDuel({ seed: randomSeed(), classes: picks(ctx) }));
+      // 새로 고침으로 이어 둔 판이면 고르기 화면의 선택이 비어 있으므로, 이번 판의 클래스로 다시 합니다.
+      const duel = duelOf(ctx);
+      const classes = duel
+        ? /** @type {[string, string]} */ ([duel.players[0].classId, duel.players[1].classId])
+        : picks(ctx);
+      ctx.setUi({ classes });
+      setDuel(ctx, startDuel({ seed: randomSeed(), classes }));
     },
     "new-duel"(ctx) {
       setDuel(ctx, null);

@@ -5,11 +5,8 @@
   "outputDirectory": "dist",
   "git": {
     "deploymentEnabled": {
-      "feat/**": false,
-      "fix/**": false,
-      "docs/**": false,
-      "chore/**": false,
-      "content/**": false
+      "**": false,
+      "main": true
     }
   },
   "headers": [

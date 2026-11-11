@@ -214,6 +214,18 @@ test.describe("2인 듀얼", () => {
     await page.reload();
     await expect(page.getByRole("heading", { level: 1, name: "플레이어 2의 차례" })).toBeVisible();
     await expect(page.locator("[data-action='duel-card']")).toHaveCount(0);
+
+    // 새로 고침으로 이어 둔 판을 끝내고 다시 하면, 이번 판의 클래스(기사·강령술사)로 다시 시작합니다.
+    await page.evaluate(() => {
+      const duel = JSON.parse(localStorage.getItem("zero:duel"));
+      localStorage.setItem("zero:duel", JSON.stringify({ ...duel, phase: "over", winner: 0 }));
+    });
+    await page.reload();
+    await page.getByRole("button", { name: "같은 클래스로 다시" }).click();
+    const restarted = await page.evaluate(() =>
+      JSON.parse(localStorage.getItem("zero:duel")).players.map((p) => p.classId),
+    );
+    expect(restarted).toEqual(["knight", "necromancer"]);
   });
 });
 

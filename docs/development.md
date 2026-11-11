@@ -84,6 +84,6 @@ E2E는 동작 줄이기(`reducedMotion: "reduce"`) 환경에서 돕니다. 화�
 
 Vercel 프로젝트 `zero-myth`가 GitHub에 연결되어 `main`에 합치면 프로덕션(https://zero-ryushin01.vercel.app/)에 배포합니다.
 
-- PR 브랜치(`feat/`, `fix/`, `docs/`, `chore/`, `content/`)는 `vercel.json`의 `git.deploymentEnabled`로 배포하지 않습니다. 무료 플랜은 하루 배포가 100회라, PR마다 미리보기를 만들면 하루에 한도를 다 써 버리기 때문입니다. 빌드를 건너뛰는 `ignoreCommand`는 취소된 배포도 한도에 세므로 쓰지 않습니다.
+- `vercel.json`의 `git.deploymentEnabled`로 모든 브랜치(`**`)의 배포를 끄고 `main`만 켭니다. 한 브랜치가 여러 규칙에 걸리면 하나라도 켜진 규칙이 이기므로 `main`만 배포되고, PR 브랜치는 이름과 상관없이 배포하지 않습니다. 무료 플랜은 하루 배포가 100회라, PR마다 미리보기를 만들면 하루에 한도를 다 써 버리기 때문입니다. 빌드를 건너뛰는 `ignoreCommand`는 취소된 배포도 한도에 세므로 쓰지 않습니다.
 - 미리보기 대신 CI가 프로덕션 빌드로 E2E(axe 포함)를 돌립니다. 화면을 직접 보려면 `pnpm build && pnpm preview`로 확인합니다.
-- 한도에 걸렸을 때는 다음 날 임시 복제본에서 `vercel link --yes --project zero-myth`, `vercel deploy --prod --yes`로 올리고, 끝나면 복제본을 `.env.local`째 지웁니다.
+- 한도는 달력의 하루가 아니라 최근 24시간(86,400초)에 만든 배포 수로 세므로, 자정이 지나도 바로 풀리지 않을 수 있습니다. 한도에 걸렸을 때는 여유가 생긴 뒤 임시 복제본에서 `vercel link --yes --project zero-myth`, `vercel deploy --prod --yes`로 올리고, 끝나면 복제본을 `.env.local`째 지웁니다.

@@ -64,6 +64,8 @@ export function createStore() {
       state.records = emptyRecords();
       storage.remove(STORAGE_KEYS.records);
       storage.remove(STORAGE_KEYS.duel);
+      // 화면에 남아 있는 듀얼도 지워, 듀얼 화면으로 돌아가면 클래스 고르기부터 시작합니다.
+      if (state.ui.duel) state.ui.duel = { ...state.ui.duel, duel: null };
       emit();
     },
     /** @param {string} key @param {Record<string, any>} patch */
