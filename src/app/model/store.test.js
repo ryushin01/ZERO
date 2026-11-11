@@ -23,4 +23,14 @@ describe("createStore", () => {
     window.dispatchEvent(new StorageEvent("storage", { key: "zero:records" }));
     expect(tab.state.records).toMatchObject({ runs: 3, seen: ["zeus"] });
   });
+
+  it("기록을 지우면 저장해 둔 듀얼과 화면에 남은 듀얼도 지웁니다", () => {
+    const store = createStore();
+    localStorage.setItem("zero:duel", JSON.stringify({ players: [{}, {}] }));
+    store.setUi("duel", { duel: { players: [{}, {}] }, classes: ["knight", "mage"] });
+    store.resetRecords();
+    expect(localStorage.getItem("zero:duel")).toBeNull();
+    expect(store.state.ui.duel?.duel).toBeNull();
+    expect(store.state.ui.duel?.classes).toEqual(["knight", "mage"]);
+  });
 });

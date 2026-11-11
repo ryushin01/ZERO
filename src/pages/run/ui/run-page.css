@@ -257,6 +257,8 @@
 }
 
 /* 눌린 선택지는 배경이 진해지므로 흐린 글자도 본문 색을 따릅니다. (명도 대비) */
-.gear__options .choice[aria-pressed="true"] .muted {
+.gear__options .choice[aria-pressed="true"] .muted,
+.gear__options .choice:hover .muted,
+.gear__options .choice:focus-visible .muted {
   color: inherit;
 }

@@ -1,13 +1,14 @@
 import { CLASS_GROUPS, CLASSES, classesOf, describePassive, getClass } from "../model/classes.js";
 import { ASPECTS, cardFace, getCard } from "#entities/card/index.js";
 import { canPlayDuel, endDuelTurn, playDuelCard, reveal, startDuel } from "../model/duel.js";
-import { h, randomSeed, withJosa } from "#shared/lib/index.js";
+import { STORAGE_KEYS } from "#shared/config/index.js";
+import { h, randomSeed, storage, withJosa } from "#shared/lib/index.js";
 
 import "./duel-page.css";
 
 /**
  * 2인 듀얼 화면: 클래스 고르기 → 넘기기(상대의 패를 가림) → 내 차례 → 결과
- * 듀얼 상태는 이 화면의 상태(ui.duel)에만 두고 저장하지 않습니다.
+ * 듀얼 상태는 이 화면의 상태(ui.duel)에 두고 브라우저에도 저장해, 새로 고침해도 이어 둡니다.
  * @typedef {import("#app/render/app.js").PageContext} Ctx
  * @typedef {import("../model/duel.js").DuelState} DuelState
  */
@@ -17,8 +18,26 @@ const DEFAULT = /** @type {[string, string]} */ (["warrior", "mage"]);
 /** @param {Ctx} ctx */
 const picks = (ctx) => /** @type {[string, string]} */ (ctx.ui.classes ?? DEFAULT);
 
-/** @param {Ctx} ctx @returns {DuelState | null} */
-const duelOf = (ctx) => ctx.ui.duel ?? null;
+/** 저장해 둔 듀얼을 읽습니다. 모양이 맞지 않으면 버립니다. @returns {DuelState | null} */
+function savedDuel() {
+  const saved = storage.read(STORAGE_KEYS.duel, null);
+  if (!saved || !Array.isArray(saved.players) || saved.players.length !== 2) return null;
+  // 새로 고침하면 누가 보고 있는지 모르므로, 손을 펼친 차례라도 넘기기 화면부터 다시 보여 줍니다.
+  return saved.phase === "play" ? { ...saved, phase: "handoff" } : saved;
+}
+
+/**
+ * 지금 듀얼. 아직 이 화면에서 정한 적이 없으면(새로 고침 등) 저장해 둔 듀얼을 이어 둡니다.
+ * @param {Ctx} ctx @returns {DuelState | null}
+ */
+const duelOf = (ctx) => (ctx.ui.duel === undefined ? savedDuel() : ctx.ui.duel);
+
+/** 듀얼을 바꾸고 저장합니다. null이면 지웁니다. @param {Ctx} ctx @param {DuelState | null} duel */
+function setDuel(ctx, duel) {
+  ctx.setUi({ duel });
+  if (duel) storage.write(STORAGE_KEYS.duel, duel);
+  else storage.remove(STORAGE_KEYS.duel);
+}
 
 /** 클래스 한 줄 소개 @param {string} id */
 function classSummary(id) {
@@ -253,10 +272,10 @@ export const duelPage = {
       ctx.announce(`플레이어 ${side + 1}: ${getClass(next[side]).name}`);
     },
     "start-duel"(ctx) {
-      ctx.setUi({ duel: startDuel({ seed: randomSeed(), classes: picks(ctx) }) });
+      setDuel(ctx, startDuel({ seed: randomSeed(), classes: picks(ctx) }));
     },
     reveal(ctx) {
-      ctx.setUi({ duel: reveal(/** @type {DuelState} */ (duelOf(ctx))) });
+      setDuel(ctx, reveal(/** @type {DuelState} */ (duelOf(ctx))));
     },
     "duel-card"(ctx, el) {
       const duel = /** @type {DuelState} */ (duelOf(ctx));
@@ -266,17 +285,23 @@ export const duelPage = {
         return;
       }
       const next = playDuelCard(duel, /** @type {string} */ (el.dataset.uid));
-      ctx.setUi({ duel: next });
+      setDuel(ctx, next);
       ctx.announce(next.log[next.log.length - 1]?.text ?? "");
     },
     "end-duel-turn"(ctx) {
-      ctx.setUi({ duel: endDuelTurn(/** @type {DuelState} */ (duelOf(ctx))) });
+      setDuel(ctx, endDuelTurn(/** @type {DuelState} */ (duelOf(ctx))));
     },
     rematch(ctx) {
-      ctx.setUi({ duel: startDuel({ seed: randomSeed(), classes: picks(ctx) }) });
+      // 새로 고침으로 이어 둔 판이면 고르기 화면의 선택이 비어 있으므로, 이번 판의 클래스로 다시 합니다.
+      const duel = duelOf(ctx);
+      const classes = duel
+        ? /** @type {[string, string]} */ ([duel.players[0].classId, duel.players[1].classId])
+        : picks(ctx);
+      ctx.setUi({ classes });
+      setDuel(ctx, startDuel({ seed: randomSeed(), classes }));
     },
     "new-duel"(ctx) {
-      ctx.setUi({ duel: null });
+      setDuel(ctx, null);
     },
   },
   inputs: {
