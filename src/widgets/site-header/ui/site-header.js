@@ -15,12 +15,8 @@ export function siteHeader({ route, context, deckCount }) {
       "a",
       { href: "#/", class: "site-header__brand" },
       h("span", { class: "sr-only" }, "ZERO 처음 화면"),
-      h("span", { class: "display", "aria-hidden": "true" }, "Zer"),
-      h("span", {
-        class: "site-header__ring",
-        "aria-hidden": "true",
-        html: '<svg viewBox="0 0 40 28"><ellipse cx="20" cy="14" rx="18" ry="12"/><ellipse cx="20" cy="14" rx="10" ry="12"/></svg>',
-      }),
+      // 로고는 장식이고, 링크의 이름은 위의 숨은 글자(ZERO 처음 화면)가 맡습니다.
+      h("img", { class: "site-header__logo", src: "/logo.png", alt: "", width: 44, height: 96 }),
     ),
     h("p", { class: "site-header__context label" }, context),
     h(
