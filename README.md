@@ -4,7 +4,7 @@
 ![version](https://img.shields.io/badge/version-0.9.1-060403)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?logo=javascript&logoColor=black)
 
-세계 신화 도서관 [Ark](https://github.com/ryushin01/Ark)의 신과 영웅, 아서 왕·아킬레우스·손오공 같은 전설의 영웅까지 300명을 카드로 모으고, 엑스칼리버·묠니르 같은 신화 무구를 휘둘러 기록을 지우려는 괴물과 태초의 공허 ‘영(零)’에 맞서는 웹 덱빌딩 게임입니다.
+세계 신화 도서관 [Ark](https://github.com/ryushin01/Ark)의 신과 영웅, 아더 왕·아킬레우스·손오공 같은 전설의 영웅까지 300명을 카드로 모으고, 엑스칼리버·묠니르 같은 신화 무구를 휘둘러 기록을 지우려는 괴물과 태초의 공허 ‘영(零)’에 맞서는 웹 덱빌딩 게임입니다.
 
 **[바로 플레이하기](https://zero-ryushin01.vercel.app/)** · [Storybook](https://zero-ryushin01.vercel.app/storybook/index.html) · 설치 없이 브라우저에서 키보드나 마우스, 터치로 플레이합니다.
 
