@@ -4,7 +4,7 @@
  * 아우터 유니버스는 여러 신화가 전하는 태초의 공간입니다.
  *
  * 전장마다 효과가 하나 있고(세력과 같은 방식으로 전투에 붙음), 그 전장이 속한 신화권의 카드는
- * ‘지형 공명’으로 효과가 25% 늘어납니다.
+ * ‘지형 공명’으로 피해·방어·회복·침식이 25% 늘어납니다. (공명·울림과 같은 범위로, 뽑기·에너지 같은 개수는 그대로)
  *
  * @typedef {"sanctuary" | "divine" | "outer" | "rift"} Realm
  * @typedef {"startBlock" | "startStrength" | "startWeakAll" | "startVulnAll" | "startErosionAll" | "startDamageAll"

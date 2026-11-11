@@ -293,6 +293,16 @@ describe("전장", () => {
     expect(damage(greek)).toBeGreaterThan(damage(plain));
   });
 
+  it("지형 공명은 공명처럼 피해·방어·회복·침식만 키우고 뽑기 같은 개수는 그대로 둡니다", () => {
+    const odin = getCard("odin");
+    const pantheon = /** @type {string} */ (odin.pantheonSlug);
+    const plain = previewCard(onField(field("startBlock", 0), ["odin"]), card("odin"));
+    const norse = previewCard(onField(field("startBlock", 0, [pantheon]), ["odin"]), card("odin"));
+    const draw = (p) => p.effects.find((e) => e.op === "draw")?.value;
+    expect(norse.terrain).toBe(true);
+    expect(draw(norse)).toBe(draw(plain));
+  });
+
   it("세력과 전장의 같은 효과는 더해집니다", () => {
     const state = startCombat({
       deck: [card("quill")],

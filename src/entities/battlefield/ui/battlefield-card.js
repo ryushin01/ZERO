@@ -24,7 +24,11 @@ export function battlefieldCard(field, { heading = "h2", compact = false, panthe
       h("p", { class: "battlefield__en display", lang: "en" }, field.nameEn),
       h("p", { class: "battlefield__effect" }, describeField(field)),
       pantheonNames.length
-        ? h("p", { class: "battlefield__terrain muted" }, `지형 공명: ${pantheonNames.join(", ")} 카드의 효과 25% 증가`)
+        ? h(
+            "p",
+            { class: "battlefield__terrain muted" },
+            `지형 공명: ${pantheonNames.join(", ")} 카드의 피해·방어·회복·침식 25% 증가`,
+          )
         : null,
       compact ? null : h("p", { class: "battlefield__summary" }, field.summary),
       compact
