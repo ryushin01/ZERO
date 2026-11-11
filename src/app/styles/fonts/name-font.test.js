@@ -10,7 +10,7 @@ import { BASIC_CARDS, FIGURE_CARDS, HIDDEN_CARDS } from "../../../entities/card/
 import { RELICS } from "../../../entities/relic/index.js";
 
 /**
- * 이름 글꼴(zero-names.woff2)은 카드·무구·유물·전장 이름에 쓰인 글자만 담은 함렛 600입니다.
+ * 이름 글꼴(zero-names.woff2)은 카드·무구·유물·전장 이름에 쓰인 글자만 담은 나눔명조 ExtraBold(800)입니다.
  * 이름이 바뀌어 새 글자가 생기면 이 테스트가 실패합니다. 다시 만드는 방법:
  *   UPDATE_NAME_FONT=1 pnpm exec vitest run name-font
  *   pnpm subset:name-font

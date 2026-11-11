@@ -3,14 +3,14 @@
  * 표면(surface)마다 글자색과 보조색을 바꿔, 어느 화면이든 명도 대비 4.5:1 이상을 지킵니다.
  */
 /*
- * 이름 글꼴: 함렛(SIL OFL 1.1) 600을 카드·무구·유물·전장 이름에 쓰인 글자만 남겨 줄인 파일(약 33KB).
- * 도감처럼 이름이 한 화면에 모여도 함렛 글자 묶음 조각을 수십 개 받지 않습니다.
+ * 이름 글꼴: 나눔명조 ExtraBold(SIL OFL 1.1, 예약 이름 때문에 ZeroNames로 바꿈)를 카드·무구·유물·전장 이름에
+ * 쓰인 글자만 남겨 줄인 파일. 도감처럼 이름이 한 화면에 모여도 글자 묶음 조각을 수십 개 받지 않습니다.
  * 이름에 새 글자가 생기면 name-font.test.js가 실패합니다. 다시 만드는 방법은 그 테스트 주석에 있습니다.
  */
 @font-face {
   font-family: "ZeroNames";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 800;
   font-display: swap;
   src: url("./fonts/zero-names.woff2") format("woff2");
 }
@@ -41,7 +41,7 @@
   --font-serif-ko:
     "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang", "Cormorant Garamond Variable",
     serif;
-  /* 이름: Ark 제목과 같은 함렛 600(이름 글자만 담은 ZeroNames)으로 두 프로젝트를 잇고, 받기 전에는 운영체제 명조 */
+  /* 이름: Ark 제목과 같은 나눔명조 800(이름 글자만 담은 ZeroNames)으로 두 프로젝트를 잇고, 받기 전에는 운영체제 명조 */
   --font-name:
     "ZeroNames", "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang",
     "Cormorant Garamond Variable", serif;

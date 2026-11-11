@@ -69,14 +69,14 @@
 
 ![JavaScript, HTML, CSS, Vite, Vitest, pnpm, GitHub Actions](https://skillicons.dev/icons?i=js,html,css,vite,vitest,pnpm,githubactions)
 
-| 구분      | 사용 기술                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 런타임    | 순수 자바스크립트(ES 모듈, 프레임워크 없음), 직접 만든 DOM 패치·이벤트 위임·해시 라우터, 네이티브 `<dialog>`                                                      |
-| 일러스트  | 직접 만든 SVG 그리기 엔진(관절 각도 자세, SVG 필터로 흑백 처리와 흔들리는 외곽선), data URL로 `<img>`에 넣음                                                      |
-| 스타일    | CSS 변수(먹색·뼈색 두 표면), 컨테이너 쿼리, Cormorant Garamond·Familjen Grotesk(라틴만), 이름은 Hahmlet 600 서브셋(이름 글자만 33KB), 나머지 한글은 운영체제 글꼴 |
-| 구조      | Feature-Sliced Design v2.1(Steiger), JSDoc + `tsc --checkJs`                                                                                                      |
-| 품질      | ESLint, Prettier, Vitest(jsdom), Storybook 10(`@storybook/html-vite`, addon-a11y), Playwright + axe                                                               |
-| 빌드·배포 | Vite 8, GitHub Actions, Vercel(정적 배포)                                                                                                                         |
+| 구분      | 사용 기술                                                                                                                                                          |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 런타임    | 순수 자바스크립트(ES 모듈, 프레임워크 없음), 직접 만든 DOM 패치·이벤트 위임·해시 라우터, 네이티브 `<dialog>`                                                       |
+| 일러스트  | 직접 만든 SVG 그리기 엔진(관절 각도 자세, SVG 필터로 흑백 처리와 흔들리는 외곽선), data URL로 `<img>`에 넣음                                                       |
+| 스타일    | CSS 변수(먹색·뼈색 두 표면), 컨테이너 쿼리, Cormorant Garamond·Familjen Grotesk(라틴만), 이름은 나눔명조 800 서브셋(이름 글자만 43KB), 나머지 한글은 운영체제 글꼴 |
+| 구조      | Feature-Sliced Design v2.1(Steiger), JSDoc + `tsc --checkJs`                                                                                                       |
+| 품질      | ESLint, Prettier, Vitest(jsdom), Storybook 10(`@storybook/html-vite`, addon-a11y), Playwright + axe                                                                |
+| 빌드·배포 | Vite 8, GitHub Actions, Vercel(정적 배포)                                                                                                                          |
 
 ## 시작하기
 
