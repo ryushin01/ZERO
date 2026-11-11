@@ -136,6 +136,28 @@ test.describe("무구와 세력", () => {
   });
 });
 
+test.describe("전장", () => {
+  test("지도에 이 장의 전장과 효과가 보이고, 전투 머리에도 전장이 나옵니다 @mobile", async ({ page }) => {
+    await startRun(page);
+    const field = page.getByRole("region", { name: "이 장의 전장" });
+    await expect(field).toContainText("전장 · 성역");
+    await expect(field.getByRole("heading", { level: 2 })).toBeVisible();
+    await expectAccessible(page);
+    await page.locator("[data-action='enter']").first().click();
+    await expect(page.locator(".battle__field")).toContainText("전장 · ");
+  });
+
+  test("도감의 전장 탭에서 성역·신역·아우터 유니버스와 이차원을 봅니다", async ({ page }) => {
+    await page.goto("/#/codex");
+    await page.getByRole("button", { name: "전장", exact: true }).click();
+    for (const name of [/1장 · 성역/, /2장 · 신역/, /3장 · 아우터 유니버스/, /이차원/]) {
+      await expect(page.getByRole("heading", { level: 2, name })).toBeVisible();
+    }
+    await expect(page.getByRole("heading", { level: 3, name: "발할라" })).toBeVisible();
+    await expectAccessible(page);
+  });
+});
+
 test.describe("히든", () => {
   test("붉은 방에서 유신과 영혼의 검을 얻고, 도감에 히든으로 남습니다", async ({ page }) => {
     await startRun(page);

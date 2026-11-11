@@ -24,5 +24,6 @@ describe("난이도", () => {
     expect(wins / runs).toBeGreaterThanOrEqual(0.03);
     expect(wins / runs).toBeLessThanOrEqual(0.4);
     expect(firstAct / runs).toBeLessThan(0.5);
-  });
+    // 100판을 끝까지 두므로, 다른 테스트와 함께 돌 때를 생각해 시간을 넉넉히 줍니다.
+  }, 60_000);
 });

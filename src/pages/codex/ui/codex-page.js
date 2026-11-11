@@ -1,4 +1,5 @@
 import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
+import { battlefieldCard, battlefieldsOf, REALMS } from "#entities/battlefield/index.js";
 import { ASPECTS, cardFace, FIGURE_CARDS, HIDDEN_CARDS } from "#entities/card/index.js";
 import { describeAction, enemyIllustration, ENEMIES } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
@@ -16,6 +17,7 @@ const TABS = [
   { id: "cards", label: "신과 영웅" },
   { id: "enemies", label: "괴물" },
   { id: "armaments", label: "무구" },
+  { id: "battlefields", label: "전장" },
   { id: "factions", label: "세력" },
   { id: "relics", label: "유물" },
 ];
@@ -254,6 +256,57 @@ function armamentsTab() {
   ];
 }
 
+/** 전장: 성역 → 신역 → 아우터 유니버스, 그리고 이차원의 균열 */
+function battlefieldsTab() {
+  const names = (slugs) => slugs.map((slug) => getPantheon(slug)?.name).filter((name) => Boolean(name));
+  return [
+    h(
+      "p",
+      { class: "codex__intro muted" },
+      "한 판은 장마다 그 영역의 전장 하나를 지납니다. 전장마다 효과가 하나 있고, 그 전장이 속한 신화권의 카드는 지형 공명으로 효과가 25% 늘어납니다. 성역과 신역의 장소는 NewWorld의 신화·전설 여행지에서 골랐습니다.",
+    ),
+    /** @type {const} */ (["sanctuary", "divine", "outer"]).map((realm) =>
+      h(
+        "section",
+        { class: "codex__realm", "aria-labelledby": `realm-${realm}`, "data-key": realm },
+        h(
+          "h2",
+          { id: `realm-${realm}`, class: "codex__realm-title serif" },
+          `${REALMS[realm].act}장 · ${REALMS[realm].label}`,
+          h("span", { class: "label muted", lang: "en" }, ` ${REALMS[realm].en}`),
+        ),
+        h("p", { class: "muted codex__intro" }, REALMS[realm].summary),
+        h(
+          "ul",
+          { class: "codex__arms" },
+          battlefieldsOf(realm).map((field) =>
+            h(
+              "li",
+              { "data-key": field.id },
+              battlefieldCard(field, { heading: "h3", pantheonNames: names(field.pantheons) }),
+            ),
+          ),
+        ),
+      ),
+    ),
+    h(
+      "section",
+      { class: "codex__realm", "aria-labelledby": "realm-rift" },
+      h(
+        "h2",
+        { id: "realm-rift", class: "codex__realm-title serif" },
+        REALMS.rift.label,
+        h("span", { class: "label muted", lang: "en" }, ` ${REALMS.rift.en}`),
+      ),
+      h(
+        "p",
+        { class: "muted codex__intro" },
+        `${REALMS.rift.summary} 균열에서는 지금 장과 다른 영역의 전장 하나가 그림자처럼 겹치고, 이기면 유물 둘 가운데 하나를 고릅니다.`,
+      ),
+    ),
+  ];
+}
+
 function factionsTab() {
   const rows = PANTHEONS.map((p) => ({ p, f: factionOf(p.slug), count: figuresOf(p.slug).length }));
   return [
@@ -343,9 +396,11 @@ function view(ctx) {
           ? enemiesTab()
           : tab === "armaments"
             ? armamentsTab()
-            : tab === "factions"
-              ? factionsTab()
-              : relicsTab(),
+            : tab === "battlefields"
+              ? battlefieldsTab()
+              : tab === "factions"
+                ? factionsTab()
+                : relicsTab(),
     ),
   );
 }

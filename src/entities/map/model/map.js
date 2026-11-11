@@ -5,7 +5,7 @@ import { createRng } from "#shared/lib/index.js";
  * 층(row)마다 칸(lane) 세 개가 있고, 각 칸은 다음 층의 같은 칸과 이웃 칸으로 이어집니다.
  * 마지막 층 다음에는 보스 하나가 있습니다.
  *
- * @typedef {"battle" | "elite" | "event" | "rest" | "shrine" | "boss"} NodeType
+ * @typedef {"battle" | "elite" | "event" | "rest" | "shrine" | "rift" | "boss"} NodeType
  * @typedef {{ id: string, row: number, lane: number, type: NodeType, next: number[] }} MapNode
  * @typedef {{ act: number, rows: MapNode[][] }} ActMap
  */
@@ -21,6 +21,11 @@ export const NODE_INFO = {
   event: { label: "사건", en: "EVENT", hint: "신화 속 장소에서 선택을 합니다." },
   rest: { label: "쉼터", en: "REST", hint: "체력을 회복하거나 카드를 강화합니다." },
   shrine: { label: "성소", en: "SHRINE", hint: "카드를 덜어 내거나 강화합니다." },
+  rift: {
+    label: "균열",
+    en: "RIFT",
+    hint: "이차원의 균열. 다른 영역의 전장이 겹친 곳에서 정예와 싸우고 큰 보상을 얻습니다.",
+  },
   boss: { label: "보스", en: "BOSS", hint: "장의 끝을 지키는 괴물입니다." },
 };
 
@@ -31,7 +36,8 @@ function typeFor(row, rng) {
   if (row === 1) return rng.weighted({ battle: 3, event: 2 });
   // 보스 바로 앞 층은 늘 쉼터이므로, 그 앞 층에는 쉼터를 두지 않습니다.
   if (row === FLOORS - 2) return rng.weighted({ battle: 45, event: 20, elite: 20, shrine: 15 });
-  return rng.weighted({ battle: 46, event: 20, elite: 14, rest: 9, shrine: 11 });
+  // 이차원의 균열은 가운데 층에 드물게 열립니다.
+  return rng.weighted({ battle: 44, event: 19, elite: 13, rest: 9, shrine: 11, rift: 4 });
 }
 
 /**
@@ -84,7 +90,7 @@ export function reachableNodes(map, position) {
 export const findNode = (map, id) => map.rows.flat().find((n) => n.id === id);
 
 export const ACT_INFO = {
-  1: { title: "지상의 경계", en: "THE MORTAL SHORE" },
-  2: { title: "모래와 강", en: "SAND AND RIVER" },
-  3: { title: "세계의 끝", en: "THE WORLD'S END" },
+  1: { title: "성역", en: "SANCTUARY" },
+  2: { title: "신역", en: "DIVINE REALM" },
+  3: { title: "아우터 유니버스", en: "OUTER UNIVERSE" },
 };

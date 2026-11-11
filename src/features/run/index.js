@@ -4,12 +4,23 @@
  * @typedef {import("./model/combat.js").CardInstance} CardInstance
  * @typedef {import("./model/records.js").Records} Records
  */
-export { canPlay, chainOf, endTurn, HAND_SIZE, livingEnemies, playCard, previewCard } from "./model/combat.js";
+export {
+  canPlay,
+  chainOf,
+  endTurn,
+  HAND_SIZE,
+  livingEnemies,
+  onTerrain,
+  playCard,
+  previewCard,
+} from "./model/combat.js";
 export { EVENTS, getEvent } from "./model/events.js";
 export {
   cancelPick,
   chooseEvent,
   createRun,
+  currentField,
+  fieldsFor,
   enterNode,
   GUIDE_PANTHEONS,
   guideCards,

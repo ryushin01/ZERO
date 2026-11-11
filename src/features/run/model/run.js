@@ -1,4 +1,5 @@
 import { ARMAMENT_SLOTS, ARMAMENTS, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
+import { BATTLEFIELDS, battlefieldsOf, getBattlefield } from "#entities/battlefield/index.js";
 import { FIGURE_CARDS, getCard } from "#entities/card/index.js";
 import { ENCOUNTERS } from "#entities/enemy/index.js";
 import { figuresOf, getPantheon, PANTHEONS } from "#entities/figure/index.js";
@@ -7,7 +8,7 @@ import { generateMap, reachableNodes } from "#entities/map/index.js";
 import { RELICS } from "#entities/relic/index.js";
 import { createRng, withJosa } from "#shared/lib/index.js";
 
-import { startCombat } from "./combat.js";
+import { bonusOf, startCombat } from "./combat.js";
 import { getEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
 
 /**
@@ -25,6 +26,7 @@ import { getEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
  *   version: number, seed: number, rng: number, guide: string,
  *   hp: number, maxHp: number, deck: CardInstance[], relics: string[], ankhUsed: boolean, armaments: string[],
  *   act: 1 | 2 | 3, map: import("#entities/map/index.js").ActMap, position: { row: number, lane: number } | null,
+ *   fields?: Record<1 | 2 | 3, string>, rift?: { field: string } | null,
  *   phase: Phase, combat: CombatState | null, reward: Reward | null, event: string | null, pick: PickRequest | null,
  *   lastEncounter: string, nextUid: number, notice: string | null, path: string[], recorded?: boolean,
  *   daily?: string | null, discovered?: string[],
@@ -87,6 +89,8 @@ export function createRun({ seed, guide, daily = null, hidden = false }) {
     ankhUsed: false,
     act: 1,
     map: generateMap(1, seed),
+    fields: fieldsFor(seed),
+    rift: null,
     position: null,
     phase: "map",
     combat: null,
@@ -118,6 +122,35 @@ export function createRun({ seed, guide, daily = null, hidden = false }) {
   return run;
 }
 
+/**
+ * 한 판이 지날 전장: 장마다 그 영역의 전장 하나. 시드로 정하므로 같은 시드(오늘의 신화)는 같은 전장입니다.
+ * @param {number} seed @returns {Record<1 | 2 | 3, string>}
+ */
+export function fieldsFor(seed) {
+  const rng = createRng(seed ^ 0x2545f491);
+  return {
+    1: rng.pick(battlefieldsOf("sanctuary")).id,
+    2: rng.pick(battlefieldsOf("divine")).id,
+    3: rng.pick(battlefieldsOf("outer")).id,
+  };
+}
+
+/** 지금 장의 전장 @param {Run} run */
+export const currentField = (run) => getBattlefield((run.fields ?? fieldsFor(run.seed))[run.act]);
+
+/**
+ * 전투에 넘길 전장 정보
+ * @param {import("#entities/battlefield/index.js").Battlefield} field @param {string} [name]
+ * @returns {import("./combat.js").Field}
+ */
+const fieldInfo = (field, name = field.name) => ({
+  id: field.id,
+  name,
+  kind: field.field,
+  value: field.value,
+  pantheons: field.pantheons,
+});
+
 /** 무구 자리(3점)를 차지하는 보통 무구의 수. 히든 무구는 자리와 따로 듭니다. @param {Run} run */
 const normalArmaments = (run) => run.armaments.filter((id) => !HIDDEN_ARMAMENTS.some((a) => a.id === id)).length;
 
@@ -130,8 +163,11 @@ function chooseEncounter(run, pool) {
   return group;
 }
 
-/** @param {Run} run @param {string[]} enemyIds @param {CombatState["tier"]} tier */
-function beginBattle(run, enemyIds, tier) {
+/**
+ * @param {Run} run @param {string[]} enemyIds @param {CombatState["tier"]} tier
+ * @param {import("./combat.js").Field} [field] 정하지 않으면 지금 장의 전장
+ */
+function beginBattle(run, enemyIds, tier, field = fieldInfo(currentField(run))) {
   run.phase = "battle";
   run.combat = startCombat({
     deck: run.deck,
@@ -144,6 +180,7 @@ function beginBattle(run, enemyIds, tier) {
     ankhUsed: run.ankhUsed,
     armaments: run.armaments,
     perks: perksOf(factionStatus(run.deck.map((c) => getCard(c.id).pantheonSlug))),
+    field,
   });
 }
 
@@ -169,6 +206,14 @@ export function enterNode(prev, nodeId) {
     case "elite":
       beginBattle(run, chooseEncounter(run, "elite"), "elite");
       break;
+    case "rift": {
+      // 이차원의 균열: 다른 영역의 전장 하나가 그림자처럼 겹치고, 정예와 싸웁니다.
+      const here = currentField(run);
+      const other = roll(run, (rng) => rng.pick(BATTLEFIELDS.filter((b) => b.realm !== here.realm)));
+      run.rift = { field: other.id };
+      beginBattle(run, chooseEncounter(run, "elite"), "elite", fieldInfo(other, `이차원 · ${other.name}의 그림자`));
+      break;
+    }
     case "boss":
       beginBattle(run, ENCOUNTERS[run.act].boss, "boss");
       break;
@@ -267,19 +312,29 @@ export function updateCombat(prev, combat) {
 
   run.combat = null;
   if (run.relics.includes("yeouiju")) run.hp = Math.min(run.maxHp, run.hp + 5);
-  const endHeal = combat.perks?.endHeal ?? 0;
+  const endHeal = bonusOf(combat, "endHeal");
   if (endHeal) run.hp = Math.min(run.maxHp, run.hp + endHeal);
   const { tier } = combat;
   if (tier === "normal") run.stats.battles += 1;
   if (tier === "elite") run.stats.elites += 1;
   if (tier === "boss") run.stats.bosses += 1;
 
+  // 이차원의 균열을 닫으면 유물을 둘 가운데 하나 고릅니다.
+  const rift = Boolean(run.rift);
+  run.rift = null;
   run.phase = "reward";
   run.reward = {
-    title: tier === "boss" ? "보스를 물리쳤습니다" : tier === "elite" ? "정예를 물리쳤습니다" : "괴물을 물리쳤습니다",
+    title: rift
+      ? "균열을 닫았습니다"
+      : tier === "boss"
+        ? "보스를 물리쳤습니다"
+        : tier === "elite"
+          ? "정예를 물리쳤습니다"
+          : "괴물을 물리쳤습니다",
     cards: rollCards(run, tier),
-    relics: tier === "boss" ? rollRelics(run, 3) : tier === "elite" ? rollRelics(run, 1) : [],
-    relicPick: tier === "boss",
+    relics:
+      tier === "boss" ? rollRelics(run, 3) : rift ? rollRelics(run, 2) : tier === "elite" ? rollRelics(run, 1) : [],
+    relicPick: tier === "boss" || rift,
     cardTaken: false,
     relicTaken: false,
     armaments: tier === "elite" && normalArmaments(run) < ARMAMENT_SLOTS ? rollArmaments(run, 2) : [],
@@ -470,7 +525,11 @@ const MOVED_RELICS = ["aegis", "kusanagi", "cheonbuin", "mjolnir", "gungnir"];
 export function migrateRun(value) {
   if (!value || typeof value !== "object") return null;
   const saved = /** @type {any} */ (structuredClone(value));
-  if (saved.version === RUN_VERSION) return saved;
+  if (saved.version === RUN_VERSION) {
+    // 전장이 생기기 전에 시작한 판도 시드로 전장을 정해 이어 갑니다.
+    if (!saved.fields && typeof saved.seed === "number") saved.fields = fieldsFor(saved.seed);
+    return saved;
+  }
   if (saved.version !== 1 || !Array.isArray(saved.deck)) return null;
 
   // 옛 유물 가운데 무기는 같은 이름의 무구로 바꿔 줍니다. (천부인 유물은 무구 천부인)
@@ -489,6 +548,7 @@ export function migrateRun(value) {
     saved.combat.playedFigures = saved.combat.playedFigures ?? [];
     saved.combat.perks = saved.combat.perks ?? {};
   }
+  saved.fields = fieldsFor(saved.seed);
   saved.version = RUN_VERSION;
   return saved;
 }

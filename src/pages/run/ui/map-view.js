@@ -1,16 +1,18 @@
 import { armamentIllustration, describeArmament, getArmament } from "#entities/armament/index.js";
+import { battlefieldCard } from "#entities/battlefield/index.js";
 import { getCard } from "#entities/card/index.js";
+import { getPantheon } from "#entities/figure/index.js";
 import { describePerk, factionStatus, TIERS } from "#entities/faction/index.js";
 import { ACT_INFO, LANES, NODE_INFO, reachableNodes } from "#entities/map/index.js";
 import { getRelic } from "#entities/relic/index.js";
-import { enterNode, guideName } from "#features/run/index.js";
+import { currentField, enterNode, guideName } from "#features/run/index.js";
 import { h } from "#shared/lib/index.js";
 
 import "./map-view.css";
 
 /** @typedef {import("#app/render/app.js").PageContext} Ctx */
 
-const MARK = { battle: "戰", elite: "勇", event: "?", rest: "休", shrine: "祠", boss: "零" };
+const MARK = { battle: "戰", elite: "勇", event: "?", rest: "休", shrine: "祠", rift: "裂", boss: "零" };
 
 /** 다음 층으로 이어지는 선 @param {import("#entities/map/index.js").ActMap} map @param {number} row @param {Set<string>} path */
 function links(map, row, path) {
@@ -67,6 +69,7 @@ export function mapView(ctx) {
   const reachable = new Set(reachableNodes(run.map, run.position).map((n) => n.id));
   const path = new Set(run.path);
   const currentId = run.path[run.path.length - 1];
+  const field = currentField(run);
 
   return h(
     "section",
@@ -77,6 +80,15 @@ export function mapView(ctx) {
       h("p", { class: "display", lang: "en" }, act.en),
       h("h1", null, `${run.act}장 · ${act.title}`),
       h("p", null, "갈 수 있는 칸을 골라 나아가세요. 마지막 칸에서 이 장의 보스가 기다립니다."),
+    ),
+    h(
+      "section",
+      { class: "map__field", "aria-label": "이 장의 전장" },
+      battlefieldCard(field, {
+        heading: "h2",
+        compact: true,
+        pantheonNames: field.pantheons.map((slug) => getPantheon(slug)?.name).filter((name) => Boolean(name)),
+      }),
     ),
     run.notice ? h("p", { class: "notice" }, run.notice) : null,
     h(

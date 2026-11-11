@@ -1,5 +1,6 @@
 import { ASPECT_DOMAINS, ASPECTS, KEYWORDS } from "#entities/card/index.js";
 import { ARMAMENTS } from "#entities/armament/index.js";
+import { BATTLEFIELDS } from "#entities/battlefield/index.js";
 import { ARK_FIGURE_COUNT, FIGURES, PANTHEONS } from "#entities/figure/index.js";
 import { ARK_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
@@ -46,6 +47,7 @@ function view(ctx) {
           ["aspects", "여섯 속성"],
           ["armaments", "신화 무구"],
           ["factions", "세력"],
+          ["battlefields", "전장"],
           ["records", "서가 복원과 오늘의 신화"],
           ["terms", "용어"],
           ["sources", "자료와 출처"],
@@ -213,6 +215,25 @@ function view(ctx) {
         "p",
         null,
         `지도의 ‘사서의 상태’에서 지금 덱의 세력을, 도감의 ‘세력’ 탭에서 ${PANTHEONS.length}개 계열의 세력을 모두 볼 수 있습니다.`,
+      ),
+    ),
+    section(
+      "battlefields",
+      "전장",
+      h(
+        "p",
+        null,
+        "한 판은 성역(1장), 신역(2장), 아우터 유니버스(3장)를 지납니다. 장마다 그 영역의 전장 하나에서 싸우는데, 성역은 아발론·아틀란티스처럼 사람의 땅에 남은 전설의 장소, 신역은 올림포스·발할라·하데스의 명계처럼 신들의 거처와 낙원·저승, 아우터 유니버스는 긴눙가가프·카오스처럼 세계가 생기기 전의 공간입니다.",
+      ),
+      h(
+        "p",
+        null,
+        "전장마다 효과가 하나 있습니다. 발할라에서는 힘을 얻은 채 시작하고, 아틀란티스에서는 턴이 끝날 때마다 바다가 사서와 적을 모두 덮칩니다. 그 전장이 속한 신화권의 카드는 ‘지형 공명’으로 효과가 25% 늘고, 손에 든 카드에 ‘지형’이라고 표시됩니다.",
+      ),
+      h(
+        "p",
+        null,
+        `지도 곳곳에 드물게 열리는 균열(裂)은 이차원으로 이어집니다. 다른 영역의 전장이 겹친 곳에서 정예와 싸우고, 이기면 유물 둘 가운데 하나를 고릅니다. 도감의 ‘전장’ 탭에서 전장 ${BATTLEFIELDS.length}곳을 모두 볼 수 있습니다.`,
       ),
     ),
     section(

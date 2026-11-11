@@ -1,4 +1,5 @@
 import { armamentIllustration, getArmament, isOncePerBattle } from "#entities/armament/index.js";
+import { describeField } from "#entities/battlefield/index.js";
 import { cardFace, getCard } from "#entities/card/index.js";
 import { describeAction, enemyIllustration, getEnemy, intentKind, isNemesis } from "#entities/enemy/index.js";
 import { getFigure, getPantheon } from "#entities/figure/index.js";
@@ -176,6 +177,13 @@ export function battleView(ctx) {
       "header",
       { class: "battle__head" },
       h("h1", { class: "label" }, `${run.act}장 ${run.stats.floors}층 · 전투`),
+      combat.field
+        ? h(
+            "p",
+            { class: "battle__field label" },
+            `전장 · ${combat.field.name} — ${describeField({ field: /** @type {any} */ (combat.field.kind), value: combat.field.value })}`,
+          )
+        : null,
       h("p", { class: "label muted" }, `턴 ${combat.turn}`),
     ),
     h(
@@ -307,7 +315,7 @@ export function battleView(ctx) {
             "ul",
             { class: "battle__hand", "data-hand": "", style: { "--count": combat.hand.length } },
             combat.hand.map((instance, index) => {
-              const { card, chain, lines } = previewCard(combat, instance);
+              const { card, chain, terrain, lines } = previewCard(combat, instance);
               const playable = canPlay(combat, instance.uid).ok;
               const nemesis = alive.some((enemy) => isNemesis(getEnemy(enemy.id), card));
               return h(
@@ -317,7 +325,8 @@ export function battleView(ctx) {
                   tag: "button",
                   lines,
                   chain,
-                  note: nemesis ? "천적" : undefined,
+                  // 천적과 지형 공명(이 전장 신화권의 카드)을 함께 알립니다.
+                  note: [nemesis && "천적", terrain && "지형"].filter(Boolean).join(" · ") || undefined,
                   attrs: {
                     "data-action": "card",
                     "data-uid": instance.uid,
