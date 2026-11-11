@@ -1,5 +1,6 @@
 import { ARMAMENT_SLOTS, ARMAMENTS, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
 import { BATTLEFIELDS, battlefieldsOf, getBattlefield } from "#entities/battlefield/index.js";
+import { partnerOf } from "#entities/bond/index.js";
 import { FIGURE_CARDS, getCard } from "#entities/card/index.js";
 import { ENCOUNTERS } from "#entities/enemy/index.js";
 import { figuresOf, getPantheon, PANTHEONS } from "#entities/figure/index.js";
@@ -16,7 +17,7 @@ import { getEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
  *
  * @typedef {import("./combat.js").CardInstance} CardInstance
  * @typedef {import("./combat.js").CombatState} CombatState
- * @typedef {"map" | "battle" | "reward" | "rest" | "shrine" | "event" | "pick" | "victory" | "defeat"} Phase
+ * @typedef {"map" | "battle" | "reward" | "rest" | "shrine" | "event" | "pick" | "gear" | "victory" | "defeat"} Phase
  * @typedef {{ purpose: "remove" | "upgrade", count: number, title: string, then: Phase, cost?: { hp?: number } }} PickRequest
  * @typedef {{
  *   cards: string[], relics: string[], relicPick: boolean, cardTaken: boolean, relicTaken: boolean, title: string,
@@ -135,6 +136,77 @@ export function fieldsFor(seed) {
   };
 }
 
+/** 카드에 끼운 무구들 @param {Run} run */
+export const equippedArms = (run) => run.deck.map((c) => c.gear?.arm).filter((id) => typeof id === "string");
+
+/** 다른 카드에 끼울 수 있는 탈것·동반자 카드인지 @param {CardInstance} instance */
+export const isPartnerCard = (instance) => Boolean(partnerOf(getCard(instance.id).figureSlug));
+
+/** 장착할 수 있는 카드: 신·영웅의 카드 (기본 카드 제외) @param {CardInstance} instance */
+export const canWearGear = (instance) => Boolean(getCard(instance.id).figureSlug);
+
+/** 지도에서 장착 화면을 엽니다 @param {Run} prev */
+export function openGear(prev) {
+  if (prev.phase !== "map") return prev;
+  const run = clone(prev);
+  run.phase = "gear";
+  return run;
+}
+
+/** 장착 화면을 닫고 지도로 돌아갑니다 @param {Run} prev */
+export function closeGear(prev) {
+  if (prev.phase !== "gear") return prev;
+  const run = clone(prev);
+  run.phase = "map";
+  return run;
+}
+
+/**
+ * 카드에 무구를 끼우거나(id) 뺍니다(null). 다른 카드에 끼워 둔 무구라면 옮겨 끼웁니다.
+ * @param {Run} prev @param {string} uid @param {string | null} armId
+ */
+export function equipArm(prev, uid, armId) {
+  const target = prev.deck.find((c) => c.uid === uid);
+  if (prev.phase !== "gear" || !target || !canWearGear(target)) return prev;
+  if (armId !== null && !prev.armaments.includes(armId)) return prev;
+  const run = clone(prev);
+  run.deck = run.deck.map((c) => {
+    const gear = { ...c.gear };
+    if (armId !== null && gear.arm === armId) delete gear.arm;
+    if (c.uid === uid) {
+      if (armId === null) delete gear.arm;
+      else gear.arm = armId;
+    }
+    return Object.keys(gear).length ? { ...c, gear } : { uid: c.uid, id: c.id, up: c.up };
+  });
+  return run;
+}
+
+/**
+ * 카드에 탈것·동반자 카드를 끼우거나(partnerUid) 뺍니다(null). 끼운 카드는 덱에서 빠져 한 장이 되고, 빼면 돌아옵니다.
+ * @param {Run} prev @param {string} uid @param {string | null} partnerUid
+ */
+export function equipPartner(prev, uid, partnerUid) {
+  const target = prev.deck.find((c) => c.uid === uid);
+  if (prev.phase !== "gear" || !target || !canWearGear(target)) return prev;
+  const run = clone(prev);
+  const host = /** @type {CardInstance} */ (run.deck.find((c) => c.uid === uid));
+  // 먼저 지금 끼운 것을 덱으로 돌려놓습니다.
+  const current = host.gear?.partner;
+  if (current) {
+    run.deck.push(current);
+    host.gear = { ...host.gear };
+    delete host.gear.partner;
+    if (!Object.keys(host.gear).length) delete host.gear;
+  }
+  if (partnerUid === null) return run;
+  const partner = run.deck.find((c) => c.uid === partnerUid);
+  if (!partner || partner.uid === uid || !isPartnerCard(partner) || partner.gear) return prev;
+  run.deck = run.deck.filter((c) => c.uid !== partnerUid);
+  host.gear = { ...host.gear, partner: { uid: partner.uid, id: partner.id, up: partner.up } };
+  return run;
+}
+
 /** 지금 장의 전장 @param {Run} run */
 export const currentField = (run) => getBattlefield((run.fields ?? fieldsFor(run.seed))[run.act]);
 
@@ -178,7 +250,8 @@ function beginBattle(run, enemyIds, tier, field = fieldInfo(currentField(run))) 
     seed: roll(run, (rng) => rng.int(1, 2 ** 30)),
     tier,
     ankhUsed: run.ankhUsed,
-    armaments: run.armaments,
+    // 카드에 끼운 무구는 그 카드와 함께 터지므로 사서가 따로 휘두르지 않습니다.
+    armaments: run.armaments.filter((id) => !equippedArms(run).includes(id)),
     perks: perksOf(factionStatus(run.deck.map((c) => getCard(c.id).pantheonSlug))),
     field,
   });
@@ -447,8 +520,13 @@ export function resolvePick(prev, uids) {
   if (!prev.pick) return prev;
   const run = clone(prev);
   const pick = /** @type {PickRequest} */ (run.pick);
-  if (pick.purpose === "remove") run.deck = run.deck.filter((c) => !uids.includes(c.uid));
-  else run.deck = run.deck.map((c) => (uids.includes(c.uid) ? { ...c, up: true } : c));
+  if (pick.purpose === "remove") {
+    // 지운 카드에 끼워 둔 탈것·동반자는 덱으로 돌아옵니다. (무구는 사서에게 돌아감)
+    const returned = run.deck
+      .filter((c) => uids.includes(c.uid))
+      .flatMap((c) => (c.gear?.partner ? [c.gear.partner] : []));
+    run.deck = [...run.deck.filter((c) => !uids.includes(c.uid)), ...returned];
+  } else run.deck = run.deck.map((c) => (uids.includes(c.uid) ? { ...c, up: true } : c));
   if (pick.cost?.hp) run.hp = Math.max(1, run.hp - pick.cost.hp);
   run.notice =
     pick.purpose === "remove" ? `카드 ${uids.length}장을 덜어 냈습니다.` : `카드 ${uids.length}장을 강화했습니다.`;

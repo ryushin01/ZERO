@@ -5,7 +5,7 @@ import { getPantheon } from "#entities/figure/index.js";
 import { describePerk, factionStatus, TIERS } from "#entities/faction/index.js";
 import { ACT_INFO, LANES, NODE_INFO, reachableNodes } from "#entities/map/index.js";
 import { getRelic } from "#entities/relic/index.js";
-import { currentField, enterNode, guideName } from "#features/run/index.js";
+import { currentField, enterNode, guideName, openGear } from "#features/run/index.js";
 import { h } from "#shared/lib/index.js";
 
 import "./map-view.css";
@@ -120,6 +120,12 @@ export function mapView(ctx) {
         ),
         h("h2", { class: "label muted" }, `무구 ${run.armaments.length}`),
         h(
+          "button",
+          { type: "button", class: "button button--quiet map__gear", "data-action": "open-gear" },
+          "장착하기",
+          h("span", { class: "sr-only" }, " — 카드에 무구와 탈것·동반자 끼우기"),
+        ),
+        h(
           "ul",
           { class: "map__arms" },
           run.armaments.map((id) => {
@@ -216,6 +222,9 @@ export function mapView(ctx) {
 
 /** @type {Record<string, (ctx: Ctx, el: HTMLElement) => void>} */
 export const mapActions = {
+  "open-gear"(ctx) {
+    ctx.setRun(openGear(/** @type {NonNullable<Ctx["run"]>} */ (ctx.run)));
+  },
   enter(ctx, el) {
     const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
     ctx.setRun(enterNode(run, /** @type {string} */ (el.dataset.node)));

@@ -158,6 +158,31 @@ test.describe("전장", () => {
   });
 });
 
+test.describe("장착", () => {
+  test("지도에서 장착 화면을 열어 카드에 무구와 탈것을 끼웁니다 @mobile", async ({ page }) => {
+    await startRun(page);
+    // 오딘과 슬레이프니르를 덱에 넣고 시작합니다.
+    await page.evaluate(() => {
+      const run = JSON.parse(localStorage.getItem("zero:run"));
+      run.deck.push({ uid: "e2e-odin", id: "odin", up: false }, { uid: "e2e-sleipnir", id: "sleipnir", up: false });
+      localStorage.setItem("zero:run", JSON.stringify(run));
+    });
+    await page.reload();
+    await page.getByRole("button", { name: /장착하기/ }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "장착" })).toBeVisible();
+    await expectAccessible(page);
+    await page.getByRole("button", { name: /^오딘 / }).click();
+    await page.locator("[data-action='equip-partner']").filter({ hasText: "슬레이프니르" }).click();
+    await expect(page.getByText(/아홉 세계를 달리는 여덟 다리/).first()).toBeVisible();
+    const arm = page.locator("[data-action='equip-arm']").first();
+    await arm.click();
+    await expect(arm).toHaveAttribute("aria-pressed", "true");
+    await expectAccessible(page);
+    await page.getByRole("button", { name: "지도로 돌아가기" }).click();
+    await expect(page.getByRole("heading", { level: 1, name: /1장/ })).toBeVisible();
+  });
+});
+
 test.describe("히든", () => {
   test("붉은 방에서 유신과 영혼의 검을 얻고, 도감에 히든으로 남습니다", async ({ page }) => {
     await startRun(page);
