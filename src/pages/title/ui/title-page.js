@@ -71,6 +71,7 @@ function view(ctx) {
             : null,
           h("a", { href: "#/new", class: ["button", !resumable && "button--solid"] }, "새 기록 시작"),
           h("a", { href: "#/new/daily", class: "button" }, "오늘의 신화"),
+          h("a", { href: "#/duel", class: "button" }, "2인 듀얼"),
           h("a", { href: "#/guide", class: "button button--quiet" }, "처음이라면 도움말"),
         ),
       ),

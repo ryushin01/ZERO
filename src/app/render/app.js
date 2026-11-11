@@ -6,6 +6,7 @@ import { openDeckView } from "#widgets/deck-view/index.js";
 import { siteHeader } from "#widgets/site-header/index.js";
 
 import { codexPage } from "#pages/codex/index.js";
+import { duelPage } from "#pages/duel/index.js";
 import { guidePage } from "#pages/guide/index.js";
 import { newRunPage } from "#pages/new-run/index.js";
 import { notFoundPage } from "#pages/not-found/index.js";
@@ -30,7 +31,9 @@ import { navigate, parseRoute } from "../routing/router.js";
  *   keydown?: (ctx: PageContext, event: KeyboardEvent) => void,
  *   mount?: (ctx: PageContext, main: HTMLElement) => (() => void) | void,
  *   afterRender?: (ctx: PageContext, main: HTMLElement) => void,
+ *   stableUi?: boolean,
  * }} Page
+ * stableUi: 화면(screen)이 바뀌어도 같은 ui 상태를 씁니다. 화면 이름을 ui 상태에서 정하는 page(2인 듀얼)에 씁니다.
  */
 
 /** @type {Record<string, Page>} */
@@ -40,6 +43,7 @@ const PAGES = {
   run: runPage,
   codex: codexPage,
   guide: guidePage,
+  duel: duelPage,
   "not-found": notFoundPage,
 };
 
@@ -80,7 +84,7 @@ export function createApp({ header, main }) {
     const page = PAGES[route.name] ?? notFoundPage;
     const probe = makeContext(store, route, route.name);
     const screen = page.screen ? page.screen(probe) : [route.name, ...route.params].join("/");
-    return { route, page, screen, ctx: makeContext(store, route, screen) };
+    return { route, page, screen, ctx: makeContext(store, route, page.stableUi ? route.name : screen) };
   }
 
   function render() {
