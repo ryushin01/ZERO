@@ -2,6 +2,8 @@
   {
     "slug": "zeus",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "제우스",
     "nameEn": "Zeus",
     "epithet": "하늘과 번개의 신",
@@ -16,6 +18,8 @@
   {
     "slug": "athena",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "아테나",
     "nameEn": "Athena",
     "epithet": "지혜와 전략의 여신",
@@ -30,6 +34,8 @@
   {
     "slug": "apollo",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "아폴론",
     "nameEn": "Apollo",
     "epithet": "빛과 예언, 음악의 신",
@@ -45,6 +51,8 @@
   {
     "slug": "aphrodite",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "아프로디테",
     "nameEn": "Aphrodite",
     "epithet": "사랑과 아름다움의 여신",
@@ -59,6 +67,8 @@
   {
     "slug": "poseidon",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "포세이돈",
     "nameEn": "Poseidon",
     "epithet": "바다와 지진의 신",
@@ -73,6 +83,8 @@
   {
     "slug": "odin",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "오딘",
     "nameEn": "Odin",
     "epithet": "지혜와 죽음, 전쟁의 신",
@@ -88,6 +100,8 @@
   {
     "slug": "thor",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "토르",
     "nameEn": "Thor",
     "epithet": "천둥의 신",
@@ -102,6 +116,8 @@
   {
     "slug": "freyja",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "프레이야",
     "nameEn": "Freyja",
     "epithet": "사랑과 풍요, 마법의 여신",
@@ -116,6 +132,8 @@
   {
     "slug": "loki",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "로키",
     "nameEn": "Loki",
     "epithet": "꾀와 변신의 신",
@@ -130,6 +148,8 @@
   {
     "slug": "osiris",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "오시리스",
     "nameEn": "Osiris",
     "epithet": "저승과 부활의 신",
@@ -144,6 +164,8 @@
   {
     "slug": "isis",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "이시스",
     "nameEn": "Isis",
     "epithet": "마법과 모성의 여신",
@@ -158,6 +180,8 @@
   {
     "slug": "anubis",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "아누비스",
     "nameEn": "Anubis",
     "epithet": "미라와 무덤의 신",
@@ -172,6 +196,8 @@
   {
     "slug": "gilgamesh",
     "pantheonSlug": "mesopotamian",
+    "kind": "hero",
+    "grade": null,
     "name": "길가메시",
     "nameEn": "Gilgamesh",
     "epithet": "우루크의 왕",
@@ -186,6 +212,8 @@
   {
     "slug": "ishtar",
     "pantheonSlug": "mesopotamian",
+    "kind": "god",
+    "grade": null,
     "name": "이슈타르",
     "nameEn": "Ishtar",
     "epithet": "사랑과 전쟁의 여신",
@@ -200,6 +228,8 @@
   {
     "slug": "marduk",
     "pantheonSlug": "mesopotamian",
+    "kind": "god",
+    "grade": null,
     "name": "마르두크",
     "nameEn": "Marduk",
     "epithet": "바빌론의 수호신",
@@ -214,6 +244,8 @@
   {
     "slug": "vishnu",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "비슈누",
     "nameEn": "Vishnu",
     "epithet": "세계를 유지하는 신",
@@ -228,6 +260,8 @@
   {
     "slug": "shiva",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "시바",
     "nameEn": "Shiva",
     "epithet": "파괴와 재생의 신",
@@ -243,6 +277,8 @@
   {
     "slug": "ganesha",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "가네샤",
     "nameEn": "Ganesha",
     "epithet": "지혜와 시작의 신",
@@ -257,6 +293,8 @@
   {
     "slug": "izanagi-izanami",
     "pantheonSlug": "japanese",
+    "kind": "god",
+    "grade": null,
     "name": "이자나기와 이자나미",
     "nameEn": "Izanagi & Izanami",
     "epithet": "국토를 낳은 부부 신",
@@ -271,6 +309,8 @@
   {
     "slug": "amaterasu",
     "pantheonSlug": "japanese",
+    "kind": "god",
+    "grade": null,
     "name": "아마테라스",
     "nameEn": "Amaterasu",
     "epithet": "태양의 여신",
@@ -284,6 +324,8 @@
   {
     "slug": "susanoo",
     "pantheonSlug": "japanese",
+    "kind": "god",
+    "grade": null,
     "name": "스사노오",
     "nameEn": "Susanoo",
     "epithet": "폭풍과 바다의 신",
@@ -297,6 +339,8 @@
   {
     "slug": "raijin",
     "pantheonSlug": "japanese",
+    "kind": "god",
+    "grade": null,
     "name": "라이진",
     "nameEn": "Raijin",
     "epithet": "번개와 천둥의 신",
@@ -311,6 +355,8 @@
   {
     "slug": "hera",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "헤라",
     "nameEn": "Hera",
     "epithet": "신들의 여왕",
@@ -325,6 +371,8 @@
   {
     "slug": "artemis",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "아르테미스",
     "nameEn": "Artemis",
     "epithet": "사냥과 달의 여신",
@@ -340,6 +388,8 @@
   {
     "slug": "hermes",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "헤르메스",
     "nameEn": "Hermes",
     "epithet": "신들의 전령",
@@ -355,6 +405,8 @@
   {
     "slug": "hades",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "하데스",
     "nameEn": "Hades",
     "epithet": "저승의 왕",
@@ -369,6 +421,8 @@
   {
     "slug": "baldr",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "발드르",
     "nameEn": "Baldr",
     "epithet": "빛과 순수의 신",
@@ -383,6 +437,8 @@
   {
     "slug": "heimdall",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "헤임달",
     "nameEn": "Heimdall",
     "epithet": "신들의 파수꾼",
@@ -396,6 +452,8 @@
   {
     "slug": "ra",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "라",
     "nameEn": "Ra",
     "epithet": "태양신",
@@ -410,6 +468,8 @@
   {
     "slug": "horus",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "호루스",
     "nameEn": "Horus",
     "epithet": "하늘과 왕권의 신",
@@ -424,6 +484,8 @@
   {
     "slug": "thoth",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "토트",
     "nameEn": "Thoth",
     "epithet": "지혜와 문자의 신",
@@ -439,6 +501,8 @@
   {
     "slug": "enki",
     "pantheonSlug": "mesopotamian",
+    "kind": "god",
+    "grade": null,
     "name": "엔키",
     "nameEn": "Enki",
     "epithet": "물과 지혜의 신",
@@ -454,6 +518,8 @@
   {
     "slug": "tiamat",
     "pantheonSlug": "mesopotamian",
+    "kind": "god",
+    "grade": null,
     "name": "티아마트",
     "nameEn": "Tiamat",
     "epithet": "원초의 바다",
@@ -467,6 +533,8 @@
   {
     "slug": "brahma",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "브라흐마",
     "nameEn": "Brahma",
     "epithet": "창조의 신",
@@ -481,6 +549,8 @@
   {
     "slug": "krishna",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "크리슈나",
     "nameEn": "Krishna",
     "epithet": "비슈누의 여덟 번째 화신",
@@ -495,6 +565,8 @@
   {
     "slug": "fujin",
     "pantheonSlug": "japanese",
+    "kind": "god",
+    "grade": null,
     "name": "후진",
     "nameEn": "Fujin",
     "epithet": "바람의 신",
@@ -507,6 +579,8 @@
   {
     "slug": "inari",
     "pantheonSlug": "japanese",
+    "kind": "god",
+    "grade": null,
     "name": "이나리",
     "nameEn": "Inari",
     "epithet": "벼와 풍요의 신",
@@ -521,6 +595,8 @@
   {
     "slug": "pangu",
     "pantheonSlug": "chinese",
+    "kind": "god",
+    "grade": null,
     "name": "반고",
     "nameEn": "Pangu",
     "epithet": "천지를 연 거인",
@@ -534,6 +610,8 @@
   {
     "slug": "nuwa",
     "pantheonSlug": "chinese",
+    "kind": "god",
+    "grade": null,
     "name": "여와",
     "nameEn": "Nüwa",
     "epithet": "사람을 빚은 여신",
@@ -548,6 +626,8 @@
   {
     "slug": "xiwangmu",
     "pantheonSlug": "chinese",
+    "kind": "god",
+    "grade": null,
     "name": "서왕모",
     "nameEn": "Xiwangmu",
     "epithet": "곤륜산의 여신",
@@ -561,6 +641,8 @@
   {
     "slug": "change",
     "pantheonSlug": "chinese",
+    "kind": "god",
+    "grade": null,
     "name": "항아",
     "nameEn": "Chang'e",
     "epithet": "달의 여신",
@@ -573,6 +655,8 @@
   {
     "slug": "cernunnos",
     "pantheonSlug": "celtic",
+    "kind": "god",
+    "grade": null,
     "name": "케르눈노스",
     "nameEn": "Cernunnos",
     "epithet": "뿔 달린 신",
@@ -587,6 +671,8 @@
   {
     "slug": "cuchulainn",
     "pantheonSlug": "celtic",
+    "kind": "hero",
+    "grade": null,
     "name": "쿠 훌린",
     "nameEn": "Cú Chulainn",
     "epithet": "얼스터의 영웅",
@@ -600,6 +686,8 @@
   {
     "slug": "brigid",
     "pantheonSlug": "celtic",
+    "kind": "god",
+    "grade": null,
     "name": "브리지트",
     "nameEn": "Brigid",
     "epithet": "불과 시, 치유의 여신",
@@ -615,6 +703,8 @@
   {
     "slug": "morrigan",
     "pantheonSlug": "celtic",
+    "kind": "god",
+    "grade": null,
     "name": "모리안",
     "nameEn": "The Morrígan",
     "epithet": "전쟁과 운명의 여신",
@@ -629,6 +719,8 @@
   {
     "slug": "quetzalcoatl",
     "pantheonSlug": "aztec",
+    "kind": "god",
+    "grade": null,
     "name": "케찰코아틀",
     "nameEn": "Quetzalcoatl",
     "epithet": "깃털 달린 뱀",
@@ -643,6 +735,8 @@
   {
     "slug": "tezcatlipoca",
     "pantheonSlug": "aztec",
+    "kind": "god",
+    "grade": null,
     "name": "테스카틀리포카",
     "nameEn": "Tezcatlipoca",
     "epithet": "연기 나는 거울",
@@ -658,6 +752,8 @@
   {
     "slug": "huitzilopochtli",
     "pantheonSlug": "aztec",
+    "kind": "god",
+    "grade": null,
     "name": "우이칠로포치틀리",
     "nameEn": "Huitzilopochtli",
     "epithet": "태양과 전쟁의 신",
@@ -671,6 +767,8 @@
   {
     "slug": "tlaloc",
     "pantheonSlug": "aztec",
+    "kind": "god",
+    "grade": null,
     "name": "틀랄록",
     "nameEn": "Tlaloc",
     "epithet": "비와 번개의 신",
@@ -685,6 +783,8 @@
   {
     "slug": "dangun",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "단군",
     "nameEn": "Dangun",
     "epithet": "고조선을 세운 시조",
@@ -698,6 +798,8 @@
   {
     "slug": "bari",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "바리공주",
     "nameEn": "Princess Bari",
     "epithet": "무당의 조상신",
@@ -712,6 +814,8 @@
   {
     "slug": "sansin",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "산신",
     "nameEn": "Sansin",
     "epithet": "산을 다스리는 신",
@@ -726,6 +830,8 @@
   {
     "slug": "jeseok",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "제석",
     "nameEn": "Jeseok",
     "epithet": "자손과 수명의 신",
@@ -740,6 +846,8 @@
   {
     "slug": "vainamoinen",
     "pantheonSlug": "finnish",
+    "kind": "hero",
+    "grade": null,
     "name": "베이네뫼이넨",
     "nameEn": "Väinämöinen",
     "epithet": "노래하는 현자",
@@ -754,6 +862,8 @@
   {
     "slug": "ilmarinen",
     "pantheonSlug": "finnish",
+    "kind": "hero",
+    "grade": null,
     "name": "일마리넨",
     "nameEn": "Ilmarinen",
     "epithet": "하늘을 두드린 대장장이",
@@ -767,6 +877,8 @@
   {
     "slug": "louhi",
     "pantheonSlug": "finnish",
+    "kind": "other",
+    "grade": null,
     "name": "로우히",
     "nameEn": "Louhi",
     "epithet": "포흐욜라의 여주인",
@@ -781,6 +893,8 @@
   {
     "slug": "lemminkainen",
     "pantheonSlug": "finnish",
+    "kind": "hero",
+    "grade": null,
     "name": "레민케이넨",
     "nameEn": "Lemminkäinen",
     "epithet": "무모한 영웅",
@@ -794,6 +908,8 @@
   {
     "slug": "itzamna",
     "pantheonSlug": "maya",
+    "kind": "god",
+    "grade": null,
     "name": "이참나",
     "nameEn": "Itzamna",
     "epithet": "하늘과 지혜의 늙은 신",
@@ -809,6 +925,8 @@
   {
     "slug": "kukulkan",
     "pantheonSlug": "maya",
+    "kind": "god",
+    "grade": null,
     "name": "쿠쿨칸",
     "nameEn": "Kukulkan",
     "epithet": "깃털 달린 뱀",
@@ -823,6 +941,8 @@
   {
     "slug": "chaac",
     "pantheonSlug": "maya",
+    "kind": "god",
+    "grade": null,
     "name": "차크",
     "nameEn": "Chaac",
     "epithet": "비의 신",
@@ -837,6 +957,8 @@
   {
     "slug": "maize-god",
     "pantheonSlug": "maya",
+    "kind": "god",
+    "grade": null,
     "name": "옥수수 신",
     "nameEn": "Maize God",
     "epithet": "옥수수와 다시 태어남의 신",
@@ -851,6 +973,8 @@
   {
     "slug": "dionysus",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "디오니소스",
     "nameEn": "Dionysus",
     "epithet": "포도주와 축제의 신",
@@ -865,6 +989,8 @@
   {
     "slug": "hephaestus",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "헤파이스토스",
     "nameEn": "Hephaestus",
     "epithet": "불과 대장장이의 신",
@@ -879,6 +1005,8 @@
   {
     "slug": "heracles",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "헤라클레스",
     "nameEn": "Heracles",
     "epithet": "열두 과업의 영웅",
@@ -892,6 +1020,8 @@
   {
     "slug": "medusa",
     "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "메두사",
     "nameEn": "Medusa",
     "epithet": "고르곤 세 자매의 막내",
@@ -905,6 +1035,8 @@
   {
     "slug": "set",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "세트",
     "nameEn": "Set",
     "epithet": "사막과 폭풍의 신",
@@ -919,6 +1051,8 @@
   {
     "slug": "hathor",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "하토르",
     "nameEn": "Hathor",
     "epithet": "사랑과 음악의 여신",
@@ -934,6 +1068,8 @@
   {
     "slug": "bastet",
     "pantheonSlug": "egyptian",
+    "kind": "god",
+    "grade": null,
     "name": "바스테트",
     "nameEn": "Bastet",
     "epithet": "고양이의 여신",
@@ -948,6 +1084,8 @@
   {
     "slug": "lakshmi",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "락슈미",
     "nameEn": "Lakshmi",
     "epithet": "부와 행운의 여신",
@@ -962,6 +1100,8 @@
   {
     "slug": "hanuman",
     "pantheonSlug": "hindu",
+    "kind": "hero",
+    "grade": null,
     "name": "하누만",
     "nameEn": "Hanuman",
     "epithet": "원숭이 영웅",
@@ -976,6 +1116,8 @@
   {
     "slug": "durga",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "두르가",
     "nameEn": "Durga",
     "epithet": "악을 무찌르는 여신",
@@ -990,6 +1132,8 @@
   {
     "slug": "frigg",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "프리그",
     "nameEn": "Frigg",
     "epithet": "신들의 여왕",
@@ -1004,6 +1148,8 @@
   {
     "slug": "tyr",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "티르",
     "nameEn": "Tyr",
     "epithet": "전쟁과 맹세의 신",
@@ -1019,6 +1165,8 @@
   {
     "slug": "ahura-mazda",
     "pantheonSlug": "iranian",
+    "kind": "god",
+    "grade": null,
     "name": "아후라 마즈다",
     "nameEn": "Ahura Mazda",
     "epithet": "지혜의 주",
@@ -1033,6 +1181,8 @@
   {
     "slug": "mithra",
     "pantheonSlug": "iranian",
+    "kind": "god",
+    "grade": null,
     "name": "미트라",
     "nameEn": "Mithra",
     "epithet": "계약과 빛의 신",
@@ -1048,6 +1198,8 @@
   {
     "slug": "anahita",
     "pantheonSlug": "iranian",
+    "kind": "god",
+    "grade": null,
     "name": "아나히타",
     "nameEn": "Anahita",
     "epithet": "물과 생명의 여신",
@@ -1062,6 +1214,8 @@
   {
     "slug": "baal",
     "pantheonSlug": "canaanite",
+    "kind": "god",
+    "grade": null,
     "name": "바알",
     "nameEn": "Baal",
     "epithet": "폭풍과 비의 신",
@@ -1077,6 +1231,8 @@
   {
     "slug": "astarte",
     "pantheonSlug": "canaanite",
+    "kind": "god",
+    "grade": null,
     "name": "아스타르테",
     "nameEn": "Astarte",
     "epithet": "사랑과 전쟁의 여신",
@@ -1091,6 +1247,8 @@
   {
     "slug": "teshub",
     "pantheonSlug": "hittite",
+    "kind": "god",
+    "grade": null,
     "name": "테슈브",
     "nameEn": "Teshub",
     "epithet": "폭풍의 신",
@@ -1105,6 +1263,8 @@
   {
     "slug": "illuyanka",
     "pantheonSlug": "hittite",
+    "kind": "monster",
+    "grade": "divine",
     "name": "일루얀카",
     "nameEn": "Illuyanka",
     "epithet": "폭풍의 신과 싸운 뱀",
@@ -1118,6 +1278,8 @@
   {
     "slug": "allat",
     "pantheonSlug": "arabian",
+    "kind": "god",
+    "grade": null,
     "name": "알라트",
     "nameEn": "Allat",
     "epithet": "여신",
@@ -1131,6 +1293,8 @@
   {
     "slug": "dushara",
     "pantheonSlug": "arabian",
+    "kind": "god",
+    "grade": null,
     "name": "두샤라",
     "nameEn": "Dushara",
     "epithet": "나바테아의 주신",
@@ -1145,6 +1309,8 @@
   {
     "slug": "perun",
     "pantheonSlug": "slavic",
+    "kind": "god",
+    "grade": null,
     "name": "페룬",
     "nameEn": "Perun",
     "epithet": "천둥의 신",
@@ -1159,6 +1325,8 @@
   {
     "slug": "svetovid",
     "pantheonSlug": "slavic",
+    "kind": "god",
+    "grade": null,
     "name": "스뱌토비트",
     "nameEn": "Svetovid",
     "epithet": "네 얼굴의 신",
@@ -1173,6 +1341,8 @@
   {
     "slug": "baba-yaga",
     "pantheonSlug": "slavic",
+    "kind": "other",
+    "grade": null,
     "name": "바바 야가",
     "nameEn": "Baba Yaga",
     "epithet": "숲속의 마녀",
@@ -1187,6 +1357,8 @@
   {
     "slug": "perkunas",
     "pantheonSlug": "baltic",
+    "kind": "god",
+    "grade": null,
     "name": "페르쿠나스",
     "nameEn": "Perkūnas",
     "epithet": "천둥의 신",
@@ -1201,6 +1373,8 @@
   {
     "slug": "laima",
     "pantheonSlug": "baltic",
+    "kind": "god",
+    "grade": null,
     "name": "라이마",
     "nameEn": "Laima",
     "epithet": "운명의 여신",
@@ -1215,6 +1389,8 @@
   {
     "slug": "kalevipoeg",
     "pantheonSlug": "estonian",
+    "kind": "hero",
+    "grade": null,
     "name": "칼레비포에그",
     "nameEn": "Kalevipoeg",
     "epithet": "칼레브의 아들",
@@ -1228,6 +1404,8 @@
   {
     "slug": "vanapagan",
     "pantheonSlug": "estonian",
+    "kind": "other",
+    "grade": null,
     "name": "바나파간",
     "nameEn": "Vanapagan",
     "epithet": "옛 이교도",
@@ -1241,6 +1419,8 @@
   {
     "slug": "tinia",
     "pantheonSlug": "etruscan",
+    "kind": "god",
+    "grade": null,
     "name": "티니아",
     "nameEn": "Tinia",
     "epithet": "하늘의 신",
@@ -1255,6 +1435,8 @@
   {
     "slug": "charun",
     "pantheonSlug": "etruscan",
+    "kind": "other",
+    "grade": null,
     "name": "카룬",
     "nameEn": "Charun",
     "epithet": "저승의 안내자",
@@ -1268,6 +1450,8 @@
   {
     "slug": "menrva",
     "pantheonSlug": "etruscan",
+    "kind": "god",
+    "grade": null,
     "name": "멘르바",
     "nameEn": "Menrva",
     "epithet": "지혜와 전쟁의 여신",
@@ -1282,6 +1466,8 @@
   {
     "slug": "snake-goddess",
     "pantheonSlug": "minoan",
+    "kind": "god",
+    "grade": null,
     "name": "뱀의 여신",
     "nameEn": "Minoan Snake Goddess",
     "epithet": "뱀을 든 여신",
@@ -1296,6 +1482,8 @@
   {
     "slug": "mistress-of-animals",
     "pantheonSlug": "minoan",
+    "kind": "god",
+    "grade": null,
     "name": "동물의 여주인",
     "nameEn": "Mistress of Animals",
     "epithet": "짐승을 거느린 여신",
@@ -1309,6 +1497,8 @@
   {
     "slug": "anahit",
     "pantheonSlug": "armenian",
+    "kind": "god",
+    "grade": null,
     "name": "아나히트",
     "nameEn": "Anahit",
     "epithet": "어머니 여신",
@@ -1323,6 +1513,8 @@
   {
     "slug": "vahagn",
     "pantheonSlug": "armenian",
+    "kind": "god",
+    "grade": null,
     "name": "바하근",
     "nameEn": "Vahagn",
     "epithet": "용을 물리친 신",
@@ -1337,6 +1529,8 @@
   {
     "slug": "turul",
     "pantheonSlug": "hungarian",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "투룰",
     "nameEn": "Turul",
     "epithet": "신성한 새",
@@ -1350,6 +1544,8 @@
   {
     "slug": "emese",
     "pantheonSlug": "hungarian",
+    "kind": "hero",
+    "grade": null,
     "name": "에메세",
     "nameEn": "Emese",
     "epithet": "왕가의 어머니",
@@ -1363,6 +1559,8 @@
   {
     "slug": "weland",
     "pantheonSlug": "anglo-saxon",
+    "kind": "hero",
+    "grade": null,
     "name": "웨일랜드",
     "nameEn": "Weland",
     "epithet": "대장장이",
@@ -1376,6 +1574,8 @@
   {
     "slug": "beowulf",
     "pantheonSlug": "anglo-saxon",
+    "kind": "hero",
+    "grade": null,
     "name": "베오울프",
     "nameEn": "Beowulf",
     "epithet": "괴물을 물리친 영웅",
@@ -1389,6 +1589,8 @@
   {
     "slug": "thracian-heros",
     "pantheonSlug": "thracian",
+    "kind": "hero",
+    "grade": null,
     "name": "트라키아의 기수",
     "nameEn": "Thracian Heros",
     "epithet": "말을 탄 영웅신",
@@ -1403,6 +1605,8 @@
   {
     "slug": "zalmoxis",
     "pantheonSlug": "thracian",
+    "kind": "god",
+    "grade": null,
     "name": "잘목시스",
     "nameEn": "Zalmoxis",
     "epithet": "게타이족의 신",
@@ -1416,6 +1620,8 @@
   {
     "slug": "shango",
     "pantheonSlug": "yoruba",
+    "kind": "god",
+    "grade": null,
     "name": "샹고",
     "nameEn": "Shango",
     "epithet": "천둥과 번개의 오리샤",
@@ -1431,6 +1637,8 @@
   {
     "slug": "eshu",
     "pantheonSlug": "yoruba",
+    "kind": "god",
+    "grade": null,
     "name": "에슈",
     "nameEn": "Eshu",
     "epithet": "길과 전언의 오리샤",
@@ -1446,6 +1654,8 @@
   {
     "slug": "orunmila",
     "pantheonSlug": "yoruba",
+    "kind": "god",
+    "grade": null,
     "name": "오룬밀라",
     "nameEn": "Orunmila",
     "epithet": "지혜와 점술의 오리샤",
@@ -1460,6 +1670,8 @@
   {
     "slug": "nommo",
     "pantheonSlug": "dogon",
+    "kind": "other",
+    "grade": null,
     "name": "놈모",
     "nameEn": "Nommo",
     "epithet": "물의 정령",
@@ -1474,6 +1686,8 @@
   {
     "slug": "amma",
     "pantheonSlug": "dogon",
+    "kind": "god",
+    "grade": null,
     "name": "암마",
     "nameEn": "Amma",
     "epithet": "창조신",
@@ -1487,6 +1701,8 @@
   {
     "slug": "gu",
     "pantheonSlug": "fon",
+    "kind": "god",
+    "grade": null,
     "name": "구",
     "nameEn": "Gu",
     "epithet": "쇠와 전쟁의 신",
@@ -1501,6 +1717,8 @@
   {
     "slug": "mawu-lisa",
     "pantheonSlug": "fon",
+    "kind": "god",
+    "grade": null,
     "name": "마우-리사",
     "nameEn": "Mawu-Lisa",
     "epithet": "달과 해의 창조신",
@@ -1515,6 +1733,8 @@
   {
     "slug": "inti",
     "pantheonSlug": "inca",
+    "kind": "god",
+    "grade": null,
     "name": "인티",
     "nameEn": "Inti",
     "epithet": "태양신",
@@ -1529,6 +1749,8 @@
   {
     "slug": "viracocha",
     "pantheonSlug": "inca",
+    "kind": "god",
+    "grade": null,
     "name": "비라코차",
     "nameEn": "Viracocha",
     "epithet": "창조신",
@@ -1543,6 +1765,8 @@
   {
     "slug": "pachamama",
     "pantheonSlug": "inca",
+    "kind": "god",
+    "grade": null,
     "name": "파차마마",
     "nameEn": "Pachamama",
     "epithet": "대지의 어머니",
@@ -1557,6 +1781,8 @@
   {
     "slug": "raven",
     "pantheonSlug": "haida",
+    "kind": "god",
+    "grade": null,
     "name": "까마귀",
     "nameEn": "Raven",
     "epithet": "장난꾸러기 창조자",
@@ -1571,6 +1797,8 @@
   {
     "slug": "were-jaguar",
     "pantheonSlug": "olmec",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "재규어 인간",
     "nameEn": "Olmec Were-Jaguar",
     "epithet": "재규어와 사람이 섞인 존재",
@@ -1585,6 +1813,8 @@
   {
     "slug": "cocijo",
     "pantheonSlug": "zapotec",
+    "kind": "god",
+    "grade": null,
     "name": "코시호",
     "nameEn": "Cocijo",
     "epithet": "비와 번개의 신",
@@ -1599,6 +1829,8 @@
   {
     "slug": "eight-deer",
     "pantheonSlug": "mixtec",
+    "kind": "hero",
+    "grade": null,
     "name": "8 사슴 재규어 발톱",
     "nameEn": "Eight Deer Jaguar Claw",
     "epithet": "전설적인 정복 왕",
@@ -1612,6 +1844,8 @@
   {
     "slug": "maui",
     "pantheonSlug": "polynesian",
+    "kind": "hero",
+    "grade": null,
     "name": "마우이",
     "nameEn": "Māui",
     "epithet": "꾀 많은 반신",
@@ -1626,6 +1860,8 @@
   {
     "slug": "tangaroa",
     "pantheonSlug": "polynesian",
+    "kind": "god",
+    "grade": null,
     "name": "탕가로아",
     "nameEn": "Tangaroa",
     "epithet": "바다의 신",
@@ -1640,6 +1876,8 @@
   {
     "slug": "ku",
     "pantheonSlug": "polynesian",
+    "kind": "god",
+    "grade": null,
     "name": "쿠",
     "nameEn": "Kū",
     "epithet": "전쟁의 신",
@@ -1654,6 +1892,8 @@
   {
     "slug": "makemake",
     "pantheonSlug": "rapa-nui",
+    "kind": "god",
+    "grade": null,
     "name": "마케마케",
     "nameEn": "Makemake",
     "epithet": "창조신",
@@ -1668,6 +1908,8 @@
   {
     "slug": "moai",
     "pantheonSlug": "rapa-nui",
+    "kind": "other",
+    "grade": null,
     "name": "모아이",
     "nameEn": "Moai",
     "epithet": "신이 된 조상",
@@ -1681,6 +1923,8 @@
   {
     "slug": "kimun-kamuy",
     "pantheonSlug": "ainu",
+    "kind": "god",
+    "grade": null,
     "name": "키무은 카무이",
     "nameEn": "Kimun Kamuy",
     "epithet": "산의 신 (곰)",
@@ -1695,6 +1939,8 @@
   {
     "slug": "gesar",
     "pantheonSlug": "tibetan",
+    "kind": "hero",
+    "grade": null,
     "name": "게사르 왕",
     "nameEn": "King Gesar",
     "epithet": "링 왕국의 영웅 왕",
@@ -1709,6 +1955,8 @@
   {
     "slug": "palden-lhamo",
     "pantheonSlug": "tibetan",
+    "kind": "god",
+    "grade": null,
     "name": "팔덴 라모",
     "nameEn": "Palden Lhamo",
     "epithet": "티베트의 수호 여신",
@@ -1723,6 +1971,8 @@
   {
     "slug": "thanh-giong",
     "pantheonSlug": "vietnamese",
+    "kind": "hero",
+    "grade": null,
     "name": "타인지옹",
     "nameEn": "Thánh Gióng",
     "epithet": "하늘로 올라간 소년 영웅",
@@ -1736,6 +1986,8 @@
   {
     "slug": "lac-long-quan",
     "pantheonSlug": "vietnamese",
+    "kind": "hero",
+    "grade": null,
     "name": "락롱꾸언",
     "nameEn": "Lạc Long Quân",
     "epithet": "용의 군주",
@@ -1750,6 +2002,8 @@
   {
     "slug": "thotsakan",
     "pantheonSlug": "thai",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "톳사깐",
     "nameEn": "Thotsakan",
     "epithet": "열 머리의 마왕",
@@ -1763,6 +2017,8 @@
   {
     "slug": "mae-phosop",
     "pantheonSlug": "thai",
+    "kind": "god",
+    "grade": null,
     "name": "매포솝",
     "nameEn": "Mae Phosop",
     "epithet": "벼의 여신",
@@ -1776,6 +2032,8 @@
   {
     "slug": "mahagiri",
     "pantheonSlug": "burmese",
+    "kind": "god",
+    "grade": null,
     "name": "마하기리",
     "nameEn": "Mahagiri",
     "epithet": "집의 수호 낫",
@@ -1789,6 +2047,8 @@
   {
     "slug": "thagyamin",
     "pantheonSlug": "burmese",
+    "kind": "god",
+    "grade": null,
     "name": "따자민",
     "nameEn": "Thagyamin",
     "epithet": "낫들의 왕",
@@ -1803,6 +2063,8 @@
   {
     "slug": "barong",
     "pantheonSlug": "indonesian",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "바롱",
     "nameEn": "Barong",
     "epithet": "선한 수호자",
@@ -1816,6 +2078,8 @@
   {
     "slug": "rangda",
     "pantheonSlug": "indonesian",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "랑다",
     "nameEn": "Rangda",
     "epithet": "마녀의 여왕",
@@ -1830,6 +2094,8 @@
   {
     "slug": "dewi-sri",
     "pantheonSlug": "indonesian",
+    "kind": "god",
+    "grade": null,
     "name": "데위 스리",
     "nameEn": "Dewi Sri",
     "epithet": "벼의 여신",
@@ -1844,6 +2110,8 @@
   {
     "slug": "hwanin",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "환인",
     "nameEn": "Hwanin",
     "epithet": "하늘의 임금",
@@ -1857,6 +2125,8 @@
   {
     "slug": "hwanung",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "환웅",
     "nameEn": "Hwanung",
     "epithet": "신시를 연 하늘의 아들",
@@ -1871,6 +2141,8 @@
   {
     "slug": "ungnyeo",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "웅녀",
     "nameEn": "Ungnyeo",
     "epithet": "곰에서 사람이 된 여인",
@@ -1885,6 +2157,8 @@
   {
     "slug": "haemosu",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "해모수",
     "nameEn": "Haemosu",
     "epithet": "하늘에서 내려온 해의 아들",
@@ -1899,6 +2173,8 @@
   {
     "slug": "yuhwa",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "유화",
     "nameEn": "Yuhwa",
     "epithet": "고구려 건국 신화의 어머니 영웅",
@@ -1913,6 +2189,8 @@
   {
     "slug": "dongmyeong",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "동명성왕",
     "nameEn": "King Dongmyeong (Jumong)",
     "epithet": "고구려를 세운 건국 영웅",
@@ -1926,6 +2204,8 @@
   {
     "slug": "hyeokgeose",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "박혁거세",
     "nameEn": "Bak Hyeokgeose",
     "epithet": "신라를 세운 건국 영웅",
@@ -1939,6 +2219,8 @@
   {
     "slug": "suro",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "수로왕",
     "nameEn": "King Suro",
     "epithet": "가락국을 세운 건국 영웅",
@@ -1952,6 +2234,8 @@
   {
     "slug": "seolmundae",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "설문대할망",
     "nameEn": "Seolmundae Halmang",
     "epithet": "제주를 만든 거인 여신",
@@ -1966,6 +2250,8 @@
   {
     "slug": "samsin",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "삼신할미",
     "nameEn": "Samsin Halmi",
     "epithet": "아기를 점지하는 여신",
@@ -1980,6 +2266,8 @@
   {
     "slug": "jacheongbi",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "자청비",
     "nameEn": "Jacheongbi",
     "epithet": "농사의 여신",
@@ -1994,6 +2282,8 @@
   {
     "slug": "gangnim",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "강림도령",
     "nameEn": "Gangnim Doryeong",
     "epithet": "저승에서 염라대왕을 잡아 온 차사",
@@ -2008,6 +2298,8 @@
   {
     "slug": "siwang",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "시왕",
     "nameEn": "Ten Kings of the Underworld",
     "epithet": "저승의 열 대왕",
@@ -2021,6 +2313,8 @@
   {
     "slug": "cheoyong",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "처용",
     "nameEn": "Cheoyong",
     "epithet": "역신을 물리친 용의 아들",
@@ -2035,6 +2329,8 @@
   {
     "slug": "ilwol",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "일월성신",
     "nameEn": "Sun and Moon Gods",
     "epithet": "해와 달, 별의 신",
@@ -2049,6 +2345,8 @@
   {
     "slug": "choeyeong",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "최영",
     "nameEn": "Choe Yeong",
     "epithet": "왜구를 물리친 고려의 영웅",
@@ -2063,6 +2361,8 @@
   {
     "slug": "jangseung",
     "pantheonSlug": "korean",
+    "kind": "other",
+    "grade": null,
     "name": "장승",
     "nameEn": "Jangseung",
     "epithet": "마을 어귀의 수호신",
@@ -2077,6 +2377,8 @@
   {
     "slug": "chiyou",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "치우",
     "nameEn": "Chiyou",
     "epithet": "황제와 싸운 전쟁의 신",
@@ -2091,6 +2393,8 @@
   {
     "slug": "poiyaunpe",
     "pantheonSlug": "ainu",
+    "kind": "hero",
+    "grade": null,
     "name": "포이야운페",
     "nameEn": "Poiyaunpe",
     "epithet": "아이누 서사시의 소년 영웅",
@@ -2104,6 +2408,8 @@
   {
     "slug": "shitonai",
     "pantheonSlug": "ainu",
+    "kind": "hero",
+    "grade": null,
     "name": "시토나이",
     "nameEn": "Shitonai",
     "epithet": "유카르의 소년",
@@ -2117,6 +2423,8 @@
   {
     "slug": "paul-bunyan",
     "pantheonSlug": "american-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "폴 버니언",
     "nameEn": "Paul Bunyan",
     "epithet": "거인 벌목꾼",
@@ -2131,6 +2439,8 @@
   {
     "slug": "john-henry",
     "pantheonSlug": "american-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "존 헨리",
     "nameEn": "John Henry",
     "epithet": "증기 드릴과 겨룬 사나이",
@@ -2144,6 +2454,8 @@
   {
     "slug": "scheherazade",
     "pantheonSlug": "arabian-nights",
+    "kind": "hero",
+    "grade": null,
     "name": "셰에라자드",
     "nameEn": "Scheherazade",
     "epithet": "천 하룻밤의 이야기꾼",
@@ -2158,6 +2470,8 @@
   {
     "slug": "sinbad",
     "pantheonSlug": "arabian-nights",
+    "kind": "hero",
+    "grade": null,
     "name": "신드바드",
     "nameEn": "Sinbad the Sailor",
     "epithet": "일곱 번 항해한 뱃사람",
@@ -2172,6 +2486,8 @@
   {
     "slug": "aladdin",
     "pantheonSlug": "arabian-nights",
+    "kind": "hero",
+    "grade": null,
     "name": "알라딘",
     "nameEn": "Aladdin",
     "epithet": "램프의 주인",
@@ -2186,6 +2502,8 @@
   {
     "slug": "ali-baba",
     "pantheonSlug": "arabian-nights",
+    "kind": "hero",
+    "grade": null,
     "name": "알리바바",
     "nameEn": "Ali Baba",
     "epithet": "열려라 참깨",
@@ -2200,6 +2518,8 @@
   {
     "slug": "king-arthur",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "아서 왕",
     "nameEn": "King Arthur",
     "epithet": "브리튼의 왕",
@@ -2214,6 +2534,8 @@
   {
     "slug": "merlin",
     "pantheonSlug": "arthurian",
+    "kind": "other",
+    "grade": null,
     "name": "멀린",
     "nameEn": "Merlin",
     "epithet": "왕을 만든 마법사",
@@ -2228,6 +2550,8 @@
   {
     "slug": "lancelot",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "랜슬롯",
     "nameEn": "Lancelot",
     "epithet": "호수의 기사",
@@ -2242,6 +2566,8 @@
   {
     "slug": "gawain",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "가웨인",
     "nameEn": "Gawain",
     "epithet": "태양의 기사",
@@ -2256,6 +2582,8 @@
   {
     "slug": "tristan",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "트리스탄",
     "nameEn": "Tristan",
     "epithet": "비련의 기사",
@@ -2270,6 +2598,8 @@
   {
     "slug": "bedivere",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "베디비어",
     "nameEn": "Bedivere",
     "epithet": "마지막 기사",
@@ -2283,6 +2613,8 @@
   {
     "slug": "percival",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "퍼시벌",
     "nameEn": "Percival",
     "epithet": "성배를 찾은 기사",
@@ -2296,6 +2628,8 @@
   {
     "slug": "mordred",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "모드레드",
     "nameEn": "Mordred",
     "epithet": "반역의 기사",
@@ -2310,6 +2644,8 @@
   {
     "slug": "morgan-le-fay",
     "pantheonSlug": "arthurian",
+    "kind": "other",
+    "grade": null,
     "name": "모르간 르 페이",
     "nameEn": "Morgan le Fay",
     "epithet": "아발론의 마녀",
@@ -2324,6 +2660,8 @@
   {
     "slug": "gareth",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "가레스",
     "nameEn": "Gareth",
     "epithet": "부엌의 기사",
@@ -2337,6 +2675,8 @@
   {
     "slug": "galahad",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "갤러해드",
     "nameEn": "Galahad",
     "epithet": "성배를 이룬 기사",
@@ -2351,6 +2691,8 @@
   {
     "slug": "lohengrin",
     "pantheonSlug": "arthurian",
+    "kind": "hero",
+    "grade": null,
     "name": "로엔그린",
     "nameEn": "Lohengrin",
     "epithet": "백조의 기사",
@@ -2364,6 +2706,8 @@
   {
     "slug": "kirta",
     "pantheonSlug": "canaanite",
+    "kind": "hero",
+    "grade": null,
     "name": "키르타",
     "nameEn": "Kirta",
     "epithet": "자손을 얻은 왕",
@@ -2377,6 +2721,8 @@
   {
     "slug": "charlemagne",
     "pantheonSlug": "carolingian",
+    "kind": "hero",
+    "grade": null,
     "name": "샤를마뉴",
     "nameEn": "Charlemagne",
     "epithet": "열두 기사의 황제",
@@ -2391,6 +2737,8 @@
   {
     "slug": "roland",
     "pantheonSlug": "carolingian",
+    "kind": "hero",
+    "grade": null,
     "name": "롤랑",
     "nameEn": "Roland",
     "epithet": "론세스바예스의 기사",
@@ -2405,6 +2753,8 @@
   {
     "slug": "astolfo",
     "pantheonSlug": "carolingian",
+    "kind": "hero",
+    "grade": null,
     "name": "아스톨포",
     "nameEn": "Astolfo",
     "epithet": "달까지 간 기사",
@@ -2418,6 +2768,8 @@
   {
     "slug": "bradamante",
     "pantheonSlug": "carolingian",
+    "kind": "hero",
+    "grade": null,
     "name": "브라다만테",
     "nameEn": "Bradamante",
     "epithet": "흰 깃털의 여기사",
@@ -2431,6 +2783,8 @@
   {
     "slug": "mandricardo",
     "pantheonSlug": "carolingian",
+    "kind": "hero",
+    "grade": null,
     "name": "만드리카르도",
     "nameEn": "Mandricardo",
     "epithet": "타타르의 왕",
@@ -2444,6 +2798,8 @@
   {
     "slug": "ogier",
     "pantheonSlug": "carolingian",
+    "kind": "hero",
+    "grade": null,
     "name": "오지에 르 다누아",
     "nameEn": "Ogier the Dane",
     "epithet": "잠든 덴마크의 기사",
@@ -2457,6 +2813,8 @@
   {
     "slug": "renaud",
     "pantheonSlug": "carolingian",
+    "kind": "hero",
+    "grade": null,
     "name": "르노 드 몽토방",
     "nameEn": "Renaud de Montauban",
     "epithet": "아이몽의 아들",
@@ -2470,6 +2828,8 @@
   {
     "slug": "scathach",
     "pantheonSlug": "celtic",
+    "kind": "hero",
+    "grade": null,
     "name": "스카하크",
     "nameEn": "Scáthach",
     "epithet": "그림자 섬의 여전사",
@@ -2483,6 +2843,8 @@
   {
     "slug": "diarmuid",
     "pantheonSlug": "celtic",
+    "kind": "hero",
+    "grade": null,
     "name": "디어무드",
     "nameEn": "Diarmuid Ua Duibhne",
     "epithet": "사랑의 점을 지닌 전사",
@@ -2496,6 +2858,8 @@
   {
     "slug": "fergus",
     "pantheonSlug": "celtic",
+    "kind": "hero",
+    "grade": null,
     "name": "퍼거스",
     "nameEn": "Fergus mac Róich",
     "epithet": "옛 울스터의 왕",
@@ -2510,6 +2874,8 @@
   {
     "slug": "fionn",
     "pantheonSlug": "celtic",
+    "kind": "hero",
+    "grade": null,
     "name": "핀 막 쿨",
     "nameEn": "Fionn mac Cumhaill",
     "epithet": "피아나의 수장",
@@ -2524,6 +2890,8 @@
   {
     "slug": "medb",
     "pantheonSlug": "celtic",
+    "kind": "hero",
+    "grade": null,
     "name": "메이브",
     "nameEn": "Medb",
     "epithet": "코노트의 여왕",
@@ -2538,6 +2906,8 @@
   {
     "slug": "manannan",
     "pantheonSlug": "celtic",
+    "kind": "god",
+    "grade": null,
     "name": "마나난 막 리르",
     "nameEn": "Manannán mac Lir",
     "epithet": "바다의 신",
@@ -2552,6 +2922,8 @@
   {
     "slug": "oisin",
     "pantheonSlug": "celtic",
+    "kind": "hero",
+    "grade": null,
     "name": "오신",
     "nameEn": "Oisín",
     "epithet": "청춘의 나라에 간 시인",
@@ -2566,6 +2938,8 @@
   {
     "slug": "nezha",
     "pantheonSlug": "chinese",
+    "kind": "god",
+    "grade": null,
     "name": "나타",
     "nameEn": "Nezha",
     "epithet": "바람불 바퀴의 소년",
@@ -2580,6 +2954,8 @@
   {
     "slug": "jiang-ziya",
     "pantheonSlug": "chinese",
+    "kind": "hero",
+    "grade": null,
     "name": "강태공",
     "nameEn": "Jiang Ziya",
     "epithet": "봉신의 군사",
@@ -2593,6 +2969,8 @@
   {
     "slug": "huang-feihu",
     "pantheonSlug": "chinese",
+    "kind": "hero",
+    "grade": null,
     "name": "황비호",
     "nameEn": "Huang Feihu",
     "epithet": "오색 신우를 탄 장수",
@@ -2606,6 +2984,8 @@
   {
     "slug": "huyan-zhuo",
     "pantheonSlug": "chinese",
+    "kind": "hero",
+    "grade": null,
     "name": "호연작",
     "nameEn": "Huyan Zhuo",
     "epithet": "쌍채찍 장수",
@@ -2619,6 +2999,8 @@
   {
     "slug": "jade-rabbit",
     "pantheonSlug": "chinese",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "옥토끼",
     "nameEn": "Moon Rabbit",
     "epithet": "달의 토끼",
@@ -2632,6 +3014,8 @@
   {
     "slug": "sun-wukong",
     "pantheonSlug": "chinese",
+    "kind": "hero",
+    "grade": null,
     "name": "손오공",
     "nameEn": "Sun Wukong",
     "epithet": "제천대성",
@@ -2646,6 +3030,8 @@
   {
     "slug": "hou-yi",
     "pantheonSlug": "chinese",
+    "kind": "hero",
+    "grade": null,
     "name": "후예",
     "nameEn": "Hou Yi",
     "epithet": "열 개의 해를 쏜 궁수",
@@ -2660,6 +3046,8 @@
   {
     "slug": "hua-mulan",
     "pantheonSlug": "chinese",
+    "kind": "hero",
+    "grade": null,
     "name": "화목란",
     "nameEn": "Hua Mulan",
     "epithet": "아버지 대신 나선 여전사",
@@ -2674,6 +3062,8 @@
   {
     "slug": "yellow-emperor",
     "pantheonSlug": "chinese",
+    "kind": "hero",
+    "grade": null,
     "name": "황제",
     "nameEn": "Yellow Emperor",
     "epithet": "중화의 시조",
@@ -2688,6 +3078,8 @@
   {
     "slug": "nitocris",
     "pantheonSlug": "egyptian",
+    "kind": "hero",
+    "grade": null,
     "name": "니토크리스",
     "nameEn": "Nitocris",
     "epithet": "전설의 여왕",
@@ -2701,6 +3093,8 @@
   {
     "slug": "robin-hood",
     "pantheonSlug": "european-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "로빈 후드",
     "nameEn": "Robin Hood",
     "epithet": "셔우드의 의적",
@@ -2715,6 +3109,8 @@
   {
     "slug": "william-tell",
     "pantheonSlug": "european-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "빌헬름 텔",
     "nameEn": "William Tell",
     "epithet": "사과를 쏜 명사수",
@@ -2729,6 +3125,8 @@
   {
     "slug": "saint-george",
     "pantheonSlug": "european-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "성 게오르기우스",
     "nameEn": "Saint George",
     "epithet": "용을 물리친 기사",
@@ -2743,6 +3141,8 @@
   {
     "slug": "melusine",
     "pantheonSlug": "european-folklore",
+    "kind": "other",
+    "grade": null,
     "name": "멜뤼진",
     "nameEn": "Melusine",
     "epithet": "물의 요정",
@@ -2757,6 +3157,8 @@
   {
     "slug": "habetrot",
     "pantheonSlug": "european-folklore",
+    "kind": "other",
+    "grade": null,
     "name": "하베트롯",
     "nameEn": "Habetrot",
     "epithet": "실 잣는 요정",
@@ -2770,6 +3172,8 @@
   {
     "slug": "oberon",
     "pantheonSlug": "european-folklore",
+    "kind": "other",
+    "grade": null,
     "name": "오베론",
     "nameEn": "Oberon",
     "epithet": "요정의 왕",
@@ -2783,6 +3187,8 @@
   {
     "slug": "britomart",
     "pantheonSlug": "european-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "브리토마트",
     "nameEn": "Britomart",
     "epithet": "정절의 여기사",
@@ -2796,6 +3202,8 @@
   {
     "slug": "el-cid",
     "pantheonSlug": "european-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "엘 시드",
     "nameEn": "El Cid",
     "epithet": "캄페아도르",
@@ -2809,6 +3217,8 @@
   {
     "slug": "prester-john",
     "pantheonSlug": "european-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "사제왕 요한",
     "nameEn": "Prester John",
     "epithet": "동방의 전설적인 왕",
@@ -2822,6 +3232,8 @@
   {
     "slug": "saint-margaret",
     "pantheonSlug": "european-folklore",
+    "kind": "hero",
+    "grade": null,
     "name": "안티오키아의 마르가리타",
     "nameEn": "Margaret the Virgin",
     "epithet": "용의 배를 가른 성녀",
@@ -2835,6 +3247,8 @@
   {
     "slug": "siegfried",
     "pantheonSlug": "germanic",
+    "kind": "hero",
+    "grade": null,
     "name": "지크프리트",
     "nameEn": "Siegfried",
     "epithet": "용의 피를 뒤집어쓴 영웅",
@@ -2849,6 +3263,8 @@
   {
     "slug": "kriemhild",
     "pantheonSlug": "germanic",
+    "kind": "hero",
+    "grade": null,
     "name": "크림힐트",
     "nameEn": "Kriemhild",
     "epithet": "복수의 왕비",
@@ -2862,6 +3278,8 @@
   {
     "slug": "dietrich",
     "pantheonSlug": "germanic",
+    "kind": "hero",
+    "grade": null,
     "name": "베른의 디트리히",
     "nameEn": "Dietrich von Bern",
     "epithet": "망명한 왕",
@@ -2876,6 +3294,8 @@
   {
     "slug": "hildebrand",
     "pantheonSlug": "germanic",
+    "kind": "hero",
+    "grade": null,
     "name": "힐데브란트",
     "nameEn": "Hildebrand",
     "epithet": "디트리히의 스승",
@@ -2889,6 +3309,8 @@
   {
     "slug": "walter-of-aquitaine",
     "pantheonSlug": "germanic",
+    "kind": "hero",
+    "grade": null,
     "name": "아키텐의 발터",
     "nameEn": "Walter of Aquitaine",
     "epithet": "훈족에게서 탈출한 영웅",
@@ -2902,6 +3324,8 @@
   {
     "slug": "achilles",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "아킬레우스",
     "nameEn": "Achilles",
     "epithet": "트로이 전쟁의 영웅",
@@ -2916,6 +3340,8 @@
   {
     "slug": "hector",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "헥토르",
     "nameEn": "Hector",
     "epithet": "트로이의 방패",
@@ -2930,6 +3356,8 @@
   {
     "slug": "odysseus",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "오디세우스",
     "nameEn": "Odysseus",
     "epithet": "꾀 많은 영웅",
@@ -2944,6 +3372,8 @@
   {
     "slug": "jason",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "이아손",
     "nameEn": "Jason",
     "epithet": "아르고호의 선장",
@@ -2957,6 +3387,8 @@
   {
     "slug": "medea",
     "pantheonSlug": "greek",
+    "kind": "other",
+    "grade": null,
     "name": "메데이아",
     "nameEn": "Medea",
     "epithet": "콜키스의 마녀",
@@ -2970,6 +3402,8 @@
   {
     "slug": "atalanta",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "아탈란테",
     "nameEn": "Atalanta",
     "epithet": "발 빠른 사냥꾼",
@@ -2984,6 +3418,8 @@
   {
     "slug": "asclepius",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "아스클레피오스",
     "nameEn": "Asclepius",
     "epithet": "의술의 신",
@@ -2997,6 +3433,8 @@
   {
     "slug": "chiron",
     "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "케이론",
     "nameEn": "Chiron",
     "epithet": "현명한 켄타우로스",
@@ -3011,6 +3449,8 @@
   {
     "slug": "orion",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "오리온",
     "nameEn": "Orion",
     "epithet": "거인 사냥꾼",
@@ -3024,6 +3464,8 @@
   {
     "slug": "europa",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "에우로페",
     "nameEn": "Europa",
     "epithet": "황소가 데려간 공주",
@@ -3037,6 +3479,8 @@
   {
     "slug": "dioscuri",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "디오스쿠로이",
     "nameEn": "Dioscuri",
     "epithet": "쌍둥이 형제",
@@ -3051,6 +3495,8 @@
   {
     "slug": "paris",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "파리스",
     "nameEn": "Paris",
     "epithet": "트로이의 왕자",
@@ -3064,6 +3510,8 @@
   {
     "slug": "theseus",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "테세우스",
     "nameEn": "Theseus",
     "epithet": "미궁의 영웅",
@@ -3078,6 +3526,8 @@
   {
     "slug": "andromeda",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "안드로메다",
     "nameEn": "Andromeda",
     "epithet": "바다 괴물의 제물",
@@ -3091,6 +3541,8 @@
   {
     "slug": "hippolyta",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "히폴리테",
     "nameEn": "Hippolyta",
     "epithet": "아마조네스의 여왕",
@@ -3104,6 +3556,8 @@
   {
     "slug": "daedalus",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "다이달로스",
     "nameEn": "Daedalus",
     "epithet": "미궁을 지은 장인",
@@ -3117,6 +3571,8 @@
   {
     "slug": "demeter",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "데메테르",
     "nameEn": "Demeter",
     "epithet": "곡물의 여신",
@@ -3131,6 +3587,8 @@
   {
     "slug": "astraea",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "아스트라이아",
     "nameEn": "Astraea",
     "epithet": "별의 처녀",
@@ -3144,6 +3602,8 @@
   {
     "slug": "galatea",
     "pantheonSlug": "greek",
+    "kind": "other",
+    "grade": null,
     "name": "갈라테이아",
     "nameEn": "Galatea",
     "epithet": "살아난 조각상",
@@ -3157,6 +3617,8 @@
   {
     "slug": "caeneus",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "카이네우스",
     "nameEn": "Caeneus",
     "epithet": "칼이 들지 않는 전사",
@@ -3170,6 +3632,8 @@
   {
     "slug": "euryale",
     "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "에우리알레",
     "nameEn": "Euryale",
     "epithet": "고르곤의 둘째",
@@ -3183,6 +3647,8 @@
   {
     "slug": "ascalaphus",
     "pantheonSlug": "greek",
+    "kind": "other",
+    "grade": null,
     "name": "아스칼라포스",
     "nameEn": "Ascalaphus",
     "epithet": "저승 정원지기",
@@ -3196,6 +3662,8 @@
   {
     "slug": "perseus",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "페르세우스",
     "nameEn": "Perseus",
     "epithet": "메두사를 벤 영웅",
@@ -3210,6 +3678,8 @@
   {
     "slug": "bellerophon",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "벨레로폰",
     "nameEn": "Bellerophon",
     "epithet": "페가수스의 기수",
@@ -3224,6 +3694,8 @@
   {
     "slug": "orpheus",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "오르페우스",
     "nameEn": "Orpheus",
     "epithet": "저승을 노래로 연 시인",
@@ -3238,6 +3710,8 @@
   {
     "slug": "diomedes",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "디오메데스",
     "nameEn": "Diomedes",
     "epithet": "신에게 상처를 입힌 영웅",
@@ -3251,6 +3725,8 @@
   {
     "slug": "meleager",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "멜레아그로스",
     "nameEn": "Meleager",
     "epithet": "칼리돈의 사냥꾼",
@@ -3264,6 +3740,8 @@
   {
     "slug": "ajax",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "대 아이아스",
     "nameEn": "Ajax the Great",
     "epithet": "그리스군의 성벽",
@@ -3278,6 +3756,8 @@
   {
     "slug": "cadmus",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "카드모스",
     "nameEn": "Cadmus",
     "epithet": "테바이의 건국자",
@@ -3292,6 +3772,8 @@
   {
     "slug": "cyrene",
     "pantheonSlug": "greek",
+    "kind": "other",
+    "grade": null,
     "name": "키레네",
     "nameEn": "Cyrene",
     "epithet": "사자와 씨름한 님프",
@@ -3305,6 +3787,8 @@
   {
     "slug": "psyche",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "프시케",
     "nameEn": "Psyche",
     "epithet": "사랑을 찾은 영혼",
@@ -3319,6 +3803,8 @@
   {
     "slug": "penthesilea",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "펜테실레이아",
     "nameEn": "Penthesilea",
     "epithet": "트로이에 온 아마조네스 여왕",
@@ -3332,6 +3818,8 @@
   {
     "slug": "antiope",
     "pantheonSlug": "greek",
+    "kind": "hero",
+    "grade": null,
     "name": "안티오페",
     "nameEn": "Antiope",
     "epithet": "아마조네스의 전사",
@@ -3345,6 +3833,8 @@
   {
     "slug": "britomartis",
     "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
     "name": "브리토마르티스",
     "nameEn": "Britomartis",
     "epithet": "크레타의 그물 여신",
@@ -3358,6 +3848,8 @@
   {
     "slug": "arjuna",
     "pantheonSlug": "hindu",
+    "kind": "hero",
+    "grade": null,
     "name": "아르주나",
     "nameEn": "Arjuna",
     "epithet": "판다바의 궁수",
@@ -3372,6 +3864,8 @@
   {
     "slug": "karna",
     "pantheonSlug": "hindu",
+    "kind": "hero",
+    "grade": null,
     "name": "카르나",
     "nameEn": "Karna",
     "epithet": "태양의 아들",
@@ -3386,6 +3880,8 @@
   {
     "slug": "rama",
     "pantheonSlug": "hindu",
+    "kind": "hero",
+    "grade": null,
     "name": "라마",
     "nameEn": "Rama",
     "epithet": "「라마야나」의 왕자",
@@ -3400,6 +3896,8 @@
   {
     "slug": "indra",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "인드라",
     "nameEn": "Indra",
     "epithet": "신들의 왕",
@@ -3414,6 +3912,8 @@
   {
     "slug": "parvati",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "파르바티",
     "nameEn": "Parvati",
     "epithet": "산의 딸",
@@ -3428,6 +3928,8 @@
   {
     "slug": "kama",
     "pantheonSlug": "hindu",
+    "kind": "god",
+    "grade": null,
     "name": "카마",
     "nameEn": "Kama",
     "epithet": "사랑의 신",
@@ -3441,6 +3943,8 @@
   {
     "slug": "ashwatthama",
     "pantheonSlug": "hindu",
+    "kind": "hero",
+    "grade": null,
     "name": "아슈바타만",
     "nameEn": "Ashwatthama",
     "epithet": "죽지 않는 전사",
@@ -3455,6 +3959,8 @@
   {
     "slug": "bhima",
     "pantheonSlug": "hindu",
+    "kind": "hero",
+    "grade": null,
     "name": "비마",
     "nameEn": "Bhima",
     "epithet": "곤봉의 장사",
@@ -3469,6 +3975,8 @@
   {
     "slug": "duryodhana",
     "pantheonSlug": "hindu",
+    "kind": "hero",
+    "grade": null,
     "name": "두료다나",
     "nameEn": "Duryodhana",
     "epithet": "카우라바의 맏이",
@@ -3483,6 +3991,8 @@
   {
     "slug": "vritra",
     "pantheonSlug": "hindu",
+    "kind": "monster",
+    "grade": "divine",
     "name": "브리트라",
     "nameEn": "Vritra",
     "epithet": "물을 가둔 뱀",
@@ -3497,6 +4007,8 @@
   {
     "slug": "parashurama",
     "pantheonSlug": "hindu",
+    "kind": "hero",
+    "grade": null,
     "name": "파라슈라마",
     "nameEn": "Parashurama",
     "epithet": "도끼를 든 화신",
@@ -3511,6 +4023,8 @@
   {
     "slug": "arash",
     "pantheonSlug": "iranian",
+    "kind": "hero",
+    "grade": null,
     "name": "아라시",
     "nameEn": "Arash the Archer",
     "epithet": "국경을 정한 궁수",
@@ -3525,6 +4039,8 @@
   {
     "slug": "rostam",
     "pantheonSlug": "iranian",
+    "kind": "hero",
+    "grade": null,
     "name": "루스탐",
     "nameEn": "Rostam",
     "epithet": "「샤나메」의 영웅",
@@ -3539,6 +4055,8 @@
   {
     "slug": "fereydun",
     "pantheonSlug": "iranian",
+    "kind": "hero",
+    "grade": null,
     "name": "페레이둔",
     "nameEn": "Fereydun",
     "epithet": "폭군을 묶은 왕",
@@ -3552,6 +4070,8 @@
   {
     "slug": "kaveh",
     "pantheonSlug": "iranian",
+    "kind": "hero",
+    "grade": null,
     "name": "카베",
     "nameEn": "Kaveh the Blacksmith",
     "epithet": "가죽 앞치마의 대장장이",
@@ -3566,6 +4086,8 @@
   {
     "slug": "garshasp",
     "pantheonSlug": "iranian",
+    "kind": "hero",
+    "grade": null,
     "name": "케레사스파",
     "nameEn": "Garshasp",
     "epithet": "용을 죽인 영웅",
@@ -3579,6 +4101,8 @@
   {
     "slug": "yamato-takeru",
     "pantheonSlug": "japanese",
+    "kind": "hero",
+    "grade": null,
     "name": "야마토타케루",
     "nameEn": "Yamato Takeru",
     "epithet": "동서를 평정한 왕자",
@@ -3593,6 +4117,8 @@
   {
     "slug": "kiyohime",
     "pantheonSlug": "japanese",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "키요히메",
     "nameEn": "Kiyohime",
     "epithet": "큰 뱀이 된 여인",
@@ -3607,6 +4133,8 @@
   {
     "slug": "tamamo-no-mae",
     "pantheonSlug": "japanese",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "다마모노마에",
     "nameEn": "Tamamo-no-Mae",
     "epithet": "아홉 꼬리 여우",
@@ -3621,6 +4149,8 @@
   {
     "slug": "shuten-doji",
     "pantheonSlug": "japanese",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "슈텐도지",
     "nameEn": "Shuten-dōji",
     "epithet": "오에산의 귀신 왕",
@@ -3635,6 +4165,8 @@
   {
     "slug": "ibaraki-doji",
     "pantheonSlug": "japanese",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "이바라키도지",
     "nameEn": "Ibaraki-dōji",
     "epithet": "라쇼몬의 오니",
@@ -3648,6 +4180,8 @@
   {
     "slug": "ibuki-doji",
     "pantheonSlug": "japanese",
+    "kind": "monster",
+    "grade": "spirit",
     "name": "이부키도지",
     "nameEn": "Ibuki-dōji",
     "epithet": "이부키산의 귀신",
@@ -3661,6 +4195,8 @@
   {
     "slug": "minamoto-no-raiko",
     "pantheonSlug": "japanese",
+    "kind": "hero",
+    "grade": null,
     "name": "미나모토노 라이코",
     "nameEn": "Minamoto no Raikō",
     "epithet": "오니 퇴치의 무장",
@@ -3675,6 +4211,8 @@
   {
     "slug": "sakata-kintoki",
     "pantheonSlug": "japanese",
+    "kind": "hero",
+    "grade": null,
     "name": "사카타노 긴토키",
     "nameEn": "Sakata no Kintoki",
     "epithet": "금태랑",
@@ -3688,6 +4226,8 @@
   {
     "slug": "watanabe-no-tsuna",
     "pantheonSlug": "japanese",
+    "kind": "hero",
+    "grade": null,
     "name": "와타나베노 쓰나",
     "nameEn": "Watanabe no Tsuna",
     "epithet": "오니의 팔을 벤 무사",
@@ -3701,6 +4241,8 @@
   {
     "slug": "tawara-toda",
     "pantheonSlug": "japanese",
+    "kind": "hero",
+    "grade": null,
     "name": "다와라 도타",
     "nameEn": "Tawara Tōda",
     "epithet": "큰 지네를 쏜 무사",
@@ -3714,6 +4256,8 @@
   {
     "slug": "suzuka-gozen",
     "pantheonSlug": "japanese",
+    "kind": "other",
+    "grade": null,
     "name": "스즈카고젠",
     "nameEn": "Suzuka Gozen",
     "epithet": "스즈카산의 천녀",
@@ -3728,6 +4272,8 @@
   {
     "slug": "benkei",
     "pantheonSlug": "japanese",
+    "kind": "hero",
+    "grade": null,
     "name": "벤케이",
     "nameEn": "Benkei",
     "epithet": "선 채로 죽은 승병",
@@ -3742,6 +4288,8 @@
   {
     "slug": "daikokuten",
     "pantheonSlug": "japanese",
+    "kind": "god",
+    "grade": null,
     "name": "다이코쿠텐",
     "nameEn": "Daikokuten",
     "epithet": "부엌과 풍요의 신",
@@ -3756,6 +4304,8 @@
   {
     "slug": "hanasaka-jiisan",
     "pantheonSlug": "japanese",
+    "kind": "hero",
+    "grade": null,
     "name": "꽃 피우는 할아버지",
     "nameEn": "Hanasaka Jiisan",
     "epithet": "마른 나무에 꽃을 피운 노인",
@@ -3769,6 +4319,8 @@
   {
     "slug": "koga-saburo",
     "pantheonSlug": "japanese",
+    "kind": "hero",
+    "grade": null,
     "name": "고가 사부로",
     "nameEn": "Kōga Saburō",
     "epithet": "땅속 나라를 떠돈 무사",
@@ -3783,6 +4335,8 @@
   {
     "slug": "daebyeol-sobyeol",
     "pantheonSlug": "korean",
+    "kind": "god",
+    "grade": null,
     "name": "대별왕과 소별왕",
     "nameEn": "Daebyeol and Sobyeol",
     "epithet": "이승과 저승의 형제",
@@ -3797,6 +4351,8 @@
   {
     "slug": "geotaji",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "거타지",
     "nameEn": "Geotaji",
     "epithet": "늙은 여우를 쏜 궁사",
@@ -3810,6 +4366,8 @@
   {
     "slug": "utturi",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "우투리",
     "nameEn": "Utturi",
     "epithet": "날개 달린 아기 장수",
@@ -3823,6 +4381,8 @@
   {
     "slug": "jeon-u-chi",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "전우치",
     "nameEn": "Jeon Woo-chi",
     "epithet": "도술을 부리는 선비",
@@ -3837,6 +4397,8 @@
   {
     "slug": "hong-gil-dong",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "홍길동",
     "nameEn": "Hong Gildong",
     "epithet": "활빈당의 의적",
@@ -3851,6 +4413,8 @@
   {
     "slug": "seol-jukhwa",
     "pantheonSlug": "korean",
+    "kind": "hero",
+    "grade": null,
     "name": "설죽화",
     "nameEn": "Seol Juk-hwa",
     "epithet": "남장한 여장수",
@@ -3865,6 +4429,8 @@
   {
     "slug": "enkidu",
     "pantheonSlug": "mesopotamian",
+    "kind": "hero",
+    "grade": null,
     "name": "엔키두",
     "nameEn": "Enkidu",
     "epithet": "들판에서 빚어진 벗",
@@ -3879,6 +4445,8 @@
   {
     "slug": "ereshkigal",
     "pantheonSlug": "mesopotamian",
+    "kind": "god",
+    "grade": null,
     "name": "에레쉬키갈",
     "nameEn": "Ereshkigal",
     "epithet": "저승의 여왕",
@@ -3892,6 +4460,8 @@
   {
     "slug": "semiramis",
     "pantheonSlug": "mesopotamian",
+    "kind": "hero",
+    "grade": null,
     "name": "세미라미스",
     "nameEn": "Semiramis",
     "epithet": "전설의 여왕",
@@ -3905,6 +4475,8 @@
   {
     "slug": "sigurd",
     "pantheonSlug": "norse",
+    "kind": "hero",
+    "grade": null,
     "name": "시구르드",
     "nameEn": "Sigurd",
     "epithet": "용을 죽인 자",
@@ -3919,6 +4491,8 @@
   {
     "slug": "brynhild",
     "pantheonSlug": "norse",
+    "kind": "hero",
+    "grade": null,
     "name": "브륀힐드",
     "nameEn": "Brynhild",
     "epithet": "불꽃 속의 발키리",
@@ -3933,6 +4507,8 @@
   {
     "slug": "skadi",
     "pantheonSlug": "norse",
+    "kind": "god",
+    "grade": null,
     "name": "스카디",
     "nameEn": "Skaði",
     "epithet": "눈과 사냥의 여신",
@@ -3947,6 +4523,8 @@
   {
     "slug": "tjalfi",
     "pantheonSlug": "norse",
+    "kind": "hero",
+    "grade": null,
     "name": "티알피",
     "nameEn": "Þjálfi",
     "epithet": "토르의 시종",
@@ -3960,6 +4538,8 @@
   {
     "slug": "skirnir",
     "pantheonSlug": "norse",
+    "kind": "hero",
+    "grade": null,
     "name": "스키르니르",
     "nameEn": "Skírnir",
     "epithet": "프레이의 사자",
@@ -3973,6 +4553,8 @@
   {
     "slug": "romulus",
     "pantheonSlug": "roman",
+    "kind": "hero",
+    "grade": null,
     "name": "로물루스",
     "nameEn": "Romulus",
     "epithet": "로마의 건국자",
@@ -3987,6 +4569,8 @@
   {
     "slug": "camilla",
     "pantheonSlug": "roman",
+    "kind": "hero",
+    "grade": null,
     "name": "카밀라",
     "nameEn": "Camilla",
     "epithet": "볼스키의 여전사",
@@ -4000,6 +4584,8 @@
   {
     "slug": "aeneas",
     "pantheonSlug": "roman",
+    "kind": "hero",
+    "grade": null,
     "name": "아이네이아스",
     "nameEn": "Aeneas",
     "epithet": "트로이의 생존자",
@@ -4014,6 +4600,8 @@
   {
     "slug": "dobrynya",
     "pantheonSlug": "slavic",
+    "kind": "hero",
+    "grade": null,
     "name": "도브리냐 니키티치",
     "nameEn": "Dobrynya Nikitich",
     "epithet": "뱀을 물리친 용사",
@@ -4028,6 +4616,8 @@
   {
     "slug": "ilya-muromets",
     "pantheonSlug": "slavic",
+    "kind": "hero",
+    "grade": null,
     "name": "일리야 무로메츠",
     "nameEn": "Ilya Muromets",
     "epithet": "서른셋에 일어선 용사",
@@ -4042,6 +4632,8 @@
   {
     "slug": "koschei",
     "pantheonSlug": "slavic",
+    "kind": "other",
+    "grade": null,
     "name": "죽지 않는 코셰이",
     "nameEn": "Koschei the Deathless",
     "epithet": "죽음을 숨긴 마법사",
@@ -4056,6 +4648,8 @@
   {
     "slug": "marko-kraljevic",
     "pantheonSlug": "slavic",
+    "kind": "hero",
+    "grade": null,
     "name": "마르코 크랄례비치",
     "nameEn": "Prince Marko",
     "epithet": "세르비아 서사시의 왕자",
@@ -4070,6 +4664,8 @@
   {
     "slug": "bruncvik",
     "pantheonSlug": "slavic",
+    "kind": "hero",
+    "grade": null,
     "name": "브룬츠비크",
     "nameEn": "Bruncvík",
     "epithet": "사자를 데려온 기사",
@@ -4084,6 +4680,8 @@
   {
     "slug": "erkhii-mergen",
     "pantheonSlug": "turko-mongol",
+    "kind": "hero",
+    "grade": null,
     "name": "에르히 메르겡",
     "nameEn": "Erkhii Mergen",
     "epithet": "해를 쏜 명궁",
@@ -4097,6 +4695,8 @@
   {
     "slug": "alip-manash",
     "pantheonSlug": "turko-mongol",
+    "kind": "hero",
+    "grade": null,
     "name": "알립마나시",
     "nameEn": "Alyp-Manash",
     "epithet": "알타이의 용사",
@@ -4106,5 +4706,341 @@
     ],
     "summary": "알타이 서사시의 용사로, 오랜 포로 생활 끝에 고향으로 돌아와 배신자들을 벌했습니다.",
     "order": 2
+  },
+  {
+    "slug": "cerberus",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "common",
+    "name": "케르베로스",
+    "nameEn": "Cerberus",
+    "epithet": "저승 문을 지키는 개",
+    "domains": [
+      "저승",
+      "문지기"
+    ],
+    "summary": "머리가 여럿 달린 몸으로 저승의 문을 지키며, 죽은 이가 빠져나가지 못하게 막는 하데스의 개입니다.",
+    "order": 48
+  },
+  {
+    "slug": "minotaur",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "common",
+    "name": "미노타우로스",
+    "nameEn": "Minotaur",
+    "epithet": "미궁의 황소 인간",
+    "domains": [
+      "미궁",
+      "제물"
+    ],
+    "summary": "황소의 머리에 사람의 몸을 한 괴물로, 크레타의 미궁에 갇혀 아테네의 젊은이들을 제물로 받았습니다.",
+    "order": 49
+  },
+  {
+    "slug": "hydra",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "common",
+    "name": "히드라",
+    "nameEn": "Lernaean Hydra",
+    "epithet": "머리가 다시 자라는 물뱀",
+    "domains": [
+      "독",
+      "늪",
+      "재생"
+    ],
+    "summary": "레르나의 늪에 살던 머리 여럿 달린 물뱀으로, 머리 하나를 자르면 두 개가 새로 자랐습니다.",
+    "order": 50
+  },
+  {
+    "slug": "chimera",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "common",
+    "name": "키마이라",
+    "nameEn": "Chimera",
+    "epithet": "불을 뿜는 세 몸의 괴물",
+    "domains": [
+      "불",
+      "혼종"
+    ],
+    "summary": "사자의 머리, 염소의 몸, 뱀의 꼬리를 하고 불을 뿜었다는 리키아의 괴물입니다.",
+    "order": 51
+  },
+  {
+    "slug": "pegasus",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "spirit",
+    "name": "페가수스",
+    "nameEn": "Pegasus",
+    "epithet": "날개 달린 말",
+    "domains": [
+      "하늘",
+      "영감"
+    ],
+    "summary": "메두사의 목에서 태어난 날개 달린 말로, 영웅 벨레로폰을 태우고 키마이라와 싸웠습니다.",
+    "order": 52
+  },
+  {
+    "slug": "polyphemus",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "spirit",
+    "name": "폴리페모스",
+    "nameEn": "Polyphemus",
+    "epithet": "외눈박이 거인 키클롭스",
+    "domains": [
+      "거인",
+      "목축"
+    ],
+    "summary": "이마 가운데 눈이 하나뿐인 거인 키클롭스로, 「오디세이아」에서 오디세우스 일행을 동굴에 가두었습니다.",
+    "order": 53
+  },
+  {
+    "slug": "typhon",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "divine",
+    "name": "티폰",
+    "nameEn": "Typhon",
+    "epithet": "신들과 맞선 가장 큰 괴물",
+    "domains": [
+      "폭풍",
+      "혼돈"
+    ],
+    "summary": "어깨에서 뱀 머리 백 개가 솟았다는 거대한 괴물로, 제우스와 하늘의 주인 자리를 두고 싸웠습니다.",
+    "order": 54
+  },
+  {
+    "slug": "talos",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "common",
+    "name": "탈로스",
+    "nameEn": "Talos",
+    "epithet": "크레타를 지킨 청동 거인",
+    "domains": [
+      "수호",
+      "청동"
+    ],
+    "summary": "헤파이스토스가 만든 청동 거인으로, 하루 세 번 크레타섬을 돌며 바위를 던져 침입자를 막았습니다.",
+    "order": 55
+  },
+  {
+    "slug": "fenrir",
+    "pantheonSlug": "norse",
+    "kind": "monster",
+    "grade": "divine",
+    "name": "펜리르",
+    "nameEn": "Fenrir",
+    "epithet": "신들이 묶어 둔 거대한 늑대",
+    "domains": [
+      "파멸",
+      "속박"
+    ],
+    "summary": "로키의 자식인 거대한 늑대로, 신들이 마법 끈으로 묶어 두었지만 라그나로크에 풀려나 오딘을 삼킨다고 합니다.",
+    "order": 14
+  },
+  {
+    "slug": "jormungandr",
+    "pantheonSlug": "norse",
+    "kind": "monster",
+    "grade": "divine",
+    "name": "요르문간드",
+    "nameEn": "Jörmungandr",
+    "epithet": "세상을 감은 뱀",
+    "domains": [
+      "바다",
+      "파멸"
+    ],
+    "summary": "인간 세상 미드가르드를 한 바퀴 감고 제 꼬리를 문 거대한 바다뱀으로, 토르의 숙적입니다.",
+    "order": 15
+  },
+  {
+    "slug": "sleipnir",
+    "pantheonSlug": "norse",
+    "kind": "monster",
+    "grade": "spirit",
+    "name": "슬레이프니르",
+    "nameEn": "Sleipnir",
+    "epithet": "오딘의 여덟 다리 말",
+    "domains": [
+      "여행",
+      "저승길"
+    ],
+    "summary": "다리가 여덟 개인 회색 말로, 오딘을 태우고 하늘과 바다, 저승까지 달렸습니다.",
+    "order": 16
+  },
+  {
+    "slug": "nidhogg",
+    "pantheonSlug": "norse",
+    "kind": "monster",
+    "grade": "divine",
+    "name": "니드호그",
+    "nameEn": "Níðhöggr",
+    "epithet": "세계수의 뿌리를 갉는 용",
+    "domains": [
+      "죽음",
+      "파멸"
+    ],
+    "summary": "세계수 이그드라실의 뿌리를 갉아 먹고, 저승에서 죄지은 자들의 시체를 뜯는다는 용입니다.",
+    "order": 17
+  },
+  {
+    "slug": "huginn-muninn",
+    "pantheonSlug": "norse",
+    "kind": "monster",
+    "grade": "spirit",
+    "name": "후긴과 무닌",
+    "nameEn": "Huginn and Muninn",
+    "epithet": "오딘의 두 까마귀",
+    "domains": [
+      "생각",
+      "기억",
+      "소식"
+    ],
+    "summary": "‘생각’과 ‘기억’이라는 뜻의 이름을 가진 두 까마귀로, 날마다 세상을 날아다니며 오딘에게 소식을 전합니다.",
+    "order": 18
+  },
+  {
+    "slug": "fafnir",
+    "pantheonSlug": "norse",
+    "kind": "monster",
+    "grade": "spirit",
+    "name": "파프니르",
+    "nameEn": "Fáfnir",
+    "epithet": "보물을 지키는 용",
+    "domains": [
+      "욕심",
+      "보물",
+      "독"
+    ],
+    "summary": "아버지를 죽이고 저주받은 황금을 차지한 뒤 용으로 변해 보물을 지키다가 영웅 시구르드에게 죽은 존재입니다.",
+    "order": 19
+  },
+  {
+    "slug": "ammit",
+    "pantheonSlug": "egyptian",
+    "kind": "monster",
+    "grade": "divine",
+    "name": "암미트",
+    "nameEn": "Ammit",
+    "epithet": "죽은 이의 심장을 삼키는 존재",
+    "domains": [
+      "심판",
+      "저승"
+    ],
+    "summary": "악어의 머리, 사자의 앞몸, 하마의 뒷몸을 한 존재로, 심판을 통과하지 못한 죽은 이의 심장을 삼켰습니다.",
+    "order": 11
+  },
+  {
+    "slug": "apep",
+    "pantheonSlug": "egyptian",
+    "kind": "monster",
+    "grade": "divine",
+    "name": "아펩",
+    "nameEn": "Apep (Apophis)",
+    "epithet": "태양을 삼키려는 뱀",
+    "domains": [
+      "혼돈",
+      "어둠"
+    ],
+    "summary": "밤마다 저승을 지나는 태양신 라의 배를 공격하는 거대한 뱀으로, 질서를 무너뜨리는 혼돈의 화신입니다.",
+    "order": 12
+  },
+  {
+    "slug": "sphinx",
+    "pantheonSlug": "egyptian",
+    "kind": "monster",
+    "grade": "spirit",
+    "name": "스핑크스",
+    "nameEn": "Sphinx",
+    "epithet": "사자의 몸에 왕의 얼굴",
+    "domains": [
+      "왕권",
+      "수호"
+    ],
+    "summary": "사자의 몸에 사람, 주로 파라오의 머리를 한 존재로, 신전과 무덤을 지키는 수호자였습니다.",
+    "order": 13
+  },
+  {
+    "slug": "bennu",
+    "pantheonSlug": "egyptian",
+    "kind": "monster",
+    "grade": "spirit",
+    "name": "베누",
+    "nameEn": "Bennu",
+    "epithet": "스스로 다시 태어나는 새",
+    "domains": [
+      "태양",
+      "부활",
+      "창조"
+    ],
+    "summary": "태초의 언덕에 처음 내려앉아 울음으로 시간을 열었다는 왜가리 모습의 새로, 해와 부활을 상징합니다.",
+    "order": 14
+  },
+  {
+    "slug": "circe",
+    "pantheonSlug": "greek",
+    "kind": "god",
+    "grade": null,
+    "name": "키르케",
+    "nameEn": "Circe",
+    "epithet": "아이아이에섬의 마녀 여신",
+    "domains": [
+      "마법",
+      "약초",
+      "변신"
+    ],
+    "summary": "태양신 헬리오스의 딸로, 약초와 주문으로 사람을 짐승으로 바꾸는 아이아이에섬의 여신입니다.",
+    "order": 56
+  },
+  {
+    "slug": "sirens",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "spirit",
+    "name": "세이렌",
+    "nameEn": "Sirens",
+    "epithet": "노래로 뱃사람을 홀리는 존재",
+    "domains": [
+      "노래",
+      "유혹",
+      "바다"
+    ],
+    "summary": "아름다운 노래로 지나가는 뱃사람을 홀려 죽음에 이르게 하는, 바다의 섬에 사는 존재입니다.",
+    "order": 57
+  },
+  {
+    "slug": "scylla",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "common",
+    "name": "스킬라",
+    "nameEn": "Scylla",
+    "epithet": "머리 여섯 달린 바다 괴물",
+    "domains": [
+      "바다",
+      "해협"
+    ],
+    "summary": "좁은 해협의 절벽 굴에 살며 머리 여섯으로 지나가는 배의 뱃사람을 낚아채 먹은 괴물입니다.",
+    "order": 58
+  },
+  {
+    "slug": "charybdis",
+    "pantheonSlug": "greek",
+    "kind": "monster",
+    "grade": "common",
+    "name": "카리브디스",
+    "nameEn": "Charybdis",
+    "epithet": "바닷물을 삼키는 소용돌이",
+    "domains": [
+      "바다",
+      "소용돌이"
+    ],
+    "summary": "하루 세 번 바닷물을 들이켰다 내뱉어 거대한 소용돌이를 만드는, 스킬라 맞은편의 바다 괴물입니다.",
+    "order": 59
   }
 ]

@@ -2,7 +2,7 @@ import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/in
 import { ASPECTS, cardFace, cardIllustration, getCard, HIDDEN_ART, KEYWORDS } from "#entities/card/index.js";
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
-import { CONTINENT_LABEL, getArt, getFigure, getPantheon } from "#entities/figure/index.js";
+import { CONTINENT_LABEL, getArt, getFigure, getPantheon, kindLabel } from "#entities/figure/index.js";
 import { arkFigureUrl, arkPantheonUrl } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
 import { openDialog } from "#shared/ui/index.js";
@@ -100,7 +100,7 @@ export function cardDetail(cardId) {
         "p",
         { class: "label muted" },
         pantheon
-          ? `${pantheon.name} · ${CONTINENT_LABEL[pantheon.continent]}${card.source === "zero" ? " · ZERO 전설 확장" : ""}`
+          ? `${pantheon.name} · ${CONTINENT_LABEL[pantheon.continent]} · ${kindLabel(getFigure(/** @type {string} */ (card.figureSlug)) ?? {})}${card.source === "zero" ? " · ZERO 전설 확장" : ""}`
           : card.source === "hidden"
             ? "히든 · Ark에 기록되지 않은 자"
             : "Ark 사서의 카드",
