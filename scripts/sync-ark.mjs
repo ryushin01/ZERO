@@ -105,4 +105,23 @@ write("pantheons.json", pantheons);
 write("figures.json", figures);
 write("art.json", art);
 
-console.log(`계열 ${pantheons.length}, 신 ${figures.length}, 그림 ${Object.keys(art).length}점을 가져왔습니다.`);
+// 탈것·동반자 짝 (Ark 0.19.0~). 효과는 ZERO의 게임 규칙(entities/bond)에 있고, 짝만 Ark에서 받습니다.
+const bondsFile = join(entities, "figure/model/bonds.ts");
+let bondCount = 0;
+if (existsSync(bondsFile)) {
+  const { BONDS } = await load(bondsFile);
+  const bonds = BONDS.map(({ rider, partner, relation, note }) => ({
+    rider,
+    partner,
+    relation,
+    ...(note ? { note } : {}),
+  }));
+  const bondDir = join(root, "src/entities/bond/data");
+  mkdirSync(bondDir, { recursive: true });
+  writeFileSync(join(bondDir, "bonds.json"), `${JSON.stringify(bonds, null, 2)}\n`);
+  bondCount = bonds.length;
+}
+
+console.log(
+  `계열 ${pantheons.length}, 신 ${figures.length}, 그림 ${Object.keys(art).length}점, 탈것·동반자 짝 ${bondCount}쌍을 가져왔습니다.`,
+);

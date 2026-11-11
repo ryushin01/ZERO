@@ -1819,6 +1819,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sophie_Gengembre_Anderson_-_Scheherazade.jpg"
     }
   },
+  "sinbad": {
+    "src": "/art/sinbad.jpg",
+    "title": "로크의 알을 깨는 상인들",
+    "alt": "바닷가 바위 사이에서 상인들이 거대한 로크의 알을 깨뜨리고, 뒤로 배가 정박한 판화",
+    "holder": null,
+    "dateLabel": "19세기",
+    "credit": {
+      "artist": "Gustave Doré",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sinbad_the_Sailor_(5th_Voyage).jpg"
+    }
+  },
   "aladdin": {
     "src": "/art/aladdin.jpg",
     "title": "등잔을 찾은 알라딘",
@@ -1921,6 +1934,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:King_Arthur_Sir_Bedivere_throwing_Excalibur_into_the_lake_by_Walter_Crane.jpg"
+    }
+  },
+  "percival": {
+    "src": "/art/percival.jpg",
+    "title": "요정 비비안을 이기는 퍼시벌 경",
+    "alt": "갑옷을 입은 퍼시벌 경 앞에서 마법사 비비안이 몸을 움츠리며 쓰러지는 펜화. 위에 영어 제목 글씨가 있습니다.",
+    "holder": null,
+    "dateLabel": "1905년",
+    "credit": {
+      "artist": "Howard Pyle",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sir_Percival_overcometh_ye_Enchantress_Vivien.png"
     }
   },
   "mordred": {
@@ -2157,6 +2183,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heroes_of_the_dawn_-_illustration_to_face_page_230.png"
     }
   },
+  "jiang-ziya": {
+    "src": "/art/jiang-ziya.jpg",
+    "title": "태공망",
+    "alt": "긴 수염의 노인 태공망이 지팡이를 짚고 물가에 서 있는 수묵 족자",
+    "holder": "미니애폴리스 미술관",
+    "dateLabel": "1760~1780년경",
+    "credit": {
+      "artist": "Soga Shōhaku",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Soga_Sh%C5%8Dhaku_-_Taigong_Wang_(center_of_a_triptych_of_Taigong_Wang,_Dragon,_and_Carp)_-_2017.145.7.2_-_Minneapolis_Institute_of_Art.jpg"
+    }
+  },
   "huyan-zhuo": {
     "src": "/art/huyan-zhuo.jpg",
     "title": "「수호전」의 호연작",
@@ -2196,6 +2235,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiyou.PNG"
     }
   },
+  "hou-yi": {
+    "src": "/art/hou-yi.jpg",
+    "title": "해를 쏘는 후예",
+    "alt": "나무가 앙상한 들판에서 무늬 옷을 입은 후예가 하늘을 향해 큰 활을 당기는 목판화",
+    "holder": null,
+    "dateLabel": "1645년",
+    "credit": {
+      "artist": "Xiao Yuncong",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Houyi_Shooting_an_Arrow,_Xiao_Yuncong.gif"
+    }
+  },
   "hua-mulan": {
     "src": "/art/hua-mulan.jpg",
     "title": "화목란",
@@ -2207,6 +2259,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mulan,_18th_century,_ink_and_colors_on_silk.jpg"
+    }
+  },
+  "yellow-emperor": {
+    "src": "/art/yellow-emperor.jpg",
+    "title": "황제 초상",
+    "alt": "면류관을 쓰고 긴 수염을 기른 황제의 상반신 초상",
+    "holder": "필라델피아 미술관",
+    "dateLabel": "19세기~20세기 초",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portraits_of_Famous_Men_-_Yellow_Emperor_(Huangdi).jpg"
     }
   },
   "robin-hood": {
@@ -2272,6 +2337,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Joseph_Noel_Paton_-_The_Reconciliation_of_Titania_and_Oberon.jpg"
+    }
+  },
+  "britomart": {
+    "src": "/art/britomart.jpg",
+    "title": "아모레트를 구하는 브리토마트",
+    "alt": "갑옷을 입은 브리토마트가 마법사를 바닥에 누르고, 기둥에 묶여 있던 아모레트가 몸을 빼는 유화",
+    "holder": "테이트 브리튼",
+    "dateLabel": "1833년",
+    "credit": {
+      "artist": "William Etty",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Etty_Britomart_1833.jpg"
     }
   },
   "el-cid": {
@@ -2456,6 +2534,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hip%C3%B3menes_y_Atalanta_(Reni).jpg"
     }
   },
+  "asclepius": {
+    "src": "/art/asclepius.jpg",
+    "title": "아스클레피오스 상",
+    "alt": "뱀이 감긴 지팡이에 기대어 선 수염 난 아스클레피오스의 대리석 전신상. 곁에 두건을 쓴 작은 인물상이 있습니다.",
+    "holder": "보르게세 미술관",
+    "dateLabel": "2세기 (로마 시대)",
+    "credit": {
+      "artist": "Daderot",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asclepius,_Roman,_2nd_century_AD,_marble_-_Galleria_Borghese_-_Rome,_Italy_-_DSC04791.jpg"
+    }
+  },
   "chiron": {
     "src": "/art/chiron.jpg",
     "title": "케이론에게 아스클레피오스를 맡기는 아폴론",
@@ -2482,6 +2573,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:LeidenArateaFOlio48vOrion.jpg"
     }
   },
+  "europa": {
+    "src": "/art/europa.jpg",
+    "title": "에우로페의 납치",
+    "alt": "흰 황소 등에 매달린 에우로페가 바다를 건너고, 하늘과 물 위에 날개 달린 아이들이 따라오는 유화",
+    "holder": "이저벨라 스튜어트 가드너 미술관",
+    "dateLabel": "1560~1562년",
+    "credit": {
+      "artist": "Titian",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Titian_-_Rape_of_Europa_-_Google_Art_Project.jpg"
+    }
+  },
   "dioscuri": {
     "src": "/art/dioscuri.jpg",
     "title": "디오스쿠로이를 섬기는 사람들",
@@ -2493,6 +2597,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:38.5_Worshiping_Dioscuri.tif"
+    }
+  },
+  "paris": {
+    "src": "/art/paris.jpg",
+    "title": "파리스의 심판",
+    "alt": "나무 그늘 아래 세 여신이 서 있고, 오른쪽에 앉은 파리스와 헤르메스가 이들을 바라보는 유화",
+    "holder": "런던 내셔널 갤러리",
+    "dateLabel": "1632~1635년",
+    "credit": {
+      "artist": "Peter Paul Rubens",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rubens_-_Judgement_of_Paris.jpg"
     }
   },
   "theseus": {
@@ -2560,6 +2677,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:(Venice)_Demeter_in_the_Museo_archeologico_nazionale.jpg"
     }
   },
+  "galatea": {
+    "src": "/art/galatea.jpg",
+    "title": "피그말리온과 갈라테이아",
+    "alt": "작업실의 조각대 위에서 사람이 되어 가는 갈라테이아가 몸을 숙여 피그말리온과 입을 맞추고, 하늘에 에로스가 떠 있는 유화",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "1890년경",
+    "credit": {
+      "artist": "Jean-Léon Gérôme",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pygmalion_and_Galatea_MET_DT1969.jpg"
+    }
+  },
   "caeneus": {
     "src": "/art/caeneus.jpg",
     "title": "켄타우로스와 싸우는 카이네우스",
@@ -2571,6 +2701,32 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaineus_Kentauros_Louvre_CA2494_n1.jpg"
+    }
+  },
+  "euryale": {
+    "src": "/art/euryale.jpg",
+    "title": "고르곤",
+    "alt": "머리카락이 꿈틀거리는 뱀으로 된 고르곤의 얼굴을 굵은 검은 선으로 그린 삽화. 입을 크게 벌리고 송곳니를 드러냈습니다.",
+    "holder": null,
+    "dateLabel": "1922년",
+    "credit": {
+      "artist": "Arthur Rackham",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wonder_Book-1-031.jpg"
+    }
+  },
+  "ascalaphus": {
+    "src": "/art/ascalaphus.jpg",
+    "title": "부엉이가 되는 아스칼라포스",
+    "alt": "저승의 동굴 앞에서 긴 옷을 입은 여신이 손을 뻗자, 그 앞의 아스칼라포스가 부엉이로 변해 가는 동판화",
+    "holder": null,
+    "dateLabel": "1690년",
+    "credit": {
+      "artist": "Johann Ulrich Kraus",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johann_Ulrich_Krauss_1690_-_Ascalaphus.jpg"
     }
   },
   "perseus": {
@@ -2690,6 +2846,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Othea%27s_Epistle_(Queen%27s_Manuscript)_15.jpg"
     }
   },
+  "antiope": {
+    "src": "/art/antiope.jpg",
+    "title": "안티오페를 데려가는 테세우스",
+    "alt": "테세우스가 안티오페를 두 팔로 안아 들고 있는 대리석 조각. 두 사람의 머리와 몸통 일부가 남아 있습니다.",
+    "holder": "에레트리아 고고학 박물관",
+    "dateLabel": "기원전 510년경",
+    "credit": {
+      "artist": "Jebulon",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theseus_Antiope_archmus_Eretria.jpg"
+    }
+  },
   "britomartis": {
     "src": "/art/britomartis.jpg",
     "title": "물에 뛰어드는 브리토마르티스",
@@ -2716,6 +2885,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arjuna_and_the_River_Nymph_by_1913.jpg"
     }
   },
+  "karna": {
+    "src": "/art/karna.jpg",
+    "title": "카르나를 쓰러뜨리는 아르주나",
+    "alt": "글 아래 그림에서 전차를 탄 전사들이 들판에서 활을 겨누며 맞서는 무굴 세밀화",
+    "holder": "시카고 미술관",
+    "dateLabel": "1616~1617년",
+    "credit": {
+      "artist": "Attributed to Fazl",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arjuna_Slays_Karna,_page_from_a_copy_of_the_Razmnama,_Mughal_period.jpg"
+    }
+  },
   "rama": {
     "src": "/art/rama.jpg",
     "title": "활과 화살을 든 라마",
@@ -2740,6 +2922,45 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiruchchirappalli_painting_Indra_(cropped).jpg"
+    }
+  },
+  "parvati": {
+    "src": "/art/parvati.jpg",
+    "title": "시바와 파르바티, 난디",
+    "alt": "노란 사리를 입은 파르바티가 앞에 서고, 뒤에 삼지창을 든 시바와 흰 소 난디가 있는 그림",
+    "holder": null,
+    "dateLabel": "19세기 말~20세기 초",
+    "credit": {
+      "artist": "Raja Ravi Varma",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Oleograph_of_Shiva,_Parvati_and_Nandi_by_Raja_Ravi_Varma.jpg"
+    }
+  },
+  "kama": {
+    "src": "/art/kama.jpg",
+    "title": "앵무새 수레를 탄 카마",
+    "alt": "초록 피부의 카마가 앵무새 두 마리가 끄는 수레에 무릎을 꿇고 꽃 화살을 활에 메겨 겨누는 그림",
+    "holder": null,
+    "dateLabel": "1820년경",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kama,_god_of_desire.jpg"
+    }
+  },
+  "ashwatthama": {
+    "src": "/art/ashwatthama.jpg",
+    "title": "나라야나 무기를 쏘는 아슈바타만",
+    "alt": "산자락을 따라 큰 불길이 치솟고, 말 탄 전사들과 신들이 그 양쪽에 모여 있는 무굴 세밀화",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "1616~1617년",
+    "credit": {
+      "artist": "Mughal painters",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aswathama_FIres_narayana_Weapon_on_Pandavas.jpg"
     }
   },
   "bhima": {
@@ -2792,6 +3013,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rostam_killing_the_White_Demon.jpg"
+    }
+  },
+  "fereydun": {
+    "src": "/art/fereydun.jpg",
+    "title": "페레이둔 앞에 끌려온 자하크",
+    "alt": "왕좌에 앉은 페레이둔 앞으로 웃옷을 벗긴 자하크가 끌려와 무릎을 꿇은 페르시아 세밀화",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "15세기 말",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22Zahhak_Brought_as_a_Prisoner_before_Faridun%22,_Folio_from_a_Shahnama_(Book_of_Kings)_MET_DP164678.jpg"
     }
   },
   "kaveh": {
@@ -3028,6 +3262,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Near_Eastern_-_Cylinder_Seal_with_Enkidu_Vanquishing_the_Bull_of_Heaven_-_Walters_42786_-_Side_B.jpg"
     }
   },
+  "ereshkigal": {
+    "src": "/art/ereshkigal.jpg",
+    "title": "밤의 여왕(버니 부조)",
+    "alt": "날개를 달고 새의 발로 사자 두 마리 위에 선 여신이 두 손에 고리와 막대를 들고, 양옆에 부엉이가 있는 점토 부조",
+    "holder": "대영박물관",
+    "dateLabel": "기원전 19~18세기",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:British_Museum_Queen_of_the_Night.jpg"
+    }
+  },
   "semiramis": {
     "src": "/art/semiramis.jpg",
     "title": "세미라미스 의상 도안",
@@ -3054,6 +3301,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sigurd_pr%C3%BCft_das_Schwert_Gram.png"
     }
   },
+  "brynhild": {
+    "src": "/art/brynhild.jpg",
+    "title": "동굴로 말을 끌고 가는 브륀힐데",
+    "alt": "우거진 숲속에서 긴 옷을 입은 브륀힐데가 말을 끌고 조용히 비탈을 내려가는 삽화",
+    "holder": null,
+    "dateLabel": "1910년",
+    "credit": {
+      "artist": "Arthur Rackham",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Br%C3%BCnnhilde_slowly_and_silently_leads_her_horse_down_the_path_to_the_cave.jpg"
+    }
+  },
   "skadi": {
     "src": "/art/skadi.jpg",
     "title": "스카디",
@@ -3065,6 +3325,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skade_by_Saltza.jpg"
+    }
+  },
+  "tjalfi": {
+    "src": "/art/tjalfi.jpg",
+    "title": "티알피와 로스크바",
+    "alt": "보라색 망토를 두른 티알피와 무늬 있는 숄을 걸친 로스크바가 나란히 서 있는 습작",
+    "holder": null,
+    "dateLabel": null,
+    "credit": {
+      "artist": "Constantin Hansen",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tjalfe_and_Roskva._Study_for_%E2%80%9CThors_rejse_til_Jotunheim%E2%80%9D.jpg"
     }
   },
   "skirnir": {
@@ -3091,6 +3364,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_Romulus_and_Remus_-_Google_Art_Project.jpg"
+    }
+  },
+  "camilla": {
+    "src": "/art/camilla.jpg",
+    "title": "아우누스를 쓰러뜨리는 카밀라",
+    "alt": "말을 탄 카밀라가 쓰러진 적을 내려치고, 뒤로 넓은 들판에서 기병들이 맞부딪치는 동판화",
+    "holder": null,
+    "dateLabel": "17세기",
+    "credit": {
+      "artist": "Wenceslaus Hollar",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wenceslas_Hollar_-_Camilla_slaying_Aunus_(State_1).jpg"
     }
   },
   "aeneas": {

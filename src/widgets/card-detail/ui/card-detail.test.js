@@ -43,4 +43,10 @@ describe("cardDetail", () => {
     const el = cardDetail("loki");
     expect(el.querySelector(".card-detail__source")?.textContent).not.toContain("null");
   });
+
+  it("Ark의 탈것·동반자를 보여 줍니다", () => {
+    expect(cardDetail("odin").textContent).toContain("탈것 슬레이프니르");
+    expect(cardDetail("sleipnir").textContent).toContain("타는 이 오딘");
+    expect(cardDetail("perseus").textContent).toContain("중세 이후");
+  });
 });

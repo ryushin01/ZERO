@@ -3,13 +3,17 @@
  * 그 카드를 낼 때 탈것·동반자의 키워드 효과가 함께 터집니다. 신화 속 짝(오딘과 슬레이프니르)이면
  * 키워드 대신 더 강한 고유 효과가 붙습니다.
  *
- * 짝 데이터는 Ark에 ‘탈것·동반자’ 관계가 생기면 그쪽으로 옮길 수 있게 같은 모양(rider, partner)으로 둡니다.
+ * 짝(누가 누구를 타거나 곁에 두는지)은 Ark의 `figure/model/bonds.ts`에서 `sync:ark`로 받은 `data/bonds.json`을 쓰고,
+ * 짝마다 붙는 효과(게임 규칙)는 이 파일의 BOND_RULES에 둡니다.
  *
  * @typedef {"agile" | "vanguard" | "flight" | "scout" | "guard" | "mend"} Keyword
  * @typedef {{ op: string, value: number, all?: boolean }} BondEffect
  * @typedef {{ slug: string, relation: "mount" | "companion", keyword: Keyword }} Partner
- * @typedef {{ rider: string, partner: string, title: string, text: string, effects: BondEffect[], innate?: boolean, costDelta?: number }} Bond
+ * @typedef {{ title: string, text: string, effects: BondEffect[], innate?: boolean, costDelta?: number }} BondRule
+ * @typedef {{ rider: string, partner: string, relation: "mount" | "companion", note?: string }} ArkBond Ark의 짝
+ * @typedef {ArkBond & BondRule} Bond
  */
+import arkBonds from "../data/bonds.json" with { type: "json" };
 
 /** @type {Record<Keyword, { label: string, text: string, effects: BondEffect[], innate?: boolean }>} */
 export const KEYWORDS = {
@@ -35,20 +39,16 @@ export const PARTNERS = [
   { slug: "chiron", relation: "companion", keyword: "agile" },
 ];
 
-/** 신화 속 짝: 키워드 대신 고유 효과 @type {Bond[]} */
-export const BONDS = [
-  {
-    rider: "odin",
-    partner: "sleipnir",
+/** 신화 속 짝마다 붙는 효과. 키는 "rider:partner" @type {Record<string, BondRule>} */
+const BOND_RULES = {
+  "odin:sleipnir": {
     title: "아홉 세계를 달리는 여덟 다리",
     text: "전투 첫 턴에 손에 들어오고, 비용 1 감소, 카드 1장 뽑기",
     effects: [{ op: "draw", value: 1 }],
     innate: true,
     costDelta: -1,
   },
-  {
-    rider: "odin",
-    partner: "huginn-muninn",
+  "odin:huginn-muninn": {
     title: "생각과 기억",
     text: "모든 적에게 약화 1, 카드 2장 뽑기",
     effects: [
@@ -56,9 +56,7 @@ export const BONDS = [
       { op: "draw", value: 2 },
     ],
   },
-  {
-    rider: "bellerophon",
-    partner: "pegasus",
+  "bellerophon:pegasus": {
     title: "하늘에서 키마이라를 친 기수",
     text: "받는 공격 2회 피해 절반, 모든 적에게 취약 1",
     effects: [
@@ -66,9 +64,7 @@ export const BONDS = [
       { op: "vulnerable", value: 1, all: true },
     ],
   },
-  {
-    rider: "perseus",
-    partner: "pegasus",
+  "perseus:pegasus": {
     title: "메두사의 피에서 태어난 말",
     text: "받는 다음 공격 1회 피해 절반, 카드 1장 뽑기",
     effects: [
@@ -76,9 +72,7 @@ export const BONDS = [
       { op: "draw", value: 1 },
     ],
   },
-  {
-    rider: "hades",
-    partner: "cerberus",
+  "hades:cerberus": {
     title: "저승 문의 파수꾼",
     text: "방어 8, 모든 적에게 침식 2",
     effects: [
@@ -86,9 +80,7 @@ export const BONDS = [
       { op: "erosion", value: 2, all: true },
     ],
   },
-  {
-    rider: "change",
-    partner: "jade-rabbit",
+  "change:jade-rabbit": {
     title: "달의 궁전에서 찧는 불사약",
     text: "체력 6 회복, 방어 4",
     effects: [
@@ -96,7 +88,16 @@ export const BONDS = [
       { op: "block", value: 4 },
     ],
   },
-];
+};
+
+/** Ark의 짝 가운데 ZERO에 효과가 있는 것 @type {Bond[]} */
+export const BONDS = /** @type {ArkBond[]} */ (arkBonds)
+  .filter((b) => BOND_RULES[`${b.rider}:${b.partner}`])
+  .map((b) => ({ ...b, ...BOND_RULES[`${b.rider}:${b.partner}`] }));
+
+/** 이 신의 탈것·동반자와, 이 존재를 타거나 곁에 둔 신 (Ark의 짝 그대로) @param {string} slug */
+export const arkBondsOf = (slug) =>
+  /** @type {ArkBond[]} */ (arkBonds).filter((b) => b.rider === slug || b.partner === slug);
 
 const PARTNER_BY_SLUG = new Map(PARTNERS.map((p) => [p.slug, p]));
 

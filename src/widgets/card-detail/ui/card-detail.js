@@ -1,4 +1,5 @@
 import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
+import { arkBondsOf } from "#entities/bond/index.js";
 import { ASPECTS, cardFace, cardIllustration, getCard, HIDDEN_ART, KEYWORDS } from "#entities/card/index.js";
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
@@ -29,6 +30,7 @@ export function cardDetail(cardId) {
   const pantheon = card.pantheonSlug ? getPantheon(card.pantheonSlug) : null;
   const art = card.figureSlug ? getArt(card.figureSlug) : undefined;
   const nemesisOf = ENEMIES.filter((enemy) => isNemesis(enemy, card));
+  const bonds = card.figureSlug ? arkBondsOf(card.figureSlug) : [];
   const faction = card.pantheonSlug ? factionOf(card.pantheonSlug) : null;
   const hiddenArt = HIDDEN_ART[card.id];
   const owned = card.figureSlug
@@ -139,6 +141,28 @@ export function cardDetail(cardId) {
               : null,
             nemesisOf.length ? h("dt", null, "천적") : null,
             nemesisOf.length ? h("dd", null, `${nemesisOf.map((e) => e.name).join(", ")}에게 피해 50% 증가`) : null,
+            // Ark의 탈것·동반자: 이 신이 타거나 곁에 두는 존재와, 이 존재를 타거나 곁에 둔 신
+            bonds.length ? h("dt", null, "탈것·동반자") : null,
+            bonds.length
+              ? h(
+                  "dd",
+                  null,
+                  bonds
+                    .map((b) => {
+                      const mine = b.rider === card.figureSlug;
+                      const other = getFigure(mine ? b.partner : b.rider)?.name ?? "";
+                      const label = mine
+                        ? b.relation === "mount"
+                          ? "탈것"
+                          : "동반자"
+                        : b.relation === "mount"
+                          ? "타는 이"
+                          : "함께하는 이";
+                      return `${label} ${other}${b.note ? ` (${b.note})` : ""}`;
+                    })
+                    .join(", "),
+                )
+              : null,
           )
         : null,
       h(

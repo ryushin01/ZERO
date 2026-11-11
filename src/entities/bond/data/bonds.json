@@ -1,0 +1,33 @@
+[
+  {
+    "rider": "odin",
+    "partner": "sleipnir",
+    "relation": "mount"
+  },
+  {
+    "rider": "bellerophon",
+    "partner": "pegasus",
+    "relation": "mount"
+  },
+  {
+    "rider": "perseus",
+    "partner": "pegasus",
+    "relation": "mount",
+    "note": "고대 문헌이 아니라 중세 이후의 그림과 이야기에서"
+  },
+  {
+    "rider": "odin",
+    "partner": "huginn-muninn",
+    "relation": "companion"
+  },
+  {
+    "rider": "hades",
+    "partner": "cerberus",
+    "relation": "companion"
+  },
+  {
+    "rider": "change",
+    "partner": "jade-rabbit",
+    "relation": "companion"
+  }
+]
