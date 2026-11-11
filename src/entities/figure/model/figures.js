@@ -10,8 +10,9 @@ import pantheonData from "../data/pantheons.json" with { type: "json" };
  * @typedef {{
  *   slug: string, pantheonSlug: string, name: string, nameEn: string, epithet: string, domains: string[], summary: string, order: number,
  *   source?: Source, rarity?: "common" | "rare" | "legend", description?: string[], wiki?: string,
+ *   kind?: "god" | "hero" | "monster" | "other", grade?: "divine" | "spirit" | "common" | null,
  * }} Figure
- * @typedef {{ artist: string, license: string, licenseUrl: string | null, sourceUrl: string }} Credit
+ * @typedef {{ artist: string | null, license: string, licenseUrl: string | null, sourceUrl: string }} Credit 저작자를 알 수 없으면 artist가 null
  * @typedef {{ src: string, title: string, alt: string, holder: string | null, dateLabel: string | null, credit: Credit }} Art
  */
 
@@ -74,3 +75,10 @@ export const getArt = (slug) => ART[slug];
 /** @param {string} pantheonSlug */
 export const figuresOf = (pantheonSlug) =>
   FIGURES.filter((f) => f.pantheonSlug === pantheonSlug).sort((a, b) => a.order - b.order);
+
+/** Ark와 같은 분류 이름. 신수·영수는 등급을 함께 적습니다. @param {Pick<Figure, "kind" | "grade">} figure */
+export function kindLabel({ kind = "god", grade = null }) {
+  const label = { god: "신", hero: "영웅", monster: "몬스터", other: "그 밖의 존재" }[kind];
+  if (kind === "monster" && grade && grade !== "common") return `${label} · ${grade === "divine" ? "신수" : "영수"}`;
+  return label;
+}

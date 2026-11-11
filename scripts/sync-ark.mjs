@@ -54,16 +54,21 @@ const pantheons = MOCK_PANTHEONS.map(({ slug, name, nameEn, region, continent, e
   summary,
 })).sort((a, b) => a.eraYear - b.eraYear);
 
-const figures = MOCK_FIGURES.map(({ slug, pantheonSlug, name, nameEn, epithet, domains, summary, order }) => ({
-  slug,
-  pantheonSlug,
-  name,
-  nameEn,
-  epithet,
-  domains,
-  summary,
-  order,
-}));
+const figures = MOCK_FIGURES.map(
+  ({ slug, pantheonSlug, kind, grade, name, nameEn, epithet, domains, summary, order }) => ({
+    slug,
+    pantheonSlug,
+    // 분류(신·영웅·몬스터·그 밖의 존재)와 몬스터 등급(신수·영수·몬스터)
+    kind: kind ?? "god",
+    grade: grade ?? null,
+    name,
+    nameEn,
+    epithet,
+    domains,
+    summary,
+    order,
+  }),
+);
 
 const artDir = join(root, "public/art");
 mkdirSync(artDir, { recursive: true });

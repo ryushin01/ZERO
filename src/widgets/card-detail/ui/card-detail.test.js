@@ -38,4 +38,9 @@ describe("cardDetail", () => {
     expect(el.querySelector(".card-detail__arms")?.textContent).toContain("엑스칼리버");
     expect(getCard("achilles").rarity).toBe("legend");
   });
+
+  it("저작자를 알 수 없는 소장 자료는 null 대신 라이선스부터 적습니다", () => {
+    const el = cardDetail("loki");
+    expect(el.querySelector(".card-detail__source")?.textContent).not.toContain("null");
+  });
 });

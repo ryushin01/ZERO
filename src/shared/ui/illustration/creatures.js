@@ -25,7 +25,8 @@ export function serpent(s) {
     const t = heads === 1 ? 0 : i / (heads - 1) - 0.5;
     const hx = 20 + t * 90;
     const hy = -150 - (1 - Math.abs(t) * 1.4) * 20;
-    const neck = `M20 -110 Q${f(20 + t * 40)} -130 ${f(hx)} ${f(hy)}`;
+    // 곧은 선에는 그라디언트가 칠해지지 않으므로 목을 늘 조금 굽힙니다. (머리 하나일 때)
+    const neck = `M20 -110 Q${f(20 + t * 40 + 14)} -130 ${f(hx)} ${f(hy)}`;
     const feathers = s.feathered
       ? Array.from(
           { length: 7 },
@@ -44,8 +45,13 @@ export function naga(s) {
   return `<path d="${tail}" stroke="url(#dark)" stroke-width="28" fill="none" stroke-linecap="round"/><path d="${tail}" stroke="url(#cloth)" stroke-width="22" fill="none" stroke-linecap="round"/><g transform="translate(0 4)">${figure({ ...s, body: "warrior", noLegs: true })}</g>`;
 }
 
-/** 큰 새 (투룰, 까마귀) @param {FigureSpec & { bird?: "falcon" | "raven" }} s */
+/** 큰 새 (투룰, 까마귀). twin이면 두 마리 (후긴과 무닌) @param {FigureSpec & { bird?: "falcon" | "raven", twin?: boolean }} s */
 export function bird(s) {
+  // 후긴과 무닌처럼 두 마리면 작게 나란히 그립니다.
+  if (s.twin) {
+    const one = bird({ ...s, twin: false });
+    return `<g transform="translate(-34 -18) scale(.72)">${one}</g><g transform="translate(36 6) scale(.66)">${one}</g>`;
+  }
   const dark = s.bird === "raven";
   const fill = dark ? "url(#dark)" : "url(#cloth)";
   const wing = (side) =>
@@ -60,8 +66,13 @@ export function bird(s) {
   return `${wing(-1)}${wing(1)}<ellipse cx="0" cy="-80" rx="20" ry="34" fill="${fill}"/><circle cx="0" cy="-122" r="13" fill="${fill}"/><path d="M10 -124 L26 -118 L10 -114Z" fill="url(#metal)"/><circle cx="4" cy="-126" r="2" fill="${s.glow}"/><path d="M-8 -46 L-12 0 M8 -46 L12 0" stroke="url(#metal)" stroke-width="4"/>${held}`;
 }
 
-/** 네발짐승 (곰, 사자, 늑대, 여우, 재규어, 아미트). chained면 펜리르처럼 사슬에 묶입니다. @param {FigureSpec & { beast: string, tails?: number, chained?: boolean }} s */
+/**
+ * 네발짐승 (곰, 사자, 늑대, 여우, 재규어, 아미트, 말). chained면 펜리르처럼 사슬에 묶이고,
+ * heads는 케르베로스처럼 머리를 늘리고, legs는 슬레이프니르처럼 다리를 늘리고, wings는 페가수스처럼 날개를 폅니다.
+ * @param {FigureSpec & { beast: string, tails?: number, chained?: boolean, heads?: number, legs?: number, wings?: boolean | string }} s
+ */
 export function beast(s) {
+  if (s.beast === "horse") return horse(s);
   // 달의 옥토끼: 하얀 몸과 긴 귀, 절구를 찧는 공이
   if (s.beast === "rabbit")
     return `<ellipse cx="-4" cy="-44" rx="30" ry="26" fill="#efe9dc"/><circle cx="20" cy="-70" r="17" fill="#efe9dc"/><path d="M12 -84 Q6 -122 14 -128 Q22 -120 20 -86Z M24 -84 Q28 -124 36 -126 Q40 -116 30 -84Z" fill="#efe9dc"/><path d="M15 -90 Q12 -114 15 -120 M27 -90 Q31 -114 34 -118" stroke="#e8a8a0" stroke-width="2.4" fill="none"/><circle cx="27" cy="-72" r="2.2" fill="#a83a3a"/><circle cx="-34" cy="-36" r="7" fill="#efe9dc"/><path d="M-20 -2 h22 M8 -2 h18" stroke="#efe9dc" stroke-width="8" stroke-linecap="round"/><path d="M40 -8 L60 -8 L56 10 L44 10Z" fill="url(#dark)"/><path d="M30 -60 L52 -18" stroke="url(#metal)" stroke-width="4" stroke-linecap="round"/>`;
@@ -95,7 +106,17 @@ export function beast(s) {
   const chain = s.chained
     ? `<path d="M-60 -2 Q-30 -40 0 -60 Q30 -78 50 -84" stroke="url(#metal)" stroke-width="3.4" stroke-dasharray="6 3" fill="none"/><path d="M40 -84 Q54 -70 66 -86" stroke="url(#metal)" stroke-width="3" stroke-dasharray="5 3" fill="none"/>`
     : "";
-  return `${tails}${legs}<ellipse cx="0" cy="-74" rx="${f(56 * big)}" ry="${f(32 * big)}" fill="${fur}"/>${s.beast === "jaguar" ? Array.from({ length: 10 }, (_, i) => `<circle cx="${-40 + i * 9}" cy="${-78 + (i % 2) * 10}" r="3" fill="#1a120a" opacity=".7"/>`).join("") : ""}${headShape}${ears}${snout}${jaw}<circle cx="60" cy="-106" r="2.2" fill="${s.glow}"/>${chain}`;
+  const extraHeads =
+    (s.heads ?? 1) > 1
+      ? Array.from({ length: (s.heads ?? 1) - 1 }, (_, i) => {
+          const dy = (i % 2 ? 1 : -1) * (24 + Math.floor(i / 2) * 16);
+          return `<g transform="translate(-10 ${dy})"><ellipse cx="54" cy="-100" rx="18" ry="15" fill="${fur}"/><path d="M42 -112 L44 -130 L54 -114Z M56 -114 L62 -130 L66 -110Z" fill="${fur}"/><path d="M66 -104 L88 -94 L68 -88Z" fill="${fur}"/><circle cx="60" cy="-106" r="2" fill="${s.glow}"/></g>`;
+        }).join("")
+      : "";
+  const beastWings = s.wings
+    ? `<path d="M-10 -96 Q-40 -170 -90 -150 Q-60 -134 -66 -114 Q-36 -118 -36 -98Z" fill="url(#dark)" opacity=".9"/>`
+    : "";
+  return `${beastWings}${tails}${legs}<ellipse cx="0" cy="-74" rx="${f(56 * big)}" ry="${f(32 * big)}" fill="${fur}"/>${s.beast === "jaguar" ? Array.from({ length: 10 }, (_, i) => `<circle cx="${-40 + i * 9}" cy="${-78 + (i % 2) * 10}" r="3" fill="#1a120a" opacity=".7"/>`).join("") : ""}${headShape}${ears}${snout}${jaw}<circle cx="60" cy="-106" r="2.2" fill="${s.glow}"/>${extraHeads}${chain}`;
 }
 
 /** 말 탄 영웅 @param {FigureSpec} s */
@@ -145,4 +166,20 @@ export function scorpionMan(s) {
 /** 장승: 갓을 쓴 나무 기둥에 부릅뜬 눈과 드러낸 이를 새긴 마을의 수호신 @param {FigureSpec} _s */
 export function post(_s) {
   return `<path d="M-20 0 L-18 -150 Q0 -160 18 -150 L20 0Z" fill="url(#dark)"/><path d="M-12 -40 V-6 M0 -60 V-6 M12 -40 V-6" stroke="#000" stroke-opacity=".35" stroke-width="1.6"/><ellipse cx="0" cy="-160" rx="34" ry="6" fill="url(#dark)"/><path d="M-14 -162 Q-14 -186 0 -186 Q14 -186 14 -162Z" fill="url(#dark)"/><circle cx="-9" cy="-130" r="7" fill="#ece4da"/><circle cx="9" cy="-130" r="7" fill="#ece4da"/><circle cx="-9" cy="-130" r="3" fill="#000"/><circle cx="9" cy="-130" r="3" fill="#000"/><path d="M-4 -124 L0 -110 L4 -124" fill="none" stroke="#000" stroke-width="2"/><path d="M-12 -102 H12 V-94 H-12Z" fill="#ece4da"/><path d="M-8 -102 V-94 M-3 -102 V-94 M3 -102 V-94 M8 -102 V-94" stroke="#000" stroke-width="1.2"/><path d="M-14 -84 V-20 M14 -84 V-20" stroke="#000" stroke-opacity=".25" stroke-width="1"/>`;
+}
+
+/** 말: 긴 목과 갈기, 다리 수와 날개를 고를 수 있습니다 (페가수스, 슬레이프니르) @param {FigureSpec & { legs?: number, wings?: boolean | string }} s */
+function horse(s) {
+  const legs = Math.max(4, s.legs ?? 4);
+  const xs = Array.from({ length: legs }, (_, i) => -40 + (i * 80) / (legs - 1));
+  const legArt = xs
+    .map(
+      (x) =>
+        `<path d="M${f(x)} -52 L${f(x + (x > 0 ? 4 : -4))} -2" stroke="url(#dark)" stroke-width="7" stroke-linecap="round"/>`,
+    )
+    .join("");
+  const wings = s.wings
+    ? `<path d="M-6 -86 Q-40 -170 -96 -150 Q-60 -134 -70 -116 Q-40 -120 -40 -98 Q-24 -104 -6 -80Z" fill="#ece4da" opacity=".95"/><path d="M-6 -86 L-96 -150 M-6 -86 L-70 -116 M-6 -86 L-40 -98" stroke="#000" stroke-opacity=".35" stroke-width="1.2"/>`
+    : "";
+  return `${legArt}<ellipse cx="0" cy="-70" rx="50" ry="22" fill="url(#dark)"/><path d="M36 -80 Q50 -112 58 -126 L72 -116 Q62 -100 50 -70Z" fill="url(#dark)"/><path d="M56 -128 L84 -114 L74 -104 L58 -112Z" fill="url(#dark)"/><path d="M40 -96 Q34 -112 44 -124" stroke="${s.hair ?? "#2a2622"}" stroke-width="5" fill="none"/><path d="M-50 -76 Q-74 -66 -70 -34" stroke="url(#dark)" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="70" cy="-118" r="1.8" fill="${s.glow}"/>${wings}`;
 }
