@@ -22,8 +22,10 @@ import { createRng, withJosa } from "#shared/lib/index.js";
  *   chain: { pantheon: string, continent: string | null } | null,
  *   attackPlayed: boolean, relics: string[], ankhUsed: boolean,
  *   armaments: { id: string, cd: number }[], playedFigures: string[], perks: import("#entities/faction/index.js").Perks,
+ *   field: Field | null,
  *   rng: number, log: LogEntry[], history: LogEntry[], outcome: "win" | "lose" | null, tier: "normal" | "elite" | "boss",
  * }} CombatState
+ * @typedef {{ id: string, name: string, kind: string, value: number, pantheons: string[] }} Field 전장: 효과 하나와 지형 공명을 받는 신화권
  */
 
 export const HAND_SIZE = 5;
@@ -33,6 +35,26 @@ export const BASE_ENERGY = 3;
 const RESONANCE = 1.5;
 const ECHO = 1.25;
 const NEMESIS = 1.5;
+/** 지형 공명: 전장의 신화권 카드 배율 */
+const TERRAIN = 1.25;
+
+/** 전장 효과 가운데 전투가 시작될 때 한 번 거는 것 */
+const FIELD_START = new Set([
+  "startBlock",
+  "startStrength",
+  "startWeakAll",
+  "startVulnAll",
+  "startErosionAll",
+  "startDamageAll",
+]);
+
+/**
+ * 세력과 전장이 함께 주는 효과의 합 (매 턴 방어·회복, 첫 턴 에너지·뽑기, 전투 뒤 회복)
+ * @param {CombatState} state @param {string} kind
+ */
+export const bonusOf = (state, kind) =>
+  (state.perks?.[/** @type {keyof CombatState["perks"]} */ (kind)] ?? 0) +
+  (state.field && state.field.kind === kind ? state.field.value : 0);
 
 const emptyStatuses = () => ({ strength: 0, weak: 0, vulnerable: 0, erosion: 0 });
 
@@ -54,7 +76,7 @@ function withRng(state, fn) {
  * @param {{
  *   deck: CardInstance[], hp: number, maxHp: number, relics: string[],
  *   enemyIds: string[], seed: number, tier?: CombatState["tier"], ankhUsed?: boolean,
- *   armaments?: string[], perks?: CombatState["perks"],
+ *   armaments?: string[], perks?: CombatState["perks"], field?: Field | null,
  * }} options
  * @returns {CombatState}
  */
@@ -69,6 +91,7 @@ export function startCombat({
   ankhUsed = false,
   armaments = [],
   perks = {},
+  field = null,
 }) {
   const rng = createRng(seed);
   /** @type {CombatState} */
@@ -104,6 +127,7 @@ export function startCombat({
     armaments: armaments.map((id) => ({ id, cd: 0 })),
     playedFigures: [],
     perks,
+    field,
     rng: rng.state,
     log: [],
     history: [],
@@ -111,7 +135,8 @@ export function startCombat({
     tier,
   };
 
-  applyStartPerks(state);
+  applyStartPerks(state, state.perks, "세력의 힘");
+  applyFieldStart(state);
   if (relics.includes("feather")) {
     for (const enemy of state.enemies) enemy.statuses.weak += 1;
     log(state, "마아트의 깃털: 모든 적에게 약화 1");
@@ -122,9 +147,22 @@ export function startCombat({
   return remember(state);
 }
 
-/** 세력이 전투 시작에 거는 효과 @param {CombatState} state */
-function applyStartPerks(state) {
-  const p = state.perks;
+/** 전장이 전투 시작에 거는 효과 @param {CombatState} state */
+function applyFieldStart(state) {
+  const field = state.field;
+  if (!field) return;
+  if (FIELD_START.has(field.kind)) applyStartPerks(state, { [field.kind]: field.value }, `전장 ${field.name}`);
+  if (field.kind === "enemyStrength") {
+    for (const enemy of state.enemies) enemy.statuses.strength += field.value;
+    log(state, `전장 ${field.name}: 모든 적이 힘 ${field.value}을 얻었습니다.`, "enemy");
+  }
+}
+
+/**
+ * 세력이나 전장이 전투 시작에 거는 효과
+ * @param {CombatState} state @param {import("#entities/faction/index.js").Perks} p @param {string} source
+ */
+function applyStartPerks(state, p, source) {
   const parts = [];
   if (p.startBlock) {
     state.player.block += p.startBlock;
@@ -147,7 +185,7 @@ function applyStartPerks(state) {
     for (const enemy of state.enemies) hitEnemy(state, enemy, p.startDamageAll);
     parts.push(`모든 적에게 피해 ${p.startDamageAll}`);
   }
-  if (parts.length) log(state, `세력의 힘: ${parts.join(", ")}`, "player");
+  if (parts.length) log(state, `${source}: ${parts.join(", ")}`, "player");
 }
 
 /** @param {CombatState} state @param {number} count */
@@ -176,10 +214,12 @@ function beginPlayerTurn(state) {
     player.statuses.erosion -= 1;
     if (checkDefeat(state)) return;
   }
-  if (state.perks.turnBlock) player.block += state.perks.turnBlock;
-  if (state.perks.turnHeal && player.hp < player.maxHp) {
-    player.hp = Math.min(player.maxHp, player.hp + state.perks.turnHeal);
-    log(state, `세력의 힘으로 체력 ${state.perks.turnHeal} 회복`, "player");
+  const turnBlock = bonusOf(state, "turnBlock");
+  const turnHeal = bonusOf(state, "turnHeal");
+  if (turnBlock) player.block += turnBlock;
+  if (turnHeal && player.hp < player.maxHp) {
+    player.hp = Math.min(player.maxHp, player.hp + turnHeal);
+    log(state, `체력 ${turnHeal} 회복`, "player");
   }
   // 전투마다 한 번 쓰는 무구는 턴이 지나도 돌아오지 않습니다.
   if (state.turn > 1)
@@ -192,7 +232,7 @@ function beginPlayerTurn(state) {
   let energy = BASE_ENERGY - player.statuses.eclipse;
   if (player.statuses.eclipse > 0) log(state, `일식으로 에너지가 ${player.statuses.eclipse} 줄었습니다.`, "enemy");
   player.statuses.eclipse = 0;
-  if (state.turn === 1) energy += state.perks.firstEnergy ?? 0;
+  if (state.turn === 1) energy += bonusOf(state, "firstEnergy");
   if (state.turn % 3 === 0 && state.relics.includes("draupnir")) energy += 1;
   state.energy = Math.max(0, energy);
   state.maxEnergy = BASE_ENERGY;
@@ -200,7 +240,7 @@ function beginPlayerTurn(state) {
   state.chain = null;
   state.attackPlayed = false;
   state.playedFigures = [];
-  const extra = state.turn === 1 ? (state.relics.includes("ariadne") ? 2 : 0) + (state.perks.firstDraw ?? 0) : 0;
+  const extra = state.turn === 1 ? (state.relics.includes("ariadne") ? 2 : 0) + bonusOf(state, "firstDraw") : 0;
   drawCards(state, HAND_SIZE + extra);
 }
 
@@ -243,6 +283,10 @@ export function chainOf(state, card) {
   return null;
 }
 
+/** 이 전장의 신화권 카드인지 (지형 공명) @param {CombatState} state @param {{ pantheonSlug: string | null }} card */
+export const onTerrain = (state, card) =>
+  Boolean(card.pantheonSlug && state.field?.pantheons.includes(card.pantheonSlug));
+
 /** 공명·울림의 배율. 운명의 서판 세력은 공명을 더 키웁니다. @param {CombatState} state @param {"resonance" | "echo"} chain */
 const chainRate = (state, chain) =>
   chain === "resonance" ? RESONANCE + (state.perks?.resonanceBoost ?? 0) / 100 : ECHO;
@@ -254,9 +298,10 @@ const chainRate = (state, chain) =>
 export function previewCard(state, instance) {
   const card = getCard(instance.id, instance.up);
   const chain = chainOf(state, card);
-  const rate = chain ? chainRate(state, chain) : 1;
+  const terrain = onTerrain(state, card);
+  const rate = (chain ? chainRate(state, chain) : 1) * (terrain ? TERRAIN : 1);
   const effects = scaleEffects(state, card.effects, rate);
-  return { card, chain, effects, lines: effects.map(describeEffect) };
+  return { card, chain, terrain, effects, lines: effects.map(describeEffect) };
 }
 
 /**
@@ -396,7 +441,7 @@ export function playCard(prev, uid, targetUid = null) {
   state.log = [];
   const index = state.hand.findIndex((c) => c.uid === uid);
   const [instance] = state.hand.splice(index, 1);
-  const { card, chain, effects } = previewCard(prev, instance);
+  const { card, chain, terrain, effects } = previewCard(prev, instance);
 
   const alive = livingEnemies(state);
   const target = card.target === "enemy" ? (alive.find((e) => e.uid === targetUid) ?? alive[0] ?? null) : null;
@@ -405,6 +450,7 @@ export function playCard(prev, uid, targetUid = null) {
   const parts = [];
   if (chain === "resonance") parts.push("공명");
   if (chain === "echo") parts.push("울림");
+  if (terrain) parts.push("지형 공명");
 
   applyEffects(state, effects, target, card, parts);
 
@@ -542,6 +588,18 @@ export function endTurn(prev) {
   const { statuses } = state.player;
   if (statuses.weak > 0) statuses.weak -= 1;
   if (statuses.vulnerable > 0) statuses.vulnerable -= 1;
+
+  // 밀려드는 바다처럼 턴이 끝날 때 사서와 모든 적을 덮치는 전장 (방어로 막을 수 있음)
+  if (state.field?.kind === "tide") {
+    const amount = state.field.value;
+    for (const enemy of livingEnemies(state)) hitEnemy(state, enemy, amount);
+    const blocked = Math.min(state.player.block, amount);
+    state.player.block -= blocked;
+    state.player.hp -= amount - blocked;
+    log(state, `전장 ${state.field.name}: 사서와 모든 적이 피해 ${amount}`, "info");
+    if (checkVictory(state)) return remember(state);
+    if (state.player.hp <= 0 && checkDefeat(state)) return remember(state);
+  }
 
   for (const enemy of state.enemies) {
     if (enemy.hp <= 0) continue;

@@ -248,3 +248,72 @@ describe("endTurn", () => {
     expect(after.exhaust.length).toBe(2);
   });
 });
+
+describe("전장", () => {
+  /** @param {import("./combat.js").Field} field @param {string[]} [hand] */
+  const onField = (field, hand = []) => {
+    const state = startCombat({
+      deck: [card("quill"), card("shelf")],
+      hp: 70,
+      maxHp: 72,
+      relics: [],
+      enemyIds: ["jotunn"],
+      seed: 2,
+      field,
+    });
+    return { ...state, hand: hand.map((id) => card(id)), draw: [], discard: [] };
+  };
+  const field = (kind, value, pantheons = []) => ({ id: "test", name: "시험장", kind, value, pantheons });
+
+  it("전투 시작 효과를 겁니다 (카멜롯의 방어, 요미의 적 힘)", () => {
+    expect(onField(field("startBlock", 8)).player.block).toBe(8);
+    expect(onField(field("enemyStrength", 2)).enemies[0].statuses.strength).toBe(2);
+  });
+
+  it("밀려드는 바다는 턴이 끝날 때 사서와 모든 적을 칩니다 (방어로 막음)", () => {
+    const state = onField(field("tide", 3));
+    state.enemies[0].intent = 0;
+    const enemyHp = state.enemies[0].hp;
+    state.player.block = 1;
+    const after = endTurn(state);
+    expect(after.enemies[0].hp).toBeLessThanOrEqual(enemyHp - 3);
+    expect(after.log.some((l) => l.text.includes("시험장"))).toBe(true);
+  });
+
+  it("전장 신화권의 카드는 지형 공명으로 25% 강해집니다", () => {
+    const zeus = getCard("zeus");
+    const plain = previewCard(onField(field("startBlock", 0), ["zeus"]), card("zeus"));
+    const greek = previewCard(
+      onField(field("startBlock", 0, [/** @type {string} */ (zeus.pantheonSlug)]), ["zeus"]),
+      card("zeus"),
+    );
+    expect(plain.terrain).toBe(false);
+    expect(greek.terrain).toBe(true);
+    const damage = (p) => p.effects.find((e) => e.op === "damage")?.value ?? 0;
+    expect(damage(greek)).toBeGreaterThan(damage(plain));
+  });
+
+  it("지형 공명은 공명처럼 피해·방어·회복·침식만 키우고 뽑기 같은 개수는 그대로 둡니다", () => {
+    const odin = getCard("odin");
+    const pantheon = /** @type {string} */ (odin.pantheonSlug);
+    const plain = previewCard(onField(field("startBlock", 0), ["odin"]), card("odin"));
+    const norse = previewCard(onField(field("startBlock", 0, [pantheon]), ["odin"]), card("odin"));
+    const draw = (p) => p.effects.find((e) => e.op === "draw")?.value;
+    expect(norse.terrain).toBe(true);
+    expect(draw(norse)).toBe(draw(plain));
+  });
+
+  it("세력과 전장의 같은 효과는 더해집니다", () => {
+    const state = startCombat({
+      deck: [card("quill")],
+      hp: 50,
+      maxHp: 72,
+      relics: [],
+      enemyIds: ["kappa"],
+      seed: 4,
+      perks: { turnHeal: 1 },
+      field: field("turnHeal", 2),
+    });
+    expect(state.player.hp).toBe(53);
+  });
+});

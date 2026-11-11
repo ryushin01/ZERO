@@ -1,12 +1,15 @@
 import { describe, expect, it } from "vitest";
 
+import { getBattlefield } from "#entities/battlefield/index.js";
 import { createRng } from "#shared/lib/index.js";
 
 import { autoRun } from "../lib/autoplay.js";
 import {
   chooseEvent,
   createRun,
+  currentField,
   enterNode,
+  fieldsFor,
   guideCards,
   migrateRun,
   guideOptions,
@@ -216,5 +219,45 @@ describe("자동 플레이", () => {
       const run = autoRun(createRun({ seed, guide: guideOptions(seed)[0].slug }), () => rng.float());
       expect(["victory", "defeat"], `seed ${seed}`).toContain(run.phase);
     }
+  });
+});
+
+describe("전장", () => {
+  it("장마다 그 영역의 전장 하나를 시드로 정합니다", () => {
+    const run = createRun({ seed: 11, guide: "greek" });
+    expect(getBattlefield(run.fields?.[1] ?? "").realm).toBe("sanctuary");
+    expect(getBattlefield(run.fields?.[2] ?? "").realm).toBe("divine");
+    expect(getBattlefield(run.fields?.[3] ?? "").realm).toBe("outer");
+    expect(createRun({ seed: 11, guide: "norse" }).fields).toEqual(run.fields);
+    expect(currentField(run).id).toBe(run.fields?.[1]);
+  });
+
+  it("전투에 지금 장의 전장을 넘깁니다", () => {
+    const run = createRun({ seed: 5, guide: "greek" });
+    const node = run.map.rows[0][0];
+    const next = enterNode(run, node.id);
+    expect(next.combat?.field?.id).toBe(run.fields?.[1]);
+  });
+
+  it("이차원의 균열에서는 다른 영역의 전장이 겹치고, 이기면 유물 둘 가운데 하나를 고릅니다", () => {
+    const run = createRun({ seed: 9, guide: "greek" });
+    run.map = {
+      ...run.map,
+      rows: run.map.rows.map((row, i) => (i === 0 ? row.map((n) => ({ ...n, type: "rift" })) : row)),
+    };
+    const inRift = enterNode(run, run.map.rows[0][0].id);
+    expect(inRift.combat?.tier).toBe("elite");
+    expect(inRift.combat?.field?.name).toMatch(/^이차원 · /);
+    expect(getBattlefield(inRift.combat?.field?.id ?? "").realm).not.toBe("sanctuary");
+    const won = updateCombat(inRift, { .../** @type {any} */ (inRift.combat), outcome: "win" });
+    expect(won.reward?.title).toBe("균열을 닫았습니다");
+    expect(won.reward?.relicPick).toBe(true);
+    expect(won.rift).toBeNull();
+  });
+
+  it("전장이 생기기 전의 저장도 시드로 전장을 정해 이어 갑니다", () => {
+    const saved = /** @type {any} */ (createRun({ seed: 7, guide: "greek" }));
+    delete saved.fields;
+    expect(migrateRun(saved)?.fields).toEqual(fieldsFor(7));
   });
 });

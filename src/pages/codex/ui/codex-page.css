@@ -215,3 +215,13 @@
     grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
   }
 }
+
+.codex__realm {
+  margin-top: 48px;
+}
+
+.codex__realm-title {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  text-align: center;
+}

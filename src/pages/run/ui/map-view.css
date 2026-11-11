@@ -234,3 +234,8 @@
     left: 40px;
   }
 }
+
+.map__field {
+  max-width: 640px;
+  margin: 0 auto 32px;
+}

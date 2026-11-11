@@ -164,6 +164,25 @@ function sketchScene(s) {
 }
 
 /**
+ * 전장의 풍경: 신화권 배경 실루엣을 먹색으로, 하늘은 단색으로 그립니다. 인물 없이 장소만 둡니다.
+ * @param {{ id: string, motif: string, sky: [string, string], accent?: string }} s
+ */
+export function drawLandscape(s) {
+  const r = rand(hashOf(s.id));
+  const accent = s.accent ?? mix(s.sky[1], "#000000", 0.05);
+  const c = { glow: "#ffffff", skin: "#ece4da", cloth: "#1c1b1f", metal: "#9c9a96", dark: "#0c0b0d", sky: s.sky };
+  return doc(
+    [
+      defs(c).replace("</defs>", `${sketchDefs(accent)}</defs>`),
+      `<rect width="200" height="260" fill="url(#accent)"/>`,
+      `<g filter="url(#sketch)">${backdrop(s.motif, "#141316", r)}</g>`,
+      `<rect y="${GROUND}" width="200" height="${260 - GROUND}" fill="#141316" opacity=".85"/>`,
+      `<rect width="200" height="260" filter="url(#paper)"/>`,
+    ].join(""),
+  );
+}
+
+/**
  * 무구 한 점을 크게 그립니다.
  * @param {{ id: string, item: string, sky: [string, string], glow: string, metal: string, cloth: string }} s
  */

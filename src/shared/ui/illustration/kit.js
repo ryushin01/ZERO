@@ -94,6 +94,11 @@ export function backdrop(motif, tone, r) {
   switch (motif) {
     case "none":
       return "";
+    // 아우터 유니버스: 별 사이에 떠 있는 고리와 부서진 땅
+    case "void":
+      return g(
+        `${Array.from({ length: 40 }, () => `<circle cx="${f(r() * 200)}" cy="${f(r() * 200)}" r="${f(0.4 + r() * 1.2)}" fill="#ffffff" opacity="${f(0.3 + r() * 0.6)}"/>`).join("")}<ellipse cx="${f(60 + r() * 80)}" cy="80" rx="44" ry="10" fill="none" stroke="${tone}" stroke-width="3" opacity=".9" transform="rotate(${f(-20 + r() * 40)} 100 80)"/><path d="M20 ${GROUND} L36 196 L58 204 L70 186 L92 ${GROUND}Z M120 ${GROUND} L134 200 L156 192 L170 206 L188 ${GROUND}Z"/>`,
+      );
     case "columns": {
       const cols = [18, 40, 160, 182]
         .map((x, i) => {

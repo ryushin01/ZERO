@@ -1,0 +1,66 @@
+.battlefield {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  height: 100%;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.battlefield--compact {
+  grid-template-columns: minmax(120px, 200px) 1fr;
+  align-items: center;
+}
+
+.battlefield__art {
+  width: 100%;
+  /* img의 height 속성이 비율을 덮지 않게 합니다. */
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 70%;
+  border-radius: 4px;
+  background: var(--ink);
+}
+
+.battlefield--compact .battlefield__art {
+  aspect-ratio: 4 / 3;
+}
+
+@media (max-width: 480px) {
+  .battlefield--compact {
+    grid-template-columns: 1fr;
+  }
+}
+
+.battlefield__body {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+}
+
+.battlefield__name {
+  font-family: var(--font-serif-ko);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.battlefield__en {
+  font-size: var(--fs-s);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.battlefield__effect {
+  font-weight: 600;
+}
+
+.battlefield__terrain,
+.battlefield__summary {
+  font-size: var(--fs-s);
+}
+
+.battlefield__source a {
+  text-transform: none;
+}
