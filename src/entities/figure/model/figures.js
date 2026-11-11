@@ -12,7 +12,7 @@ import pantheonData from "../data/pantheons.json" with { type: "json" };
  *   source?: Source, rarity?: "common" | "rare" | "legend", description?: string[], wiki?: string,
  *   kind?: "god" | "hero" | "monster" | "other", grade?: "divine" | "spirit" | "common" | null,
  * }} Figure
- * @typedef {{ artist: string, license: string, licenseUrl: string | null, sourceUrl: string }} Credit
+ * @typedef {{ artist: string | null, license: string, licenseUrl: string | null, sourceUrl: string }} Credit 저작자를 알 수 없으면 artist가 null
  * @typedef {{ src: string, title: string, alt: string, holder: string | null, dateLabel: string | null, credit: Credit }} Art
  */
 

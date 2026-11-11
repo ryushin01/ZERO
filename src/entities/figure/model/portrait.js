@@ -421,7 +421,8 @@ const ICONS = {
   jormungandr: { form: "serpent", scale: 1.2, c: { heads: 1 } },
   sleipnir: { form: "beast", c: { beast: "horse", legs: 8 } },
   nidhogg: { form: "serpent", c: { heads: 1, wings: true } },
-  "huginn-muninn": { form: "bird", c: { bird: "raven" } },
+  // 후긴(생각)과 무닌(기억), 까마귀 두 마리
+  "huginn-muninn": { form: "bird", c: { bird: "raven", twin: true } },
   fafnir: { form: "serpent", c: { heads: 1, wings: true } },
   ammit: { form: "beast", c: { beast: "ammit" } },
   apep: { form: "serpent", c: { heads: 1 } },

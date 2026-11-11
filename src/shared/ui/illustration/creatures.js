@@ -45,8 +45,13 @@ export function naga(s) {
   return `<path d="${tail}" stroke="url(#dark)" stroke-width="28" fill="none" stroke-linecap="round"/><path d="${tail}" stroke="url(#cloth)" stroke-width="22" fill="none" stroke-linecap="round"/><g transform="translate(0 4)">${figure({ ...s, body: "warrior", noLegs: true })}</g>`;
 }
 
-/** 큰 새 (투룰, 까마귀) @param {FigureSpec & { bird?: "falcon" | "raven" }} s */
+/** 큰 새 (투룰, 까마귀). twin이면 두 마리 (후긴과 무닌) @param {FigureSpec & { bird?: "falcon" | "raven", twin?: boolean }} s */
 export function bird(s) {
+  // 후긴과 무닌처럼 두 마리면 작게 나란히 그립니다.
+  if (s.twin) {
+    const one = bird({ ...s, twin: false });
+    return `<g transform="translate(-34 -18) scale(.72)">${one}</g><g transform="translate(36 6) scale(.66)">${one}</g>`;
+  }
   const dark = s.bird === "raven";
   const fill = dark ? "url(#dark)" : "url(#cloth)";
   const wing = (side) =>

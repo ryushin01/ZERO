@@ -84,7 +84,8 @@ export function cardDetail(cardId) {
               h(
                 "span",
                 null,
-                `${art.credit.artist} · `,
+                // 저작자를 알 수 없는 자료는 이름 없이 라이선스부터 적습니다.
+                art.credit.artist ? `${art.credit.artist} · ` : "",
                 art.credit.licenseUrl ? external(art.credit.licenseUrl, art.credit.license) : art.credit.license,
                 " · ",
                 external(art.credit.sourceUrl, "Wikimedia Commons"),
