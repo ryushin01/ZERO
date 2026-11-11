@@ -183,6 +183,32 @@ test.describe("장착", () => {
   });
 });
 
+test.describe("2인 듀얼", () => {
+  test("클래스를 고르고, 차례마다 넘기기 화면으로 상대의 패를 가리며 번갈아 둡니다 @mobile", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("link", { name: "2인 듀얼" }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "2인 듀얼" })).toBeVisible();
+    await page.getByLabel("클래스").first().selectOption("knight");
+    await page.getByLabel("클래스").nth(1).selectOption("necromancer");
+    await expect(page.getByText("전투가 시작되면 방어 12")).toBeVisible();
+    await expectAccessible(page);
+
+    await page.getByRole("button", { name: "듀얼 시작" }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "플레이어 1의 차례" })).toBeVisible();
+    // 넘기기 화면에서는 손이 보이지 않습니다.
+    await expect(page.locator("[data-action='duel-card']")).toHaveCount(0);
+    await expectAccessible(page);
+    await page.getByRole("button", { name: /패 보기/ }).click();
+    await expect(page.locator("[data-action='duel-card']")).toHaveCount(5);
+    await expectAccessible(page);
+
+    await page.locator("[data-action='duel-card']:not([aria-disabled='true'])").first().click();
+    await page.getByRole("button", { name: "차례 끝내기" }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "플레이어 2의 차례" })).toBeVisible();
+    await expect(page.locator("[data-action='duel-card']")).toHaveCount(0);
+  });
+});
+
 test.describe("히든", () => {
   test("붉은 방에서 유신과 영혼의 검을 얻고, 도감에 히든으로 남습니다", async ({ page }) => {
     await startRun(page);

@@ -1,7 +1,7 @@
 # ZERO - 신화 덱빌딩
 
 [![CI](https://github.com/ryushin01/ZERO/actions/workflows/ci.yml/badge.svg)](https://github.com/ryushin01/ZERO/actions/workflows/ci.yml)
-![version](https://img.shields.io/badge/version-0.11.0-060403)
+![version](https://img.shields.io/badge/version-0.12.0-060403)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?logo=javascript&logoColor=black)
 
 세계 신화 도서관 [Ark](https://github.com/ryushin01/Ark)의 신과 영웅, 아더 왕·아킬레우스·손오공 같은 전설의 영웅, 메두사·케르베로스 같은 신화 속 괴물까지 322명을 카드로 모으고, 엑스칼리버·묠니르 같은 신화 무구를 휘둘러 기록을 지우려는 괴물과 태초의 공허 ‘영(零)’에 맞서는 웹 덱빌딩 게임입니다.
@@ -57,6 +57,7 @@
 | 전장      | 성역(아발론·아틀란티스 등) → 신역(올림포스·발할라·하데스의 명계 등) → 아우터 유니버스(긴눙가가프·카오스 등) 30곳. 전장마다 효과 하나와 그 신화권 카드의 지형 공명(피해·방어 등 +25%), 지도에 드물게 열리는 이차원의 균열                                                                                                                                     |
 | 한 판     | 길잡이 신화, 세 장의 갈림길 지도, 괴물 21종(그렌델·키클롭스·파프니르 추가), 사건 7종, 쉼터·성소, 유물 9종, 자동 저장, 체력이 깎이면 떠오르는 숫자                                                                                                                                                                                                            |
 | 다시 하기 | 판을 넘어 쌓이는 서가 복원(322명 진행도), 날짜로 모두가 같은 지도에서 겨루는 오늘의 신화와 결과 복사                                                                                                                                                                                                                                                         |
+| 2인 듀얼  | 한 기기에서 번갈아 두는 대전. 클래스 116종(전사·도적·마법사·성직자와 근접·민첩·마법·성직·기타 계열) 가운데 하나를 고르면 그 속성의 신·영웅으로 덱이 무작위로 짜이고, 차례가 바뀔 때마다 상대의 패를 가립니다.                                                                                                                                                |
 | 히든      | Ark에 기록되지 않은 검객 유신과 무구 영혼의 검(쌍수도). 새 기록을 시작할 때 바로 데려가거나, 사건 칸에서 드물게 열리는 ‘붉은 방’에서 만납니다. 밸런스를 일부러 깨는 성능이라 오늘의 신화에서는 시작 선택도, 붉은 방도 없습니다.                                                                                                                              |
 | 접근성    | 카드·무구 모두 키보드로, 전투 결과를 화면 낭독기로 알림, 보이는 글자가 곧 이름, 움직임 끄기, 동작 줄이기 반영                                                                                                                                                                                                                                                |
 
@@ -99,7 +100,7 @@ scripts/         Ark 데이터 동기화, Ark에 없는 전설 확장 데이터 
 e2e/             한 판 흐름, 키보드 조작, 저장, 화면 폭, axe 검사
 src/
 ├─ app/          진입점, 상태 저장소, 해시 라우터, 렌더 루프, 전역 스타일
-├─ pages/        title, new-run, run(지도·전투·보상·쉼터·사건·결과), codex, guide
+├─ pages/        title, new-run, run(지도·전투·장착·보상·쉼터·사건·결과), duel(2인 듀얼·클래스), codex, guide
 ├─ widgets/      site-header, card-detail, deck-view
 ├─ features/     run(전투 엔진, 무구 사용, 한 판의 흐름, 사건, 기록, 자동 플레이어)
 ├─ entities/     figure(Ark·전설 확장 데이터, 일러스트 사양), card, armament, bond(탈것·동반자), faction, battlefield, enemy, relic, map

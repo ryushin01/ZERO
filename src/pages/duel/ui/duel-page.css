@@ -1,0 +1,100 @@
+.duel {
+  display: grid;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.duel__setup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.duel__seat {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.duel__seat legend {
+  padding: 0 6px;
+  font-size: 1.25rem;
+}
+
+.duel__seat select {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.duel__class {
+  display: grid;
+  gap: 4px;
+}
+
+.duel__class-name {
+  font-size: 1.5rem;
+}
+
+.duel__board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.duel__player {
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.duel__name {
+  font-size: 1.375rem;
+}
+
+.duel__hp {
+  font-size: 1.5rem;
+}
+
+.duel__tags {
+  font-size: var(--fs-s);
+}
+
+.duel__log ol {
+  display: grid;
+  gap: 4px;
+  font-size: var(--fs-s);
+  list-style: none;
+  padding: 0;
+}
+
+.duel__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.duel__energy {
+  font-size: 2rem;
+}
+
+.duel__hand {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  justify-items: center;
+  list-style: none;
+  padding: 0;
+}

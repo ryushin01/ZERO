@@ -6,6 +6,7 @@ import { openDeckView } from "#widgets/deck-view/index.js";
 import { siteHeader } from "#widgets/site-header/index.js";
 
 import { codexPage } from "#pages/codex/index.js";
+import { duelPage } from "#pages/duel/index.js";
 import { guidePage } from "#pages/guide/index.js";
 import { newRunPage } from "#pages/new-run/index.js";
 import { notFoundPage } from "#pages/not-found/index.js";
@@ -40,6 +41,7 @@ const PAGES = {
   run: runPage,
   codex: codexPage,
   guide: guidePage,
+  duel: duelPage,
   "not-found": notFoundPage,
 };
 
