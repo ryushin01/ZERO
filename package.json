@@ -1,6 +1,6 @@
 {
   "name": "zero",
-  "version": "0.12.4",
+  "version": "0.12.5",
   "private": true,
   "description": "Ark의 신과 영웅 133명을 카드로 쓰는 순수 자바스크립트 신화 덱빌딩 게임",
   "type": "module",
@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "5.3.0",
-    "@fontsource-variable/familjen-grotesk": "5.3.0"
+    "@fontsource-variable/familjen-grotesk": "5.3.0",
+    "@fontsource/hahmlet": "^5.3.0"
   }
 }

@@ -28,6 +28,10 @@
   --font-serif-ko:
     "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang", "Cormorant Garamond Variable",
     serif;
+  /* 이름: Ark 제목과 같은 함렛으로 두 프로젝트를 한 세계로 잇고, 받기 전에는 운영체제 명조 */
+  --font-name:
+    "Hahmlet", "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang",
+    "Cormorant Garamond Variable", serif;
   --font-sans:
     "Familjen Grotesk Variable", "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", "Noto Sans CJK KR",
     "Noto Sans KR", "Helvetica Neue", sans-serif;

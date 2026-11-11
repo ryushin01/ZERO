@@ -32,7 +32,7 @@
 }
 
 .armament__name {
-  font-family: var(--font-serif-ko);
+  font-family: var(--font-name);
   font-size: 1.125rem;
   font-weight: 600;
 }
