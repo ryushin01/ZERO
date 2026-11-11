@@ -109,6 +109,7 @@ function status(p, label) {
     s.vulnerable ? `취약 ${s.vulnerable}` : null,
     s.erosion ? `침식 ${s.erosion}` : null,
     s.evade ? `피해 절반 ${s.evade}회` : null,
+    s.foundation ? `매 턴 방어 ${s.foundation}` : null,
   ].filter(Boolean);
   return h(
     "section",
@@ -236,7 +237,8 @@ export const duelPage = {
     const duel = duelOf(ctx);
     return duel ? `2인 듀얼 · 턴 ${duel.turn}` : "2인 듀얼";
   },
-  // 차례와 단계가 바뀔 때마다 새 화면으로 다뤄 제목으로 초점을 옮깁니다.
+  // 듀얼 상태는 화면이 바뀌어도 같은 곳(ui.duel)에 두고, 차례와 단계가 바뀔 때마다 새 화면으로 다뤄 제목으로 초점을 옮깁니다.
+  stableUi: true,
   screen: (ctx) => {
     const duel = duelOf(ctx);
     return duel ? `duel:${duel.phase}:${duel.turn}` : "duel:setup";

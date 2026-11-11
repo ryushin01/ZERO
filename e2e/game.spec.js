@@ -194,7 +194,8 @@ test.describe("2인 듀얼", () => {
     await expectAccessible(page);
 
     await page.getByRole("button", { name: "듀얼 시작" }).click();
-    await expect(page.getByRole("heading", { level: 1, name: "플레이어 1의 차례" })).toBeVisible();
+    // 단계가 바뀌면 새 화면의 제목으로 초점이 옮겨 갑니다. (화면 낭독기가 차례를 알 수 있게)
+    await expect(page.getByRole("heading", { level: 1, name: "플레이어 1의 차례" })).toBeFocused();
     // 넘기기 화면에서는 손이 보이지 않습니다.
     await expect(page.locator("[data-action='duel-card']")).toHaveCount(0);
     await expectAccessible(page);
@@ -204,7 +205,7 @@ test.describe("2인 듀얼", () => {
 
     await page.locator("[data-action='duel-card']:not([aria-disabled='true'])").first().click();
     await page.getByRole("button", { name: "차례 끝내기" }).click();
-    await expect(page.getByRole("heading", { level: 1, name: "플레이어 2의 차례" })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: "플레이어 2의 차례" })).toBeFocused();
     await expect(page.locator("[data-action='duel-card']")).toHaveCount(0);
   });
 });

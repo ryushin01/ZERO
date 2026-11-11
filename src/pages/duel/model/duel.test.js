@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { CLASSES, getClass } from "./classes.js";
 import { getCard } from "#entities/card/index.js";
 
-import { buildDeck, canPlayDuel, endDuelTurn, playDuelCard, reveal, startDuel } from "./duel.js";
+import { buildDeck, endDuelTurn, playDuelCard, reveal, startDuel } from "./duel.js";
 
 describe("클래스", () => {
   it("나무위키의 갈래대로 기본 4종과 근접·민첩·마법·성직·기타 클래스가 있고, 이름이 겹치지 않습니다", () => {
@@ -46,12 +46,13 @@ describe("듀얼", () => {
 
   it("공격 카드는 상대를 치고, 차례를 끝내면 상대에게 넘어갑니다", () => {
     let state = reveal(start());
-    const attack = state.players[0].hand.find((c) => getCard(c.id).effects.some((e) => e.op === "damage"));
-    if (attack && canPlayDuel(state, attack.uid).ok) {
-      const hp = state.players[1].hp;
-      state = playDuelCard(state, attack.uid);
-      expect(state.players[1].hp).toBeLessThan(hp + 1);
-    }
+    // 상대의 방어를 없애고 필봉(피해 6)을 쥐여 공격이 반드시 들어가게 합니다.
+    state.players[1].block = 0;
+    state.players[0].hand = [{ uid: "q", id: "quill", up: false }, ...state.players[0].hand.slice(1)];
+    state.players[0].energy = 3;
+    const hp = state.players[1].hp;
+    state = playDuelCard(state, "q");
+    expect(state.players[1].hp).toBeLessThan(hp);
     state = endDuelTurn(state);
     expect(state.active).toBe(1);
     expect(state.phase).toBe("handoff");
@@ -75,5 +76,26 @@ describe("듀얼", () => {
     state = playDuelCard(state, "x");
     expect(state.phase).toBe("over");
     expect(state.winner).toBe(0);
+  });
+
+  it("반격을 지닌 상대를 쓰러뜨리면 반격 피해 없이 공격한 쪽이 이깁니다", () => {
+    let state = reveal(startDuel({ seed: 5, classes: ["warrior", "gladiator"] }));
+    state.players[0].hp = 1;
+    state.players[1].hp = 1;
+    state.players[1].block = 0;
+    state.players[0].hand = [{ uid: "q", id: "quill", up: false }];
+    state.players[0].energy = 3;
+    state = playDuelCard(state, "q");
+    expect(state.winner).toBe(0);
+    expect(state.players[0].hp).toBe(1);
+  });
+
+  it("침식으로 체력이 절반 아래가 되면 차례 시작에 바로 분노(힘)를 얻습니다", () => {
+    let state = reveal(startDuel({ seed: 5, classes: ["mage", "berserker"] }));
+    state.players[1].hp = 31;
+    state.players[1].statuses.erosion = 3;
+    state = endDuelTurn(state);
+    expect(state.players[1].hp).toBe(28);
+    expect(state.players[1].statuses.strength).toBe(3);
   });
 });

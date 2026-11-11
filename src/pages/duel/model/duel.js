@@ -150,6 +150,7 @@ function beginTurn(state) {
     p.hp -= p.statuses.erosion;
     log(state, `${p.name}: 침식으로 체력 ${p.statuses.erosion} 잃음`, side);
     p.statuses.erosion -= 1;
+    applyRage(p);
     if (checkOver(state)) return;
   }
   p.block += passive(p, "turnBlock") + p.statuses.foundation;
@@ -161,6 +162,7 @@ function beginTurn(state) {
   if (blood) {
     p.hp -= blood;
     energy += 1;
+    applyRage(p);
     if (checkOver(state)) return;
   }
   let extra = passive(p, "turnDraw");
@@ -173,6 +175,15 @@ function beginTurn(state) {
   }
   p.energy = energy;
   drawCards(state, side, DUEL_HAND + extra);
+}
+
+/** 광전사처럼 체력이 절반 아래로 떨어지면 힘을 얻습니다. (한 번) 체력이 줄어드는 곳마다 부릅니다. @param {Duelist} who */
+function applyRage(who) {
+  const rage = passive(who, "rage");
+  if (rage && !who.raged && who.hp > 0 && who.hp <= who.maxHp / 2) {
+    who.raged = true;
+    who.statuses.strength += rage;
+  }
 }
 
 /** @param {DuelState} state */
@@ -225,8 +236,11 @@ function strike(state, from, amount, pierce) {
   target.block -= absorbed;
   const lost = value - absorbed;
   target.hp -= lost;
+  // 반격은 살아 있을 때만 돌려줍니다. 쓰러뜨린 공격에는 반격이 없어, 먼저 쓰러진 쪽이 집니다.
   const thorns = passive(target, "thorns");
-  if (thorns) attacker.hp -= thorns;
+  if (thorns && target.hp > 0) attacker.hp -= thorns;
+  applyRage(target);
+  applyRage(attacker);
   return lost;
 }
 
@@ -300,14 +314,7 @@ export function playDuelCard(prev, uid) {
   if (card.exhaust || card.type === "power") p.exhaust.push(instance);
   else p.discard.push(instance);
   log(state, `${p.name}: ${card.name} — ${parts.join(", ") || "효과 없음"}`, side);
-  // 광전사처럼 체력이 절반 아래로 떨어지면 힘을 얻습니다. (한 번)
-  for (const who of [p, foe]) {
-    const rage = passive(who, "rage");
-    if (rage && !who.raged && who.hp > 0 && who.hp <= who.maxHp / 2) {
-      who.raged = true;
-      who.statuses.strength += rage;
-    }
-  }
+  applyRage(p);
   checkOver(state);
   return state;
 }
