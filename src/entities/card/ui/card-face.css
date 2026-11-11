@@ -127,7 +127,7 @@ button.card:focus-visible .card__art img {
 
 .card__name {
   /* 긴 이름(8 사슴 재규어 발톱 등)도 한 줄에 들어가도록 글자 수(--len)로 줄입니다. */
-  font-family: var(--font-serif-ko);
+  font-family: var(--font-name);
   font-size: min(calc(var(--card-w) * 0.092), calc((var(--card-w) - 20px) / var(--len, 6)));
   font-weight: 600;
   line-height: 1.2;

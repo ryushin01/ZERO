@@ -317,7 +317,7 @@
 }
 
 .arm__name {
-  font-family: var(--font-serif-ko);
+  font-family: var(--font-name);
   font-size: var(--fs-s);
   font-weight: 600;
 }
@@ -458,7 +458,7 @@
   }
 
   .arm__name {
-    font-family: var(--font-serif-ko);
+    font-family: var(--font-name);
     font-size: var(--fs-s);
     font-weight: 600;
   }
