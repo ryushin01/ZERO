@@ -61,6 +61,17 @@
 - 탈것·동반자 짝(`figure/model/bonds.ts`)을 `src/entities/bond/data/bonds.json`에 씁니다. 짝마다 붙는 효과는 ZERO의 게임 규칙이라 `entities/bond/model/bonds.js`의 `BOND_RULES`에 둡니다.
 - 결과물을 커밋하므로 Ark 저장소가 없어도 빌드됩니다.
 
+## 이름 글꼴
+
+카드·무구·유물·전장 이름은 함렛(Hahmlet) 600을 이름에 쓰인 글자만 남겨 줄인 `src/app/styles/fonts/zero-names.woff2`(글꼴 이름 ZeroNames, 약 33KB)로 씁니다. 함렛의 글자 묶음 조각을 그대로 쓰면 이름 322개가 모인 도감에서 조각을 24개(약 330KB) 받기 때문입니다.
+
+새 카드나 이름 변경으로 글자가 늘면 `name-font.test.js`가 빠진 글자를 알려 줍니다. 그때 다시 만듭니다.
+
+```bash
+UPDATE_NAME_FONT=1 pnpm exec vitest run name-font   # 글자 목록 갱신
+pip install fonttools brotli && pnpm subset:name-font  # 서브셋 다시 만들기
+```
+
 ## 전설 확장 데이터
 
 Ark에 아직 없는 전설의 영웅·인물은 `scripts/legends/`에서 먼저 만들어 ZERO에 넣고, 나중에 Ark로 옮깁니다. 0.4.0에서 더한 149명(새 계열 8개)은 Ark 0.14.0으로 옮겨 이제 Ark의 기록을 따릅니다.
