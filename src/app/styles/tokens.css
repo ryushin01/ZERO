@@ -21,10 +21,16 @@
   --light-line: rgb(6 4 3 / 0.16);
   --light-signal: #a8360c; /* 5.43:1 */
 
-  --font-display: "Cormorant Garamond Variable", "AppleMyungjo", "Nanum Myeongjo", "Noto Serif KR", serif;
-  --font-serif-ko: "AppleMyungjo", "Nanum Myeongjo", "Noto Serif KR", "Cormorant Garamond Variable", serif;
+  /* 대체 글꼴: 고문서 분위기가 남도록 영문은 올드스타일 세리프(Garamond, Baskerville), 한글은 운영체제 명조 */
+  --font-display:
+    "Cormorant Garamond Variable", Garamond, Baskerville, "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR",
+    "Noto Serif KR", "Batang", serif;
+  --font-serif-ko:
+    "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang", "Cormorant Garamond Variable",
+    serif;
   --font-sans:
-    "Familjen Grotesk Variable", "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    "Familjen Grotesk Variable", "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", "Noto Sans CJK KR",
+    "Noto Sans KR", "Helvetica Neue", sans-serif;
 
   --fs-xxs: 0.6875rem; /* 11 */
   --fs-xs: 0.75rem; /* 12 */
