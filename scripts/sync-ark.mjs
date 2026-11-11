@@ -25,6 +25,14 @@ if (!existsSync(entities)) {
 
 const load = async (file) => import(pathToFileURL(file).href);
 
+// 탈것·동반자 짝(Ark 0.19.0~)이 없는 옛 Ark라면 아무것도 쓰기 전에 멈춥니다.
+// 그대로 두면 이전 bonds.json이 남아 서로 다른 시점의 데이터가 섞이기 때문입니다.
+const bondsFile = join(entities, "figure/model/bonds.ts");
+if (!existsSync(bondsFile)) {
+  console.error(`Ark에 탈것·동반자 데이터가 없습니다: ${bondsFile}\nArk 0.19.0 이상으로 받은 뒤 다시 실행해 주세요.`);
+  process.exit(1);
+}
+
 const { MOCK_PANTHEONS } = await load(join(entities, "pantheon/api/mock-data.ts"));
 const { MOCK_FIGURES } = await load(join(entities, "figure/api/mock-data.ts"));
 
@@ -105,4 +113,18 @@ write("pantheons.json", pantheons);
 write("figures.json", figures);
 write("art.json", art);
 
-console.log(`계열 ${pantheons.length}, 신 ${figures.length}, 그림 ${Object.keys(art).length}점을 가져왔습니다.`);
+// 탈것·동반자 짝. 효과는 ZERO의 게임 규칙(entities/bond)에 있고, 짝만 Ark에서 받습니다.
+const { BONDS } = await load(bondsFile);
+const bonds = BONDS.map(({ rider, partner, relation, note }) => ({
+  rider,
+  partner,
+  relation,
+  ...(note ? { note } : {}),
+}));
+const bondDir = join(root, "src/entities/bond/data");
+mkdirSync(bondDir, { recursive: true });
+writeFileSync(join(bondDir, "bonds.json"), `${JSON.stringify(bonds, null, 2)}\n`);
+
+console.log(
+  `계열 ${pantheons.length}, 신 ${figures.length}, 그림 ${Object.keys(art).length}점, 탈것·동반자 짝 ${bonds.length}쌍을 가져왔습니다.`,
+);
