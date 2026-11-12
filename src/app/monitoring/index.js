@@ -17,6 +17,17 @@ export function initMonitoring() {
         dsn,
         environment: import.meta.env.MODE,
         release: /** @type {string | undefined} */ (import.meta.env.VITE_RELEASE),
+        // 오류 내용만 남깁니다. 사용자 정보·쿠키·헤더·쿼리 문자열과
+        // 방문 기록(세션)·이동과 클릭 기록(브레드크럼)은 모으지 않습니다.
+        dataCollection: {
+          userInfo: false,
+          cookies: false,
+          httpHeaders: false,
+          httpBodies: [],
+          urlQueryParams: false,
+          stackFrameVariables: false,
+        },
+        integrations: (defaults) => defaults.filter(({ name }) => name !== "BrowserSession" && name !== "Breadcrumbs"),
       });
       return Sentry;
     });

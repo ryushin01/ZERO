@@ -104,7 +104,7 @@ E2E는 동작 줄이기(`reducedMotion: "reduce"`) 환경에서 돕니다. 화�
 | `VITE_SENTRY_DSN` | 있으면 처리하지 못한 오류와 나쁜(poor) Web Vitals를 Sentry로 보냅니다. 없으면 Sentry를 번들에 넣지 않고, 개발 모드에서 Web Vitals를 콘솔에만 찍습니다 |
 | `VITE_RELEASE`    | (선택) Sentry에 남길 릴리스 이름                                                                                                                      |
 
-Sentry는 쓰는 함수만 `sentry.js`에서 다시 내보내 약 31 kB(gzip)로 받습니다. 모듈 전체를 불러오면 리플레이·피드백까지 들어가 140 kB가 됩니다.
+Sentry에는 오류 내용만 보내고 사용자 정보·쿠키·헤더·쿼리 문자열, 방문 기록(세션), 이동·클릭 기록(브레드크럼)은 모으지 않습니다. 쓰는 함수만 `sentry.js`에서 다시 내보내 약 31 kB(gzip)로 받습니다. 모듈 전체를 불러오면 리플레이·피드백까지 들어가 140 kB가 됩니다.
 
 ## 배포
 
