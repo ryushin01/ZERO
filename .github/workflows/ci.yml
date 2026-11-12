@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   check:
-    name: Format · Lint · FSD · Typecheck · Test · Build · Storybook · E2E
+    name: Format · Lint · FSD · Typecheck · Test · Build · Storybook · Size · E2E · Lighthouse
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -32,11 +32,15 @@ jobs:
       - run: pnpm test
       # 앱과 Storybook(dist/storybook)을 함께 빌드합니다.
       - run: pnpm build
+      - run: pnpm size
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
+      - run: pnpm lhci
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: playwright-report
-          path: test-results/
+          name: reports
+          path: |
+            test-results/
+            .lighthouseci/
           retention-days: 7

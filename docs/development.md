@@ -90,7 +90,21 @@ Ark에 아직 없는 전설의 영웅·인물은 `scripts/legends/`에서 먼저
 | E2E              | `pnpm test:e2e`  | 프로덕션 빌드에서 한 판 흐름, 키보드 조작, 새로 고침 뒤 이어 하기, 모바일 가로 넘침, axe                                                                                             |
 | 스토리           | `pnpm storybook` | 카드 앞면, 무구, 유물, 머리글, 카드 상세, 일러스트 엔진. addon-a11y로 접근성을 봅니다. `pnpm build`가 `dist/storybook`에 함께 빌드해 배포 주소의 `/storybook/index.html`로 열립니다. |
 
+| 번들 크기 | `pnpm size` | 첫 화면 JS 195 kB, CSS 10 kB(gzip) 예산. `.size-limit.json` |
+| Lighthouse | `pnpm lhci` | 처음 화면·도감·도움말을 데스크톱 기준 3번씩 재서 성능 90, 접근성 100, 권장 사항 95, SEO 90점과 LCP 2.5초·TBT 200ms·CLS 0.1 이하인지. `lighthouserc.json` |
+
 E2E는 동작 줄이기(`reducedMotion: "reduce"`) 환경에서 돕니다. 화면 전환 중 배경색이 바뀌는 사이에 명도 대비를 재는 오탐을 막고, 동작 줄이기 경로도 함께 검사합니다.
+
+## 모니터링
+
+`src/app/monitoring`이 처음 화면을 그리기 전에 켜지고, Sentry와 web-vitals는 나중에 따로 받습니다.
+
+| 환경 변수         | 내용                                                                                                                                                  |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `VITE_SENTRY_DSN` | 있으면 처리하지 못한 오류와 나쁜(poor) Web Vitals를 Sentry로 보냅니다. 없으면 Sentry를 번들에 넣지 않고, 개발 모드에서 Web Vitals를 콘솔에만 찍습니다 |
+| `VITE_RELEASE`    | (선택) Sentry에 남길 릴리스 이름                                                                                                                      |
+
+Sentry는 쓰는 함수만 `sentry.js`에서 다시 내보내 약 31 kB(gzip)로 받습니다. 모듈 전체를 불러오면 리플레이·피드백까지 들어가 140 kB가 됩니다.
 
 ## 배포
 

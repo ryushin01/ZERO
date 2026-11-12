@@ -75,7 +75,8 @@
 | 일러스트  | 직접 만든 SVG 그리기 엔진(관절 각도 자세, SVG 필터로 흑백 처리와 흔들리는 외곽선), data URL로 `<img>`에 넣음                                                       |
 | 스타일    | CSS 변수(먹색·뼈색 두 표면), 컨테이너 쿼리, Cormorant Garamond·Familjen Grotesk(라틴만), 이름은 나눔명조 800 서브셋(이름 글자만 43KB), 나머지 한글은 운영체제 글꼴 |
 | 구조      | Feature-Sliced Design v2.1(Steiger), JSDoc + `tsc --checkJs`                                                                                                       |
-| 품질      | ESLint, Prettier, Vitest(jsdom), Storybook 10(`@storybook/html-vite`, addon-a11y), Playwright + axe                                                                |
+| 품질      | ESLint, Prettier, Vitest(jsdom), Storybook 10(`@storybook/html-vite`, addon-a11y), Playwright + axe, size-limit, Lighthouse CI                                     |
+| 모니터링  | Sentry(DSN이 있을 때만, 나중에 불러옴), web-vitals                                                                                                                 |
 | 빌드·배포 | Vite 8, GitHub Actions, Vercel(정적 배포)                                                                                                                          |
 
 ## 시작하기
@@ -94,6 +95,7 @@ pnpm dev        # http://localhost:5173
 | `pnpm lint` / `pnpm lint:fsd` / `pnpm check` | ESLint / FSD 구조 / 타입 검사                                                 |
 | `pnpm test`                                  | 규칙·전투·화면 단위 테스트와 자동 플레이 100판 난이도 검사                    |
 | `pnpm test:e2e`                              | 프로덕션 빌드의 실제 화면과 axe 검사 (먼저 `build` 필요)                      |
+| `pnpm size` / `pnpm lhci`                    | 번들 크기 예산 / Lighthouse 점수 기준 검사 (먼저 `build` 필요)                |
 | `pnpm storybook`                             | Storybook 개발 서버 (`http://localhost:6006`)                                 |
 | `pnpm sync:ark`                              | 옆 폴더의 Ark에서 신·계열·그림을 다시 가져오기                                |
 

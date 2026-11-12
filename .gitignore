@@ -8,3 +8,5 @@ dist
 *storybook.log
 .env
 .env.*
+!.env.example
+.lighthouseci
