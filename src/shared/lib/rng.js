@@ -68,3 +68,18 @@ export function createRng(seed) {
 export function randomSeed() {
   return Math.floor(Math.random() * 2 ** 31);
 }
+
+/**
+ * 상태 객체 안의 난수 상태(`rng`)로 한 번 굴리고, 다음 상태를 다시 넣어 둡니다.
+ * 한 판·전투·듀얼이 모두 이 방식으로 난수를 이어 씁니다.
+ * @template T
+ * @param {{ rng: number }} holder
+ * @param {(rng: ReturnType<typeof createRng>) => T} fn
+ * @returns {T}
+ */
+export function rollWith(holder, fn) {
+  const rng = createRng(holder.rng);
+  const result = fn(rng);
+  holder.rng = rng.state;
+  return result;
+}

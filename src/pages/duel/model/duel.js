@@ -1,6 +1,7 @@
 import { DUEL_HP, getClass } from "./classes.js";
-import { FIGURE_CARDS, getCard } from "#entities/card/index.js";
-import { createRng, withJosa } from "#shared/lib/index.js";
+import { FIGURE_CARDS, getCard, hasCard } from "#entities/card/index.js";
+import { MAX_HAND } from "#shared/config/index.js";
+import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
 
 /**
  * 2인 듀얼: 한 기기에서 두 사람이 번갈아 두는 핫시트 대전.
@@ -23,19 +24,12 @@ import { createRng, withJosa } from "#shared/lib/index.js";
 
 export const DUEL_HAND = 5;
 export const DUEL_ENERGY = 3;
-const MAX_HAND = 10;
 /** 덱: 클래스 속성의 신·영웅 카드 10장 + 필봉 2장 + 서가 2장 */
 const FIGURE_COUNT = 10;
 
 const clone = (/** @type {DuelState} */ s) => structuredClone(s);
 
-/** @param {DuelState} state @param {(rng: ReturnType<typeof createRng>) => any} fn */
-function roll(state, fn) {
-  const rng = createRng(state.rng);
-  const result = fn(rng);
-  state.rng = rng.state;
-  return result;
-}
+const roll = rollWith;
 
 /** @param {DuelState} state @param {string} text @param {0 | 1 | null} [side] */
 const log = (state, text, side = null) => {
@@ -343,4 +337,29 @@ export function endDuelTurn(prev) {
   state.phase = "handoff";
   beginTurn(state);
   return state;
+}
+
+/** startDuel이 만드는 상태 이상 칸. 하나라도 빠지면 피해 계산이 NaN이 됩니다. */
+const STATUS_KEYS = /** @type {const} */ (["strength", "weak", "vulnerable", "erosion", "evade", "foundation"]);
+
+/**
+ * 저장해 둔 듀얼을 이어 할 수 있는지 확인합니다. 모양이 다르거나 지금은 없는 카드를 가리키면 버립니다.
+ * @param {any} saved @returns {saved is DuelState}
+ */
+export function isDuelUsable(saved) {
+  if (!saved || typeof saved !== "object" || !Array.isArray(saved.players) || saved.players.length !== 2) return false;
+  const pile = (/** @type {unknown} */ list) =>
+    Array.isArray(list) && list.every((c) => c && typeof c.id === "string" && hasCard(c.id));
+  return saved.players.every(
+    (/** @type {any} */ p) =>
+      p &&
+      Number.isFinite(p.hp) &&
+      typeof p.statuses === "object" &&
+      p.statuses !== null &&
+      STATUS_KEYS.every((key) => Number.isFinite(p.statuses[key])) &&
+      pile(p.draw) &&
+      pile(p.hand) &&
+      pile(p.discard) &&
+      pile(p.exhaust),
+  );
 }

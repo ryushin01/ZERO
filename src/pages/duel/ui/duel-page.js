@@ -1,6 +1,6 @@
 import { CLASS_GROUPS, CLASSES, classesOf, describePassive, getClass } from "../model/classes.js";
 import { ASPECTS, cardFace, getCard } from "#entities/card/index.js";
-import { canPlayDuel, endDuelTurn, playDuelCard, reveal, startDuel } from "../model/duel.js";
+import { canPlayDuel, endDuelTurn, isDuelUsable, playDuelCard, reveal, startDuel } from "../model/duel.js";
 import { STORAGE_KEYS } from "#shared/config/index.js";
 import { h, randomSeed, storage, withJosa } from "#shared/lib/index.js";
 
@@ -21,7 +21,7 @@ const picks = (ctx) => /** @type {[string, string]} */ (ctx.ui.classes ?? DEFAUL
 /** 저장해 둔 듀얼을 읽습니다. 모양이 맞지 않으면 버립니다. @returns {DuelState | null} */
 function savedDuel() {
   const saved = storage.read(STORAGE_KEYS.duel, null);
-  if (!saved || !Array.isArray(saved.players) || saved.players.length !== 2) return null;
+  if (!isDuelUsable(saved)) return null;
   // 새로 고침하면 누가 보고 있는지 모르므로, 손을 펼친 차례라도 넘기기 화면부터 다시 보여 줍니다.
   return saved.phase === "play" ? { ...saved, phase: "handoff" } : saved;
 }

@@ -2,7 +2,8 @@ import { getArmament, isOncePerBattle } from "#entities/armament/index.js";
 import { bondEffects, bondOf, partnerOf } from "#entities/bond/index.js";
 import { describeEffect, getCard } from "#entities/card/index.js";
 import { getEnemy, isNemesis } from "#entities/enemy/index.js";
-import { createRng, withJosa } from "#shared/lib/index.js";
+import { MAX_HAND } from "#shared/config/index.js";
+import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
 
 /**
  * 전투 엔진. 모든 함수는 상태를 복사해 새 상태를 돌려주는 순수 함수입니다.
@@ -31,7 +32,7 @@ import { createRng, withJosa } from "#shared/lib/index.js";
  */
 
 export const HAND_SIZE = 5;
-export const MAX_HAND = 10;
+export { MAX_HAND };
 export const BASE_ENERGY = 3;
 
 const RESONANCE = 1.5;
@@ -66,13 +67,8 @@ const clone = (state) => structuredClone(state);
 /** @param {CombatState} state @param {string} text @param {LogEntry["tone"]} [tone] */
 const log = (state, text, tone = "info") => state.log.push({ text, tone });
 
-/** 상태 안의 난수 상태로 한 번 굴립니다 @param {CombatState} state */
-function withRng(state, fn) {
-  const rng = createRng(state.rng);
-  const result = fn(rng);
-  state.rng = rng.state;
-  return result;
-}
+/** 상태 안의 난수 상태로 한 번 굴립니다 */
+const withRng = rollWith;
 
 /**
  * @param {{

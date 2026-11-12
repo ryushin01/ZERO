@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { CLASSES, getClass } from "./classes.js";
 import { getCard } from "#entities/card/index.js";
 
-import { buildDeck, endDuelTurn, playDuelCard, reveal, startDuel } from "./duel.js";
+import { buildDeck, endDuelTurn, isDuelUsable, playDuelCard, reveal, startDuel } from "./duel.js";
 
 describe("클래스", () => {
   it("나무위키의 갈래대로 기본 4종과 근접·민첩·마법·성직·기타 클래스가 있고, 이름이 겹치지 않습니다", () => {
@@ -97,5 +97,26 @@ describe("듀얼", () => {
     state = endDuelTurn(state);
     expect(state.players[1].hp).toBe(28);
     expect(state.players[1].statuses.strength).toBe(3);
+  });
+});
+
+describe("저장된 듀얼", () => {
+  it("지금 듀얼은 이어 하고, 모양이 다르거나 없는 카드를 가리키면 버립니다", () => {
+    const duel = startDuel({ seed: 42, classes: ["warrior", "cleric"] });
+    expect(isDuelUsable(duel)).toBe(true);
+    expect(isDuelUsable(null)).toBe(false);
+    expect(isDuelUsable({ players: [duel.players[0]] })).toBe(false);
+    const broken = structuredClone(duel);
+    broken.players[1].hand.push({ uid: "x", id: "removed-card", up: false });
+    expect(isDuelUsable(broken)).toBe(false);
+    const noStatuses = structuredClone(duel);
+    delete noStatuses.players[0].statuses;
+    expect(isDuelUsable(noStatuses)).toBe(false);
+    const emptyStatuses = structuredClone(duel);
+    emptyStatuses.players[0].statuses = {};
+    expect(isDuelUsable(emptyStatuses)).toBe(false);
+    const badHp = structuredClone(duel);
+    badHp.players[1].hp = "30";
+    expect(isDuelUsable(badHp)).toBe(false);
   });
 });
