@@ -2,7 +2,7 @@
 
 const dsn = /** @type {string | undefined} */ (import.meta.env.VITE_SENTRY_DSN);
 
-/** @type {Promise<typeof import("./sentry.js")> | undefined} */
+/** @type {Promise<typeof import("./sentry.js") | undefined> | undefined} */
 let sentry;
 
 /**
@@ -12,25 +12,48 @@ let sentry;
  */
 export function initMonitoring() {
   if (dsn) {
-    sentry = import("./sentry.js").then((Sentry) => {
-      Sentry.init({
-        dsn,
-        environment: import.meta.env.MODE,
-        release: /** @type {string | undefined} */ (import.meta.env.VITE_RELEASE),
-        // 오류 내용만 남깁니다. 사용자 정보·쿠키·헤더·쿼리 문자열과
-        // 방문 기록(세션)·이동과 클릭 기록(브레드크럼)은 모으지 않습니다.
-        dataCollection: {
-          userInfo: false,
-          cookies: false,
-          httpHeaders: false,
-          httpBodies: [],
-          urlQueryParams: false,
-          stackFrameVariables: false,
-        },
-        integrations: (defaults) => defaults.filter(({ name }) => name !== "BrowserSession" && name !== "Breadcrumbs"),
+    // Sentry를 받는 동안 난 오류(첫 화면 그리기 등)를 모아 두었다가, 준비되면 보냅니다.
+    /** @type {unknown[]} */
+    const early = [];
+    /** @param {ErrorEvent} event */
+    const onError = (event) => early.push(event.error ?? event.message);
+    /** @param {PromiseRejectionEvent} event */
+    const onRejection = (event) => early.push(event.reason);
+    window.addEventListener("error", onError);
+    window.addEventListener("unhandledrejection", onRejection);
+    const stopBuffering = () => {
+      window.removeEventListener("error", onError);
+      window.removeEventListener("unhandledrejection", onRejection);
+    };
+
+    sentry = import("./sentry.js")
+      .then((Sentry) => {
+        Sentry.init({
+          dsn,
+          environment: import.meta.env.MODE,
+          release: /** @type {string | undefined} */ (import.meta.env.VITE_RELEASE),
+          // 오류 내용만 남깁니다. 사용자 정보·쿠키·헤더·쿼리 문자열과
+          // 방문 기록(세션)·이동과 클릭 기록(브레드크럼)은 모으지 않습니다.
+          dataCollection: {
+            userInfo: false,
+            cookies: false,
+            httpHeaders: false,
+            httpBodies: [],
+            urlQueryParams: false,
+            stackFrameVariables: false,
+          },
+          integrations: (defaults) =>
+            defaults.filter(({ name }) => name !== "BrowserSession" && name !== "Breadcrumbs"),
+        });
+        stopBuffering();
+        for (const error of early.splice(0)) Sentry.captureException(error);
+        return Sentry;
+      })
+      // Sentry를 받지 못해도 앱은 그대로 돕니다.
+      .catch(() => {
+        stopBuffering();
+        return undefined;
       });
-      return Sentry;
-    });
   }
 
   void import("web-vitals").then(({ onCLS, onINP, onLCP, onFCP, onTTFB }) => {
@@ -45,7 +68,7 @@ export function reportMetric(metric) {
   }
   if (!sentry || metric.rating !== "poor") return;
   void sentry.then((Sentry) =>
-    Sentry.captureMessage(`Web Vitals 나쁨: ${metric.name}`, {
+    Sentry?.captureMessage(`Web Vitals 나쁨: ${metric.name}`, {
       level: "warning",
       tags: { metric: metric.name, rating: metric.rating, route: location.hash || "#/" },
       extra: { value: metric.value, id: metric.id, navigationType: metric.navigationType },

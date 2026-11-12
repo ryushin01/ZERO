@@ -40,6 +40,8 @@ jobs:
         if: failure()
         with:
           name: reports
+          # .lighthouseci는 숨김 폴더라 따로 켜야 올라갑니다.
+          include-hidden-files: true
           path: |
             test-results/
             .lighthouseci/
