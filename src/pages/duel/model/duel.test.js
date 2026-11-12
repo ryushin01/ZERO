@@ -109,5 +109,8 @@ describe("저장된 듀얼", () => {
     const broken = structuredClone(duel);
     broken.players[1].hand.push({ uid: "x", id: "removed-card", up: false });
     expect(isDuelUsable(broken)).toBe(false);
+    const noStatuses = structuredClone(duel);
+    delete noStatuses.players[0].statuses;
+    expect(isDuelUsable(noStatuses)).toBe(false);
   });
 });

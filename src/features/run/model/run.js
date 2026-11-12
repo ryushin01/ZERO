@@ -598,12 +598,17 @@ export function migrateRun(value) {
   if (!value || typeof value !== "object") return null;
   try {
     const run = upgradeRun(/** @type {any} */ (structuredClone(value)));
+    // 옛 저장에 빠진 전투 더미는 빈 더미로 채워, 화면이 `combat.hand.some` 같은 곳에서 멈추지 않게 합니다.
+    if (run?.combat) for (const pile of COMBAT_PILES) run.combat[pile] ??= [];
     // 카드·유물·무구가 바뀌어 지금은 없는 것을 가리키는 판은 열면 화면이 깨지므로 버립니다.
     return run && isRunUsable(run) ? run : null;
   } catch {
     return null;
   }
 }
+
+/** 전투 상태의 카드 더미 */
+const COMBAT_PILES = /** @type {const} */ (["draw", "hand", "discard", "exhaust", "powers"]);
 
 /** 저장된 판을 지금 버전으로 옮깁니다. 옮길 수 없으면 null @param {any} saved */
 function upgradeRun(saved) {
@@ -635,8 +640,14 @@ function upgradeRun(saved) {
   return saved;
 }
 
-const isCardList = (/** @type {unknown} */ list) =>
-  Array.isArray(list) && list.every((c) => c && typeof c.id === "string" && hasCard(c.id));
+/** 카드와, 그 카드에 끼운 무구(gear.arm)·동반자(gear.partner)까지 지금 있는지 @param {any} card @returns {boolean} */
+const isCardUsable = (card) =>
+  Boolean(card) &&
+  typeof card.id === "string" &&
+  hasCard(card.id) &&
+  (card.gear?.arm === undefined || hasArmament(card.gear.arm)) &&
+  (card.gear?.partner === undefined || isCardUsable(card.gear.partner));
+const isCardList = (/** @type {unknown} */ list) => Array.isArray(list) && list.every(isCardUsable);
 const isIdList = (/** @type {unknown} */ list, /** @type {(id: string) => boolean} */ has) =>
   Array.isArray(list) && list.every((id) => typeof id === "string" && has(id));
 
@@ -650,8 +661,7 @@ export function isRunUsable(run) {
   if (!isCardList(run.deck) || !isIdList(run.relics, hasRelic) || !isIdList(run.armaments, hasArmament)) return false;
   const combat = run.combat;
   if (combat) {
-    const piles = [combat.draw, combat.hand, combat.discard, combat.exhaust, combat.powers].map((pile) => pile ?? []);
-    if (!piles.every(isCardList)) return false;
+    if (!COMBAT_PILES.every((pile) => isCardList(combat[pile]))) return false;
     if (!(combat.armaments ?? []).every((/** @type {any} */ a) => a && hasArmament(a.id))) return false;
   }
   const reward = run.reward;

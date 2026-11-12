@@ -348,6 +348,13 @@ export function isDuelUsable(saved) {
   const pile = (/** @type {unknown} */ list) =>
     Array.isArray(list) && list.every((c) => c && typeof c.id === "string" && hasCard(c.id));
   return saved.players.every(
-    (/** @type {any} */ p) => p && pile(p.draw) && pile(p.hand) && pile(p.discard) && pile(p.exhaust),
+    (/** @type {any} */ p) =>
+      p &&
+      typeof p.statuses === "object" &&
+      p.statuses !== null &&
+      pile(p.draw) &&
+      pile(p.hand) &&
+      pile(p.discard) &&
+      pile(p.exhaust),
   );
 }

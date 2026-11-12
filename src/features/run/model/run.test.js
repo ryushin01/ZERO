@@ -88,6 +88,20 @@ describe("migrateRun", () => {
     expect(migrateRun({ ...run, guide: "removed-pantheon" })).toBeNull();
     expect(migrateRun({ ...run, deck: "broken" })).toBeNull();
   });
+
+  it("카드에 끼운 무구·동반자가 지금은 없어도 판을 버립니다", () => {
+    const run = createRun({ seed: 3, guide: "norse" });
+    const [first, ...rest] = run.deck;
+    expect(migrateRun({ ...run, deck: [{ ...first, gear: { arm: "removed-armament" } }, ...rest] })).toBeNull();
+    const partner = { uid: "p", id: "removed-card", up: false };
+    expect(migrateRun({ ...run, deck: [{ ...first, gear: { partner } }, ...rest] })).toBeNull();
+  });
+
+  it("옛 저장에 빠진 전투 더미는 빈 더미로 채웁니다", () => {
+    const run = createRun({ seed: 3, guide: "norse" });
+    const saved = migrateRun({ ...run, combat: { hand: [], enemies: [], relics: [], armaments: [] } });
+    expect(saved?.combat).toMatchObject({ draw: [], discard: [], exhaust: [], powers: [] });
+  });
 });
 
 describe("무구와 세력", () => {
