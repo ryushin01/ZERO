@@ -6,11 +6,12 @@
  * - 장식이므로 화면 낭독기에는 숨기고, 움직임을 끄거나 동작 줄이기를 켜면 나오지 않습니다.
  */
 
+import { prefersReducedMotion } from "#shared/lib/index.js";
+
 /** @type {WeakMap<Element, { hp: number, block: number }>} */
 const last = new WeakMap();
 
-const reduced = () =>
-  document.body.dataset.motion === "off" || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+const reduced = () => document.body.dataset.motion === "off" || prefersReducedMotion();
 
 function layer() {
   let el = /** @type {HTMLElement | null} */ (document.querySelector("[data-fx-layer]"));

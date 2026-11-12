@@ -1,13 +1,13 @@
-import { ARMAMENT_SLOTS, ARMAMENTS, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
+import { ARMAMENT_SLOTS, ARMAMENTS, hasArmament, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
 import { BATTLEFIELDS, battlefieldsOf, getBattlefield } from "#entities/battlefield/index.js";
 import { partnerOf } from "#entities/bond/index.js";
-import { FIGURE_CARDS, getCard } from "#entities/card/index.js";
+import { FIGURE_CARDS, getCard, hasCard } from "#entities/card/index.js";
 import { ENCOUNTERS } from "#entities/enemy/index.js";
 import { figuresOf, getPantheon, PANTHEONS } from "#entities/figure/index.js";
 import { factionStatus, perksOf } from "#entities/faction/index.js";
 import { generateMap, reachableNodes } from "#entities/map/index.js";
-import { RELICS } from "#entities/relic/index.js";
-import { createRng, withJosa } from "#shared/lib/index.js";
+import { hasRelic, RELICS } from "#entities/relic/index.js";
+import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
 
 import { bonusOf, startCombat } from "./combat.js";
 import { getEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
@@ -41,13 +41,7 @@ export const START_HP = 72;
 /** @param {Run} run */
 const clone = (run) => structuredClone(run);
 
-/** @param {Run} run @param {(rng: ReturnType<typeof createRng>) => any} fn */
-function roll(run, fn) {
-  const rng = createRng(run.rng);
-  const value = fn(rng);
-  run.rng = rng.state;
-  return value;
-}
+const roll = rollWith;
 
 /** @param {Run} run @param {string} id @param {boolean} [up] @returns {CardInstance} */
 function makeCard(run, id, up = false) {
@@ -602,7 +596,17 @@ const MOVED_RELICS = ["aegis", "kusanagi", "cheonbuin", "mjolnir", "gungnir"];
  */
 export function migrateRun(value) {
   if (!value || typeof value !== "object") return null;
-  const saved = /** @type {any} */ (structuredClone(value));
+  try {
+    const run = upgradeRun(/** @type {any} */ (structuredClone(value)));
+    // 카드·유물·무구가 바뀌어 지금은 없는 것을 가리키는 판은 열면 화면이 깨지므로 버립니다.
+    return run && isRunUsable(run) ? run : null;
+  } catch {
+    return null;
+  }
+}
+
+/** 저장된 판을 지금 버전으로 옮깁니다. 옮길 수 없으면 null @param {any} saved */
+function upgradeRun(saved) {
   if (saved.version === RUN_VERSION) {
     // 전장이 생기기 전에 시작한 판도 시드로 전장을 정해 이어 갑니다.
     if (!saved.fields && typeof saved.seed === "number") saved.fields = fieldsFor(saved.seed);
@@ -629,6 +633,33 @@ export function migrateRun(value) {
   saved.fields = fieldsFor(saved.seed);
   saved.version = RUN_VERSION;
   return saved;
+}
+
+const isCardList = (/** @type {unknown} */ list) =>
+  Array.isArray(list) && list.every((c) => c && typeof c.id === "string" && hasCard(c.id));
+const isIdList = (/** @type {unknown} */ list, /** @type {(id: string) => boolean} */ has) =>
+  Array.isArray(list) && list.every((id) => typeof id === "string" && has(id));
+
+/**
+ * 판이 가리키는 카드·유물·무구·길잡이 계열이 지금 모두 있는지 확인합니다.
+ * 하나라도 없으면 화면을 그리다 오류가 나므로 이어 할 수 없습니다.
+ * @param {any} run
+ */
+export function isRunUsable(run) {
+  if (typeof run.seed !== "number" || typeof run.hp !== "number" || !getPantheon(run.guide)) return false;
+  if (!isCardList(run.deck) || !isIdList(run.relics, hasRelic) || !isIdList(run.armaments, hasArmament)) return false;
+  const combat = run.combat;
+  if (combat) {
+    const piles = [combat.draw, combat.hand, combat.discard, combat.exhaust, combat.powers].map((pile) => pile ?? []);
+    if (!piles.every(isCardList)) return false;
+    if (!(combat.armaments ?? []).every((/** @type {any} */ a) => a && hasArmament(a.id))) return false;
+  }
+  const reward = run.reward;
+  if (reward) {
+    if (!isIdList(reward.cards ?? [], hasCard) || !isIdList(reward.relics ?? [], hasRelic)) return false;
+    if (!isIdList(reward.armaments ?? [], hasArmament)) return false;
+  }
+  return true;
 }
 
 /** 길잡이 계열 이름 @param {Run} run */

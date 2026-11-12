@@ -74,6 +74,20 @@ describe("migrateRun", () => {
     expect(migrateRun(null)).toBeNull();
     expect(migrateRun({ version: 99 })).toBeNull();
   });
+
+  it("지금 판은 그대로 이어 갑니다", () => {
+    const run = createRun({ seed: 3, guide: "norse" });
+    expect(migrateRun(run)).toEqual(run);
+  });
+
+  it("지금은 없는 카드·유물·무구·계열을 가리키는 판은 버립니다 (열면 화면이 깨지므로)", () => {
+    const run = createRun({ seed: 3, guide: "norse" });
+    expect(migrateRun({ ...run, deck: [...run.deck, { uid: "x", id: "removed-card", up: false }] })).toBeNull();
+    expect(migrateRun({ ...run, relics: ["removed-relic"] })).toBeNull();
+    expect(migrateRun({ ...run, armaments: ["removed-armament"] })).toBeNull();
+    expect(migrateRun({ ...run, guide: "removed-pantheon" })).toBeNull();
+    expect(migrateRun({ ...run, deck: "broken" })).toBeNull();
+  });
 });
 
 describe("무구와 세력", () => {

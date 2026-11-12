@@ -692,6 +692,9 @@ export const HIDDEN_ARMAMENTS = [
 const BY_ID = new Map([...ARMAMENTS, ...HIDDEN_ARMAMENTS].map((a) => [a.id, a]));
 
 /** @param {string} id */
+export const hasArmament = (id) => BY_ID.has(id);
+
+/** @param {string} id */
 export function getArmament(id) {
   const arm = BY_ID.get(id);
   if (!arm) throw new Error(`알 수 없는 무구: ${id}`);

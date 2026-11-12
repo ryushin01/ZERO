@@ -1,2 +1,2 @@
-export { getRelic, RELICS } from "./model/relics.js";
+export { getRelic, hasRelic, RELICS } from "./model/relics.js";
 export { relicCard } from "./ui/relic-card.js";

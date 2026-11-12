@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { createRng } from "./rng.js";
+import { createRng, rollWith } from "./rng.js";
 
 describe("createRng", () => {
   it("같은 시드는 같은 순서를 만듭니다", () => {
@@ -26,5 +26,15 @@ describe("createRng", () => {
   it("weighted는 무게가 0인 항목을 고르지 않습니다", () => {
     const rng = createRng(3);
     for (let i = 0; i < 50; i += 1) expect(rng.weighted({ a: 1, b: 0 })).toBe("a");
+  });
+});
+
+describe("rollWith", () => {
+  it("상태 안의 난수로 굴리고 다음 상태를 넣어 두어, 같은 상태에서 다시 굴리면 같은 값이 나옵니다", () => {
+    const a = { rng: 7 };
+    const b = { rng: 7 };
+    expect(rollWith(a, (rng) => rng.float())).toBe(rollWith(b, (rng) => rng.float()));
+    expect(a.rng).toBe(b.rng);
+    expect(a.rng).not.toBe(7);
   });
 });

@@ -1,14 +1,13 @@
 import { emptyRecords, migrateRun, normalizeRecords, recordRun } from "#features/run/index.js";
 import { STORAGE_KEYS } from "#shared/config/index.js";
-import { storage } from "#shared/lib/index.js";
+import { prefersReducedMotion, storage } from "#shared/lib/index.js";
 
 /**
  * 앱 전체 상태. run은 바뀔 때마다 저장해 새로 고침해도 이어 할 수 있습니다.
  * ui는 화면을 다시 그려도 남아야 하는 화면별 임시 상태입니다. (고른 카드, 도감 거르기 등)
  */
 export function createStore() {
-  const prefersReduced =
-    typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const prefersReduced = prefersReducedMotion();
   const savedRun = storage.read(STORAGE_KEYS.run, null);
 
   const state = {

@@ -75,6 +75,9 @@ export const RELICS = [
 const BY_ID = new Map(RELICS.map((r) => [r.id, r]));
 
 /** @param {string} id */
+export const hasRelic = (id) => BY_ID.has(id);
+
+/** @param {string} id */
 export function getRelic(id) {
   const relic = BY_ID.get(id);
   if (!relic) throw new Error(`알 수 없는 유물: ${id}`);
