@@ -1,0 +1,96 @@
+/** @typedef {import("web-vitals").Metric} Metric */
+/** @typedef {typeof import("./sentry.js")} SentryModule */
+
+const dsn = /** @type {string | undefined} */ (import.meta.env.VITE_SENTRY_DSN);
+
+/** 방문 기록(세션), 이동·클릭 기록(브레드크럼), 콘솔 기록은 모으지 않습니다. */
+const OFF_INTEGRATIONS = new Set(["BrowserSession", "Breadcrumbs", "Console"]);
+
+/** @type {Promise<SentryModule | undefined> | undefined} */
+let sentry;
+
+/**
+ * 오류·성능 모니터링을 켭니다. 첫 화면을 무겁게 하지 않도록 Sentry와 web-vitals는 나중에 불러옵니다.
+ * - VITE_SENTRY_DSN이 있으면 처리하지 못한 오류를 Sentry로 보내고, 나쁜(poor) Web Vitals를 경고로 남깁니다.
+ * - 없으면 개발 모드에서만 콘솔에 Web Vitals를 찍습니다.
+ */
+export function initMonitoring() {
+  if (dsn) {
+    // Sentry를 받는 동안 난 오류(첫 화면 그리기 등)를 모아 두었다가, 준비되면 보냅니다.
+    /** @type {{ error: unknown, type: string }[]} */
+    const early = [];
+    /** @param {ErrorEvent} event */
+    const onError = (event) => early.push({ error: event.error ?? event.message, type: "onerror" });
+    /** @param {PromiseRejectionEvent} event */
+    const onRejection = (event) => early.push({ error: event.reason, type: "onunhandledrejection" });
+    window.addEventListener("error", onError);
+    window.addEventListener("unhandledrejection", onRejection);
+    const stopBuffering = () => {
+      window.removeEventListener("error", onError);
+      window.removeEventListener("unhandledrejection", onRejection);
+    };
+
+    sentry = import("./sentry.js")
+      .then((Sentry) => {
+        Sentry.init({
+          dsn,
+          environment: import.meta.env.MODE,
+          release: /** @type {string | undefined} */ (import.meta.env.VITE_RELEASE),
+          // 오류 내용만 남깁니다. 사용자 정보·쿠키·헤더·쿼리 문자열은 모으지 않습니다.
+          dataCollection: {
+            userInfo: false,
+            cookies: false,
+            httpHeaders: false,
+            httpBodies: [],
+            urlQueryParams: false,
+            stackFrameVariables: false,
+          },
+          integrations: (defaults) => defaults.filter(({ name }) => !OFF_INTEGRATIONS.has(name)),
+        });
+        stopBuffering();
+        for (const { error, type } of early.splice(0)) captureUnhandled(Sentry, error, type);
+        return Sentry;
+      })
+      // Sentry를 받지 못해도 앱은 그대로 돕니다.
+      .catch(() => {
+        stopBuffering();
+        return undefined;
+      });
+  }
+
+  void import("web-vitals").then(({ onCLS, onINP, onLCP, onFCP, onTTFB }) => {
+    for (const subscribe of [onCLS, onINP, onLCP, onFCP, onTTFB]) subscribe(reportMetric);
+  });
+}
+
+/** @param {Metric} metric */
+export function reportMetric(metric) {
+  if (import.meta.env.DEV) {
+    console.debug(`[web-vitals] ${metric.name} ${metric.value.toFixed(1)} (${metric.rating})`);
+  }
+  if (!sentry || metric.rating !== "poor") return;
+  void sentry.then((Sentry) =>
+    Sentry?.captureMessage(`Web Vitals 나쁨: ${metric.name}`, {
+      level: "warning",
+      tags: { metric: metric.name, rating: metric.rating, route: location.hash || "#/" },
+      extra: { value: metric.value, id: metric.id, navigationType: metric.navigationType },
+    }),
+  );
+}
+
+/**
+ * 전역 오류 처리기가 잡은 것처럼 '처리되지 않은 오류'로 표시해 보냅니다.
+ * captureException은 기본으로 handled: true를 붙이므로 이벤트 처리기에서 바꿉니다.
+ * @param {SentryModule} Sentry
+ * @param {unknown} error
+ * @param {string} type
+ */
+function captureUnhandled(Sentry, error, type) {
+  Sentry.withScope((scope) => {
+    scope.addEventProcessor((event) => {
+      for (const value of event.exception?.values ?? []) value.mechanism = { type, handled: false };
+      return event;
+    });
+    Sentry.captureException(error);
+  });
+}

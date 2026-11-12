@@ -1,5 +1,11 @@
 # 변경 기록
 
+## 0.12.8 - 2026-11-12
+
+- 모니터링: `VITE_SENTRY_DSN`이 있으면 처리하지 못한 오류와 나쁜 Web Vitals를 Sentry로 보냄. Sentry와 web-vitals는 첫 화면 뒤에 따로 받음(Sentry 약 31 kB gzip)
+- 성능 예산: CI에서 size-limit(첫 화면 JS 195 kB, CSS 10 kB)과 Lighthouse CI(성능 90·접근성 100점 등)로 검사
+- Dependabot: npm 매주, GitHub Actions 매월 업데이트 PR
+
 ## 0.12.7 - 2026-11-12
 
 - 이름 글꼴을 함렛 600에서 나눔명조 800으로: 함렛은 한글이 고딕에 가까워 명조 느낌이 나지 않았음. Ark 제목과 같은 나눔명조 800을 이름 319자만 담은 파일(43KB, 글꼴 이름 ZeroNames)로 씀
