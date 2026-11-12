@@ -112,5 +112,11 @@ describe("저장된 듀얼", () => {
     const noStatuses = structuredClone(duel);
     delete noStatuses.players[0].statuses;
     expect(isDuelUsable(noStatuses)).toBe(false);
+    const emptyStatuses = structuredClone(duel);
+    emptyStatuses.players[0].statuses = {};
+    expect(isDuelUsable(emptyStatuses)).toBe(false);
+    const badHp = structuredClone(duel);
+    badHp.players[1].hp = "30";
+    expect(isDuelUsable(badHp)).toBe(false);
   });
 });

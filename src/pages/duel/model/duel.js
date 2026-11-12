@@ -339,6 +339,9 @@ export function endDuelTurn(prev) {
   return state;
 }
 
+/** startDuel이 만드는 상태 이상 칸. 하나라도 빠지면 피해 계산이 NaN이 됩니다. */
+const STATUS_KEYS = /** @type {const} */ (["strength", "weak", "vulnerable", "erosion", "evade", "foundation"]);
+
 /**
  * 저장해 둔 듀얼을 이어 할 수 있는지 확인합니다. 모양이 다르거나 지금은 없는 카드를 가리키면 버립니다.
  * @param {any} saved @returns {saved is DuelState}
@@ -350,8 +353,10 @@ export function isDuelUsable(saved) {
   return saved.players.every(
     (/** @type {any} */ p) =>
       p &&
+      Number.isFinite(p.hp) &&
       typeof p.statuses === "object" &&
       p.statuses !== null &&
+      STATUS_KEYS.every((key) => Number.isFinite(p.statuses[key])) &&
       pile(p.draw) &&
       pile(p.hand) &&
       pile(p.discard) &&
