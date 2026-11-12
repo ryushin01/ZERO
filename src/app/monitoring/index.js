@@ -3,6 +3,9 @@
 
 const dsn = /** @type {string | undefined} */ (import.meta.env.VITE_SENTRY_DSN);
 
+/** Sentry를 받기 전에 모아 둘 오류 수. 오류가 반복돼도 메모리를 계속 쓰지 않게 합니다. */
+const MAX_EARLY_ERRORS = 20;
+
 /** 방문 기록(세션), 이동·클릭 기록(브레드크럼), 콘솔 기록은 모으지 않습니다. */
 const OFF_INTEGRATIONS = new Set(["BrowserSession", "Breadcrumbs", "Console"]);
 
@@ -19,10 +22,14 @@ export function initMonitoring() {
     // Sentry를 받는 동안 난 오류(첫 화면 그리기 등)를 모아 두었다가, 준비되면 보냅니다.
     /** @type {{ error: unknown, type: string }[]} */
     const early = [];
+    /** @param {unknown} error @param {string} type */
+    const keep = (error, type) => {
+      if (early.length < MAX_EARLY_ERRORS) early.push({ error, type });
+    };
     /** @param {ErrorEvent} event */
-    const onError = (event) => early.push({ error: event.error ?? event.message, type: "onerror" });
+    const onError = (event) => keep(event.error ?? event.message, "onerror");
     /** @param {PromiseRejectionEvent} event */
-    const onRejection = (event) => early.push({ error: event.reason, type: "onunhandledrejection" });
+    const onRejection = (event) => keep(event.reason, "onunhandledrejection");
     window.addEventListener("error", onError);
     window.addEventListener("unhandledrejection", onRejection);
     const stopBuffering = () => {
@@ -46,6 +53,11 @@ export function initMonitoring() {
             stackFrameVariables: false,
           },
           integrations: (defaults) => defaults.filter(({ name }) => !OFF_INTEGRATIONS.has(name)),
+          // 감싼 콜백이 던진 오류에는 그 콜백의 인수(입력 이벤트 등)가 extra.arguments로 붙습니다. 오류 내용이 아니므로 지웁니다.
+          beforeSend(event) {
+            if (event.extra) delete event.extra.arguments;
+            return event;
+          },
         });
         stopBuffering();
         for (const { error, type } of early.splice(0)) captureUnhandled(Sentry, error, type);
@@ -58,9 +70,15 @@ export function initMonitoring() {
       });
   }
 
-  void import("web-vitals").then(({ onCLS, onINP, onLCP, onFCP, onTTFB }) => {
-    for (const subscribe of [onCLS, onINP, onLCP, onFCP, onTTFB]) subscribe(reportMetric);
-  });
+  // 보낼 곳도 찍을 곳도 없으면(DSN 없는 배포) 지표 관찰기를 달지 않습니다.
+  if (!dsn && !import.meta.env.DEV) return;
+
+  void import("web-vitals")
+    .then(({ onCLS, onINP, onLCP, onFCP, onTTFB }) => {
+      for (const subscribe of [onCLS, onINP, onLCP, onFCP, onTTFB]) subscribe(reportMetric);
+    })
+    // 지표를 받지 못해도 앱은 그대로 돕니다.
+    .catch(() => undefined);
 }
 
 /** @param {Metric} metric */
@@ -69,10 +87,12 @@ export function reportMetric(metric) {
     console.debug(`[web-vitals] ${metric.name} ${metric.value.toFixed(1)} (${metric.rating})`);
   }
   if (!sentry || metric.rating !== "poor") return;
+  // Sentry를 기다리는 사이 다른 화면으로 옮길 수 있어, 지표를 받은 때의 화면을 먼저 읽어 둡니다.
+  const route = location.hash || "#/";
   void sentry.then((Sentry) =>
     Sentry?.captureMessage(`Web Vitals 나쁨: ${metric.name}`, {
       level: "warning",
-      tags: { metric: metric.name, rating: metric.rating, route: location.hash || "#/" },
+      tags: { metric: metric.name, rating: metric.rating, route },
       extra: { value: metric.value, id: metric.id, navigationType: metric.navigationType },
     }),
   );

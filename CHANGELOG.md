@@ -1,5 +1,9 @@
 # 변경 기록
 
+## 0.12.9 - 2026-11-12
+
+- 모니터링 보완: Sentry를 받기 전 오류는 최대 20개만 모음, 감싼 콜백의 인수(extra.arguments)를 보내지 않음, DSN이 없는 배포에서는 web-vitals를 불러오지 않음, 나쁜 지표의 화면은 지표를 받은 때의 주소로 남김
+
 ## 0.12.8 - 2026-11-12
 
 - 모니터링: `VITE_SENTRY_DSN`이 있으면 처리하지 못한 오류와 나쁜 Web Vitals를 Sentry로 보냄. Sentry와 web-vitals는 첫 화면 뒤에 따로 받음(Sentry 약 31 kB gzip)
