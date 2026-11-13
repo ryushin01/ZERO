@@ -1,5 +1,14 @@
 # 변경 기록
 
+## 0.13.0 - 2026-11-13
+
+- 그림: 코드로 그린 SVG 일러스트를 걷어 내고, 카드·괴물·전장·무구 415곳에 그 신화를 그린 옛 회화·판화·삽화를 씀. Wikimedia Commons의 퍼블릭 도메인·CC0·CC 라이선스 그림만 골랐고(Pinterest처럼 출처가 불분명한 그림은 쓰지 않음), 저작자·사용 허락·원본은 `docs/credits.md`에 적음
+- `pnpm illustrations`: 고른 그림(`scripts/illustrations/picks.json`)을 Commons에서 받아 WebP 두 벌(긴 변 800px, 너비 480px)로 줄이고 출처 목록을 다시 만듦. 화면은 `srcset`으로 크기에 맞는 그림을 받고, 첫 화면 밖의 그림은 나중에 받음
+- 초점: macOS Vision으로 그림마다 얼굴이나 눈길이 모이는 곳을 찾아, 카드처럼 잘라 보여 줄 때 그곳을 중심에 둠(`object-position`)
+- 정리: SVG 그리기 엔진(`shared/ui/illustration`, 1,400여 줄)과 신·괴물·무구의 그림 사양, 그림에만 쓰던 데이터(전장의 `motif`·`sky`, 무구의 `item`)를 지움. 신화권 표(`PANTHEON_REGION`)는 세력이 쓰므로 `figure/model/regions.js`로 옮김
+- 배포: Storybook 배포본이 `public`을 또 복사하지 않게 함(같은 주소의 앱 그림을 씀). 그림이 두 벌 올라가던 10MB를 덜어 냄
+- 그림의 `width`·`height`가 그림마다 달라져, 너비만 정한 그림 칸은 `height: auto`로 비율을 지킴(+테스트: 모든 카드·괴물·전장·무구에 그림이 있고 파일이 있는지)
+
 ## 0.12.13 - 2026-11-13
 
 - 출처: 화면에 적던 출처(카드 상세의 그림 저작자·라이선스·원본, 무구와 전장의 '참고' 링크)를 걷어 내고 README의 `## 출처` 표와 데이터에서 만드는 `docs/credits.md`(`pnpm credits`)로 옮김. 카드 상세와 도감의 무구·전장 소개, 안내의 '자료와 출처'에는 README의 출처로 가는 링크 하나만 둠(+테스트: 목록이 데이터와 같은지)

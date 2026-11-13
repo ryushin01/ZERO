@@ -1,7 +1,7 @@
 import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
 import { battlefieldCard, battlefieldsOf, REALMS } from "#entities/battlefield/index.js";
 import { ASPECTS, cardFace, FIGURE_CARDS, HIDDEN_CARDS } from "#entities/card/index.js";
-import { describeAction, enemyIllustration, ENEMIES } from "#entities/enemy/index.js";
+import { describeAction, enemyArt, ENEMIES } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { CONTINENT_LABEL, CONTINENTS, figuresOf, getFigure, getPantheon, PANTHEONS } from "#entities/figure/index.js";
 import { relicCard, RELICS } from "#entities/relic/index.js";
@@ -188,12 +188,9 @@ function enemiesTab() {
         "li",
         { class: "codex-enemy", "data-key": enemy.id },
         h("img", {
+          ...enemyArt(enemy.id, { sizes: "200px" }),
           class: "codex-enemy__art",
-          src: enemyIllustration(enemy.id),
           alt: "",
-          width: 200,
-          height: 260,
-          loading: "lazy",
         }),
         h(
           "p",

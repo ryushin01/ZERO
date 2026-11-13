@@ -1,0 +1,61 @@
+/**
+ * 신화 계열이 속한 신화권. 세력 효과가 계열마다 따로 정해지지 않았을 때 신화권의 효과를 씁니다.
+ *
+ * @typedef {"greek" | "north" | "celtic" | "egypt" | "nearEast" | "india" | "eastAsia" | "americas" | "africa" | "oceania" | "arctic" | "medieval" | "frontier" | "crimson" | "steppe"} Region
+ */
+
+/** @type {Record<string, Region>} */
+export const PANTHEON_REGION = {
+  greek: "greek",
+  etruscan: "greek",
+  minoan: "greek",
+  thracian: "greek",
+  norse: "north",
+  finnish: "north",
+  baltic: "north",
+  estonian: "north",
+  "anglo-saxon": "north",
+  slavic: "north",
+  hungarian: "north",
+  celtic: "celtic",
+  armenian: "celtic",
+  egyptian: "egypt",
+  mesopotamian: "nearEast",
+  hittite: "nearEast",
+  canaanite: "nearEast",
+  arabian: "nearEast",
+  iranian: "nearEast",
+  hindu: "india",
+  tibetan: "india",
+  burmese: "india",
+  thai: "india",
+  indonesian: "india",
+  chinese: "eastAsia",
+  japanese: "eastAsia",
+  korean: "eastAsia",
+  vietnamese: "eastAsia",
+  ainu: "eastAsia",
+  maya: "americas",
+  aztec: "americas",
+  inca: "americas",
+  olmec: "americas",
+  zapotec: "americas",
+  mixtec: "americas",
+  haida: "arctic",
+  yoruba: "africa",
+  fon: "africa",
+  dogon: "africa",
+  polynesian: "oceania",
+  "rapa-nui": "oceania",
+  // ZERO 전설 확장
+  arthurian: "celtic",
+  carolingian: "medieval",
+  germanic: "north",
+  roman: "greek",
+  "european-folklore": "medieval",
+  "american-folklore": "frontier",
+  "turko-mongol": "steppe",
+  "arabian-nights": "nearEast",
+  // 히든
+  hidden: "crimson",
+};

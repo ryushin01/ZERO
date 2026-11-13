@@ -106,10 +106,6 @@ button.card:focus-visible .card__art img {
   transition: transform 0.5s var(--ease);
 }
 
-.card__art--item img {
-  object-position: center 72%;
-}
-
 .card__body {
   display: flex;
   flex: 1 0 auto;

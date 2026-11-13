@@ -1,6 +1,6 @@
 import { h } from "#shared/lib/index.js";
 
-import { battlefieldIllustration } from "../lib/illustration.js";
+import { battlefieldArt } from "../lib/illustration.js";
 import { describeField, REALMS } from "../model/battlefields.js";
 
 import "./battlefield-card.css";
@@ -16,7 +16,7 @@ export function battlefieldCard(field, { heading = "h2", compact = false, panthe
   return h(
     "article",
     { class: ["battlefield", compact && "battlefield--compact"] },
-    h("img", { class: "battlefield__art", src: battlefieldIllustration(field), alt: "", width: 200, height: 260 }),
+    h("img", { ...battlefieldArt(field, { sizes: "200px" }), class: "battlefield__art", alt: "" }),
     h(
       "div",
       { class: "battlefield__body" },

@@ -1,11 +1,12 @@
 import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
 import { arkBondsOf } from "#entities/bond/index.js";
-import { ASPECTS, cardFace, cardIllustration, getCard, HIDDEN_ART, KEYWORDS } from "#entities/card/index.js";
+import { ASPECTS, cardArt, cardFace, getCard, HIDDEN_ART, KEYWORDS } from "#entities/card/index.js";
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { CONTINENT_LABEL, getArt, getFigure, getPantheon, kindLabel } from "#entities/figure/index.js";
 import { arkFigureUrl, arkPantheonUrl, CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
+import { isArkArtwork } from "#shared/ui/artwork/index.js";
 import { openDialog } from "#shared/ui/index.js";
 
 import "./card-detail.css";
@@ -28,7 +29,8 @@ export function cardDetail(cardId) {
   const card = getCard(cardId);
   const upgraded = getCard(cardId, true);
   const pantheon = card.pantheonSlug ? getPantheon(card.pantheonSlug) : null;
-  const art = card.figureSlug ? getArt(card.figureSlug) : undefined;
+  // 카드 그림이 Ark 소장 그림과 같은 그림이면 두 번 보여 주지 않습니다.
+  const art = card.figureSlug && !isArkArtwork(`figure:${card.figureSlug}`) ? getArt(card.figureSlug) : undefined;
   const nemesisOf = ENEMIES.filter((enemy) => isNemesis(enemy, card));
   const bonds = card.figureSlug ? arkBondsOf(card.figureSlug) : [];
   const faction = card.pantheonSlug ? factionOf(card.pantheonSlug) : null;
@@ -59,8 +61,8 @@ export function cardDetail(cardId) {
       "div",
       { class: "card-detail__art" },
       h("img", {
+        ...cardArt(card, { sizes: "(max-width: 720px) 90vw, 440px", eager: true }),
         class: "card-detail__illust",
-        src: cardIllustration(card),
         alt: hiddenArt?.alt ?? `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
       }),
       art
