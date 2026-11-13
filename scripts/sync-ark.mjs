@@ -125,6 +125,10 @@ const bondDir = join(root, "src/entities/bond/data");
 mkdirSync(bondDir, { recursive: true });
 writeFileSync(join(bondDir, "bonds.json"), `${JSON.stringify(bonds, null, 2)}\n`);
 
+// 소장 그림의 출처가 바뀌었을 수 있으므로 출처 목록도 다시 씁니다.
+const { writeCredits } = await import("./credits.mjs");
+await writeCredits();
+
 console.log(
-  `계열 ${pantheons.length}, 신 ${figures.length}, 그림 ${Object.keys(art).length}점, 탈것·동반자 짝 ${bonds.length}쌍을 가져왔습니다.`,
+  `계열 ${pantheons.length}, 신 ${figures.length}, 그림 ${Object.keys(art).length}점, 탈것·동반자 짝 ${bonds.length}쌍을 가져오고 출처 목록을 다시 만들었습니다.`,
 );

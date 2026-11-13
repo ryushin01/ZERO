@@ -7,7 +7,8 @@ import { bonusText, describeArmament } from "../model/describe.js";
 import "./armament-card.css";
 
 /**
- * 무구 한 점. 도감에서는 이야기와 출처까지, 보상·지도에서는 효과까지 보여 줍니다.
+ * 무구 한 점. 도감에서는 이야기까지, 보상·지도에서는 효과까지 보여 줍니다.
+ * 고증에 참고한 글(sources)은 화면 대신 README의 출처(docs/credits.md)에 적습니다.
  * @param {import("../model/armaments.js").ArmamentDef} arm
  * @param {{ heading?: "h2" | "h3", full?: boolean, footer?: Node | null }} [options]
  */
@@ -36,22 +37,6 @@ export function armamentCard(arm, { heading = "h3", full = false, footer = null 
       h("p", { class: "armament__effect" }, describeArmament(arm).join(". ")),
       h("p", { class: "armament__bonus muted" }, bonusText(arm)),
       full ? h("p", { class: "armament__lore" }, arm.lore) : null,
-      full
-        ? h(
-            "p",
-            { class: "armament__sources label" },
-            "참고 ",
-            arm.sources.map((url, i) => [
-              i ? " · " : "",
-              h(
-                "a",
-                { href: url, target: "_blank", rel: "noopener" },
-                url.includes("namu.wiki") ? "나무위키" : url.includes("en.wikipedia") ? "영어 위키백과" : "위키백과",
-                h("span", { class: "sr-only" }, " (새 창)"),
-              ),
-            ]),
-          )
-        : null,
       footer,
     ),
   );

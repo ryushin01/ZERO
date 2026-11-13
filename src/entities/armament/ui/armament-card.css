@@ -45,7 +45,3 @@
 .armament__lore {
   font-size: var(--fs-s);
 }
-
-.armament__sources a {
-  text-transform: none;
-}

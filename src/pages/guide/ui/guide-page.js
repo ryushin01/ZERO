@@ -2,7 +2,7 @@ import { ASPECT_DOMAINS, ASPECTS, KEYWORDS } from "#entities/card/index.js";
 import { ARMAMENTS } from "#entities/armament/index.js";
 import { BATTLEFIELDS } from "#entities/battlefield/index.js";
 import { ARK_FIGURE_COUNT, FIGURES, PANTHEONS } from "#entities/figure/index.js";
-import { ARK_URL } from "#shared/config/index.js";
+import { ARK_URL, CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
 
 import "./guide-page.css";
@@ -287,7 +287,14 @@ function view(ctx) {
           "세계 신화 도서관 Ark",
           h("span", { class: "sr-only" }, " (새 창)"),
         ),
-        "에서 가져왔습니다. 그림은 모두 Wikimedia Commons의 퍼블릭 도메인 또는 CC 라이선스 자료이며, 도감에서 카드를 누르면 저작자와 라이선스, 원본 주소를 볼 수 있습니다.",
+        "에서 가져왔습니다. 그림은 모두 Wikimedia Commons의 퍼블릭 도메인 또는 CC 라이선스 자료입니다. 그림과 글꼴, 참고한 글의 저작자·사용 허락·원본은 화면 대신 ",
+        h(
+          "a",
+          { href: CREDITS_URL, target: "_blank", rel: "noopener" },
+          "README의 출처",
+          h("span", { class: "sr-only" }, " (새 창)"),
+        ),
+        "에 모았습니다.",
       ),
       h("p", null, "괴물과 유물, 사건은 여러 신화와 민담에서 가져온 이야기를 게임에 맞게 다시 쓴 것입니다."),
     ),

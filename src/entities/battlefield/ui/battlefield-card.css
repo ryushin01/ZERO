@@ -60,7 +60,3 @@
 .battlefield__summary {
   font-size: var(--fs-s);
 }
-
-.battlefield__source a {
-  text-transform: none;
-}
