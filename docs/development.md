@@ -106,6 +106,16 @@ E2E는 동작 줄이기(`reducedMotion: "reduce"`) 환경에서 돕니다. 화�
 
 Sentry에는 오류 내용만 보내고 사용자 정보·쿠키·헤더·쿼리 문자열, 방문 기록(세션), 이동·클릭 기록(브레드크럼), 콘솔 기록, 감싼 콜백의 인수는 모으지 않습니다. DSN이 없는 배포에서는 web-vitals도 불러오지 않습니다. Sentry를 받기 전에 난 오류는 최대 20개까지 모아 두었다가 처리되지 않은 오류로 보냅니다. 쓰는 함수만 `sentry.js`에서 다시 내보내 약 31 kB(gzip)로 받습니다. 모듈 전체를 불러오면 리플레이·피드백까지 들어가 140 kB가 됩니다.
 
+## 저장된 판과 듀얼
+
+저장된 판은 `features/run/model/run.js`의 `migrateRun`이 옛 형식을 바꾸고 `isRunUsable`이, 듀얼은 `pages/duel/model/duel.js`의 `isDuelUsable`이 확인합니다. 카드·유물·무구·동반자가 Ark 동기화로 바뀌거나 빠졌으면, 또는 전투 더미·상태 이상 칸이 어긋나면 그 기록을 버리고 처음 화면으로 갑니다. 옛 저장에 없던 전투 더미는 빈 더미로 채웁니다.
+
+상태 안의 난수는 `shared/lib/rng.js`의 `rollWith`, 손패 최대 장수는 `shared/config`의 `MAX_HAND`, 동작 줄이기 감지는 `shared/lib/motion.js`의 `prefersReducedMotion`을 씁니다.
+
+## 의존성 갱신 (Dependabot)
+
+`.github/dependabot.yml`이 npm 패키지를 매주 확인합니다. Storybook 묶음과 린트 묶음(ESLint·Steiger·FSD 플러그인)은 주 버전까지 한 PR로 묶고, 나머지 패키지는 부 버전·패치만 한 PR로 묶습니다. 그 밖의 주 버전은 따로 PR이 열립니다. GitHub Actions는 매달 올립니다. 어느 PR이든 CI가 통과할 때만 병합합니다.
+
 ## 배포
 
 Vercel 프로젝트 `zero-myth`가 GitHub에 연결되어 `main`에 합치면 프로덕션(https://zero-ryushin01.vercel.app/)에 배포합니다.
