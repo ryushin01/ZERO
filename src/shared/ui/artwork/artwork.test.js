@@ -18,6 +18,13 @@ describe("artworkAttrs", () => {
     expect(attrs?.style).toEqual({ "object-position": position });
   });
 
+  it("원본이 좁아 큰 그림도 작은 그림 너비 이하이면 한 벌만 씁니다", () => {
+    const [key] = Object.entries(artworks).find(([, [width]]) => width <= SMALL_WIDTH) ?? [];
+    const attrs = artworkAttrs(/** @type {string} */ (key));
+    expect(attrs?.srcset).toBeUndefined();
+    expect(attrs?.src).toMatch(/^\/illust\/l\//);
+  });
+
   it("첫 화면에 보일 그림은 바로 받고, 없는 대상은 null입니다", () => {
     expect(artworkAttrs("enemy:hydra", { eager: true })?.loading).toBe("eager");
     expect(artworkAttrs("figure:nobody")).toBeNull();
@@ -45,6 +52,10 @@ describe("그림 목록 (artworks.json)", () => {
         .filter((path) => !existsSync(join(root, path))),
     );
     expect(missing).toEqual([]);
+  });
+
+  it("그림을 원본보다 늘리지 않아 큰 그림의 긴 변은 800px 이하입니다", () => {
+    for (const [width, height] of Object.values(artworks)) expect(Math.max(width, height)).toBeLessThanOrEqual(800);
   });
 
   it("초점은 가로·세로 백분율입니다", () => {

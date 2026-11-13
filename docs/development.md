@@ -21,7 +21,7 @@
 카드·괴물·전장·무구 그림은 그 신화를 그린 옛 회화·판화·삽화와 박물관 소장품입니다. 모두 Wikimedia Commons의 퍼블릭 도메인·CC0·CC 라이선스 자료이고, 저작권이 남은 그림(작가 사후 70년이 지나지 않은 그림, Pinterest 같은 곳에 다시 올라온 그림)은 쓰지 않습니다.
 
 - 고른 그림: `scripts/illustrations/picks.json`에 대상 키(`figure:<slug>`, `enemy:<id>`, `field:<id>`, `arm:<id>`, `card:<id>`)마다 Commons 파일 이름과 초점(`pos`)을 적습니다. 초점은 얼굴이나 눈길이 모이는 곳으로, 카드처럼 잘라 보여 줄 때 `object-position`이 됩니다.
-- 받기: `pnpm illustrations`가 그림을 받아 `public/illust/l/`(긴 변 800px)과 `public/illust/s/`(너비 480px)에 WebP로 줄이고, 화면이 읽는 목록(`src/shared/ui/artwork/artworks.json`, 너비·높이·초점)과 출처(`scripts/illustrations/credits.json`, `docs/credits.md`)를 다시 씁니다. 이미 받은 그림은 건너뛰고, `--force`면 모두 다시 받습니다. macOS `sips`와 `cwebp`(brew install webp)가 필요합니다.
+- 받기: `pnpm illustrations`가 그림을 받아 `public/illust/l/`(긴 변 800px)과 `public/illust/s/`(너비 480px)에 WebP로 줄이고(원본보다 늘리지 않음, 투명한 부분은 종이색으로 채움), 화면이 읽는 목록(`src/shared/ui/artwork/artworks.json`, 너비·높이·초점)과 출처(`scripts/illustrations/credits.json`, `docs/credits.md`)를 다시 씁니다. 이미 받은 그림은 건너뛰고, `--force`면 모두 다시 받습니다. macOS `sips`와 `cwebp`(brew install webp)가 필요합니다.
 - 쓰기: 엔티티의 `cardArt`·`enemyArt`·`battlefieldArt`·`armamentArt`가 img 속성(`src`, `srcset`, `sizes`, 크기, 초점, 지연 받기)을 줍니다. 화면에서는 `h("img", { ...cardArt(card, { sizes: "220px" }), alt: "" })`처럼 펼쳐 씁니다. 첫 화면에 바로 보이는 그림은 `eager: true`로 받습니다.
 - 새 신: Ark 동기화로 신이 늘면 `picks.json`에 그림을 더하고 `pnpm illustrations`를 실행합니다. 그림이 없는 동안에는 서가 그림이 대신 나오고, `card/lib/illustration.test.js`가 빠진 대상을 알려 줍니다.
 - 히든 카드 유신의 그림은 그린 분의 허락을 받아 실은 파일(`public/art/hidden/`)을 그대로 씁니다.

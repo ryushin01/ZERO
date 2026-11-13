@@ -3,7 +3,7 @@ import artworks from "./artworks.json" with { type: "json" };
 /**
  * 카드·괴물·전장·무구 그림. Wikimedia Commons의 퍼블릭 도메인·CC 그림을 `pnpm illustrations`로 받아
  * `public/illust/`에 WebP로 둡니다. 큰 그림(긴 변 800px)과 작은 그림(너비 480px) 두 벌이 있어,
- * 브라우저가 보여 줄 크기에 맞는 쪽을 고릅니다.
+ * 브라우저가 보여 줄 크기에 맞는 쪽을 고릅니다. 원본보다 크게 늘리지는 않습니다.
  *
  * 대상 키: `figure:<slug>`, `enemy:<id>`, `field:<id>`, `arm:<id>`, `card:<id>`
  * 그림마다 [너비, 높이, 초점, 출처 표시?]를 적어 둡니다. 초점은 카드처럼 잘라 보여 줄 때의 object-position이고,
@@ -38,10 +38,12 @@ export function artworkAttrs(key, { sizes = "240px", eager = false } = {}) {
   const [width, height, position] = DATA[key];
   const file = key.replace(":", "-");
   const large = `/illust/l/${file}.webp`;
+  // 원본이 좁아 큰 그림이 작은 그림 너비 이하이면 두 벌이 같으므로 srcset을 쓰지 않습니다.
+  const pair = width > SMALL_WIDTH;
   return {
     src: large,
-    srcset: `/illust/s/${file}.webp ${SMALL_WIDTH}w, ${large} ${width}w`,
-    sizes,
+    srcset: pair ? `/illust/s/${file}.webp ${SMALL_WIDTH}w, ${large} ${width}w` : undefined,
+    sizes: pair ? sizes : undefined,
     width,
     height,
     style: { "object-position": position },

@@ -3,7 +3,8 @@
 ## 0.13.0 - 2026-11-13
 
 - 그림: 코드로 그린 SVG 일러스트를 걷어 내고, 카드·괴물·전장·무구 415곳에 그 신화를 그린 옛 회화·판화·삽화를 씀. Wikimedia Commons의 퍼블릭 도메인·CC0·CC 라이선스 그림만 골랐고(Pinterest처럼 출처가 불분명한 그림은 쓰지 않음), 저작자·사용 허락·원본은 `docs/credits.md`에 적음
-- `pnpm illustrations`: 고른 그림(`scripts/illustrations/picks.json`)을 Commons에서 받아 WebP 두 벌(긴 변 800px, 너비 480px)로 줄이고 출처 목록을 다시 만듦. 화면은 `srcset`으로 크기에 맞는 그림을 받고, 첫 화면 밖의 그림은 나중에 받음
+- `pnpm illustrations`: 고른 그림(`scripts/illustrations/picks.json`)을 Commons에서 받아 WebP 두 벌(긴 변 800px, 너비 480px)로 줄이고 출처 목록을 다시 만듦. 원본이 작은 그림은 늘리지 않고, 투명한 그림은 종이색 바탕으로 채움. 화면은 `srcset`으로 크기에 맞는 그림을 받고, 첫 화면 밖의 그림은 나중에 받음
+- 카드 상세: 카드 그림이 Ark 소장 그림과 같은 그림(129명)이면 Ark 자료를 또 보여 주지 않음
 - 초점: macOS Vision으로 그림마다 얼굴이나 눈길이 모이는 곳을 찾아, 카드처럼 잘라 보여 줄 때 그곳을 중심에 둠(`object-position`)
 - 정리: SVG 그리기 엔진(`shared/ui/illustration`, 1,400여 줄)과 신·괴물·무구의 그림 사양, 그림에만 쓰던 데이터(전장의 `motif`·`sky`, 무구의 `item`)를 지움. 신화권 표(`PANTHEON_REGION`)는 세력이 쓰므로 `figure/model/regions.js`로 옮김
 - 배포: Storybook 배포본이 `public`을 또 복사하지 않게 함(같은 주소의 앱 그림을 씀). 그림이 두 벌 올라가던 10MB를 덜어 냄

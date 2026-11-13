@@ -138,10 +138,21 @@ async function describe(files) {
   return info;
 }
 
-/** sips로 PNG로 바꾸며 줄이고, cwebp로 WebP를 만듭니다. 결과의 [너비, 높이]를 돌려줍니다. */
-function encode(source, target, how, size, quality, work) {
+/** 그림의 [너비, 높이] @param {string} file */
+function sizeOf(file) {
+  const out = execFileSync("sips", ["-g", "pixelWidth", "-g", "pixelHeight", file]).toString();
+  return [Number(out.match(/pixelWidth: (\d+)/)[1]), Number(out.match(/pixelHeight: (\d+)/)[1])];
+}
+
+/**
+ * sips로 PNG로 바꾸며 줄이고, cwebp로 WebP를 만듭니다. 결과의 [너비, 높이]를 돌려줍니다.
+ * sips는 작은 그림을 키우기도 하므로, 원본보다 크게 만들지 않도록 크기를 원본에 맞춰 줄입니다.
+ */
+function encode(source, target, how, size, quality, work, cap = Infinity) {
   const png = join(work, "resized.png");
-  execFileSync("sips", ["-s", "format", "png", how, String(size), source, "--out", png], { stdio: "ignore" });
+  const [w, h] = sizeOf(source);
+  const limit = how === "-Z" ? Math.min(size, Math.max(w, h)) : Math.min(size, w, cap);
+  execFileSync("sips", ["-s", "format", "png", how, String(limit), source, "--out", png], { stdio: "ignore" });
   execFileSync("cwebp", [
     "-quiet",
     "-mt",
@@ -156,8 +167,7 @@ function encode(source, target, how, size, quality, work) {
     "-o",
     target,
   ]);
-  const out = execFileSync("sips", ["-g", "pixelWidth", "-g", "pixelHeight", target]).toString();
-  return [Number(out.match(/pixelWidth: (\d+)/)[1]), Number(out.match(/pixelHeight: (\d+)/)[1])];
+  return sizeOf(target);
 }
 
 async function main() {
@@ -187,7 +197,8 @@ async function main() {
         const raw = join(work, "source");
         writeFileSync(raw, await get(meta.thumb, "buffer"));
         for (const [dir, how, px, quality] of SIZES) {
-          const wh = encode(raw, join(OUT, dir, `${name}.webp`), how, px, quality, work);
+          // 작은 그림은 큰 그림보다 넓지 않게 합니다. (세로로 긴 그림)
+          const wh = encode(raw, join(OUT, dir, `${name}.webp`), how, px, quality, work, size?.[0]);
           if (dir === "l") size = wh;
         }
         fetched++;
