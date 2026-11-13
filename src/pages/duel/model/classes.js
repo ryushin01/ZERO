@@ -21,7 +21,7 @@ export const CLASS_GROUPS = {
 };
 
 /** @type {Record<PassiveKind, (value: number) => string>} */
-export const PASSIVE_TEXT = {
+const PASSIVE_TEXT = {
   startBlock: (v) => `전투가 시작되면 방어 ${v}`,
   turnBlock: (v) => `매 턴 시작에 방어 ${v}`,
   startStrength: (v) => `전투가 시작되면 힘 ${v}`,

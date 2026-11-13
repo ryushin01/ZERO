@@ -1,3 +1,5 @@
+import { describeCombatEffect } from "#shared/lib/index.js";
+
 /**
  * 전장. 한 판은 성역(1장) → 신역(2장) → 아우터 유니버스(3장)를 지나고, 지도 곳곳에 드물게
  * 이차원의 균열이 열립니다. 성역과 신역의 장소는 NewWorld의 신화·전설 여행지에서 골랐고,
@@ -463,29 +465,9 @@ export const realmOfAct = (act) => (act === 1 ? "sanctuary" : act === 2 ? "divin
 
 /** 전장 효과를 문장으로 씁니다. @param {Pick<Battlefield, "field" | "value">} field */
 export function describeField({ field, value }) {
+  const common = describeCombatEffect(field, value);
+  if (common) return common;
   switch (field) {
-    case "startBlock":
-      return `전투가 시작되면 방어 ${value}`;
-    case "startStrength":
-      return `전투가 시작되면 힘 ${value}`;
-    case "startWeakAll":
-      return `전투가 시작되면 모든 적에게 약화 ${value}`;
-    case "startVulnAll":
-      return `전투가 시작되면 모든 적에게 취약 ${value}`;
-    case "startErosionAll":
-      return `전투가 시작되면 모든 적에게 침식 ${value}`;
-    case "startDamageAll":
-      return `전투가 시작되면 모든 적에게 피해 ${value}`;
-    case "firstDraw":
-      return `전투 첫 턴에 카드 ${value}장 더 뽑기`;
-    case "firstEnergy":
-      return `전투 첫 턴에 에너지 ${value} 더`;
-    case "turnBlock":
-      return `매 턴 시작에 방어 ${value}`;
-    case "turnHeal":
-      return `매 턴 시작에 체력 ${value} 회복`;
-    case "endHeal":
-      return `전투가 끝나면 체력 ${value} 회복`;
     case "tide":
       return `턴이 끝날 때마다 사서와 모든 적이 피해 ${value}`;
     case "enemyStrength":

@@ -144,7 +144,7 @@ const needsTarget = (effects) => effects.some((e) => ENEMY_OPS.has(e.op) && !e.a
  * @param {import("#entities/figure/@x/card.js").Figure} figure
  * @returns {CardDef}
  */
-export function buildFigureCard(figure) {
+function buildFigureCard(figure) {
   const pantheon = getPantheon(figure.pantheonSlug);
   const { domains } = figure;
   const { primary, secondary } = pickAspects(domains);

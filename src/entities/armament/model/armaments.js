@@ -702,7 +702,7 @@ export function getArmament(id) {
 }
 
 /** 대기시간이 이만큼이면 전투마다 한 번만 쓰는 무구입니다 (바사비 샥티, 아라시의 화살) */
-export const ONCE = 99;
+const ONCE = 99;
 
 /** @param {ArmamentDef} arm */
 export const isOncePerBattle = (arm) => arm.cooldown >= ONCE;
