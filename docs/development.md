@@ -114,7 +114,7 @@ Sentry에는 오류 내용만 보내고 사용자 정보·쿠키·헤더·쿼리
 
 ## 의존성 갱신 (Dependabot)
 
-`.github/dependabot.yml`이 npm 패키지를 매주 확인합니다. Storybook 묶음, 린트 묶음(ESLint·Steiger·FSD 플러그인), 나머지 부 버전·패치 묶음으로 나눠 PR을 열고, GitHub Actions는 매달 올립니다. 주 버전은 따로 PR이 열리므로 CI가 통과할 때만 병합합니다.
+`.github/dependabot.yml`이 npm 패키지를 매주 확인합니다. Storybook 묶음과 린트 묶음(ESLint·Steiger·FSD 플러그인)은 주 버전까지 한 PR로 묶고, 나머지 패키지는 부 버전·패치만 한 PR로 묶습니다. 그 밖의 주 버전은 따로 PR이 열립니다. GitHub Actions는 매달 올립니다. 어느 PR이든 CI가 통과할 때만 병합합니다.
 
 ## 배포
 
