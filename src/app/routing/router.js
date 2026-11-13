@@ -8,7 +8,7 @@
  *   #/guide     도움말
  *   #/duel      2인 듀얼
  */
-export const ROUTES = ["title", "new", "run", "codex", "guide", "duel"];
+const ROUTES = ["title", "new", "run", "codex", "guide", "duel"];
 
 export function parseRoute(hash = window.location.hash) {
   const path = hash.replace(/^#\/?/, "").split("?")[0];

@@ -1,4 +1,5 @@
 import { getPantheon, PANTHEON_REGION } from "#entities/figure/@x/faction.js";
+import { describeCombatEffect } from "#shared/lib/index.js";
 
 /**
  * 세력: 같은 신화 계열의 신을 덱에 모으면 그 계열 전체의 힘이 깨어납니다.
@@ -103,29 +104,9 @@ export function factionOf(pantheonSlug) {
 
 /** 세력 효과를 문장으로 @param {PerkKind} perk @param {number} value */
 export function describePerk(perk, value) {
+  const common = describeCombatEffect(perk, value);
+  if (common) return common;
   switch (perk) {
-    case "startBlock":
-      return `전투가 시작되면 방어 ${value}`;
-    case "startStrength":
-      return `전투가 시작되면 힘 ${value}`;
-    case "startWeakAll":
-      return `전투가 시작되면 모든 적에게 약화 ${value}`;
-    case "startVulnAll":
-      return `전투가 시작되면 모든 적에게 취약 ${value}`;
-    case "startErosionAll":
-      return `전투가 시작되면 모든 적에게 침식 ${value}`;
-    case "startDamageAll":
-      return `전투가 시작되면 모든 적에게 피해 ${value}`;
-    case "firstDraw":
-      return `전투 첫 턴에 카드 ${value}장 더 뽑기`;
-    case "firstEnergy":
-      return `전투 첫 턴에 에너지 ${value} 더`;
-    case "turnBlock":
-      return `매 턴 시작에 방어 ${value}`;
-    case "turnHeal":
-      return `매 턴 시작에 체력 ${value} 회복`;
-    case "endHeal":
-      return `전투가 끝나면 체력 ${value} 회복`;
     case "resonanceBoost":
       return `공명이 ${value}%p 더 강해짐`;
     default:

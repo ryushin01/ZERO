@@ -63,7 +63,7 @@ function score(state, instance) {
 }
 
 /** @param {import("../model/combat.js").CombatState} start */
-export function autoBattle(start, maxTurns = 60) {
+function autoBattle(start, maxTurns = 60) {
   let state = start;
   while (!state.outcome && state.turn <= maxTurns) {
     for (let guard = 0; guard < 20 && !state.outcome; guard += 1) {

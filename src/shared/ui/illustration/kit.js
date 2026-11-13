@@ -8,8 +8,8 @@
  * 미니어처처럼 받침 위에 선 전신 구도. 좌표계는 가로 200, 세로 260이고 받침 윗면은 y=232입니다.
  */
 
-export const W = 200;
-export const H = 260;
+const W = 200;
+const H = 260;
 export const GROUND = 232;
 
 /** 시드 문자열을 숫자로 @param {string} text */

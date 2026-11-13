@@ -22,8 +22,8 @@ import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
  * }} DuelState
  */
 
-export const DUEL_HAND = 5;
-export const DUEL_ENERGY = 3;
+const DUEL_HAND = 5;
+const DUEL_ENERGY = 3;
 /** 덱: 클래스 속성의 신·영웅 카드 10장 + 필봉 2장 + 서가 2장 */
 const FIGURE_COUNT = 10;
 

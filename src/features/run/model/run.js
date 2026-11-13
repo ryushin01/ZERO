@@ -35,7 +35,7 @@ import { getEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
  * }} Run
  */
 
-export const RUN_VERSION = 2;
+const RUN_VERSION = 2;
 export const START_HP = 72;
 
 /** @param {Run} run */
@@ -656,7 +656,7 @@ const isIdList = (/** @type {unknown} */ list, /** @type {(id: string) => boolea
  * 하나라도 없으면 화면을 그리다 오류가 나므로 이어 할 수 없습니다.
  * @param {any} run
  */
-export function isRunUsable(run) {
+function isRunUsable(run) {
   if (typeof run.seed !== "number" || typeof run.hp !== "number" || !getPantheon(run.guide)) return false;
   if (!isCardList(run.deck) || !isIdList(run.relics, hasRelic) || !isIdList(run.armaments, hasArmament)) return false;
   const combat = run.combat;
