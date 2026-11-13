@@ -5,6 +5,7 @@ import { describeAction, enemyIllustration, ENEMIES } from "#entities/enemy/inde
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { CONTINENT_LABEL, CONTINENTS, figuresOf, getFigure, getPantheon, PANTHEONS } from "#entities/figure/index.js";
 import { relicCard, RELICS } from "#entities/relic/index.js";
+import { CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
 
 import { filterCards } from "../model/filter.js";
@@ -12,6 +13,10 @@ import { filterCards } from "../model/filter.js";
 import "./codex-page.css";
 
 /** @typedef {import("#app/render/app.js").PageContext} Ctx */
+
+/** 참고한 글의 목록은 화면 대신 README의 출처 표에 있습니다. */
+const creditsLink = () =>
+  h("a", { href: CREDITS_URL, target: "_blank", rel: "noopener" }, "출처", h("span", { class: "sr-only" }, " (새 창)"));
 
 const TABS = [
   { id: "cards", label: "신과 영웅" },
@@ -244,7 +249,9 @@ function armamentsTab() {
     h(
       "p",
       { class: "codex__intro muted" },
-      "신화 속 무구는 전투에서 에너지를 써서 직접 휘두르고, 쓰고 나면 몇 턴 쉬어야 합니다. 주인 신의 카드를 낸 턴에 쓰면 더 강해집니다. 이야기와 생김새는 위키백과와 나무위키를 참고했습니다.",
+      "신화 속 무구는 전투에서 에너지를 써서 직접 휘두르고, 쓰고 나면 몇 턴 쉬어야 합니다. 주인 신의 카드를 낸 턴에 쓰면 더 강해집니다. 이야기와 생김새는 위키백과와 나무위키를 참고했고, 무구마다 참고한 글은 ",
+      creditsLink(),
+      "에 모았습니다.",
     ),
     h(
       "ul",
@@ -263,7 +270,9 @@ function battlefieldsTab() {
     h(
       "p",
       { class: "codex__intro muted" },
-      "한 판은 장마다 그 영역의 전장 하나를 지납니다. 전장마다 효과가 하나 있고, 그 전장이 속한 신화권의 카드는 지형 공명으로 피해·방어·회복·침식이 25% 늘어납니다. 성역과 신역의 장소는 NewWorld의 신화·전설 여행지에서 골랐습니다.",
+      "한 판은 장마다 그 영역의 전장 하나를 지납니다. 전장마다 효과가 하나 있고, 그 전장이 속한 신화권의 카드는 지형 공명으로 피해·방어·회복·침식이 25% 늘어납니다. 성역과 신역의 장소는 NewWorld의 신화·전설 여행지에서 골랐고, 소개에 참고한 위키백과 글은 ",
+      creditsLink(),
+      "에 모았습니다.",
     ),
     /** @type {const} */ (["sanctuary", "divine", "outer"]).map((realm) =>
       h(

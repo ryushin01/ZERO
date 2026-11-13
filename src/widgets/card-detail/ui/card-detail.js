@@ -4,7 +4,7 @@ import { ASPECTS, cardFace, cardIllustration, getCard, HIDDEN_ART, KEYWORDS } fr
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { CONTINENT_LABEL, getArt, getFigure, getPantheon, kindLabel } from "#entities/figure/index.js";
-import { arkFigureUrl, arkPantheonUrl } from "#shared/config/index.js";
+import { arkFigureUrl, arkPantheonUrl, CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
 import { openDialog } from "#shared/ui/index.js";
 
@@ -58,20 +58,11 @@ export function cardDetail(cardId) {
     h(
       "div",
       { class: "card-detail__art" },
-      h(
-        "figure",
-        null,
-        h("img", {
-          class: "card-detail__illust",
-          src: cardIllustration(card),
-          alt: hiddenArt?.alt ?? `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
-        }),
-        h(
-          "figcaption",
-          { class: "card-detail__credit" },
-          hiddenArt ? `${card.name} 일러스트 · ${hiddenArt.credit}` : "ZERO 일러스트 · 코드로 그린 그림",
-        ),
-      ),
+      h("img", {
+        class: "card-detail__illust",
+        src: cardIllustration(card),
+        alt: hiddenArt?.alt ?? `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
+      }),
       art
         ? h(
             "figure",
@@ -80,21 +71,14 @@ export function cardDetail(cardId) {
             h("img", { src: art.src, alt: art.alt, loading: "lazy" }),
             h(
               "p",
-              { class: "card-detail__credit" },
+              { class: "card-detail__caption" },
               h("strong", null, art.title),
               [art.dateLabel, art.holder].filter(Boolean).join(" · "),
-              h(
-                "span",
-                null,
-                // 저작자를 알 수 없는 자료는 이름 없이 라이선스부터 적습니다.
-                art.credit.artist ? `${art.credit.artist} · ` : "",
-                art.credit.licenseUrl ? external(art.credit.licenseUrl, art.credit.license) : art.credit.license,
-                " · ",
-                external(art.credit.sourceUrl, "Wikimedia Commons"),
-              ),
             ),
           )
         : null,
+      // 그림의 저작자·사용 허락·원본은 화면 대신 README의 출처 표에 모읍니다.
+      h("p", { class: "card-detail__credit" }, external(CREDITS_URL, "그림 출처")),
     ),
     h(
       "div",

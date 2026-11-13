@@ -1,6 +1,6 @@
 {
   "name": "zero",
-  "version": "0.12.12",
+  "version": "0.12.13",
   "private": true,
   "description": "Ark의 신과 영웅 133명을 카드로 쓰는 순수 자바스크립트 신화 덱빌딩 게임",
   "type": "module",
@@ -10,6 +10,7 @@
     "build": "vite build && storybook build -o dist/storybook --quiet",
     "preview": "vite preview --port 4173",
     "sync:ark": "node scripts/sync-ark.mjs",
+    "credits": "node scripts/credits.mjs",
     "lint": "eslint .",
     "lint:fsd": "steiger ./src",
     "check": "tsc -p tsconfig.json",

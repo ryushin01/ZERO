@@ -6,3 +6,5 @@ pnpm-lock.yaml
 src/entities/figure/data
 public
 .lighthouseci
+# pnpm credits가 데이터에서 만드는 파일
+docs/credits.md

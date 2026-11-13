@@ -12,13 +12,16 @@ describe("cardDetail", () => {
     expect(link?.textContent).toContain("(새 창)");
   });
 
-  it("새 일러스트에 대체 텍스트를 붙이고, Ark 소장 자료는 출처와 함께 보여 줍니다", () => {
+  it("새 일러스트에 대체 텍스트를 붙이고 Ark 소장 자료를 보여 주되, 출처는 화면 대신 README로 잇습니다", () => {
     const el = cardDetail("odin");
     expect(el.querySelector(".card-detail__illust")?.getAttribute("alt")).toContain("오딘의 일러스트");
     const source = el.querySelector(".card-detail__source");
     expect(source?.textContent).toContain("Ark 소장 자료");
     expect(source?.querySelector("img")?.getAttribute("alt")).toBeTruthy();
-    expect(source?.textContent).toContain("Wikimedia Commons");
+    expect(el.textContent).not.toContain("Wikimedia Commons");
+    const credit = el.querySelector(".card-detail__credit a");
+    expect(credit?.getAttribute("href")).toBe("https://github.com/ryushin01/ZERO#출처");
+    expect(credit?.textContent).toContain("(새 창)");
   });
 
   it("세력과 주인 신의 무구를 보여 줍니다", () => {

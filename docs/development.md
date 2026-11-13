@@ -60,6 +60,15 @@
 - 그림은 macOS `sips`로 긴 변 420px JPEG로 줄여 `public/art/`에 둡니다. (289점, 약 10MB)
 - 탈것·동반자 짝(`figure/model/bonds.ts`)을 `src/entities/bond/data/bonds.json`에 씁니다. 짝마다 붙는 효과는 ZERO의 게임 규칙이라 `entities/bond/model/bonds.js`의 `BOND_RULES`에 둡니다.
 - 결과물을 커밋하므로 Ark 저장소가 없어도 빌드됩니다.
+- 끝에서 출처 목록(`docs/credits.md`)도 다시 만듭니다.
+
+## 출처
+
+화면에는 그림·글꼴·참고 자료의 출처를 적지 않습니다. 카드 상세와 도감, 안내에는 README의 출처 표로 가는 링크(`CREDITS_URL`) 하나만 둡니다.
+
+- README의 `## 출처`: 글꼴, 자료 묶음별 저작자·사용 허락·원본을 한 표로 적습니다.
+- `docs/credits.md`: 그림 한 점, 참고한 글 하나까지 적은 전체 목록입니다. `pnpm credits`가 `art.json`, 무구의 `sources`, 전장의 `source`에서 만듭니다. 직접 고치지 않으며 Prettier에서도 뺍니다.
+- 데이터를 바꾸고 목록을 다시 만들지 않으면 `scripts/credits.test.js`가 실패합니다.
 
 ## 이름 글꼴
 
