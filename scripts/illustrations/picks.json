@@ -1,0 +1,1662 @@
+{
+  "figure:zeus": {
+    "file": "Jean Auguste Dominique Ingres - Jupiter et Thétis.jpg",
+    "pos": "50% 17%"
+  },
+  "figure:athena": {
+    "file": "Pallas Athene by Franz von Stuck, 1898.jpg",
+    "pos": "50% 43%"
+  },
+  "figure:apollo": {
+    "file": "Briton Rivière - Phoebus Apollo, 1895.jpg",
+    "pos": "48% 29%"
+  },
+  "figure:aphrodite": {
+    "file": "Botticelli-Venus and Mars (cropped2).jpg",
+    "pos": "61% 18%"
+  },
+  "figure:poseidon": {
+    "file": "Neptune’s Horses (1892) by Walter Crane.jpg",
+    "pos": "50% 40%"
+  },
+  "figure:odin": {
+    "file": "Georg von Rosen - Oden som vandringsman, 1886 (Odin, the Wanderer).jpg",
+    "pos": "52% 36%"
+  },
+  "figure:thor": {
+    "file": "Mårten Eskil Winge - Tor's Fight with the Giants - Google Art Project.jpg",
+    "pos": "49% 20%"
+  },
+  "figure:freyja": {
+    "file": "Freja Seeking her Husband (Nils Blommér) - Nationalmuseum - 18201.tif",
+    "pos": "44% 20%"
+  },
+  "figure:loki": {
+    "file": "Loke and Sigyn (Mårten Winge) - Nationalmuseum - 18041.tif",
+    "pos": "60% 30%"
+  },
+  "figure:osiris": {
+    "file": "Osiris-tomb-of-Nefertari.jpg",
+    "pos": "47% 32%"
+  },
+  "figure:isis": {
+    "file": "Queen Nefertari being led by Isis MET DP167142.jpg",
+    "pos": "48% 34%"
+  },
+  "figure:anubis": {
+    "file": "El pesado del corazón en el Papiro de Hunefer.jpg",
+    "pos": "50% 33%"
+  },
+  "figure:gilgamesh": {
+    "file": "Hero mastering a lion, AO19862 (1818).jpg",
+    "pos": "53% 26%"
+  },
+  "figure:ishtar": {
+    "file": "Myths and legends of Babylonia and Assyria (1916) (14801964123).jpg",
+    "pos": "50% 14%"
+  },
+  "figure:marduk": {
+    "file": "Il dio Ninurta e il mostro Chaos.jpg",
+    "pos": "47% 31%"
+  },
+  "figure:vishnu": {
+    "file": "\"Garuda Vahan Vishnu,\" from the Ravi Varma studio, c.1910's Source- ebay, Oct. 2009.jpg",
+    "pos": "50% 22%"
+  },
+  "figure:shiva": {
+    "file": "A version from the Ravi Varma press- \"Shankar,\" c.1910's.jpg",
+    "pos": "47% 31%"
+  },
+  "figure:ganesha": {
+    "file": "Ganesh himself has two wives, Riddhi and Siddhi, as in this domestic pose from the Ravi Varma Press, c.1910.jpg",
+    "pos": "62% 46%"
+  },
+  "figure:izanagi-izanami": {
+    "file": "Izanami and Izanagi create the 1st Japanese isles, Kobayashi Eitaku MFA 1880s.jpg",
+    "pos": "50% 18%"
+  },
+  "figure:amaterasu": {
+    "file": "Amaterasu cave wide.jpg",
+    "pos": "46% 29%"
+  },
+  "figure:susanoo": {
+    "file": "Yoshitoshi Nihon-ryakushi Susanoo-no-mikoto.jpg",
+    "pos": "51% 32%"
+  },
+  "figure:raijin": {
+    "file": "Tawaraya Sōtatsu - The Gods of Wind and Thunder (left screen).jpg",
+    "pos": "40% 26%"
+  },
+  "figure:hera": {
+    "file": "Peter Paul Rubens - Juno and Argus - WGA20280.jpg",
+    "pos": "54% 20%"
+  },
+  "figure:artemis": {
+    "file": "Diana the Huntress).jpg",
+    "pos": "49% 24%"
+  },
+  "figure:hermes": {
+    "file": "Diego Velázquez - Mercury and Argus - WGA24471.jpg",
+    "pos": "48% 36%"
+  },
+  "figure:hades": {
+    "file": "Rembrandt - The Rape of Proserpine - Google Art Project.jpg",
+    "pos": "35% 42%"
+  },
+  "figure:baldr": {
+    "file": "Baldr dead by Eckersberg.jpg",
+    "pos": "70% 33%"
+  },
+  "figure:heimdall": {
+    "file": "Heimdall an der Himmelsbrücke.jpg",
+    "pos": "51% 31%"
+  },
+  "figure:ra": {
+    "file": "Maler der Grabkammer der Nefertari 001.jpg",
+    "pos": "45% 34%"
+  },
+  "figure:horus": {
+    "file": "Horus - Temple of Seti I (3500450346).jpg",
+    "pos": "52% 32%"
+  },
+  "figure:thoth": {
+    "file": "Thoth and Khepri from the Papyrus of Imenemsauf.jpg",
+    "pos": "51% 34%"
+  },
+  "figure:enki": {
+    "file": "Adda Seal Akkadian Empire 2300 BC.jpg",
+    "pos": "49% 34%"
+  },
+  "figure:tiamat": {
+    "file": "Chaos Monster and Sun God.png",
+    "pos": "49% 30%"
+  },
+  "figure:brahma": {
+    "file": "Brahma in the center Devaloka a religious print from the Ravi Varma Press,1910's.jpg",
+    "pos": "53% 30%"
+  },
+  "figure:krishna": {
+    "file": "17.02 Krishna Kaliya.tif",
+    "pos": "52% 27%"
+  },
+  "figure:fujin": {
+    "file": "Tawaraya Sōtatsu - The Gods of Wind and Thunder (right screen).jpg",
+    "pos": "58% 29%"
+  },
+  "figure:inari": {
+    "file": "A man confronted with an apparition of the Fox goddess.jpg",
+    "pos": "51% 29%"
+  },
+  "figure:pangu": {
+    "file": "Pangu.jpg",
+    "pos": "48% 51%"
+  },
+  "figure:nuwa": {
+    "file": "Anonymous-Fuxi and Nüwa.jpg",
+    "pos": "51% 30%"
+  },
+  "figure:xiwangmu": {
+    "file": "Kano Osanobu - Queen Mother of the West - 36.100.99 - Metropolitan Museum of Art.jpg",
+    "pos": "53% 35%"
+  },
+  "figure:change": {
+    "file": "Chang E, The Moon Goddess.jpg",
+    "pos": "43% 28%"
+  },
+  "figure:cernunnos": {
+    "file": "Gundestrupkedlen- 00054 (cropped).jpg",
+    "pos": "51% 36%"
+  },
+  "figure:cuchulainn": {
+    "file": "Cuchulain in Battle.jpg",
+    "pos": "47% 27%"
+  },
+  "figure:brigid": {
+    "file": "John Duncan (1913) Saint Bride.jpg",
+    "pos": "24% 27%"
+  },
+  "figure:morrigan": {
+    "file": "Morrigan.jpg",
+    "pos": "52% 33%"
+  },
+  "figure:quetzalcoatl": {
+    "file": "Quetzalcoatl and Tezcatlipoca.jpg",
+    "pos": "49% 38%"
+  },
+  "figure:tezcatlipoca": {
+    "file": "Codex Borgia page 17.jpg",
+    "pos": "50% 30%"
+  },
+  "figure:huitzilopochtli": {
+    "file": "Huitzilopochtli, the Principal Aztec God WDL6725.png",
+    "pos": "44% 33%"
+  },
+  "figure:tlaloc": {
+    "file": "Tlaloc Codex Borgia.jpg",
+    "pos": "48% 33%"
+  },
+  "figure:dangun": {
+    "file": "Portrait of Dangun.jpg",
+    "pos": "57% 27%"
+  },
+  "figure:bari": {
+    "file": "Spirit of a Noble Woman (Probably Princess Pari) and Attendant LACMA M.2000.15.11.jpg",
+    "pos": "49% 36%"
+  },
+  "figure:sansin": {
+    "file": "Brooklyn Museum - Mountain Spirit (Sanshin).jpg",
+    "pos": "47% 39%"
+  },
+  "figure:jeseok": {
+    "file": "Painting of Jeseok at Yongsan-gu Nam I shrine.jpg",
+    "pos": "79% 32%"
+  },
+  "figure:vainamoinen": {
+    "file": "Akseli Gallen-Kallela - Head of Väinämöinen.jpg",
+    "pos": "46% 42%"
+  },
+  "figure:ilmarinen": {
+    "file": "Akseli Gallen-Kallela - Sammon taonta - A I 513 - Finnish National Gallery.jpg",
+    "pos": "52% 36%"
+  },
+  "figure:louhi": {
+    "file": "Sammon puolustus.jpg",
+    "pos": "49% 32%"
+  },
+  "figure:lemminkainen": {
+    "file": "Akseli Gallen-Kallela - Lemminkäinen's Mother - Google Art Project.jpg",
+    "pos": "58% 32%"
+  },
+  "figure:itzamna": {
+    "file": "Codex dresdensis lacambalam itzamná.jpg",
+    "pos": "49% 33%"
+  },
+  "figure:kukulkan": {
+    "file": "Chichen Itza, El Castillo (14180679857).jpg",
+    "pos": "45% 34%"
+  },
+  "figure:chaac": {
+    "file": "Le dieu Chaac, image 12 du codex de Dresde.jpg",
+    "pos": "46% 38%"
+  },
+  "figure:maize-god": {
+    "file": "Maya maize god statue.jpg",
+    "pos": "46% 44%"
+  },
+  "figure:dionysus": {
+    "file": "Titian - Bacchus and Ariadne - Google Art Project.jpg",
+    "pos": "48% 39%"
+  },
+  "figure:hephaestus": {
+    "file": "Velázquez - La Fragua de Vulcano (Museo del Prado, 1630).jpg",
+    "pos": "42% 25%"
+  },
+  "figure:heracles": {
+    "file": "Hércules lucha con el león de Nemea, por Zurbarán.jpg",
+    "pos": "55% 26%"
+  },
+  "figure:medusa": {
+    "file": "Caravaggio - Medusa - Google Art Project.jpg",
+    "pos": "53% 49%"
+  },
+  "figure:set": {
+    "file": "Horus and Seth crowning Ramesses III, detail of Seth.JPG",
+    "pos": "49% 35%"
+  },
+  "figure:hathor": {
+    "file": "Ramesses III and Prince Amenherkhepeshef before Hathor MET DT11787.jpg",
+    "pos": "52% 36%"
+  },
+  "figure:bastet": {
+    "file": "Statuetta della dea Bastet SA18884.tif",
+    "pos": "48% 16%"
+  },
+  "figure:lakshmi": {
+    "file": "Raja Ravi Varma, Goddess Lakshmi, 1896.jpg",
+    "pos": "51% 19%"
+  },
+  "figure:hanuman": {
+    "file": "Hanuman fetches the herb-bearing mountain, in a print from the Ravi Varma Press, 1910's.jpg",
+    "pos": "52% 28%"
+  },
+  "figure:durga": {
+    "file": "Durga Mahishasura-mardini, the slayer of the buffalo demon.jpg",
+    "pos": "75% 85%"
+  },
+  "figure:frigg": {
+    "file": "FriggSpinning.jpg",
+    "pos": "46% 26%"
+  },
+  "figure:tyr": {
+    "file": "SÁM 66, 78v, Fenrir and Týr.jpg",
+    "pos": "50% 27%"
+  },
+  "figure:ahura-mazda": {
+    "file": "Farvahar.JPG",
+    "pos": "53% 32%"
+  },
+  "figure:mithra": {
+    "file": "Fresque Mithraeum Marino.jpg",
+    "pos": "51% 36%"
+  },
+  "figure:anahita": {
+    "file": "Anahita Vessel, 300-500 AD, Sasanian, Iran, silver and gilt - Cleveland Museum of Art - DSC08130.JPG",
+    "pos": "50% 35%"
+  },
+  "figure:baal": {
+    "file": "Baal thunderbolt Louvre AO15775.jpg",
+    "pos": "49% 29%"
+  },
+  "figure:astarte": {
+    "file": "Astarte Syriaca Rossetti.jpg",
+    "pos": "47% 21%"
+  },
+  "figure:teshub": {
+    "file": "Relief of Teshub, the storm-god.jpg",
+    "pos": "48% 29%"
+  },
+  "figure:illuyanka": {
+    "file": "Anatolian Civilizations Museum slaying of the serpent Illuyanka by the Storm God in 2011 03.jpg",
+    "pos": "50% 33%"
+  },
+  "figure:allat": {
+    "file": "Allat Palmyra RGZM 3369.jpg",
+    "pos": "50% 29%"
+  },
+  "figure:dushara": {
+    "file": "Dhushara.JPG",
+    "pos": "52% 27%"
+  },
+  "figure:perun": {
+    "file": "Perun Gromoverzhecz by Andrey Shishkin.jpg",
+    "pos": "49% 27%"
+  },
+  "figure:svetovid": {
+    "file": "Svetovit by Ludwig Albrecht Gebhardi.png",
+    "pos": "51% 36%"
+  },
+  "figure:baba-yaga": {
+    "file": "Bilibin. Baba Yaga.jpg",
+    "pos": "56% 34%"
+  },
+  "figure:perkunas": {
+    "file": "Mikalojus Konstantinas Ciurlionis - PERKUNAS (THOR) - 1909.jpg",
+    "pos": "49% 27%"
+  },
+  "figure:laima": {
+    "file": "Mikalojus Konstantinas Ciurlionis - FAIRY TALE (FAIRY TALE OF KINGS) - 1909.jpg",
+    "pos": "50% 39%"
+  },
+  "figure:kalevipoeg": {
+    "file": "TKM 2141 B Kristjan Raud -- Kalevipoeg põrgu väravas.jpg",
+    "pos": "47% 26%"
+  },
+  "figure:vanapagan": {
+    "file": "TKM 2797B Kristjan Raud - Kalevipoeg ja Vanapagan.jpg",
+    "pos": "54% 41%"
+  },
+  "figure:tinia": {
+    "file": "Tinia Staatliche Antikensammlungen München 2013.jpg",
+    "pos": "51% 31%"
+  },
+  "figure:charun": {
+    "file": "Achilles' Sacrifice of Trojan Prisoners.jpg",
+    "pos": "52% 29%"
+  },
+  "figure:menrva": {
+    "file": "Etruscan mirror with Hercle Menrva Apulu Detail.jpg",
+    "pos": "49% 33%"
+  },
+  "figure:snake-goddess": {
+    "file": "Minoan snake goddess 1.jpg",
+    "pos": "51% 31%"
+  },
+  "figure:mistress-of-animals": {
+    "file": "Artemis as Potnia theron, Boeotian early orientalizing amphora, NAMA 220, 225651.jpg",
+    "pos": "51% 31%"
+  },
+  "figure:anahit": {
+    "file": "T.E. Macklin Aphrodite bronze mask.jpg",
+    "pos": "42% 45%"
+  },
+  "figure:vahagn": {
+    "file": "Birth of Vahagn Zabelle Boyajian.jpg",
+    "pos": "51% 33%"
+  },
+  "figure:turul": {
+    "file": "Turul Uzhhorod Castle 2015 G1.jpg",
+    "pos": "44% 31%"
+  },
+  "figure:emese": {
+    "file": "Emese álma.jpg",
+    "pos": "63% 39%"
+  },
+  "figure:weland": {
+    "file": "Wayland the Smith, wearing the wings of he had fashined -.jpg",
+    "pos": "56% 10%"
+  },
+  "figure:beowulf": {
+    "file": "Beowulf and the dragon.jpg",
+    "pos": "52% 34%"
+  },
+  "figure:thracian-heros": {
+    "file": "Relief of a Thracian horseman, Marble, early 1st Century CE Thessaloniki.jpg",
+    "pos": "13% 23%"
+  },
+  "figure:zalmoxis": {
+    "file": "The Golden Helmet of Coţofeneşti - National Museum of Romanian History (11321201516).jpg",
+    "pos": "50% 29%"
+  },
+  "figure:shango": {
+    "file": "Shango staff, oshe Shango, World Museum Liverpool.JPG",
+    "pos": "10% 21%"
+  },
+  "figure:eshu": {
+    "file": "Figure of deity Eshu, Yoruba, Nigeria, end of 19th century - Staatliches Museum für Völkerkunde München - DSC08551.JPG",
+    "pos": "50% 32%"
+  },
+  "figure:orunmila": {
+    "file": "Brooklyn Museum 75.147.1 Divination Tray Opon Ifa.jpg",
+    "pos": "51% 34%"
+  },
+  "figure:nommo": {
+    "file": "Dogon sculpture-73.1977.6.1-DSC00255-58-black.jpg",
+    "pos": "50% 38%"
+  },
+  "figure:amma": {
+    "file": "Figure- Seated Couple MET DT1217.jpg",
+    "pos": "49% 31%"
+  },
+  "figure:gu": {
+    "file": "Benin, fon, il dio gou protettore del ferro battuto e della guerra, ante 1858, artista akati ekplékendo, 01.JPG",
+    "pos": "52% 25%"
+  },
+  "figure:mawu-lisa": {
+    "file": "Bas-relief d'une résidence du quartier de Gbécon-Hounli, non loin du palais princier de Guézo, figure du cavalier acrobate Aloukiki - A63610S.jpg",
+    "pos": "50% 29%"
+  },
+  "figure:inti": {
+    "file": "Cuzco.- Temple Koricancha cosmologie Inca, (2).jpg",
+    "pos": "49% 31%"
+  },
+  "figure:viracocha": {
+    "file": "Bol-tihuanaco-sonnentor.jpg",
+    "pos": "53% 34%"
+  },
+  "figure:pachamama": {
+    "file": "20170808 Bolivia 1411 Potosí sRGB (26204035019).jpg",
+    "pos": "50% 29%"
+  },
+  "figure:raven": {
+    "file": "Totemic raven carving (fragment) in the Visitor Center, Sitka National Historical Park,.jpg",
+    "pos": "51% 35%"
+  },
+  "figure:were-jaguar": {
+    "file": "Olmec - Carved Bowl with Jaguar Dragon Motif - Walters 482797.jpg",
+    "pos": "48% 44%"
+  },
+  "figure:cocijo": {
+    "file": "Zapotec - Effigy Urn of Cocijo - Walters 482788.jpg",
+    "pos": "48% 33%"
+  },
+  "figure:eight-deer": {
+    "file": "Codex Zouche-Nuttall Page 75.png",
+    "pos": "55% 32%"
+  },
+  "figure:maui": {
+    "file": "Maui Snaring the Sun by Arman Tateos Manookian, c. 1927, drawing, Honolulu Museum of Art.jpg",
+    "pos": "53% 33%"
+  },
+  "figure:tangaroa": {
+    "file": "Handbook to the ethnographical collections (1910) (14596837587).jpg",
+    "pos": "50% 30%"
+  },
+  "figure:ku": {
+    "file": "Kuka'ilimoku.jpg",
+    "pos": "48% 36%"
+  },
+  "figure:makemake": {
+    "file": "Chile-03609 - Make-make (49072531058).jpg",
+    "pos": "50% 50%"
+  },
+  "figure:moai": {
+    "file": "Hodges easter-island.jpg",
+    "pos": "49% 34%"
+  },
+  "figure:kimun-kamuy": {
+    "file": "Ainu-iomante-bear-spirit-sending-ceremony-by-Hirasawa-Byozan-1875.png",
+    "pos": "52% 33%"
+  },
+  "figure:gesar": {
+    "file": "Gesar of Ling riding a reindeer. Distemper painting. Wellcome L0040370.jpg",
+    "pos": "53% 29%"
+  },
+  "figure:palden-lhamo": {
+    "file": "Shri (Palden Lhamo) 1750-1850 LACMA.jpg",
+    "pos": "49% 31%"
+  },
+  "figure:thanh-giong": {
+    "file": "Tranh Đông Hồ vẽ Phù Đổng Thiên Vương.jpg",
+    "pos": "48% 29%"
+  },
+  "figure:lac-long-quan": {
+    "file": "Phù điêu Quốc tổ Lạc Long Quân dẫn 50 người con xuống biển.jpg",
+    "pos": "53% 30%"
+  },
+  "figure:thotsakan": {
+    "file": "Ravana.jpg",
+    "pos": "51% 30%"
+  },
+  "figure:mae-phosop": {
+    "file": "Nangphosop.jpg",
+    "pos": "50% 37%"
+  },
+  "figure:mahagiri": {
+    "file": "Mahagiri Nat.jpg",
+    "pos": "38% 12%"
+  },
+  "figure:thagyamin": {
+    "file": "Thagyamin Nat.jpg",
+    "pos": "52% 28%"
+  },
+  "figure:barong": {
+    "file": "Pengecoh Makhluk Halus, Barong Bali.jpg",
+    "pos": "55% 26%"
+  },
+  "figure:rangda": {
+    "file": "Tari rangda.jpg",
+    "pos": "55% 41%"
+  },
+  "figure:dewi-sri": {
+    "file": "Dewi Sri Lakshmi Ancient Java in Sonobudoyo.jpg",
+    "pos": "50% 40%"
+  },
+  "figure:hwanin": {
+    "file": "Mansindo (萬神圖), early 19th-c. Korean shamanic painting.jpg",
+    "pos": "48% 28%"
+  },
+  "figure:hwanung": {
+    "file": "내왓당 무신도 천자위.jpg",
+    "pos": "45% 29%"
+  },
+  "figure:ungnyeo": {
+    "file": "Goguryeo-Gakjeochong-Ssireumdo-01.jpg",
+    "pos": "51% 31%"
+  },
+  "figure:haemosu": {
+    "file": "Nüwa Gaogouli tomb mural.jpg",
+    "pos": "51% 32%"
+  },
+  "figure:yuhwa": {
+    "file": "Lady Yuhwa and King Geumwa.png",
+    "pos": "49% 32%"
+  },
+  "figure:dongmyeong": {
+    "file": "Goguryeo tomb mural.jpg",
+    "pos": "52% 31%"
+  },
+  "figure:hyeokgeose": {
+    "file": "초등대한역사 제2편 2.jpg",
+    "pos": "70% 42%"
+  },
+  "figure:suro": {
+    "file": "초등대한역사 제2편 14.jpg",
+    "pos": "35% 45%"
+  },
+  "figure:seolmundae": {
+    "file": "내왓당 무신도 홍아위.jpg",
+    "pos": "51% 24%"
+  },
+  "figure:samsin": {
+    "file": "Hyewon-Munyeo.sinmu.jpg",
+    "pos": "59% 37%"
+  },
+  "figure:jacheongbi": {
+    "file": "내왓당 무신도 중전위.jpg",
+    "pos": "51% 32%"
+  },
+  "figure:gangnim": {
+    "file": "상여장식 저승사자.jpg",
+    "pos": "51% 38%"
+  },
+  "figure:siwang": {
+    "file": "Bodhisattva Jijang (Kshitigarbha) and the Ten Kings of Hell LACMA AC1994.49.1 (1 of 9).jpg",
+    "pos": "50% 29%"
+  },
+  "figure:cheoyong": {
+    "file": "Cheoyong in the Akhak Gwebeom.jpg",
+    "pos": "57% 36%"
+  },
+  "figure:ilwol": {
+    "file": "Irworobongdo.jpg",
+    "pos": "50% 38%"
+  },
+  "figure:choeyeong": {
+    "file": "사신당 무신도 및 현판 일괄 - 최영장군도.jpg",
+    "pos": "51% 32%"
+  },
+  "figure:jangseung": {
+    "file": "Bourdaret - Religion et Superstition en Corée - p19.jpg",
+    "pos": "50% 30%"
+  },
+  "figure:chiyou": {
+    "file": "Chi You.gif",
+    "pos": "50% 30%"
+  },
+  "figure:poiyaunpe": {
+    "file": "HirasawaByozanHomme.png",
+    "pos": "46% 17%"
+  },
+  "figure:shitonai": {
+    "file": "HirasawaByozanFemme.png",
+    "pos": "31% 26%"
+  },
+  "figure:paul-bunyan": {
+    "file": "Bunyan Laughead.jpg",
+    "pos": "55% 35%"
+  },
+  "figure:john-henry": {
+    "file": "Great Bend Tunnel - 55350980836.jpg",
+    "pos": "55% 31%"
+  },
+  "figure:scheherazade": {
+    "file": "Sophie Gengembre Anderson - Scheherazade.jpg",
+    "pos": "47% 38%"
+  },
+  "figure:sinbad": {
+    "file": "Sinbad the Sailor (5th Voyage).jpg",
+    "pos": "58% 46%"
+  },
+  "figure:aladdin": {
+    "file": "FOCDarley-Aladdin-finds-the-lamp.JPG",
+    "pos": "53% 21%"
+  },
+  "figure:ali-baba": {
+    "file": "Ali Baba in the Wood.jpg",
+    "pos": "31% 33%"
+  },
+  "figure:king-arthur": {
+    "file": "Charles Ernest Butler - King Arthur.jpg",
+    "pos": "45% 18%"
+  },
+  "figure:merlin": {
+    "file": "Merlin (illustration from middle ages).jpg",
+    "pos": "55% 21%"
+  },
+  "figure:lancelot": {
+    "file": "Lancelot battles Palamedes (5152629).jpg",
+    "pos": "88% 20%"
+  },
+  "figure:gawain": {
+    "file": "Arthur-Pyle Sir Gawaine the Son of Lot, King of Orkney.JPG",
+    "pos": "48% 19%"
+  },
+  "figure:tristan": {
+    "file": "Tristan, his wife Yzeut and her brother Kahedin (5152712).jpg",
+    "pos": "52% 28%"
+  },
+  "figure:bedivere": {
+    "file": "King Arthur Sir Bedivere throwing Excalibur into the lake by Walter Crane.jpg",
+    "pos": "50% 29%"
+  },
+  "figure:percival": {
+    "file": "Sir Percival overcometh ye Enchantress Vivien.png",
+    "pos": "47% 25%"
+  },
+  "figure:mordred": {
+    "file": "Battle Between King Arthur and Sir Mordred by William Hatherell.jpg",
+    "pos": "47% 44%"
+  },
+  "figure:morgan-le-fay": {
+    "file": "Sandys, Frederick - Morgan le Fay.JPG",
+    "pos": "61% 19%"
+  },
+  "figure:gareth": {
+    "file": "Sir Gareth of Orkney.png",
+    "pos": "52% 40%"
+  },
+  "figure:galahad": {
+    "file": "Joseph Noel Paton Sir Galahad JKAM.jpg",
+    "pos": "51% 30%"
+  },
+  "figure:lohengrin": {
+    "file": "Die Gartenlaube (1890) b 769.jpg",
+    "pos": "49% 25%"
+  },
+  "figure:kirta": {
+    "file": "שרטוט מצבה מאוגרית המתארת הגשת מנחה לאל.png",
+    "pos": "49% 27%"
+  },
+  "figure:charlemagne": {
+    "file": "Karl der Grosse - Pippin von Italien.jpg",
+    "pos": "62% 17%"
+  },
+  "figure:roland": {
+    "file": "Gustave Doré - Roland à Roncevaux.jpg",
+    "pos": "45% 39%"
+  },
+  "figure:astolfo": {
+    "file": "Massimo d'Azeglio - Astolfo debella le arpie.jpg",
+    "pos": "52% 32%"
+  },
+  "figure:bradamante": {
+    "file": "Bradamante at Merlin's Tomb by Alexandre-Evariste Fragonard, High Museum of Art.jpg",
+    "pos": "44% 45%"
+  },
+  "figure:mandricardo": {
+    "file": "Buste van Mandricardo Mandricardo (titel op object) Karakters uit 'Orlando Furioso' (serietitel), RP-P-H-H-1425.jpg",
+    "pos": "48% 34%"
+  },
+  "figure:ogier": {
+    "file": "Holger Danske i Skævinge kirke.jpg",
+    "pos": "49% 31%"
+  },
+  "figure:renaud": {
+    "file": "HLLF-T1-d264-265 Les quatre fils Aimon.png",
+    "pos": "51% 21%"
+  },
+  "figure:scathach": {
+    "file": "Heroes of the dawn - illustration to face page 066.png",
+    "pos": "51% 31%"
+  },
+  "figure:diarmuid": {
+    "file": "Heroes of the dawn (1914) (14772697833).jpg",
+    "pos": "48% 36%"
+  },
+  "figure:fergus": {
+    "file": "Fergus mac Róich carrying Sétanta on his shoulder.png",
+    "pos": "52% 29%"
+  },
+  "figure:fionn": {
+    "file": "Heroes of the dawn - illustration to face page 200.png",
+    "pos": "50% 30%"
+  },
+  "figure:medb": {
+    "file": "Queen Medb (Seóirse Ua Fágáin, 1904).jpg",
+    "pos": "47% 32%"
+  },
+  "figure:manannan": {
+    "file": "Broighter Gold, Dublin, October 2010 (03).JPG",
+    "pos": "50% 60%"
+  },
+  "figure:oisin": {
+    "file": "Heroes of the dawn - illustration to face page 230.png",
+    "pos": "54% 27%"
+  },
+  "figure:nezha": {
+    "file": "無款 清末 京劇一百人物像 冊 絹本-One hundred portraits of Peking opera characters MET DP280080.jpg",
+    "pos": "47% 43%"
+  },
+  "figure:jiang-ziya": {
+    "file": "Tai Gong Wang by Ogata Korin (Kyoto National Museum).jpg",
+    "pos": "50% 34%"
+  },
+  "figure:huang-feihu": {
+    "file": "FengShen2.jpg",
+    "pos": "52% 34%"
+  },
+  "figure:huyan-zhuo": {
+    "file": "Utagawa Kuniyoshi - 水滸傳 - 呼延灼.jpg",
+    "pos": "55% 32%"
+  },
+  "figure:jade-rabbit": {
+    "file": "Incense tray with hare in moon pounding the medicine of immortality, China, probably Suzhou, Qianlong period, 1736-1795 AD, carved and painted lacquer on wood core, gold - Peabody Essex Museum - DSC08038.jpg",
+    "pos": "49% 30%"
+  },
+  "figure:sun-wukong": {
+    "file": "Tsukioka Yoshitoshi (c. 1885–90) Tsuki hyaku shi - Tamausagi songokū-.jpg",
+    "pos": "55% 32%"
+  },
+  "figure:hou-yi": {
+    "file": "Houyi Shooting an Arrow, Xiao Yuncong.gif",
+    "pos": "55% 34%"
+  },
+  "figure:hua-mulan": {
+    "file": "Mulan, 18th century, ink and colors on silk.jpg",
+    "pos": "58% 18%"
+  },
+  "figure:yellow-emperor": {
+    "file": "Portraits of Famous Men - Yellow Emperor (Huangdi).jpg",
+    "pos": "54% 68%"
+  },
+  "figure:nitocris": {
+    "file": "Darius laat het graf van Nitocris openen, RP-P-OB-51.250.jpg",
+    "pos": "51% 40%"
+  },
+  "figure:robin-hood": {
+    "file": "Robin-hood-and-maid-marion-01.png",
+    "pos": "49% 33%"
+  },
+  "figure:william-tell": {
+    "file": "Charles Samuel Girardet - William Tell at Küssnacht - 1940.1116 - Cleveland Museum of Art.tif",
+    "pos": "59% 40%"
+  },
+  "figure:saint-george": {
+    "file": "Saint George and the Dragon by Paolo Uccello (London) 01.jpg",
+    "pos": "47% 39%"
+  },
+  "figure:melusine": {
+    "file": "Melusine (Paris, Michel Le Noir, 1517).jpg",
+    "pos": "44% 27%"
+  },
+  "figure:habetrot": {
+    "file": "Douglas-Scottish FFT(1901)-p109-Habitrot-illustr-J Torrance.jpg",
+    "pos": "49% 35%"
+  },
+  "figure:oberon": {
+    "file": "Joseph Noel Paton - The Reconciliation of Titania and Oberon.jpg",
+    "pos": "40% 45%"
+  },
+  "figure:britomart": {
+    "file": "Etty Britomart 1833.jpg",
+    "pos": "47% 39%"
+  },
+  "figure:el-cid": {
+    "file": "Siege of Valencia by El Cid, 1092-1094.png",
+    "pos": "51% 34%"
+  },
+  "figure:prester-john": {
+    "file": "Prester John.jpg",
+    "pos": "48% 29%"
+  },
+  "figure:saint-margaret": {
+    "file": "Saint Margaret and the Dragon MET DP801859.jpg",
+    "pos": "51% 29%"
+  },
+  "figure:siegfried": {
+    "file": "Siegfried and the Twilight of the Gods Frontispiece.jpg",
+    "pos": "62% 28%"
+  },
+  "figure:kriemhild": {
+    "file": "Carl Rahl - Kriemhild an der Leiche Siegfrieds erklärt Hagen als dessen Mörder und schwört Rache - 7777 - Kunsthistorisches Museum.jpg",
+    "pos": "51% 28%"
+  },
+  "figure:dietrich": {
+    "file": "Dietrich fights Ecke.jpg",
+    "pos": "46% 26%"
+  },
+  "figure:hildebrand": {
+    "file": "Hildebrandslied1.jpg",
+    "pos": "48% 29%"
+  },
+  "figure:walter-of-aquitaine": {
+    "file": "Carl Jordan, Le combat de Walter au Wasigenstein.jpg",
+    "pos": "31% 28%"
+  },
+  "figure:achilles": {
+    "file": "Triumph of Achilles in Corfu Achilleion.jpg",
+    "pos": "47% 29%"
+  },
+  "figure:hector": {
+    "file": "Angelica Kauffmann (1741-1807) - Hector Taking Leave of Andromache - 872177 - National Trust.jpg",
+    "pos": "52% 30%"
+  },
+  "figure:odysseus": {
+    "file": "Arnold Böcklin - Odysseus und Polyphemus (1896).jpg",
+    "pos": "46% 27%"
+  },
+  "figure:jason": {
+    "file": "After Salvator Rosa - Jason Poisoning the Dragon - 344-1962 - Saint Louis Art Museum.jpg",
+    "pos": "43% 30%"
+  },
+  "figure:medea": {
+    "file": "Jason and Medea - John William Waterhouse.jpg",
+    "pos": "62% 17%"
+  },
+  "figure:atalanta": {
+    "file": "Nicolas Colombel - Atalanta et Hippomènes (ca. 1680).jpg",
+    "pos": "30% 39%"
+  },
+  "figure:asclepius": {
+    "file": "John William Waterhouse - A Sick Child brought into the Temple of Aesculapius (1877).jpg",
+    "pos": "26% 42%"
+  },
+  "figure:chiron": {
+    "file": "Pompeo Batoni - Teti richiama Achille dal Centauro Chirone (1770).jpg",
+    "pos": "50% 35%"
+  },
+  "figure:orion": {
+    "file": "Blind Orion Searching for the Rising Sun MET DP148490.jpg",
+    "pos": "56% 40%"
+  },
+  "figure:europa": {
+    "file": "Valentin Serov - Похищение Европы - Google Art Project.jpg",
+    "pos": "54% 28%"
+  },
+  "figure:dioscuri": {
+    "file": "Sébastien-Louis-Guillaume Norblin de la Gourdaine, Castor and Pollux Rescuing Helen, 1818, NGA 137043.jpg",
+    "pos": "48% 35%"
+  },
+  "figure:paris": {
+    "file": "Rubens - Judgement of Paris.jpg",
+    "pos": "49% 35%"
+  },
+  "figure:theseus": {
+    "file": "Edward Burne-Jones - Tile Design - Theseus and the Minotaur in the Labyrinth - Google Art Project.jpg",
+    "pos": "51% 34%"
+  },
+  "figure:andromeda": {
+    "file": "Frederic, Lord Leighton - Perseus and Andromeda - Google Art Project.jpg",
+    "pos": "50% 28%"
+  },
+  "figure:hippolyta": {
+    "file": "Nicolaes Knüpfer - Hercules Obtaining the Girdle of Hyppolita - WGA12217.jpg",
+    "pos": "38% 34%"
+  },
+  "figure:daedalus": {
+    "file": "Anthony van Dyck - Daedalus and Icarus - Google Art Project.jpg",
+    "pos": "58% 35%"
+  },
+  "figure:demeter": {
+    "file": "Demeter mourning Persephone 1906.jpg",
+    "pos": "52% 36%"
+  },
+  "figure:astraea": {
+    "file": "Salvator Rosa - Astraea verläßt die Erde - GG 9823 - Kunsthistorisches Museum.jpg",
+    "pos": "73% 14%"
+  },
+  "figure:galatea": {
+    "file": "Galatea Raphael.jpg",
+    "pos": "50% 42%"
+  },
+  "figure:caeneus": {
+    "file": "Centaurs and Kaineus (Caeneus), small bronze relief, AM Olympia, Olym14.jpg",
+    "pos": "52% 29%"
+  },
+  "figure:euryale": {
+    "file": "The Death of Medusa 1888-1892 Edward Burne Jones.jpg",
+    "pos": "60% 30%"
+  },
+  "figure:ascalaphus": {
+    "file": "Ascalaphus (279244).jpg",
+    "pos": "47% 34%"
+  },
+  "figure:perseus": {
+    "file": "The Arming of Perseus - Edward Burne-Jones, 1885.jpg",
+    "pos": "53% 20%"
+  },
+  "figure:bellerophon": {
+    "file": "Peter Paul Rubens - Bellérophon, monté sur Pégase transperce la Chimère.JPG",
+    "pos": "53% 36%"
+  },
+  "figure:orpheus": {
+    "file": "Jean-Baptiste-Camille Corot - Orpheus Leading Eurydice from the Underworld - Google Art Project.jpg",
+    "pos": "60% 52%"
+  },
+  "figure:diomedes": {
+    "file": "'Venus, Wounded by Diomedes, is Saved by Iris' by Joseph-Marie Vien, 1775.jpg",
+    "pos": "41% 35%"
+  },
+  "figure:meleager": {
+    "file": "Atalanta and Meleager MET DP261342.jpg",
+    "pos": "33% 36%"
+  },
+  "figure:ajax": {
+    "file": "Greeks and Troyans fighting for the corpse of Patroklos.jpg",
+    "pos": "50% 31%"
+  },
+  "figure:cadmus": {
+    "file": "Cadmus killing the Dragon by Francesco Zuccarelli.jpg",
+    "pos": "54% 42%"
+  },
+  "figure:cyrene": {
+    "file": "Jeune femme caressant un lion d'après Crescenti (Dutuit p. 40), GDUT708.jpg",
+    "pos": "40% 41%"
+  },
+  "figure:psyche": {
+    "file": "Psyche-Waterhouse.jpg",
+    "pos": "56% 27%"
+  },
+  "figure:penthesilea": {
+    "file": "Achill und Penthesila (Tischbein).jpg",
+    "pos": "56% 31%"
+  },
+  "figure:antiope": {
+    "file": "Theseus Antiope archmus Eretria.jpg",
+    "pos": "53% 39%"
+  },
+  "figure:britomartis": {
+    "file": "The Drowning of Britomartis, 1547–59.jpg",
+    "pos": "51% 31%"
+  },
+  "figure:arjuna": {
+    "file": "Subhadra, the half sister of Krishna, drives a chariot away from Dwarka with Arjuna and Krishna inside.jpg",
+    "pos": "51% 29%"
+  },
+  "figure:karna": {
+    "file": "Karna in Kurukshetra.jpg",
+    "pos": "52% 31%"
+  },
+  "figure:rama": {
+    "file": "Rama is placated by the fearful sea god, after he demands help in reaching Lanka.jpg",
+    "pos": "21% 28%"
+  },
+  "figure:indra": {
+    "file": "Tiruchchirappalli painting Indra (cropped).jpg",
+    "pos": "46% 17%"
+  },
+  "figure:parvati": {
+    "file": "An Oleograph of Shiva, Parvati and Nandi by Raja Ravi Varma.jpg",
+    "pos": "55% 20%"
+  },
+  "figure:kama": {
+    "file": "Kamadeva Hindu God.jpg",
+    "pos": "49% 39%"
+  },
+  "figure:ashwatthama": {
+    "file": "Aswathama FIres narayana Weapon on Pandavas.jpg",
+    "pos": "47% 31%"
+  },
+  "figure:bhima": {
+    "file": "Bhima hurled his mace with fury.jpg",
+    "pos": "50% 37%"
+  },
+  "figure:duryodhana": {
+    "file": "Mace fighting between Duryodhan & bheema.jpg",
+    "pos": "52% 30%"
+  },
+  "figure:vritra": {
+    "file": "Vritra try to eat indra.jpg",
+    "pos": "54% 28%"
+  },
+  "figure:parashurama": {
+    "file": "Indian School, late 18th century - Parashurama, the sixth avatar of Vishnu. - RCIN 1005113.h - Royal Collection.jpg",
+    "pos": "52% 38%"
+  },
+  "figure:arash": {
+    "file": "Chah-nameh - Bahram V kill the dragon.png",
+    "pos": "61% 13%"
+  },
+  "figure:rostam": {
+    "file": "Rostam 01.jpg",
+    "pos": "19% 41%"
+  },
+  "figure:fereydun": {
+    "file": "Faridun Takes Zahhak to Mount Damavand to Imprison Him.jpg",
+    "pos": "59% 34%"
+  },
+  "figure:kaveh": {
+    "file": "Zahhak bound by Fereydun, whilst Kaveh the Blacksmith is holding a apron-banner. From a mid-17th-century Safavid miniature.jpg",
+    "pos": "50% 27%"
+  },
+  "figure:garshasp": {
+    "file": "Garshasp slays the dragon Azi-Sruwar.jpg",
+    "pos": "49% 35%"
+  },
+  "figure:yamato-takeru": {
+    "file": "Yamato Takeru no Mikoto LCCN2009615033.jpg",
+    "pos": "50% 38%"
+  },
+  "figure:kiyohime": {
+    "file": "Kiyohime-Serpent-1890-Tsukioka-Yoshitoshi.png",
+    "pos": "29% 37%"
+  },
+  "figure:tamamo-no-mae": {
+    "file": "Sangoku yoko zue 三国妖狐図会 (The Magic Fox of Three Countries) (BM 2008,3037.07005).jpg",
+    "pos": "57% 34%"
+  },
+  "figure:shuten-doji": {
+    "file": "Raiko slaying the Demon Shuten-doji by Utagawa Kunimasa II, 1849-52.jpg",
+    "pos": "49% 31%"
+  },
+  "figure:ibaraki-doji": {
+    "file": "Watanabe no tsuna to ibaraki LCCN2008660386.jpg",
+    "pos": "73% 28%"
+  },
+  "figure:ibuki-doji": {
+    "file": "Kuniyoshi Imperial Bodyguard Fighting with a Demon.jpg",
+    "pos": "54% 26%"
+  },
+  "figure:minamoto-no-raiko": {
+    "file": "Warrior Minamoto Raiko and the Earth Spider LACMA M.2006.136.292a-c (1 of 2).jpg",
+    "pos": "50% 31%"
+  },
+  "figure:sakata-kintoki": {
+    "file": "Kintaro worstelend met karper Sakata Kaidomaro (titel op object), RP-P-1964-813.jpg",
+    "pos": "41% 31%"
+  },
+  "figure:watanabe-no-tsuna": {
+    "file": "Hashi-hime 橋姫 (Lady of the Bridge) (BM 2008,3037.05504).jpg",
+    "pos": "47% 36%"
+  },
+  "figure:tawara-toda": {
+    "file": "Yoshitoshi Fujiwara no Hidesato.jpg",
+    "pos": "49% 25%"
+  },
+  "figure:suzuka-gozen": {
+    "file": "Sakanoue Tamuramaro in Rain of Arrows LACMA M.84.31.248.jpg",
+    "pos": "57% 32%"
+  },
+  "figure:benkei": {
+    "file": "Benkei ga yuriki tawamure ni Miidera no tsurigani wo (BM 2008,3037.20508 2).jpg",
+    "pos": "59% 34%"
+  },
+  "figure:daikokuten": {
+    "file": "Daikoku Lifting a Rice Bale by Katsushika Hokusai.jpg",
+    "pos": "46% 34%"
+  },
+  "figure:hanasaka-jiisan": {
+    "file": "Hanasaki Jiji (titel op object) Japanse sprookjes reeks (serietitel) Japanese fairy tale series (serietitel op object), RP-P-2004-503.jpg",
+    "pos": "46% 31%"
+  },
+  "figure:koga-saburo": {
+    "file": "Hinoto - Koga Saburo, suspendedin a basket, watching a dragon.jpg",
+    "pos": "52% 31%"
+  },
+  "figure:daebyeol-sobyeol": {
+    "file": "내왓당 무신도 상사위.jpg",
+    "pos": "46% 26%"
+  },
+  "figure:geotaji": {
+    "file": "활쏘기.jpg",
+    "pos": "50% 32%"
+  },
+  "figure:utturi": {
+    "file": "주작 조선고적도보.jpg",
+    "pos": "57% 37%"
+  },
+  "figure:jeon-u-chi": {
+    "file": "Jeon Woo-chi Story.png",
+    "pos": "50% 32%"
+  },
+  "figure:hong-gil-dong": {
+    "file": "Honggildongjeon.jpg",
+    "pos": "50% 50%"
+  },
+  "figure:seol-jukhwa": {
+    "file": "노상알현도.jpg",
+    "pos": "47% 34%"
+  },
+  "figure:enkidu": {
+    "file": "ISHTAR-EPOS p082 HEABANI, THE HERMIT-SEER.jpg",
+    "pos": "49% 36%"
+  },
+  "figure:ereshkigal": {
+    "file": "British Museum Queen of the Night.jpg",
+    "pos": "50% 15%"
+  },
+  "figure:semiramis": {
+    "file": "Semiramis building Babylon.jpg",
+    "pos": "63% 36%"
+  },
+  "figure:sigurd": {
+    "file": "Sigurd prüft das Schwert Gram.png",
+    "pos": "71% 15%"
+  },
+  "figure:brynhild": {
+    "file": "Burnnhild MET DP877073.jpg",
+    "pos": "52% 25%"
+  },
+  "figure:skadi": {
+    "file": "Skade by Saltza.jpg",
+    "pos": "46% 22%"
+  },
+  "figure:tjalfi": {
+    "file": "Tjalfe and Roskva. Study for “Thors rejse til Jotunheim”.jpg",
+    "pos": "45% 30%"
+  },
+  "figure:skirnir": {
+    "file": "Skirnir's message to Gerd.jpg",
+    "pos": "71% 19%"
+  },
+  "figure:romulus": {
+    "file": "Peter Paul Rubens - Romulus and Remus - Google Art Project.jpg",
+    "pos": "22% 26%"
+  },
+  "figure:camilla": {
+    "file": "Agreement between Camilla and Turnus.jpg",
+    "pos": "21% 26%"
+  },
+  "figure:aeneas": {
+    "file": "Aeneas' Flight from Troy by Federico Barocci.jpg",
+    "pos": "69% 43%"
+  },
+  "figure:dobrynya": {
+    "file": "Zmei Gorinich (colour fixed).jpg",
+    "pos": "49% 29%"
+  },
+  "figure:ilya-muromets": {
+    "file": "1898 Vasnetsov Bogatyrs anagoria.JPG",
+    "pos": "45% 21%"
+  },
+  "figure:koschei": {
+    "file": "Viktor Vasnetsov Kashchey the Immortal.jpg",
+    "pos": "42% 18%"
+  },
+  "figure:marko-kraljevic": {
+    "file": "Đura Jakšić - Kraljević Marko, 1857, Narodni muzej.jpg",
+    "pos": "48% 42%"
+  },
+  "figure:bruncvik": {
+    "file": "Socha Bruncvíka na karlově mostě.jpg",
+    "pos": "40% 60%"
+  },
+  "figure:erkhii-mergen": {
+    "file": "IlkhanidHorseArcher.jpg",
+    "pos": "53% 35%"
+  },
+  "figure:alip-manash": {
+    "file": "The Soviet Union 1988 CPA 5990 stamp (Alpamysh, Uzbek epic poem. R. Khalilov).jpg",
+    "pos": "47% 23%"
+  },
+  "figure:cerberus": {
+    "file": "Cerberus-Blake.jpeg",
+    "pos": "57% 38%"
+  },
+  "figure:minotaur": {
+    "file": "George Frederic Watts - The Minotaur - Google Art Project.jpg",
+    "pos": "45% 37%"
+  },
+  "figure:hydra": {
+    "file": "Gustave Moreau - Hercules and the Lernaean Hydra - 1964.231 - Art Institute of Chicago.jpg",
+    "pos": "48% 44%"
+  },
+  "figure:chimera": {
+    "file": "Chimera d'arezzo, fi, 04.JPG",
+    "pos": "55% 32%"
+  },
+  "figure:pegasus": {
+    "file": "Muse of Pegasus - Odilon Redon.jpg",
+    "pos": "59% 51%"
+  },
+  "figure:polyphemus": {
+    "file": "Odilon Redon - The Cyclops, c. 1914.jpg",
+    "pos": "54% 34%"
+  },
+  "figure:typhon": {
+    "file": "Zeus Typhon Staatliche Antikensammlungen 596.jpg",
+    "pos": "48% 32%"
+  },
+  "figure:talos": {
+    "file": "Talos Painter - ARV 1338 1 - Dionysos with satyrs and maenads - death of Talos - Argonauts and gods - Ruvo MANJ 36933 - 07.jpg",
+    "pos": "48% 30%"
+  },
+  "figure:fenrir": {
+    "file": "Odin and Fenris - Dorothy Hardy.png",
+    "pos": "43% 36%"
+  },
+  "figure:jormungandr": {
+    "file": "Johann Heinrich Füssli 011.jpg",
+    "pos": "56% 26%"
+  },
+  "figure:sleipnir": {
+    "file": "Odin rides to Hel.jpg",
+    "pos": "51% 33%"
+  },
+  "figure:nidhogg": {
+    "file": "The Ash Yggdrasil by Friedrich Wilhelm Heine.jpg",
+    "pos": "50% 32%"
+  },
+  "figure:huginn-muninn": {
+    "file": "Odin, Sleipnir, Geri, Freki, Huginn and Muninn by Frølich.jpg",
+    "pos": "46% 28%"
+  },
+  "figure:fafnir": {
+    "file": "Siegfried and the Twilight of the Gods p 062.jpg",
+    "pos": "57% 33%"
+  },
+  "figure:ammit": {
+    "file": "Ammit BD.jpg",
+    "pos": "51% 33%"
+  },
+  "figure:apep": {
+    "file": "Cat and snake. Book of the Dead Tomb TT 359.jpg",
+    "pos": "50% 37%"
+  },
+  "figure:sphinx": {
+    "file": "The Great Sphinx, Pyramids of Gizeh-1839) by David Roberts, RA.jpg",
+    "pos": "49% 48%"
+  },
+  "figure:bennu": {
+    "file": "Benu.jpg",
+    "pos": "53% 31%"
+  },
+  "figure:circe": {
+    "file": "Circe Offering the Cup to Odysseus (2457 x 4023px ed.).jpg",
+    "pos": "47% 21%"
+  },
+  "figure:sirens": {
+    "file": "John William Waterhouse - Ulysses and the Sirens - Google Art Project.jpg",
+    "pos": "51% 38%"
+  },
+  "figure:scylla": {
+    "file": "Johann Heinrich Füssli 054.jpg",
+    "pos": "55% 31%"
+  },
+  "figure:charybdis": {
+    "file": "William Bromley - Odysseus Between Scylla and Charybdis, 1806.jpg",
+    "pos": "56% 31%"
+  },
+  "enemy:harpy": {
+    "file": "Gustave Doré - The Inferno, Canto 13.jpg",
+    "pos": "58% 42%"
+  },
+  "enemy:kappa": {
+    "file": "Takagi Toranosuke capturing a kappa underwater in the Tamura river.jpg",
+    "pos": "57% 33%"
+  },
+  "enemy:draugr": {
+    "file": "Draugen.jpg",
+    "pos": "48% 33%"
+  },
+  "enemy:dokkaebi": {
+    "file": "Ridge-end tile with demon face design, excavated from former temple site of Gapsansa temple, Gyeongju, Korea, Unified Silla dynasty, 600s-700s AD, clay - Tokyo National Museum - Tokyo, Japan - DSC08268.jpg",
+    "pos": "52% 37%"
+  },
+  "enemy:grendel": {
+    "file": "Stories of beowulf grendel.jpg",
+    "pos": "51% 25%"
+  },
+  "enemy:cyclops": {
+    "file": "Annibale Carracci, The Cyclops Polyphemus.jpg",
+    "pos": "55% 27%"
+  },
+  "enemy:minotaur": {
+    "file": "Epimedes Painter ARV 1044 6 Theseus killing the Minotaur - fleeing woman.jpg",
+    "pos": "54% 29%"
+  },
+  "enemy:hydra": {
+    "file": "Hércules lucha con la hidra de Lerna, por Zurbarán.jpg",
+    "pos": "83% 18%"
+  },
+  "enemy:oni": {
+    "file": "NDL-DC 1310286-Tsukioka Yoshitoshi-頼光四天王大江山鬼神退治之図-元治1-cmb.jpg",
+    "pos": "50% 33%"
+  },
+  "enemy:rakshasa": {
+    "file": "Atikaya, a son of Ravana.jpg",
+    "pos": "50% 37%"
+  },
+  "enemy:gumiho": {
+    "file": "Prince Hanzoku terrorised by a nine- tailed fox.jpg",
+    "pos": "50% 31%"
+  },
+  "enemy:girtablullu": {
+    "file": "Mesopotamian - Cylinder Seal with Scorpion Man Shooting at Winged Creatures - Walters 42807.jpg",
+    "pos": "51% 33%"
+  },
+  "enemy:ammit": {
+    "file": "BD Weighing of the Heart.jpg",
+    "pos": "47% 27%"
+  },
+  "enemy:fafnir": {
+    "file": "Siegfried and the Twilight of the Gods p 056.jpg",
+    "pos": "46% 35%"
+  },
+  "enemy:apep": {
+    "file": "Set speared Apep.jpg",
+    "pos": "49% 34%"
+  },
+  "enemy:jotunn": {
+    "file": "Thor bei Skrymir.jpg",
+    "pos": "40% 40%"
+  },
+  "enemy:tzitzimitl": {
+    "file": "Tzitzimitl.jpg",
+    "pos": "50% 33%"
+  },
+  "enemy:rahu": {
+    "file": "Rahu graha.JPG",
+    "pos": "48% 28%"
+  },
+  "enemy:imugi": {
+    "file": "Unknown (Korean) - Dragon Amid Clouds - 2015.4 - Detroit Institute of Arts.jpg",
+    "pos": "53% 32%"
+  },
+  "enemy:fenrir": {
+    "file": "Fenrir binded.png",
+    "pos": "50% 34%"
+  },
+  "enemy:zero": {
+    "file": "Redon - Eye-Balloon (Œil-ballon) 1878.jpg",
+    "pos": "47% 36%"
+  },
+  "field:avalon": {
+    "file": "Burne-Jones Last Sleep of Arthur in Avalon v2.jpg",
+    "pos": "44% 29%"
+  },
+  "field:camelot": {
+    "file": "George Henry Boughton (1833-1905) - The Road to Camelot - WAG 3073 - Walker Art Gallery.jpg",
+    "pos": "50% 43%"
+  },
+  "field:atlantis": {
+    "file": "Atlantis Kircher Mundus subterraneus 1678.jpg",
+    "pos": "50% 29%"
+  },
+  "field:arcadia": {
+    "file": "Cole Thomas The Course of Empire The Arcadian or Pastoral State 1836.jpg",
+    "pos": "49% 36%"
+  },
+  "field:thule": {
+    "file": "Tile Carta Marina.JPG",
+    "pos": "46% 41%"
+  },
+  "field:ys": {
+    "file": "Evariste-Vital Luminais - Fuite de Gradlon (ca. 1884).jpg",
+    "pos": "59% 29%"
+  },
+  "field:shangri-la": {
+    "file": "Sacred-himalayas-1932.jpg!PinterestLarge.jpg",
+    "pos": "52% 36%"
+  },
+  "field:shambhala": {
+    "file": "Message-from-shambhala-arrow-letter-1946.jpg!PinterestLarge.jpg",
+    "pos": "45% 36%"
+  },
+  "field:peach-blossom": {
+    "file": "Shi Rui - The Haven of the Peach-Blossom Spring - 1952.283 - Cleveland Museum of Art.tif",
+    "pos": "50% 33%"
+  },
+  "field:ieodo": {
+    "file": "Jejujojeom.jpg",
+    "pos": "50% 25%"
+  },
+  "field:el-dorado": {
+    "file": "Theodor de Bry's Golden Man.png",
+    "pos": "65% 41%"
+  },
+  "field:aztlan": {
+    "file": "Tira-1.jpg",
+    "pos": "46% 33%"
+  },
+  "field:olympus": {
+    "file": "Antonio Verrio (c.1636-1639-1707) - The Gods on Mount Olympus (sketch for the ceiling of the Heaven Room, Burghley House) - 1958.59.18 - Northampton Museum and Art Gallery.jpg",
+    "pos": "49% 37%"
+  },
+  "field:asgard": {
+    "file": "Josef Hoffmann - Closing scene of Das Rheingold final.jpg",
+    "pos": "52% 41%"
+  },
+  "field:valhalla": {
+    "file": "Walhall by Emil Doepler.jpg",
+    "pos": "50% 40%"
+  },
+  "field:sumeru": {
+    "file": "Cosmological Mandala with Mount Meru.jpg",
+    "pos": "50% 33%"
+  },
+  "field:kunlun": {
+    "file": "Peach Festival of the Queen Mother of the West, Freer Gallery of Art.jpg",
+    "pos": "48% 37%"
+  },
+  "field:takamagahara": {
+    "file": "Origin of the Cave Door Dance (Amaterasu) by Shunsai Toshimasa 1889.jpg",
+    "pos": "48% 31%"
+  },
+  "field:dilmun": {
+    "file": "Dilmun stamp seal with hunters and goats, rectangular pen, ca early 2nd millennium BC.jpg",
+    "pos": "50% 50%"
+  },
+  "field:aaru": {
+    "file": "Sennedjem and Iineferti in the Fields of Iaru MET DT11771.jpg",
+    "pos": "53% 31%"
+  },
+  "field:elysion": {
+    "file": "Schwabe Carlos Elysian Fields.jpg",
+    "pos": "44% 30%"
+  },
+  "field:tir-na-nog": {
+    "file": "Heroes of the dawn (1914) (14749671561).jpg",
+    "pos": "53% 29%"
+  },
+  "field:hades": {
+    "file": "Gustave Doré - Dante Alighieri - Inferno - Plate 9 (Canto III - Charon).jpg",
+    "pos": "51% 47%"
+  },
+  "field:yomi": {
+    "file": "Izanagi y Izanami, Totoya Hokkei.jpg",
+    "pos": "49% 29%"
+  },
+  "field:xibalba": {
+    "file": "God L with the Hero Twins.jpg",
+    "pos": "48% 36%"
+  },
+  "field:ginnungagap": {
+    "file": "Nicolai Abildgaard, Ymer dier koen Ødhumbla, KMS3397, Statens Museum for Kunst.jpg",
+    "pos": "41% 49%"
+  },
+  "field:chaos": {
+    "file": "Assistants and George Frederic Watts - Chaos - Google Art Project.jpg",
+    "pos": "49% 42%"
+  },
+  "field:nun": {
+    "file": "Nun Raises the Sun.jpg",
+    "pos": "51% 31%"
+  },
+  "field:hundun": {
+    "file": "Chen Rong - Nine Dragons (element 12).jpg",
+    "pos": "50% 33%"
+  },
+  "field:abzu": {
+    "file": "Molded plaque- eagle-headed apkallu MET hb51 72 6.jpg",
+    "pos": "55% 30%"
+  },
+  "arm:mjolnir": {
+    "file": "Thor und die Midgardsschlange.jpg",
+    "pos": "54% 31%"
+  },
+  "arm:gungnir": {
+    "file": "Rhinegold and the Valkyries p 158.jpg",
+    "pos": "46% 42%"
+  },
+  "arm:brisingamen": {
+    "file": "Freyja and the Necklace by James Doyle Penrose, 1890.jpg",
+    "pos": "44% 15%"
+  },
+  "arm:aegis": {
+    "file": "Klimt - Pallas Athene.jpeg",
+    "pos": "44% 27%"
+  },
+  "arm:trident": {
+    "file": "Werner van den Valckert - Neptune (1619).jpg",
+    "pos": "27% 15%"
+  },
+  "arm:kerykeion": {
+    "file": "Mercury by Hendrick Goltzius.jpg",
+    "pos": "48% 16%"
+  },
+  "arm:sudarshana": {
+    "file": "Raja Ravi Varma, Seshanarayana (Oleographic print).jpg",
+    "pos": "48% 32%"
+  },
+  "arm:trishula": {
+    "file": "Unknown (Indian) - Durga in Combat with the Bull, Mahishasura - 69.428 - Detroit Institute of Arts.jpg",
+    "pos": "47% 31%"
+  },
+  "arm:kusanagi": {
+    "file": "Yamato Takerunomikoto & Kawakami Takeru.jpg",
+    "pos": "51% 37%"
+  },
+  "arm:was": {
+    "file": "P1200355 Louvre Musicien Amon E3657 rwk.jpg",
+    "pos": "52% 31%"
+  },
+  "arm:wedjat": {
+    "file": "Egypt, New Kingdom, Dynasty 18 - Eye of Horus Amulet - 1914.762 - Cleveland Museum of Art.tiff",
+    "pos": "51% 34%"
+  },
+  "arm:cheonbuin": {
+    "file": "Korean Bronze dagger and mirror. Jangsu. Jin Period. National Museum of Korea.jpg",
+    "pos": "30% 85%"
+  },
+  "arm:gaebolg": {
+    "file": "Myths and legends; the Celtic race (1910) (14780316811).jpg",
+    "pos": "51% 19%"
+  },
+  "arm:xiuhcoatl": {
+    "file": "Aztec Stone Xiuhcoatl (Fire Serpent with Stars Adorning Crest) (9754340332).jpg",
+    "pos": "50% 38%"
+  },
+  "arm:excalibur": {
+    "file": "CRANE King Arthur asks the lady of the lake for the sword Excalibur.jpg",
+    "pos": "55% 25%"
+  },
+  "arm:galatine": {
+    "file": "Sir Gawain and the Green Knight, from Pearl Manuscript.jpg",
+    "pos": "48% 25%"
+  },
+  "arm:arondight": {
+    "file": "Queen Morgana Appears unto Sir Launcelot.png",
+    "pos": "48% 27%"
+  },
+  "arm:gram": {
+    "file": "Ring35.jpg",
+    "pos": "52% 46%"
+  },
+  "arm:balmung": {
+    "file": "Fuseli - Kriemhild zeigt Hagen das Haupt Gunthers. Nibelungenlied XXXVIII, 2440, Z.19400193.jpg",
+    "pos": "50% 21%"
+  },
+  "arm:durandal": {
+    "file": "RolandACloss.jpg",
+    "pos": "49% 42%"
+  },
+  "arm:joyeuse": {
+    "file": "Albrecht Dürer - Emperor Charlemagne.jpg",
+    "pos": "52% 28%"
+  },
+  "arm:gandiva": {
+    "file": "Arjuna wins Draupadi.jpg",
+    "pos": "47% 27%"
+  },
+  "arm:vasavi-shakti": {
+    "file": "Karna Attacks Ghatotkacha.jpg",
+    "pos": "47% 30%"
+  },
+  "arm:vajra": {
+    "file": "Indra kills Vrttirasura (story from Rik Veda, featured in Bhagavatha).jpg",
+    "pos": "54% 34%"
+  },
+  "arm:brahmastra": {
+    "file": "BILAL HABASI a folio from the 1598 razmnama the battle of dhristadyumna with aswattama.jpg",
+    "pos": "50% 36%"
+  },
+  "arm:gae-dearg": {
+    "file": "Myths and legends; the Celtic race (1910) (14596809318).jpg",
+    "pos": "54% 28%"
+  },
+  "arm:fragarach": {
+    "file": "Lugh spear Millar.jpg",
+    "pos": "82% 46%"
+  },
+  "arm:caladbolg": {
+    "file": "Myths and legends; the Celtic race (1910) (14596782139).jpg",
+    "pos": "45% 31%"
+  },
+  "arm:arash-arrow": {
+    "file": "DiezAlbumsRider.jpg",
+    "pos": "50% 35%"
+  },
+  "arm:harpe": {
+    "file": "Stabia-StMarc-Perseo-5871.jpg",
+    "pos": "50% 33%"
+  },
+  "arm:ruyi-jingu-bang": {
+    "file": "NDL-DC 1312839-Tsukioka Yoshitoshi-悟空吹毛／尉与姥-crd1.jpg",
+    "pos": "50% 31%"
+  },
+  "arm:qiankun-quan": {
+    "file": "Office of Great Peace Album of Opera Faces 1-07.jpg",
+    "pos": "50% 44%"
+  },
+  "arm:yi-bow": {
+    "file": "Wu liang shrine relief depicting xihe, yi, and fusang tree.jpg",
+    "pos": "51% 31%"
+  },
+  "arm:achilles-shield": {
+    "file": "Flaxman shield of achilles cc0 pub dom photo by Thad Zajdowicz flickr thadz 31680177383 a12794660a o resized to 300 dpi cropped tigher solid white background.png",
+    "pos": "58% 27%"
+  },
+  "arm:tarnkappe": {
+    "file": "Illustration to Richard Wagner's \"Das Rheingold\".jpg",
+    "pos": "44% 38%"
+  },
+  "arm:megingjord": {
+    "file": "Thor and Hymir (megingjord).jpg",
+    "pos": "55% 30%"
+  },
+  "arm:kinto-un": {
+    "file": "A Modern Journey to the West5.jpg",
+    "pos": "48% 35%"
+  },
+  "arm:manpasikjeok": {
+    "file": "Danwon Mudong.jpg",
+    "pos": "51% 34%"
+  },
+  "arm:magic-lamp": {
+    "file": "Aladdin and the wonderful lamp - Keppler. LCCN2011645978.tif",
+    "pos": "45% 44%"
+  },
+  "card:shelf": {
+    "file": "Giuseppe Maria Crespi - Buchregal mit Musikschriften 1725-30.jpeg",
+    "pos": "48% 37%"
+  },
+  "card:quill": {
+    "file": "Still Life with a Skull and a Writing Quill MET DP145929.jpg",
+    "pos": "55% 60%"
+  },
+  "arm:soul-sword": {
+    "file": "Standing Man with Ceremonial Sword, Joseon dynasty, Honolulu Museum of Art.jpg",
+    "pos": "55% 45%"
+  }
+}

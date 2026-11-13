@@ -1,7 +1,7 @@
-import { armamentIllustration, getArmament, isOncePerBattle } from "#entities/armament/index.js";
+import { armamentArt, getArmament, isOncePerBattle } from "#entities/armament/index.js";
 import { describeField } from "#entities/battlefield/index.js";
 import { cardFace, getCard } from "#entities/card/index.js";
-import { describeAction, enemyIllustration, getEnemy, intentKind, isNemesis } from "#entities/enemy/index.js";
+import { describeAction, enemyArt, getEnemy, intentKind, isNemesis } from "#entities/enemy/index.js";
 import { getFigure, getPantheon } from "#entities/figure/index.js";
 import {
   canPlay,
@@ -100,12 +100,9 @@ function enemyPlate(combat, enemy, targeting) {
       "article",
       { class: "enemy__inner", "aria-labelledby": `enemy-${enemy.uid}` },
       h("img", {
+        ...enemyArt(enemy.id, { sizes: "320px", eager: true }),
         class: "enemy__art",
-        src: enemyIllustration(enemy.id),
         alt: "",
-        width: 200,
-        height: 260,
-        decoding: "async",
       }),
       dead
         ? h("p", { class: "enemy__intent label" }, "쓰러짐")
@@ -264,7 +261,7 @@ export function battleView(ctx) {
                       "aria-disabled": ok ? null : "true",
                       "aria-pressed": selectedArm === slot.id ? "true" : "false",
                     },
-                    h("img", { class: "arm__art", src: armamentIllustration(arm), alt: "", width: 200, height: 260 }),
+                    h("img", { ...armamentArt(arm, { sizes: "96px", eager: true }), class: "arm__art", alt: "" }),
                     h(
                       "span",
                       { class: "arm__text" },

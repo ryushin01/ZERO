@@ -24,8 +24,8 @@ export const Legend = {};
 /** 일반 카드 */
 export const Common = { args: { id: "heracles" } };
 
-/** 그림이 없는 신은 영문 첫 글자를 씁니다 */
-export const WithoutArt = { args: { id: "were-jaguar" } };
+/** 박물관 소장품 사진을 그림으로 쓰는 신 (올멕의 재규어 인간) */
+export const MuseumObject = { args: { id: "were-jaguar" } };
 
 /** 사서의 기본 카드 */
 export const Basic = { args: { id: "quill" } };

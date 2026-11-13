@@ -1,0 +1,3737 @@
+{
+  "figure:zeus": {
+    "file": "Jean Auguste Dominique Ingres - Jupiter et Thétis.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Jean_Auguste_Dominique_Ingres_-_Jupiter_et_Th%C3%A9tis.jpg",
+    "title": "Jupiter and Thetis",
+    "artist": "Jean-Auguste-Dominique Ingres",
+    "date": "1811",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:athena": {
+    "file": "Pallas Athene by Franz von Stuck, 1898.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pallas_Athene_by_Franz_von_Stuck,_1898.jpg",
+    "title": "Pallas Athene",
+    "artist": "Franz von Stuck",
+    "date": "1898",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:apollo": {
+    "file": "Briton Rivière - Phoebus Apollo, 1895.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Briton_Rivi%C3%A8re_-_Phoebus_Apollo,_1895.jpg",
+    "title": "Phoebus Apollo",
+    "artist": "Briton Rivière",
+    "date": "1895",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:aphrodite": {
+    "file": "Botticelli-Venus and Mars (cropped2).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Botticelli-Venus_and_Mars_(cropped2).jpg",
+    "title": "Venus and Mars",
+    "artist": "Sandro Botticelli",
+    "date": "circa 1483",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:poseidon": {
+    "file": "Neptune’s Horses (1892) by Walter Crane.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Neptune%E2%80%99s_Horses_(1892)_by_Walter_Crane.jpg",
+    "title": "Neptune's Horses",
+    "artist": "Walter Crane",
+    "date": "1892",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:odin": {
+    "file": "Georg von Rosen - Oden som vandringsman, 1886 (Odin, the Wanderer).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Georg_von_Rosen_-_Oden_som_vandringsman,_1886_(Odin,_the_Wanderer).jpg",
+    "title": "Georg von Rosen - Oden som vandringsman, 1886 (Odin, the Wanderer)",
+    "artist": "Georg von Rosen",
+    "date": "1886",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:thor": {
+    "file": "Mårten Eskil Winge - Tor's Fight with the Giants - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:M%C3%A5rten_Eskil_Winge_-_Tor%27s_Fight_with_the_Giants_-_Google_Art_Project.jpg",
+    "title": "Tor's Fight with the Giants",
+    "artist": "Mårten Eskil Winge",
+    "date": "1872",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:freyja": {
+    "file": "Freja Seeking her Husband (Nils Blommér) - Nationalmuseum - 18201.tif",
+    "page": "https://commons.wikimedia.org/wiki/File:Freja_Seeking_her_Husband_(Nils_Blomm%C3%A9r)_-_Nationalmuseum_-_18201.tif",
+    "title": "Freja Seeking her Husband",
+    "artist": "Nils Blommér",
+    "date": "1852",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:loki": {
+    "file": "Loke and Sigyn (Mårten Winge) - Nationalmuseum - 18041.tif",
+    "page": "https://commons.wikimedia.org/wiki/File:Loke_and_Sigyn_(M%C3%A5rten_Winge)_-_Nationalmuseum_-_18041.tif",
+    "title": "Loke and Sigyn",
+    "artist": "Mårten Eskil Winge",
+    "date": "1863",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:osiris": {
+    "file": "Osiris-tomb-of-Nefertari.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Osiris-tomb-of-Nefertari.jpg",
+    "title": "Osiris-tomb-of-Nefertari",
+    "artist": "mursal",
+    "date": "2012-03-14",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:isis": {
+    "file": "Queen Nefertari being led by Isis MET DP167142.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Queen_Nefertari_being_led_by_Isis_MET_DP167142.jpg",
+    "title": "Queen Nefertari being led by Isis",
+    "artist": "Charles Wilkinson",
+    "date": "circa 1279",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:anubis": {
+    "file": "El pesado del corazón en el Papiro de Hunefer.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:El_pesado_del_coraz%C3%B3n_en_el_Papiro_de_Hunefer.jpg",
+    "title": "Papyrus of Hunefer",
+    "artist": "Hunefer",
+    "date": "circa 1275 BCE",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:gilgamesh": {
+    "file": "Hero mastering a lion, AO19862 (1818).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hero_mastering_a_lion,_AO19862_(1818).jpg",
+    "title": "Hero mastering a lion, AO19862 (1818)",
+    "artist": "Darafsh",
+    "date": "2016-07-01",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:ishtar": {
+    "file": "Myths and legends of Babylonia and Assyria (1916) (14801964123).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Myths_and_legends_of_Babylonia_and_Assyria_(1916)_(14801964123).jpg",
+    "title": "Myths and legends of Babylonia and Assyria (1916) (14801964123)",
+    "artist": "Internet Archive Book Images",
+    "date": "1916",
+    "license": "No restrictions",
+    "licenseUrl": "https://www.flickr.com/commons/usage/"
+  },
+  "figure:marduk": {
+    "file": "Il dio Ninurta e il mostro Chaos.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Il_dio_Ninurta_e_il_mostro_Chaos.jpg",
+    "title": "Il dio Ninurta e il mostro Chaos",
+    "artist": "Roberto.Amerighi",
+    "date": "2015-08-16",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:vishnu": {
+    "file": "\"Garuda Vahan Vishnu,\" from the Ravi Varma studio, c.1910's Source- ebay, Oct. 2009.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%22Garuda_Vahan_Vishnu,%22_from_the_Ravi_Varma_studio,_c.1910%27s_Source-_ebay,_Oct._2009.jpg",
+    "title": "\"Garuda Vahan Vishnu,\" from the Ravi Varma studio, c.1910's Source- ebay, Oct. 2009",
+    "artist": "Ravi Varna Studio",
+    "date": "circa 1910",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:shiva": {
+    "file": "A version from the Ravi Varma press- \"Shankar,\" c.1910's.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:A_version_from_the_Ravi_Varma_press-_%22Shankar,%22_c.1910%27s.jpg",
+    "title": "A version from the Ravi Varma press- \"Shankar,\" c.1910's",
+    "artist": "ravi varma press",
+    "date": "1910s",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ganesha": {
+    "file": "Ganesh himself has two wives, Riddhi and Siddhi, as in this domestic pose from the Ravi Varma Press, c.1910.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ganesh_himself_has_two_wives,_Riddhi_and_Siddhi,_as_in_this_domestic_pose_from_the_Ravi_Varma_Press,_c.1910.jpg",
+    "title": "Ganesh himself has two wives, Riddhi and Siddhi, as in this domestic pose from the Ravi Varma Press, c.1910",
+    "artist": "ravi varma press",
+    "date": "1910",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:izanagi-izanami": {
+    "file": "Izanami and Izanagi create the 1st Japanese isles, Kobayashi Eitaku MFA 1880s.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Izanami_and_Izanagi_create_the_1st_Japanese_isles,_Kobayashi_Eitaku_MFA_1880s.jpg",
+    "title": "Izanami and Izanagi create the 1st Japanese isles, Kobayashi Eitaku MFA 1880s",
+    "artist": "Kobayashi Eitaku",
+    "date": "1880s",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:amaterasu": {
+    "file": "Amaterasu cave wide.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Amaterasu_cave_wide.jpg",
+    "title": "Amaterasu cave wide",
+    "artist": "Utagawa Kunisada (歌川国貞)",
+    "date": "1856",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:susanoo": {
+    "file": "Yoshitoshi Nihon-ryakushi Susanoo-no-mikoto.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Yoshitoshi_Nihon-ryakushi_Susanoo-no-mikoto.jpg",
+    "title": "Yoshitoshi Nihon-ryakushi Susanoo-no-mikoto",
+    "artist": "Tsukioka Yoshitoshi ( 月岡芳年 , Japanese, *1839, †1892)",
+    "date": "1887",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:raijin": {
+    "file": "Tawaraya Sōtatsu - The Gods of Wind and Thunder (left screen).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tawaraya_S%C5%8Dtatsu_-_The_Gods_of_Wind_and_Thunder_(left_screen).jpg",
+    "title": "The Gods of Wind and Thunder",
+    "artist": "Tawara Sōtatsu",
+    "date": "Edo period (1603–1868)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hera": {
+    "file": "Peter Paul Rubens - Juno and Argus - WGA20280.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_Juno_and_Argus_-_WGA20280.jpg",
+    "title": "Juno and Argus",
+    "artist": "Peter Paul Rubens",
+    "date": "1610s",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:artemis": {
+    "file": "Diana the Huntress).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Diana_the_Huntress).jpg",
+    "title": "Diana the Huntress",
+    "artist": "Guillaume Seignac",
+    "date": "before 1924",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hermes": {
+    "file": "Diego Velázquez - Mercury and Argus - WGA24471.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Diego_Vel%C3%A1zquez_-_Mercury_and_Argus_-_WGA24471.jpg",
+    "title": "Mercury and Argus",
+    "artist": "Diego Velázquez",
+    "date": "1659",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hades": {
+    "file": "Rembrandt - The Rape of Proserpine - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rembrandt_-_The_Rape_of_Proserpine_-_Google_Art_Project.jpg",
+    "title": "The Rape of Proserpine",
+    "artist": "Rembrandt",
+    "date": "from 1630 until 1631",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:baldr": {
+    "file": "Baldr dead by Eckersberg.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Baldr_dead_by_Eckersberg.jpg",
+    "title": "The Death of Balder",
+    "artist": "Christoffer Wilhelm Eckersberg",
+    "date": "1817",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:heimdall": {
+    "file": "Heimdall an der Himmelsbrücke.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Heimdall_an_der_Himmelsbr%C3%BCcke.jpg",
+    "title": "Heimdall an der Himmelsbrücke",
+    "artist": "Emil Doepler",
+    "date": "Published ca. 1905",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ra": {
+    "file": "Maler der Grabkammer der Nefertari 001.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Maler_der_Grabkammer_der_Nefertari_001.jpg",
+    "title": "Burial chamber of Nefertari , wife of Ramses II, Scene: The God Re-Harakhty and Amentit, the goddess of the West, Detail",
+    "artist": "Maler der Grabkammer der Nefertari",
+    "date": "circa 1298-1235 BCE",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:horus": {
+    "file": "Horus - Temple of Seti I (3500450346).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Horus_-_Temple_of_Seti_I_(3500450346).jpg",
+    "title": "Horus - Temple of Seti I (3500450346)",
+    "artist": "Rhys Davenport from United Kingdom",
+    "date": "2005-04-19 09:28",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "figure:thoth": {
+    "file": "Thoth and Khepri from the Papyrus of Imenemsauf.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Thoth_and_Khepri_from_the_Papyrus_of_Imenemsauf.jpg",
+    "title": "Thoth and Khepri from the Papyrus of Imenemsauf",
+    "artist": "Unknown author",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:enki": {
+    "file": "Adda Seal Akkadian Empire 2300 BC.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Adda_Seal_Akkadian_Empire_2300_BC.jpg",
+    "title": "Adda Seal Akkadian Empire 2300 BC",
+    "artist": "Nic McPhee from Morris, Minnesota, USA",
+    "date": "2019-03-25",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "figure:tiamat": {
+    "file": "Chaos Monster and Sun God.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Chaos_Monster_and_Sun_God.png",
+    "title": "Chaos Monster and Sun God",
+    "artist": "editor Austen Henry Layard , drawing by L. Gruner",
+    "date": "1853",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:brahma": {
+    "file": "Brahma in the center Devaloka a religious print from the Ravi Varma Press,1910's.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Brahma_in_the_center_Devaloka_a_religious_print_from_the_Ravi_Varma_Press,1910%27s.jpg",
+    "title": "Brahma in the center Devaloka a religious print from the Ravi Varma Press,1910's",
+    "artist": "Unknown author",
+    "date": "1910s",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:krishna": {
+    "file": "17.02 Krishna Kaliya.tif",
+    "page": "https://commons.wikimedia.org/wiki/File:17.02_Krishna_Kaliya.tif",
+    "title": "17.02 Krishna Kaliya",
+    "artist": "Kharmacher",
+    "date": "2020-06-24",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:fujin": {
+    "file": "Tawaraya Sōtatsu - The Gods of Wind and Thunder (right screen).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tawaraya_S%C5%8Dtatsu_-_The_Gods_of_Wind_and_Thunder_(right_screen).jpg",
+    "title": "The Gods of Wind and Thunder",
+    "artist": "Tawara Sōtatsu",
+    "date": "Edo period (1603–1868)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:inari": {
+    "file": "A man confronted with an apparition of the Fox goddess.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:A_man_confronted_with_an_apparition_of_the_Fox_goddess.jpg",
+    "title": "A man confronted with an apparition of the Fox goddess",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:pangu": {
+    "file": "Pangu.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pangu.jpg",
+    "title": "Pangu",
+    "artist": "Wang Qi",
+    "date": "circa 1607",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:nuwa": {
+    "file": "Anonymous-Fuxi and Nüwa.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Anonymous-Fuxi_and_N%C3%BCwa.jpg",
+    "title": "Fuxi and Nüwa. Nüwa is on the left. Fuxi is her brother.",
+    "artist": "anonymous",
+    "date": "mid 8th century (Tang Dynasty)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:xiwangmu": {
+    "file": "Kano Osanobu - Queen Mother of the West - 36.100.99 - Metropolitan Museum of Art.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Kano_Osanobu_-_Queen_Mother_of_the_West_-_36.100.99_-_Metropolitan_Museum_of_Art.jpg",
+    "title": "Queen Mother of the West",
+    "artist": "Kanō Akinobu",
+    "date": "between 1800 and 1846",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:change": {
+    "file": "Chang E, The Moon Goddess.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Chang_E,_The_Moon_Goddess.jpg",
+    "title": "Chang E, The Moon Goddess",
+    "artist": "Unknown artist",
+    "date": "1345–1445",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:cernunnos": {
+    "file": "Gundestrupkedlen- 00054 (cropped).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gundestrupkedlen-_00054_(cropped).jpg",
+    "title": "Gundestrupkedlen- 00054 (cropped)",
+    "artist": "Nationalmuseet, Roberto Fortuna og Kira Ursem",
+    "date": "2007",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:cuchulainn": {
+    "file": "Cuchulain in Battle.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cuchulain_in_Battle.jpg",
+    "title": "Cuchulain in Battle",
+    "artist": "Joseph Christian Leyendecker (1874 - 1951)",
+    "date": "1911",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:brigid": {
+    "file": "John Duncan (1913) Saint Bride.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:John_Duncan_(1913)_Saint_Bride.jpg",
+    "title": "Saint Bride",
+    "artist": "John Duncan",
+    "date": "1913",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:morrigan": {
+    "file": "Morrigan.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Morrigan.jpg",
+    "title": "Morrigan",
+    "artist": "Artist Joseph Christian Leyendecker (1874 - 1951). Cropped and colours adjusted by CorbieVreccan 2 July 2016. Original a",
+    "date": "1911",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:quetzalcoatl": {
+    "file": "Quetzalcoatl and Tezcatlipoca.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Quetzalcoatl_and_Tezcatlipoca.jpg",
+    "title": "Quetzalcoatl and Tezcatlipoca",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tezcatlipoca": {
+    "file": "Codex Borgia page 17.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Codex_Borgia_page_17.jpg",
+    "title": "Codex Borgia page 17",
+    "artist": "Unknown author",
+    "date": "Pre-Columbian",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:huitzilopochtli": {
+    "file": "Huitzilopochtli, the Principal Aztec God WDL6725.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Huitzilopochtli,_the_Principal_Aztec_God_WDL6725.png",
+    "title": "Huitzilopochtli, the Principal Aztec God",
+    "artist": "Tovar, Juan de, circa 1546-circa 1626",
+    "date": "1585",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tlaloc": {
+    "file": "Tlaloc Codex Borgia.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tlaloc_Codex_Borgia.jpg",
+    "title": "Tlaloc Codex Borgia",
+    "artist": "Unknown author",
+    "date": "Pre-Columbian",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:dangun": {
+    "file": "Portrait of Dangun.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Portrait_of_Dangun.jpg",
+    "title": "Portrait of Dangun",
+    "artist": "Chae Yong-sin (1850-1941)",
+    "date": "Unknown date",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:bari": {
+    "file": "Spirit of a Noble Woman (Probably Princess Pari) and Attendant LACMA M.2000.15.11.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Spirit_of_a_Noble_Woman_(Probably_Princess_Pari)_and_Attendant_LACMA_M.2000.15.11.jpg",
+    "title": "Spirit of a Noble Woman (Probably Princess Pari) and Attendant",
+    "artist": "anonymous",
+    "date": "18 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:sansin": {
+    "file": "Brooklyn Museum - Mountain Spirit (Sanshin).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Brooklyn_Museum_-_Mountain_Spirit_(Sanshin).jpg",
+    "title": "Mountain Spirit (Sanshin)",
+    "artist": "Unknown author",
+    "date": "between 1800 and 1900",
+    "license": "No restrictions",
+    "licenseUrl": null
+  },
+  "figure:jeseok": {
+    "file": "Painting of Jeseok at Yongsan-gu Nam I shrine.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Painting_of_Jeseok_at_Yongsan-gu_Nam_I_shrine.jpg",
+    "title": "Painting of Jeseok at Yongsan-gu Nam I shrine",
+    "artist": "Unknown painter, presumably nineteenth century. Korean shamanic paintings never record dates, are always by anonymous pa",
+    "date": "19th century?",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:vainamoinen": {
+    "file": "Akseli Gallen-Kallela - Head of Väinämöinen.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Akseli_Gallen-Kallela_-_Head_of_V%C3%A4in%C3%A4m%C3%B6inen.jpg",
+    "title": "Head of Väinämöinen",
+    "artist": "Akseli Gallen-Kallela",
+    "date": "1895",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ilmarinen": {
+    "file": "Akseli Gallen-Kallela - Sammon taonta - A I 513 - Finnish National Gallery.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Akseli_Gallen-Kallela_-_Sammon_taonta_-_A_I_513_-_Finnish_National_Gallery.jpg",
+    "title": "The Forging of the Sampo",
+    "artist": "Akseli Gallen-Kallela",
+    "date": "1893",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:louhi": {
+    "file": "Sammon puolustus.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Sammon_puolustus.jpg",
+    "title": "The Defense of the Sampo",
+    "artist": "Akseli Gallen-Kallela",
+    "date": "1896",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:lemminkainen": {
+    "file": "Akseli Gallen-Kallela - Lemminkäinen's Mother - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Akseli_Gallen-Kallela_-_Lemmink%C3%A4inen%27s_Mother_-_Google_Art_Project.jpg",
+    "title": "Lemminkäinen's Mother",
+    "artist": "Akseli Gallen-Kallela",
+    "date": "1897",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:itzamna": {
+    "file": "Codex dresdensis lacambalam itzamná.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Codex_dresdensis_lacambalam_itzamn%C3%A1.jpg",
+    "title": "Codex dresdensis lacambalam itzamná",
+    "artist": "Lacambalam",
+    "date": "2014-09-22 22:55:41",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:kukulkan": {
+    "file": "Chichen Itza, El Castillo (14180679857).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Chichen_Itza,_El_Castillo_(14180679857).jpg",
+    "title": "Chichen Itza, El Castillo (14180679857)",
+    "artist": "Arian Zwegers from Brussels, Belgium",
+    "date": "2013-05-31 16:42",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "figure:chaac": {
+    "file": "Le dieu Chaac, image 12 du codex de Dresde.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_dieu_Chaac,_image_12_du_codex_de_Dresde.jpg",
+    "title": "Le dieu Chaac, image 12 du codex de Dresde",
+    "artist": "Un scribe maya précolombien non identifié avant 1500.",
+    "date": "Avant 1500 de notre ère.",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:maize-god": {
+    "file": "Maya maize god statue.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Maya_maize_god_statue.jpg",
+    "title": "Maya maize god statue",
+    "artist": "BabelStone",
+    "date": "2012-03-25",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:dionysus": {
+    "file": "Titian - Bacchus and Ariadne - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Titian_-_Bacchus_and_Ariadne_-_Google_Art_Project.jpg",
+    "title": "Bacchus and Ariadne",
+    "artist": "Titian",
+    "date": "between 1520 and 1523",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hephaestus": {
+    "file": "Velázquez - La Fragua de Vulcano (Museo del Prado, 1630).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Vel%C3%A1zquez_-_La_Fragua_de_Vulcano_(Museo_del_Prado,_1630).jpg",
+    "title": "Apollo in the Forge of Vulcan",
+    "artist": "Diego Velázquez",
+    "date": "1630",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:heracles": {
+    "file": "Hércules lucha con el león de Nemea, por Zurbarán.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:H%C3%A9rcules_lucha_con_el_le%C3%B3n_de_Nemea,_por_Zurbar%C3%A1n.jpg",
+    "title": "Hércules lucha con el león de Nemea",
+    "artist": "Francisco de Zurbarán",
+    "date": "1634",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:medusa": {
+    "file": "Caravaggio - Medusa - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Caravaggio_-_Medusa_-_Google_Art_Project.jpg",
+    "title": "Medusa",
+    "artist": "Caravaggio",
+    "date": "from 1597 until 1598",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:set": {
+    "file": "Horus and Seth crowning Ramesses III, detail of Seth.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Horus_and_Seth_crowning_Ramesses_III,_detail_of_Seth.JPG",
+    "title": "Horus and Seth crowning Ramesses III, detail of Seth",
+    "artist": "A. Parrot",
+    "date": "2015-12-31 04:02:06",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:hathor": {
+    "file": "Ramesses III and Prince Amenherkhepeshef before Hathor MET DT11787.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ramesses_III_and_Prince_Amenherkhepeshef_before_Hathor_MET_DT11787.jpg",
+    "title": "Ramesses III and Prince Amenherkhepeshef before Hathor",
+    "artist": "Nina M. Davies",
+    "date": "Original ca. 1184–1153 B.C. Period: New ",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:bastet": {
+    "file": "Statuetta della dea Bastet SA18884.tif",
+    "page": "https://commons.wikimedia.org/wiki/File:Statuetta_della_dea_Bastet_SA18884.tif",
+    "title": "Statuette of the goddess Bastet",
+    "artist": null,
+    "date": "between 722 and 332 BC",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:lakshmi": {
+    "file": "Raja Ravi Varma, Goddess Lakshmi, 1896.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma,_Goddess_Lakshmi,_1896.jpg",
+    "title": "Goddess Lakshmi",
+    "artist": "Raja Ravi Varma",
+    "date": "1896",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hanuman": {
+    "file": "Hanuman fetches the herb-bearing mountain, in a print from the Ravi Varma Press, 1910's.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hanuman_fetches_the_herb-bearing_mountain,_in_a_print_from_the_Ravi_Varma_Press,_1910%27s.jpg",
+    "title": "Hanuman fetches the herb-bearing mountain, in a print from the Ravi Varma Press, 1910's",
+    "artist": null,
+    "date": "1910",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:durga": {
+    "file": "Durga Mahishasura-mardini, the slayer of the buffalo demon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Durga_Mahishasura-mardini,_the_slayer_of_the_buffalo_demon.jpg",
+    "title": "Durga Mahishasura-mardini, the slayer of the buffalo demon",
+    "artist": "Anant Shivaji Desai, Ravi Varma Press",
+    "date": "1910s",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:frigg": {
+    "file": "FriggSpinning.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:FriggSpinning.jpg",
+    "title": "FriggSpinning",
+    "artist": "John Charles Dollman",
+    "date": "published 1909",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tyr": {
+    "file": "SÁM 66, 78v, Fenrir and Týr.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:S%C3%81M_66,_78v,_Fenrir_and_T%C3%BDr.jpg",
+    "title": "SÁM 66, 78v, Fenrir and Týr",
+    "artist": "Jakob Sigurðsson [2]",
+    "date": "1765-1766 [1]",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ahura-mazda": {
+    "file": "Farvahar.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Farvahar.JPG",
+    "title": "Farvahar",
+    "artist": "Sahand Ace",
+    "date": "2012-03-25 21:14:21",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:mithra": {
+    "file": "Fresque Mithraeum Marino.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fresque_Mithraeum_Marino.jpg",
+    "title": "Fresque Mithraeum Marino",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:anahita": {
+    "file": "Anahita Vessel, 300-500 AD, Sasanian, Iran, silver and gilt - Cleveland Museum of Art - DSC08130.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Anahita_Vessel,_300-500_AD,_Sasanian,_Iran,_silver_and_gilt_-_Cleveland_Museum_of_Art_-_DSC08130.JPG",
+    "title": "Anahita Vessel, 300-500 AD, Sasanian, Iran, silver and gilt - Cleveland Museum of Art - DSC08130",
+    "artist": "Daderot",
+    "date": "2012-09-07 12:07:14",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:baal": {
+    "file": "Baal thunderbolt Louvre AO15775.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Baal_thunderbolt_Louvre_AO15775.jpg",
+    "title": "Baal thunderbolt Louvre AO15775",
+    "artist": "Jastrow",
+    "date": "2006",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:astarte": {
+    "file": "Astarte Syriaca Rossetti.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Astarte_Syriaca_Rossetti.jpg",
+    "title": "Astarte Syriaca Rossetti",
+    "artist": "Dante Gabriel Rossetti",
+    "date": "1877",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:teshub": {
+    "file": "Relief of Teshub, the storm-god.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Relief_of_Teshub,_the_storm-god.jpg",
+    "title": "Basalt relief fragment depicting the storm-gud",
+    "artist": "Unknown artist",
+    "date": "10th century BC",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:illuyanka": {
+    "file": "Anatolian Civilizations Museum slaying of the serpent Illuyanka by the Storm God in 2011 03.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Anatolian_Civilizations_Museum_slaying_of_the_serpent_Illuyanka_by_the_Storm_God_in_2011_03.jpg",
+    "title": "Anatolian Civilizations Museum slaying of the serpent Illuyanka by the Storm God in 2011 03",
+    "artist": "Dosseman",
+    "date": "2011-06-19 09:27:10",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:allat": {
+    "file": "Allat Palmyra RGZM 3369.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Allat_Palmyra_RGZM_3369.jpg",
+    "title": "Allat Palmyra RGZM 3369",
+    "artist": null,
+    "date": "1 st century",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:dushara": {
+    "file": "Dhushara.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Dhushara.JPG",
+    "title": "Dhushara",
+    "artist": null,
+    "date": "2007-07",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:perun": {
+    "file": "Perun Gromoverzhecz by Andrey Shishkin.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Perun_Gromoverzhecz_by_Andrey_Shishkin.jpg",
+    "title": "Perun the Thunderer",
+    "artist": "Andrey Shishkin",
+    "date": "2013",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "figure:svetovid": {
+    "file": "Svetovit by Ludwig Albrecht Gebhardi.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Svetovit_by_Ludwig_Albrecht_Gebhardi.png",
+    "title": "Svetovit by Ludwig Albrecht Gebhardi",
+    "artist": "Ludwig Albrecht Gebhardi",
+    "date": "1789",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:baba-yaga": {
+    "file": "Bilibin. Baba Yaga.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bilibin._Baba_Yaga.jpg",
+    "title": "Bilibin. Baba Yaga",
+    "artist": "Ivan Bilibin",
+    "date": "1900",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:perkunas": {
+    "file": "Mikalojus Konstantinas Ciurlionis - PERKUNAS (THOR) - 1909.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mikalojus_Konstantinas_Ciurlionis_-_PERKUNAS_(THOR)_-_1909.jpg",
+    "title": "Painting by Mikalojus Konstantinas Čiurlionis.",
+    "artist": "Mikalojus Konstantinas Čiurlionis",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:laima": {
+    "file": "Mikalojus Konstantinas Ciurlionis - FAIRY TALE (FAIRY TALE OF KINGS) - 1909.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mikalojus_Konstantinas_Ciurlionis_-_FAIRY_TALE_(FAIRY_TALE_OF_KINGS)_-_1909.jpg",
+    "title": "Painting by Mikalojus Konstantinas Čiurlionis.",
+    "artist": "Mikalojus Konstantinas Čiurlionis",
+    "date": "1909",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:kalevipoeg": {
+    "file": "TKM 2141 B Kristjan Raud -- Kalevipoeg põrgu väravas.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:TKM_2141_B_Kristjan_Raud_--_Kalevipoeg_p%C3%B5rgu_v%C3%A4ravas.jpg",
+    "title": "TKM 2141 B Kristjan Raud -- Kalevipoeg põrgu väravas",
+    "artist": "Kristjan Raud",
+    "date": "1942",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:vanapagan": {
+    "file": "TKM 2797B Kristjan Raud - Kalevipoeg ja Vanapagan.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:TKM_2797B_Kristjan_Raud_-_Kalevipoeg_ja_Vanapagan.jpg",
+    "title": "TKM 2797B Kristjan Raud - Kalevipoeg ja Vanapagan",
+    "artist": "Kristjan Raud",
+    "date": "Unknown date",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tinia": {
+    "file": "Tinia Staatliche Antikensammlungen München 2013.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tinia_Staatliche_Antikensammlungen_M%C3%BCnchen_2013.jpg",
+    "title": "Tinia Staatliche Antikensammlungen München 2013",
+    "artist": "Dan Mihai Pitea",
+    "date": "2013-07-14 15:20:22",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:charun": {
+    "file": "Achilles' Sacrifice of Trojan Prisoners.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Achilles%27_Sacrifice_of_Trojan_Prisoners.jpg",
+    "title": "Achilles' Sacrifice of Trojan Prisoners",
+    "artist": "Askelladd",
+    "date": "350-330 BC",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:menrva": {
+    "file": "Etruscan mirror with Hercle Menrva Apulu Detail.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Etruscan_mirror_with_Hercle_Menrva_Apulu_Detail.jpg",
+    "title": "Etruscan mirror with Hercle Menrva Apulu Detail",
+    "artist": "Unknown author",
+    "date": "325–300 BC",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:snake-goddess": {
+    "file": "Minoan snake goddess 1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Minoan_snake_goddess_1.jpg",
+    "title": "Minoan snake goddess 1",
+    "artist": "Artem.G",
+    "date": "2016-10-17 14:02:57",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:mistress-of-animals": {
+    "file": "Artemis as Potnia theron, Boeotian early orientalizing amphora, NAMA 220, 225651.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Artemis_as_Potnia_theron,_Boeotian_early_orientalizing_amphora,_NAMA_220,_225651.jpg",
+    "title": "Artemis as Potnia theron, Boeotian early orientalizing amphora, NAMA 220, 225651",
+    "artist": "Zde",
+    "date": "2022-06-11 12:35:43",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:anahit": {
+    "file": "T.E. Macklin Aphrodite bronze mask.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:T.E._Macklin_Aphrodite_bronze_mask.jpg",
+    "title": "T.E. Macklin Aphrodite bronze mask",
+    "artist": "Thomas Eyre Macklin (T.E. Macklin), died 1943",
+    "date": "1892",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:vahagn": {
+    "file": "Birth of Vahagn Zabelle Boyajian.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Birth_of_Vahagn_Zabelle_Boyajian.jpg",
+    "title": "Birth of Vahagn Zabelle Boyajian",
+    "artist": "Zabelle C. Boyajian",
+    "date": "1916",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:turul": {
+    "file": "Turul Uzhhorod Castle 2015 G1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Turul_Uzhhorod_Castle_2015_G1.jpg",
+    "title": "Turul Uzhhorod Castle 2015 G1",
+    "artist": "George Chernilevsky",
+    "date": "2015-06-28 13:09:45",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:emese": {
+    "file": "Emese álma.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Emese_%C3%A1lma.jpg",
+    "title": "Emese álma",
+    "artist": "Unknown author",
+    "date": "circa 1850",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:weland": {
+    "file": "Wayland the Smith, wearing the wings of he had fashined -.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Wayland_the_Smith,_wearing_the_wings_of_he_had_fashined_-.jpg",
+    "title": "Wayland the Smith, wearing the wings of he had fashined -",
+    "artist": "Marshall, Logan, tr",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:beowulf": {
+    "file": "Beowulf and the dragon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Beowulf_and_the_dragon.jpg",
+    "title": "Beowulf and the dragon",
+    "artist": "J. R. Skelton",
+    "date": "1908",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:thracian-heros": {
+    "file": "Relief of a Thracian horseman, Marble, early 1st Century CE Thessaloniki.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Relief_of_a_Thracian_horseman,_Marble,_early_1st_Century_CE_Thessaloniki.jpg",
+    "title": "Relief of a Thracian horseman, Marble, early 1st Century CE Thessaloniki",
+    "artist": "Yair-haklai",
+    "date": "2023-04-15 11:59:33",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:zalmoxis": {
+    "file": "The Golden Helmet of Coţofeneşti - National Museum of Romanian History (11321201516).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Golden_Helmet_of_Co%C5%A3ofene%C5%9Fti_-_National_Museum_of_Romanian_History_(11321201516).jpg",
+    "title": "The Golden Helmet of Coţofeneşti - National Museum of Romanian History (11321201516)",
+    "artist": "Jorge Láscar from Australia",
+    "date": "2012-08-24 13:56",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "figure:shango": {
+    "file": "Shango staff, oshe Shango, World Museum Liverpool.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Shango_staff,_oshe_Shango,_World_Museum_Liverpool.JPG",
+    "title": "Shango staff, oshe Shango, World Museum Liverpool",
+    "artist": "Rept0n1x",
+    "date": "2012-12-23 11:35:56",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:eshu": {
+    "file": "Figure of deity Eshu, Yoruba, Nigeria, end of 19th century - Staatliches Museum für Völkerkunde München - DSC08551.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Figure_of_deity_Eshu,_Yoruba,_Nigeria,_end_of_19th_century_-_Staatliches_Museum_f%C3%BCr_V%C3%B6lkerkunde_M%C3%BCnchen_-_DSC08551.JPG",
+    "title": "Figure of deity Eshu, Yoruba, Nigeria, end of 19th century - Staatliches Museum für Völkerkunde München - DSC08551",
+    "artist": "Daderot",
+    "date": "2011-05-03 05:54:38",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:orunmila": {
+    "file": "Brooklyn Museum 75.147.1 Divination Tray Opon Ifa.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Brooklyn_Museum_75.147.1_Divination_Tray_Opon_Ifa.jpg",
+    "title": "Divination Tray (Opon Ifa)",
+    "artist": "Unknown author",
+    "date": "Early 20th century",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "figure:nommo": {
+    "file": "Dogon sculpture-73.1977.6.1-DSC00255-58-black.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dogon_sculpture-73.1977.6.1-DSC00255-58-black.jpg",
+    "title": "Dogon sculpture-73.1977.6.1-DSC00255-58-black",
+    "artist": "Rama",
+    "date": "Taken on 29 January 2017, 14:30 (accordi",
+    "license": "CC BY-SA 3.0 fr",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en"
+  },
+  "figure:amma": {
+    "file": "Figure- Seated Couple MET DT1217.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Figure-_Seated_Couple_MET_DT1217.jpg",
+    "title": "Seated Couple",
+    "artist": null,
+    "date": "18th–early 19th century",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:gu": {
+    "file": "Benin, fon, il dio gou protettore del ferro battuto e della guerra, ante 1858, artista akati ekplékendo, 01.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Benin,_fon,_il_dio_gou_protettore_del_ferro_battuto_e_della_guerra,_ante_1858,_artista_akati_ekpl%C3%A9kendo,_01.JPG",
+    "title": "Benin, fon, il dio gou protettore del ferro battuto e della guerra, ante 1858, artista akati ekplékendo, 01",
+    "artist": "Sailko",
+    "date": "2013-12-03",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "figure:mawu-lisa": {
+    "file": "Bas-relief d'une résidence du quartier de Gbécon-Hounli, non loin du palais princier de Guézo, figure du cavalier acrobate Aloukiki - A63610S.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bas-relief_d%27une_r%C3%A9sidence_du_quartier_de_Gb%C3%A9con-Hounli,_non_loin_du_palais_princier_de_Gu%C3%A9zo,_figure_du_cavalier_acrobate_Aloukiki_-_A63610S.jpg",
+    "title": "Bas-relief d'une résidence du quartier de Gbécon-Hounli, non loin du palais princier de Guézo, figure du cavalier acrobate Aloukiki",
+    "artist": "Gadmer Frédéric",
+    "date": "4 March 1930",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:inti": {
+    "file": "Cuzco.- Temple Koricancha cosmologie Inca, (2).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cuzco.-_Temple_Koricancha_cosmologie_Inca,_(2).jpg",
+    "title": "Cuzco.- Temple Koricancha cosmologie Inca, (2)",
+    "artist": "Pierre André Leclercq",
+    "date": "2011-11-17 18:37:52",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:viracocha": {
+    "file": "Bol-tihuanaco-sonnentor.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bol-tihuanaco-sonnentor.jpg",
+    "title": "Bol-tihuanaco-sonnentor",
+    "artist": "Bgabel",
+    "date": "2005-08",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:pachamama": {
+    "file": "20170808 Bolivia 1411 Potosí sRGB (26204035019).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:20170808_Bolivia_1411_Potos%C3%AD_sRGB_(26204035019).jpg",
+    "title": "20170808 Bolivia 1411 Potosí sRGB (26204035019)",
+    "artist": "Dan Lundberg",
+    "date": "2017-08-08 09:20",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "figure:raven": {
+    "file": "Totemic raven carving (fragment) in the Visitor Center, Sitka National Historical Park,.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Totemic_raven_carving_(fragment)_in_the_Visitor_Center,_Sitka_National_Historical_Park,.jpg",
+    "title": "Totemic raven carving (fragment) in the Visitor Center, Sitka National Historical Park,",
+    "artist": "Hiart",
+    "date": "19 th century",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:were-jaguar": {
+    "file": "Olmec - Carved Bowl with Jaguar Dragon Motif - Walters 482797.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Olmec_-_Carved_Bowl_with_Jaguar_Dragon_Motif_-_Walters_482797.jpg",
+    "title": "Carved Bowl with Jaguar Dragon Motif",
+    "artist": "Anonymous ( Olmecas ) Unknown author",
+    "date": "between 1200 and 900 BC (Early Pre-Class",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:cocijo": {
+    "file": "Zapotec - Effigy Urn of Cocijo - Walters 482788.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Zapotec_-_Effigy_Urn_of_Cocijo_-_Walters_482788.jpg",
+    "title": "Effigy Urn of Cocijo",
+    "artist": "Anonymous ( Zapotec ) Unknown author",
+    "date": "AD 300-600 (Early Classic)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:eight-deer": {
+    "file": "Codex Zouche-Nuttall Page 75.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Codex_Zouche-Nuttall_Page_75.png",
+    "title": "Codex Zouche-Nuttall Page 75",
+    "artist": "Zelia Nuttall",
+    "date": "1902-12-31",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:maui": {
+    "file": "Maui Snaring the Sun by Arman Tateos Manookian, c. 1927, drawing, Honolulu Museum of Art.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Maui_Snaring_the_Sun_by_Arman_Tateos_Manookian,_c._1927,_drawing,_Honolulu_Museum_of_Art.jpg",
+    "title": "Maui Snaring the Sun by Arman Tateos Manookian, c. 1927, drawing, Honolulu Museum of Art",
+    "artist": "Hiart",
+    "date": "circa 1927",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tangaroa": {
+    "file": "Handbook to the ethnographical collections (1910) (14596837587).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Handbook_to_the_ethnographical_collections_(1910)_(14596837587).jpg",
+    "title": "Handbook to the ethnographical collections (1910) (14596837587)",
+    "artist": "Internet Archive Book Images",
+    "date": "1910",
+    "license": "No restrictions",
+    "licenseUrl": "https://www.flickr.com/commons/usage/"
+  },
+  "figure:ku": {
+    "file": "Kuka'ilimoku.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Kuka%27ilimoku.jpg",
+    "title": "Kuka'ilimoku",
+    "artist": "Lebrac",
+    "date": "01.06.2008",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:makemake": {
+    "file": "Chile-03609 - Make-make (49072531058).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Chile-03609_-_Make-make_(49072531058).jpg",
+    "title": "Chile-03609 - Make-make (49072531058)",
+    "artist": "Dennis G. Jarvis",
+    "date": "Taken on 20 October 2019, 16:11",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "figure:moai": {
+    "file": "Hodges easter-island.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hodges_easter-island.jpg",
+    "title": "A View of the Monuments of Easter Island, Rapanui",
+    "artist": "William Hodges",
+    "date": "between 1774 and 1777",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:kimun-kamuy": {
+    "file": "Ainu-iomante-bear-spirit-sending-ceremony-by-Hirasawa-Byozan-1875.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Ainu-iomante-bear-spirit-sending-ceremony-by-Hirasawa-Byozan-1875.png",
+    "title": "Ainu-iomante-bear-spirit-sending-ceremony-by-Hirasawa-Byozan-1875",
+    "artist": "Hirasawa Byōzan (平沢屏山), 1822 - 1876. Hokkaido, Japan, East Asia",
+    "date": "1875",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:gesar": {
+    "file": "Gesar of Ling riding a reindeer. Distemper painting. Wellcome L0040370.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gesar_of_Ling_riding_a_reindeer._Distemper_painting._Wellcome_L0040370.jpg",
+    "title": "Gesar of Ling riding a reindeer. Distemper painting.",
+    "artist": null,
+    "date": null,
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "figure:palden-lhamo": {
+    "file": "Shri (Palden Lhamo) 1750-1850 LACMA.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Shri_(Palden_Lhamo)_1750-1850_LACMA.jpg",
+    "title": "Shri (Palden Lhamo) 1750-1850 LACMA",
+    "artist": "Anonymous Unknown author",
+    "date": "2013-07-21 12:26:05",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:thanh-giong": {
+    "file": "Tranh Đông Hồ vẽ Phù Đổng Thiên Vương.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tranh_%C4%90%C3%B4ng_H%E1%BB%93_v%E1%BA%BD_Ph%C3%B9_%C4%90%E1%BB%95ng_Thi%C3%AAn_V%C6%B0%C6%A1ng.jpg",
+    "title": "Tranh Đông Hồ vẽ Phù Đổng Thiên Vương",
+    "artist": "Vietnamese artist",
+    "date": "19th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:lac-long-quan": {
+    "file": "Phù điêu Quốc tổ Lạc Long Quân dẫn 50 người con xuống biển.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ph%C3%B9_%C4%91i%C3%AAu_Qu%E1%BB%91c_t%E1%BB%95_L%E1%BA%A1c_Long_Qu%C3%A2n_d%E1%BA%ABn_50_ng%C6%B0%E1%BB%9Di_con_xu%E1%BB%91ng_bi%E1%BB%83n.jpg",
+    "title": "Phù điêu Quốc tổ Lạc Long Quân dẫn 50 người con xuống biển",
+    "artist": "Lengoctho2207",
+    "date": "2019-03-09",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:thotsakan": {
+    "file": "Ravana.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ravana.jpg",
+    "title": "Ravana",
+    "artist": "Scan/photo by: User:Henryart (who is owner of the original painting/object/photo)",
+    "date": "December 2004-12-27",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:mae-phosop": {
+    "file": "Nangphosop.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Nangphosop.jpg",
+    "title": "Nangphosop",
+    "artist": "Gavin Symahanou",
+    "date": "January 30th, 2025",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:mahagiri": {
+    "file": "Mahagiri Nat.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mahagiri_Nat.jpg",
+    "title": "Mahagiri Nat",
+    "artist": "Sir Richard Carnac Temple",
+    "date": "1906",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:thagyamin": {
+    "file": "Thagyamin Nat.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Thagyamin_Nat.jpg",
+    "title": "Thagyamin Nat",
+    "artist": "Sir Richard Carnac Temple",
+    "date": "1906",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:barong": {
+    "file": "Pengecoh Makhluk Halus, Barong Bali.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pengecoh_Makhluk_Halus,_Barong_Bali.jpg",
+    "title": "Pengecoh Makhluk Halus, Barong Bali",
+    "artist": "Skha",
+    "date": "2014-12-07 09:09:10",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:rangda": {
+    "file": "Tari rangda.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tari_rangda.jpg",
+    "title": "Tari rangda",
+    "artist": "Wiaskara",
+    "date": "2019-09-09 21:22:15",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:dewi-sri": {
+    "file": "Dewi Sri Lakshmi Ancient Java in Sonobudoyo.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dewi_Sri_Lakshmi_Ancient_Java_in_Sonobudoyo.jpg",
+    "title": "Dewi Sri Lakshmi Ancient Java in Sonobudoyo",
+    "artist": "Gunawan Kartapranata",
+    "date": "2023-02-11 11:43:32",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:hwanin": {
+    "file": "Mansindo (萬神圖), early 19th-c. Korean shamanic painting.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mansindo_(%E8%90%AC%E7%A5%9E%E5%9C%96),_early_19th-c._Korean_shamanic_painting.jpg",
+    "title": "Mansindo (萬神圖), early 19th-c. Korean shamanic painting",
+    "artist": "Unknown, early 1800s",
+    "date": "early 19 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hwanung": {
+    "file": "내왓당 무신도 천자위.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EB%82%B4%EC%99%93%EB%8B%B9_%EB%AC%B4%EC%8B%A0%EB%8F%84_%EC%B2%9C%EC%9E%90%EC%9C%84.jpg",
+    "title": "내왓당 무신도 천자위",
+    "artist": "Unknown painter; likely fifteenth century",
+    "date": "15th century?",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ungnyeo": {
+    "file": "Goguryeo-Gakjeochong-Ssireumdo-01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Goguryeo-Gakjeochong-Ssireumdo-01.jpg",
+    "title": "Goguryeo-Gakjeochong-Ssireumdo-01",
+    "artist": "Unknown author",
+    "date": "4~6세기경",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:haemosu": {
+    "file": "Nüwa Gaogouli tomb mural.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:N%C3%BCwa_Gaogouli_tomb_mural.jpg",
+    "title": "Nüwa Gaogouli tomb mural",
+    "artist": "Marvelgalaxy at Chinese Wikipedia",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:yuhwa": {
+    "file": "Lady Yuhwa and King Geumwa.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Lady_Yuhwa_and_King_Geumwa.png",
+    "title": "Lady Yuhwa and King Geumwa",
+    "artist": "Sadahide Utagawa",
+    "date": "1854-01-13",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:dongmyeong": {
+    "file": "Goguryeo tomb mural.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Goguryeo_tomb_mural.jpg",
+    "title": "Goguryeo tomb mural",
+    "artist": "Unknown author",
+    "date": "1/2/10",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hyeokgeose": {
+    "file": "초등대한역사 제2편 2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EC%B4%88%EB%93%B1%EB%8C%80%ED%95%9C%EC%97%AD%EC%82%AC_%EC%A0%9C2%ED%8E%B8_2.jpg",
+    "title": "초등대한역사 제2편 2",
+    "artist": "Original: Jeong Inho Transcription: History Net, National Institute of Korean History",
+    "date": "2014-10-31 11:27:35",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:suro": {
+    "file": "초등대한역사 제2편 14.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EC%B4%88%EB%93%B1%EB%8C%80%ED%95%9C%EC%97%AD%EC%82%AC_%EC%A0%9C2%ED%8E%B8_14.jpg",
+    "title": "초등대한역사 제2편 14",
+    "artist": "Original: Jeong Inho Transcription: History Net, National Institute of Korean History",
+    "date": "2014-10-31 11:27:38",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:seolmundae": {
+    "file": "내왓당 무신도 홍아위.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EB%82%B4%EC%99%93%EB%8B%B9_%EB%AC%B4%EC%8B%A0%EB%8F%84_%ED%99%8D%EC%95%84%EC%9C%84.jpg",
+    "title": "내왓당 무신도 홍아위",
+    "artist": "Unknown painter; likely fifteenth century",
+    "date": "15th century?",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:samsin": {
+    "file": "Hyewon-Munyeo.sinmu.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hyewon-Munyeo.sinmu.jpg",
+    "title": "Hyewon-Munyeo.sinmu",
+    "artist": "Hyewon Shin Yun-bok (申潤福: 1758-early 19th century) (혜원 신윤복 (申潤福: 1758-19세기 초반))",
+    "date": "Presumably after 1805 (1805년 이후 작품으로 추정)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:jacheongbi": {
+    "file": "내왓당 무신도 중전위.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EB%82%B4%EC%99%93%EB%8B%B9_%EB%AC%B4%EC%8B%A0%EB%8F%84_%EC%A4%91%EC%A0%84%EC%9C%84.jpg",
+    "title": "내왓당 무신도 중전위",
+    "artist": "Unknown painter; likely fifteenth century",
+    "date": "15th century?",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:gangnim": {
+    "file": "상여장식 저승사자.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EC%83%81%EC%97%AC%EC%9E%A5%EC%8B%9D_%EC%A0%80%EC%8A%B9%EC%82%AC%EC%9E%90.jpg",
+    "title": "상여장식 저승사자",
+    "artist": "National Folk Museum of Korea",
+    "date": "Not mentioned in site",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "figure:siwang": {
+    "file": "Bodhisattva Jijang (Kshitigarbha) and the Ten Kings of Hell LACMA AC1994.49.1 (1 of 9).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bodhisattva_Jijang_(Kshitigarbha)_and_the_Ten_Kings_of_Hell_LACMA_AC1994.49.1_(1_of_9).jpg",
+    "title": "Bodhisattva Jijang (Kshitigarbha) and the Ten Kings of Hell (image 1 of 9)",
+    "artist": "anonymous",
+    "date": "circa 1841",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:cheoyong": {
+    "file": "Cheoyong in the Akhak Gwebeom.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cheoyong_in_the_Akhak_Gwebeom.jpg",
+    "title": "Cheoyong in the Akhak Gwebeom",
+    "artist": "Unknown; illustration from the Akhak Gwebeom , published in 1493",
+    "date": "1490s",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ilwol": {
+    "file": "Irworobongdo.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Irworobongdo.jpg",
+    "title": "Irworobongdo",
+    "artist": "Unknown author",
+    "date": "Unknown date",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:choeyeong": {
+    "file": "사신당 무신도 및 현판 일괄 - 최영장군도.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EC%82%AC%EC%8B%A0%EB%8B%B9_%EB%AC%B4%EC%8B%A0%EB%8F%84_%EB%B0%8F_%ED%98%84%ED%8C%90_%EC%9D%BC%EA%B4%84_-_%EC%B5%9C%EC%98%81%EC%9E%A5%EA%B5%B0%EB%8F%84.jpg",
+    "title": "사신당 무신도 및 현판 일괄 - 최영장군도",
+    "artist": "서울특별시",
+    "date": "2019-10-10",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:jangseung": {
+    "file": "Bourdaret - Religion et Superstition en Corée - p19.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bourdaret_-_Religion_et_Superstition_en_Cor%C3%A9e_-_p19.jpg",
+    "title": "Bourdaret - Religion et Superstition en Corée - p19",
+    "artist": "Émile Bourdaret",
+    "date": "1903-12-05",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:chiyou": {
+    "file": "Chi You.gif",
+    "page": "https://commons.wikimedia.org/wiki/File:Chi_You.gif",
+    "title": "Chi You",
+    "artist": "Unknown author",
+    "date": "Unknown date",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:poiyaunpe": {
+    "file": "HirasawaByozanHomme.png",
+    "page": "https://commons.wikimedia.org/wiki/File:HirasawaByozanHomme.png",
+    "title": "HirasawaByozanHomme",
+    "artist": "Hirasawa Byōzan",
+    "date": "between 1844 and 1847",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:shitonai": {
+    "file": "HirasawaByozanFemme.png",
+    "page": "https://commons.wikimedia.org/wiki/File:HirasawaByozanFemme.png",
+    "title": "HirasawaByozanFemme",
+    "artist": "Hirasawa Byōzan",
+    "date": "between 1844 and 1847",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:paul-bunyan": {
+    "file": "Bunyan Laughead.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bunyan_Laughead.jpg",
+    "title": "Bunyan Laughead",
+    "artist": "William B. Laughead",
+    "date": "2011-06-28",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:john-henry": {
+    "file": "Great Bend Tunnel - 55350980836.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Great_Bend_Tunnel_-_55350980836.jpg",
+    "title": "Great Bend Tunnel - 55350980836",
+    "artist": "George Neat",
+    "date": "2026-06-22 13:01:57",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:scheherazade": {
+    "file": "Sophie Gengembre Anderson - Scheherazade.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Sophie_Gengembre_Anderson_-_Scheherazade.jpg",
+    "title": "Scheherazade",
+    "artist": "Sophie Gengembre Anderson",
+    "date": "between 1850 and 1900",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:sinbad": {
+    "file": "Sinbad the Sailor (5th Voyage).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Sinbad_the_Sailor_(5th_Voyage).jpg",
+    "title": "Sinbad the Sailor (5th Voyage)",
+    "artist": "Gustave Doré",
+    "date": "1865",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:aladdin": {
+    "file": "FOCDarley-Aladdin-finds-the-lamp.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:FOCDarley-Aladdin-finds-the-lamp.JPG",
+    "title": "FOCDarley-Aladdin-finds-the-lamp",
+    "artist": "Felix Octavius Carr Darley (1821-1888)",
+    "date": "2012-06-20",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ali-baba": {
+    "file": "Ali Baba in the Wood.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ali_Baba_in_the_Wood.jpg",
+    "title": "Ali Baba in the Wood",
+    "artist": "Aubrey Beardsley",
+    "date": "1897",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:king-arthur": {
+    "file": "Charles Ernest Butler - King Arthur.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Charles_Ernest_Butler_-_King_Arthur.jpg",
+    "title": "Charles Ernest Butler - King Arthur",
+    "artist": "Charles Ernest Butler",
+    "date": "1903",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:merlin": {
+    "file": "Merlin (illustration from middle ages).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Merlin_(illustration_from_middle_ages).jpg",
+    "title": "Merlin (illustration from middle ages)",
+    "artist": "Unknown author",
+    "date": "French 13th century minature",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:lancelot": {
+    "file": "Lancelot battles Palamedes (5152629).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Lancelot_battles_Palamedes_(5152629).jpg",
+    "title": "Lancelot battles Palamedes",
+    "artist": "anonymous",
+    "date": "14 th century",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:gawain": {
+    "file": "Arthur-Pyle Sir Gawaine the Son of Lot, King of Orkney.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Arthur-Pyle_Sir_Gawaine_the_Son_of_Lot,_King_of_Orkney.JPG",
+    "title": "Arthur-Pyle Sir Gawaine the Son of Lot, King of Orkney",
+    "artist": "Howard Pyle",
+    "date": "1903",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tristan": {
+    "file": "Tristan, his wife Yzeut and her brother Kahedin (5152712).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tristan,_his_wife_Yzeut_and_her_brother_Kahedin_(5152712).jpg",
+    "title": "Tristan, his wife Yzeut and her brother Kahedin",
+    "artist": "anonymous",
+    "date": "14 th century",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:bedivere": {
+    "file": "King Arthur Sir Bedivere throwing Excalibur into the lake by Walter Crane.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:King_Arthur_Sir_Bedivere_throwing_Excalibur_into_the_lake_by_Walter_Crane.jpg",
+    "title": "King Arthur Sir Bedivere throwing Excalibur into the lake",
+    "artist": "Walter Crane",
+    "date": "1845",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:percival": {
+    "file": "Sir Percival overcometh ye Enchantress Vivien.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Sir_Percival_overcometh_ye_Enchantress_Vivien.png",
+    "title": "Sir Percival overcometh ye Enchantress Vivien",
+    "artist": "Howard Pyle",
+    "date": "1905",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:mordred": {
+    "file": "Battle Between King Arthur and Sir Mordred by William Hatherell.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Battle_Between_King_Arthur_and_Sir_Mordred_by_William_Hatherell.jpg",
+    "title": "Battle Between King Arthur and Sir Mordred by William Hatherell",
+    "artist": "William Hatherell",
+    "date": "1928",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:morgan-le-fay": {
+    "file": "Sandys, Frederick - Morgan le Fay.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Sandys,_Frederick_-_Morgan_le_Fay.JPG",
+    "title": "Morgan-le-Fay",
+    "artist": "Frederick Sandys",
+    "date": "1864 / between 1863 and 1864",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:gareth": {
+    "file": "Sir Gareth of Orkney.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Sir_Gareth_of_Orkney.png",
+    "title": "Sir Gareth of Orkney",
+    "artist": "Howard Pyle",
+    "date": "1907",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:galahad": {
+    "file": "Joseph Noel Paton Sir Galahad JKAM.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Joseph_Noel_Paton_Sir_Galahad_JKAM.jpg",
+    "title": "Joseph Noel Paton Sir Galahad JKAM",
+    "artist": "Joseph Noel Paton",
+    "date": "2008 (upload date)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:lohengrin": {
+    "file": "Die Gartenlaube (1890) b 769.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Die_Gartenlaube_(1890)_b_769.jpg",
+    "title": "Die Gartenlaube ( The Garden Arbor )",
+    "artist": "various",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:kirta": {
+    "file": "שרטוט מצבה מאוגרית המתארת הגשת מנחה לאל.png",
+    "page": "https://commons.wikimedia.org/wiki/File:%D7%A9%D7%A8%D7%98%D7%95%D7%98_%D7%9E%D7%A6%D7%91%D7%94_%D7%9E%D7%90%D7%95%D7%92%D7%A8%D7%99%D7%AA_%D7%94%D7%9E%D7%AA%D7%90%D7%A8%D7%AA_%D7%94%D7%92%D7%A9%D7%AA_%D7%9E%D7%A0%D7%97%D7%94_%D7%9C%D7%90%D7%9C.png",
+    "title": "שרטוט מצבה מאוגרית המתארת הגשת מנחה לאל",
+    "artist": "פעמי-עליון",
+    "date": "2023-06-28",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:charlemagne": {
+    "file": "Karl der Grosse - Pippin von Italien.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Karl_der_Grosse_-_Pippin_von_Italien.jpg",
+    "title": "Charlemagne and Pippin of Italy",
+    "artist": "Anonymous Unknown author",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:roland": {
+    "file": "Gustave Doré - Roland à Roncevaux.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gustave_Dor%C3%A9_-_Roland_%C3%A0_Roncevaux.jpg",
+    "title": "Gustave Doré - Roland à Roncevaux",
+    "artist": "Gustave Doré",
+    "date": "19 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:astolfo": {
+    "file": "Massimo d'Azeglio - Astolfo debella le arpie.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Massimo_d%27Azeglio_-_Astolfo_debella_le_arpie.jpg",
+    "title": "Astolfo debella le arpie",
+    "artist": "Massimo d'Azeglio",
+    "date": "1835",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:bradamante": {
+    "file": "Bradamante at Merlin's Tomb by Alexandre-Evariste Fragonard, High Museum of Art.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bradamante_at_Merlin%27s_Tomb_by_Alexandre-Evariste_Fragonard,_High_Museum_of_Art.jpg",
+    "title": "Bradamante at Merlin's Tomb",
+    "artist": "Alexandre-Évariste Fragonard",
+    "date": "circa 1820",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:mandricardo": {
+    "file": "Buste van Mandricardo Mandricardo (titel op object) Karakters uit 'Orlando Furioso' (serietitel), RP-P-H-H-1425.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Buste_van_Mandricardo_Mandricardo_(titel_op_object)_Karakters_uit_%27Orlando_Furioso%27_(serietitel),_RP-P-H-H-1425.jpg",
+    "title": "Buste van Mandricardo Mandricardo (titel op object) Karakters uit 'Orlando Furioso' (serietitel), RP-P-H-H-1425",
+    "artist": "Rijksmuseum",
+    "date": "between 1550 and 1599",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:ogier": {
+    "file": "Holger Danske i Skævinge kirke.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Holger_Danske_i_Sk%C3%A6vinge_kirke.jpg",
+    "title": "Holger Danske i Skævinge kirke",
+    "artist": "Saddhiyama",
+    "date": "11.06.07",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:renaud": {
+    "file": "HLLF-T1-d264-265 Les quatre fils Aimon.png",
+    "page": "https://commons.wikimedia.org/wiki/File:HLLF-T1-d264-265_Les_quatre_fils_Aimon.png",
+    "title": "HLLF-T1-d264-265 Les quatre fils Aimon",
+    "artist": "Louis Petit de Julleville",
+    "date": "1896-01-01",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:scathach": {
+    "file": "Heroes of the dawn - illustration to face page 066.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Heroes_of_the_dawn_-_illustration_to_face_page_066.png",
+    "title": "Heroes of the dawn - illustration to face page 066",
+    "artist": "Beatrice Elvery",
+    "date": "1914",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:diarmuid": {
+    "file": "Heroes of the dawn (1914) (14772697833).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Heroes_of_the_dawn_(1914)_(14772697833).jpg",
+    "title": "Heroes of the dawn (1914) (14772697833)",
+    "artist": "Internet Archive Book Images",
+    "date": "1914",
+    "license": "No restrictions",
+    "licenseUrl": "https://www.flickr.com/commons/usage/"
+  },
+  "figure:fergus": {
+    "file": "Fergus mac Róich carrying Sétanta on his shoulder.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Fergus_mac_R%C3%B3ich_carrying_S%C3%A9tanta_on_his_shoulder.png",
+    "title": "Fergus mac Róich carrying Sétanta on his shoulder",
+    "artist": "George Denham",
+    "date": "1909-XX-XX",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:fionn": {
+    "file": "Heroes of the dawn - illustration to face page 200.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Heroes_of_the_dawn_-_illustration_to_face_page_200.png",
+    "title": "Heroes of the dawn - illustration to face page 200",
+    "artist": "Beatrice Elvery",
+    "date": "1914",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:medb": {
+    "file": "Queen Medb (Seóirse Ua Fágáin, 1904).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Queen_Medb_(Se%C3%B3irse_Ua_F%C3%A1g%C3%A1in,_1904).jpg",
+    "title": "Queen Medb (Seóirse Ua Fágáin, 1904)",
+    "artist": "Seóirse Ua Fágáin",
+    "date": "1904",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:manannan": {
+    "file": "Broighter Gold, Dublin, October 2010 (03).JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Broighter_Gold,_Dublin,_October_2010_(03).JPG",
+    "title": "Broighter Gold, Dublin, October 2010 (03)",
+    "artist": "Ardfern",
+    "date": "Taken on 27 October 2010",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:oisin": {
+    "file": "Heroes of the dawn - illustration to face page 230.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Heroes_of_the_dawn_-_illustration_to_face_page_230.png",
+    "title": "Heroes of the dawn - illustration to face page 230",
+    "artist": "Beatrice Elvery",
+    "date": "1914",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:nezha": {
+    "file": "無款 清末 京劇一百人物像 冊 絹本-One hundred portraits of Peking opera characters MET DP280080.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%E7%84%A1%E6%AC%BE_%E6%B8%85%E6%9C%AB_%E4%BA%AC%E5%8A%87%E4%B8%80%E7%99%BE%E4%BA%BA%E7%89%A9%E5%83%8F_%E5%86%8A_%E7%B5%B9%E6%9C%AC-One_hundred_portraits_of_Peking_opera_characters_MET_DP280080.jpg",
+    "title": "無款 清末 京劇一百人物像 冊 絹本",
+    "artist": "Unknown author",
+    "date": "late 19th–early 20th century",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:jiang-ziya": {
+    "file": "Tai Gong Wang by Ogata Korin (Kyoto National Museum).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tai_Gong_Wang_by_Ogata_Korin_(Kyoto_National_Museum).jpg",
+    "title": "Tai Gong Wang by Ogata Korin (Kyoto National Museum)",
+    "artist": "Ogata Kōrin",
+    "date": "Edo period (pre-1868)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:huang-feihu": {
+    "file": "FengShen2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:FengShen2.jpg",
+    "title": "FengShen2",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:huyan-zhuo": {
+    "file": "Utagawa Kuniyoshi - 水滸傳 - 呼延灼.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Utagawa_Kuniyoshi_-_%E6%B0%B4%E6%BB%B8%E5%82%B3_-_%E5%91%BC%E5%BB%B6%E7%81%BC.jpg",
+    "title": "Utagawa Kuniyoshi - 水滸傳 - 呼延灼",
+    "artist": "Utagawa Kuniyoshi",
+    "date": "between 1845 and 1850",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:jade-rabbit": {
+    "file": "Incense tray with hare in moon pounding the medicine of immortality, China, probably Suzhou, Qianlong period, 1736-1795 AD, carved and painted lacquer on wood core, gold - Peabody Essex Museum - DSC08038.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Incense_tray_with_hare_in_moon_pounding_the_medicine_of_immortality,_China,_probably_Suzhou,_Qianlong_period,_1736-1795_AD,_carved_and_painted_lacquer_on_wood_core,_gold_-_Peabody_Essex_Museum_-_DSC08038.jpg",
+    "title": "Incense tray with hare in moon pounding the medicine of immortality, China, probably Suzhou, Qianlong period, 1736-1795 AD, carved and painted lacquer on wood core, gold - Peabody Essex Museum - DSC08038",
+    "artist": "Daderot",
+    "date": "2019-03-28 06:56:58",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:sun-wukong": {
+    "file": "Tsukioka Yoshitoshi (c. 1885–90) Tsuki hyaku shi - Tamausagi songokū-.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tsukioka_Yoshitoshi_(c._1885%E2%80%9390)_Tsuki_hyaku_shi_-_Tamausagi_songok%C5%AB-.jpg",
+    "title": "Tsukioka Yoshitoshi (c. 1885–90) Tsuki hyaku shi - Tamausagi songokū-",
+    "artist": "Tsukioka Yoshitoshi",
+    "date": "1880s",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hou-yi": {
+    "file": "Houyi Shooting an Arrow, Xiao Yuncong.gif",
+    "page": "https://commons.wikimedia.org/wiki/File:Houyi_Shooting_an_Arrow,_Xiao_Yuncong.gif",
+    "title": "Hou I Shooting an Arrow.",
+    "artist": "Xiao Yuncong (蕭雲從)",
+    "date": "1645",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hua-mulan": {
+    "file": "Mulan, 18th century, ink and colors on silk.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mulan,_18th_century,_ink_and_colors_on_silk.jpg",
+    "title": "Mulan, 18th century, ink and colors on silk",
+    "artist": null,
+    "date": "18 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:yellow-emperor": {
+    "file": "Portraits of Famous Men - Yellow Emperor (Huangdi).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Portraits_of_Famous_Men_-_Yellow_Emperor_(Huangdi).jpg",
+    "title": "Portraits of Famous Men: Yellow Emperor (Huangdi)",
+    "artist": "Unknown Chinese artist",
+    "date": "19th - early 20th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:nitocris": {
+    "file": "Darius laat het graf van Nitocris openen, RP-P-OB-51.250.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Darius_laat_het_graf_van_Nitocris_openen,_RP-P-OB-51.250.jpg",
+    "title": "Darius laat het graf van Nitocris openen, RP-P-OB-51.250",
+    "artist": "Rijksmuseum",
+    "date": "1725",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:robin-hood": {
+    "file": "Robin-hood-and-maid-marion-01.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Robin-hood-and-maid-marion-01.png",
+    "title": "Robin-hood-and-maid-marion-01",
+    "artist": "Unknown author",
+    "date": "before 1700",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:william-tell": {
+    "file": "Charles Samuel Girardet - William Tell at Küssnacht - 1940.1116 - Cleveland Museum of Art.tif",
+    "page": "https://commons.wikimedia.org/wiki/File:Charles_Samuel_Girardet_-_William_Tell_at_K%C3%BCssnacht_-_1940.1116_-_Cleveland_Museum_of_Art.tif",
+    "title": "William Tell at Küssnacht",
+    "artist": "Charles Samuel Girardet",
+    "date": "1820",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:saint-george": {
+    "file": "Saint George and the Dragon by Paolo Uccello (London) 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Saint_George_and_the_Dragon_by_Paolo_Uccello_(London)_01.jpg",
+    "title": "St. George and the Dragon",
+    "artist": "Paolo Uccello",
+    "date": "circa 1456",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:melusine": {
+    "file": "Melusine (Paris, Michel Le Noir, 1517).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Melusine_(Paris,_Michel_Le_Noir,_1517).jpg",
+    "title": "Melusine nouvellement Imprimee a paris",
+    "artist": "Michel Le Noir, printer, active Paris, 1486-1520",
+    "date": "14 August 1517",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:habetrot": {
+    "file": "Douglas-Scottish FFT(1901)-p109-Habitrot-illustr-J Torrance.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Douglas-Scottish_FFT(1901)-p109-Habitrot-illustr-J_Torrance.jpg",
+    "title": "Douglas-Scottish FFT(1901)-p109-Habitrot-illustr-J Torrance",
+    "artist": "James Torrance 1859-1916, illustrator",
+    "date": "2014-10-20 23:16:02",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:oberon": {
+    "file": "Joseph Noel Paton - The Reconciliation of Titania and Oberon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Joseph_Noel_Paton_-_The_Reconciliation_of_Titania_and_Oberon.jpg",
+    "title": "The Reconciliation of Oberon and Titania",
+    "artist": "Joseph Noel Paton",
+    "date": "1847",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:britomart": {
+    "file": "Etty Britomart 1833.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Etty_Britomart_1833.jpg",
+    "title": "Britomart Redeems Faire Amoret",
+    "artist": "William Etty",
+    "date": "before 1833",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:el-cid": {
+    "file": "Siege of Valencia by El Cid, 1092-1094.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Siege_of_Valencia_by_El_Cid,_1092-1094.png",
+    "title": "Siege of Valencia by El Cid, 1092-1094",
+    "artist": "Josep Serra i Porsón",
+    "date": "c. 1872",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:prester-john": {
+    "file": "Prester John.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Prester_John.jpg",
+    "title": "East Africa with Prester John enthroned",
+    "artist": "Diogo Homem",
+    "date": "circa before 1559",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:saint-margaret": {
+    "file": "Saint Margaret and the Dragon MET DP801859.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Saint_Margaret_and_the_Dragon_MET_DP801859.jpg",
+    "title": "Saint Margaret and the Dragon",
+    "artist": "Anonymous Unknown author",
+    "date": "16 th century",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:siegfried": {
+    "file": "Siegfried and the Twilight of the Gods Frontispiece.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Siegfried_and_the_Twilight_of_the_Gods_Frontispiece.jpg",
+    "title": "Siegfried and the Twilight of the Gods Frontispiece",
+    "artist": "Arthur Rackham",
+    "date": "1911; New Impression's plates are the sa",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:kriemhild": {
+    "file": "Carl Rahl - Kriemhild an der Leiche Siegfrieds erklärt Hagen als dessen Mörder und schwört Rache - 7777 - Kunsthistorisches Museum.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Carl_Rahl_-_Kriemhild_an_der_Leiche_Siegfrieds_erkl%C3%A4rt_Hagen_als_dessen_M%C3%B6rder_und_schw%C3%B6rt_Rache_-_7777_-_Kunsthistorisches_Museum.jpg",
+    "title": "Kriemhild an der Leiche Siegfrieds erklärt Hagen als dessen Mörder und schwört Rache",
+    "artist": "Carl Rahl",
+    "date": "1835",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:dietrich": {
+    "file": "Dietrich fights Ecke.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dietrich_fights_Ecke.jpg",
+    "title": "Dietrich fights Ecke",
+    "artist": "Kaspar von der Rhoen",
+    "date": "1472",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "figure:hildebrand": {
+    "file": "Hildebrandslied1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hildebrandslied1.jpg",
+    "title": "Hildebrandslied1",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:walter-of-aquitaine": {
+    "file": "Carl Jordan, Le combat de Walter au Wasigenstein.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Carl_Jordan,_Le_combat_de_Walter_au_Wasigenstein.jpg",
+    "title": "Carl Jordan, Le combat de Walter au Wasigenstein",
+    "artist": "Karl Jordan",
+    "date": "1904",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:achilles": {
+    "file": "Triumph of Achilles in Corfu Achilleion.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Triumph_of_Achilles_in_Corfu_Achilleion.jpg",
+    "title": "Triumph of Achilles in Corfu Achilleion",
+    "artist": "Painter: Franz Matsch (died 1942) Franz Matsch info also here Photographer: User:Dr.K.",
+    "date": "Taken on 30 August 2006 Painting made in",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hector": {
+    "file": "Angelica Kauffmann (1741-1807) - Hector Taking Leave of Andromache - 872177 - National Trust.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Angelica_Kauffmann_(1741-1807)_-_Hector_Taking_Leave_of_Andromache_-_872177_-_National_Trust.jpg",
+    "title": "Hector taking leave of Andromache",
+    "artist": "Angelica Kauffmann",
+    "date": "1768",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:odysseus": {
+    "file": "Arnold Böcklin - Odysseus und Polyphemus (1896).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Arnold_B%C3%B6cklin_-_Odysseus_und_Polyphemus_(1896).jpg",
+    "title": "Odysseus and Polyphemus",
+    "artist": "Arnold Böcklin",
+    "date": "1896",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:jason": {
+    "file": "After Salvator Rosa - Jason Poisoning the Dragon - 344-1962 - Saint Louis Art Museum.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:After_Salvator_Rosa_-_Jason_Poisoning_the_Dragon_-_344-1962_-_Saint_Louis_Art_Museum.jpg",
+    "title": "Jason Poisoning the Dragon",
+    "artist": "After Salvator Rosa",
+    "date": "between 1615 and 1962",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:medea": {
+    "file": "Jason and Medea - John William Waterhouse.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Jason_and_Medea_-_John_William_Waterhouse.jpg",
+    "title": "Jason and Medea",
+    "artist": "John William Waterhouse",
+    "date": "1907",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:atalanta": {
+    "file": "Nicolas Colombel - Atalanta et Hippomènes (ca. 1680).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Nicolas_Colombel_-_Atalanta_et_Hippom%C3%A8nes_(ca._1680).jpg",
+    "title": "Hippomenes and Atalanta",
+    "artist": "Nicolas Colombel",
+    "date": "circa 1680",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:asclepius": {
+    "file": "John William Waterhouse - A Sick Child brought into the Temple of Aesculapius (1877).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:John_William_Waterhouse_-_A_Sick_Child_brought_into_the_Temple_of_Aesculapius_(1877).jpg",
+    "title": "\"A Sick Child brought into the Temple of Aesculapius\"",
+    "artist": "John William Waterhouse",
+    "date": "1877",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:chiron": {
+    "file": "Pompeo Batoni - Teti richiama Achille dal Centauro Chirone (1770).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pompeo_Batoni_-_Teti_richiama_Achille_dal_Centauro_Chirone_(1770).jpg",
+    "title": "Thetis takes Achilles from the Centaur Chiron / Thetis entrusted Chiron with the education of Achilles",
+    "artist": "Pompeo Batoni",
+    "date": "1770",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:orion": {
+    "file": "Blind Orion Searching for the Rising Sun MET DP148490.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Blind_Orion_Searching_for_the_Rising_Sun_MET_DP148490.jpg",
+    "title": "Blind Orion Searching for the Rising Sun",
+    "artist": "Nicolas Poussin",
+    "date": "1658",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:europa": {
+    "file": "Valentin Serov - Похищение Европы - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Valentin_Serov_-_%D0%9F%D0%BE%D1%85%D0%B8%D1%89%D0%B5%D0%BD%D0%B8%D0%B5_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D1%8B_-_Google_Art_Project.jpg",
+    "title": "Rape of Europa",
+    "artist": "Valentin Serov",
+    "date": "1910",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:dioscuri": {
+    "file": "Sébastien-Louis-Guillaume Norblin de la Gourdaine, Castor and Pollux Rescuing Helen, 1818, NGA 137043.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:S%C3%A9bastien-Louis-Guillaume_Norblin_de_la_Gourdaine,_Castor_and_Pollux_Rescuing_Helen,_1818,_NGA_137043.jpg",
+    "title": "Castor and Pollux Rescuing Helen",
+    "artist": "Sébastien-Louis-Guillaume Norblin de la Gourdaine",
+    "date": "1818",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:paris": {
+    "file": "Rubens - Judgement of Paris.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rubens_-_Judgement_of_Paris.jpg",
+    "title": "Judgement of Paris",
+    "artist": "Peter Paul Rubens",
+    "date": "between 1632 and 1635",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:theseus": {
+    "file": "Edward Burne-Jones - Tile Design - Theseus and the Minotaur in the Labyrinth - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Edward_Burne-Jones_-_Tile_Design_-_Theseus_and_the_Minotaur_in_the_Labyrinth_-_Google_Art_Project.jpg",
+    "title": "Tile Design - Theseus and the Minotaur in the Labyrinth",
+    "artist": "Edward Burne-Jones",
+    "date": "1861",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:andromeda": {
+    "file": "Frederic, Lord Leighton - Perseus and Andromeda - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Frederic,_Lord_Leighton_-_Perseus_and_Andromeda_-_Google_Art_Project.jpg",
+    "title": "Perseus and Andromeda",
+    "artist": "Frederic Leighton",
+    "date": "1891",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hippolyta": {
+    "file": "Nicolaes Knüpfer - Hercules Obtaining the Girdle of Hyppolita - WGA12217.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Nicolaes_Kn%C3%BCpfer_-_Hercules_Obtaining_the_Girdle_of_Hyppolita_-_WGA12217.jpg",
+    "title": "Hercules Obtaining the Girdle of Hyppolita",
+    "artist": "Nikolaus Knüpfer",
+    "date": "first half of 17 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:daedalus": {
+    "file": "Anthony van Dyck - Daedalus and Icarus - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Anthony_van_Dyck_-_Daedalus_and_Icarus_-_Google_Art_Project.jpg",
+    "title": "Daedalus and Icarus",
+    "artist": "Anthony van Dyck",
+    "date": "(1615 - 1625)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:demeter": {
+    "file": "Demeter mourning Persephone 1906.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Demeter_mourning_Persephone_1906.jpg",
+    "title": "Demeter Mourning for Persephone",
+    "artist": "Evelyn De Morgan",
+    "date": "1906",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:astraea": {
+    "file": "Salvator Rosa - Astraea verläßt die Erde - GG 9823 - Kunsthistorisches Museum.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Salvator_Rosa_-_Astraea_verl%C3%A4%C3%9Ft_die_Erde_-_GG_9823_-_Kunsthistorisches_Museum.jpg",
+    "title": "Astraea leaves the earth",
+    "artist": "Salvator Rosa",
+    "date": "1665",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:galatea": {
+    "file": "Galatea Raphael.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Galatea_Raphael.jpg",
+    "title": "Galatea",
+    "artist": "Raphael",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:caeneus": {
+    "file": "Centaurs and Kaineus (Caeneus), small bronze relief, AM Olympia, Olym14.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Centaurs_and_Kaineus_(Caeneus),_small_bronze_relief,_AM_Olympia,_Olym14.jpg",
+    "title": "Centaurs and Kaineus (Caeneus), small bronze relief, AM Olympia, Olym14",
+    "artist": "Zde",
+    "date": "2000-06-20",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:euryale": {
+    "file": "The Death of Medusa 1888-1892 Edward Burne Jones.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Death_of_Medusa_1888-1892_Edward_Burne_Jones.jpg",
+    "title": "The Death of Medusa",
+    "artist": "Edward Burne-Jones",
+    "date": "between 1888 and 1892",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ascalaphus": {
+    "file": "Ascalaphus (279244).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ascalaphus_(279244).jpg",
+    "title": "Ascalaphus (279244)",
+    "artist": "Gustave Doré",
+    "date": "between 1680 and 1719",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:perseus": {
+    "file": "The Arming of Perseus - Edward Burne-Jones, 1885.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Arming_of_Perseus_-_Edward_Burne-Jones,_1885.jpg",
+    "title": "The Arming of Perseus",
+    "artist": "Edward Burne-Jones",
+    "date": "1885",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:bellerophon": {
+    "file": "Peter Paul Rubens - Bellérophon, monté sur Pégase transperce la Chimère.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_Bell%C3%A9rophon,_mont%C3%A9_sur_P%C3%A9gase_transperce_la_Chim%C3%A8re.JPG",
+    "title": "Bellerophon, Pegasus and Chimera",
+    "artist": "Peter Paul Rubens",
+    "date": "1635",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:orpheus": {
+    "file": "Jean-Baptiste-Camille Corot - Orpheus Leading Eurydice from the Underworld - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste-Camille_Corot_-_Orpheus_Leading_Eurydice_from_the_Underworld_-_Google_Art_Project.jpg",
+    "title": "Orpheus Leading Eurydice from the Underworld",
+    "artist": "Jean-Baptiste Camille Corot",
+    "date": "1861",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:diomedes": {
+    "file": "'Venus, Wounded by Diomedes, is Saved by Iris' by Joseph-Marie Vien, 1775.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%27Venus,_Wounded_by_Diomedes,_is_Saved_by_Iris%27_by_Joseph-Marie_Vien,_1775.jpg",
+    "title": "Venus, Wounded by Diomedes, is Saved by Iris",
+    "artist": "Joseph-Marie Vien",
+    "date": "1775",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:meleager": {
+    "file": "Atalanta and Meleager MET DP261342.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Atalanta_and_Meleager_MET_DP261342.jpg",
+    "title": "Atalanta and Meleager",
+    "artist": "Peter Paul Rubens",
+    "date": "1616",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:ajax": {
+    "file": "Greeks and Troyans fighting for the corpse of Patroklos.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Greeks_and_Troyans_fighting_for_the_corpse_of_Patroklos.jpg",
+    "title": "The Greeks and the Troyens claiming the Body of Patrocles",
+    "artist": "Antoine Wiertz",
+    "date": "1844",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:cadmus": {
+    "file": "Cadmus killing the Dragon by Francesco Zuccarelli.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cadmus_killing_the_Dragon_by_Francesco_Zuccarelli.jpg",
+    "title": "Cadmus killing the Dragon by Francesco Zuccarelli",
+    "artist": "Francesco Zuccarelli",
+    "date": "1765",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:cyrene": {
+    "file": "Jeune femme caressant un lion d'après Crescenti (Dutuit p. 40), GDUT708.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Jeune_femme_caressant_un_lion_d%27apr%C3%A8s_Crescenti_(Dutuit_p._40),_GDUT708.jpg",
+    "title": "Jeune femme caressant un lion d'après Crescenti (Dutuit p. 40), GDUT708",
+    "artist": "Bloemaert, Cornelis II (le Jeune) (Utrecht, vers 1603 - Rome, vers 28–09–1692), graveur",
+    "date": "Unknown",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:psyche": {
+    "file": "Psyche-Waterhouse.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Psyche-Waterhouse.jpg",
+    "title": "\"Psyche Opening the Golden Box\"",
+    "artist": "John William Waterhouse",
+    "date": "1904",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:penthesilea": {
+    "file": "Achill und Penthesila (Tischbein).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Achill_und_Penthesila_(Tischbein).jpg",
+    "title": "Achilles and Penthesilea",
+    "artist": "Johann Heinrich Wilhelm Tischbein",
+    "date": "circa 1823",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:antiope": {
+    "file": "Theseus Antiope archmus Eretria.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Theseus_Antiope_archmus_Eretria.jpg",
+    "title": "Theseus Antiope archmus Eretria",
+    "artist": "Jebulon",
+    "date": "2016-04-19",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:britomartis": {
+    "file": "The Drowning of Britomartis, 1547–59.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Drowning_of_Britomartis,_1547%E2%80%9359.jpg",
+    "title": "The Drowning of Britomartis, 1547–59",
+    "artist": "Probably designed by Jean Cousin the Elder",
+    "date": "2011-10-17",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:arjuna": {
+    "file": "Subhadra, the half sister of Krishna, drives a chariot away from Dwarka with Arjuna and Krishna inside.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Subhadra,_the_half_sister_of_Krishna,_drives_a_chariot_away_from_Dwarka_with_Arjuna_and_Krishna_inside.jpg",
+    "title": "Subhadra, the half sister of Krishna, drives a chariot away from Dwarka with Arjuna and Krishna inside",
+    "artist": null,
+    "date": "circa 1895",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:karna": {
+    "file": "Karna in Kurukshetra.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Karna_in_Kurukshetra.jpg",
+    "title": "Karna in Kurukshetra",
+    "artist": "Arjuna_and_His_Charioteer_Krishna_Confront_Karna.jpg : Artist/maker unknown, India, Himachal Pradesh or Jammu and Kashmi",
+    "date": "2011-09-17 04:19",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:rama": {
+    "file": "Rama is placated by the fearful sea god, after he demands help in reaching Lanka.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rama_is_placated_by_the_fearful_sea_god,_after_he_demands_help_in_reaching_Lanka.jpg",
+    "title": "Rama is placated by the fearful sea god, after he demands help in reaching Lanka",
+    "artist": "Raja Ravi Varma",
+    "date": "1905",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:indra": {
+    "file": "Tiruchchirappalli painting Indra (cropped).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tiruchchirappalli_painting_Indra_(cropped).jpg",
+    "title": "Tiruchchirappalli painting Indra (cropped)",
+    "artist": "unknown from Tiruchchirappalli (made)",
+    "date": "1820-1825 (painted)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:parvati": {
+    "file": "An Oleograph of Shiva, Parvati and Nandi by Raja Ravi Varma.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:An_Oleograph_of_Shiva,_Parvati_and_Nandi_by_Raja_Ravi_Varma.jpg",
+    "title": "An Oleograph of Shiva, Parvati and Nandi by Raja Ravi Varma",
+    "artist": "Raja Ravi Varma (1848-1906)",
+    "date": "2017-06-11 19:25:07",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:kama": {
+    "file": "Kamadeva Hindu God.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Kamadeva_Hindu_God.jpg",
+    "title": "Kamadeva Hindu God",
+    "artist": "Unknown author",
+    "date": "between circa 1800 and circa 1899",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ashwatthama": {
+    "file": "Aswathama FIres narayana Weapon on Pandavas.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Aswathama_FIres_narayana_Weapon_on_Pandavas.jpg",
+    "title": "Aswathama FIres narayana Weapon on Pandavas",
+    "artist": "Mughal painters",
+    "date": "between 1616 and 1617",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:bhima": {
+    "file": "Bhima hurled his mace with fury.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bhima_hurled_his_mace_with_fury.jpg",
+    "title": "Bhima hurled his Mace with Fury",
+    "artist": "Evelyn Paul",
+    "date": "1911",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:duryodhana": {
+    "file": "Mace fighting between Duryodhan & bheema.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mace_fighting_between_Duryodhan_%26_bheema.jpg",
+    "title": "Mace fighting between Duryodhan & bheema",
+    "artist": "Madhu,son of Devajyu Gujarati",
+    "date": "1598",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:vritra": {
+    "file": "Vritra try to eat indra.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Vritra_try_to_eat_indra.jpg",
+    "title": "Vritra try to eat indra",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:parashurama": {
+    "file": "Indian School, late 18th century - Parashurama, the sixth avatar of Vishnu. - RCIN 1005113.h - Royal Collection.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Indian_School,_late_18th_century_-_Parashurama,_the_sixth_avatar_of_Vishnu._-_RCIN_1005113.h_-_Royal_Collection.jpg",
+    "title": "Parashurama, the sixth avatar of Vishnu.",
+    "artist": "anonymous",
+    "date": "1790",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:arash": {
+    "file": "Chah-nameh - Bahram V kill the dragon.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Chah-nameh_-_Bahram_V_kill_the_dragon.png",
+    "title": "Shahnameh manuscript Topkapı Hazine 1511",
+    "artist": "Unknown",
+    "date": "May 1371",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:rostam": {
+    "file": "Rostam 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rostam_01.jpg",
+    "title": "Rostam 01",
+    "artist": "Shams948",
+    "date": "2025-01-13 16:02:04",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:fereydun": {
+    "file": "Faridun Takes Zahhak to Mount Damavand to Imprison Him.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Faridun_Takes_Zahhak_to_Mount_Damavand_to_Imprison_Him.jpg",
+    "title": "Faridun Takes Zahhak to Mount Damavand to Imprison Him",
+    "artist": "Mozaffar Ali",
+    "date": "1573",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:kaveh": {
+    "file": "Zahhak bound by Fereydun, whilst Kaveh the Blacksmith is holding a apron-banner. From a mid-17th-century Safavid miniature.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Zahhak_bound_by_Fereydun,_whilst_Kaveh_the_Blacksmith_is_holding_a_apron-banner._From_a_mid-17th-century_Safavid_miniature.jpg",
+    "title": "Zahhak bound by Fereydun, whilst Kaveh the Blacksmith is holding a apron-banner. From a mid-17th-century Safavid miniature",
+    "artist": "Unknown author",
+    "date": "Mid 17th-century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:garshasp": {
+    "file": "Garshasp slays the dragon Azi-Sruwar.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Garshasp_slays_the_dragon_Azi-Sruwar.jpg",
+    "title": "Garshasp slays the dragon Azi-Sruwar",
+    "artist": "Unknown artist",
+    "date": "between 1425 and 1450",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:yamato-takeru": {
+    "file": "Yamato Takeru no Mikoto LCCN2009615033.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Yamato_Takeru_no_Mikoto_LCCN2009615033.jpg",
+    "title": "Yamato Takeru no Mikoto LCCN2009615033",
+    "artist": "Taiso, Yoshitoshi, 1839-1892, artist",
+    "date": "1880",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:kiyohime": {
+    "file": "Kiyohime-Serpent-1890-Tsukioka-Yoshitoshi.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Kiyohime-Serpent-1890-Tsukioka-Yoshitoshi.png",
+    "title": "Kiyohime-Serpent-1890-Tsukioka-Yoshitoshi",
+    "artist": "Tsukioka Yoshitoshi (1839-1892), made in 1890.",
+    "date": "1890-01-10",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tamamo-no-mae": {
+    "file": "Sangoku yoko zue 三国妖狐図会 (The Magic Fox of Three Countries) (BM 2008,3037.07005).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Sangoku_yoko_zue_%E4%B8%89%E5%9B%BD%E5%A6%96%E7%8B%90%E5%9B%B3%E4%BC%9A_(The_Magic_Fox_of_Three_Countries)_(BM_2008,3037.07005).jpg",
+    "title": "Sangoku yoko zue 三国妖狐図会 (The Magic Fox of Three Countries)",
+    "artist": "Print artist: Utagawa Kuniyoshi (歌川国芳)",
+    "date": "between 1849 and 1850",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:shuten-doji": {
+    "file": "Raiko slaying the Demon Shuten-doji by Utagawa Kunimasa II, 1849-52.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Raiko_slaying_the_Demon_Shuten-doji_by_Utagawa_Kunimasa_II,_1849-52.jpg",
+    "title": "Raiko slaying the Demon Shuten-doji by Utagawa Kunimasa II, 1849-52",
+    "artist": "Utagawa Kunimasa II",
+    "date": "1849",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ibaraki-doji": {
+    "file": "Watanabe no tsuna to ibaraki LCCN2008660386.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Watanabe_no_tsuna_to_ibaraki_LCCN2008660386.jpg",
+    "title": "Watanabe no tsuna to ibaraki LCCN2008660386",
+    "artist": "Taiso, Yoshitoshi, 1839-1892, artist",
+    "date": "1880",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ibuki-doji": {
+    "file": "Kuniyoshi Imperial Bodyguard Fighting with a Demon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Kuniyoshi_Imperial_Bodyguard_Fighting_with_a_Demon.jpg",
+    "title": "Kuniyoshi Imperial Bodyguard Fighting with a Demon",
+    "artist": "Utagawa Kuniyoshi d. 1861",
+    "date": "2014-05-01",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:minamoto-no-raiko": {
+    "file": "Warrior Minamoto Raiko and the Earth Spider LACMA M.2006.136.292a-c (1 of 2).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Warrior_Minamoto_Raiko_and_the_Earth_Spider_LACMA_M.2006.136.292a-c_(1_of_2).jpg",
+    "title": "Warrior Minamoto Raiko and the Earth Spider (image 1 of 2)",
+    "artist": "Utagawa Kuniyoshi (Japan, 1797-1861)",
+    "date": "Mid 1840s",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:sakata-kintoki": {
+    "file": "Kintaro worstelend met karper Sakata Kaidomaro (titel op object), RP-P-1964-813.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Kintaro_worstelend_met_karper_Sakata_Kaidomaro_(titel_op_object),_RP-P-1964-813.jpg",
+    "title": "Kintaro worstelend met karper Sakata Kaidomaro (titel op object), RP-P-1964-813",
+    "artist": "Rijksmuseum",
+    "date": "between 1834 and 1838",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:watanabe-no-tsuna": {
+    "file": "Hashi-hime 橋姫 (Lady of the Bridge) (BM 2008,3037.05504).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hashi-hime_%E6%A9%8B%E5%A7%AB_(Lady_of_the_Bridge)_(BM_2008,3037.05504).jpg",
+    "title": "Hashi-hime 橋姫 (Lady of the Bridge)",
+    "artist": "Print artist: Utagawa Kuniyoshi (歌川国芳)",
+    "date": "circa 1843",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tawara-toda": {
+    "file": "Yoshitoshi Fujiwara no Hidesato.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Yoshitoshi_Fujiwara_no_Hidesato.jpg",
+    "title": "Yoshitoshi Fujiwara no Hidesato",
+    "artist": "Tsukioka Yoshitoshi",
+    "date": "1890-08",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:suzuka-gozen": {
+    "file": "Sakanoue Tamuramaro in Rain of Arrows LACMA M.84.31.248.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Sakanoue_Tamuramaro_in_Rain_of_Arrows_LACMA_M.84.31.248.jpg",
+    "title": "Sakanoue Tamuramaro in Rain of Arrows",
+    "artist": "Tsukioka Yoshitoshi (Japan, 1839-1892)",
+    "date": "1876",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:benkei": {
+    "file": "Benkei ga yuriki tawamure ni Miidera no tsurigani wo (BM 2008,3037.20508 2).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Benkei_ga_yuriki_tawamure_ni_Miidera_no_tsurigani_wo_(BM_2008,3037.20508_2).jpg",
+    "title": "Benkei ga yuriki tawamure ni Miidera no tsurigani wo",
+    "artist": null,
+    "date": "1845",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:daikokuten": {
+    "file": "Daikoku Lifting a Rice Bale by Katsushika Hokusai.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Daikoku_Lifting_a_Rice_Bale_by_Katsushika_Hokusai.jpg",
+    "title": "Daikoku Lifting a Rice Bale by Katsushika Hokusai",
+    "artist": "Hiart",
+    "date": "2021-09-15",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:hanasaka-jiisan": {
+    "file": "Hanasaki Jiji (titel op object) Japanse sprookjes reeks (serietitel) Japanese fairy tale series (serietitel op object), RP-P-2004-503.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hanasaki_Jiji_(titel_op_object)_Japanse_sprookjes_reeks_(serietitel)_Japanese_fairy_tale_series_(serietitel_op_object),_RP-P-2004-503.jpg",
+    "title": "Hanasaki Jiji (titel op object) Japanse sprookjes reeks (serietitel) Japanese fairy tale series (serietitel op object), RP-P-2004-503",
+    "artist": "Kobayashi Eitaku",
+    "date": "Published in 1885",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:koga-saburo": {
+    "file": "Hinoto - Koga Saburo, suspendedin a basket, watching a dragon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hinoto_-_Koga_Saburo,_suspendedin_a_basket,_watching_a_dragon.jpg",
+    "title": "Hinoto - Koga Saburo, suspendedin a basket, watching a dragon",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:daebyeol-sobyeol": {
+    "file": "내왓당 무신도 상사위.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EB%82%B4%EC%99%93%EB%8B%B9_%EB%AC%B4%EC%8B%A0%EB%8F%84_%EC%83%81%EC%82%AC%EC%9C%84.jpg",
+    "title": "내왓당 무신도 상사위",
+    "artist": "Unknown painter; likely fifteenth century",
+    "date": "15th century?",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:geotaji": {
+    "file": "활쏘기.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%ED%99%9C%EC%8F%98%EA%B8%B0.jpg",
+    "title": "활쏘기 - 풍속화",
+    "artist": "Kim Hong-do",
+    "date": "30 March 2012, 09:39:32",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:utturi": {
+    "file": "주작 조선고적도보.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EC%A3%BC%EC%9E%91_%EC%A1%B0%EC%84%A0%EA%B3%A0%EC%A0%81%EB%8F%84%EB%B3%B4.jpg",
+    "title": "주작 조선고적도보",
+    "artist": "North Korea's Governor-General's Office",
+    "date": "1915",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:jeon-u-chi": {
+    "file": "Jeon Woo-chi Story.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Jeon_Woo-chi_Story.png",
+    "title": "Jeon Woo-chi Story",
+    "artist": "Unknown author",
+    "date": "1914",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hong-gil-dong": {
+    "file": "Honggildongjeon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Honggildongjeon.jpg",
+    "title": "Honggildongjeon",
+    "artist": "Heo Gyun (d. 1618)",
+    "date": "circa 1600",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:seol-jukhwa": {
+    "file": "노상알현도.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%EB%85%B8%EC%83%81%EC%95%8C%ED%98%84%EB%8F%84.jpg",
+    "title": "노상알현도",
+    "artist": "Kim Deuk-sin (金得臣, 1754—1822), Korean painter",
+    "date": "2011-01-24 21:04:13",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:enkidu": {
+    "file": "ISHTAR-EPOS p082 HEABANI, THE HERMIT-SEER.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:ISHTAR-EPOS_p082_HEABANI,_THE_HERMIT-SEER.jpg",
+    "title": "ISHTAR-EPOS p082 HEABANI, THE HERMIT-SEER",
+    "artist": null,
+    "date": "1884",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ereshkigal": {
+    "file": "British Museum Queen of the Night.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:British_Museum_Queen_of_the_Night.jpg",
+    "title": "British Museum Queen of the Night",
+    "artist": null,
+    "date": "24 June 2010",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:semiramis": {
+    "file": "Semiramis building Babylon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Semiramis_building_Babylon.jpg",
+    "title": "Semiramis building Babylon",
+    "artist": "Edgar Degas",
+    "date": "1861",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:sigurd": {
+    "file": "Sigurd prüft das Schwert Gram.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Sigurd_pr%C3%BCft_das_Schwert_Gram.png",
+    "title": "Sigurd prüft das Schwert Gram",
+    "artist": "Johannes Gehrts (1855–1921)",
+    "date": "1888-01-01",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:brynhild": {
+    "file": "Burnnhild MET DP877073.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Burnnhild_MET_DP877073.jpg",
+    "title": "Burnnhild",
+    "artist": "Gaston Bussière",
+    "date": "1899",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:skadi": {
+    "file": "Skade by Saltza.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Skade_by_Saltza.jpg",
+    "title": "Skade by Saltza",
+    "artist": "Engraving by Ludvig Bernhard Hansen (1856 - 1933), original artwork by Carl Fredrik von Saltza (1858 - 1905).",
+    "date": "Published in 1893.",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:tjalfi": {
+    "file": "Tjalfe and Roskva. Study for “Thors rejse til Jotunheim”.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tjalfe_and_Roskva._Study_for_%E2%80%9CThors_rejse_til_Jotunheim%E2%80%9D.jpg",
+    "title": "Tjalfe and Roskva. Study for “Thors rejse til Jotunheim”",
+    "artist": "Constantin Hansen",
+    "date": "Unknown date",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:skirnir": {
+    "file": "Skirnir's message to Gerd.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Skirnir%27s_message_to_Gerd.jpg",
+    "title": "Skirnir's message to Gerd",
+    "artist": "W.G. Collingwood (1854 - 1932)",
+    "date": "published 1908",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:romulus": {
+    "file": "Peter Paul Rubens - Romulus and Remus - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_Romulus_and_Remus_-_Google_Art_Project.jpg",
+    "title": "Romulus and Remus",
+    "artist": "Peter Paul Rubens",
+    "date": "(1615 - 1616)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:camilla": {
+    "file": "Agreement between Camilla and Turnus.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Agreement_between_Camilla_and_Turnus.jpg",
+    "title": "Agreement between Camilla and Turnus",
+    "artist": "Francesco de Mura",
+    "date": "1765",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:aeneas": {
+    "file": "Aeneas' Flight from Troy by Federico Barocci.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Aeneas%27_Flight_from_Troy_by_Federico_Barocci.jpg",
+    "title": "Escape of Aeneas from Troy",
+    "artist": "Federico Barocci",
+    "date": "1598",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:dobrynya": {
+    "file": "Zmei Gorinich (colour fixed).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Zmei_Gorinich_(colour_fixed).jpg",
+    "title": "Zmei Gorinich (colour fixed)",
+    "artist": "Viktor Vasnetsov",
+    "date": "between 1913 and 1918",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ilya-muromets": {
+    "file": "1898 Vasnetsov Bogatyrs anagoria.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:1898_Vasnetsov_Bogatyrs_anagoria.JPG",
+    "title": "Bogatyrs",
+    "artist": "Viktor Vasnetsov",
+    "date": "1898",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:koschei": {
+    "file": "Viktor Vasnetsov Kashchey the Immortal.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Viktor_Vasnetsov_Kashchey_the_Immortal.jpg",
+    "title": "Kashchei the Immortal (1917–1928).",
+    "artist": "Viktor Vasnetsov",
+    "date": "between 1927 and 1926",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:marko-kraljevic": {
+    "file": "Đura Jakšić - Kraljević Marko, 1857, Narodni muzej.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%C4%90ura_Jak%C5%A1i%C4%87_-_Kraljevi%C4%87_Marko,_1857,_Narodni_muzej.jpg",
+    "title": "Đura Jakšić - Kraljević Marko, 1857, Narodni muzej",
+    "artist": "Đura Jakšić",
+    "date": "1857",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:bruncvik": {
+    "file": "Socha Bruncvíka na karlově mostě.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Socha_Bruncv%C3%ADka_na_karlov%C4%9B_most%C4%9B.jpg",
+    "title": "Socha Bruncvíka na karlově mostě",
+    "artist": "Čtenář",
+    "date": "2013-02-02 16:34:48",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "figure:erkhii-mergen": {
+    "file": "IlkhanidHorseArcher.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:IlkhanidHorseArcher.jpg",
+    "title": "IlkhanidHorseArcher",
+    "artist": "Muhammad ibn Mahmudshah al-Khayyam",
+    "date": "15 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:alip-manash": {
+    "file": "The Soviet Union 1988 CPA 5990 stamp (Alpamysh, Uzbek epic poem. R. Khalilov).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Soviet_Union_1988_CPA_5990_stamp_(Alpamysh,_Uzbek_epic_poem._R._Khalilov).jpg",
+    "title": "The Soviet Union 1988 CPA 5990 stamp (Alpamysh, Uzbek epic poem. R. Khalilov)",
+    "artist": "USSR Post",
+    "date": "1988-09-22",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:cerberus": {
+    "file": "Cerberus-Blake.jpeg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cerberus-Blake.jpeg",
+    "title": "Cerberus-Blake",
+    "artist": "William Blake",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:minotaur": {
+    "file": "George Frederic Watts - The Minotaur - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:George_Frederic_Watts_-_The_Minotaur_-_Google_Art_Project.jpg",
+    "title": "The Minotaur",
+    "artist": "George Frederic Watts",
+    "date": "1885",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:hydra": {
+    "file": "Gustave Moreau - Hercules and the Lernaean Hydra - 1964.231 - Art Institute of Chicago.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gustave_Moreau_-_Hercules_and_the_Lernaean_Hydra_-_1964.231_-_Art_Institute_of_Chicago.jpg",
+    "title": "Hercules and the Lernaean Hydra",
+    "artist": "Gustave Moreau",
+    "date": "1876",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:chimera": {
+    "file": "Chimera d'arezzo, fi, 04.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Chimera_d%27arezzo,_fi,_04.JPG",
+    "title": "Chimera d'arezzo, fi, 04",
+    "artist": "sailko",
+    "date": "2012-06-07 17:21:42",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "figure:pegasus": {
+    "file": "Muse of Pegasus - Odilon Redon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Muse_of_Pegasus_-_Odilon_Redon.jpg",
+    "title": "Muse auf Pegasus",
+    "artist": "Odilon Redon",
+    "date": "circa 1900",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:polyphemus": {
+    "file": "Odilon Redon - The Cyclops, c. 1914.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Odilon_Redon_-_The_Cyclops,_c._1914.jpg",
+    "title": "The Cyclops",
+    "artist": "Odilon Redon",
+    "date": "circa 1914",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:typhon": {
+    "file": "Zeus Typhon Staatliche Antikensammlungen 596.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Zeus_Typhon_Staatliche_Antikensammlungen_596.jpg",
+    "title": "Zeus Typhon Staatliche Antikensammlungen 596",
+    "artist": "User:Bibi Saint-Pol",
+    "date": "9 February 2007",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:talos": {
+    "file": "Talos Painter - ARV 1338 1 - Dionysos with satyrs and maenads - death of Talos - Argonauts and gods - Ruvo MANJ 36933 - 07.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Talos_Painter_-_ARV_1338_1_-_Dionysos_with_satyrs_and_maenads_-_death_of_Talos_-_Argonauts_and_gods_-_Ruvo_MANJ_36933_-_07.jpg",
+    "title": "Talos Painter - ARV 1338 1 - Dionysos with satyrs and maenads - death of Talos - Argonauts and gods - Ruvo MANJ 36933 - 07",
+    "artist": "ArchaiOptix",
+    "date": "2023-07-23 15:24:57",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:fenrir": {
+    "file": "Odin and Fenris - Dorothy Hardy.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Odin_and_Fenris_-_Dorothy_Hardy.png",
+    "title": "Odin and Fenris - Dorothy Hardy",
+    "artist": "Mabel Dorothy Hardy",
+    "date": "1909",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:jormungandr": {
+    "file": "Johann Heinrich Füssli 011.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Johann_Heinrich_F%C3%BCssli_011.jpg",
+    "title": "Der Kampf des Thor mit der Schlange des Midgard",
+    "artist": "Henry Fuseli",
+    "date": "1788",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:sleipnir": {
+    "file": "Odin rides to Hel.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Odin_rides_to_Hel.jpg",
+    "title": "Odin rides to Hel",
+    "artist": "W.G. Collingwood (1854 - 1932)",
+    "date": "published 1908",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:nidhogg": {
+    "file": "The Ash Yggdrasil by Friedrich Wilhelm Heine.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Ash_Yggdrasil_by_Friedrich_Wilhelm_Heine.jpg",
+    "title": "The Ash Yggdrasil by Friedrich Wilhelm Heine",
+    "artist": "Friedrich Wilhelm Heine",
+    "date": "Published in 1886.",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:huginn-muninn": {
+    "file": "Odin, Sleipnir, Geri, Freki, Huginn and Muninn by Frølich.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Odin,_Sleipnir,_Geri,_Freki,_Huginn_and_Muninn_by_Fr%C3%B8lich.jpg",
+    "title": "Odin, Sleipnir, Geri, Freki, Huginn and Muninn by Frølich",
+    "artist": "Lorenz Frølich",
+    "date": "Published in 1895.",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:fafnir": {
+    "file": "Siegfried and the Twilight of the Gods p 062.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Siegfried_and_the_Twilight_of_the_Gods_p_062.jpg",
+    "title": "Siegfried and the Twilight of the Gods p 062",
+    "artist": "Arthur Rackham",
+    "date": "1911; New Impression's plates are the sa",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:ammit": {
+    "file": "Ammit BD.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ammit_BD.jpg",
+    "title": "Ammit BD",
+    "artist": "BD_Weighing_of_the_Heart.jpg : Photographed by the British Museum; original artist unknown",
+    "date": "13 May 2011, 11:05 (UTC)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:apep": {
+    "file": "Cat and snake. Book of the Dead Tomb TT 359.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cat_and_snake._Book_of_the_Dead_Tomb_TT_359.jpg",
+    "title": "Cat and snake. Book of the Dead Tomb TT 359",
+    "artist": "Ismoon ( talk ) 17:37, 5 May 2020 (UTC)",
+    "date": "2020-05-05",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "figure:sphinx": {
+    "file": "The Great Sphinx, Pyramids of Gizeh-1839) by David Roberts, RA.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Great_Sphinx,_Pyramids_of_Gizeh-1839)_by_David_Roberts,_RA.jpg",
+    "title": "The Great Sphinx, Pyramids of Gizeh-1839) by David Roberts, RA",
+    "artist": "David Roberts",
+    "date": "1838",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:bennu": {
+    "file": "Benu.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Benu.jpg",
+    "title": "Benu",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:circe": {
+    "file": "Circe Offering the Cup to Odysseus (2457 x 4023px ed.).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Circe_Offering_the_Cup_to_Odysseus_(2457_x_4023px_ed.).jpg",
+    "title": "Circe Offering the Cup to Odysseus",
+    "artist": "John William Waterhouse",
+    "date": "1891",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:sirens": {
+    "file": "John William Waterhouse - Ulysses and the Sirens - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:John_William_Waterhouse_-_Ulysses_and_the_Sirens_-_Google_Art_Project.jpg",
+    "title": "Ulysses and the Sirens",
+    "artist": "John William Waterhouse",
+    "date": "1891",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:scylla": {
+    "file": "Johann Heinrich Füssli 054.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Johann_Heinrich_F%C3%BCssli_054.jpg",
+    "title": "Odysseus in front of Scylla and Charybdis ( See also separate articles: Scylla and Charybdis ) .",
+    "artist": "Henry Fuseli",
+    "date": "between 1794 and 1796",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "figure:charybdis": {
+    "file": "William Bromley - Odysseus Between Scylla and Charybdis, 1806.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:William_Bromley_-_Odysseus_Between_Scylla_and_Charybdis,_1806.jpg",
+    "title": "Odysseus Between Scylla and Charybdis",
+    "artist": "William Bromley / After Henry Fuseli",
+    "date": "1806",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:harpy": {
+    "file": "Gustave Doré - The Inferno, Canto 13.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gustave_Dor%C3%A9_-_The_Inferno,_Canto_13.jpg",
+    "title": "Gustave Doré - The Inferno, Canto 13",
+    "artist": "Gustave Doré",
+    "date": "Unknown date",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:kappa": {
+    "file": "Takagi Toranosuke capturing a kappa underwater in the Tamura river.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Takagi_Toranosuke_capturing_a_kappa_underwater_in_the_Tamura_river.jpg",
+    "title": "Takagi Toranosuke capturing a kappa underwater in the Tamura river",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:draugr": {
+    "file": "Draugen.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Draugen.jpg",
+    "title": "Draugen",
+    "artist": "Theodor Kittelsen",
+    "date": "1887",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:dokkaebi": {
+    "file": "Ridge-end tile with demon face design, excavated from former temple site of Gapsansa temple, Gyeongju, Korea, Unified Silla dynasty, 600s-700s AD, clay - Tokyo National Museum - Tokyo, Japan - DSC08268.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ridge-end_tile_with_demon_face_design,_excavated_from_former_temple_site_of_Gapsansa_temple,_Gyeongju,_Korea,_Unified_Silla_dynasty,_600s-700s_AD,_clay_-_Tokyo_National_Museum_-_Tokyo,_Japan_-_DSC08268.jpg",
+    "title": "Ridge-end tile with demon face design, excavated from former temple site of Gapsansa temple, Gyeongju, Korea, Unified Silla dynasty, 600s-700s AD, clay - Tokyo National Museum - Tokyo, Japan - DSC08268",
+    "artist": "Daderot",
+    "date": "2017-08-01 21:22:03",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:grendel": {
+    "file": "Stories of beowulf grendel.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Stories_of_beowulf_grendel.jpg",
+    "title": "Stories of beowulf grendel",
+    "artist": "Joseph Ratcliffe Skelton",
+    "date": "1908",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:cyclops": {
+    "file": "Annibale Carracci, The Cyclops Polyphemus.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Annibale_Carracci,_The_Cyclops_Polyphemus.jpg",
+    "title": "The Cyclops Polyphemus",
+    "artist": "Annibale Carracci",
+    "date": "between 1595 and 1605",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:minotaur": {
+    "file": "Epimedes Painter ARV 1044 6 Theseus killing the Minotaur - fleeing woman.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Epimedes_Painter_ARV_1044_6_Theseus_killing_the_Minotaur_-_fleeing_woman.jpg",
+    "title": "Epimedes Painter ARV 1044 6 Theseus killing the Minotaur - fleeing woman",
+    "artist": "ArchaiOptix",
+    "date": "2015-08-27 12:54:14",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "enemy:hydra": {
+    "file": "Hércules lucha con la hidra de Lerna, por Zurbarán.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:H%C3%A9rcules_lucha_con_la_hidra_de_Lerna,_por_Zurbar%C3%A1n.jpg",
+    "title": "Hércules lucha con la hidra de Lerna",
+    "artist": "Francisco de Zurbarán",
+    "date": "1634",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:oni": {
+    "file": "NDL-DC 1310286-Tsukioka Yoshitoshi-頼光四天王大江山鬼神退治之図-元治1-cmb.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:NDL-DC_1310286-Tsukioka_Yoshitoshi-%E9%A0%BC%E5%85%89%E5%9B%9B%E5%A4%A9%E7%8E%8B%E5%A4%A7%E6%B1%9F%E5%B1%B1%E9%AC%BC%E7%A5%9E%E9%80%80%E6%B2%BB%E4%B9%8B%E5%9B%B3-%E5%85%83%E6%B2%BB1-cmb.jpg",
+    "title": "頼光四天王大江山鬼神退治之図",
+    "artist": "Yoshitoshi",
+    "date": "1864",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:rakshasa": {
+    "file": "Atikaya, a son of Ravana.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Atikaya,_a_son_of_Ravana.jpg",
+    "title": "Atikaya, a son of Ravana",
+    "artist": null,
+    "date": "between circa 1595 and circa 1605",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:gumiho": {
+    "file": "Prince Hanzoku terrorised by a nine- tailed fox.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Prince_Hanzoku_terrorised_by_a_nine-_tailed_fox.jpg",
+    "title": "Prince Hanzoku terrorised by a nine-tailed fox",
+    "artist": "Utagawa Kuniyoshi",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:girtablullu": {
+    "file": "Mesopotamian - Cylinder Seal with Scorpion Man Shooting at Winged Creatures - Walters 42807.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mesopotamian_-_Cylinder_Seal_with_Scorpion_Man_Shooting_at_Winged_Creatures_-_Walters_42807.jpg",
+    "title": "Cylinder Seal with Scorpion Man Shooting at Winged Creatures",
+    "artist": "Anonymous ( Mesopotamia ) Unknown author",
+    "date": "between 1400 and 1200 BC",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:ammit": {
+    "file": "BD Weighing of the Heart.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:BD_Weighing_of_the_Heart.jpg",
+    "title": "BD Weighing of the Heart",
+    "artist": "Photographed by the British Museum; original artist unknown",
+    "date": "Photograph published 2001; artwork creat",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:fafnir": {
+    "file": "Siegfried and the Twilight of the Gods p 056.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Siegfried_and_the_Twilight_of_the_Gods_p_056.jpg",
+    "title": "Siegfried and the Twilight of the Gods p 056",
+    "artist": "Arthur Rackham",
+    "date": "1911; New Impression's plates are the sa",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:apep": {
+    "file": "Set speared Apep.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Set_speared_Apep.jpg",
+    "title": "Set speared Apep",
+    "artist": "An unknown workman",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:jotunn": {
+    "file": "Thor bei Skrymir.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Thor_bei_Skrymir.jpg",
+    "title": "Thor bei Skrymir",
+    "artist": "Emil Doepler",
+    "date": "Published ca. 1905",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:tzitzimitl": {
+    "file": "Tzitzimitl.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tzitzimitl.jpg",
+    "title": "Tzitzimitl",
+    "artist": "Unknown author",
+    "date": "16 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:rahu": {
+    "file": "Rahu graha.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Rahu_graha.JPG",
+    "title": "Rahu graha",
+    "artist": "E. A. Rodrigues",
+    "date": "1842",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:imugi": {
+    "file": "Unknown (Korean) - Dragon Amid Clouds - 2015.4 - Detroit Institute of Arts.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Unknown_(Korean)_-_Dragon_Amid_Clouds_-_2015.4_-_Detroit_Institute_of_Arts.jpg",
+    "title": "Dragon Amid Clouds",
+    "artist": "anonymous",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:fenrir": {
+    "file": "Fenrir binded.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Fenrir_binded.png",
+    "title": "Fenrir binded",
+    "artist": "Mabel Dorothy Hardy",
+    "date": "1909",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:zero": {
+    "file": "Redon - Eye-Balloon (Œil-ballon) 1878.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Redon_-_Eye-Balloon_(%C5%92il-ballon)_1878.jpg",
+    "title": "Eye-Balloon (Œil-ballon)",
+    "artist": "Odilon Redon",
+    "date": "1878",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:avalon": {
+    "file": "Burne-Jones Last Sleep of Arthur in Avalon v2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Burne-Jones_Last_Sleep_of_Arthur_in_Avalon_v2.jpg",
+    "title": "The Last Sleep of Arthur in Avalon",
+    "artist": "Edward Burne-Jones",
+    "date": "from 1881 until 1898",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:camelot": {
+    "file": "George Henry Boughton (1833-1905) - The Road to Camelot - WAG 3073 - Walker Art Gallery.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:George_Henry_Boughton_(1833-1905)_-_The_Road_to_Camelot_-_WAG_3073_-_Walker_Art_Gallery.jpg",
+    "title": "The Road to Camelot",
+    "artist": "George Henry Boughton",
+    "date": "1898",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:atlantis": {
+    "file": "Atlantis Kircher Mundus subterraneus 1678.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Atlantis_Kircher_Mundus_subterraneus_1678.jpg",
+    "title": "Atlantis Kircher Mundus subterraneus 1678",
+    "artist": "Athanasius Kircher",
+    "date": "1664",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:arcadia": {
+    "file": "Cole Thomas The Course of Empire The Arcadian or Pastoral State 1836.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg",
+    "title": "The Course of Empire : The Arcadian or Pastoral State",
+    "artist": "Thomas Cole",
+    "date": "1834",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:thule": {
+    "file": "Tile Carta Marina.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Tile_Carta_Marina.JPG",
+    "title": "Tile Carta Marina",
+    "artist": "Olaus Magnus",
+    "date": "1539",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:ys": {
+    "file": "Evariste-Vital Luminais - Fuite de Gradlon (ca. 1884).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Evariste-Vital_Luminais_-_Fuite_de_Gradlon_(ca._1884).jpg",
+    "title": "The Flight of Gradlon Mawr (330-434 AD)",
+    "artist": "Évariste-Vital Luminais",
+    "date": "circa 1884",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:shangri-la": {
+    "file": "Sacred-himalayas-1932.jpg!PinterestLarge.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Sacred-himalayas-1932.jpg!PinterestLarge.jpg",
+    "title": "Sacred-himalayas-1932.jpg!PinterestLarge",
+    "artist": "Nicholas Roerich",
+    "date": "before 1947",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:shambhala": {
+    "file": "Message-from-shambhala-arrow-letter-1946.jpg!PinterestLarge.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Message-from-shambhala-arrow-letter-1946.jpg!PinterestLarge.jpg",
+    "title": "Message-from-shambhala-arrow-letter-1946.jpg!PinterestLarge",
+    "artist": "Nicholas Roerich",
+    "date": "before 1947",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:peach-blossom": {
+    "file": "Shi Rui - The Haven of the Peach-Blossom Spring - 1952.283 - Cleveland Museum of Art.tif",
+    "page": "https://commons.wikimedia.org/wiki/File:Shi_Rui_-_The_Haven_of_the_Peach-Blossom_Spring_-_1952.283_-_Cleveland_Museum_of_Art.tif",
+    "title": "The Haven of the Peach-Blossom Spring",
+    "artist": "Shi Rui",
+    "date": "1445",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "field:ieodo": {
+    "file": "Jejujojeom.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Jejujojeom.jpg",
+    "title": "Jejujojeom",
+    "artist": "김남길 [Kim Namgil]",
+    "date": "circa 1702",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:el-dorado": {
+    "file": "Theodor de Bry's Golden Man.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Theodor_de_Bry%27s_Golden_Man.png",
+    "title": "Theodor de Bry's Golden Man",
+    "artist": "Theodore de Bry",
+    "date": "1590",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:aztlan": {
+    "file": "Tira-1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tira-1.jpg",
+    "title": "Tira-1",
+    "artist": "Unknown (codex) - El Comandante (photographer)",
+    "date": "circa 1556",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:olympus": {
+    "file": "Antonio Verrio (c.1636-1639-1707) - The Gods on Mount Olympus (sketch for the ceiling of the Heaven Room, Burghley House) - 1958.59.18 - Northampton Museum and Art Gallery.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Antonio_Verrio_(c.1636-1639-1707)_-_The_Gods_on_Mount_Olympus_(sketch_for_the_ceiling_of_the_Heaven_Room,_Burghley_House)_-_1958.59.18_-_Northampton_Museum_and_Art_Gallery.jpg",
+    "title": "The Gods on Mount Olympus (sketch for the ceiling of the Heaven Room, Burghley House)",
+    "artist": "Antonio Verrio",
+    "date": "between 1690 and 1694",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:asgard": {
+    "file": "Josef Hoffmann - Closing scene of Das Rheingold final.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Josef_Hoffmann_-_Closing_scene_of_Das_Rheingold_final.jpg",
+    "title": "Outside the Hall of the Gibichungs",
+    "artist": "Josef Hoffmann",
+    "date": "1876",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:valhalla": {
+    "file": "Walhall by Emil Doepler.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Walhall_by_Emil_Doepler.jpg",
+    "title": "Walhall by Emil Doepler",
+    "artist": "Emil Doepler",
+    "date": "Published c. 1905",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:sumeru": {
+    "file": "Cosmological Mandala with Mount Meru.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cosmological_Mandala_with_Mount_Meru.jpg",
+    "title": "Cosmological Mandala with Mount Meru",
+    "artist": "Unknown author",
+    "date": "14 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:kunlun": {
+    "file": "Peach Festival of the Queen Mother of the West, Freer Gallery of Art.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Peach_Festival_of_the_Queen_Mother_of_the_West,_Freer_Gallery_of_Art.jpg",
+    "title": "Peach Festival of the Queen Mother of the West, Freer Gallery of Art",
+    "artist": "Unknown author Unknown author PericlesofAthens at English Wikipedia",
+    "date": "4 August 2007 (original upload date)",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:takamagahara": {
+    "file": "Origin of the Cave Door Dance (Amaterasu) by Shunsai Toshimasa 1889.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Origin_of_the_Cave_Door_Dance_(Amaterasu)_by_Shunsai_Toshimasa_1889.jpg",
+    "title": "Origin of the Cave Door Dance (Amaterasu) by Shunsai Toshimasa 1889",
+    "artist": "Shunsai Toshimasa",
+    "date": "1889",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:dilmun": {
+    "file": "Dilmun stamp seal with hunters and goats, rectangular pen, ca early 2nd millennium BC.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dilmun_stamp_seal_with_hunters_and_goats,_rectangular_pen,_ca_early_2nd_millennium_BC.jpg",
+    "title": "Dilmun stamp seal with hunters and goats, rectangular pen, ca early 2nd millennium BC",
+    "artist": "Metropolitan Museum of Art",
+    "date": "2019-03-27",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "field:aaru": {
+    "file": "Sennedjem and Iineferti in the Fields of Iaru MET DT11771.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Sennedjem_and_Iineferti_in_the_Fields_of_Iaru_MET_DT11771.jpg",
+    "title": "Sennedjem and Iineferti in the Fields of Iaru",
+    "artist": "Charles Wilkinson",
+    "date": "A.D. 1922; original ca. 1295–1213 B.C. P",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "field:elysion": {
+    "file": "Schwabe Carlos Elysian Fields.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Schwabe_Carlos_Elysian_Fields.jpg",
+    "title": "Elysian Fields",
+    "artist": "Carlos Schwabe",
+    "date": "1903",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:tir-na-nog": {
+    "file": "Heroes of the dawn (1914) (14749671561).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Heroes_of_the_dawn_(1914)_(14749671561).jpg",
+    "title": "Heroes of the dawn (1914) (14749671561)",
+    "artist": "Internet Archive Book Images",
+    "date": "1914",
+    "license": "No restrictions",
+    "licenseUrl": "https://www.flickr.com/commons/usage/"
+  },
+  "field:hades": {
+    "file": "Gustave Doré - Dante Alighieri - Inferno - Plate 9 (Canto III - Charon).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gustave_Dor%C3%A9_-_Dante_Alighieri_-_Inferno_-_Plate_9_(Canto_III_-_Charon).jpg",
+    "title": "Gustave Doré - Dante Alighieri - Inferno - Plate 9 (Canto III - Charon)",
+    "artist": "Gustave Doré",
+    "date": "Originally 1857",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:yomi": {
+    "file": "Izanagi y Izanami, Totoya Hokkei.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Izanagi_y_Izanami,_Totoya_Hokkei.jpg",
+    "title": "Izanagi y Izanami, Totoya Hokkei",
+    "artist": "Totoya Hokkei",
+    "date": "circa 1810",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:xibalba": {
+    "file": "God L with the Hero Twins.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:God_L_with_the_Hero_Twins.jpg",
+    "title": "Princeton Vase",
+    "artist": "Late Classic , Maya ('Codex' style)",
+    "date": "A.D. 670–750",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:ginnungagap": {
+    "file": "Nicolai Abildgaard, Ymer dier koen Ødhumbla, KMS3397, Statens Museum for Kunst.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Nicolai_Abildgaard,_Ymer_dier_koen_%C3%98dhumbla,_KMS3397,_Statens_Museum_for_Kunst.jpg",
+    "title": "Ymir Suckling the Cow Audhumla",
+    "artist": "Nicolai Abildgaard",
+    "date": "1777",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:chaos": {
+    "file": "Assistants and George Frederic Watts - Chaos - Google Art Project.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Assistants_and_George_Frederic_Watts_-_Chaos_-_Google_Art_Project.jpg",
+    "title": "Chaos",
+    "artist": "Workshop of George Frederic Watts",
+    "date": "circa 1875",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:nun": {
+    "file": "Nun Raises the Sun.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Nun_Raises_the_Sun.jpg",
+    "title": "Nun Raises the Sun",
+    "artist": "Original author unknown",
+    "date": "Book published 2003; artwork created c. ",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:hundun": {
+    "file": "Chen Rong - Nine Dragons (element 12).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Chen_Rong_-_Nine_Dragons_(element_12).jpg",
+    "title": "Chen Rong - Nine Dragons (element 12)",
+    "artist": "Chen Rong",
+    "date": "1244",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "field:abzu": {
+    "file": "Molded plaque- eagle-headed apkallu MET hb51 72 6.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Molded_plaque-_eagle-headed_apkallu_MET_hb51_72_6.jpg",
+    "title": "eagle-headed apkallu",
+    "artist": null,
+    "date": "ca. 8th–7th century B.C.",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "arm:mjolnir": {
+    "file": "Thor und die Midgardsschlange.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Thor_und_die_Midgardsschlange.jpg",
+    "title": "Thor und die Midgardsschlange",
+    "artist": "Emil Doepler",
+    "date": "Published ca. 1905",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:gungnir": {
+    "file": "Rhinegold and the Valkyries p 158.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rhinegold_and_the_Valkyries_p_158.jpg",
+    "title": "Rhinegold and the Valkyries p 158",
+    "artist": "Arthur Rackham",
+    "date": "1910",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:brisingamen": {
+    "file": "Freyja and the Necklace by James Doyle Penrose, 1890.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Freyja_and_the_Necklace_by_James_Doyle_Penrose,_1890.jpg",
+    "title": "Freyja and the Necklace",
+    "artist": "James Doyle Penrose (1862-1932)",
+    "date": "1890",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:aegis": {
+    "file": "Klimt - Pallas Athene.jpeg",
+    "page": "https://commons.wikimedia.org/wiki/File:Klimt_-_Pallas_Athene.jpeg",
+    "title": "Pallas Athena",
+    "artist": "Gustav Klimt",
+    "date": "1898",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:trident": {
+    "file": "Werner van den Valckert - Neptune (1619).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Werner_van_den_Valckert_-_Neptune_(1619).jpg",
+    "title": "Neptune",
+    "artist": "Werner van den Valckert",
+    "date": "1619",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:kerykeion": {
+    "file": "Mercury by Hendrick Goltzius.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mercury_by_Hendrick_Goltzius.jpg",
+    "title": "Mercury",
+    "artist": "Hendrik Goltzius",
+    "date": "1611",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:sudarshana": {
+    "file": "Raja Ravi Varma, Seshanarayana (Oleographic print).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma,_Seshanarayana_(Oleographic_print).jpg",
+    "title": "Seshanarayana",
+    "artist": "Raja Ravi Varma",
+    "date": "Unknown date",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:trishula": {
+    "file": "Unknown (Indian) - Durga in Combat with the Bull, Mahishasura - 69.428 - Detroit Institute of Arts.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Unknown_(Indian)_-_Durga_in_Combat_with_the_Bull,_Mahishasura_-_69.428_-_Detroit_Institute_of_Arts.jpg",
+    "title": "Durga in Combat with the Bull, Mahishasura",
+    "artist": "anonymous",
+    "date": "1800",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:kusanagi": {
+    "file": "Yamato Takerunomikoto & Kawakami Takeru.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Yamato_Takerunomikoto_%26_Kawakami_Takeru.jpg",
+    "title": "Yamato Takerunomikoto & Kawakami Takeru",
+    "artist": "Yoshitoshi Tsukioka (月岡芳年)",
+    "date": "C.E.1883",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:was": {
+    "file": "P1200355 Louvre Musicien Amon E3657 rwk.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:P1200355_Louvre_Musicien_Amon_E3657_rwk.jpg",
+    "title": "Le musicien d’Amon Djedkhonsouiouefânkh joue de la harpe devant le dieu Rê-Horakhty",
+    "artist": "Unknown artist",
+    "date": "3 e periode intermédiaire (1064-664 av. ",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "arm:wedjat": {
+    "file": "Egypt, New Kingdom, Dynasty 18 - Eye of Horus Amulet - 1914.762 - Cleveland Museum of Art.tiff",
+    "page": "https://commons.wikimedia.org/wiki/File:Egypt,_New_Kingdom,_Dynasty_18_-_Eye_of_Horus_Amulet_-_1914.762_-_Cleveland_Museum_of_Art.tiff",
+    "title": "Eye of Horus Amulet",
+    "artist": null,
+    "date": "1540-1296 BC",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "arm:cheonbuin": {
+    "file": "Korean Bronze dagger and mirror. Jangsu. Jin Period. National Museum of Korea.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Korean_Bronze_dagger_and_mirror._Jangsu._Jin_Period._National_Museum_of_Korea.jpg",
+    "title": "Korean Bronze dagger and mirror. Jangsu. Jin Period. National Museum of Korea",
+    "artist": "Ismoon ( talk ) 21:12, 9 July 2018 (UTC)",
+    "date": "2018-07-09",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "arm:gaebolg": {
+    "file": "Myths and legends; the Celtic race (1910) (14780316811).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Myths_and_legends;_the_Celtic_race_(1910)_(14780316811).jpg",
+    "title": "Myths and legends; the Celtic race (1910) (14780316811)",
+    "artist": "Internet Archive Book Images",
+    "date": "1910",
+    "license": "No restrictions",
+    "licenseUrl": "https://www.flickr.com/commons/usage/"
+  },
+  "arm:xiuhcoatl": {
+    "file": "Aztec Stone Xiuhcoatl (Fire Serpent with Stars Adorning Crest) (9754340332).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Aztec_Stone_Xiuhcoatl_(Fire_Serpent_with_Stars_Adorning_Crest)_(9754340332).jpg",
+    "title": "Aztec Stone Xiuhcoatl (Fire Serpent with Stars Adorning Crest) (9754340332)",
+    "artist": "Gary Todd from Xinzheng, China",
+    "date": "2012-07-04 04:15",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "arm:excalibur": {
+    "file": "CRANE King Arthur asks the lady of the lake for the sword Excalibur.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:CRANE_King_Arthur_asks_the_lady_of_the_lake_for_the_sword_Excalibur.jpg",
+    "title": "CRANE King Arthur asks the lady of the lake for the sword Excalibur",
+    "artist": "Walter Crane",
+    "date": "1911",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:galatine": {
+    "file": "Sir Gawain and the Green Knight, from Pearl Manuscript.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Sir_Gawain_and_the_Green_Knight,_from_Pearl_Manuscript.jpg",
+    "title": "Sir Gawain and the Green Knight, from Pearl Manuscript",
+    "artist": "Anonymous artist. The surviving manuscript is a copy.",
+    "date": "2012-12-03 23:29:30",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:arondight": {
+    "file": "Queen Morgana Appears unto Sir Launcelot.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Queen_Morgana_Appears_unto_Sir_Launcelot.png",
+    "title": "Queen Morgana Appears unto Sir Launcelot",
+    "artist": "Howard Pyle",
+    "date": "1905",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:gram": {
+    "file": "Ring35.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ring35.jpg",
+    "title": "Mime works on a sword for Siegfried. Illustration to Richard Wagner 's Siegfried .",
+    "artist": "Arthur Rackham",
+    "date": "1911",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:balmung": {
+    "file": "Fuseli - Kriemhild zeigt Hagen das Haupt Gunthers. Nibelungenlied XXXVIII, 2440, Z.19400193.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fuseli_-_Kriemhild_zeigt_Hagen_das_Haupt_Gunthers._Nibelungenlied_XXXVIII,_2440,_Z.19400193.jpg",
+    "title": "Fuseli - Kriemhild zeigt Hagen das Haupt Gunthers. Nibelungenlied XXXVIII, 2440, Z.19400193",
+    "artist": "Henry Fuseli",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:durandal": {
+    "file": "RolandACloss.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:RolandACloss.jpg",
+    "title": "RolandACloss",
+    "artist": "original painting by Louis Felix Guesnet (1843–1907), etching by \"A Closs\" [Adolf (Georg) Closs (1840-1894) or possibly ",
+    "date": "1885",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:joyeuse": {
+    "file": "Albrecht Dürer - Emperor Charlemagne.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_Emperor_Charlemagne.jpg",
+    "title": "Emperor Charlemagne",
+    "artist": "Albrecht Dürer",
+    "date": "from 1511 until 1513",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:gandiva": {
+    "file": "Arjuna wins Draupadi.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Arjuna_wins_Draupadi.jpg",
+    "title": "Arjuna wins Draupadi",
+    "artist": "Unknown author",
+    "date": "circa 1885",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:vasavi-shakti": {
+    "file": "Karna Attacks Ghatotkacha.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Karna_Attacks_Ghatotkacha.jpg",
+    "title": "Karna Attacks Ghatotkacha",
+    "artist": "attributed to Kamal",
+    "date": "between 1616 and 1617",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:vajra": {
+    "file": "Indra kills Vrttirasura (story from Rik Veda, featured in Bhagavatha).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Indra_kills_Vrttirasura_(story_from_Rik_Veda,_featured_in_Bhagavatha).jpg",
+    "title": "Indra kills Vrttirasura (story from Rik Veda, featured in Bhagavatha)",
+    "artist": "Unknown author",
+    "date": "1916",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:brahmastra": {
+    "file": "BILAL HABASI a folio from the 1598 razmnama the battle of dhristadyumna with aswattama.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:BILAL_HABASI_a_folio_from_the_1598_razmnama_the_battle_of_dhristadyumna_with_aswattama.jpg",
+    "title": "BILAL HABASI a folio from the 1598 razmnama the battle of dhristadyumna with aswattama",
+    "artist": "Mughal artist Bilal habsi",
+    "date": "2017-08-23",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:gae-dearg": {
+    "file": "Myths and legends; the Celtic race (1910) (14596809318).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Myths_and_legends;_the_Celtic_race_(1910)_(14596809318).jpg",
+    "title": "Myths and legends; the Celtic race (1910) (14596809318)",
+    "artist": "Internet Archive Book Images",
+    "date": "1910",
+    "license": "No restrictions",
+    "licenseUrl": "https://www.flickr.com/commons/usage/"
+  },
+  "arm:fragarach": {
+    "file": "Lugh spear Millar.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Lugh_spear_Millar.jpg",
+    "title": "Lugh spear Millar",
+    "artist": "Harold Robert Millar",
+    "date": "1905",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:caladbolg": {
+    "file": "Myths and legends; the Celtic race (1910) (14596782139).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Myths_and_legends;_the_Celtic_race_(1910)_(14596782139).jpg",
+    "title": "Myths and legends; the Celtic race (1910) (14596782139)",
+    "artist": "Internet Archive Book Images",
+    "date": "1910",
+    "license": "No restrictions",
+    "licenseUrl": "https://www.flickr.com/commons/usage/"
+  },
+  "arm:arash-arrow": {
+    "file": "DiezAlbumsRider.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:DiezAlbumsRider.jpg",
+    "title": "DiezAlbumsRider",
+    "artist": "unknown / (of the reproduction) Staatsbibliothek Berlin/Schacht",
+    "date": "14 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:harpe": {
+    "file": "Stabia-StMarc-Perseo-5871.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Stabia-StMarc-Perseo-5871.jpg",
+    "title": "Stabia-StMarc-Perseo-5871",
+    "artist": "Amadalvarez",
+    "date": null,
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "arm:ruyi-jingu-bang": {
+    "file": "NDL-DC 1312839-Tsukioka Yoshitoshi-悟空吹毛／尉与姥-crd1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:NDL-DC_1312839-Tsukioka_Yoshitoshi-%E6%82%9F%E7%A9%BA%E5%90%B9%E6%AF%9B%EF%BC%8F%E5%B0%89%E4%B8%8E%E5%A7%A5-crd1.jpg",
+    "title": "悟空吹毛／尉与姥",
+    "artist": "Yoshitoshi",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:qiankun-quan": {
+    "file": "Office of Great Peace Album of Opera Faces 1-07.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Office_of_Great_Peace_Album_of_Opera_Faces_1-07.jpg",
+    "title": "Office of Great Peace Album of Opera Faces 1-07",
+    "artist": "This file was derived from: Office of Great Peace Album of Opera Faces WDL3023.pdf",
+    "date": "between 1851 and 1911",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "arm:yi-bow": {
+    "file": "Wu liang shrine relief depicting xihe, yi, and fusang tree.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Wu_liang_shrine_relief_depicting_xihe,_yi,_and_fusang_tree.jpg",
+    "title": "Wu liang shrine relief depicting xihe, yi, and fusang tree",
+    "artist": null,
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:achilles-shield": {
+    "file": "Flaxman shield of achilles cc0 pub dom photo by Thad Zajdowicz flickr thadz 31680177383 a12794660a o resized to 300 dpi cropped tigher solid white background.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Flaxman_shield_of_achilles_cc0_pub_dom_photo_by_Thad_Zajdowicz_flickr_thadz_31680177383_a12794660a_o_resized_to_300_dpi_cropped_tigher_solid_white_background.png",
+    "title": "Flaxman shield of achilles cc0 pub dom photo by Thad Zajdowicz flickr thadz 31680177383 a12794660a o resized to 300 dpi cropped tigher solid white background",
+    "artist": "John Flaxman, designer Rundell, Bridge, and Rundell, mfg",
+    "date": "between circa 1821 and circa 1822",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "arm:tarnkappe": {
+    "file": "Illustration to Richard Wagner's \"Das Rheingold\".jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Illustration_to_Richard_Wagner%27s_%22Das_Rheingold%22.jpg",
+    "title": "Alberich puts on the Tarnhelm and vanishes, his brother Mime remains. Illustration to Richard Wagner's Das Rheingold .",
+    "artist": "Arthur Rackham",
+    "date": "1910",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:megingjord": {
+    "file": "Thor and Hymir (megingjord).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Thor_and_Hymir_(megingjord).jpg",
+    "title": "Thor and Hymir (megingjord)",
+    "artist": "Jakob Sigurðsson",
+    "date": null,
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:kinto-un": {
+    "file": "A Modern Journey to the West5.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:A_Modern_Journey_to_the_West5.jpg",
+    "title": "A Modern Journey to the West5",
+    "artist": "Yoshitoshi",
+    "date": "1864",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:manpasikjeok": {
+    "file": "Danwon Mudong.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Danwon_Mudong.jpg",
+    "title": "Danwon Mudong",
+    "artist": "Kim Hong-do",
+    "date": "Unknown date",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "arm:magic-lamp": {
+    "file": "Aladdin and the wonderful lamp - Keppler. LCCN2011645978.tif",
+    "page": "https://commons.wikimedia.org/wiki/File:Aladdin_and_the_wonderful_lamp_-_Keppler._LCCN2011645978.tif",
+    "title": "Aladdin and the wonderful lamp - Keppler. LCCN2011645978",
+    "artist": "Keppler, Udo J., 1872-1956, artist",
+    "date": "1907",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "card:shelf": {
+    "file": "Giuseppe Maria Crespi - Buchregal mit Musikschriften 1725-30.jpeg",
+    "page": "https://commons.wikimedia.org/wiki/File:Giuseppe_Maria_Crespi_-_Buchregal_mit_Musikschriften_1725-30.jpeg",
+    "title": "Book shelf with music writings",
+    "artist": "Giuseppe Maria Crespi",
+    "date": "1725",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "card:quill": {
+    "file": "Still Life with a Skull and a Writing Quill MET DP145929.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Still_Life_with_a_Skull_and_a_Writing_Quill_MET_DP145929.jpg",
+    "title": "Still Life with a Skull and a Writing Quill",
+    "artist": "Pieter Claesz",
+    "date": "1628",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "arm:soul-sword": {
+    "file": "Standing Man with Ceremonial Sword, Joseon dynasty, Honolulu Museum of Art.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Standing_Man_with_Ceremonial_Sword,_Joseon_dynasty,_Honolulu_Museum_of_Art.jpg",
+    "title": "Standing Man with Ceremonial Sword, Joseon dynasty, Honolulu Museum of Art",
+    "artist": "Anonymous Unknown author",
+    "date": "19 th century",
+    "license": "Public domain",
+    "licenseUrl": null
+  }
+}

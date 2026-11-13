@@ -14,6 +14,8 @@
 
 .scene__art img {
   width: 100%;
+  /* img의 height 속성(그림마다 다름)이 비율을 덮지 않게 합니다. */
+  height: auto;
   max-height: 72svh;
   object-fit: contain;
   background: var(--ink);

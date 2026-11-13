@@ -4,16 +4,17 @@
  *   pnpm credits
  *
  * 화면에는 출처를 적지 않고 README의 출처 표와 이 목록에 모읍니다.
- * Ark 소장 그림(art.json), 무구의 고증 자료(sources), 전장의 소개 자료(source)가 바뀌면
- * 다시 만들어야 하며, `pnpm sync:ark`도 끝에서 이 목록을 다시 씁니다.
+ * 게임 그림(scripts/illustrations/credits.json), Ark 소장 그림(art.json), 무구의 고증 자료(sources),
+ * 전장의 소개 자료(source)가 바뀌면 다시 만들어야 하며, `pnpm illustrations`와 `pnpm sync:ark`도 끝에서 이 목록을 다시 씁니다.
  * 데이터와 목록이 어긋나면 credits.test.js가 실패합니다.
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 export const CREDITS_FILE = join(root, "docs/credits.md");
+const ILLUSTRATION_CREDITS = "scripts/illustrations/credits.json";
 
 const readJson = (path) => JSON.parse(readFileSync(join(root, path), "utf8"));
 
@@ -62,12 +63,38 @@ export async function renderCredits() {
   const armRows = arms.map((arm) => `| ${cell(arm.name)} | ${references(arm.sources)} |`);
   const fieldRows = BATTLEFIELDS.map((field) => `| ${cell(field.name)} | ${references([field.source])} |`);
 
+  // 카드·괴물·전장·무구 그림 (pnpm illustrations가 만든 credits.json)
+  const { ENEMIES } = await import("../src/entities/enemy/model/enemies.js");
+  const { BASIC_CARDS } = await import("../src/entities/card/model/build.js");
+  const subject = {
+    figure: nameOf,
+    enemy: new Map(ENEMIES.map((e) => [e.id, e.name])),
+    field: new Map(BATTLEFIELDS.map((f) => [f.id, f.name])),
+    arm: new Map([...ARMAMENTS, ...HIDDEN_ARMAMENTS].map((a) => [a.id, a.name])),
+    card: new Map(BASIC_CARDS.map((c) => [c.id, c.name])),
+  };
+  const KIND = { figure: "카드", enemy: "괴물", field: "전장", arm: "무구", card: "기본 카드" };
+  const illustrations = existsSync(join(root, ILLUSTRATION_CREDITS)) ? readJson(ILLUSTRATION_CREDITS) : {};
+  const illustrationRows = Object.entries(illustrations).map(([key, a]) => {
+    const [kind, id] = key.split(":");
+    const name = `${KIND[kind]} ${subject[kind]?.get(id) ?? id}`;
+    return `| ${cell(name)} | ${cell(a.title)}${a.date ? ` (${cell(a.date)})` : ""} | ${artist(a.artist)} | ${license(a)} | [Wikimedia Commons](${a.page}) |`;
+  });
+
   return [
     "# 출처",
     "",
     "ZERO가 쓰는 외부 자료의 전체 목록입니다. 화면에는 출처를 적지 않고 [README의 출처](../README.md#출처)와 이 목록에 모읍니다.",
     "",
     "> 이 파일은 `pnpm credits`가 데이터에서 만듭니다. 직접 고치지 말고 데이터를 고친 뒤 다시 만드세요.",
+    "",
+    `## 카드·괴물·전장·무구 그림 (${illustrationRows.length}점)`,
+    "",
+    "게임 화면의 그림입니다. 그 신화를 그린 옛 회화·판화·삽화와 박물관 소장품을 Wikimedia Commons에서 골라 `pnpm illustrations`로 받아 줄였습니다(`scripts/illustrations/picks.json`). CC BY-SA 그림을 줄인 파일은 같은 라이선스를 따릅니다.",
+    "",
+    "| 대상 | 작품 | 저작자 | 사용 허락 | 원본 |",
+    "| --- | --- | --- | --- | --- |",
+    ...illustrationRows,
     "",
     `## Ark 소장 그림 (${artRows.length}점)`,
     "",

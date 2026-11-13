@@ -12,9 +12,15 @@ describe("cardDetail", () => {
     expect(link?.textContent).toContain("(새 창)");
   });
 
-  it("새 일러스트에 대체 텍스트를 붙이고 Ark 소장 자료를 보여 주되, 출처는 화면 대신 README로 잇습니다", () => {
+  it("카드 그림과 Ark 소장 그림이 같으면 Ark 자료를 또 보여 주지 않습니다", () => {
     const el = cardDetail("odin");
-    expect(el.querySelector(".card-detail__illust")?.getAttribute("alt")).toContain("오딘의 일러스트");
+    expect(el.querySelector(".card-detail__illust")?.getAttribute("src")).toBe("/illust/l/figure-odin.webp");
+    expect(el.querySelector(".card-detail__source")).toBeNull();
+  });
+
+  it("새 일러스트에 대체 텍스트를 붙이고 Ark 소장 자료를 보여 주되, 출처는 화면 대신 README로 잇습니다", () => {
+    const el = cardDetail("zeus");
+    expect(el.querySelector(".card-detail__illust")?.getAttribute("alt")).toContain("제우스의 일러스트");
     const source = el.querySelector(".card-detail__source");
     expect(source?.textContent).toContain("Ark 소장 자료");
     expect(source?.querySelector("img")?.getAttribute("alt")).toBeTruthy();

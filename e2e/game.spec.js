@@ -19,6 +19,17 @@ test.describe("처음 화면", () => {
     await expect(toggle).toHaveAttribute("aria-pressed", before === "true" ? "false" : "true");
   });
 
+  test("고리의 신 그림이 모두 받아져 보입니다", async ({ page }) => {
+    await page.goto("/");
+    const images = page.locator(".title__tile img");
+    await expect(images.first()).toBeVisible();
+    // 깨진 그림은 complete여도 naturalWidth가 0입니다.
+    await expect
+      .poll(() => images.evaluateAll((list) => list.every((img) => img.complete && img.naturalWidth > 0)))
+      .toBe(true);
+    expect(await images.first().getAttribute("src")).toMatch(/^\/illust\/l\/figure-.+\.webp$/);
+  });
+
   test("본문 바로가기로 본문에 갈 수 있습니다", async ({ page }) => {
     await page.goto("/");
     await page.keyboard.press("Tab");

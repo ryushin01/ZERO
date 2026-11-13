@@ -3,4 +3,3 @@
  * @typedef {import("../model/figures.js").Figure} Figure
  */
 export { FIGURES, getArt, getFigure, getPantheon } from "../model/figures.js";
-export { portraitSpec } from "../model/portrait.js";

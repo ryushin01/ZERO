@@ -13,7 +13,7 @@ import { describeCombatEffect } from "#shared/lib/index.js";
  *   | "firstDraw" | "firstEnergy" | "turnBlock" | "turnHeal" | "endHeal" | "tide" | "enemyStrength"} FieldKind
  * @typedef {{
  *   id: string, name: string, nameEn: string, realm: Realm, pantheons: string[],
- *   summary: string, field: FieldKind, value: number, motif: string, sky: [string, string], source: string,
+ *   summary: string, field: FieldKind, value: number, source: string,
  * }} Battlefield
  */
 
@@ -63,8 +63,6 @@ export const BATTLEFIELDS = [
     summary: "서쪽 바다 너머 사과나무의 섬. 마지막 전투에서 다친 아서 왕이 몸을 누이러 간 곳입니다.",
     field: "turnHeal",
     value: 2,
-    motif: "stones",
-    sky: ["#0b170f", "#2c5236"],
     source: wiki("아발론"),
   },
   {
@@ -76,8 +74,6 @@ export const BATTLEFIELDS = [
     summary: "원탁의 기사들이 모이던 아서 왕의 성. 성벽이 서 있는 한 기사들은 물러서지 않습니다.",
     field: "startBlock",
     value: 8,
-    motif: "stones",
-    sky: ["#0d0f16", "#33384e"],
     source: wiki("카멜롯"),
   },
   {
@@ -89,8 +85,6 @@ export const BATTLEFIELDS = [
     summary: "플라톤이 전한 바다의 제국. 하룻밤 사이에 가라앉았고, 그 바다는 지금도 모두를 덮칩니다.",
     field: "tide",
     value: 2,
-    motif: "waves",
-    sky: ["#04131d", "#13505e"],
     source: wiki("아틀란티스"),
   },
   {
@@ -102,8 +96,6 @@ export const BATTLEFIELDS = [
     summary: "목신 판이 피리를 부는 목가의 땅. 한가로운 들판에서는 생각이 맑아집니다.",
     field: "firstDraw",
     value: 2,
-    motif: "columns",
-    sky: ["#081c1d", "#1f5650"],
     source: wiki("아르카디아_(이상향)"),
   },
   {
@@ -115,8 +107,6 @@ export const BATTLEFIELDS = [
     summary: "세상의 북쪽 끝에 있다는 땅. 지지 않는 해 아래 냉기가 적들을 둔하게 합니다.",
     field: "startWeakAll",
     value: 1,
-    motif: "mountains",
-    sky: ["#08121c", "#2a4660"],
     source: wiki("툴레"),
   },
   {
@@ -128,8 +118,6 @@ export const BATTLEFIELDS = [
     summary: "브르타뉴 바다에 잠긴 도시. 성문이 열리던 밤처럼 적들의 방비가 무너집니다.",
     field: "startVulnAll",
     value: 1,
-    motif: "waves",
-    sky: ["#061614", "#1b4a52"],
     source: wiki("이스_(신화)"),
   },
   {
@@ -141,8 +129,6 @@ export const BATTLEFIELDS = [
     summary: "히말라야 어딘가에 숨었다는 골짜기. 산이 감싸 주는 동안 사서를 지켜 줍니다.",
     field: "turnBlock",
     value: 2,
-    motif: "mountains",
-    sky: ["#16080f", "#5e1c36"],
     source: wiki("샹그릴라"),
   },
   {
@@ -154,8 +140,6 @@ export const BATTLEFIELDS = [
     summary: "말세에 세상을 구하러 올 왕이 산다는 숨은 왕국. 싸움을 시작할 때부터 지혜가 깃듭니다.",
     field: "firstEnergy",
     value: 1,
-    motif: "temple",
-    sky: ["#16080f", "#5e1c36"],
     source: wiki("샴발라"),
   },
   {
@@ -167,8 +151,6 @@ export const BATTLEFIELDS = [
     summary: "어부가 복사꽃 숲을 따라가다 찾았다는 마을. 싸움이 끝나면 지친 몸이 쉬어 갑니다.",
     field: "endHeal",
     value: 6,
-    motif: "pagoda",
-    sky: ["#0b0b12", "#352a48"],
     source: wiki("무릉도원"),
   },
   {
@@ -180,8 +162,6 @@ export const BATTLEFIELDS = [
     summary: "바다에 나가 돌아오지 못한 이들이 산다는 제주의 섬. 그 그리움이 적들을 갉아먹습니다.",
     field: "startErosionAll",
     value: 3,
-    motif: "waves",
-    sky: ["#0b0b12", "#352a48"],
     source: wiki("이어도"),
   },
   {
@@ -193,8 +173,6 @@ export const BATTLEFIELDS = [
     summary: "온몸에 금가루를 바른 왕의 전설에서 시작된 황금의 땅. 넘치는 금빛이 힘이 됩니다.",
     field: "startStrength",
     value: 1,
-    motif: "steps",
-    sky: ["#061614", "#1b5244"],
     source: wiki("엘도라도"),
   },
   {
@@ -206,8 +184,6 @@ export const BATTLEFIELDS = [
     summary: "아즈텍 사람들이 떠나왔다는 백로의 섬. 첫 해가 뜨는 곳에서 적들이 불길에 그을립니다.",
     field: "startDamageAll",
     value: 5,
-    motif: "steps",
-    sky: ["#061614", "#1b5244"],
     source: wiki("아스틀란"),
   },
   // 신역: 신들의 거처와 낙원, 저승
@@ -220,8 +196,6 @@ export const BATTLEFIELDS = [
     summary: "구름 위 열두 신의 궁전. 싸움이 시작되면 하늘에서 번개가 먼저 떨어집니다.",
     field: "startDamageAll",
     value: 8,
-    motif: "columns",
-    sky: ["#081c1d", "#1f5650"],
     source: wiki("올림포스산"),
   },
   {
@@ -233,8 +207,6 @@ export const BATTLEFIELDS = [
     summary: "무지개다리 비프로스트 너머 아사 신족의 나라. 신들의 성벽이 매 턴 사서를 감쌉니다.",
     field: "turnBlock",
     value: 3,
-    motif: "mountains",
-    sky: ["#08121c", "#2a4660"],
     source: wiki("아스가르드"),
   },
   {
@@ -246,8 +218,6 @@ export const BATTLEFIELDS = [
     summary: "오딘이 쓰러진 전사들을 모으는 전당. 이곳의 전사는 싸움을 시작할 때부터 힘이 넘칩니다.",
     field: "startStrength",
     value: 2,
-    motif: "mountains",
-    sky: ["#08121c", "#2a4660"],
     source: wiki("발할라"),
   },
   {
@@ -259,8 +229,6 @@ export const BATTLEFIELDS = [
     summary: "세계의 한가운데 솟은 우주의 산. 정상에 오르면 온 세상이 한눈에 보입니다.",
     field: "firstDraw",
     value: 2,
-    motif: "temple",
-    sky: ["#16080f", "#5e1c36"],
     source: wiki("수미산"),
   },
   {
@@ -272,8 +240,6 @@ export const BATTLEFIELDS = [
     summary: "서왕모가 불사약을 지킨다는 서쪽 끝의 산. 매 턴 상처가 아뭅니다.",
     field: "turnHeal",
     value: 2,
-    motif: "pagoda",
-    sky: ["#0b0b12", "#352a48"],
     source: wiki("곤륜산"),
   },
   {
@@ -285,8 +251,6 @@ export const BATTLEFIELDS = [
     summary: "아마테라스가 다스리는 하늘의 들판. 해가 떠오르듯 첫 턴에 기운이 차오릅니다.",
     field: "firstEnergy",
     value: 1,
-    motif: "pagoda",
-    sky: ["#0b0b12", "#352a48"],
     source: wiki("다카마가하라"),
   },
   {
@@ -298,8 +262,6 @@ export const BATTLEFIELDS = [
     summary: "수메르 신화가 노래한 깨끗하고 밝은 땅. 병도 늙음도 없어 싸움 뒤에 몸이 회복됩니다.",
     field: "endHeal",
     value: 8,
-    motif: "ziggurat",
-    sky: ["#140b06", "#5e3416"],
     source: wiki("딜문"),
   },
   {
@@ -311,8 +273,6 @@ export const BATTLEFIELDS = [
     summary: "오시리스가 다스리는 갈대의 들판. 심판을 통과한 이를 갈대가 지켜 줍니다.",
     field: "turnBlock",
     value: 2,
-    motif: "pyramid",
-    sky: ["#160c04", "#6e4210"],
     source: enwiki("Aaru"),
   },
   {
@@ -324,8 +284,6 @@ export const BATTLEFIELDS = [
     summary: "영웅과 의인이 머무는 축복의 들판. 이곳에 선 이는 처음부터 굳게 서 있습니다.",
     field: "startBlock",
     value: 10,
-    motif: "columns",
-    sky: ["#081c1d", "#1f5650"],
     source: wiki("엘리시온"),
   },
   {
@@ -337,8 +295,6 @@ export const BATTLEFIELDS = [
     summary: "늙지 않는 젊음의 땅. 오신이 니엄을 따라 건너간 바다 너머의 섬입니다.",
     field: "turnHeal",
     value: 1,
-    motif: "stones",
-    sky: ["#0b170f", "#2c5236"],
     source: wiki("티르_나_노그"),
   },
   {
@@ -350,8 +306,6 @@ export const BATTLEFIELDS = [
     summary: "스틱스강 너머 죽은 이들의 나라. 망각의 물이 적들의 몸을 서서히 지웁니다.",
     field: "startErosionAll",
     value: 4,
-    motif: "columns",
-    sky: ["#06080a", "#1a2a2a"],
     source: wiki("하데스"),
   },
   {
@@ -363,8 +317,6 @@ export const BATTLEFIELDS = [
     summary: "이자나미가 머무는 어둠의 나라. 어둠 속의 괴물들은 더 사납습니다.",
     field: "enemyStrength",
     value: 1,
-    motif: "pagoda",
-    sky: ["#08060c", "#241a30"],
     source: wiki("요미"),
   },
   {
@@ -376,8 +328,6 @@ export const BATTLEFIELDS = [
     summary: "쌍둥이 영웅이 공놀이로 이긴 공포의 저승. 저승의 군주들은 쉽게 물러서지 않습니다.",
     field: "enemyStrength",
     value: 2,
-    motif: "steps",
-    sky: ["#040c0a", "#12302a"],
     source: wiki("시발바"),
   },
   // 아우터 유니버스: 세계가 생기기 전의 공간
@@ -390,8 +340,6 @@ export const BATTLEFIELDS = [
     summary: "얼음의 니플헤임과 불의 무스펠헤임 사이에 벌어진 틈. 얼음과 불이 부딪쳐 모두를 할퀴습니다.",
     field: "tide",
     value: 3,
-    motif: "void",
-    sky: ["#04060a", "#18243a"],
     source: wiki("긴눙가가프"),
   },
   {
@@ -403,8 +351,6 @@ export const BATTLEFIELDS = [
     summary: "헤시오도스가 맨 처음 생겨났다고 한 텅 빈 틈. 형태 없는 힘이 괴물들에게 흘러듭니다.",
     field: "enemyStrength",
     value: 2,
-    motif: "void",
-    sky: ["#050508", "#1e1e2e"],
     source: enwiki("Chaos_(cosmogony)"),
   },
   {
@@ -416,8 +362,6 @@ export const BATTLEFIELDS = [
     summary: "이집트 신화의 태초의 물. 모든 것이 이 물에서 나왔고, 다시 이 물로 돌아가 쉬어 갑니다.",
     field: "turnHeal",
     value: 3,
-    motif: "void",
-    sky: ["#04080a", "#123040"],
     source: wiki("누_(이집트_신화)"),
   },
   {
@@ -429,8 +373,6 @@ export const BATTLEFIELDS = [
     summary: "얼굴에 구멍이 없던 중앙의 임금. 일곱 구멍을 뚫어 주자 죽었다는 장자의 이야기 속 태초입니다.",
     field: "firstEnergy",
     value: 1,
-    motif: "void",
-    sky: ["#06060a", "#28203a"],
     source: wiki("혼돈_(신화)"),
   },
   {
@@ -442,8 +384,6 @@ export const BATTLEFIELDS = [
     summary: "티아마트의 바다와 섞이기 전, 땅 밑에 고여 있던 태초의 민물. 그 깊이가 괴물들을 녹입니다.",
     field: "startErosionAll",
     value: 4,
-    motif: "void",
-    sky: ["#060806", "#1e2e1e"],
     source: enwiki("Abzu"),
   },
 ];

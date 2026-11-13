@@ -1,7 +1,7 @@
 import { getPantheon } from "#entities/figure/@x/card.js";
 import { h } from "#shared/lib/index.js";
 
-import { cardIllustration } from "../lib/illustration.js";
+import { cardArt } from "../lib/illustration.js";
 import { ASPECTS } from "../model/aspects.js";
 import { describeCard, RARITY_LABEL, TYPE_LABEL } from "../model/describe.js";
 
@@ -80,8 +80,8 @@ export function cardFace(card, { tag = "div", lines, chain = null, attrs = {}, s
     badge ? h("span", { class: "card__badge label" }, badge) : null,
     h(
       "span",
-      { class: ["card__art", !card.figureSlug && "card__art--item"], "aria-hidden": "true" },
-      h("img", { src: cardIllustration(card), alt: "", decoding: "async", width: 200, height: 260 }),
+      { class: "card__art", "aria-hidden": "true" },
+      h("img", { ...cardArt(card, { sizes: "220px" }), alt: "" }),
     ),
   );
 }

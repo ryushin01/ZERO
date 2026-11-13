@@ -38,11 +38,14 @@ export const HIDDEN_CARDS = [
 
 /**
  * 히든 카드의 그림. 코드로 그리지 않고, 그린 분의 허락을 받은 그림을 그대로 씁니다.
- * @type {Record<string, { src: string, alt: string, credit: string }>}
+ * @type {Record<string, { src: string, width: number, height: number, position: string, alt: string, credit: string }>}
  */
 export const HIDDEN_ART = {
   yushin: {
     src: "/art/hidden/yushin.jpg",
+    width: 462,
+    height: 600,
+    position: "50% 22%",
     alt: "붉은 배경 앞에서 눈을 감고 허리에 손을 얹은 유신. 긴 검은 머리가 한쪽 눈을 가리고, 흰 동정과 고름이 달린 검은 도포를 입었습니다.",
     credit: "허락을 받아 실은 그림",
   },

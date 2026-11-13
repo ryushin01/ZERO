@@ -1,10 +1,8 @@
-import { drawScene, illustrationUrl } from "#shared/ui/illustration/index.js";
+import { artworkAttrs } from "#shared/ui/artwork/index.js";
 
-import { getEnemy } from "../model/enemies.js";
-import { monsterSpec } from "../model/portrait.js";
-
-/** 괴물 그림의 data URL @param {string} id */
-export function enemyIllustration(id) {
-  const def = getEnemy(id);
-  return illustrationUrl(`enemy:${id}`, () => drawScene(monsterSpec(id, def.tier)));
-}
+/**
+ * 괴물 그림의 img 속성. 신화 속 그 괴물을 그린 옛 그림입니다.
+ * @param {string} id
+ * @param {{ sizes?: string, eager?: boolean }} [options]
+ */
+export const enemyArt = (id, options) => artworkAttrs(`enemy:${id}`, options);

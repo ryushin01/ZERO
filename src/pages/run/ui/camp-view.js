@@ -1,4 +1,4 @@
-import { cardIllustration, getCard, HIDDEN_ART } from "#entities/card/index.js";
+import { cardArt, getCard, HIDDEN_ART } from "#entities/card/index.js";
 import { getFigure } from "#entities/figure/index.js";
 import { getEvent, requestPick, rest, restAmount, skipToMap } from "#features/run/index.js";
 import { chooseEvent } from "#features/run/index.js";
@@ -12,7 +12,8 @@ function scene(head, body) {
   const figure = head.figure ? getFigure(head.figure) : null;
   // Ark에 없는 카드(히든)는 카드 그림만 보여 주고 Ark로 잇지 않습니다.
   const card = head.card ? getCard(head.card) : null;
-  const art = figure ? cardIllustration(getCard(figure.slug)) : card ? cardIllustration(card) : null;
+  const shown = figure ? getCard(figure.slug) : card;
+  const art = shown ? cardArt(shown, { sizes: "(max-width: 720px) 90vw, 480px", eager: true }) : null;
   return h(
     "section",
     { class: ["scene", art && "scene--art"] },
@@ -21,7 +22,7 @@ function scene(head, body) {
           "figure",
           { class: "scene__art" },
           h("img", {
-            src: art,
+            ...art,
             alt: HIDDEN_ART[card.id]?.alt ?? `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
           }),
           h("figcaption", { class: "label muted" }, `${card.name} · ${card.epithet}`),
@@ -31,7 +32,7 @@ function scene(head, body) {
       ? h(
           "figure",
           { class: "scene__art" },
-          h("img", { src: art, alt: `${figure.name}의 일러스트` }),
+          h("img", { ...art, alt: `${figure.name}의 일러스트` }),
           h(
             "figcaption",
             { class: "label muted" },

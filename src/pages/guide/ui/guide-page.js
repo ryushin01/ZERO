@@ -280,14 +280,14 @@ function view(ctx) {
       h(
         "p",
         null,
-        "신과 영웅, 신화 계열의 소개와 카드 그림은 ",
+        "신과 영웅, 신화 계열의 소개는 ",
         h(
           "a",
           { href: ARK_URL, target: "_blank", rel: "noopener" },
           "세계 신화 도서관 Ark",
           h("span", { class: "sr-only" }, " (새 창)"),
         ),
-        "에서 가져왔습니다. 그림은 모두 Wikimedia Commons의 퍼블릭 도메인 또는 CC 라이선스 자료입니다. 그림과 글꼴, 참고한 글의 저작자·사용 허락·원본은 화면 대신 ",
+        "에서 가져왔습니다. 카드·괴물·전장·무구 그림은 그 신화를 그린 옛 회화·판화·삽화로, 모두 Wikimedia Commons의 퍼블릭 도메인 또는 CC 라이선스 자료입니다. 그림과 글꼴, 참고한 글의 저작자·사용 허락·원본은 화면 대신 ",
         h(
           "a",
           { href: CREDITS_URL, target: "_blank", rel: "noopener" },

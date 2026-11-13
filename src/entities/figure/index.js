@@ -10,4 +10,3 @@ export {
   kindLabel,
   PANTHEONS,
 } from "./model/figures.js";
-export { portraitSpec } from "./model/portrait.js";

@@ -1,6 +1,6 @@
 import { h } from "#shared/lib/index.js";
 
-import { armamentIllustration } from "../lib/illustration.js";
+import { armamentArt } from "../lib/illustration.js";
 import { isOncePerBattle } from "../model/armaments.js";
 import { bonusText, describeArmament } from "../model/describe.js";
 
@@ -16,14 +16,7 @@ export function armamentCard(arm, { heading = "h3", full = false, footer = null 
   return h(
     "article",
     { class: ["armament", full && "armament--full"] },
-    h("img", {
-      class: "armament__art",
-      src: armamentIllustration(arm),
-      alt: "",
-      width: 200,
-      height: 260,
-      decoding: "async",
-    }),
+    h("img", { ...armamentArt(arm, { sizes: "200px" }), class: "armament__art", alt: "" }),
     h(
       "div",
       { class: "armament__body" },

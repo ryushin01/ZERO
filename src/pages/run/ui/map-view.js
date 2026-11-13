@@ -1,4 +1,4 @@
-import { armamentIllustration, describeArmament, getArmament } from "#entities/armament/index.js";
+import { armamentArt, describeArmament, getArmament } from "#entities/armament/index.js";
 import { battlefieldCard } from "#entities/battlefield/index.js";
 import { getCard } from "#entities/card/index.js";
 import { getPantheon } from "#entities/figure/index.js";
@@ -133,7 +133,7 @@ export function mapView(ctx) {
             return h(
               "li",
               { "data-key": id },
-              h("img", { src: armamentIllustration(arm), alt: "", width: 200, height: 260 }),
+              h("img", { ...armamentArt(arm, { sizes: "120px" }), alt: "" }),
               h(
                 "span",
                 null,

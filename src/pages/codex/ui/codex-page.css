@@ -157,6 +157,8 @@
 
 .codex-enemy__art {
   width: 100%;
+  /* img의 height 속성(그림마다 다름)이 비율을 덮지 않게 합니다. */
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center 40%;

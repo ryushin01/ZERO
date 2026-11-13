@@ -1,4 +1,4 @@
-import { cardIllustration, FIGURE_CARDS } from "#entities/card/index.js";
+import { cardArt, FIGURE_CARDS } from "#entities/card/index.js";
 import { ENEMIES } from "#entities/enemy/index.js";
 import { FIGURES, PANTHEONS } from "#entities/figure/index.js";
 import { RELICS } from "#entities/relic/index.js";
@@ -38,7 +38,7 @@ function view(ctx) {
                 "--n": RING.length,
               },
             },
-            h("img", { src: cardIllustration(card), alt: "", decoding: "async" }),
+            h("img", { ...cardArt(card, { sizes: `${SIZES[index % SIZES.length]}px`, eager: true }), alt: "" }),
             h("figcaption", { class: "label" }, card.nameEn),
           );
         }),
