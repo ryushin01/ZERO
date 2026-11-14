@@ -26,14 +26,11 @@
   text-decoration: none;
 }
 
+/* 로고는 바탕까지 그린 아이콘이라 밝은 화면과 어두운 화면에서 그대로 씁니다. */
 .site-header__logo {
-  width: auto;
+  display: block;
+  width: 30px;
   height: 30px;
-}
-
-/* 어두운 화면에서는 검은 로고를 뒤집어 밝게 보여 줍니다. */
-body[data-surface="dark"] .site-header__logo {
-  filter: invert(1);
 }
 
 .site-header__context {
