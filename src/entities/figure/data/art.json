@@ -1663,6 +1663,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statue_of_Dewi_Sri,_Wanita_di_Indonesia_p4_(Lichtbeelden_Institute).jpg"
     }
   },
+  "hwanung": {
+    "src": "/art/hwanung.jpg",
+    "title": "한반도의 세형동검",
+    "alt": "벽에 나란히 걸린 녹슨 청동 칼 세 자루와, 그 아래 받침에 놓인 칼자루 끝장식 두 점",
+    "holder": null,
+    "dateLabel": "청동기~초기 철기 시대",
+    "credit": {
+      "artist": "AsPJT",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Slender_bronze_dagger_in_Korea_in_1978.jpg"
+    }
+  },
   "yuhwa": {
     "src": "/art/yuhwa.jpg",
     "title": "유화를 찾은 금와왕",

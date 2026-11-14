@@ -426,7 +426,7 @@ ZERO가 쓰는 외부 자료의 전체 목록입니다. 화면에는 출처를 �
 | 기본 카드 필봉 | Still Life with a Skull and a Writing Quill (1628) | Pieter Claesz | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Still_Life_with_a_Skull_and_a_Writing_Quill_MET_DP145929.jpg) |
 | 무구 영혼의 검 | Standing Man with Ceremonial Sword, Joseon dynasty, Honolulu Museum of Art (19 th century) | Anonymous Unknown author | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Standing_Man_with_Ceremonial_Sword,_Joseon_dynasty,_Honolulu_Museum_of_Art.jpg) |
 
-## Ark 소장 그림 (289점)
+## Ark 소장 그림 (290점)
 
 카드 상세의 'Ark 소장 자료'입니다. [Ark](https://ark-ryushin01.vercel.app)가 Wikimedia Commons에서 고른 자료를 그대로 받아 씁니다.
 
@@ -560,6 +560,7 @@ ZERO가 쓰는 외부 자료의 전체 목록입니다. 화면에는 출처를 �
 | 바롱 | 바롱 켓 | Daderot | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Barong_Ket,_Bali,_undated_-_Spurlock_Museum,_UIUC_-_DSC05997.jpg) |
 | 랑다 | 랑다 가면 | Silar | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:02021_0109_(1)_Rangda_mask.jpg) |
 | 데위 스리 | 데위 스리로 소개된 석상 (사진) | 작자 미상 | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Statue_of_Dewi_Sri,_Wanita_di_Indonesia_p4_(Lichtbeelden_Institute).jpg) |
+| 환웅 | 한반도의 세형동검 | AsPJT | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Slender_bronze_dagger_in_Korea_in_1978.jpg) |
 | 유화 | 유화를 찾은 금와왕 | Sadahide Utagawa | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lady_Yuhwa_and_King_Geumwa.png) |
 | 동명성왕 | 동명왕릉 앞의 무인 석상 | yeowatzup | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tomb_of_King_Tongmyong,_Pyongyang,_North_Korea.jpg) |
 | 박혁거세 | 경주 오릉 | Minquddyd | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%EA%B2%BD%EC%A3%BC%EC%9D%98_%EC%98%A4%EB%A6%89.jpg) |

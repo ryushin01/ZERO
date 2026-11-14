@@ -52,7 +52,7 @@
 
 - Ark의 TypeScript 목업을 Node의 타입 지우기로 그대로 가져옵니다.
 - 신화 계열, 신과 영웅, 신마다 첫 번째 자료의 그림 정보(제목, 대체 텍스트, 소장처, 저작자, 라이선스, 원본 주소)를 `src/entities/figure/data/*.json`에 씁니다.
-- 그림은 macOS `sips`로 긴 변 420px JPEG로 줄여 `public/art/`에 둡니다. (289점, 약 10MB)
+- 그림은 macOS `sips`로 긴 변 420px JPEG로 줄여 `public/art/`에 둡니다. (290점, 약 10MB)
 - 탈것·동반자 짝(`figure/model/bonds.ts`)을 `src/entities/bond/data/bonds.json`에 씁니다. 짝마다 붙는 효과는 ZERO의 게임 규칙이라 `entities/bond/model/bonds.js`의 `BOND_RULES`에 둡니다.
 - 결과물을 커밋하므로 Ark 저장소가 없어도 빌드됩니다.
 - 끝에서 출처 목록(`docs/credits.md`)도 다시 만듭니다.

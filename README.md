@@ -1,7 +1,7 @@
 # ZERO - 신화 덱빌딩
 
 [![CI](https://github.com/ryushin01/ZERO/actions/workflows/ci.yml/badge.svg)](https://github.com/ryushin01/ZERO/actions/workflows/ci.yml)
-![version](https://img.shields.io/badge/version-0.13.0-060403)
+![version](https://img.shields.io/badge/version-0.13.1-060403)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?logo=javascript&logoColor=black)
 
 세계 신화 도서관 [Ark](https://github.com/ryushin01/Ark)의 신과 영웅, 아더 왕·아킬레우스·손오공 같은 전설의 영웅, 메두사·케르베로스 같은 신화 속 괴물까지 322명을 카드로 모으고, 엑스칼리버·묠니르 같은 신화 무구를 휘둘러 기록을 지우려는 괴물과 태초의 공허 ‘영(零)’에 맞서는 웹 덱빌딩 게임입니다.
@@ -123,7 +123,7 @@ src/
 | [접근성 점검](docs/accessibility.md)           | KWCAG 2.2 항목별 대응                                                              |
 | [시퀀스 다이어그램](docs/sequence-diagrams.md) | 전투 한 턴, 한 판의 진행과 자동 저장                                               |
 | [변경 기록](CHANGELOG.md)                      | 버전별 변경 사항                                                                   |
-| [출처 전체 목록](docs/credits.md)              | 게임 그림 415점과 Ark 소장 그림 289점의 저작자·사용 허락·원본, 무구·전장 고증 자료 |
+| [출처 전체 목록](docs/credits.md)              | 게임 그림 415점과 Ark 소장 그림 290점의 저작자·사용 허락·원본, 무구·전장 고증 자료 |
 
 ## 출처
 
@@ -134,7 +134,7 @@ src/
 | Cormorant Garamond (영문 제목)                           | The Cormorant Project Authors                            | SIL OFL 1.1                         | [Fontsource](https://fontsource.org/fonts/cormorant-garamond)               |
 | Familjen Grotesk (본문 영문)                             | The Familjen Grotesk Project Authors                     | SIL OFL 1.1                         | [Fontsource](https://fontsource.org/fonts/familjen-grotesk)                 |
 | 나눔명조 ExtraBold (이름 글자만 담은 `zero-names.woff2`) | NHN Corporation(현 NAVER), 디자인 FONTRIX                | SIL OFL 1.1                         | [google/fonts](https://github.com/google/fonts/tree/main/ofl/nanummyeongjo) |
-| Ark 소장 그림 289점 (카드 상세)                          | 작품마다 다름                                            | 퍼블릭 도메인, CC0, CC BY, CC BY-SA | Wikimedia Commons ([전체 목록](docs/credits.md))                            |
+| Ark 소장 그림 290점 (카드 상세)                          | 작품마다 다름                                            | 퍼블릭 도메인, CC0, CC BY, CC BY-SA | Wikimedia Commons ([전체 목록](docs/credits.md))                            |
 | 무구·전장 소개의 고증                                    | 위키백과, 나무위키                                       | 참고만 하고 글은 새로 씀            | [전체 목록](docs/credits.md)                                                |
 | 신·영웅·신화 계열 소개                                   | 직접 만든 자료 ([Ark](https://ark-ryushin01.vercel.app)) | —                                   | —                                                                           |
 | 카드·괴물·전장·무구 그림 415점                           | 작품마다 다름 (폰 로센, 빙에, 라비 바르마, 요시토시 등)  | 퍼블릭 도메인, CC0, CC BY, CC BY-SA | Wikimedia Commons ([전체 목록](docs/credits.md))                            |
