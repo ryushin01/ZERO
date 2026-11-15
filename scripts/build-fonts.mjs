@@ -21,7 +21,7 @@ import fontverter from "fontverter";
 import { Blob, Face } from "harfbuzzjs";
 import subsetFont from "subset-font";
 
-// TypeScript 파서가 있으면 문자열·JSX 글자만, 없으면(TypeScript 7 등) 주석만 지운 코드를 씀
+// TypeScript 파서가 있으면 문자열·JSX 글자만, 없으면(TypeScript 7 등) 주석까지 원문 전체를 셈(빠지는 글자가 없게)
 const ts = await import("typescript").then((m) => m.default ?? m).catch(() => null);
 const AST = typeof ts?.createSourceFile === "function";
 
@@ -63,38 +63,15 @@ function toRange(set) {
   return out.join(", ");
 }
 
-/** 원문에 적힌 이스케이프(가, \u{1f370}, &#xac00;, &#44032;)를 글자로 풂 */
+/** 원문에 적힌 이스케이프(JS의 \uAC00·\u{1F370}, HTML의 &#xAC00;·&#44032;)를 글자로 풂 */
 function unescapeAll(text) {
-  const from = (code) => String.fromCodePoint(code);
+  // 글자 범위를 벗어난 값은 이스케이프가 아닌 것으로 보고 그대로 둠
+  const from = (code, raw) => (code <= 0x10ffff ? String.fromCodePoint(code) : raw);
   return text
-    .replace(/\\u\{([0-9a-fA-F]+)\}/g, (_, hex) => from(parseInt(hex, 16)))
-    .replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => from(parseInt(hex, 16)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => from(parseInt(hex, 16)))
-    .replace(/&#(\d+);/g, (_, dec) => from(Number(dec)));
-}
-
-/** 주석만 지운 코드(문자열·JSX 글자는 남김). TypeScript 파서를 쓸 수 없을 때 씀 */
-function stripComments(code) {
-  let out = "";
-  let quote = null;
-  for (let i = 0; i < code.length; i++) {
-    const ch = code[i];
-    if (quote) {
-      out += ch;
-      if (ch === "\\") out += code[++i] ?? "";
-      else if (ch === quote) quote = null;
-    } else if (ch === "/" && code[i + 1] === "/") {
-      const end = code.indexOf("\n", i);
-      i = end === -1 ? code.length : end - 1;
-    } else if (ch === "/" && code[i + 1] === "*") {
-      const end = code.indexOf("*/", i + 2);
-      i = end === -1 ? code.length : end + 1;
-    } else {
-      if (ch === "'" || ch === '"' || ch === "`") quote = ch;
-      out += ch;
-    }
-  }
-  return out;
+    .replace(/\\u\{([0-9a-fA-F]+)\}/g, (raw, hex) => from(parseInt(hex, 16), raw))
+    .replace(/\\u([0-9a-fA-F]{4})/g, (raw, hex) => from(parseInt(hex, 16), raw))
+    .replace(/&#x([0-9a-fA-F]+);/g, (raw, hex) => from(parseInt(hex, 16), raw))
+    .replace(/&#(\d+);/g, (raw, dec) => from(Number(dec), raw));
 }
 
 async function* walk(dir) {
@@ -119,7 +96,7 @@ async function screenText() {
       if (/\.[cm]?[jt]sx?$/.test(file)) {
         const text = await readFile(file, "utf8");
         if (!AST) {
-          parts.push(stripComments(text));
+          parts.push(text);
           continue;
         }
         const kind = /x$/.test(file) ? ts.ScriptKind.TSX : ts.ScriptKind.TS;
@@ -221,7 +198,8 @@ for (const font of config.fonts) {
       const inFont = [...parseRange(range)].filter((cp) => cmap.has(cp));
       if (!inFont.length) continue;
       const name = `${slug}-${weight}-${String(index).padStart(3, "0")}.woff2`;
-      if (ALL || !existsSync(path.join(restDir, name))) {
+      // 이름을 바꾸는 글꼴은 이전 실행에서 이름 바꾸기가 실패했을 수 있어 늘 다시 만듦
+      if (ALL || font.rename || !existsSync(path.join(restDir, name))) {
         const piece = await subsetFont(original, String.fromCodePoint(...inFont), { targetFormat: "woff2" });
         await writeFile(path.join(restDir, name), piece);
         written.push(path.join(restDir, name));

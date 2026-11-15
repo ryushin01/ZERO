@@ -13,7 +13,8 @@ from fontTools.ttLib import TTFont
 def main() -> None:
     family, files = sys.argv[1], sys.argv[2:]
     for path in files:
-        font = TTFont(path)
+        # 저장 시각을 새로 적지 않아, 다시 만들어도 같은 파일이 나오게 함
+        font = TTFont(path, recalcTimestamp=False)
         style = font["name"].getDebugName(2) or "Regular"
         for record in font["name"].names:
             if record.nameID in (1, 4, 16, 21):
