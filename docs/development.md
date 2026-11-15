@@ -126,6 +126,14 @@ Sentry에는 오류 내용만 보내고 사용자 정보·쿠키·헤더·쿼리
 
 `.github/dependabot.yml`이 npm 패키지를 매주 확인합니다. Storybook 묶음과 린트 묶음(ESLint·Steiger·FSD 플러그인)은 주 버전까지 한 PR로 묶고, 나머지 패키지는 부 버전·패치만 한 PR로 묶습니다. 그 밖의 주 버전은 따로 PR이 열립니다. GitHub Actions는 매달 올립니다. 어느 PR이든 CI가 통과할 때만 병합합니다.
 
+## 버전
+
+버전은 1.2.3으로 고정합니다(2026-11-15부터).
+
+- 기능을 바꿔도 `package.json`의 `version`과 README 배지를 올리지 않습니다. `scripts/version.test.js`가 다른 값을 막습니다.
+- 변경 기록(`CHANGELOG.md`)에는 버전 대신 날짜 제목(`## 2026-11-16`)으로 적습니다.
+- 릴리스 태그를 새로 만들지 않습니다. 저장소 백업은 태그가 아니라 기본 브랜치의 최신 커밋을 날짜·시간 폴더(`<커밋 시각>_<짧은 해시>`)로 받습니다.
+
 ## 배포
 
 Vercel 프로젝트 `zero-myth`가 GitHub에 연결되어 `main`에 합치면 프로덕션(https://zero-ryushin01.vercel.app/)에 배포합니다.
