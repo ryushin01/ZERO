@@ -8,3 +8,4 @@ public
 .lighthouseci
 # pnpm credits가 데이터에서 만드는 파일
 docs/credits.md
+src/app/styles/fonts/zero-serif*

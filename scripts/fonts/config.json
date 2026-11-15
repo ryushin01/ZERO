@@ -1,0 +1,19 @@
+{
+  "outDir": "src/app/styles/fonts",
+  "scan": ["src", "index.html"],
+  "dataExtensions": ["json", "html"],
+  "extra": "년월일시분초오전후요화수목금토만억조",
+  "fonts": [
+    {
+      "family": "ZeroSerif",
+      "slug": "zero-serif",
+      "rename": true,
+      "weights": {
+        "300": "scripts/fonts/maruburi/MaruBuri-Light.woff2",
+        "400": "scripts/fonts/maruburi/MaruBuri-Regular.woff2",
+        "600": "scripts/fonts/maruburi/MaruBuri-SemiBold.woff2",
+        "700": "scripts/fonts/maruburi/MaruBuri-Bold.woff2"
+      }
+    }
+  ]
+}

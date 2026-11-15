@@ -2,19 +2,6 @@
  * 두 톤 위에 신호색 하나. cipher.tv의 먹색과 뼈색을 바탕으로 했습니다.
  * 표면(surface)마다 글자색과 보조색을 바꿔, 어느 화면이든 명도 대비 4.5:1 이상을 지킵니다.
  */
-/*
- * 이름 글꼴: 나눔명조 ExtraBold(SIL OFL 1.1, 예약 이름 때문에 ZeroNames로 바꿈)를 카드·무구·유물·전장 이름에
- * 쓰인 글자만 남겨 줄인 파일. 도감처럼 이름이 한 화면에 모여도 글자 묶음 조각을 수십 개 받지 않습니다.
- * 이름에 새 글자가 생기면 name-font.test.js가 실패합니다. 다시 만드는 방법은 그 테스트 주석에 있습니다.
- */
-@font-face {
-  font-family: "ZeroNames";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url("./fonts/zero-names.woff2") format("woff2");
-}
-
 :root {
   --ink: #060403;
   --bone: #e9eae4;
@@ -34,20 +21,15 @@
   --light-line: rgb(6 4 3 / 0.16);
   --light-signal: #a8360c; /* 5.43:1 */
 
-  /* 대체 글꼴: 고문서 분위기가 남도록 영문은 올드스타일 세리프(Garamond, Baskerville), 한글은 운영체제 명조 */
+  /*
+   * 영문·숫자는 Neuton, 한글은 마루 부리. 마루 부리는 OFL 예약 이름 때문에 줄인 파일의 이름을 ZeroSerif로 바꿨습니다.
+   * 제목·본문·이름이 모두 같은 짝을 쓰고, 받기 전에는 고문서 분위기가 남도록 올드스타일 세리프와 운영체제 명조로 잇습니다.
+   */
   --font-display:
-    "Cormorant Garamond Variable", Garamond, Baskerville, "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR",
-    "Noto Serif KR", "Batang", serif;
-  --font-serif-ko:
-    "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang", "Cormorant Garamond Variable",
-    serif;
-  /* 이름: Ark 제목과 같은 나눔명조 800(이름 글자만 담은 ZeroNames)으로 두 프로젝트를 잇고, 받기 전에는 운영체제 명조 */
-  --font-name:
-    "ZeroNames", "AppleMyungjo", "Nanum Myeongjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang",
-    "Cormorant Garamond Variable", serif;
-  --font-sans:
-    "Familjen Grotesk Variable", "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", "Noto Sans CJK KR",
-    "Noto Sans KR", "Helvetica Neue", sans-serif;
+    "Neuton", "ZeroSerif", Garamond, Baskerville, "AppleMyungjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang", serif;
+  --font-serif-ko: var(--font-display);
+  --font-name: var(--font-display);
+  --font-sans: var(--font-display);
 
   --fs-xxs: 0.6875rem; /* 11 */
   --fs-xs: 0.75rem; /* 12 */

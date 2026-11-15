@@ -1,7 +1,7 @@
 # ZERO - 신화 덱빌딩
 
 [![CI](https://github.com/ryushin01/ZERO/actions/workflows/ci.yml/badge.svg)](https://github.com/ryushin01/ZERO/actions/workflows/ci.yml)
-![version](https://img.shields.io/badge/version-0.13.2-060403)
+![version](https://img.shields.io/badge/version-0.14.0-060403)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?logo=javascript&logoColor=black)
 
 세계 신화 도서관 [Ark](https://github.com/ryushin01/Ark)의 신과 영웅, 아더 왕·아킬레우스·손오공 같은 전설의 영웅, 메두사·케르베로스 같은 신화 속 괴물까지 322명을 카드로 모으고, 엑스칼리버·묠니르 같은 신화 무구를 휘둘러 기록을 지우려는 괴물과 태초의 공허 ‘영(零)’에 맞서는 웹 덱빌딩 게임입니다.
@@ -69,15 +69,15 @@
 
 ![JavaScript, HTML, CSS, Vite, Vitest, pnpm, GitHub Actions](https://skillicons.dev/icons?i=js,html,css,vite,vitest,pnpm,githubactions)
 
-| 구분      | 사용 기술                                                                                                                                                          |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 런타임    | 순수 자바스크립트(ES 모듈, 프레임워크 없음), 직접 만든 DOM 패치·이벤트 위임·해시 라우터, 네이티브 `<dialog>`                                                       |
-| 그림      | Wikimedia Commons API로 받아 `sips`·`cwebp`로 줄인 WebP 두 벌(`srcset`), macOS Vision으로 찾은 초점을 `object-position`으로                                        |
-| 스타일    | CSS 변수(먹색·뼈색 두 표면), 컨테이너 쿼리, Cormorant Garamond·Familjen Grotesk(라틴만), 이름은 나눔명조 800 서브셋(이름 글자만 43KB), 나머지 한글은 운영체제 글꼴 |
-| 구조      | Feature-Sliced Design v2.1(Steiger), JSDoc + `tsc --checkJs`                                                                                                       |
-| 품질      | ESLint, Prettier, Vitest(jsdom), Storybook 10(`@storybook/html-vite`, addon-a11y), Playwright + axe, size-limit, Lighthouse CI                                     |
-| 모니터링  | Sentry(DSN이 있을 때만, 나중에 불러옴), web-vitals                                                                                                                 |
-| 빌드·배포 | Vite 8, GitHub Actions, Vercel(정적 배포)                                                                                                                          |
+| 구분      | 사용 기술                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 런타임    | 순수 자바스크립트(ES 모듈, 프레임워크 없음), 직접 만든 DOM 패치·이벤트 위임·해시 라우터, 네이티브 `<dialog>`                    |
+| 그림      | Wikimedia Commons API로 받아 `sips`·`cwebp`로 줄인 WebP 두 벌(`srcset`), macOS Vision으로 찾은 초점을 `object-position`으로     |
+| 스타일    | CSS 변수(먹색·뼈색 두 표면), 컨테이너 쿼리, 웹 폰트 Neuton(영문·숫자)·마루 부리(한글, 화면 글자만 담은 파일과 나머지 글자 조각) |
+| 구조      | Feature-Sliced Design v2.1(Steiger), JSDoc + `tsc --checkJs`                                                                    |
+| 품질      | ESLint, Prettier, Vitest(jsdom), Storybook 10(`@storybook/html-vite`, addon-a11y), Playwright + axe, size-limit, Lighthouse CI  |
+| 모니터링  | Sentry(DSN이 있을 때만, 나중에 불러옴), web-vitals                                                                              |
+| 빌드·배포 | Vite 8, GitHub Actions, Vercel(정적 배포)                                                                                       |
 
 ## 시작하기
 
@@ -96,6 +96,7 @@ pnpm dev        # http://localhost:5173
 | `pnpm test`                                  | 규칙·전투·화면 단위 테스트와 자동 플레이 100판 난이도 검사                    |
 | `pnpm test:e2e`                              | 프로덕션 빌드의 실제 화면과 axe 검사 (먼저 `build` 필요)                      |
 | `pnpm size` / `pnpm lhci`                    | 번들 크기 예산 / Lighthouse 점수 기준 검사 (먼저 `build` 필요)                |
+| `pnpm fonts`                                 | 한글 웹 폰트 다시 만들기 (화면 글자를 바꾼 뒤, fontTools 필요)                |
 | `pnpm storybook`                             | Storybook 개발 서버 (`http://localhost:6006`)                                 |
 | `pnpm sync:ark`                              | 옆 폴더의 Ark에서 신·계열·그림을 다시 가져오기                                |
 | `pnpm illustrations`                         | 고른 그림을 Commons에서 받아 WebP로 줄이고 출처 목록 다시 만들기              |
@@ -125,17 +126,23 @@ src/
 | [변경 기록](CHANGELOG.md)                      | 버전별 변경 사항                                                                   |
 | [출처 전체 목록](docs/credits.md)              | 게임 그림 415점과 Ark 소장 그림 290점의 저작자·사용 허락·원본, 무구·전장 고증 자료 |
 
+## 웹 폰트
+
+| 글꼴      | 쓰는 곳                                   | 굵기            | 저작자                                               | 라이선스                              | 원본                                                                                                         |
+| --------- | ----------------------------------------- | --------------- | ---------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Neuton    | 영문·숫자 (제목·본문·이름)                | 300·400·700·800 | Brian Zick                                           | SIL OFL 1.1                           | [Google Fonts](https://fonts.google.com/specimen/Neuton) · [Fontsource](https://fontsource.org/fonts/neuton) |
+| 마루 부리 | 한글 (제목·본문·카드·무구·유물·전장 이름) | 300·400·600·700 | NAVER, NAVER 문화재단 · 디자인 AG 타이포그래피연구소 | 네이버 나눔글꼴 라이선스(SIL OFL 1.1) | [네이버 한글한글 아름답게](https://hangeul.naver.com/font) · [눈누](https://noonnu.cc/font_page/487)         |
+
+두 글꼴 모두 저장소에 넣어 같은 사이트에서 제공합니다(외부 글꼴 CDN 없음). 마루 부리는 화면에 쓰는 글자만 담은 작은 파일을 먼저 받고, 나머지 글자는 글자 묶음별 조각으로 나눠 그 글자를 쓸 때만 받습니다. OFL 예약 이름 때문에 줄인 파일의 글꼴 이름은 `ZeroSerif`입니다([개발 가이드](docs/development.md#글꼴)). 라이선스 전문은 `scripts/fonts/maruburi/OFL.txt`에 있습니다.
+
 ## 출처
 
 화면에는 출처를 적지 않고 여기에 모읍니다. 그림마다의 저작자·사용 허락·원본은 [출처 전체 목록](docs/credits.md)에 있습니다.
 
-| 자료                                                     | 저작자                                                   | 사용 허락                           | 원본                                                                        |
-| -------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------- | --------------------------------------------------------------------------- |
-| Cormorant Garamond (영문 제목)                           | The Cormorant Project Authors                            | SIL OFL 1.1                         | [Fontsource](https://fontsource.org/fonts/cormorant-garamond)               |
-| Familjen Grotesk (본문 영문)                             | The Familjen Grotesk Project Authors                     | SIL OFL 1.1                         | [Fontsource](https://fontsource.org/fonts/familjen-grotesk)                 |
-| 나눔명조 ExtraBold (이름 글자만 담은 `zero-names.woff2`) | NHN Corporation(현 NAVER), 디자인 FONTRIX                | SIL OFL 1.1                         | [google/fonts](https://github.com/google/fonts/tree/main/ofl/nanummyeongjo) |
-| Ark 소장 그림 290점 (카드 상세)                          | 작품마다 다름                                            | 퍼블릭 도메인, CC0, CC BY, CC BY-SA | Wikimedia Commons ([전체 목록](docs/credits.md))                            |
-| 무구·전장 소개의 고증                                    | 위키백과, 나무위키                                       | 참고만 하고 글은 새로 씀            | [전체 목록](docs/credits.md)                                                |
-| 신·영웅·신화 계열 소개                                   | 직접 만든 자료 ([Ark](https://ark-ryushin01.vercel.app)) | —                                   | —                                                                           |
-| 카드·괴물·전장·무구 그림 415점                           | 작품마다 다름 (폰 로센, 빙에, 라비 바르마, 요시토시 등)  | 퍼블릭 도메인, CC0, CC BY, CC BY-SA | Wikimedia Commons ([전체 목록](docs/credits.md))                            |
-| 히든 카드 유신의 그림                                    | 원작자                                                   | 허락을 받아 실음                    | —                                                                           |
+| 자료                            | 저작자                                                   | 사용 허락                           | 원본                                             |
+| ------------------------------- | -------------------------------------------------------- | ----------------------------------- | ------------------------------------------------ |
+| Ark 소장 그림 290점 (카드 상세) | 작품마다 다름                                            | 퍼블릭 도메인, CC0, CC BY, CC BY-SA | Wikimedia Commons ([전체 목록](docs/credits.md)) |
+| 무구·전장 소개의 고증           | 위키백과, 나무위키                                       | 참고만 하고 글은 새로 씀            | [전체 목록](docs/credits.md)                     |
+| 신·영웅·신화 계열 소개          | 직접 만든 자료 ([Ark](https://ark-ryushin01.vercel.app)) | —                                   | —                                                |
+| 카드·괴물·전장·무구 그림 415점  | 작품마다 다름 (폰 로센, 빙에, 라비 바르마, 요시토시 등)  | 퍼블릭 도메인, CC0, CC BY, CC BY-SA | Wikimedia Commons ([전체 목록](docs/credits.md)) |
+| 히든 카드 유신의 그림           | 원작자                                                   | 허락을 받아 실음                    | —                                                |

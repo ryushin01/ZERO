@@ -1,5 +1,9 @@
-import "@fontsource-variable/cormorant-garamond/wght.css";
-import "@fontsource-variable/familjen-grotesk/wght.css";
+import "@fontsource/neuton/300.css";
+import "@fontsource/neuton/400.css";
+import "@fontsource/neuton/700.css";
+import "@fontsource/neuton/800.css";
+import "../src/app/styles/fonts/zero-serif.css";
+import "../src/app/styles/fonts/zero-serif-rest.css";
 import "../src/app/styles/tokens.css";
 import "../src/app/styles/base.css";
 

@@ -65,16 +65,22 @@
 - `docs/credits.md`: 그림 한 점, 참고한 글 하나까지 적은 전체 목록입니다. `pnpm credits`가 `art.json`, 무구의 `sources`, 전장의 `source`에서 만듭니다. 직접 고치지 않으며 Prettier에서도 뺍니다.
 - 데이터를 바꾸고 목록을 다시 만들지 않으면 `scripts/credits.test.js`가 실패합니다.
 
-## 이름 글꼴
+## 글꼴
 
-카드·무구·유물·전장 이름은 나눔명조 ExtraBold(800)를 이름에 쓰인 글자만 남겨 줄인 `src/app/styles/fonts/zero-names.woff2`(약 43KB)로 씁니다. Ark 제목과 같은 글꼴이라 두 프로젝트가 한 세계로 이어집니다. 글자 묶음 조각을 그대로 쓰면 이름 322개가 모인 도감에서 조각을 수십 개 받기 때문에 한 파일로 줄였습니다. 나눔명조는 OFL 예약 이름(Nanum)이 있어 줄인 파일의 글꼴 이름은 ZeroNames입니다.
+영문·숫자는 Neuton(`@fontsource/neuton`), 한글은 마루 부리를 씁니다. 제목·본문·카드 이름이 모두 같은 짝이고(`tokens.css`의 `--font-display`), 받기 전에는 올드스타일 세리프와 운영체제 명조로 잇습니다. 이전의 이름 전용 글꼴(나눔명조 800, ZeroNames)은 마루 부리로 바꾸며 없앴습니다(Ark와의 이름 글꼴 연결도 끊음).
 
-새 카드나 이름 변경으로 글자가 늘면 `name-font.test.js`가 빠진 글자를 알려 줍니다. 그때 다시 만듭니다.
+- 마루 부리는 저장소에 넣어 제공합니다. 원본(300·400·600·700)과 라이선스는 `scripts/fonts/maruburi/`, 설정은 `scripts/fonts/config.json`에 있습니다. 네이버 나눔글꼴 라이선스(OFL)의 예약 이름 때문에 줄인 파일은 글꼴 이름을 `ZeroSerif`로 바꿉니다(`scripts/fonts/rename-font.py`, fontTools 필요).
+- `pnpm fonts`가 `src/app/styles/fonts/`에 두 가지를 만듭니다.
+  - `zero-serif.css`, `zero-serif/zero-serif-<굵기>-ui.woff2`: 소스의 문자열(카드·무구·유물·전장 이름과 설명 포함)과 `index.html`에 쓰인 한글·기호만 담은 파일입니다. `main.js`가 불러와 첫 화면과 함께 받습니다. 이름 322개가 모인 도감에서도 조각을 따로 받지 않습니다.
+  - `zero-serif-rest.css`, `zero-serif/zero-serif-<굵기>-<번호>.woff2`: 나머지 글자를 Google Fonts 한국어 글꼴과 같은 글자 묶음으로 나눈 조각입니다. `attachRestFonts`가 페이지를 다 받고 1초 뒤 한가할 때 붙이고, 브라우저는 화면에 쓴 글자가 든 조각만 받습니다.
+- 새 카드나 이름 변경으로 글자가 늘면 `src/app/styles/fonts.test.js`가 실패합니다. 그때 다시 만듭니다.
 
 ```bash
-UPDATE_NAME_FONT=1 pnpm exec vitest run name-font   # 글자 목록 갱신
-pip install fonttools brotli && pnpm subset:name-font  # 서브셋 다시 만들기
+pip install fonttools brotli   # 이름 바꾸기에 필요
+pnpm fonts
 ```
+
+- 작은 글꼴 파일(woff·woff2)은 Vite가 CSS에 base64로 넣지 않도록 `vite.config.js`의 `assetsInlineLimit`에서 뺍니다. 글꼴 선언이 늘어 첫 화면 CSS 예산을 10KB에서 12KB로 올렸습니다.
 
 ## 전설 확장 데이터
 
