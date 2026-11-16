@@ -5,6 +5,8 @@ import { getEnemy, isNemesis } from "#entities/enemy/index.js";
 import { MAX_HAND } from "#shared/config/index.js";
 import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
 
+import { oblivionEffects } from "./oblivion.js";
+
 /**
  * 전투 엔진. 모든 함수는 상태를 복사해 새 상태를 돌려주는 순수 함수입니다.
  * 화면은 상태만 그리고, 규칙은 모두 여기 있습니다.
@@ -74,8 +76,9 @@ const withRng = rollWith;
  * @param {{
  *   deck: CardInstance[], hp: number, maxHp: number, relics: string[],
  *   enemyIds: string[], seed: number, tier?: CombatState["tier"], ankhUsed?: boolean,
- *   armaments?: string[], perks?: CombatState["perks"], field?: Field | null,
+ *   armaments?: string[], perks?: CombatState["perks"], field?: Field | null, oblivion?: number,
  * }} options
+ * oblivion: 망각 단계. 정예·보스 체력, 괴물이 처음 지니는 힘을 바꿉니다.
  * @returns {CombatState}
  */
 export function startCombat({
@@ -90,8 +93,10 @@ export function startCombat({
   armaments = [],
   perks = {},
   field = null,
+  oblivion = 0,
 }) {
   const rng = createRng(seed);
+  const hard = oblivionEffects(oblivion);
   /** @type {CombatState} */
   const state = {
     turn: 0,
@@ -100,14 +105,18 @@ export function startCombat({
     player: { hp, maxHp, block: 0, statuses: { ...emptyStatuses(), eclipse: 0, foundation: 0, evade: 0 } },
     enemies: enemyIds.map((id, index) => {
       const def = getEnemy(id);
-      const maxHpRoll = rng.int(def.hp[0], def.hp[1]);
+      const rolled = rng.int(def.hp[0], def.hp[1]);
+      const maxHpRoll = def.tier === "normal" ? rolled : Math.round(rolled * hard.toughHp);
       return {
         uid: `${id}-${index}`,
         id,
         hp: maxHpRoll,
         maxHp: maxHpRoll,
         block: 0,
-        statuses: emptyStatuses(),
+        statuses: {
+          ...emptyStatuses(),
+          strength: hard.enemyStrength + (def.tier === "boss" ? hard.bossStrength : 0),
+        },
         heads: def.heads ?? 1,
         // 같은 적이 여럿이면 행동이 겹치지 않게 시작을 엇갈립니다.
         intent: def.tier === "boss" ? 0 : (index + rng.int(0, def.intents.length - 1)) % def.intents.length,

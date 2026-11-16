@@ -258,6 +258,42 @@ test.describe("2인 듀얼", () => {
   });
 });
 
+test.describe("망각 단계", () => {
+  test("이기기 전에는 열리는 방법만 알리고, 열린 단계를 골라 시작하면 괴물이 힘을 지닙니다", async ({ page }) => {
+    await page.goto("/#/new");
+    await expect(page.getByText("자유 도전에서 이기면 규칙이 하나씩 쌓이는 망각 단계가 열립니다.")).toBeVisible();
+    await expect(page.getByRole("group", { name: "망각 단계" })).toHaveCount(0);
+
+    // 2단계까지 열린 기록으로 다시 엽니다.
+    await page.evaluate(() =>
+      localStorage.setItem("zero:records", JSON.stringify({ runs: 3, wins: 2, seen: [], daily: {}, oblivion: 2 })),
+    );
+    await page.reload();
+    const levels = page.getByRole("group", { name: "망각 단계" });
+    await expect(levels.getByRole("button")).toHaveCount(3);
+    // 고르지 않았으면 열린 단계 가운데 가장 높은 단계입니다.
+    await expect(levels.getByRole("button", { name: "망각 2" })).toHaveAttribute("aria-pressed", "true");
+    await levels.getByRole("button", { name: "망각 1" }).click();
+    await expect(levels.getByRole("button", { name: "망각 1" })).toHaveAttribute("aria-pressed", "true");
+    await levels.getByRole("button", { name: "망각 2" }).click();
+    await expect(page.getByText("모든 괴물이 힘 1을 지니고 싸움을 시작합니다.")).toBeVisible();
+    await expectAccessible(page);
+
+    await page
+      .getByRole("button", { name: /로 시작$/ })
+      .first()
+      .click();
+    await expect(page.getByRole("heading", { level: 1, name: /1장/ })).toBeVisible();
+    await expect(page.locator(".map__stats")).toContainText("2단계");
+    await page.locator("[data-action='enter']").first().click();
+    await expect(page.locator(".enemy .status--strength").first()).toContainText("힘 1");
+
+    // 오늘의 신화에서는 고르지 않습니다.
+    await page.goto("/#/new/daily");
+    await expect(page.getByRole("group", { name: "망각 단계" })).toHaveCount(0);
+  });
+});
+
 test.describe("히든", () => {
   test("붉은 방에서 유신과 영혼의 검을 얻고, 도감에 히든으로 남습니다", async ({ page }) => {
     await startRun(page);

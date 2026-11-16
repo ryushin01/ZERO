@@ -1,15 +1,20 @@
 import { getCard } from "#entities/card/index.js";
 
+import { clampOblivion, OBLIVION_MAX } from "./oblivion.js";
+
 /**
  * 여러 판에 걸친 기록. 덱에 넣은 적 있는 신은 '서가에 복원'되어 도감에 남습니다.
  * 히든 카드는 복원 진행도와 따로 `found`에 남기고, 찾은 뒤에만 도감에 보입니다.
  *
  * @typedef {{ floors: number, act: number, won: boolean, guide: string }} DailyResult
- * @typedef {{ runs: number, wins: number, bestFloor: number, seen: string[], found: string[], daily: Record<string, DailyResult> }} Records
+ * @typedef {{
+ *   runs: number, wins: number, bestFloor: number, seen: string[], found: string[], daily: Record<string, DailyResult>,
+ *   oblivion: number,
+ * }} Records oblivion: 열린 망각 단계 가운데 가장 높은 단계
  */
 
 /** @returns {Records} */
-export const emptyRecords = () => ({ runs: 0, wins: 0, bestFloor: 0, seen: [], found: [], daily: {} });
+export const emptyRecords = () => ({ runs: 0, wins: 0, bestFloor: 0, seen: [], found: [], daily: {}, oblivion: 0 });
 
 /** 저장된 값을 지금 모양으로 맞춥니다 @param {any} saved @returns {Records} */
 export function normalizeRecords(saved) {
@@ -22,6 +27,7 @@ export function normalizeRecords(saved) {
     seen: Array.isArray(saved.seen) ? saved.seen.filter((id) => typeof id === "string") : [],
     found: Array.isArray(saved.found) ? saved.found.filter((id) => typeof id === "string") : [],
     daily: saved.daily && typeof saved.daily === "object" ? saved.daily : {},
+    oblivion: clampOblivion(saved.oblivion),
   };
 }
 
@@ -62,6 +68,11 @@ export function recordRun(records, run) {
       wins: nextRecords.wins + (won ? 1 : 0),
       bestFloor: Math.max(nextRecords.bestFloor, run.stats.floors),
     };
+    // 자유 도전에서 이기면 다음 망각 단계가 열립니다. (오늘의 신화는 늘 0단계라 열지 않음)
+    if (won && !run.daily) {
+      const unlocked = Math.min(OBLIVION_MAX, clampOblivion(run.oblivion) + 1);
+      if (unlocked > nextRecords.oblivion) nextRecords = { ...nextRecords, oblivion: unlocked };
+    }
     if (run.daily) {
       const result = { floors: run.stats.floors, act: run.act, won, guide: run.guide };
       nextRecords = {

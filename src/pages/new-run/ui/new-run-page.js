@@ -2,7 +2,16 @@ import { ARMAMENTS } from "#entities/armament/index.js";
 import { cardFace, getCard } from "#entities/card/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
 import { figuresOf, getPantheon } from "#entities/figure/index.js";
-import { createRun, dailyKey, dailyLabel, dailySeed, guideCards, guideOptions } from "#features/run/index.js";
+import {
+  clampOblivion,
+  createRun,
+  dailyKey,
+  dailyLabel,
+  dailySeed,
+  guideCards,
+  guideOptions,
+  oblivionRules,
+} from "#features/run/index.js";
 import { h, randomSeed } from "#shared/lib/index.js";
 
 import "./new-run-page.css";
@@ -30,6 +39,43 @@ const withHidden = (ctx) => !isDaily(ctx) && ctx.ui.hidden !== false;
 
 /** @param {import("#app/render/app.js").PageContext} ctx */
 const isDaily = (ctx) => ctx.route.params[0] === "daily";
+
+/** 고른 망각 단계. 고르지 않았으면 열린 단계 가운데 가장 높은 단계 @param {import("#app/render/app.js").PageContext} ctx */
+const chosenOblivion = (ctx) => Math.min(ctx.records.oblivion, clampOblivion(ctx.ui.oblivion ?? ctx.records.oblivion));
+
+/** 망각 단계 고르기. 자유 도전에서 처음 이기기 전에는 열리는 방법만 알려 줍니다. @param {import("#app/render/app.js").PageContext} ctx */
+function oblivionPicker(ctx) {
+  const unlocked = ctx.records.oblivion;
+  if (unlocked === 0)
+    return h(
+      "div",
+      { class: "new-run__oblivion" },
+      h("p", { class: "muted" }, "자유 도전에서 이기면 규칙이 하나씩 쌓이는 망각 단계가 열립니다."),
+    );
+  const level = chosenOblivion(ctx);
+  return h(
+    "div",
+    { class: "new-run__oblivion" },
+    h(
+      "div",
+      { class: "new-run__levels", role: "group", "aria-label": "망각 단계" },
+      Array.from({ length: unlocked + 1 }, (_, n) =>
+        h(
+          "button",
+          {
+            type: "button",
+            class: "chip",
+            "data-action": "oblivion",
+            "data-level": String(n),
+            "aria-pressed": n === level ? "true" : "false",
+          },
+          n === 0 ? "망각 0 · 기본" : `망각 ${n}`,
+        ),
+      ),
+    ),
+    h("p", { class: "muted" }, level === 0 ? "규칙을 더하지 않은 기본 난이도입니다." : oblivionRules(level).join(" ")),
+  );
+}
 
 /** 오늘의 신화는 날짜로, 자유 도전은 화면에 담아 둔 무작위 시드로 @param {import("#app/render/app.js").PageContext} ctx */
 const seedOf = (ctx) => (isDaily(ctx) ? dailySeed(shownDay(ctx)) : ctx.ui.seed);
@@ -97,6 +143,7 @@ function view(ctx) {
             "유신 카드와 무구 영혼의 검을 처음부터 듭니다. 밸런스를 일부러 깨는 성능이라 오늘의 신화에서는 시작 선택도, 붉은 방도 없습니다.",
           ),
         ),
+    daily ? null : oblivionPicker(ctx),
     h(
       "ol",
       { class: "new-run__list" },
@@ -161,6 +208,11 @@ export const newRunPage = {
       ctx.setUi({ hidden: next });
       ctx.announce(next ? "유신과 함께 시작합니다." : "유신 없이 시작합니다.");
     },
+    oblivion(ctx, el) {
+      const level = Math.min(ctx.records.oblivion, clampOblivion(el.dataset.level));
+      ctx.setUi({ oblivion: level });
+      ctx.announce(level === 0 ? "망각 0단계, 기본 난이도로 시작합니다." : `망각 ${level}단계로 시작합니다.`);
+    },
     reroll(ctx) {
       ctx.setUi({ seed: randomSeed() });
       ctx.announce("다른 신화 셋을 불러왔습니다.");
@@ -176,9 +228,10 @@ export const newRunPage = {
       const daily = isDaily(ctx) ? shownDay(ctx) : null;
       const seed = seedOf(ctx) ?? randomSeed();
       const hidden = withHidden(ctx);
+      const oblivion = daily ? 0 : chosenOblivion(ctx);
       ctx.batch(() => {
         if (!daily) ctx.setUi({ seed: randomSeed() });
-        ctx.setRun(createRun({ seed, guide, daily, hidden }));
+        ctx.setRun(createRun({ seed, guide, daily, hidden, oblivion }));
       });
       ctx.navigate("#/run");
     },

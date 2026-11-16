@@ -2,7 +2,7 @@ import { cardFace, getCard } from "#entities/card/index.js";
 import { getEnemy } from "#entities/enemy/index.js";
 import { FIGURES } from "#entities/figure/index.js";
 import { getRelic } from "#entities/relic/index.js";
-import { dailyLabel, guideName, shareText, sortDeck } from "#features/run/index.js";
+import { dailyLabel, guideName, OBLIVION_MAX, shareText, sortDeck } from "#features/run/index.js";
 import { h } from "#shared/lib/index.js";
 
 /** @typedef {import("#app/render/app.js").PageContext} Ctx */
@@ -18,6 +18,9 @@ export function endView(ctx) {
   const won = run.phase === "victory";
   const foes = run.stats.defeatedBy?.split(",").map((id) => getEnemy(id).name);
   const discovered = run.discovered ?? [];
+  const level = run.oblivion ?? 0;
+  // 이 판의 승리로 다음 망각 단계가 열렸는지 (오늘의 신화는 늘 0단계라 열지 않음)
+  const opened = won && !run.daily && level < OBLIVION_MAX && ctx.records.oblivion === level + 1;
 
   return h(
     "section",
@@ -28,6 +31,9 @@ export function endView(ctx) {
       h("p", { class: "display end__en", lang: "en" }, won ? "Remembered" : "Returned to zero"),
       h("h1", null, won ? "신화를 지켜 냈습니다" : "기록이 지워졌습니다"),
       run.daily ? h("p", { class: "label" }, `오늘의 신화 · ${dailyLabel(run.daily)}`) : null,
+      opened
+        ? h("p", { class: "notice" }, `망각 ${level + 1}단계가 열렸습니다. 새 기록을 시작할 때 고를 수 있습니다.`)
+        : null,
       h(
         "p",
         null,
@@ -44,6 +50,7 @@ export function endView(ctx) {
         ["지나온 칸", `${run.stats.floors}칸`],
         ["물리친 괴물", `전투 ${run.stats.battles} · 정예 ${run.stats.elites} · 보스 ${run.stats.bosses}`],
         ["서가 복원", `${ctx.records.seen.length} / ${FIGURES.length}`],
+        ...(level > 0 ? [["망각 단계", `${level}단계`]] : []),
         ["유물", run.relics.map((id) => getRelic(id).name).join(", ") || "없음"],
       ].map(([term, value]) => h("div", null, h("dt", { class: "label muted" }, term), h("dd", null, value))),
     ),

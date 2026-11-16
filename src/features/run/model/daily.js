@@ -35,7 +35,10 @@ export function dailyLabel(key) {
 export function shareText(run, url) {
   const won = run.phase === "victory";
   const outcome = won ? "승리" : `${run.act}장에서 쓰러짐`;
-  const head = run.daily ? `ZERO 오늘의 신화 ${dailyLabel(run.daily)}` : "ZERO 신화 덱빌딩";
+  const level = run.oblivion ?? 0;
+  const head = run.daily
+    ? `ZERO 오늘의 신화 ${dailyLabel(run.daily)}`
+    : `ZERO 신화 덱빌딩${level > 0 ? ` · 망각 ${level}단계` : ""}`;
   return [
     head,
     `${guideName(run)} · ${outcome} · ${run.stats.floors}칸`,
