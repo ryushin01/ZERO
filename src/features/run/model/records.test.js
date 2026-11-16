@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { dailyKey, dailySeed, shareText } from "./daily.js";
-import { emptyRecords, normalizeRecords, recordRun } from "./records.js";
+import { emptyRecords, HISTORY_LIMIT, normalizeRecords, readRecordsFile, recordRun, recordsFile } from "./records.js";
 import { createRun } from "./run.js";
 
 describe("recordRun", () => {
@@ -66,5 +66,78 @@ describe("오늘의 신화", () => {
     expect(text).toContain("오늘의 신화 11월 10일");
     expect(text).toContain("그리스 신화 · 1장에서 쓰러짐");
     expect(text).toContain("https://zero-ryushin01.vercel.app/");
+  });
+});
+
+describe("지난 판", () => {
+  const finished = (/** @type {number} */ seed, /** @type {"victory" | "defeat"} */ phase, extra = {}) => ({
+    ...createRun({ seed, guide: "greek" }),
+    phase,
+    ...extra,
+  });
+
+  it("끝난 판을 최근 것부터 남기고, 10판까지만 둡니다", () => {
+    const now = new Date("2026-11-16T05:00:00Z");
+    let records = emptyRecords();
+    for (let seed = 1; seed <= 12; seed += 1) {
+      records = recordRun(
+        records,
+        finished(seed, seed % 2 ? "defeat" : "victory", { oblivion: seed % 3 }),
+        now,
+      ).records;
+    }
+    expect(records.history).toHaveLength(HISTORY_LIMIT);
+    expect(records.history[0]).toEqual({
+      at: "2026-11-16",
+      guide: "greek",
+      won: true,
+      act: 1,
+      floors: 0,
+      oblivion: 0,
+      daily: null,
+    });
+    expect(records.runs).toBe(12);
+    // 같은 판을 다시 기록해도 늘지 않습니다.
+    const once = recordRun(emptyRecords(), finished(1, "defeat"), now);
+    expect(recordRun(once.records, once.run, now).records.history).toHaveLength(1);
+  });
+
+  it("오늘의 신화도 남기고, 모양이 다른 옛 기록은 걸러 냅니다", () => {
+    const daily = finished(3, "defeat", { daily: "2026-11-16" });
+    expect(recordRun(emptyRecords(), daily, new Date("2026-11-16T05:00:00Z")).records.history[0].daily).toBe(
+      "2026-11-16",
+    );
+    const saved = {
+      history: [
+        { at: "2026-11-15", guide: "norse", won: false, act: 2, floors: 9, oblivion: 7, daily: null },
+        { at: "어제", guide: "norse", won: false, act: 2, floors: 9, daily: null },
+        { at: "2026-11-14", guide: "norse", won: "yes", act: 2, floors: 9, daily: null },
+        null,
+      ],
+    };
+    expect(normalizeRecords(saved).history).toEqual([
+      { at: "2026-11-15", guide: "norse", won: false, act: 2, floors: 9, oblivion: 5, daily: null },
+    ]);
+    expect(normalizeRecords({}).history).toEqual([]);
+  });
+});
+
+describe("기록 파일", () => {
+  it("저장한 기록을 그대로 불러오고, 진행 중인 판은 담지 않습니다", () => {
+    const records = { ...emptyRecords(), runs: 4, wins: 1, seen: ["zeus", "odin"], oblivion: 2 };
+    const file = recordsFile(records, { motion: "off" }, new Date("2026-11-16T00:00:00Z"));
+    expect(file).not.toHaveProperty("run");
+    const loaded = readRecordsFile(JSON.stringify(file));
+    expect(loaded?.records).toEqual(normalizeRecords(records));
+    expect(loaded?.settings).toEqual({ motion: "off" });
+  });
+
+  it("ZERO의 기록 파일이 아니면 읽지 않습니다", () => {
+    expect(readRecordsFile("not json")).toBeNull();
+    expect(readRecordsFile(JSON.stringify({ runs: 3 }))).toBeNull();
+    expect(readRecordsFile(JSON.stringify({ kind: "other", records: {} }))).toBeNull();
+    const loose = readRecordsFile(JSON.stringify({ kind: "zero-records", records: { runs: "7" }, settings: {} }));
+    expect(loose?.records.runs).toBe(7);
+    expect(loose?.settings).toBeNull();
   });
 });

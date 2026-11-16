@@ -51,6 +51,13 @@ export {
   updateCombat,
 } from "./model/run.js";
 export { dailyKey, dailyLabel, dailySeed, shareText } from "./model/daily.js";
-export { emptyRecords, normalizeRecords, recordRun } from "./model/records.js";
+export {
+  emptyRecords,
+  HISTORY_LIMIT,
+  normalizeRecords,
+  readRecordsFile,
+  recordRun,
+  recordsFile,
+} from "./model/records.js";
 export { clampOblivion, OBLIVION_MAX, OBLIVION_RULES, oblivionRules } from "./model/oblivion.js";
 export { canUseArmament, previewArmament, useArmament } from "./model/combat.js";

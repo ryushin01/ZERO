@@ -210,6 +210,15 @@
   text-align: center;
 }
 
+.end__history {
+  display: grid;
+  gap: 4px;
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: var(--fs-s);
+  text-align: center;
+}
+
 .end__deck {
   display: flex;
   flex-wrap: wrap;
