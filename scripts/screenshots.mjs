@@ -138,11 +138,11 @@ async function startGreek(page) {
   await shot(page, "hidden-detail");
   await page.keyboard.press("Escape");
   await page.getByLabel("이름·영역으로 찾기").fill("");
-  await page.getByRole("button", { name: "무구", exact: true }).click();
+  await page.getByRole("tab", { name: "무구", exact: true }).click();
   await shot(page, "arms");
-  await page.getByRole("button", { name: "세력", exact: true }).click();
+  await page.getByRole("tab", { name: "세력", exact: true }).click();
   await shot(page, "factions");
-  await page.getByRole("button", { name: "괴물", exact: true }).click();
+  await page.getByRole("tab", { name: "괴물", exact: true }).click();
   await shot(page, "enemies");
   await context.close();
 }

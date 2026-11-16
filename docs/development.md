@@ -36,6 +36,7 @@
 - `features/run/model/daily.js`는 한국 시간 날짜(`2026-11-10`)를 FNV-1a로 시드로 바꿉니다. `#/new/daily`는 이 시드로 길잡이 후보를 고르고, run에 `daily` 날짜를 남겨 그날의 가장 좋은 결과를 기록합니다.
 - 끝난 판은 최근 10개를 `records.history`에 남기고(`HISTORY_LIMIT`), 자유 도전에서 이기면 다음 망각 단계를 `records.oblivion`에 엽니다. 옛 기록은 `normalizeRecords`가 모양을 맞추고 어긋난 지난 판은 걸러 냅니다.
 - 기록 파일: `recordsFile`이 기록과 설정을 `{ kind: "zero-records", version: 1, savedAt, records, settings }`로 묶고(진행 중인 판은 빼고), `readRecordsFile`이 이 형식만 읽어 `normalizeRecords`로 맞춥니다. 도움말의 ‘설정’이 파일로 내려받고(`Blob` + `a[download]`), 보이지 않는 파일 입력을 버튼으로 열어 불러옵니다.
+- 웹 앱 설치: `public/manifest.webmanifest`. iOS에서는 홈 화면 앱이 Safari와 저장소를 따로 쓰므로 설치하면 기록이 비어 보입니다. 도움말의 ‘설정’이 설치 전에 판을 끝내고 기록 파일로 옮기라고 안내합니다(기록 파일에는 진행 중인 판이 들지 않음).
 
 ## 계층 (Feature-Sliced Design v2.1)
 
