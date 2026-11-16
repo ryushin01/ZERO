@@ -16,7 +16,8 @@ describe("cardDetail", () => {
     });
     expect(el.querySelector(".card-detail__source-slot")).toBeNull();
     expect(isArkArtLoaded()).toBe(true);
-  });
+    // 테스트 기한이 기다리는 기한(10초)보다 길어야 끝까지 기다립니다.
+  }, 15_000);
 
   it("받아 둔 뒤에는 열 때 바로 보여 줍니다", async () => {
     await loadArkArt();
