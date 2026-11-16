@@ -31,7 +31,7 @@ import { clampOblivion, OBLIVION_MAX, oblivionEffects } from "./oblivion.js";
  *   fields?: Record<1 | 2 | 3, string>, rift?: { field: string } | null,
  *   phase: Phase, combat: CombatState | null, reward: Reward | null, event: string | null, pick: PickRequest | null,
  *   lastEncounter: string, nextUid: number, notice: string | null, path: string[], recorded?: boolean,
- *   daily?: string | null, discovered?: string[], oblivion?: number,
+ *   daily?: string | null, discovered?: string[], oblivion?: number, unlocked?: number,
  *   stats: { floors: number, battles: number, elites: number, bosses: number, defeatedBy: string | null },
  * }} Run
  */

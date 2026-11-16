@@ -69,9 +69,13 @@ export function recordRun(records, run) {
       bestFloor: Math.max(nextRecords.bestFloor, run.stats.floors),
     };
     // 자유 도전에서 이기면 다음 망각 단계가 열립니다. (오늘의 신화는 늘 0단계라 열지 않음)
+    // 이 승리로 새로 열린 단계는 판에도 남겨, 결과 화면이 이미 열려 있던 단계를 또 알리지 않게 합니다.
     if (won && !run.daily) {
       const unlocked = Math.min(OBLIVION_MAX, clampOblivion(run.oblivion) + 1);
-      if (unlocked > nextRecords.oblivion) nextRecords = { ...nextRecords, oblivion: unlocked };
+      if (unlocked > nextRecords.oblivion) {
+        nextRecords = { ...nextRecords, oblivion: unlocked };
+        nextRun = { ...nextRun, unlocked };
+      }
     }
     if (run.daily) {
       const result = { floors: run.stats.floors, act: run.act, won, guide: run.guide };

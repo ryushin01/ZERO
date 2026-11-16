@@ -61,6 +61,9 @@ describe("망각 단계", () => {
     expect(recordRun({ ...emptyRecords(), oblivion: 5 }, won(5)).records.oblivion).toBe(5);
     expect(recordRun(emptyRecords(), won(0, "2026-11-16")).records.oblivion).toBe(0);
     expect(recordRun(emptyRecords(), { ...won(0), phase: "defeat" }).records.oblivion).toBe(0);
+    // 새로 연 단계만 판에 남겨 결과 화면이 알립니다. 이미 열려 있던 단계는 남기지 않습니다.
+    expect(recordRun(emptyRecords(), won(0)).run.unlocked).toBe(1);
+    expect(recordRun({ ...emptyRecords(), oblivion: 2 }, won(1)).run.unlocked).toBeUndefined();
     expect(normalizeRecords({ oblivion: 99 }).oblivion).toBe(OBLIVION_MAX);
     expect(normalizeRecords({}).oblivion).toBe(0);
   });
