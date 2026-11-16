@@ -386,8 +386,10 @@ function refocus(index) {
 /** @param {Ctx} ctx @param {CombatState} next @param {number} index */
 function commit(ctx, next, index) {
   const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
-  ctx.setUi({ selected: null });
-  ctx.setRun(updateCombat(run, next));
+  ctx.batch(() => {
+    ctx.setUi({ selected: null });
+    ctx.setRun(updateCombat(run, next));
+  });
   ctx.announce(next.log.map((entry) => entry.text));
   if (!next.outcome) refocus(index);
 }
@@ -395,8 +397,10 @@ function commit(ctx, next, index) {
 /** 무구를 쓴 뒤 상태를 반영하고, 초점은 그 무구 버튼에 둡니다. @param {Ctx} ctx @param {CombatState} next @param {string} id */
 function commitArm(ctx, next, id) {
   const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
-  ctx.setUi({ selected: null });
-  ctx.setRun(updateCombat(run, next));
+  ctx.batch(() => {
+    ctx.setUi({ selected: null });
+    ctx.setRun(updateCombat(run, next));
+  });
   ctx.announce(next.log.map((entry) => entry.text));
   if (!next.outcome) /** @type {HTMLElement | null} */ (document.querySelector(`[data-arm-id="${id}"]`))?.focus();
 }
@@ -473,8 +477,10 @@ export const battleActions = {
   "end-turn"(ctx) {
     const run = /** @type {NonNullable<Ctx["run"]>} */ (ctx.run);
     const next = endTurn(/** @type {CombatState} */ (run.combat));
-    ctx.setUi({ selected: null });
-    ctx.setRun(updateCombat(run, next));
+    ctx.batch(() => {
+      ctx.setUi({ selected: null });
+      ctx.setRun(updateCombat(run, next));
+    });
     ctx.announce(next.log.map((entry) => entry.text));
     if (!next.outcome) /** @type {HTMLElement | null} */ (document.querySelector("[data-hand] button.card"))?.focus();
   },

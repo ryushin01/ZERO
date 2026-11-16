@@ -3,7 +3,15 @@ import { arkBondsOf } from "#entities/bond/index.js";
 import { ASPECTS, cardArt, cardFace, getCard, HIDDEN_ART, KEYWORDS } from "#entities/card/index.js";
 import { ENEMIES, isNemesis } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
-import { CONTINENT_LABEL, getArt, getFigure, getPantheon, kindLabel } from "#entities/figure/index.js";
+import {
+  CONTINENT_LABEL,
+  getArt,
+  getFigure,
+  getPantheon,
+  isArkArtLoaded,
+  kindLabel,
+  loadArkArt,
+} from "#entities/figure/index.js";
 import { arkFigureUrl, arkPantheonUrl, CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
 import { isArkArtwork } from "#shared/ui/artwork/index.js";
@@ -21,6 +29,43 @@ const external = (href, label) =>
     h("span", { "aria-hidden": "true" }, " ↗"),
   );
 
+/** Ark 소장 자료 한 점 @param {NonNullable<ReturnType<typeof getArt>>} art */
+const arkSource = (art) =>
+  h(
+    "figure",
+    { class: "card-detail__source" },
+    h("figcaption", { class: "label muted" }, "Ark 소장 자료"),
+    h("img", { src: art.src, alt: art.alt, loading: "lazy" }),
+    h(
+      "p",
+      { class: "card-detail__caption" },
+      h("strong", null, art.title),
+      [art.dateLabel, art.holder].filter(Boolean).join(" · "),
+    ),
+  );
+
+/**
+ * Ark 소장 자료 자리. 자료는 첫 화면 묶음에 넣지 않고 따로 받으므로(보통 첫 화면 뒤에 미리 받아 둠),
+ * 아직 받지 않았으면 빈 자리를 두었다가 받은 뒤 채웁니다.
+ * @param {string} slug
+ */
+function arkSourceSlot(slug) {
+  if (isArkArtLoaded()) {
+    const art = getArt(slug);
+    return art ? arkSource(art) : null;
+  }
+  const slot = h("div", { class: "card-detail__source-slot" });
+  loadArkArt()
+    .then(() => {
+      const art = getArt(slug);
+      if (art) slot.replaceWith(arkSource(art));
+      else slot.remove();
+    })
+    // 받지 못하면 소장 자료 없이 둡니다. (카드 그림과 소개는 그대로)
+    .catch(() => slot.remove());
+  return slot;
+}
+
 /**
  * 카드 한 장의 자세한 정보. Ark의 소개와 자료, 출처를 함께 보여 줍니다.
  * @param {string} cardId
@@ -30,7 +75,7 @@ export function cardDetail(cardId) {
   const upgraded = getCard(cardId, true);
   const pantheon = card.pantheonSlug ? getPantheon(card.pantheonSlug) : null;
   // 카드 그림이 Ark 소장 그림과 같은 그림이면 두 번 보여 주지 않습니다.
-  const art = card.figureSlug && !isArkArtwork(`figure:${card.figureSlug}`) ? getArt(card.figureSlug) : undefined;
+  const source = card.figureSlug && !isArkArtwork(`figure:${card.figureSlug}`) ? arkSourceSlot(card.figureSlug) : null;
   const nemesisOf = ENEMIES.filter((enemy) => isNemesis(enemy, card));
   const bonds = card.figureSlug ? arkBondsOf(card.figureSlug) : [];
   const faction = card.pantheonSlug ? factionOf(card.pantheonSlug) : null;
@@ -65,20 +110,7 @@ export function cardDetail(cardId) {
         class: "card-detail__illust",
         alt: hiddenArt?.alt ?? `${card.name}의 일러스트. ${card.epithet}의 모습을 그렸습니다.`,
       }),
-      art
-        ? h(
-            "figure",
-            { class: "card-detail__source" },
-            h("figcaption", { class: "label muted" }, "Ark 소장 자료"),
-            h("img", { src: art.src, alt: art.alt, loading: "lazy" }),
-            h(
-              "p",
-              { class: "card-detail__caption" },
-              h("strong", null, art.title),
-              [art.dateLabel, art.holder].filter(Boolean).join(" · "),
-            ),
-          )
-        : null,
+      source,
       // 그림의 저작자·사용 허락·원본은 화면 대신 README의 출처 표에 모읍니다.
       h("p", { class: "card-detail__credit" }, external(CREDITS_URL, "그림 출처")),
     ),

@@ -10,11 +10,15 @@
 | 다시 그리기      | `shared/lib/morph.js`가 기존 DOM을 새 DOM 모양으로 고칩니다. 같은 요소를 남기므로 초점, 스크롤, CSS 전환이 이어집니다. `data-key`로 목록 항목을 짝짓고, 짝이 없는 노드를 먼저 지운 뒤 순서가 실제로 바뀐 노드만 옮깁니다. (노드를 옮기면 CSS 애니메이션이 처음부터 다시 돕니다) |
 | 이벤트           | 요소마다 리스너를 붙이지 않고 `document`에서 `data-action`을 읽어 화면의 `actions`로 보냅니다. 패치 뒤에도 낡은 클로저가 남지 않습니다.                                                                                                                                         |
 | 화면 이동        | 해시 주소(`#/codex`)로 고릅니다. 정적 호스팅 어디서나 새로 고침과 뒤로 가기가 됩니다.                                                                                                                                                                                           |
-| 상태             | `app/model/store.js` 하나. 진행 중인 판(`run`)은 바뀔 때마다 `localStorage`에 저장합니다.                                                                                                                                                                                       |
+| 상태             | `app/model/store.js` 하나. 진행 중인 판(`run`)은 바뀔 때마다 `localStorage`에 저장합니다. 여러 값을 함께 바꿀 때는 `ctx.batch()`로 묶어 한 번만 다시 그리고, 다른 탭이 판·기록·설정·듀얼을 바꾸면 `storage` 이벤트로 받아 같은 값으로 다시 그립니다.                            |
 | 대화상자         | 네이티브 `<dialog>`와 `showModal()`. 닫으면 연 요소로 초점을 돌려줍니다.                                                                                                                                                                                                        |
 | 화면 낭독기 알림 | `shared/lib/announce.js`의 공용 `role="status"` 영역. 카드를 내거나 턴을 넘길 때 전투 기록을 읽어 줍니다.                                                                                                                                                                       |
 
 화면이 바뀌면(주소나 판의 단계가 바뀌면) 새로 그리고 제목(`h1`)으로 초점을 옮깁니다. 같은 화면 안의 변화는 패치만 합니다. 화면은 `afterRender`로 그린 뒤의 일을 할 수 있습니다. 전투 화면은 이 자리에서 지난 체력과 비교해 떠오르는 숫자와 흔들림을 줍니다(`pages/run/ui/battle-fx.js`). 패치가 모르는 요소와 속성은 지워지므로, 숫자는 본문 밖의 효과 층에 그리고 흔들림은 Web Animations API로 줍니다.
+
+도감의 카드 목록(322장)은 `data-morph="skip"`인 빈 목록으로 그린 뒤 `afterRender`가 한 번 채우고, 검색어·거르기가 바뀌면 카드마다 `hidden`만 바꿉니다. 글자 하나마다 카드 DOM을 새로 만들면 느린 휴대폰에서 입력이 끊기기 때문입니다(CPU 4배 느리게 107 ms → 9 ms).
+
+카드 상세에서만 쓰는 Ark 소장 자료(`art.json`)는 첫 화면 묶음에 넣지 않고 `loadArkArt()`로 따로 받습니다. `main.js`가 페이지를 다 받고 한가할 때 미리 받아 두고, 그 전에 상세를 열면 빈 자리를 두었다가 받은 뒤 채웁니다.
 
 ## 그림
 
@@ -69,6 +73,8 @@
 
 영문·숫자는 Neuton(`@fontsource/neuton`), 한글은 마루 부리를 씁니다. 제목·본문·카드 이름이 모두 같은 짝이고(`tokens.css`의 `--font-display`), 받기 전에는 올드스타일 세리프와 운영체제 명조로 잇습니다. 이전의 이름 전용 글꼴(나눔명조 800, ZeroNames)은 마루 부리로 바꾸며 없앴습니다(Ark와의 이름 글꼴 연결도 끊음).
 
+첫 화면 제목·표어에 쓰는 Neuton 300·400·700은 `index.html`에서 `preload`로 CSS보다 먼저 받습니다(Vite가 CSS와 같은 해시 파일 이름으로 바꿔 씀). 늦게 오면 대체 글꼴로 그린 제목이 다시 배치되어, 휴대폰 첫 화면 CLS가 0.19였습니다.
+
 - 마루 부리는 저장소에 넣어 제공합니다. 원본(300·400·600·700)과 라이선스는 `scripts/fonts/maruburi/`, 설정은 `scripts/fonts/config.json`에 있습니다. 네이버 나눔글꼴 라이선스(OFL)의 예약 이름 때문에 줄인 파일은 글꼴 이름을 `ZeroSerif`로 바꿉니다(`scripts/fonts/rename-font.py`, fontTools 필요).
 - `pnpm fonts`가 `src/app/styles/fonts/`에 두 가지를 만듭니다.
   - `zero-serif.css`, `zero-serif/zero-serif-<굵기>-ui.woff2`: 소스의 문자열(카드·무구·유물·전장 이름과 설명 포함)과 `index.html`에 쓰인 한글·기호만 담은 파일입니다. `main.js`가 불러와 첫 화면과 함께 받습니다. 이름 322개가 모인 도감에서도 조각을 따로 받지 않습니다.
@@ -87,9 +93,10 @@ pnpm fonts
 Ark에 아직 없는 전설의 영웅·인물은 `scripts/legends/`에서 먼저 만들어 ZERO에 넣고, 나중에 Ark로 옮깁니다. 0.4.0에서 더한 149명(새 계열 8개)은 Ark 0.14.0으로 옮겨 이제 Ark의 기록을 따릅니다.
 
 - `data.py`에 계열과 인물(이름, 별칭, 관장 영역, 소개 두 문단, 희귀도, 위키백과 제목)을 Ark와 같은 모양으로 적습니다.
-- `python3 scripts/legends/build.py`가 위키백과 API로 문서가 있는지 확인해(한국어 문서가 있으면 한국어, 없으면 영어) `src/entities/figure/data/legends.json`을 씁니다.
+- `python3 scripts/legends/build.py`가 위키백과 API로 문서가 있는지 확인해(한국어 문서가 있으면 한국어, 없으면 영어) 원본 `scripts/legends/legends.json`을 씁니다.
+- `pnpm legends`(`scripts/legends/runtime.mjs`)가 원본에서 게임이 실행 중에 쓰는 것만 골라 `src/entities/figure/data/legends.json`에 씁니다. Ark에 아직 없는 계열·인물은 모든 필드를, Ark로 옮겨 간 인물은 희귀도만 남깁니다. 원본 전체(소개 문단 등 약 70 KB)를 첫 화면 묶음에 싣지 않으려는 것입니다. `pnpm sync:ark`도 끝에서 이 파일을 다시 만들고, 원본·Ark 데이터와 어긋나면 `scripts/legends/runtime.test.js`가 실패합니다.
 - `entities/figure`가 Ark 데이터(`source: "ark"`)와 합쳐 쓰며, 전설 확장(`source: "zero"`)은 카드 상세에서 Ark 대신 위키백과로 잇고 소개 문단을 직접 보여 줍니다.
-- 같은 인물이나 계열이 Ark에 들어오면 `pnpm sync:ark` 뒤 자동으로 Ark의 기록을 따르고, 희귀도만 `legends.json`의 것을 씁니다. (Ark의 순서로 정하면 아킬레우스 같은 영웅이 일반 카드가 되기 때문입니다)
+- 같은 인물이나 계열이 Ark에 들어오면 `pnpm sync:ark` 뒤 자동으로 Ark의 기록을 따르고, 희귀도만 전설 확장의 것을 씁니다. (Ark의 순서로 정하면 아킬레우스 같은 영웅이 일반 카드가 되기 때문입니다)
 
 ## 검사
 
@@ -100,8 +107,9 @@ Ark에 아직 없는 전설의 영웅·인물은 `scripts/legends/`에서 먼저
 | E2E              | `pnpm test:e2e`  | 프로덕션 빌드에서 한 판 흐름, 키보드 조작, 새로 고침 뒤 이어 하기, 모바일 가로 넘침, axe                                                                                                                                                                                               |
 | 스토리           | `pnpm storybook` | 카드 앞면, 무구, 유물, 머리글, 카드 상세, 그림(초점 자르기). addon-a11y로 접근성을 봅니다. `pnpm build`가 `dist/storybook`에 함께 빌드해 배포 주소의 `/storybook/index.html`로 열립니다. 이때 `public`은 복사하지 않고(`STORYBOOK_SHARED_PUBLIC`) 같은 주소에 있는 앱의 그림을 씁니다. |
 
-| 번들 크기 | `pnpm size` | 첫 화면 JS 195 kB, CSS 10 kB(gzip) 예산. `.size-limit.json` |
+| 번들 크기 | `pnpm size` | 첫 화면 JS 115 kB, CSS 12 kB(gzip) 예산. `.size-limit.json` |
 | Lighthouse | `pnpm lhci` | 처음 화면·도감·도움말을 데스크톱 기준 3번씩 재서 성능 90, 접근성 100, 권장 사항 95, SEO 90점과 LCP 2.5초·TBT 200ms·CLS 0.1 이하인지. `lighthouserc.json` |
+| Lighthouse(휴대폰) | `pnpm lhci:mobile` | 처음 화면을 휴대폰 기준(느린 4G·CPU 4배)으로 3번 재서 성능 90, 접근성 100점과 LCP 2.5초·TBT 200ms·CLS 0.1 이하인지. 데스크톱만 재면 글꼴이 늦게 와서 생기는 밀림을 놓칩니다. `lighthouserc.mobile.json` |
 
 E2E는 동작 줄이기(`reducedMotion: "reduce"`) 환경에서 돕니다. 화면 전환 중 배경색이 바뀌는 사이에 명도 대비를 재는 오탐을 막고, 동작 줄이기 경로도 함께 검사합니다.
 

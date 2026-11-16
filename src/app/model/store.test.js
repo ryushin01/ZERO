@@ -67,6 +67,21 @@ describe("createStore", () => {
     expect(renders).toBe(0);
   });
 
+  it("묶음 갱신은 끝날 때 한 번만 다시 그리고, 끝나자마자(동기로) 그립니다", () => {
+    const store = createStore();
+    let renders = 0;
+    store.subscribe(() => (renders += 1));
+    store.batch(() => {
+      store.setUi("run", { selected: null });
+      store.setRun(createRun({ seed: 8, guide: "greek" }));
+      store.batch(() => store.setUi("run", { selected: "c1" }));
+      expect(renders).toBe(0);
+    });
+    expect(renders).toBe(1);
+    store.setUi("run", { selected: null });
+    expect(renders).toBe(2);
+  });
+
   it("기록을 지우면 저장해 둔 듀얼과 화면에 남은 듀얼도 지웁니다", () => {
     const store = createStore();
     localStorage.setItem("zero:duel", JSON.stringify({ players: [{}, {}] }));

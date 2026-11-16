@@ -6,7 +6,7 @@ ZERO 전설 확장 데이터를 만듭니다.
 - data.py의 영어 위키백과 제목이 실제로 있는지 위키백과 API로 확인하고,
   한국어 문서가 있으면 그 주소를, 없으면 영어 문서 주소를 wiki로 씁니다.
 - 기존 계열에 더하는 인물은 그 계열의 Ark 인물 뒤 순서로 붙입니다.
-- 결과: src/entities/figure/data/legends.json
+- 결과: scripts/legends/legends.json (원본). 게임이 쓰는 것만 담은 파일은 pnpm legends(또는 pnpm sync:ark)가 만듭니다.
 """
 import json
 import pathlib
@@ -98,10 +98,11 @@ def main():
             "rarity": rarity, "wiki": wiki(en),
         })
 
-    out = ROOT / "src/entities/figure/data/legends.json"
+    out = ROOT / "scripts/legends/legends.json"
     out.write_text(json.dumps({"pantheons": pantheons, "figures": figures}, ensure_ascii=False, indent=2) + "\n")
     ko = sum(1 for f in figures if "ko.wikipedia" in f["wiki"])
     print(f"계열 {len(pantheons)}, 인물 {len(figures)} (한국어 위키 {ko}, 영어 위키 {len(figures) - ko})")
+    print("게임이 쓰는 파일은 pnpm legends로 다시 만듭니다.")
 
 
 if __name__ == "__main__":

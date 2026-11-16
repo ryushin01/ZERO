@@ -3,7 +3,7 @@
     "name": "첫 화면 JS",
     "path": "dist/assets/index-*.js",
     "gzip": true,
-    "limit": "195 kB"
+    "limit": "115 kB"
   },
   {
     "name": "CSS",

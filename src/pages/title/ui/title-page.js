@@ -101,8 +101,11 @@ function view(ctx) {
   );
 }
 
+/** 지금 첫 화면의 고리. 움직임 설정이 바뀌어 다시 그린 뒤 루프를 다시 켜거나 그대로 둡니다. @type {{ sync: () => void } | null} */
+let ring = null;
+
 /**
- * 신들의 그림이 타원을 따라 천천히 돕니다. 움직임을 끄면 그 자리에 멈춥니다.
+ * 신들의 그림이 타원을 따라 천천히 돕니다. 움직임을 끄면 그 자리에 멈추고, 매 프레임 돌던 루프도 멈춥니다(배터리).
  * @param {import("#app/render/app.js").PageContext} _ctx @param {HTMLElement} main
  */
 function mount(_ctx, main) {
@@ -110,6 +113,7 @@ function mount(_ctx, main) {
   let angle = 0;
   let frame = 0;
   let last = performance.now();
+  const moving = () => document.body.dataset.motion === "on";
 
   const place = () => {
     const stage = /** @type {HTMLElement} */ (main.querySelector(".title__stage"));
@@ -125,21 +129,33 @@ function mount(_ctx, main) {
     });
   };
 
+  /** @param {number} now */
   const tick = (now) => {
+    if (!moving()) {
+      frame = 0;
+      return;
+    }
     const dt = Math.min(64, now - last);
     last = now;
-    if (document.body.dataset.motion === "on") {
-      angle += dt * 0.00004;
-      place();
-    }
+    angle += dt * 0.00004;
+    place();
+    frame = requestAnimationFrame(tick);
+  };
+  /** 움직임이 켜져 있고 루프가 멈춘 상태면 다시 돌립니다. */
+  const start = () => {
+    if (frame || !moving()) return;
+    last = performance.now();
     frame = requestAnimationFrame(tick);
   };
 
   place();
-  frame = requestAnimationFrame(tick);
+  start();
+  ring = { sync: start };
   window.addEventListener("resize", place);
   return () => {
     cancelAnimationFrame(frame);
+    frame = 0;
+    ring = null;
     window.removeEventListener("resize", place);
   };
 }
@@ -151,6 +167,8 @@ export const titlePage = {
   context: () => "",
   view,
   mount,
+  // 움직임을 다시 켜면 멈춘 루프를 돌립니다. (끄면 다음 프레임에서 루프가 스스로 멈춤)
+  afterRender: () => ring?.sync(),
   actions: {
     "toggle-motion": (ctx) => {
       const motion = ctx.settings.motion === "on" ? "off" : "on";

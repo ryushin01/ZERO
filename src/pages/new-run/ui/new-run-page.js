@@ -175,8 +175,11 @@ export const newRunPage = {
       }
       const daily = isDaily(ctx) ? shownDay(ctx) : null;
       const seed = seedOf(ctx) ?? randomSeed();
-      if (!daily) ctx.setUi({ seed: randomSeed() });
-      ctx.setRun(createRun({ seed, guide, daily, hidden: withHidden(ctx) }));
+      const hidden = withHidden(ctx);
+      ctx.batch(() => {
+        if (!daily) ctx.setUi({ seed: randomSeed() });
+        ctx.setRun(createRun({ seed, guide, daily, hidden }));
+      });
       ctx.navigate("#/run");
     },
   },

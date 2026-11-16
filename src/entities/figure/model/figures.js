@@ -1,5 +1,5 @@
-import artData from "../data/art.json" with { type: "json" };
 import figureData from "../data/figures.json" with { type: "json" };
+// 전설 확장 가운데 게임이 쓰는 것만 담은 파일(pnpm legends). 원본은 scripts/legends/legends.json입니다.
 import legendData from "../data/legends.json" with { type: "json" };
 import pantheonData from "../data/pantheons.json" with { type: "json" };
 
@@ -19,7 +19,7 @@ import pantheonData from "../data/pantheons.json" with { type: "json" };
 const arkPantheonSlugs = new Set(/** @type {Pantheon[]} */ (pantheonData).map((p) => p.slug));
 const arkFigureSlugs = new Set(/** @type {Figure[]} */ (figureData).map((f) => f.slug));
 /** 전설 확장에서 Ark로 옮겨 간 인물은 희귀도만 전설 확장의 것을 따릅니다. */
-const legendRarity = new Map(/** @type {Figure[]} */ (legendData.figures).map((f) => [f.slug, f.rarity]));
+const legendRarity = /** @type {Record<string, Figure["rarity"]>} */ (legendData.rarity);
 
 /**
  * 신화 계열: Ark에서 가져온 계열(오래된 문헌 순) 뒤에, 아직 Ark에 없는 ZERO 전설 확장의 계열을 붙입니다.
@@ -40,7 +40,7 @@ export const PANTHEONS = [
 export const FIGURES = [
   .../** @type {Figure[]} */ (figureData).map((f) => ({
     ...f,
-    rarity: legendRarity.get(f.slug),
+    rarity: Object.hasOwn(legendRarity, f.slug) ? legendRarity[f.slug] : undefined,
     source: /** @type {Source} */ ("ark"),
   })),
   .../** @type {Figure[]} */ (legendData.figures)
@@ -50,7 +50,26 @@ export const FIGURES = [
 
 /** Ark에서 가져온 신과 영웅의 수 */
 export const ARK_FIGURE_COUNT = figureData.length;
-const ART = /** @type {Record<string, Art>} */ (artData);
+
+/** 받아 둔 Ark 소장 자료. 카드 상세에서만 쓰므로 첫 화면 묶음에서 빼고 따로 받습니다. @type {Record<string, Art> | null} */
+let arkArt = null;
+/** @type {Promise<Record<string, Art>> | null} */
+let arkArtLoading = null;
+
+/** Ark 소장 자료(약 120 KB)를 받습니다. 여러 번 불러도 한 번만 받습니다. @returns {Promise<Record<string, Art>>} */
+export function loadArkArt() {
+  arkArtLoading ??= import("../data/art.json", { with: { type: "json" } })
+    .then((module) => (arkArt = /** @type {Record<string, Art>} */ (module.default)))
+    .catch((error) => {
+      // 받지 못했으면 다음에 다시 받을 수 있게 합니다.
+      arkArtLoading = null;
+      throw error;
+    });
+  return arkArtLoading;
+}
+
+/** Ark 소장 자료를 이미 받았는지 */
+export const isArkArtLoaded = () => arkArt !== null;
 
 export const CONTINENTS = /** @type {const} */ (["asia", "europe", "africa", "americas", "oceania"]);
 
@@ -70,8 +89,8 @@ const figureBySlug = new Map(FIGURES.map((f) => [f.slug, f]));
 export const getPantheon = (slug) => pantheonBySlug.get(slug);
 /** @param {string} slug */
 export const getFigure = (slug) => figureBySlug.get(slug);
-/** 카드 그림. 자료가 없는 신은 undefined @param {string} slug */
-export const getArt = (slug) => ART[slug];
+/** Ark 소장 자료. 자료가 없는 신이거나 아직 받지 않았으면 undefined (loadArkArt) @param {string} slug */
+export const getArt = (slug) => arkArt?.[slug];
 /** @param {string} pantheonSlug */
 export const figuresOf = (pantheonSlug) =>
   FIGURES.filter((f) => f.pantheonSlug === pantheonSlug).sort((a, b) => a.order - b.order);

@@ -189,7 +189,9 @@ export const gearActions = {
     ctx.announce(partner ? `${withJosa(getCard(partner.id).name, "을/를")} 끼웠습니다.` : "탈것·동반자를 뺐습니다.");
   },
   "close-gear"(ctx) {
-    ctx.setUi({ gearUid: null });
-    ctx.setRun(closeGear(/** @type {NonNullable<Ctx["run"]>} */ (ctx.run)));
+    ctx.batch(() => {
+      ctx.setUi({ gearUid: null });
+      ctx.setRun(closeGear(/** @type {NonNullable<Ctx["run"]>} */ (ctx.run)));
+    });
   },
 };

@@ -126,22 +126,18 @@ function cardsTab(ctx) {
       { class: "codex__count label", role: "status" },
       `${FIGURE_CARDS.length}장 가운데 ${cards.length}장${hidden.length ? ` · 히든 ${hidden.length}장` : ""}`,
     ),
+    // 카드 목록은 그린 뒤(afterRender) 한 번만 채우고, 거르기가 바뀌면 각 카드의 hidden만 바꿉니다.
+    // 검색어 한 글자마다 카드 322장을 새로 만들지 않으려는 것입니다. 패치(morph)는 이 목록 안을 건드리지 않습니다.
+    // data-key가 있어 다른 탭의 목록(ul)과 짝지어지지 않으므로, 탭을 오가면 빈 목록부터 다시 채웁니다.
+    h("ul", {
+      class: "codex__cards",
+      "data-key": "codex-cards",
+      "data-codex-cards": "",
+      "data-morph": "skip",
+      hidden: !cards.length,
+    }),
     cards.length || hidden.length
-      ? h(
-          "ul",
-          { class: "codex__cards" },
-          cards.map((card) =>
-            h(
-              "li",
-              { "data-key": card.id },
-              cardFace(card, {
-                tag: "button",
-                badge: seen.includes(card.id) ? "복원" : undefined,
-                attrs: { "data-action": "open-card", "data-id": card.id },
-              }),
-            ),
-          ),
-        )
+      ? null
       : h(
           "p",
           { class: "muted codex__empty" },
@@ -151,6 +147,45 @@ function cardsTab(ctx) {
         ),
     hiddenSection(hidden),
   ];
+}
+
+/** 목록마다 마지막으로 그린 서가 복원 기록. 복원 표시가 바뀌었을 때만 카드를 다시 만듭니다. @type {WeakMap<Element, string>} */
+const drawnSeen = new WeakMap();
+
+/**
+ * 도감 카드 목록을 채우고 지금 거르기에 맞는 카드만 보입니다.
+ * @param {Ctx} ctx @param {HTMLElement} main
+ */
+function syncCardList(ctx, main) {
+  const list = main.querySelector("[data-codex-cards]");
+  if (!list) return;
+  const { query = "", continent = "all", aspect = "all", seenOnly = false, source = "all" } = ctx.ui;
+  const { seen } = ctx.records;
+  const seenKey = seen.join();
+  if (drawnSeen.get(list) !== seenKey) {
+    const restored = new Set(seen);
+    list.replaceChildren(
+      ...FIGURE_CARDS.map((card) =>
+        h(
+          "li",
+          { "data-key": card.id },
+          cardFace(card, {
+            tag: "button",
+            badge: restored.has(card.id) ? "복원" : undefined,
+            attrs: { "data-action": "open-card", "data-id": card.id },
+          }),
+        ),
+      ),
+    );
+    drawnSeen.set(list, seenKey);
+  }
+  const shown = new Set(
+    filterCards(FIGURE_CARDS, { query, continent, aspect, seenOnly, seen, source }).map((c) => c.id),
+  );
+  for (const item of /** @type {HTMLCollectionOf<HTMLElement>} */ (list.children)) {
+    const hide = !shown.has(/** @type {string} */ (item.dataset.key));
+    if (item.hidden !== hide) item.hidden = hide;
+  }
 }
 
 /** 히든 카드. 새 기록을 시작할 때 바로 데려갈 수 있습니다. @param {typeof HIDDEN_CARDS} cards 거르기를 거친 히든 카드 */
@@ -417,6 +452,9 @@ export const codexPage = {
   surface: () => "light",
   context: () => "도감",
   view,
+  afterRender: (ctx, main) => {
+    if ((ctx.ui.tab ?? "cards") === "cards") syncCardList(ctx, main);
+  },
   actions: {
     tab: (ctx, el) => ctx.setUi({ tab: el.dataset.value }),
     continent: (ctx, el) => ctx.setUi({ continent: el.dataset.value }),

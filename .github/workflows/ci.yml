@@ -36,6 +36,8 @@ jobs:
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
       - run: pnpm lhci
+      # 휴대폰 기준(느린 4G·CPU 4배)으로 처음 화면의 CLS·LCP를 따로 잽니다. 데스크톱만 재면 글꼴이 늦게 와서 생기는 밀림을 놓칩니다.
+      - run: pnpm lhci:mobile
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
