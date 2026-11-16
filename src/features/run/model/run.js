@@ -11,6 +11,7 @@ import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
 
 import { bonusOf, startCombat } from "./combat.js";
 import { getEvent, hasEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
+import { clampOblivion, OBLIVION_MAX, oblivionEffects } from "./oblivion.js";
 
 /**
  * 한 판의 흐름. 모든 함수는 run을 복사해 새 run을 돌려줍니다.
@@ -30,7 +31,7 @@ import { getEvent, hasEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.
  *   fields?: Record<1 | 2 | 3, string>, rift?: { field: string } | null,
  *   phase: Phase, combat: CombatState | null, reward: Reward | null, event: string | null, pick: PickRequest | null,
  *   lastEncounter: string, nextUid: number, notice: string | null, path: string[], recorded?: boolean,
- *   daily?: string | null, discovered?: string[],
+ *   daily?: string | null, discovered?: string[], oblivion?: number, unlocked?: number,
  *   stats: { floors: number, battles: number, elites: number, bosses: number, defeatedBy: string | null },
  * }} Run
  */
@@ -66,18 +67,21 @@ export function guideCards(pantheonSlug) {
 }
 
 /**
- * @param {{ seed: number, guide: string, daily?: string | null, hidden?: boolean }} options
+ * @param {{ seed: number, guide: string, daily?: string | null, hidden?: boolean, oblivion?: number }} options
+ * oblivion: 망각 단계(난이도). 오늘의 신화는 모두 같은 조건으로 겨루므로 늘 0단계입니다.
  * @returns {Run}
  */
-export function createRun({ seed, guide, daily = null, hidden = false }) {
+export function createRun({ seed, guide, daily = null, hidden = false, oblivion = 0 }) {
+  const level = daily ? 0 : clampOblivion(oblivion);
+  const startHp = START_HP - oblivionEffects(level).startHpCut;
   /** @type {Run} */
   const run = {
     version: RUN_VERSION,
     seed,
     rng: seed ^ 0x5bd1e995,
     guide,
-    hp: START_HP,
-    maxHp: START_HP,
+    hp: startHp,
+    maxHp: startHp,
     deck: [],
     relics: [],
     armaments: [],
@@ -98,6 +102,7 @@ export function createRun({ seed, guide, daily = null, hidden = false }) {
     path: [],
     daily,
     discovered: [],
+    oblivion: level,
     stats: { floors: 0, battles: 0, elites: 0, bosses: 0, defeatedBy: null },
   };
   const ids = [
@@ -257,6 +262,7 @@ function beginBattle(run, enemyIds, tier, field = fieldInfo(currentField(run))) 
     armaments: run.armaments.filter((id) => !equippedArms(run).includes(id)),
     perks: perksOf(factionStatus(run.deck.map((c) => getCard(c.id).pantheonSlug))),
     field,
+    oblivion: run.oblivion ?? 0,
   });
 }
 
@@ -480,13 +486,14 @@ export function leaveReward(prev) {
   run.position = null;
   run.hp = run.relics.includes("golden-apple")
     ? run.maxHp
-    : Math.min(run.maxHp, run.hp + Math.ceil((run.maxHp - run.hp) * 0.6));
+    : Math.min(run.maxHp, run.hp + Math.ceil((run.maxHp - run.hp) * oblivionEffects(run.oblivion ?? 0).actHeal));
   run.phase = "map";
   return run;
 }
 
-/** 쉼터에서 회복하는 양 @param {Run} run */
-export const restAmount = (run) => Math.ceil(run.maxHp * 0.3 * (run.relics.includes("fleece") ? 1.5 : 1));
+/** 쉼터에서 회복하는 양 (망각 3단계부터 줄어듦) @param {Run} run */
+export const restAmount = (run) =>
+  Math.ceil(run.maxHp * oblivionEffects(run.oblivion ?? 0).rest * (run.relics.includes("fleece") ? 1.5 : 1));
 
 /** @param {Run} prev */
 export function rest(prev) {
@@ -731,6 +738,11 @@ const isPlayerUsable = (player) =>
 function isRunUsable(run) {
   if (typeof run.seed !== "number" || typeof run.hp !== "number" || !getPantheon(run.guide)) return false;
   if (![1, 2, 3].includes(run.act) || !PHASES.has(run.phase)) return false;
+  if (
+    run.oblivion !== undefined &&
+    !(Number.isInteger(run.oblivion) && run.oblivion >= 0 && run.oblivion <= OBLIVION_MAX)
+  )
+    return false;
   if (!isCardList(run.deck) || !isIdList(run.relics, hasRelic) || !isIdList(run.armaments, hasArmament)) return false;
   if (!isMapUsable(run.map)) return false;
   if (run.position && !run.map.rows[run.position.row]?.some((/** @type {any} */ n) => n.lane === run.position.lane))

@@ -47,10 +47,22 @@
   margin: 8px 0;
 }
 
-.new-run__hidden {
+.new-run__hidden,
+.new-run__oblivion {
   display: grid;
   justify-items: center;
   gap: 8px;
   margin-bottom: 32px;
   text-align: center;
+}
+
+.new-run__oblivion p {
+  max-width: 40em;
+}
+
+.new-run__levels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }

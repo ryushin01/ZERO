@@ -2,6 +2,7 @@ import { ASPECT_DOMAINS, ASPECTS, KEYWORDS } from "#entities/card/index.js";
 import { ARMAMENTS } from "#entities/armament/index.js";
 import { BATTLEFIELDS } from "#entities/battlefield/index.js";
 import { ARK_FIGURE_COUNT, FIGURES, PANTHEONS } from "#entities/figure/index.js";
+import { OBLIVION_MAX, OBLIVION_RULES } from "#features/run/index.js";
 import { ARK_URL, CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
 
@@ -263,6 +264,17 @@ function view(ctx) {
         "p",
         null,
         "‘오늘의 신화’는 한국 시간 날짜로 정한 같은 길잡이 후보와 같은 지도로 모두가 겨루는 도전입니다. 하루에 여러 번 도전할 수 있고 가장 좋은 결과가 남습니다. 결과 화면의 ‘결과 복사하기’로 기록을 나눌 수 있습니다.",
+      ),
+      h(
+        "p",
+        null,
+        `자유 도전에서 이기면 다음 ‘망각 단계’가 열립니다(최고 ${OBLIVION_MAX}단계). 새 기록을 시작할 때 고르고, 단계가 오를수록 아래 규칙이 하나씩 쌓입니다. 오늘의 신화는 모두 같은 조건으로 겨루므로 늘 0단계입니다.`,
+      ),
+      // 번호가 곧 단계입니다.
+      h(
+        "ol",
+        { class: "guide__steps", "aria-label": "망각 단계별 규칙" },
+        OBLIVION_RULES.slice(1).map((rule) => h("li", null, rule)),
       ),
     ),
     section(

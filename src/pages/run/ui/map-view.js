@@ -125,6 +125,8 @@ export function mapView(ctx) {
           h("dd", null, guideName(run)),
           h("dt", null, "지나온 칸"),
           h("dd", null, `${run.stats.floors}칸`),
+          run.oblivion ? h("dt", null, "망각 단계") : null,
+          run.oblivion ? h("dd", null, `${run.oblivion}단계`) : null,
         ),
         h("h2", { class: "label muted" }, `무구 ${run.armaments.length}`),
         h(
