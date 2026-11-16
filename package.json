@@ -10,6 +10,7 @@
     "build": "vite build && STORYBOOK_SHARED_PUBLIC=1 storybook build -o dist/storybook --quiet",
     "preview": "vite preview --port 4173",
     "sync:ark": "node scripts/sync-ark.mjs",
+    "legends": "node scripts/legends/runtime.mjs",
     "credits": "node scripts/credits.mjs",
     "illustrations": "node scripts/illustrations.mjs",
     "lint": "eslint .",
@@ -24,7 +25,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o storybook-static --quiet",
     "size": "size-limit",
-    "lhci": "lhci autorun"
+    "lhci": "lhci autorun",
+    "lhci:mobile": "lhci autorun --config=lighthouserc.mobile.json"
   },
   "imports": {
     "#app/*": "./src/app/*",

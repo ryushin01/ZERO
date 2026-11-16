@@ -7,6 +7,8 @@ export {
   getArt,
   getFigure,
   getPantheon,
+  isArkArtLoaded,
   kindLabel,
+  loadArkArt,
   PANTHEONS,
 } from "./model/figures.js";

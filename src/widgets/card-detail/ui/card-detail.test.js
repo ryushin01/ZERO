@@ -1,10 +1,25 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { getCard } from "#entities/card/index.js";
+import { isArkArtLoaded, loadArkArt } from "#entities/figure/index.js";
 
 import { cardDetail } from "./card-detail.js";
 
 describe("cardDetail", () => {
+  it("Ark 소장 자료를 아직 받지 않았으면 빈 자리를 두었다가 받은 뒤 채웁니다", async () => {
+    expect(isArkArtLoaded()).toBe(false);
+    const el = cardDetail("zeus");
+    expect(el.querySelector(".card-detail__source")).toBeNull();
+    await vi.waitFor(() => expect(el.querySelector(".card-detail__source")?.textContent).toContain("Ark 소장 자료"));
+    expect(el.querySelector(".card-detail__source-slot")).toBeNull();
+    expect(isArkArtLoaded()).toBe(true);
+  });
+
+  it("받아 둔 뒤에는 열 때 바로 보여 줍니다", async () => {
+    await loadArkArt();
+    expect(cardDetail("zeus").querySelector(".card-detail__source")).not.toBeNull();
+  });
+
   it("Ark의 신 상세로 새 창 링크를 걸고 새 창임을 알립니다", () => {
     const el = cardDetail("odin");
     const link = el.querySelector("a[href='https://ark-ryushin01.vercel.app/figures/odin']");

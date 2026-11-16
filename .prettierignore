@@ -4,6 +4,8 @@ test-results
 playwright-report
 pnpm-lock.yaml
 src/entities/figure/data
+# 전설 확장 원본(scripts/legends/build.py가 만듦)
+scripts/legends/legends.json
 public
 .lighthouseci
 # pnpm credits가 데이터에서 만드는 파일

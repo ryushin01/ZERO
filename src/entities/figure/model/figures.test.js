@@ -1,7 +1,12 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import figureData from "../data/figures.json" with { type: "json" };
-import legendData from "../data/legends.json" with { type: "json" };
+
+/** 전설 확장 원본(게임에는 pnpm legends가 고른 것만 들어감). 테스트는 저장소 맨 위에서 돕니다. */
+const legendData = JSON.parse(readFileSync(join(process.cwd(), "scripts/legends/legends.json"), "utf8"));
 
 import { FIGURES, getFigure } from "./figures.js";
 

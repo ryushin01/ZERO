@@ -297,8 +297,10 @@ export const duelPage = {
       const classes = duel
         ? /** @type {[string, string]} */ ([duel.players[0].classId, duel.players[1].classId])
         : picks(ctx);
-      ctx.setUi({ classes });
-      setDuel(ctx, startDuel({ seed: randomSeed(), classes }));
+      ctx.batch(() => {
+        ctx.setUi({ classes });
+        setDuel(ctx, startDuel({ seed: randomSeed(), classes }));
+      });
     },
     "new-duel"(ctx) {
       setDuel(ctx, null);

@@ -1,6 +1,7 @@
 export { announce } from "./announce.js";
 export { describeCombatEffect } from "./combat-effect.js";
 export { h, srOnly, svg } from "./dom.js";
+export { afterLoadIdle } from "./idle.js";
 export { prefersReducedMotion } from "./motion.js";
 export { morphChildren } from "./morph.js";
 export { createRng, randomSeed, rollWith } from "./rng.js";

@@ -1,6 +1,7 @@
 """
 ZERO 전설 확장의 원본 데이터. `python3 scripts/legends/build.py`가 위키백과 주소를 확인해
-src/entities/figure/data/legends.json 을 만듭니다.
+scripts/legends/legends.json 을 만들고, `pnpm legends`가 그중 게임이 쓰는 것만
+src/entities/figure/data/legends.json 에 옮깁니다.
 
 - 모양은 Ark의 Pantheon·Figure와 같습니다(소개 문단 description 포함). 나중에 Ark로 그대로 옮길 수 있습니다.
 - 인물 선정은 Fate/Grand Order 서번트 목록과 나무위키 '전설의 영웅·무기·도구' 문서를 참고했지만,

@@ -125,6 +125,10 @@ const bondDir = join(root, "src/entities/bond/data");
 mkdirSync(bondDir, { recursive: true });
 writeFileSync(join(bondDir, "bonds.json"), `${JSON.stringify(bonds, null, 2)}\n`);
 
+// Ark로 옮겨 간 전설 확장이 달라졌을 수 있으므로, 게임이 읽는 전설 확장 파일도 다시 씁니다.
+const { writeLegendRuntime } = await import("./legends/runtime.mjs");
+writeLegendRuntime();
+
 // 소장 그림의 출처가 바뀌었을 수 있으므로 출처 목록도 다시 씁니다.
 const { writeCredits } = await import("./credits.mjs");
 await writeCredits();

@@ -94,12 +94,16 @@ export const pickActions = {
       return;
     }
     const next = resolvePick(run, [ctx.ui.selected]);
-    ctx.setUi({ selected: null });
-    ctx.setRun(next);
+    ctx.batch(() => {
+      ctx.setUi({ selected: null });
+      ctx.setRun(next);
+    });
     ctx.announce(next.notice ?? "");
   },
   "cancel-pick"(ctx) {
-    ctx.setUi({ selected: null });
-    ctx.setRun(cancelPick(/** @type {NonNullable<Ctx["run"]>} */ (ctx.run)));
+    ctx.batch(() => {
+      ctx.setUi({ selected: null });
+      ctx.setRun(cancelPick(/** @type {NonNullable<Ctx["run"]>} */ (ctx.run)));
+    });
   },
 };

@@ -20,7 +20,16 @@ export function createStore() {
   };
   /** @type {Set<() => void>} */
   const listeners = new Set();
-  const emit = () => listeners.forEach((fn) => fn());
+  // 묶음(batch) 안에서는 알림을 모아 두었다가 끝날 때 한 번만 보냅니다.
+  let batching = 0;
+  let pending = false;
+  const emit = () => {
+    if (batching > 0) {
+      pending = true;
+      return;
+    }
+    listeners.forEach((fn) => fn());
+  };
 
   // 다른 탭에서 판·기록·설정·듀얼이 바뀌면 이 탭도 같은 값으로 다시 그립니다.
   // 그러지 않으면 두 탭에서 이어 할 때 늦게 저장한 탭이 다른 탭의 진행을 덮어씁니다.
@@ -46,6 +55,23 @@ export function createStore() {
     subscribe(fn) {
       listeners.add(fn);
       return () => listeners.delete(fn);
+    },
+    /**
+     * 여러 변경을 묶어 화면을 한 번만 다시 그립니다. 끝나면 바로(동기로) 그리므로,
+     * 묶음 뒤에 이어지는 초점 옮기기는 새 화면을 봅니다.
+     * @param {() => void} fn
+     */
+    batch(fn) {
+      batching += 1;
+      try {
+        fn();
+      } finally {
+        batching -= 1;
+        if (batching === 0 && pending) {
+          pending = false;
+          emit();
+        }
+      }
     },
     /** @param {import("#features/run/index.js").Run | null} run */
     setRun(run) {
