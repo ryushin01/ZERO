@@ -10,7 +10,7 @@ import { hasRelic, RELICS } from "#entities/relic/index.js";
 import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
 
 import { bonusOf, startCombat } from "./combat.js";
-import { getEvent, hasEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
+import { EVENTS, getEvent, hasEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
 import { clampOblivion, OBLIVION_MAX, oblivionEffects } from "./oblivion.js";
 
 /**
@@ -311,7 +311,7 @@ export function enterNode(prev, nodeId) {
         // 오늘의 신화는 모두 같은 조건으로 겨루므로 히든 사건이 열리지 않습니다.
         !run.daily && !run.deck.some((c) => c.id === "yushin") && rng.float() < HIDDEN_EVENT_CHANCE
           ? HIDDEN_EVENT.id
-          : rng.pick(["oracle", "mimir", "library", "lethe", "forge", "bari", "loki"]),
+          : rng.pick(EVENTS.map((e) => e.id)),
       );
       break;
     default:

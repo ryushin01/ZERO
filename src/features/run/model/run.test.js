@@ -256,6 +256,42 @@ describe("사건과 카드 고르기", () => {
     expect(run.deck[0].up).toBe(true);
     expect(run.hp).toBe(72 - 7);
   });
+
+  it("이난나의 일곱 문은 체력의 절반을 받고 기본 카드를 모두 강화합니다", () => {
+    const run = { ...createRun({ seed: 4, guide: "hindu" }), phase: "event", event: "inanna", hp: 61 };
+    const after = chooseEvent(run, "descend");
+    expect(after.hp).toBe(61 - 30);
+    const basics = after.deck.filter((c) => c.id === "quill" || c.id === "shelf");
+    expect(basics.length).toBe(9);
+    expect(basics.every((c) => c.up)).toBe(true);
+    expect(after.deck.filter((c) => c.id !== "quill" && c.id !== "shelf").every((c) => !c.up)).toBe(true);
+    // 체력이 10 이하이면 고를 수 없습니다.
+    expect(chooseEvent({ ...run, hp: 10 }, "descend").event).toBe("inanna");
+  });
+
+  it("후예의 활은 그 무구를 주고, 이미 있으면 다른 무구를, 자리가 차면 고를 수 없습니다", () => {
+    const base = { ...createRun({ seed: 4, guide: "greek" }), phase: "event", event: "houyi", armaments: ["aegis"] };
+    expect(chooseEvent(base, "bow").armaments).toEqual(["aegis", "yi-bow"]);
+    const other = chooseEvent({ ...base, armaments: ["yi-bow"] }, "bow").armaments;
+    expect(other).toHaveLength(2);
+    expect(other[0]).toBe("yi-bow");
+    expect(other[1]).not.toBe("yi-bow");
+    const full = { ...base, armaments: ["aegis", "mjolnir", "gungnir"] };
+    expect(chooseEvent(full, "bow").armaments).toEqual(full.armaments);
+    // 히든 무구(영혼의 검)는 자리에 세지 않습니다.
+    expect(chooseEvent({ ...base, armaments: ["aegis", "soul-sword"] }, "bow").armaments).toContain("yi-bow");
+    expect(chooseEvent({ ...base, hp: 40 }, "sun").hp).toBe(55);
+  });
+
+  it("마우이의 낚싯바늘은 체력 5를 받고 기본 카드 한 장을 신·영웅 카드로 바꿉니다", () => {
+    const run = { ...createRun({ seed: 4, guide: "hindu" }), phase: "event", event: "maui" };
+    const after = chooseEvent(run, "fish");
+    expect(after.hp).toBe(run.hp - 5);
+    expect(after.deck).toHaveLength(run.deck.length);
+    const basics = (/** @type {typeof run.deck} */ deck) => deck.filter((c) => c.id === "quill" || c.id === "shelf");
+    expect(basics(after.deck)).toHaveLength(basics(run.deck).length - 1);
+    expect(after.notice).toContain("바다에서");
+  });
 });
 
 describe("보스", () => {
