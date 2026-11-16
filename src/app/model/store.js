@@ -103,6 +103,14 @@ export function createStore() {
       if (state.ui.duel) state.ui.duel = { ...state.ui.duel, duel: null };
       emit();
     },
+    /**
+     * 떠난 화면의 임시 상태를 지웁니다. 다시 그리지 않습니다.
+     * 판의 화면은 전투·사건마다 새 열쇠(run:battle:12 등)를 쓰므로, 지우지 않으면 판을 거듭할수록 쌓입니다.
+     * @param {string} key
+     */
+    dropUi(key) {
+      delete state.ui[key];
+    },
     /** @param {string} key @param {Record<string, any>} patch */
     setUi(key, patch) {
       state.ui[key] = { ...state.ui[key], ...patch };

@@ -10,10 +10,14 @@ describe("cardDetail", () => {
     expect(isArkArtLoaded()).toBe(false);
     const el = cardDetail("zeus");
     expect(el.querySelector(".card-detail__source")).toBeNull();
-    await vi.waitFor(() => expect(el.querySelector(".card-detail__source")?.textContent).toContain("Ark 소장 자료"));
+    // 자료(약 120 KB)를 따로 받으므로, 테스트가 몰려 느릴 때도 기다릴 수 있게 기한을 넉넉히 둡니다.
+    await vi.waitFor(() => expect(el.querySelector(".card-detail__source")?.textContent).toContain("Ark 소장 자료"), {
+      timeout: 10_000,
+    });
     expect(el.querySelector(".card-detail__source-slot")).toBeNull();
     expect(isArkArtLoaded()).toBe(true);
-  });
+    // 테스트 기한이 기다리는 기한(10초)보다 길어야 끝까지 기다립니다.
+  }, 15_000);
 
   it("받아 둔 뒤에는 열 때 바로 보여 줍니다", async () => {
     await loadArkArt();

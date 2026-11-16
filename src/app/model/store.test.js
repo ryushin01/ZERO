@@ -82,6 +82,16 @@ describe("createStore", () => {
     expect(renders).toBe(2);
   });
 
+  it("떠난 화면의 임시 상태를 지우되 다시 그리지 않습니다", () => {
+    const store = createStore();
+    let renders = 0;
+    store.setUi("run:battle:3", { selected: "c1" });
+    store.subscribe(() => (renders += 1));
+    store.dropUi("run:battle:3");
+    expect(store.state.ui["run:battle:3"]).toBeUndefined();
+    expect(renders).toBe(0);
+  });
+
   it("기록을 지우면 저장해 둔 듀얼과 화면에 남은 듀얼도 지웁니다", () => {
     const store = createStore();
     localStorage.setItem("zero:duel", JSON.stringify({ players: [{}, {}] }));

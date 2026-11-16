@@ -8,5 +8,5 @@ export {
   HIDDEN_ARMAMENTS,
   isOncePerBattle,
 } from "./model/armaments.js";
-export { bonusText, describeArmament, describeArmEffect } from "./model/describe.js";
+export { bonusText, describeArmament, describeArmEffect, describeArmEffectShort } from "./model/describe.js";
 export { armamentCard } from "./ui/armament-card.js";

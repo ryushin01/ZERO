@@ -343,7 +343,20 @@ function scaleEffects(state, list, rate) {
   });
 }
 
-/** @param {CombatState} state @param {string} uid */
+/** 주인과 함께일 때 절반(최소 1)을 더하는 작은 수의 효과. 피해·방어·회복·침식은 대신 50% 늘어납니다. */
+const COUNT_OPS = new Set(["draw", "energy", "strength", "weak", "vulnerable"]);
+
+/**
+ * 무구 효과에 배율·힘·약화를 반영하고, 주인과 함께라면 더 강하게 합니다.
+ * 카드에 끼운 무구와 사서가 직접 휘두르는 무구가 같은 규칙을 씁니다.
+ * @param {CombatState} state @param {any[]} effects @param {boolean} withOwner
+ */
+function armEffects(state, effects, withOwner) {
+  return scaleEffects(state, effects, withOwner ? 1.5 : 1).map((e) =>
+    withOwner && COUNT_OPS.has(e.op) ? { ...e, value: e.value + Math.max(1, Math.floor(e.value / 2)) } : e,
+  );
+}
+
 /**
  * 카드에 끼운 탈것·동반자의 효과. 없으면 null
  * @param {CardInstance} instance
@@ -367,12 +380,7 @@ function armEffectsOf(state, instance) {
   if (!id) return null;
   const arm = getArmament(id);
   const owner = arm.owners.includes(/** @type {string} */ (getCard(instance.id).figureSlug));
-  const effects = scaleEffects(state, arm.effects, owner ? 1.5 : 1).map((e) =>
-    owner && ["draw", "energy", "strength", "weak", "vulnerable"].includes(e.op)
-      ? { ...e, value: e.value + Math.max(1, Math.floor(e.value / 2)) }
-      : e,
-  );
-  return { arm, owner, effects };
+  return { arm, owner, effects: armEffects(state, arm.effects, owner) };
 }
 
 export function canPlay(state, uid) {
@@ -698,12 +706,7 @@ export function previewArmament(state, id) {
   const arm = getArmament(id);
   const withOwner = arm.owners.some((slug) => state.playedFigures.includes(slug));
   const boosted = withOwner && arm.bonus === "power";
-  // 피해·방어·회복·침식은 50% 늘리고, 뽑기·에너지·힘·약화·취약처럼 작은 수는 절반(최소 1)을 더합니다.
-  const effects = scaleEffects(state, arm.effects, boosted ? 1.5 : 1).map((e) =>
-    boosted && ["draw", "energy", "strength", "weak", "vulnerable"].includes(e.op)
-      ? { ...e, value: e.value + Math.max(1, Math.floor(e.value / 2)) }
-      : e,
-  );
+  const effects = armEffects(state, arm.effects, boosted);
   const target = effects.some((e) => ["damage", "erosion", "vulnerable", "weak"].includes(e.op) && !e.all)
     ? "enemy"
     : "none";
