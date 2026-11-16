@@ -163,6 +163,14 @@ describe("migrateRun", () => {
     expect(migrateRun({ ...run, phase: "pick", pick })).not.toBeNull();
     expect(migrateRun({ ...run, phase: "pick", pick: { ...pick, then: "lobby" } })).toBeNull();
     expect(migrateRun({ ...run, phase: "pick", pick: { ...pick, purpose: "burn" } })).toBeNull();
+    expect(migrateRun({ ...run, phase: "pick", pick: { ...pick, then: "battle" } })).toBeNull();
+
+    const emptyFirst = structuredClone(run);
+    emptyFirst.map.rows[0] = [];
+    expect(migrateRun(emptyFirst)).toBeNull();
+    const wrongRow = structuredClone(run);
+    wrongRow.map.rows[2][0].row = 5;
+    expect(migrateRun(wrongRow)).toBeNull();
   });
 
   it("옛 저장에 빠진 전투 더미는 빈 더미로 채웁니다", () => {

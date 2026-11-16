@@ -653,6 +653,8 @@ const isIdList = (/** @type {unknown} */ list, /** @type {(id: string) => boolea
 
 /** 화면이 아는 단계 */
 const PHASES = new Set(["map", "battle", "reward", "rest", "shrine", "event", "pick", "gear", "victory", "defeat"]);
+/** 고르기를 마치고 갈 수 있는 단계. 전투·보상·사건처럼 따로 상태가 있어야 하는 단계는 뺍니다. */
+const PICK_NEXT = new Set(["map", "rest", "shrine", "gear"]);
 
 /**
  * 지도의 층과 칸이 지금 그릴 수 있는 모양인지. 칸 종류는 지도 화면이 이름을 찾는 표에 있어야 하고,
@@ -663,12 +665,16 @@ const isMapUsable = (map) =>
   Boolean(map) &&
   Array.isArray(map.rows) &&
   map.rows.length > 0 &&
+  // 아직 아무 곳도 가지 않았으면 첫 층에서 고르므로, 첫 층이 비면 갈 곳이 없습니다.
+  Array.isArray(map.rows[0]) &&
+  map.rows[0].length > 0 &&
   map.rows.every(
     (/** @type {any} */ row, /** @type {number} */ index) =>
       Array.isArray(row) &&
       row.every((/** @type {any} */ node) => {
         if (!node || typeof node.id !== "string" || !Object.hasOwn(NODE_INFO, node.type)) return false;
-        if (!Number.isInteger(node.row) || !Number.isInteger(node.lane) || !Array.isArray(node.next)) return false;
+        // 칸의 층 번호는 들어간 뒤 지금 위치가 되므로, 실제로 놓인 층과 같아야 합니다.
+        if (node.row !== index || !Number.isInteger(node.lane) || !Array.isArray(node.next)) return false;
         const next = map.rows[index + 1];
         if (!next) return true;
         return (
@@ -743,8 +749,8 @@ function isRunUsable(run) {
     if (!isIdList(reward.armaments ?? [], hasArmament)) return false;
   }
   if (run.phase === "pick" && !run.pick) return false;
-  // 고르기를 마치면 pick.then 단계로 가므로, 그 단계도 화면이 아는 단계여야 합니다.
-  if (run.pick && (!PHASES.has(run.pick.then) || !["remove", "upgrade"].includes(run.pick.purpose))) return false;
+  // 고르기를 마치면 pick.then 단계로 가므로, 그 단계는 다른 상태 없이 그릴 수 있어야 합니다.
+  if (run.pick && (!PICK_NEXT.has(run.pick.then) || !["remove", "upgrade"].includes(run.pick.purpose))) return false;
   return true;
 }
 
