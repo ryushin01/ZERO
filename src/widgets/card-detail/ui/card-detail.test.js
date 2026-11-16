@@ -33,7 +33,8 @@ describe("cardDetail", () => {
     expect(el.querySelector(".card-detail__source")).toBeNull();
   });
 
-  it("새 일러스트에 대체 텍스트를 붙이고 Ark 소장 자료를 보여 주되, 출처는 화면 대신 README로 잇습니다", () => {
+  it("새 일러스트에 대체 텍스트를 붙이고 Ark 소장 자료를 보여 주되, 출처는 화면 대신 README로 잇습니다", async () => {
+    await loadArkArt();
     const el = cardDetail("zeus");
     expect(el.querySelector(".card-detail__illust")?.getAttribute("alt")).toContain("제우스의 일러스트");
     const source = el.querySelector(".card-detail__source");
@@ -63,7 +64,8 @@ describe("cardDetail", () => {
     expect(getCard("achilles").rarity).toBe("legend");
   });
 
-  it("저작자를 알 수 없는 소장 자료는 null 대신 라이선스부터 적습니다", () => {
+  it("저작자를 알 수 없는 소장 자료는 null 대신 라이선스부터 적습니다", async () => {
+    await loadArkArt();
     const el = cardDetail("loki");
     expect(el.querySelector(".card-detail__source")?.textContent).not.toContain("null");
   });
