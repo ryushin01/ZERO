@@ -136,11 +136,11 @@ test.describe("무구와 세력", () => {
 
   test("도감에서 무구와 모든 계열의 세력을 봅니다 @mobile", async ({ page }) => {
     await page.goto("/#/codex");
-    await page.getByRole("button", { name: "무구", exact: true }).click();
+    await page.getByRole("tab", { name: "무구", exact: true }).click();
     await expect(page.getByRole("heading", { name: "묠니르" })).toBeVisible();
     await expect(page.locator(".codex__arms > li")).toHaveCount(40);
     await expectAccessible(page);
-    await page.getByRole("button", { name: "세력", exact: true }).click();
+    await page.getByRole("tab", { name: "세력", exact: true }).click();
     await expect(page.getByRole("table", { name: /세력/ })).toBeVisible();
     await expect(page.getByRole("rowheader", { name: "한국 신화" })).toBeVisible();
     await expectAccessible(page);
@@ -160,7 +160,7 @@ test.describe("전장", () => {
 
   test("도감의 전장 탭에서 성역·신역·아우터 유니버스와 이차원을 봅니다", async ({ page }) => {
     await page.goto("/#/codex");
-    await page.getByRole("button", { name: "전장", exact: true }).click();
+    await page.getByRole("tab", { name: "전장", exact: true }).click();
     for (const name of [/1장 · 성역/, /2장 · 신역/, /3장 · 아우터 유니버스/, /이차원/]) {
       await expect(page.getByRole("heading", { level: 2, name })).toBeVisible();
     }
@@ -201,6 +201,24 @@ test.describe("2인 듀얼", () => {
     await expect(page.getByRole("heading", { level: 1, name: "2인 듀얼" })).toBeVisible();
     await page.getByLabel("클래스").first().selectOption("knight");
     await page.getByLabel("클래스").nth(1).selectOption("necromancer");
+    // 셀렉트의 화살표는 직접 그려, 화살표와 오른쪽 끝 사이를 글자와 왼쪽 끝 사이와 같게 둡니다.
+    const gaps = await page
+      .locator(".duel__select")
+      .first()
+      .evaluate((wrap) => {
+        const select = /** @type {HTMLSelectElement} */ (wrap.querySelector("select"));
+        const icon = /** @type {SVGElement} */ (wrap.querySelector(".duel__select-icon"));
+        const style = getComputedStyle(select);
+        return {
+          appearance: style.appearance,
+          left: parseFloat(style.borderLeftWidth) + parseFloat(style.paddingLeft),
+          right: select.getBoundingClientRect().right - icon.getBoundingClientRect().right,
+          pointer: getComputedStyle(icon).pointerEvents,
+        };
+      });
+    expect(gaps.appearance).toBe("none");
+    expect(gaps.pointer).toBe("none");
+    expect(Math.abs(gaps.right - gaps.left)).toBeLessThan(0.5);
     await expect(page.getByText("전투가 시작되면 방어 12")).toBeVisible();
     await expectAccessible(page);
 
@@ -349,14 +367,48 @@ test.describe("도감", () => {
     await expectAccessible(page, "dialog");
   });
 
+  test("도감 구분은 탭이라 화살표·Home·End로 옮기고, 고른 탭만 Tab 키로 들어갑니다", async ({ page }) => {
+    await page.goto("/#/codex");
+    const tablist = page.getByRole("tablist", { name: "도감 구분" });
+    const cards = tablist.getByRole("tab", { name: "신과 영웅" });
+    await expect(cards).toHaveAttribute("aria-selected", "true");
+    await expect(page.getByRole("tabpanel", { name: "신과 영웅" })).toBeVisible();
+    await cards.focus();
+    await page.keyboard.press("ArrowRight");
+    const enemies = tablist.getByRole("tab", { name: "괴물" });
+    await expect(enemies).toBeFocused();
+    await expect(enemies).toHaveAttribute("aria-selected", "true");
+    await expect(cards).toHaveAttribute("aria-selected", "false");
+    await expect(page.getByRole("tabpanel", { name: "괴물" })).toBeVisible();
+    await expect(page.getByRole("tabpanel", { name: "신과 영웅" })).toBeHidden();
+    await expect(tablist.locator("[role='tab'][tabindex='0']")).toHaveCount(1);
+    await page.keyboard.press("End");
+    await expect(tablist.getByRole("tab", { name: "유물" })).toBeFocused();
+    await page.keyboard.press("ArrowRight");
+    await expect(cards).toBeFocused();
+    await page.keyboard.press("ArrowLeft");
+    await page.keyboard.press("Home");
+    await expect(cards).toHaveAttribute("aria-selected", "true");
+    await expect(page.locator(".codex__cards > li:not([hidden])").first()).toBeVisible();
+    await expectAccessible(page);
+  });
+
   test("괴물과 유물 목록을 봅니다", async ({ page }) => {
     await page.goto("/#/codex");
-    await page.getByRole("button", { name: "괴물" }).click();
+    await page.getByRole("tab", { name: "괴물" }).click();
     await expect(page.getByRole("heading", { name: /히드라/ })).toBeVisible();
     await expectAccessible(page);
-    await page.getByRole("button", { name: "유물" }).click();
+    await page.getByRole("tab", { name: "유물" }).click();
     await expect(page.getByRole("heading", { name: "아리아드네의 실" })).toBeVisible();
   });
+});
+
+test("화면 낭독기 알림 영역은 처음부터 있고, role=status와 겹치는 aria-live를 쓰지 않습니다", async ({ page }) => {
+  await page.goto("/");
+  const region = page.locator("[data-announcer]");
+  await expect(region).toHaveCount(1);
+  await expect(region).toHaveAttribute("role", "status");
+  expect(await region.getAttribute("aria-live")).toBeNull();
 });
 
 test("도움말이 접근성 검사를 통과합니다 @mobile", async ({ page }) => {

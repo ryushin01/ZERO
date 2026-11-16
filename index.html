@@ -48,6 +48,8 @@
         <p>ZERO는 자바스크립트로 움직이는 게임입니다. 브라우저에서 자바스크립트를 켜 주세요.</p>
       </noscript>
     </main>
+    <!-- 화면 낭독기 알림. 처음부터 두고 내용만 바꿔야 첫 알림부터 읽어 줍니다(shared/lib/announce.js) -->
+    <div class="sr-only" role="status" data-announcer></div>
     <script type="module" src="/src/app/entrypoint/main.js"></script>
   </body>
 </html>

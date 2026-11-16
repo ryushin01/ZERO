@@ -2,7 +2,7 @@ import { CLASS_GROUPS, CLASSES, classesOf, describePassive, getClass } from "../
 import { ASPECTS, cardFace, getCard } from "#entities/card/index.js";
 import { canPlayDuel, endDuelTurn, isDuelUsable, playDuelCard, reveal, startDuel } from "../model/duel.js";
 import { STORAGE_KEYS } from "#shared/config/index.js";
-import { h, randomSeed, storage, withJosa } from "#shared/lib/index.js";
+import { h, randomSeed, storage, svg, withJosa } from "#shared/lib/index.js";
 
 import "./duel-page.css";
 
@@ -88,16 +88,33 @@ function setupView(ctx) {
           h("legend", { class: "serif" }, `플레이어 ${side + 1}`),
           h("label", { for: `duel-class-${side}` }, "클래스"),
           h(
-            "select",
-            { id: `duel-class-${side}`, "data-input": `class-${side}` },
-            Object.entries(CLASS_GROUPS).map(([group, info]) =>
-              h(
-                "optgroup",
-                { label: `${info.label} (${classesOf(/** @type {any} */ (group)).length})` },
-                classesOf(/** @type {any} */ (group)).map((cls) =>
-                  h("option", { value: cls.id, selected: chosen[side] === cls.id }, cls.name),
+            "span",
+            { class: "duel__select" },
+            h(
+              "select",
+              { id: `duel-class-${side}`, "data-input": `class-${side}` },
+              Object.entries(CLASS_GROUPS).map(([group, info]) =>
+                h(
+                  "optgroup",
+                  { label: `${info.label} (${classesOf(/** @type {any} */ (group)).length})` },
+                  classesOf(/** @type {any} */ (group)).map((cls) =>
+                    h("option", { value: cls.id, selected: chosen[side] === cls.id }, cls.name),
+                  ),
                 ),
               ),
+            ),
+            // 장식용 화살표. 브라우저 기본 화살표는 자리를 맞출 수 없어 직접 그리고, 누르면 선택 상자가 받게 합니다.
+            svg(
+              "svg",
+              {
+                class: "duel__select-icon",
+                viewBox: "0 0 12 12",
+                width: 12,
+                height: 12,
+                "aria-hidden": "true",
+                focusable: "false",
+              },
+              svg("path", { d: "M2 4.25 6 8.25 10 4.25", fill: "none", stroke: "currentColor", "stroke-width": 1.5 }),
             ),
           ),
           h(

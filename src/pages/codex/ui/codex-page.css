@@ -30,7 +30,8 @@
   border-color: var(--fg);
 }
 
-.chip[aria-pressed="true"] {
+.chip[aria-pressed="true"],
+.chip[aria-selected="true"] {
   background: var(--fg);
   border-color: var(--fg);
   color: var(--bg);

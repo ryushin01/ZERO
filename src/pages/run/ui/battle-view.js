@@ -288,14 +288,15 @@ export function battleView(ctx) {
       h(
         "div",
         { class: "player__turn" },
+        // 대상 고르기 안내는 공용 알림이 읽어 주므로 이 줄은 보이는 안내만 맡습니다. (role="status"를 또 두면 두 번 읽힘)
         selectedName
           ? h(
               "p",
-              { class: "player__hint", role: "status" },
+              { class: "player__hint" },
               `${selectedName}: 대상을 고르세요.`,
               h("button", { type: "button", class: "button button--quiet", "data-action": "cancel-target" }, "취소"),
             )
-          : h("p", { class: "player__hint", role: "status" }),
+          : h("p", { class: "player__hint" }),
         h(
           "button",
           { type: "button", class: "button button--solid player__end", "data-action": "end-turn", "data-end-turn": "" },

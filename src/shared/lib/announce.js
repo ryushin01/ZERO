@@ -1,16 +1,19 @@
 /**
- * 화면 낭독기에 알릴 말을 공용 라이브 영역으로 보냅니다.
- * 영역은 화면을 다시 그려도 남도록 body 바로 아래에 한 번만 만듭니다.
+ * 화면 낭독기에 알릴 말을 공용 라이브 영역(`role="status"`)으로 보냅니다.
+ * 영역은 index.html에 처음부터 두고 내용만 바꿉니다. 알릴 때 새로 만들면 일부 화면 낭독기가 첫 알림을 읽지 않습니다.
+ * `role="status"`가 이미 polite 라이브 영역이므로 aria-live를 또 적지 않습니다.
  */
 let region = /** @type {HTMLElement | null} */ (null);
 let timer = 0;
 
 function ensureRegion() {
   if (region?.isConnected) return region;
+  region = document.querySelector("[data-announcer]");
+  if (region) return region;
+  // index.html 밖(Storybook·테스트)에서는 처음 알릴 때 만듭니다.
   region = document.createElement("div");
   region.className = "sr-only";
   region.setAttribute("role", "status");
-  region.setAttribute("aria-live", "polite");
   region.dataset.announcer = "";
   document.body.append(region);
   return region;
