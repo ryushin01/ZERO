@@ -95,6 +95,12 @@ export function createStore() {
       storage.write(STORAGE_KEYS.settings, state.settings);
       emit();
     },
+    /** 기록을 통째로 바꿉니다. (기록 파일 불러오기) @param {import("#features/run/index.js").Records} records */
+    setRecords(records) {
+      state.records = records;
+      storage.write(STORAGE_KEYS.records, records);
+      emit();
+    },
     resetRecords() {
       state.records = emptyRecords();
       storage.remove(STORAGE_KEYS.records);

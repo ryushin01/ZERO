@@ -62,6 +62,7 @@ function makeContext(store, route, uiKey) {
     /** 여러 변경을 묶어 한 번만 다시 그립니다. @param {() => void} fn */
     batch: store.batch,
     setSettings: store.setSettings,
+    setRecords: store.setRecords,
     resetRecords: store.resetRecords,
     navigate,
     announce,

@@ -2,7 +2,7 @@ import { ASPECT_DOMAINS, ASPECTS, KEYWORDS } from "#entities/card/index.js";
 import { ARMAMENTS } from "#entities/armament/index.js";
 import { BATTLEFIELDS } from "#entities/battlefield/index.js";
 import { ARK_FIGURE_COUNT, FIGURES, PANTHEONS } from "#entities/figure/index.js";
-import { OBLIVION_MAX, OBLIVION_RULES } from "#features/run/index.js";
+import { dailyKey, OBLIVION_MAX, OBLIVION_RULES, readRecordsFile, recordsFile } from "#features/run/index.js";
 import { ARK_URL, CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
 
@@ -336,6 +336,26 @@ function view(ctx) {
       h(
         "p",
         { class: "guide__setting" },
+        h("button", { type: "button", class: "button", "data-action": "export-records" }, "기록 파일로 저장"),
+        h("button", { type: "button", class: "button", "data-action": "import-records" }, "기록 불러오기"),
+        // 파일 고르기 창은 위의 버튼이 엽니다. (보이지 않는 입력이라 초점을 받지 않음)
+        h("input", {
+          type: "file",
+          id: "records-file",
+          accept: "application/json,.json",
+          hidden: true,
+          "aria-label": "기록 파일",
+          "data-input": "records-file",
+        }),
+        h(
+          "span",
+          { class: "muted" },
+          "진행은 이 브라우저에만 저장됩니다. 기기를 바꾸거나 사이트 데이터를 지우기 전에 기록(서가 복원, 판 수, 망각 단계, 지난 판, 오늘의 신화)을 파일로 저장해 두고 새 브라우저에서 불러오세요. 진행 중인 판은 담지 않습니다.",
+        ),
+      ),
+      h(
+        "p",
+        { class: "guide__setting" },
         h("button", { type: "button", class: "button", "data-action": "reset-records" }, "기록 지우기"),
         h(
           "span",
@@ -371,6 +391,50 @@ export const guidePage = {
       ctx.setRun(null);
       ctx.resetRecords();
       ctx.announce("기록을 지웠습니다.");
+    },
+    "export-records": (ctx) => {
+      const text = JSON.stringify(recordsFile(ctx.records, ctx.settings), null, 2);
+      const url = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `zero-records-${dailyKey()}.json`;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      // 브라우저가 받기를 시작할 시간을 둔 뒤 주소를 거둡니다.
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      ctx.announce("기록을 파일로 저장했습니다.");
+    },
+    "import-records": () => {
+      /** @type {HTMLInputElement | null} */ (document.getElementById("records-file"))?.click();
+    },
+  },
+  inputs: {
+    "records-file": (ctx, el, event) => {
+      // 파일을 고르면 input과 change가 함께 오므로 change에서 한 번만 읽습니다.
+      if (event.type !== "change") return;
+      const file = el.files?.[0];
+      el.value = "";
+      if (!file) return;
+      const failed = () =>
+        ctx.announce(
+          "기록 파일을 읽지 못했습니다. ZERO의 ‘기록 파일로 저장’으로 만든 .json 파일인지 확인한 뒤 다시 불러와 주세요.",
+        );
+      file
+        .text()
+        .then((text) => {
+          const loaded = readRecordsFile(text);
+          if (!loaded) return failed();
+          const r = loaded.records;
+          const question = `지금 기록을 파일의 기록(${r.runs}판, 승리 ${r.wins}, 서가 복원 ${r.seen.length}명, 망각 ${r.oblivion}단계)으로 바꿉니다. 진행 중인 판은 그대로 둡니다. 계속할까요?`;
+          if (!window.confirm(question)) return;
+          ctx.batch(() => {
+            ctx.setRecords(r);
+            if (loaded.settings) ctx.setSettings(loaded.settings);
+          });
+          ctx.announce("기록을 불러왔습니다.");
+        })
+        .catch(failed);
     },
   },
 };

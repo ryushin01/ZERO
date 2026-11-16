@@ -1,6 +1,6 @@
 import { cardFace, getCard } from "#entities/card/index.js";
 import { getEnemy } from "#entities/enemy/index.js";
-import { FIGURES } from "#entities/figure/index.js";
+import { FIGURES, getPantheon } from "#entities/figure/index.js";
 import { getRelic } from "#entities/relic/index.js";
 import { dailyLabel, guideName, shareText, sortDeck } from "#features/run/index.js";
 import { h } from "#shared/lib/index.js";
@@ -8,6 +8,19 @@ import { h } from "#shared/lib/index.js";
 /** @typedef {import("#app/render/app.js").PageContext} Ctx */
 
 const SITE_URL = "https://zero-ryushin01.vercel.app/";
+
+/** 지난 판 한 줄 @param {import("#features/run/index.js").Records["history"][number]} past */
+const pastLine = (past) =>
+  [
+    dailyLabel(past.at),
+    getPantheon(past.guide)?.name ?? "",
+    past.won ? "승리" : `${past.act}장에서 쓰러짐`,
+    `${past.floors}칸`,
+    past.oblivion ? `망각 ${past.oblivion}단계` : "",
+    past.daily ? "오늘의 신화" : "",
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
 /** 판마다 다른 값. 복사 표시가 다음 판으로 넘어가지 않게 씁니다. @param {NonNullable<Ctx["run"]>} run */
 const runKey = (run) => `${run.seed}:${run.path.length}:${run.daily ?? ""}`;
@@ -76,6 +89,16 @@ export function endView(ctx) {
       { class: "end__copied label", role: "status" },
       ctx.ui.copiedRun === runKey(run) ? "결과를 복사했습니다." : "",
     ),
+    ctx.records.history.length
+      ? [
+          h("h2", { class: "label muted end__deck-title", id: "end-history" }, `지난 판 ${ctx.records.history.length}`),
+          h(
+            "ol",
+            { class: "end__history", "aria-labelledby": "end-history" },
+            ctx.records.history.map((past, index) => h("li", { "data-key": `past-${index}` }, pastLine(past))),
+          ),
+        ]
+      : null,
     discovered.length
       ? [
           h("h2", { class: "label muted end__deck-title" }, `이번 판에 새로 복원한 신 ${discovered.length}명`),

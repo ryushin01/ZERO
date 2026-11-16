@@ -447,6 +447,44 @@ test("화면 낭독기 알림 영역은 처음부터 있고, role=status와 겹�
   expect(await region.getAttribute("aria-live")).toBeNull();
 });
 
+test("기록을 파일로 저장하고, 새 브라우저에서 불러옵니다", async ({ page, browser }) => {
+  await page.goto("/#/guide");
+  await page.evaluate(() =>
+    localStorage.setItem(
+      "zero:records",
+      JSON.stringify({ runs: 5, wins: 2, bestFloor: 20, seen: ["zeus", "odin", "thor"], daily: {}, oblivion: 2 }),
+    ),
+  );
+  await page.reload();
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "기록 파일로 저장" }).click();
+  const file = await (await download).path();
+  await expect(page.locator("[data-announcer]")).toContainText("기록을 파일로 저장했습니다.");
+
+  // 기록이 없는 새 브라우저에서 불러옵니다.
+  const fresh = await browser.newContext();
+  const other = await fresh.newPage();
+  await other.goto("/#/guide");
+  await expect(other.getByText(/지금까지 0판/)).toBeVisible();
+  other.once("dialog", (dialog) => dialog.accept());
+  const chooser = other.waitForEvent("filechooser");
+  await other.getByRole("button", { name: "기록 불러오기" }).click();
+  await (await chooser).setFiles(file);
+  await expect(other.locator("[data-announcer]")).toContainText("기록을 불러왔습니다.");
+  await expect(other.getByText(/지금까지 5판, 승리 2, 서가 복원 3명/)).toBeVisible();
+  expect(await other.evaluate(() => JSON.parse(localStorage.getItem("zero:records") ?? "{}").oblivion)).toBe(2);
+  await fresh.close();
+});
+
+test("홈 화면에 설치할 수 있는 매니페스트와 아이콘이 있습니다", async ({ page, request }) => {
+  await page.goto("/");
+  const href = await page.locator("link[rel='manifest']").getAttribute("href");
+  const manifest = await (await request.get(href ?? "")).json();
+  expect(manifest).toMatchObject({ short_name: "ZERO", display: "standalone", start_url: "/", lang: "ko" });
+  for (const icon of manifest.icons) expect((await request.get(icon.src)).ok()).toBe(true);
+  expect(manifest.icons.map((icon) => icon.sizes)).toEqual(expect.arrayContaining(["192x192", "512x512"]));
+});
+
 test("도움말이 접근성 검사를 통과합니다 @mobile", async ({ page }) => {
   await page.goto("/#/guide");
   await expect(page.getByRole("heading", { level: 1, name: "도움말" })).toBeVisible();
