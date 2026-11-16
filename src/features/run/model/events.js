@@ -1,3 +1,7 @@
+import { ARMAMENT_SLOTS, ARMAMENTS, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
+import { getCard } from "#entities/card/index.js";
+import { withJosa } from "#shared/lib/index.js";
+
 /**
  * 지도 위 '사건' 칸에서 만나는 신화 속 장소들.
  * 장소마다 Ark의 신 한 명을 그림과 함께 보여 주어, 카드 밖에서도 세계관이 이어지게 합니다.
@@ -19,6 +23,13 @@
 const loseHp = (run, amount) => {
   run.hp = Math.max(1, run.hp - amount);
 };
+
+/** 기본 카드(필봉·서가)인지 @param {{ id: string }} card */
+const isBasic = (card) => card.id === "quill" || card.id === "shelf";
+
+/** 무구 자리(3점)에 빈 곳이 있는지. 히든 무구는 자리와 따로 듭니다. @param {Run} run */
+const hasArmSlot = (run) =>
+  run.armaments.filter((id) => !HIDDEN_ARMAMENTS.some((a) => a.id === id)).length < ARMAMENT_SLOTS;
 
 /** @param {Run} run @param {string} title @param {import("./run.js").Reward["cards"]} cards */
 const offerCards = (run, title, cards) => {
@@ -185,6 +196,90 @@ export const EVENTS = [
           run.hp += 5;
         },
       },
+    ],
+  },
+  {
+    id: "inanna",
+    title: "이난나의 일곱 문",
+    en: "THE SEVEN GATES OF INANNA",
+    figure: "ishtar",
+    text: [
+      "하늘의 여왕 이난나(이슈타르)는 언니 에레쉬키갈이 다스리는 저승으로 내려가며, 일곱 문을 지날 때마다 왕관과 장신구를 하나씩 내려놓았습니다.",
+      "가진 것을 내려놓은 자만이 저승에서 돌아옵니다.",
+    ],
+    choices: [
+      {
+        id: "descend",
+        label: "일곱 문을 지난다 · 체력의 절반을 잃고 덱의 기본 카드를 모두 강화",
+        result: "저승에서 돌아오자 기본 카드가 모두 단단해졌습니다.",
+        available: (run) => run.hp > 10 && run.deck.some((c) => isBasic(c) && !c.up),
+        apply(run) {
+          loseHp(run, Math.floor(run.hp / 2));
+          run.deck = run.deck.map((c) => (isBasic(c) ? { ...c, up: true } : c));
+        },
+      },
+      leave,
+    ],
+  },
+  {
+    id: "houyi",
+    title: "후예의 활",
+    en: "THE BOW OF HOU YI",
+    figure: "hou-yi",
+    text: [
+      "하늘에 해가 열 개 떠올라 땅이 타들어 가자, 명궁 후예는 아홉 개의 해를 쏘아 떨어뜨렸습니다.",
+      "그 활이 아직 붉게 달아오른 채 바위에 기대어 있습니다.",
+    ],
+    choices: [
+      {
+        id: "bow",
+        label: "활을 든다 · 무구 후예의 활 얻기 (이미 있으면 다른 무구)",
+        result: "",
+        available: (run) => hasArmSlot(run) && ARMAMENTS.some((a) => !run.armaments.includes(a.id)),
+        apply(run, { roll }) {
+          const unowned = ARMAMENTS.filter((a) => !run.armaments.includes(a.id));
+          const arm = unowned.find((a) => a.id === "yi-bow") ?? roll((rng) => rng.pick(unowned));
+          run.armaments.push(arm.id);
+          run.notice = `무구 ${withJosa(arm.name, "을/를")} 얻었습니다.`;
+        },
+      },
+      {
+        id: "sun",
+        label: "남은 해 아래에서 쉰다 · 체력 15 회복",
+        result: "남은 해 하나가 몸을 데워 줍니다.",
+        apply(run) {
+          run.hp = Math.min(run.maxHp, run.hp + 15);
+        },
+      },
+    ],
+  },
+  {
+    id: "maui",
+    title: "마우이의 낚싯바늘",
+    en: "THE HOOK OF MAUI",
+    figure: "maui",
+    text: [
+      "꾀 많은 반신 마우이는 할머니의 턱뼈로 만든 낚싯바늘로 바다 밑에서 섬을 끌어 올렸습니다.",
+      "바늘을 드리우면 바다는 무엇이든 다른 것으로 바꾸어 돌려줍니다.",
+    ],
+    choices: [
+      {
+        id: "fish",
+        label: "바늘을 드리운다 · 체력 5를 잃고 기본 카드 1장을 무작위 신·영웅 카드로 바꾸기",
+        result: "",
+        available: (run) => run.deck.some(isBasic),
+        apply(run, { roll, makeCard, rollCards }) {
+          const [id] = rollCards("elite", { count: 1 });
+          if (!id) return;
+          loseHp(run, 5);
+          const basics = run.deck.filter(isBasic);
+          const lost = roll((rng) => rng.pick(basics));
+          const caught = makeCard(id);
+          run.deck = run.deck.map((c) => (c.uid === lost.uid ? caught : c));
+          run.notice = `${getCard(lost.id).name} 한 장이 바다에서 ${withJosa(getCard(id).name, "으로/로")} 바뀌어 올라왔습니다.`;
+        },
+      },
+      leave,
     ],
   },
   {
