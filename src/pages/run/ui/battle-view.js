@@ -1,4 +1,4 @@
-import { armamentArt, getArmament, isOncePerBattle } from "#entities/armament/index.js";
+import { armamentArt, describeArmEffectShort, getArmament, isOncePerBattle } from "#entities/armament/index.js";
 import { describeField } from "#entities/battlefield/index.js";
 import { cardFace, getCard } from "#entities/card/index.js";
 import { describeAction, enemyArt, getEnemy, intentKind, isNemesis } from "#entities/enemy/index.js";
@@ -272,11 +272,7 @@ export function battleView(ctx) {
                         slot.cd > 0 && isOncePerBattle(arm) ? "다 씀 · " : slot.cd > 0 ? `${slot.cd}턴 뒤 · ` : "",
                         `에너지 ${arm.cost}`,
                       ),
-                      h(
-                        "span",
-                        { class: "arm__effect" },
-                        effects.map((e) => (e.op === "cleanse" ? "정화" : describeEffectShort(e))).join(", "),
-                      ),
+                      h("span", { class: "arm__effect" }, effects.map(describeArmEffectShort).join(", ")),
                       withOwner ? h("span", { class: "arm__owner label" }, `${arm.owner}과 함께`) : null,
                     ),
                   ),
@@ -358,23 +354,6 @@ export function battleView(ctx) {
       ),
     ),
   );
-}
-
-/** 무구 버튼의 짧은 효과 글 @param {any} e */
-function describeEffectShort(e) {
-  const map = {
-    damage: "피해",
-    block: "방어",
-    draw: "뽑기",
-    heal: "회복",
-    energy: "에너지",
-    strength: "힘",
-    erosion: "침식",
-    vulnerable: "취약",
-    weak: "약화",
-  };
-  const times = (e.times ?? 1) > 1 ? `×${e.times}` : "";
-  return `${e.all ? "전체 " : ""}${map[e.op] ?? e.op} ${e.value}${times}${e.pierce ? " 관통" : ""}`;
 }
 
 /** 카드를 낸 뒤 초점을 옆 카드나 턴 끝내기 버튼으로 옮깁니다. @param {number} index */

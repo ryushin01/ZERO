@@ -116,6 +116,8 @@ export function createApp({ header, main }) {
     const nodes = Array.isArray(view) ? view : [view];
     if (screen !== lastScreen) {
       const first = lastScreen === "";
+      // 판의 화면(지도·전투·보상 등)은 떠나면 다시 쓰지 않으므로 그 임시 상태를 지웁니다. 도감 거르기처럼 주소별 상태는 남깁니다.
+      if (lastScreen.startsWith("run:")) store.dropUi(lastScreen);
       lastScreen = screen;
       if (typeof cleanup === "function") cleanup();
       closeDialogs();
