@@ -196,6 +196,38 @@ export const ENEMIES = [
     },
   },
   {
+    id: "basilisk",
+    name: "바실리스크",
+    nameEn: "Basilisk",
+    origin: "유럽 전설",
+    lore: "수탉의 알에서 깨어났다는 뱀들의 작은 왕. 눈길만으로 생명을 앗고, 지나간 자리는 풀이 시든다고 했습니다.",
+    tier: "elite",
+    act: 1,
+    hp: [70, 75],
+    order: "cycle",
+    intents: [
+      {
+        name: "죽음의 눈길",
+        actions: [
+          { op: "vulnerable", value: 2 },
+          { op: "weak", value: 1 },
+        ],
+      },
+      {
+        name: "독 숨결",
+        actions: [
+          { op: "erosion", value: 4 },
+          { op: "attack", value: 5 },
+        ],
+      },
+      { name: "물기", actions: [{ op: "attack", value: 13 }] },
+    ],
+    nemesis: {
+      domains: ["태양"],
+      note: "제 눈길을 되비추는 햇빛과 거울 앞에서는 바실리스크도 쓰러진다고 전합니다.",
+    },
+  },
+  {
     id: "hydra",
     name: "히드라",
     nameEn: "Hydra",
@@ -224,6 +256,46 @@ export const ENEMIES = [
       },
     ],
     nemesis: { figures: ["heracles"], note: "헤라클레스의 열두 과업 가운데 두 번째가 히드라 퇴치였습니다." },
+  },
+
+  {
+    id: "humbaba",
+    name: "훔바바",
+    nameEn: "Humbaba",
+    origin: "메소포타미아 신화",
+    lore: "「길가메시 서사시」에서 신들의 삼나무 숲을 지키던 괴물. 포효는 홍수요, 입은 불이요, 숨결은 죽음이라 했습니다.",
+    tier: "boss",
+    act: 1,
+    hp: [130, 130],
+    order: "cycle",
+    intents: [
+      {
+        name: "홍수 같은 포효",
+        actions: [
+          { op: "weak", value: 2 },
+          { op: "attack", value: 6 },
+        ],
+      },
+      { name: "불의 입", actions: [{ op: "attack", value: 8, times: 2 }] },
+      {
+        name: "일곱 겹 광휘",
+        actions: [
+          { op: "block", value: 16 },
+          { op: "strength", value: 2 },
+        ],
+      },
+      {
+        name: "죽음의 숨결",
+        actions: [
+          { op: "erosion", value: 4 },
+          { op: "attack", value: 6 },
+        ],
+      },
+    ],
+    nemesis: {
+      figures: ["gilgamesh", "enkidu"],
+      note: "길가메시와 엔키두는 삼나무 숲에 들어가 훔바바를 쓰러뜨렸습니다.",
+    },
   },
 
   // 2장 · 모래와 강
@@ -428,6 +500,35 @@ export const ENEMIES = [
     nemesis: { figures: ["ra", "set"], note: "세트는 라의 태양 배 앞머리에서 아포피스를 찔렀습니다." },
   },
 
+  {
+    id: "orochi",
+    name: "야마타노오로치",
+    nameEn: "Yamata no Orochi",
+    origin: "일본 신화",
+    lore: "이즈모 히이강의 머리 여덟, 꼬리 여덟 달린 큰 뱀. 몸이 여덟 골짜기와 여덟 봉우리에 걸칠 만큼 컸다고 합니다.",
+    tier: "boss",
+    act: 2,
+    hp: [200, 200],
+    heads: 8,
+    order: "cycle",
+    intents: [
+      { name: "여덟 머리 물기", actions: [{ op: "attack", value: 2, times: "heads" }] },
+      {
+        name: "여덟 골짜기 휘감기",
+        actions: [
+          { op: "block", value: 18 },
+          { op: "weak", value: 2 },
+        ],
+      },
+      { name: "독 비늘", actions: [{ op: "erosion", value: 4 }] },
+      { name: "꼬리 속의 검", actions: [{ op: "attack", value: 18 }] },
+    ],
+    nemesis: {
+      figures: ["susanoo"],
+      note: "스사노오는 술에 취한 여덟 머리를 베고, 꼬리에서 쿠사나기 검을 얻었습니다.",
+    },
+  },
+
   // 3장 · 세계의 끝
   {
     id: "jotunn",
@@ -555,6 +656,45 @@ export const ENEMIES = [
     nemesis: { figures: ["tyr", "odin"], note: "티르는 펜리르를 묶으려고 오른손을 내주었습니다." },
   },
   {
+    id: "zahhak",
+    name: "자하크",
+    nameEn: "Zahhak",
+    origin: "페르시아 서사시 「샤나메」",
+    lore: "악마의 입맞춤으로 양어깨에 뱀이 돋은 폭군. 뱀에게 날마다 사람의 뇌를 먹이며 천 년을 다스렸다고 합니다.",
+    tier: "elite",
+    act: 3,
+    hp: [160, 165],
+    order: "cycle",
+    intents: [
+      { name: "어깨의 두 뱀", actions: [{ op: "attack", value: 9, times: 2 }] },
+      {
+        name: "뇌를 먹는 뱀",
+        actions: [
+          { op: "erosion", value: 5 },
+          { op: "heal", value: 10 },
+        ],
+      },
+      {
+        name: "천 년의 폭정",
+        actions: [
+          { op: "strength", value: 2 },
+          { op: "block", value: 14 },
+        ],
+      },
+      {
+        name: "공포의 통치",
+        actions: [
+          { op: "weak", value: 2 },
+          { op: "attack", value: 12 },
+        ],
+      },
+    ],
+    nemesis: {
+      figures: ["fereydun", "kaveh"],
+      note: "대장장이 카베가 일으킨 반란 끝에 페레이둔이 소머리 철퇴로 자하크를 쓰러뜨려 다마반드산에 묶었습니다.",
+    },
+  },
+  {
     id: "zero",
     name: "영(零)",
     nameEn: "Zero",
@@ -601,7 +741,10 @@ export function getEnemy(id) {
   return enemy;
 }
 
-/** 장마다 나오는 적 무리 */
+/**
+ * 장마다 나오는 적 무리. 보스는 후보 가운데 하나를 판의 시드로 고릅니다(같은 오늘의 신화는 같은 보스).
+ * @type {Record<1 | 2 | 3, { easy: string[][], normal: string[][], elite: string[][], boss: string[][] }>}
+ */
 export const ENCOUNTERS = {
   1: {
     easy: [["kappa"], ["draugr"], ["harpy"]],
@@ -614,20 +757,20 @@ export const ENCOUNTERS = {
       ["grendel"],
       ["cyclops"],
     ],
-    elite: [["minotaur"]],
-    boss: ["hydra"],
+    elite: [["minotaur"], ["basilisk"]],
+    boss: [["hydra"], ["humbaba"]],
   },
   2: {
     easy: [["rakshasa"], ["gumiho"]],
     normal: [["oni"], ["rakshasa", "rakshasa"], ["gumiho"], ["girtablullu"], ["rakshasa", "gumiho"]],
     elite: [["ammit"], ["fafnir"]],
-    boss: ["apep"],
+    boss: [["apep"], ["orochi"]],
   },
   3: {
     easy: [["tzitzimitl"], ["rahu"]],
     normal: [["jotunn"], ["tzitzimitl", "tzitzimitl"], ["rahu"], ["imugi"], ["jotunn", "tzitzimitl"]],
-    elite: [["fenrir"]],
-    boss: ["zero"],
+    elite: [["fenrir"], ["zahhak"]],
+    boss: [["zero"]],
   },
 };
 

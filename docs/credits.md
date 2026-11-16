@@ -4,7 +4,7 @@ ZERO가 쓰는 외부 자료의 전체 목록입니다. 화면에는 출처를 �
 
 > 이 파일은 `pnpm credits`가 데이터에서 만듭니다. 직접 고치지 말고 데이터를 고친 뒤 다시 만드세요.
 
-## 카드·괴물·전장·무구 그림 (415점)
+## 카드·괴물·전장·무구 그림 (419점)
 
 게임 화면의 그림입니다. 그 신화를 그린 옛 회화·판화·삽화와 박물관 소장품을 Wikimedia Commons에서 골라 `pnpm illustrations`로 받아 줄였습니다(`scripts/illustrations/picks.json`). CC BY-SA 그림을 줄인 파일은 같은 라이선스를 따릅니다.
 
@@ -353,6 +353,10 @@ ZERO가 쓰는 외부 자료의 전체 목록입니다. 화면에는 출처를 �
 | 괴물 이무기 | Dragon Amid Clouds | anonymous | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Unknown_(Korean)_-_Dragon_Amid_Clouds_-_2015.4_-_Detroit_Institute_of_Arts.jpg) |
 | 괴물 펜리르 | Fenrir binded (1909) | Mabel Dorothy Hardy | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fenrir_binded.png) |
 | 괴물 영(零) | Eye-Balloon (Œil-ballon) (1878) | Odilon Redon | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Redon_-_Eye-Balloon_(%C5%92il-ballon)_1878.jpg) |
+| 괴물 바실리스크 | Basilisk Supporting the Arms of the city of Basel (1511) | Master D.S. of Basel | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Basilisk_Supporting_the_Arms_of_the_city_of_Basel_MET_DP822264.jpg) |
+| 괴물 훔바바 | Masque du démon Humbaba - Musée du Louvre Antiquités orientales SB 6567 (2023-08-28) | Shonagon | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Masque_du_d%C3%A9mon_Humbaba_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_orientales_SB_6567.jpg) |
+| 괴물 야마타노오로치 | Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi (1887) | Yoshitoshi | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi.png) |
+| 괴물 자하크 | Zahhak Enthroned (LTS1995.2.70) (between 1576 and 1577) | Mir Zayn al-Abidin | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Zahhak_Enthroned_(LTS1995.2.70).jpg) |
 | 전장 아발론 | The Last Sleep of Arthur in Avalon (from 1881 until 1898) | Edward Burne-Jones | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Burne-Jones_Last_Sleep_of_Arthur_in_Avalon_v2.jpg) |
 | 전장 카멜롯 | The Road to Camelot (1898) | George Henry Boughton | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:George_Henry_Boughton_(1833-1905)_-_The_Road_to_Camelot_-_WAG_3073_-_Walker_Art_Gallery.jpg) |
 | 전장 아틀란티스 | Atlantis Kircher Mundus subterraneus 1678 (1664) | Athanasius Kircher | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Atlantis_Kircher_Mundus_subterraneus_1678.jpg) |

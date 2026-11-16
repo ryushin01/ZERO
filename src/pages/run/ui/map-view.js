@@ -5,8 +5,9 @@ import { getPantheon } from "#entities/figure/index.js";
 import { describePerk, factionStatus, TIERS } from "#entities/faction/index.js";
 import { ACT_INFO, LANES, NODE_INFO, reachableNodes } from "#entities/map/index.js";
 import { getRelic } from "#entities/relic/index.js";
-import { currentField, enterNode, guideName, openGear } from "#features/run/index.js";
-import { h } from "#shared/lib/index.js";
+import { getEnemy } from "#entities/enemy/index.js";
+import { bossFor, currentField, enterNode, guideName, openGear } from "#features/run/index.js";
+import { h, withJosa } from "#shared/lib/index.js";
 
 import "./map-view.css";
 
@@ -70,6 +71,9 @@ export function mapView(ctx) {
   const path = new Set(run.path);
   const currentId = run.path[run.path.length - 1];
   const field = currentField(run);
+  const boss = bossFor(run.seed, run.act)
+    .map((id) => getEnemy(id).name)
+    .join(", ");
 
   return h(
     "section",
@@ -79,7 +83,11 @@ export function mapView(ctx) {
       { class: "page-head" },
       h("p", { class: "display", lang: "en" }, act.en),
       h("h1", null, `${run.act}장 · ${act.title}`),
-      h("p", null, "갈 수 있는 칸을 골라 나아가세요. 마지막 칸에서 이 장의 보스가 기다립니다."),
+      h(
+        "p",
+        null,
+        `갈 수 있는 칸을 골라 나아가세요. 마지막 칸에서 이 장의 보스 ${withJosa(boss, "이/가")} 기다립니다.`,
+      ),
     ),
     h(
       "section",

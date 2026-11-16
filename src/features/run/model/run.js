@@ -205,6 +205,15 @@ export function equipPartner(prev, uid, partnerUid) {
 export const currentField = (run) => getBattlefield((run.fields ?? fieldsFor(run.seed))[run.act]);
 
 /**
+ * 장의 보스 무리. 후보 가운데 판의 시드로 고르므로 같은 시드(오늘의 신화)는 같은 보스를 만나고,
+ * 판의 난수(run.rng)를 쓰지 않아 다른 선택이 보스를 바꾸지 않습니다.
+ * @param {number} seed @param {1 | 2 | 3} act @returns {string[]}
+ */
+export function bossFor(seed, act) {
+  return createRng(seed ^ (act * 0x27d4eb2d) ^ 0x165667b1).pick(ENCOUNTERS[act].boss);
+}
+
+/**
  * 전투에 넘길 전장 정보
  * @param {import("#entities/battlefield/index.js").Battlefield} field @param {string} [name]
  * @returns {import("./combat.js").Field}
@@ -282,7 +291,7 @@ export function enterNode(prev, nodeId) {
       break;
     }
     case "boss":
-      beginBattle(run, ENCOUNTERS[run.act].boss, "boss");
+      beginBattle(run, bossFor(run.seed, run.act), "boss");
       break;
     case "rest":
       run.phase = "rest";
