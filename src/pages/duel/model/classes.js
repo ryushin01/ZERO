@@ -182,6 +182,9 @@ export const CLASSES = ROWS.map(([id, name, en, group, passive, value, aspects, 
 
 const BY_ID = new Map(CLASSES.map((c) => [c.id, c]));
 
+/** 지금 있는 클래스인지. 저장된 듀얼을 확인할 때 씁니다. @param {unknown} id */
+export const hasClass = (id) => typeof id === "string" && BY_ID.has(id);
+
 /** @param {string} id */
 export function getClass(id) {
   const found = BY_ID.get(id);

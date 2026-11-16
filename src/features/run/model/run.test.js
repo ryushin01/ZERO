@@ -49,6 +49,14 @@ describe("createRun", () => {
   });
 });
 
+/** 저장된 전투의 사서 상태 */
+const player = () => ({
+  hp: 50,
+  maxHp: 72,
+  block: 0,
+  statuses: { strength: 0, weak: 0, vulnerable: 0, erosion: 0, eclipse: 0, foundation: 0 },
+});
+
 describe("migrateRun", () => {
   it("0.2.0 저장을 옮기고, 무기였던 유물은 무구로 바꿉니다", () => {
     const old = { ...createRun({ seed: 9, guide: "greek" }), version: 1, relics: ["aegis", "ankh"] };
@@ -61,7 +69,7 @@ describe("migrateRun", () => {
       cardTaken: false,
       relicTaken: false,
     };
-    old.combat = { relics: ["aegis", "ankh"], hand: [], enemies: [] };
+    old.combat = { relics: ["aegis", "ankh"], hand: [], enemies: [], player: player() };
     const run = migrateRun(old);
     expect(run.version).toBe(2);
     expect(run.relics).toEqual(["ankh"]);
@@ -97,9 +105,80 @@ describe("migrateRun", () => {
     expect(migrateRun({ ...run, deck: [{ ...first, gear: { partner } }, ...rest] })).toBeNull();
   });
 
+  it("지금은 없는 적·사건·전장을 가리키거나 지도·단계가 어긋난 판은 버립니다", () => {
+    const run = createRun({ seed: 3, guide: "norse" });
+    const battle = enterNode(run, run.map.rows[0][0].id);
+    expect(battle.phase).toBe("battle");
+    expect(migrateRun(structuredClone(battle))).not.toBeNull();
+
+    const removedEnemy = structuredClone(battle);
+    removedEnemy.combat.enemies[0].id = "removed-enemy";
+    expect(migrateRun(removedEnemy)).toBeNull();
+    const badIntent = structuredClone(battle);
+    badIntent.combat.enemies[0].intent = 99;
+    expect(migrateRun(badIntent)).toBeNull();
+    expect(migrateRun({ ...structuredClone(battle), combat: null })).toBeNull();
+
+    expect(migrateRun({ ...run, phase: "event", event: "removed-event" })).toBeNull();
+    expect(migrateRun({ ...run, phase: "event", event: null })).toBeNull();
+    expect(migrateRun({ ...run, phase: "event", event: "oracle" })).not.toBeNull();
+    expect(migrateRun({ ...run, fields: { ...run.fields, 2: "removed-field" } })).toBeNull();
+    expect(migrateRun({ ...run, rift: { field: "removed-field" } })).toBeNull();
+    expect(migrateRun({ ...run, phase: "lobby" })).toBeNull();
+    expect(migrateRun({ ...run, act: 4 })).toBeNull();
+    expect(migrateRun({ ...run, phase: "reward", reward: null })).toBeNull();
+    expect(migrateRun({ ...run, phase: "pick", pick: null })).toBeNull();
+
+    const badNode = structuredClone(run);
+    badNode.map.rows[2][1].type = "removed-node";
+    expect(migrateRun(badNode)).toBeNull();
+    expect(migrateRun({ ...run, position: { row: 30, lane: 1 } })).toBeNull();
+
+    expect(migrateRun({ ...run, stats: { ...run.stats, defeatedBy: "harpy,removed-enemy" } })).toBeNull();
+    expect(migrateRun({ ...run, discovered: ["removed-card"] })).toBeNull();
+  });
+
+  it("손으로 고쳤거나 깨진 저장(지도 연결, 적·사서의 상태 값, 고르기 다음 단계)도 버립니다", () => {
+    const run = createRun({ seed: 3, guide: "norse" });
+    const battle = enterNode(run, run.map.rows[0][0].id);
+
+    const deadEnd = structuredClone(run);
+    deadEnd.map.rows[3][0].next = [99];
+    expect(migrateRun(deadEnd)).toBeNull();
+    const noWay = structuredClone(run);
+    noWay.map.rows[3][0].next = [];
+    expect(migrateRun(noWay)).toBeNull();
+
+    const enemyStatuses = structuredClone(battle);
+    enemyStatuses.combat.enemies[0].statuses = {};
+    expect(migrateRun(enemyStatuses)).toBeNull();
+    const noPlayer = structuredClone(battle);
+    delete noPlayer.combat.player;
+    expect(migrateRun(noPlayer)).toBeNull();
+    const playerStatuses = structuredClone(battle);
+    playerStatuses.combat.player.statuses.foundation = "1";
+    expect(migrateRun(playerStatuses)).toBeNull();
+
+    const pick = { purpose: "upgrade", count: 1, title: "", then: "map" };
+    expect(migrateRun({ ...run, phase: "pick", pick })).not.toBeNull();
+    expect(migrateRun({ ...run, phase: "pick", pick: { ...pick, then: "lobby" } })).toBeNull();
+    expect(migrateRun({ ...run, phase: "pick", pick: { ...pick, purpose: "burn" } })).toBeNull();
+    expect(migrateRun({ ...run, phase: "pick", pick: { ...pick, then: "battle" } })).toBeNull();
+
+    const emptyFirst = structuredClone(run);
+    emptyFirst.map.rows[0] = [];
+    expect(migrateRun(emptyFirst)).toBeNull();
+    const wrongRow = structuredClone(run);
+    wrongRow.map.rows[2][0].row = 5;
+    expect(migrateRun(wrongRow)).toBeNull();
+  });
+
   it("옛 저장에 빠진 전투 더미는 빈 더미로 채웁니다", () => {
     const run = createRun({ seed: 3, guide: "norse" });
-    const saved = migrateRun({ ...run, combat: { hand: [], enemies: [], relics: [], armaments: [] } });
+    const saved = migrateRun({
+      ...run,
+      combat: { hand: [], enemies: [], relics: [], armaments: [], player: player() },
+    });
     expect(saved?.combat).toMatchObject({ draw: [], discard: [], exhaust: [], powers: [] });
   });
 });

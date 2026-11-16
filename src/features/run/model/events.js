@@ -249,6 +249,9 @@ export const HIDDEN_EVENT_CHANCE = 0.08;
 
 const BY_ID = new Map([...EVENTS, HIDDEN_EVENT].map((e) => [e.id, e]));
 
+/** 지금 있는 사건인지. 저장된 판이 가리키는 사건을 확인할 때 씁니다. @param {unknown} id */
+export const hasEvent = (id) => typeof id === "string" && BY_ID.has(id);
+
 /** @param {string} id */
 export function getEvent(id) {
   const event = BY_ID.get(id);

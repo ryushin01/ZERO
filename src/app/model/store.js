@@ -22,11 +22,21 @@ export function createStore() {
   const listeners = new Set();
   const emit = () => listeners.forEach((fn) => fn());
 
-  // 다른 탭에서 기록이 바뀌면 이 탭의 도감과 결과에도 반영합니다.
+  // 다른 탭에서 판·기록·설정·듀얼이 바뀌면 이 탭도 같은 값으로 다시 그립니다.
+  // 그러지 않으면 두 탭에서 이어 할 때 늦게 저장한 탭이 다른 탭의 진행을 덮어씁니다.
+  // (key가 null이면 다른 탭이 저장소를 통째로 비운 것입니다)
   if (typeof window !== "undefined") {
     window.addEventListener("storage", (event) => {
-      if (event.key !== STORAGE_KEYS.records) return;
-      state.records = normalizeRecords(storage.read(STORAGE_KEYS.records, null));
+      const all = event.key === null;
+      if (!all && !Object.values(STORAGE_KEYS).includes(event.key)) return;
+      if (all || event.key === STORAGE_KEYS.records)
+        state.records = normalizeRecords(storage.read(STORAGE_KEYS.records, null));
+      if (all || event.key === STORAGE_KEYS.run) state.run = migrateRun(storage.read(STORAGE_KEYS.run, null));
+      if (all || event.key === STORAGE_KEYS.settings)
+        state.settings = { motion: prefersReduced ? "off" : "on", ...storage.read(STORAGE_KEYS.settings, {}) };
+      // 듀얼은 저장해 둔 것을 다시 읽게 합니다. 손을 펼친 차례였더라도 넘기기 화면부터 보여 줍니다.
+      if ((all || event.key === STORAGE_KEYS.duel) && state.ui.duel)
+        state.ui.duel = { ...state.ui.duel, duel: undefined };
       emit();
     });
   }

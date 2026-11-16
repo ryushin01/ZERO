@@ -8,6 +8,7 @@ export {
   battlefieldsOf,
   describeField,
   getBattlefield,
+  hasBattlefield,
   REALMS,
   realmOfAct,
   TERRAIN_RATE,

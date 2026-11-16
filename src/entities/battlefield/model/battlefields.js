@@ -397,6 +397,9 @@ export function getBattlefield(id) {
   return field;
 }
 
+/** 지금 있는 전장인지. 저장된 판이 가리키는 전장을 확인할 때 씁니다. @param {unknown} id */
+export const hasBattlefield = (id) => typeof id === "string" && BY_ID.has(id);
+
 /** 그 영역의 전장들 @param {Realm} realm */
 export const battlefieldsOf = (realm) => BATTLEFIELDS.filter((b) => b.realm === realm);
 

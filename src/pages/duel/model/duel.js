@@ -1,4 +1,4 @@
-import { DUEL_HP, getClass } from "./classes.js";
+import { DUEL_HP, getClass, hasClass } from "./classes.js";
 import { FIGURE_CARDS, getCard, hasCard } from "#entities/card/index.js";
 import { MAX_HAND } from "#shared/config/index.js";
 import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
@@ -348,11 +348,15 @@ const STATUS_KEYS = /** @type {const} */ (["strength", "weak", "vulnerable", "er
  */
 export function isDuelUsable(saved) {
   if (!saved || typeof saved !== "object" || !Array.isArray(saved.players) || saved.players.length !== 2) return false;
+  // 차례·단계가 맞지 않으면 화면이 없는 플레이어나 승자를 그리려다 멈춥니다.
+  if (![0, 1].includes(saved.active) || !["handoff", "play", "over"].includes(saved.phase)) return false;
+  if (saved.phase === "over" && ![0, 1].includes(saved.winner)) return false;
   const pile = (/** @type {unknown} */ list) =>
     Array.isArray(list) && list.every((c) => c && typeof c.id === "string" && hasCard(c.id));
   return saved.players.every(
     (/** @type {any} */ p) =>
       p &&
+      hasClass(p.classId) &&
       Number.isFinite(p.hp) &&
       typeof p.statuses === "object" &&
       p.statuses !== null &&

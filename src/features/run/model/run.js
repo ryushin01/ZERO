@@ -1,16 +1,16 @@
 import { ARMAMENT_SLOTS, ARMAMENTS, hasArmament, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
-import { BATTLEFIELDS, battlefieldsOf, getBattlefield } from "#entities/battlefield/index.js";
+import { BATTLEFIELDS, battlefieldsOf, getBattlefield, hasBattlefield } from "#entities/battlefield/index.js";
 import { partnerOf } from "#entities/bond/index.js";
 import { FIGURE_CARDS, getCard, hasCard } from "#entities/card/index.js";
-import { ENCOUNTERS } from "#entities/enemy/index.js";
+import { ENCOUNTERS, getEnemy, hasEnemy } from "#entities/enemy/index.js";
 import { figuresOf, getPantheon, PANTHEONS } from "#entities/figure/index.js";
 import { factionStatus, perksOf } from "#entities/faction/index.js";
-import { generateMap, reachableNodes } from "#entities/map/index.js";
+import { generateMap, NODE_INFO, reachableNodes } from "#entities/map/index.js";
 import { hasRelic, RELICS } from "#entities/relic/index.js";
 import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
 
 import { bonusOf, startCombat } from "./combat.js";
-import { getEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
+import { getEvent, hasEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
 
 /**
  * 한 판의 흐름. 모든 함수는 run을 복사해 새 run을 돌려줍니다.
@@ -651,24 +651,106 @@ const isCardList = (/** @type {unknown} */ list) => Array.isArray(list) && list.
 const isIdList = (/** @type {unknown} */ list, /** @type {(id: string) => boolean} */ has) =>
   Array.isArray(list) && list.every((id) => typeof id === "string" && has(id));
 
+/** 화면이 아는 단계 */
+const PHASES = new Set(["map", "battle", "reward", "rest", "shrine", "event", "pick", "gear", "victory", "defeat"]);
+/** 고르기를 마치고 갈 수 있는 단계. 전투·보상·사건처럼 따로 상태가 있어야 하는 단계는 뺍니다. */
+const PICK_NEXT = new Set(["map", "rest", "shrine", "gear"]);
+
 /**
- * 판이 가리키는 카드·유물·무구·길잡이 계열이 지금 모두 있는지 확인합니다.
+ * 지도의 층과 칸이 지금 그릴 수 있는 모양인지. 칸 종류는 지도 화면이 이름을 찾는 표에 있어야 하고,
+ * 마지막 층(보스)이 아니면 다음 층에 실제로 있는 칸으로 이어져야 합니다. (이어지지 않으면 더 갈 곳이 없음)
+ * @param {any} map
+ */
+const isMapUsable = (map) =>
+  Boolean(map) &&
+  Array.isArray(map.rows) &&
+  map.rows.length > 0 &&
+  // 아직 아무 곳도 가지 않았으면 첫 층에서 고르므로, 첫 층이 비면 갈 곳이 없습니다.
+  Array.isArray(map.rows[0]) &&
+  map.rows[0].length > 0 &&
+  map.rows.every(
+    (/** @type {any} */ row, /** @type {number} */ index) =>
+      Array.isArray(row) &&
+      row.every((/** @type {any} */ node) => {
+        if (!node || typeof node.id !== "string" || !Object.hasOwn(NODE_INFO, node.type)) return false;
+        // 칸의 층 번호는 들어간 뒤 지금 위치가 되므로, 실제로 놓인 층과 같아야 합니다.
+        if (node.row !== index || !Number.isInteger(node.lane) || !Array.isArray(node.next)) return false;
+        const next = map.rows[index + 1];
+        if (!next) return true;
+        return (
+          node.next.length > 0 &&
+          node.next.every((/** @type {unknown} */ lane) =>
+            Array.isArray(next) ? next.some((/** @type {any} */ n) => n?.lane === lane) : false,
+          )
+        );
+      }),
+  );
+
+/** 상태 이상 칸이 모두 숫자인지. 하나라도 비면 피해 계산이 NaN이 됩니다. @param {any} statuses @param {readonly string[]} keys */
+const hasStatuses = (statuses, keys) =>
+  typeof statuses === "object" && statuses !== null && keys.every((key) => Number.isFinite(statuses[key]));
+
+/** 적의 상태 이상 칸 */
+const ENEMY_STATUSES = /** @type {const} */ (["strength", "weak", "vulnerable", "erosion"]);
+/** 사서의 상태 이상 칸 (비행 evade는 나중에 생겨 없으면 0으로 봅니다) */
+const PLAYER_STATUSES = /** @type {const} */ ([...ENEMY_STATUSES, "eclipse", "foundation"]);
+
+/** 전투 중인 적이 지금 있고, 다음 행동 칸이 그 적의 행동 목록 안에 있는지 @param {any} enemy */
+const isEnemyUsable = (enemy) =>
+  Boolean(enemy) &&
+  hasEnemy(enemy.id) &&
+  Number.isFinite(enemy.hp) &&
+  Number.isFinite(enemy.maxHp) &&
+  Number.isFinite(enemy.block) &&
+  Number.isInteger(enemy.intent) &&
+  Boolean(getEnemy(enemy.id).intents[enemy.intent]) &&
+  hasStatuses(enemy.statuses, ENEMY_STATUSES);
+
+/** 전투의 사서 상태. 머리글이 체력을 읽고 전투가 수치를 더하므로 모두 숫자여야 합니다. @param {any} player */
+const isPlayerUsable = (player) =>
+  Boolean(player) &&
+  Number.isFinite(player.hp) &&
+  Number.isFinite(player.maxHp) &&
+  Number.isFinite(player.block) &&
+  hasStatuses(player.statuses, PLAYER_STATUSES);
+
+/**
+ * 판이 가리키는 카드·유물·무구·길잡이 계열, 적·사건·전장·지도가 지금 모두 있는지 확인합니다.
  * 하나라도 없으면 화면을 그리다 오류가 나므로 이어 할 수 없습니다.
  * @param {any} run
  */
 function isRunUsable(run) {
   if (typeof run.seed !== "number" || typeof run.hp !== "number" || !getPantheon(run.guide)) return false;
+  if (![1, 2, 3].includes(run.act) || !PHASES.has(run.phase)) return false;
   if (!isCardList(run.deck) || !isIdList(run.relics, hasRelic) || !isIdList(run.armaments, hasArmament)) return false;
+  if (!isMapUsable(run.map)) return false;
+  if (run.position && !run.map.rows[run.position.row]?.some((/** @type {any} */ n) => n.lane === run.position.lane))
+    return false;
+  if (!run.fields || ![1, 2, 3].every((act) => hasBattlefield(run.fields[act]))) return false;
+  if (run.rift && !hasBattlefield(run.rift.field)) return false;
+  // 사건은 사건 단계에서만 쓰지만, 단계가 사건이면 반드시 있어야 합니다.
+  if (run.event !== null && run.event !== undefined && !hasEvent(run.event)) return false;
+  if (run.phase === "event" && !hasEvent(run.event)) return false;
+  if (run.discovered !== undefined && !isIdList(run.discovered, hasCard)) return false;
+  const defeatedBy = run.stats?.defeatedBy;
+  if (defeatedBy && !String(defeatedBy).split(",").every(hasEnemy)) return false;
   const combat = run.combat;
+  if (run.phase === "battle" && !combat) return false;
   if (combat) {
+    if (!isPlayerUsable(combat.player)) return false;
     if (!COMBAT_PILES.every((pile) => isCardList(combat[pile]))) return false;
     if (!(combat.armaments ?? []).every((/** @type {any} */ a) => a && hasArmament(a.id))) return false;
+    if (!Array.isArray(combat.enemies) || !combat.enemies.every(isEnemyUsable)) return false;
   }
   const reward = run.reward;
+  if (run.phase === "reward" && !reward) return false;
   if (reward) {
     if (!isIdList(reward.cards ?? [], hasCard) || !isIdList(reward.relics ?? [], hasRelic)) return false;
     if (!isIdList(reward.armaments ?? [], hasArmament)) return false;
   }
+  if (run.phase === "pick" && !run.pick) return false;
+  // 고르기를 마치면 pick.then 단계로 가므로, 그 단계는 다른 상태 없이 그릴 수 있어야 합니다.
+  if (run.pick && (!PICK_NEXT.has(run.pick.then) || !["remove", "upgrade"].includes(run.pick.purpose))) return false;
   return true;
 }
 
