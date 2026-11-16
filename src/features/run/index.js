@@ -16,6 +16,7 @@ export {
 } from "./model/combat.js";
 export { EVENTS, getEvent } from "./model/events.js";
 export {
+  bossFor,
   cancelPick,
   chooseEvent,
   canWearGear,

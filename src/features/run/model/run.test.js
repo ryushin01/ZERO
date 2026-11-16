@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
 
 import { getBattlefield } from "#entities/battlefield/index.js";
+import { ENCOUNTERS } from "#entities/enemy/index.js";
 import { createRng } from "#shared/lib/index.js";
 
 import { autoRun } from "../lib/autoplay.js";
 import {
+  bossFor,
   chooseEvent,
   closeGear,
   createRun,
@@ -253,6 +255,32 @@ describe("사건과 카드 고르기", () => {
     run = resolvePick(chooseEvent(run, "forge"), [run.deck[0].uid]);
     expect(run.deck[0].up).toBe(true);
     expect(run.hp).toBe(72 - 7);
+  });
+});
+
+describe("보스", () => {
+  it("장마다 후보 가운데 하나를 판의 시드로 고르고, 같은 시드면 같은 보스입니다", () => {
+    const seen = { 1: new Set(), 2: new Set(), 3: new Set() };
+    for (let seed = 1; seed <= 60; seed += 1)
+      for (const act of /** @type {const} */ ([1, 2, 3])) {
+        const boss = bossFor(seed, act);
+        expect(ENCOUNTERS[act].boss.map((group) => group.join())).toContain(boss.join());
+        expect(bossFor(seed, act)).toEqual(boss);
+        seen[act].add(boss.join());
+      }
+    // 1·2장은 두 후보가 모두 나오고, 마지막 보스는 늘 영(零)입니다.
+    expect([...seen[1]].sort()).toEqual(["humbaba", "hydra"]);
+    expect([...seen[2]].sort()).toEqual(["apep", "orochi"]);
+    expect([...seen[3]]).toEqual(["zero"]);
+  });
+
+  it("보스 칸에 들어가면 그 보스와 싸우고, 다른 선택이 보스를 바꾸지 않습니다", () => {
+    const run = createRun({ seed: 11, guide: "greek" });
+    const bossNode = run.map.rows[run.map.rows.length - 1][0];
+    const before = { ...run, position: { row: run.map.rows.length - 2, lane: 1 }, rng: 12345 };
+    const fought = enterNode(before, bossNode.id);
+    expect(fought.combat?.enemies.map((e) => e.id)).toEqual(bossFor(11, 1));
+    expect(enterNode({ ...before, rng: 999 }, bossNode.id).combat?.enemies.map((e) => e.id)).toEqual(bossFor(11, 1));
   });
 });
 

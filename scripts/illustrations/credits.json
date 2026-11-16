@@ -3086,6 +3086,42 @@
     "license": "Public domain",
     "licenseUrl": null
   },
+  "enemy:basilisk": {
+    "file": "Basilisk Supporting the Arms of the city of Basel MET DP822264.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Basilisk_Supporting_the_Arms_of_the_city_of_Basel_MET_DP822264.jpg",
+    "title": "Basilisk Supporting the Arms of the city of Basel",
+    "artist": "Master D.S. of Basel",
+    "date": "1511",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "enemy:humbaba": {
+    "file": "Masque du démon Humbaba - Musée du Louvre Antiquités orientales SB 6567.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Masque_du_d%C3%A9mon_Humbaba_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_orientales_SB_6567.jpg",
+    "title": "Masque du démon Humbaba - Musée du Louvre Antiquités orientales SB 6567",
+    "artist": "Shonagon",
+    "date": "2023-08-28",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "enemy:orochi": {
+    "file": "Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi.png",
+    "title": "Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi",
+    "artist": "Yoshitoshi",
+    "date": "1887",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  "enemy:zahhak": {
+    "file": "Zahhak Enthroned (LTS1995.2.70).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Zahhak_Enthroned_(LTS1995.2.70).jpg",
+    "title": "Zahhak Enthroned (LTS1995.2.70)",
+    "artist": "Mir Zayn al-Abidin",
+    "date": "between 1576 and 1577",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
   "field:avalon": {
     "file": "Burne-Jones Last Sleep of Arthur in Avalon v2.jpg",
     "page": "https://commons.wikimedia.org/wiki/File:Burne-Jones_Last_Sleep_of_Arthur_in_Avalon_v2.jpg",

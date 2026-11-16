@@ -1371,6 +1371,22 @@
     "file": "Redon - Eye-Balloon (Œil-ballon) 1878.jpg",
     "pos": "47% 36%"
   },
+  "enemy:basilisk": {
+    "file": "Basilisk Supporting the Arms of the city of Basel MET DP822264.jpg",
+    "pos": "58% 42%"
+  },
+  "enemy:humbaba": {
+    "file": "Masque du démon Humbaba - Musée du Louvre Antiquités orientales SB 6567.jpg",
+    "pos": "50% 45%"
+  },
+  "enemy:orochi": {
+    "file": "Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi.png",
+    "pos": "84% 42%"
+  },
+  "enemy:zahhak": {
+    "file": "Zahhak Enthroned (LTS1995.2.70).jpg",
+    "pos": "57% 33%"
+  },
   "field:avalon": {
     "file": "Burne-Jones Last Sleep of Arthur in Avalon v2.jpg",
     "pos": "44% 29%"
