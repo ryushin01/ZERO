@@ -18,6 +18,10 @@
 - 접근성: 전투에서 대상을 고를 때 같은 안내를 두 번 읽던 문제(공용 알림과 안내 줄의 `role="status"`)
 - 접근성: 도감 구분(신과 영웅·괴물·무구·전장·세력·유물)을 `aria-pressed` 토글 묶음에서 탭(`tablist`·`tab`·`tabpanel`)으로. 좌우 화살표·Home·End로 옮기고 고른 탭만 Tab 키로 들어감. 보이는 모양은 그대로(+E2E)
 - 접근성: 듀얼의 클래스 선택 상자를 직접 그린 화살표로 바꿔 화살표와 오른쪽 끝 사이를 글자와 왼쪽 끝 사이(13px)와 같게(+E2E)
+- 보안: 응답 헤더에 CSP(앱 문서: 스크립트·글꼴·그림은 같은 출처만, `object-src 'none'`, `frame-ancestors 'self'`), `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options`, `Cross-Origin-Opener-Policy`. 운영과 같은 헤더로 한 판·도감·카드 상세·듀얼을 돌며 CSP 위반이 없는지 E2E로 확인
+- SEO·공유: `robots.txt`·`sitemap.xml`, canonical, `og:type`·`og:site_name`·`og:locale`·공유 그림 크기와 대체 텍스트, 트위터 제목·설명·그림. 공유 그림(`og.jpg`)이 0.13.0 전의 코드 그림·옛 로고 그대로라 지금 첫 화면으로 다시 찍음(`pnpm screenshots`가 함께 찍음)
+- 404: 해시 없는 잘못된 주소(`/codex` 등)에 Vercel 기본 화면 대신 게임과 같은 먹색 '찾을 수 없음' 화면(`404.html`)
+- 의존성: 개발 도구 패치·부 버전(Vite 8.3.8, ESLint 10.15.0, Playwright 1.65.1, Storybook 10.6.7, Prettier 3.10.1 등). `pnpm audit` 4건(개발 도구 경로, 배포물에는 없음) → 0건: ESLint를 올려 `minimatch`를, `overrides`로 `basic-ftp`를 고친 버전으로
 
 ## 1.2.3 - 2026-11-15
 

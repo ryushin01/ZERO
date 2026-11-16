@@ -132,7 +132,7 @@ Sentry에는 오류 내용만 보내고 사용자 정보·쿠키·헤더·쿼리
 
 ## 의존성 갱신 (Dependabot)
 
-`.github/dependabot.yml`이 npm 패키지를 매주 확인합니다. Storybook 묶음과 린트 묶음(ESLint·Steiger·FSD 플러그인)은 주 버전까지 한 PR로 묶고, 나머지 패키지는 부 버전·패치만 한 PR로 묶습니다. 그 밖의 주 버전은 따로 PR이 열립니다. GitHub Actions는 매달 올립니다. 어느 PR이든 CI가 통과할 때만 병합합니다.
+`.github/dependabot.yml`이 npm 패키지를 매주 확인합니다. 하위 의존성의 알려진 취약점은 고친 버전이 있으면 `pnpm-workspace.yaml`의 `overrides`로 올립니다(지금: `@lhci/cli`가 쓰는 `basic-ftp` 6.2.6). Storybook 묶음과 린트 묶음(ESLint·Steiger·FSD 플러그인)은 주 버전까지 한 PR로 묶고, 나머지 패키지는 부 버전·패치만 한 PR로 묶습니다. 그 밖의 주 버전은 따로 PR이 열립니다. GitHub Actions는 매달 올립니다. 어느 PR이든 CI가 통과할 때만 병합합니다.
 
 ## 버전
 
@@ -149,3 +149,21 @@ Vercel 프로젝트 `zero-myth`가 GitHub에 연결되어 `main`에 합치면 �
 - `vercel.json`의 `git.deploymentEnabled`로 모든 브랜치(`**`)의 배포를 끄고 `main`만 켭니다. 한 브랜치가 여러 규칙에 걸리면 하나라도 켜진 규칙이 이기므로 `main`만 배포되고, PR 브랜치는 이름과 상관없이 배포하지 않습니다. 무료 플랜은 하루 배포가 100회라, PR마다 미리보기를 만들면 하루에 한도를 다 써 버리기 때문입니다. 빌드를 건너뛰는 `ignoreCommand`는 취소된 배포도 한도에 세므로 쓰지 않습니다.
 - 미리보기 대신 CI가 프로덕션 빌드로 E2E(axe 포함)를 돌립니다. 화면을 직접 보려면 `pnpm build && pnpm preview`로 확인합니다.
 - 한도는 달력의 하루가 아니라 최근 24시간(86,400초)에 만든 배포 수로 세므로, 자정이 지나도 바로 풀리지 않을 수 있습니다. 한도에 걸렸을 때는 여유가 생긴 뒤 임시 복제본에서 `vercel link --yes --project zero-myth`, `vercel deploy --prod --yes`로 올리고, 끝나면 복제본을 `.env.local`째 지웁니다.
+
+### 응답 헤더 (`vercel.json`)
+
+| 경로                        | 헤더                                                                                                                                                                                                                                                                                                                                                                          |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 모든 경로                   | `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`(카메라·마이크·위치·결제·USB 끔), `X-Frame-Options: SAMEORIGIN`, `Cross-Origin-Opener-Policy: same-origin`                                                                                                                                                         |
+| 앱 문서(`/`, `/index.html`) | CSP: 스크립트·글꼴·그림은 같은 출처만, `object-src 'none'`, `base-uri 'self'`, `frame-ancestors 'self'`. 다시 그리기(morph)가 `style` 속성을 옮기므로 `style-src`에 `'unsafe-inline'`을 둡니다. Sentry DSN을 넣으면 오류를 보낼 수신 주소(`*.ingest.sentry.io` 등)를 `connect-src`에 미리 열어 둡니다. Storybook(`/storybook/`)은 인라인 스크립트를 써서 CSP를 걸지 않습니다. |
+| `/illust/`, `/art/`         | 7일 캐시 + `stale-while-revalidate` 하루. 파일 이름에 해시가 없어 영구 캐시는 쓰지 않습니다.                                                                                                                                                                                                                                                                                  |
+| `/assets/`                  | 1년 `immutable` (Vite가 해시를 붙인 파일)                                                                                                                                                                                                                                                                                                                                     |
+| 아이콘·공유 그림            | 하루 캐시 + `stale-while-revalidate` 7일                                                                                                                                                                                                                                                                                                                                      |
+
+미리보기 서버(`vite preview`)는 `vercel.json`을 읽지 않으므로, E2E(`e2e/security.spec.js`)가 `vercel.json`의 헤더를 앱 문서 응답에 똑같이 붙여 한 판·도감·카드 상세·듀얼을 돌며 CSP 위반이 없는지 확인합니다. CSP를 바꾸면 이 검사로 확인합니다.
+
+### 검색·공유
+
+- `public/robots.txt`(Storybook은 빼고)와 `public/sitemap.xml`(해시 주소라 처음 화면 하나), `index.html`의 canonical과 공유 메타(`og:*`, `twitter:*`)를 둡니다.
+- 공유 그림 `public/og.jpg`(1200×630)는 `pnpm screenshots`가 지금 첫 화면으로 다시 찍습니다.
+- 해시 없이 `/codex`처럼 들어오면 Vercel이 `public/404.html`(게임과 같은 먹색 화면, 처음 화면으로 가는 링크)을 보여 줍니다.

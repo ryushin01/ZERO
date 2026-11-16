@@ -1,4 +1,4 @@
-// README 화면(docs/images/*.jpg)을 다시 찍습니다. 판의 상태는 localStorage(zero:run)로 만들어 같은 장면을 찍습니다.
+// README 화면(docs/images/*.jpg)과 공유 그림(public/og.jpg)을 다시 찍습니다. 판의 상태는 localStorage(zero:run)로 만들어 같은 장면을 찍습니다.
 // 먼저 프로덕션 빌드를 띄워 두세요: pnpm build && pnpm preview
 // 사용: BASE_URL=http://localhost:4173 pnpm screenshots
 import { chromium } from "@playwright/test";
@@ -53,6 +53,15 @@ async function startGreek(page) {
   }
   await page.getByRole("button", { name: "그리스 신화로 시작" }).click();
   await page.getByRole("heading", { level: 1, name: /1장/ }).waitFor();
+}
+
+// 공유 그림(public/og.jpg, 1200×630): 지금 첫 화면을 그대로 찍습니다.
+{
+  const { page, context } = await open("/", { viewport: { width: 1200, height: 630 } });
+  await page.waitForTimeout(2500);
+  await page.screenshot({ path: "public/og.jpg", type: "jpeg", quality: 85 });
+  console.log("저장 og (public/og.jpg)");
+  await context.close();
 }
 
 // 첫 화면과 새 판 화면
