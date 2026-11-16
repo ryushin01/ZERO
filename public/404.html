@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>찾을 수 없는 페이지 — ZERO</title>
+    <meta name="theme-color" content="#060403" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- 게임의 '찾을 수 없음' 화면과 같은 먹색 표면. 앱 묶음 없이 뜨도록 스타일을 이 파일에 둡니다. -->
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #060403;
+        --bone: #e9eae4;
+        --muted: #9a988f;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        min-height: 100svh;
+        place-items: center;
+        padding: 24px 16px;
+        background: var(--ink);
+        color: var(--bone);
+        font-family: Garamond, Baskerville, "AppleMyungjo", "Noto Serif CJK KR", "Noto Serif KR", "Batang", serif;
+        line-height: 1.6;
+        text-align: center;
+      }
+      main {
+        display: grid;
+        gap: 16px;
+        justify-items: center;
+        max-width: 560px;
+      }
+      .display {
+        color: var(--muted);
+        font-size: 0.875rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      h1 {
+        font-size: clamp(1.5rem, 5vw, 2.25rem);
+        font-weight: 600;
+      }
+      a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 8px 20px;
+        border: 1px solid var(--bone);
+        border-radius: 999px;
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        background: var(--bone);
+        color: var(--ink);
+      }
+      a:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="display" lang="en">Nothing here</p>
+      <h1>이 기록은 이미 지워졌습니다</h1>
+      <p>주소가 바뀌었거나 없는 화면입니다. 게임의 화면은 모두 처음 화면에서 이어집니다.</p>
+      <a href="/">처음 화면으로</a>
+    </main>
+  </body>
+</html>

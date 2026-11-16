@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /storybook/
+
+Sitemap: https://zero-ryushin01.vercel.app/sitemap.xml
