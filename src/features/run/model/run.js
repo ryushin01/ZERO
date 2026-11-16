@@ -654,34 +654,59 @@ const isIdList = (/** @type {unknown} */ list, /** @type {(id: string) => boolea
 /** 화면이 아는 단계 */
 const PHASES = new Set(["map", "battle", "reward", "rest", "shrine", "event", "pick", "gear", "victory", "defeat"]);
 
-/** 지도의 층과 칸이 지금 그릴 수 있는 모양인지 (칸 종류는 지도 화면이 이름을 찾는 표에 있어야 함) @param {any} map */
+/**
+ * 지도의 층과 칸이 지금 그릴 수 있는 모양인지. 칸 종류는 지도 화면이 이름을 찾는 표에 있어야 하고,
+ * 마지막 층(보스)이 아니면 다음 층에 실제로 있는 칸으로 이어져야 합니다. (이어지지 않으면 더 갈 곳이 없음)
+ * @param {any} map
+ */
 const isMapUsable = (map) =>
   Boolean(map) &&
   Array.isArray(map.rows) &&
   map.rows.length > 0 &&
   map.rows.every(
-    (/** @type {any} */ row) =>
+    (/** @type {any} */ row, /** @type {number} */ index) =>
       Array.isArray(row) &&
-      row.every(
-        (/** @type {any} */ node) =>
-          node &&
-          typeof node.id === "string" &&
-          Object.hasOwn(NODE_INFO, node.type) &&
-          Number.isInteger(node.row) &&
-          Number.isInteger(node.lane) &&
-          Array.isArray(node.next),
-      ),
+      row.every((/** @type {any} */ node) => {
+        if (!node || typeof node.id !== "string" || !Object.hasOwn(NODE_INFO, node.type)) return false;
+        if (!Number.isInteger(node.row) || !Number.isInteger(node.lane) || !Array.isArray(node.next)) return false;
+        const next = map.rows[index + 1];
+        if (!next) return true;
+        return (
+          node.next.length > 0 &&
+          node.next.every((/** @type {unknown} */ lane) =>
+            Array.isArray(next) ? next.some((/** @type {any} */ n) => n?.lane === lane) : false,
+          )
+        );
+      }),
   );
+
+/** 상태 이상 칸이 모두 숫자인지. 하나라도 비면 피해 계산이 NaN이 됩니다. @param {any} statuses @param {readonly string[]} keys */
+const hasStatuses = (statuses, keys) =>
+  typeof statuses === "object" && statuses !== null && keys.every((key) => Number.isFinite(statuses[key]));
+
+/** 적의 상태 이상 칸 */
+const ENEMY_STATUSES = /** @type {const} */ (["strength", "weak", "vulnerable", "erosion"]);
+/** 사서의 상태 이상 칸 (비행 evade는 나중에 생겨 없으면 0으로 봅니다) */
+const PLAYER_STATUSES = /** @type {const} */ ([...ENEMY_STATUSES, "eclipse", "foundation"]);
 
 /** 전투 중인 적이 지금 있고, 다음 행동 칸이 그 적의 행동 목록 안에 있는지 @param {any} enemy */
 const isEnemyUsable = (enemy) =>
   Boolean(enemy) &&
   hasEnemy(enemy.id) &&
   Number.isFinite(enemy.hp) &&
+  Number.isFinite(enemy.maxHp) &&
+  Number.isFinite(enemy.block) &&
   Number.isInteger(enemy.intent) &&
   Boolean(getEnemy(enemy.id).intents[enemy.intent]) &&
-  typeof enemy.statuses === "object" &&
-  enemy.statuses !== null;
+  hasStatuses(enemy.statuses, ENEMY_STATUSES);
+
+/** 전투의 사서 상태. 머리글이 체력을 읽고 전투가 수치를 더하므로 모두 숫자여야 합니다. @param {any} player */
+const isPlayerUsable = (player) =>
+  Boolean(player) &&
+  Number.isFinite(player.hp) &&
+  Number.isFinite(player.maxHp) &&
+  Number.isFinite(player.block) &&
+  hasStatuses(player.statuses, PLAYER_STATUSES);
 
 /**
  * 판이 가리키는 카드·유물·무구·길잡이 계열, 적·사건·전장·지도가 지금 모두 있는지 확인합니다.
@@ -706,6 +731,7 @@ function isRunUsable(run) {
   const combat = run.combat;
   if (run.phase === "battle" && !combat) return false;
   if (combat) {
+    if (!isPlayerUsable(combat.player)) return false;
     if (!COMBAT_PILES.every((pile) => isCardList(combat[pile]))) return false;
     if (!(combat.armaments ?? []).every((/** @type {any} */ a) => a && hasArmament(a.id))) return false;
     if (!Array.isArray(combat.enemies) || !combat.enemies.every(isEnemyUsable)) return false;
@@ -717,6 +743,8 @@ function isRunUsable(run) {
     if (!isIdList(reward.armaments ?? [], hasArmament)) return false;
   }
   if (run.phase === "pick" && !run.pick) return false;
+  // 고르기를 마치면 pick.then 단계로 가므로, 그 단계도 화면이 아는 단계여야 합니다.
+  if (run.pick && (!PHASES.has(run.pick.then) || !["remove", "upgrade"].includes(run.pick.purpose))) return false;
   return true;
 }
 
