@@ -348,6 +348,20 @@ describe("장착", () => {
     expect(state.hand.some((c) => c.uid === "o1")).toBe(true);
   });
 
+  it("카드 효과로 대상이 쓰러지면 끼운 무구는 살아 있는 다음 적을 칩니다", () => {
+    const quill = { uid: "q1", id: "quill", up: false, gear: { arm: "gungnir" } };
+    const started = startCombat({ deck: [], hp: 50, maxHp: 72, relics: [], enemyIds: ["harpy", "kappa"], seed: 6 });
+    const state = { ...started, hand: [quill], draw: [], discard: [], energy: 3 };
+    state.enemies[0].hp = 1;
+    const second = state.enemies[1];
+    const after = playCard(state, "q1", state.enemies[0].uid);
+    expect(after.enemies[0].hp).toBe(0);
+    // 궁니르는 방어를 무시하는 단일 피해이므로 두 번째 적의 체력이 그만큼 줄어듭니다.
+    const gungnir = previewArmament({ ...state, playedFigures: [] }, "gungnir").effects[0].value;
+    expect(after.enemies[1].hp).toBe(second.hp - gungnir);
+    expect(after.log.map((entry) => entry.text).join(" ")).not.toContain("피해 0");
+  });
+
   it("비행은 받는 다음 공격의 피해를 절반으로 줄입니다", () => {
     const athena = { uid: "a1", id: "athena", up: false, gear: { partner: { uid: "p1", id: "pegasus", up: false } } };
     const state = withHand([athena]);

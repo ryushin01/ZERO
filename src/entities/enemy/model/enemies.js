@@ -591,6 +591,9 @@ export const ENEMIES = [
 
 const BY_ID = new Map(ENEMIES.map((e) => [e.id, e]));
 
+/** 지금 있는 적인지. 저장된 판이 가리키는 적을 확인할 때 씁니다. @param {string} id */
+export const hasEnemy = (id) => BY_ID.has(id);
+
 /** @param {string} id */
 export function getEnemy(id) {
   const enemy = BY_ID.get(id);

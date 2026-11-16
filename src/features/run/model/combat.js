@@ -508,16 +508,17 @@ export function playCard(prev, uid, targetUid = null) {
   if (terrain) parts.push("지형 공명");
 
   applyEffects(state, effects, target, card, parts);
-  // 카드에 끼운 무구와 탈것·동반자가 함께 터집니다.
+  // 카드에 끼운 무구와 탈것·동반자가 함께 터집니다. 카드 효과로 대상이 쓰러졌으면 살아 있는 첫 적을 겨눕니다.
+  const follow = () => (target && target.hp > 0 ? target : (livingEnemies(state)[0] ?? null));
   const armed = armEffectsOf(state, instance);
   if (armed) {
     parts.push(armed.arm.name);
-    applyEffects(state, armed.effects, target ?? alive[0] ?? null, card, parts);
+    applyEffects(state, armed.effects, follow(), card, parts);
   }
   const bond = gearOf(instance);
   if (bond && bond.effects.length) {
     parts.push(bond.title);
-    applyEffects(state, scaleEffects(state, bond.effects, 1), target ?? alive[0] ?? null, card, parts);
+    applyEffects(state, scaleEffects(state, bond.effects, 1), follow(), card, parts);
   }
 
   if (card.type === "attack") state.attackPlayed = true;

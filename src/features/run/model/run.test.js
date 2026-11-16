@@ -97,6 +97,39 @@ describe("migrateRun", () => {
     expect(migrateRun({ ...run, deck: [{ ...first, gear: { partner } }, ...rest] })).toBeNull();
   });
 
+  it("지금은 없는 적·사건·전장을 가리키거나 지도·단계가 어긋난 판은 버립니다", () => {
+    const run = createRun({ seed: 3, guide: "norse" });
+    const battle = enterNode(run, run.map.rows[0][0].id);
+    expect(battle.phase).toBe("battle");
+    expect(migrateRun(structuredClone(battle))).not.toBeNull();
+
+    const removedEnemy = structuredClone(battle);
+    removedEnemy.combat.enemies[0].id = "removed-enemy";
+    expect(migrateRun(removedEnemy)).toBeNull();
+    const badIntent = structuredClone(battle);
+    badIntent.combat.enemies[0].intent = 99;
+    expect(migrateRun(badIntent)).toBeNull();
+    expect(migrateRun({ ...structuredClone(battle), combat: null })).toBeNull();
+
+    expect(migrateRun({ ...run, phase: "event", event: "removed-event" })).toBeNull();
+    expect(migrateRun({ ...run, phase: "event", event: null })).toBeNull();
+    expect(migrateRun({ ...run, phase: "event", event: "oracle" })).not.toBeNull();
+    expect(migrateRun({ ...run, fields: { ...run.fields, 2: "removed-field" } })).toBeNull();
+    expect(migrateRun({ ...run, rift: { field: "removed-field" } })).toBeNull();
+    expect(migrateRun({ ...run, phase: "lobby" })).toBeNull();
+    expect(migrateRun({ ...run, act: 4 })).toBeNull();
+    expect(migrateRun({ ...run, phase: "reward", reward: null })).toBeNull();
+    expect(migrateRun({ ...run, phase: "pick", pick: null })).toBeNull();
+
+    const badNode = structuredClone(run);
+    badNode.map.rows[2][1].type = "removed-node";
+    expect(migrateRun(badNode)).toBeNull();
+    expect(migrateRun({ ...run, position: { row: 30, lane: 1 } })).toBeNull();
+
+    expect(migrateRun({ ...run, stats: { ...run.stats, defeatedBy: "harpy,removed-enemy" } })).toBeNull();
+    expect(migrateRun({ ...run, discovered: ["removed-card"] })).toBeNull();
+  });
+
   it("옛 저장에 빠진 전투 더미는 빈 더미로 채웁니다", () => {
     const run = createRun({ seed: 3, guide: "norse" });
     const saved = migrateRun({ ...run, combat: { hand: [], enemies: [], relics: [], armaments: [] } });

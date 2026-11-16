@@ -119,4 +119,15 @@ describe("저장된 듀얼", () => {
     badHp.players[1].hp = "30";
     expect(isDuelUsable(badHp)).toBe(false);
   });
+
+  it("지금은 없는 클래스나 어긋난 차례·단계·승자를 가리키면 버립니다", () => {
+    const duel = startDuel({ seed: 42, classes: ["warrior", "cleric"] });
+    const removedClass = structuredClone(duel);
+    removedClass.players[0].classId = "removed-class";
+    expect(isDuelUsable(removedClass)).toBe(false);
+    expect(isDuelUsable({ ...structuredClone(duel), active: 2 })).toBe(false);
+    expect(isDuelUsable({ ...structuredClone(duel), phase: "lobby" })).toBe(false);
+    expect(isDuelUsable({ ...structuredClone(duel), phase: "over", winner: null })).toBe(false);
+    expect(isDuelUsable({ ...structuredClone(duel), phase: "over", winner: 1 })).toBe(true);
+  });
 });

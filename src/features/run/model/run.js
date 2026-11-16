@@ -1,16 +1,16 @@
 import { ARMAMENT_SLOTS, ARMAMENTS, hasArmament, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
-import { BATTLEFIELDS, battlefieldsOf, getBattlefield } from "#entities/battlefield/index.js";
+import { BATTLEFIELDS, battlefieldsOf, getBattlefield, hasBattlefield } from "#entities/battlefield/index.js";
 import { partnerOf } from "#entities/bond/index.js";
 import { FIGURE_CARDS, getCard, hasCard } from "#entities/card/index.js";
-import { ENCOUNTERS } from "#entities/enemy/index.js";
+import { ENCOUNTERS, getEnemy, hasEnemy } from "#entities/enemy/index.js";
 import { figuresOf, getPantheon, PANTHEONS } from "#entities/figure/index.js";
 import { factionStatus, perksOf } from "#entities/faction/index.js";
-import { generateMap, reachableNodes } from "#entities/map/index.js";
+import { generateMap, NODE_INFO, reachableNodes } from "#entities/map/index.js";
 import { hasRelic, RELICS } from "#entities/relic/index.js";
 import { createRng, rollWith, withJosa } from "#shared/lib/index.js";
 
 import { bonusOf, startCombat } from "./combat.js";
-import { getEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
+import { getEvent, hasEvent, HIDDEN_EVENT, HIDDEN_EVENT_CHANCE } from "./events.js";
 
 /**
  * 한 판의 흐름. 모든 함수는 run을 복사해 새 run을 돌려줍니다.
@@ -651,24 +651,72 @@ const isCardList = (/** @type {unknown} */ list) => Array.isArray(list) && list.
 const isIdList = (/** @type {unknown} */ list, /** @type {(id: string) => boolean} */ has) =>
   Array.isArray(list) && list.every((id) => typeof id === "string" && has(id));
 
+/** 화면이 아는 단계 */
+const PHASES = new Set(["map", "battle", "reward", "rest", "shrine", "event", "pick", "gear", "victory", "defeat"]);
+
+/** 지도의 층과 칸이 지금 그릴 수 있는 모양인지 (칸 종류는 지도 화면이 이름을 찾는 표에 있어야 함) @param {any} map */
+const isMapUsable = (map) =>
+  Boolean(map) &&
+  Array.isArray(map.rows) &&
+  map.rows.length > 0 &&
+  map.rows.every(
+    (/** @type {any} */ row) =>
+      Array.isArray(row) &&
+      row.every(
+        (/** @type {any} */ node) =>
+          node &&
+          typeof node.id === "string" &&
+          Object.hasOwn(NODE_INFO, node.type) &&
+          Number.isInteger(node.row) &&
+          Number.isInteger(node.lane) &&
+          Array.isArray(node.next),
+      ),
+  );
+
+/** 전투 중인 적이 지금 있고, 다음 행동 칸이 그 적의 행동 목록 안에 있는지 @param {any} enemy */
+const isEnemyUsable = (enemy) =>
+  Boolean(enemy) &&
+  hasEnemy(enemy.id) &&
+  Number.isFinite(enemy.hp) &&
+  Number.isInteger(enemy.intent) &&
+  Boolean(getEnemy(enemy.id).intents[enemy.intent]) &&
+  typeof enemy.statuses === "object" &&
+  enemy.statuses !== null;
+
 /**
- * 판이 가리키는 카드·유물·무구·길잡이 계열이 지금 모두 있는지 확인합니다.
+ * 판이 가리키는 카드·유물·무구·길잡이 계열, 적·사건·전장·지도가 지금 모두 있는지 확인합니다.
  * 하나라도 없으면 화면을 그리다 오류가 나므로 이어 할 수 없습니다.
  * @param {any} run
  */
 function isRunUsable(run) {
   if (typeof run.seed !== "number" || typeof run.hp !== "number" || !getPantheon(run.guide)) return false;
+  if (![1, 2, 3].includes(run.act) || !PHASES.has(run.phase)) return false;
   if (!isCardList(run.deck) || !isIdList(run.relics, hasRelic) || !isIdList(run.armaments, hasArmament)) return false;
+  if (!isMapUsable(run.map)) return false;
+  if (run.position && !run.map.rows[run.position.row]?.some((/** @type {any} */ n) => n.lane === run.position.lane))
+    return false;
+  if (!run.fields || ![1, 2, 3].every((act) => hasBattlefield(run.fields[act]))) return false;
+  if (run.rift && !hasBattlefield(run.rift.field)) return false;
+  // 사건은 사건 단계에서만 쓰지만, 단계가 사건이면 반드시 있어야 합니다.
+  if (run.event !== null && run.event !== undefined && !hasEvent(run.event)) return false;
+  if (run.phase === "event" && !hasEvent(run.event)) return false;
+  if (run.discovered !== undefined && !isIdList(run.discovered, hasCard)) return false;
+  const defeatedBy = run.stats?.defeatedBy;
+  if (defeatedBy && !String(defeatedBy).split(",").every(hasEnemy)) return false;
   const combat = run.combat;
+  if (run.phase === "battle" && !combat) return false;
   if (combat) {
     if (!COMBAT_PILES.every((pile) => isCardList(combat[pile]))) return false;
     if (!(combat.armaments ?? []).every((/** @type {any} */ a) => a && hasArmament(a.id))) return false;
+    if (!Array.isArray(combat.enemies) || !combat.enemies.every(isEnemyUsable)) return false;
   }
   const reward = run.reward;
+  if (run.phase === "reward" && !reward) return false;
   if (reward) {
     if (!isIdList(reward.cards ?? [], hasCard) || !isIdList(reward.relics ?? [], hasRelic)) return false;
     if (!isIdList(reward.armaments ?? [], hasArmament)) return false;
   }
+  if (run.phase === "pick" && !run.pick) return false;
   return true;
 }
 
