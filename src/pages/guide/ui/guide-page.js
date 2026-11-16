@@ -355,6 +355,11 @@ function view(ctx) {
       ),
       h(
         "p",
+        null,
+        "브라우저의 ‘홈 화면에 추가’(또는 ‘앱 설치’)로 ZERO를 앱처럼 열 수 있습니다. iPhone·iPad에서는 홈 화면 앱이 Safari와 따로 저장하므로, 설치하기 전에 진행 중인 판을 끝내고 ‘기록 파일로 저장’한 뒤 앱에서 ‘기록 불러오기’로 옮기세요.",
+      ),
+      h(
+        "p",
         { class: "guide__setting" },
         h("button", { type: "button", class: "button", "data-action": "reset-records" }, "기록 지우기"),
         h(
