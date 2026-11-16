@@ -423,27 +423,72 @@ function view(ctx) {
           : "Ark에 기록된 신과 영웅, 아서왕 전설과 천일야화의 인물이 모두 카드가 되었습니다. 카드를 누르면 소개와 함께 Ark로 이어집니다.",
       ),
     ),
+    // 탭(tablist·tab·tabpanel): 고른 탭만 Tab 키로 들어가고(roving tabindex), 탭 사이는 화살표·Home·End로 옮깁니다.
     h(
       "div",
-      { class: "codex__tabs", role: "group", "aria-label": "도감 구분" },
-      TABS.map((t) => toggle("tab", t.id, tab === t.id, t.label)),
+      { class: "codex__tabs", role: "tablist", "aria-label": "도감 구분" },
+      TABS.map((t) =>
+        h(
+          "button",
+          {
+            type: "button",
+            class: "chip",
+            role: "tab",
+            id: `codex-tab-${t.id}`,
+            "aria-selected": tab === t.id ? "true" : "false",
+            "aria-controls": `codex-panel-${t.id}`,
+            tabindex: tab === t.id ? "0" : "-1",
+            "data-action": "tab",
+            "data-value": t.id,
+          },
+          t.label,
+        ),
+      ),
     ),
-    h(
-      "div",
-      { class: "codex__panel" },
-      tab === "cards"
-        ? cardsTab(ctx)
-        : tab === "enemies"
-          ? enemiesTab()
-          : tab === "armaments"
-            ? armamentsTab()
-            : tab === "battlefields"
-              ? battlefieldsTab()
-              : tab === "factions"
-                ? factionsTab()
-                : relicsTab(),
+    // 탭마다 패널이 하나씩 있고, 고르지 않은 패널은 비운 채 hidden으로 둡니다.
+    TABS.map((t) =>
+      h(
+        "div",
+        {
+          class: "codex__panel",
+          role: "tabpanel",
+          id: `codex-panel-${t.id}`,
+          "aria-labelledby": `codex-tab-${t.id}`,
+          tabindex: "0",
+          hidden: tab !== t.id,
+          "data-key": `panel-${t.id}`,
+        },
+        tab === t.id ? PANELS[/** @type {keyof typeof PANELS} */ (t.id)](ctx) : null,
+      ),
     ),
   );
+}
+
+/** 탭마다 그릴 내용 */
+const PANELS = {
+  cards: cardsTab,
+  enemies: enemiesTab,
+  armaments: armamentsTab,
+  battlefields: battlefieldsTab,
+  factions: factionsTab,
+  relics: relicsTab,
+};
+
+/**
+ * 탭 사이를 화살표(좌우)·Home·End로 옮기고 바로 엽니다. (WAI-ARIA APG 탭 패턴, 자동 활성화)
+ * @param {Ctx} ctx @param {KeyboardEvent} event
+ */
+function tabKeydown(ctx, event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  if (target.getAttribute?.("role") !== "tab" || !target.closest(".codex__tabs")) return;
+  const ids = TABS.map((t) => t.id);
+  const index = ids.indexOf(/** @type {string} */ (target.dataset.value));
+  const to = { ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: ids.length - 1 }[event.key];
+  if (to === undefined) return;
+  event.preventDefault();
+  const id = ids[(to + ids.length) % ids.length];
+  ctx.setUi({ tab: id });
+  /** @type {HTMLElement | null} */ (document.getElementById(`codex-tab-${id}`))?.focus();
 }
 
 /** @type {import("#app/render/app.js").Page} */
@@ -455,6 +500,7 @@ export const codexPage = {
   afterRender: (ctx, main) => {
     if ((ctx.ui.tab ?? "cards") === "cards") syncCardList(ctx, main);
   },
+  keydown: tabKeydown,
   actions: {
     tab: (ctx, el) => ctx.setUi({ tab: el.dataset.value }),
     continent: (ctx, el) => ctx.setUi({ continent: el.dataset.value }),
