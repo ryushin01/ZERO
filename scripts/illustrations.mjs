@@ -260,6 +260,9 @@ async function main() {
   writeFileSync(CREDITS, `${JSON.stringify(credits, null, 2)}\n`);
   const { writeCredits } = await import("./credits.mjs");
   await writeCredits();
+  // 그림 수가 바뀌었을 수 있으므로 README와 문서 속 수량도 다시 씁니다.
+  const { writeDocCounts } = await import("./doc-counts.mjs");
+  await writeDocCounts();
   console.log(
     `그림 ${Object.keys(picks).length}점 가운데 ${fetched}점을 새로 받고, ${focused}점의 초점을 찾고, 출처 목록을 다시 만들었습니다.`,
   );

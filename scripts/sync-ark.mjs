@@ -233,6 +233,10 @@ writeLegendRuntime();
 const { writeCredits } = await import("./credits.mjs");
 await writeCredits();
 
+// README와 문서 속 수량(인물·계열·무구·그림 수)도 데이터에 맞춥니다.
+const { writeDocCounts } = await import("./doc-counts.mjs");
+await writeDocCounts();
+
 const added = {
   pantheons: pantheons.filter((p) => !before.pantheons.has(p.slug)),
   figures: MOCK_FIGURES.filter((f) => !before.figures.has(f.slug)),

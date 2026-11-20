@@ -88,6 +88,7 @@ jobs:
           ark="$(git -C ../ark rev-parse --short HEAD)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          node scripts/changelog-sync.mjs "$RUNNER_TEMP/summary.md" "$ark"
           git switch -C sync/ark
           git add -A
           git commit -m "chore: Ark 동기화 (ryushin01/Ark@${ark})" -m "$(cat "$RUNNER_TEMP/summary.md")"

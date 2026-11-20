@@ -12,6 +12,7 @@
     "sync:ark": "node scripts/sync-ark.mjs",
     "legends": "node scripts/legends/runtime.mjs",
     "credits": "node scripts/credits.mjs",
+    "docs:counts": "node scripts/doc-counts.mjs",
     "illustrations": "node scripts/illustrations.mjs",
     "lint": "eslint .",
     "lint:fsd": "steiger ./src",

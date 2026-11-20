@@ -16,9 +16,18 @@
 
 화면이 바뀌면(주소나 판의 단계가 바뀌면) 새로 그리고 제목(`h1`)으로 초점을 옮깁니다. 같은 화면 안의 변화는 패치만 합니다. 화면은 `afterRender`로 그린 뒤의 일을 할 수 있습니다. 전투 화면은 이 자리에서 지난 체력과 비교해 떠오르는 숫자와 흔들림을 줍니다(`pages/run/ui/battle-fx.js`). 패치가 모르는 요소와 속성은 지워지므로, 숫자는 본문 밖의 효과 층에 그리고 흔들림은 Web Animations API로 줍니다.
 
-도감의 카드 목록(475장)은 `data-morph="skip"`인 빈 목록으로 그린 뒤 `afterRender`가 한 번 채우고, 검색어·거르기가 바뀌면 카드마다 `hidden`만 바꿉니다. 글자 하나마다 카드 DOM을 새로 만들면 느린 휴대폰에서 입력이 끊기기 때문입니다(CPU 4배 느리게 107 ms → 9 ms).
+도감의 카드 목록(<!--count:figures-->475<!--/count-->장)은 `data-morph="skip"`인 빈 목록으로 그린 뒤 `afterRender`가 한 번 채우고, 검색어·거르기가 바뀌면 카드마다 `hidden`만 바꿉니다. 글자 하나마다 카드 DOM을 새로 만들면 느린 휴대폰에서 입력이 끊기기 때문입니다(CPU 4배 느리게 107 ms → 9 ms).
 
 카드 상세에서만 쓰는 Ark 소장 자료(`art.json`)는 첫 화면 묶음에 넣지 않고 `loadArkArt()`로 따로 받습니다. `main.js`가 페이지를 다 받고 한가할 때 미리 받아 두고, 그 전에 상세를 열면 빈 자리를 두었다가 받은 뒤 채웁니다.
+
+## 화면별 코드 분할
+
+처음 화면(`pages/title`)만 첫 화면 묶음에 넣고, 나머지 화면은 그 화면에 처음 들어갈 때 받습니다(`app/render/app.js`의 `PAGE_LOADERS`). 새 기록·판(전투 엔진과 지도·보상 등)·도감·도움말·듀얼·찾을 수 없음이 각자의 묶음이고, 카드 상세와 덱 보기도 처음 열 때 받습니다.
+
+- 받는 동안에는 본문에 `aria-busy="true"`를 걸고 지금 화면을 그대로 둡니다. 다 받으면 다시 그립니다. 주소로 바로 들어오면 머리글만 먼저 보이고 본문이 이어서 그려집니다.
+- 첫 화면 뒤 한가할 때 자주 가는 화면(새 기록·판·도감)을 미리 받아 두어, 처음 들어갈 때도 바로 그립니다.
+- 묶음을 받지 못하면(새 배포로 옛 묶음이 사라진 탭 등) 한 번만 새로 고칩니다(`vite:preloadError`). 같은 탭에서 연달아 실패하면 화면 낭독기 알림으로 새로 고쳐 달라고 알립니다.
+- 크기 예산(`.size-limit.js`)은 빌드 매니페스트(`dist/.vite/manifest.json`)에서 진입 묶음과 그것이 정적으로 가져오는 묶음을 모두 더해 잽니다. 첫 화면이 한 파일이 아니기 때문입니다. 2026-11-20 분할로 첫 화면 JS 113.5 → 89.7 kB, CSS 11.7 → 8.2 kB(gzip)가 되었습니다.
 
 ## 그림
 
@@ -72,13 +81,14 @@ ZERO의 신화 데이터는 Ark를 그대로 따릅니다. `pnpm sync:ark`는 �
 - 긴 글(신 소개 약 150 KB, 유물 이야기 약 100 KB, 계보 약 60 KB)은 첫 화면 묶음에 넣지 않고 따로 받는 파일에 둡니다(`shared/lib/defer/lazy.js`). 첫 화면 뒤 한가할 때 신 소개를 미리 받고, 받기 전에 열면 빈 자리를 두었다가 채웁니다.
 - 게임 규칙은 ZERO에 둡니다. 카드 수치는 관장 영역(`card/model/aspects.js`), 무구 수치는 유물의 생김새와 주인의 관장 영역(`armament/model/forge.js`, [카드 규칙](card-rules.md#ark-유물에서-온-무구)), 짝의 효과는 `bond/model/bonds.js`의 `BOND_RULES`가 정합니다.
 - Ark 유물 가운데 ZERO가 먼저 만든 무구와 같은 것(`ARK_ALIASES`)은 ZERO의 무구를 쓰고, ZERO의 보물과 같은 것(`ARK_TREASURES`)은 무구로 넣지 않습니다(`armament/model/ark.js`).
+- README와 문서 속 수량(인물·계열·무구·그림 수)은 숫자 자리를 `<!--count:figures-->475<!--/count-->`처럼 표시해 두어, `pnpm docs:counts`(`scripts/doc-counts.mjs`)가 데이터에서 다시 씁니다. `pnpm sync:ark`와 `pnpm illustrations`도 끝에서 부르고, 어긋나면 `doc-counts.test.js`가 실패합니다. 새로 수량을 적을 때도 표시를 달아 둡니다.
 - 끝에서 전설 확장 실행 파일과 출처 목록(`docs/credits.md`)도 다시 만들고, 바뀐 내용(새 계열·인물·유물·짝, 새 그림 후보)을 요약해 출력합니다(`SYNC_SUMMARY`로 파일에도 씀).
 
 ### 자동 동기화 (GitHub Actions)
 
 `.github/workflows/sync-ark.yml`이 매일 한국 시각 새벽 4시에 Ark의 main을 받아 맞춥니다. 바로 돌리려면 `gh workflow run sync-ark.yml`을 씁니다.
 
-1. **가져오기**(macOS 러너): `pnpm sync:ark` 뒤 바뀐 것이 있으면 새 그림을 받고(`pnpm illustrations`, Vision 초점), 화면 글자가 늘었으면 글꼴을 다시 만들어 `sync/ark` 브랜치에 커밋합니다. 바뀐 내용은 커밋 메시지와 실행 요약에 남습니다.
+1. **가져오기**(macOS 러너): `pnpm sync:ark` 뒤 바뀐 것이 있으면 새 그림을 받고(`pnpm illustrations`, Vision 초점), 화면 글자가 늘었으면 글꼴을 다시 만들어 `sync/ark` 브랜치에 커밋합니다. 바뀐 내용은 커밋 메시지와 실행 요약에 남고, 새로 들어온 것은 CHANGELOG의 오늘 날짜 항목에 한 줄로 적습니다(`scripts/changelog-sync.mjs`).
 2. **검사**: `ci.yml`을 그대로 불러 형식·린트·FSD·타입·단위(밸런스·짝마다 효과·무구마다 그림·글꼴 포함)·빌드·용량·E2E·Lighthouse를 모두 봅니다.
 3. **합치기**: 모두 통과하면 검사한 그 커밋으로 main을 빨리 감습니다(Vercel이 배포). 하나라도 실패하면 main은 그대로 두고 `sync/ark`를 남기며, GitHub가 실패 알림을 보냅니다. 새 짝에 효과가 없거나(`bonds.test.js`) 새 계열에 신화권이 없으면(`figures.test.js`) 여기서 멈추므로, 규칙을 더하는 PR을 따로 합치면 다음 동기화가 이어서 맞춥니다.
 
@@ -98,7 +108,7 @@ ZERO의 신화 데이터는 Ark를 그대로 따릅니다. `pnpm sync:ark`는 �
 
 - 마루 부리는 저장소에 넣어 제공합니다. 원본(300·400·600·700)과 라이선스는 `scripts/fonts/maruburi/`, 설정은 `scripts/fonts/config.json`에 있습니다. 네이버 나눔글꼴 라이선스(OFL)의 예약 이름 때문에 줄인 파일은 글꼴 이름을 `ZeroSerif`로 바꿉니다(`scripts/fonts/rename-font.py`, fontTools 필요).
 - `pnpm fonts`가 `src/app/styles/fonts/`에 두 가지를 만듭니다.
-  - `zero-serif.css`, `zero-serif/zero-serif-<굵기>-ui.woff2`: 소스의 문자열(카드·무구·유물·전장 이름과 설명 포함)과 `index.html`에 쓰인 한글·기호만 담은 파일입니다. `main.js`가 불러와 첫 화면과 함께 받습니다. 이름 475개가 모인 도감에서도 조각을 따로 받지 않습니다.
+  - `zero-serif.css`, `zero-serif/zero-serif-<굵기>-ui.woff2`: 소스의 문자열(카드·무구·유물·전장 이름과 설명 포함)과 `index.html`에 쓰인 한글·기호만 담은 파일입니다. `main.js`가 불러와 첫 화면과 함께 받습니다. 이름 <!--count:figures-->475<!--/count-->개가 모인 도감에서도 조각을 따로 받지 않습니다.
   - `zero-serif-rest.css`, `zero-serif/zero-serif-<굵기>-<번호>.woff2`: 나머지 글자를 Google Fonts 한국어 글꼴과 같은 글자 묶음으로 나눈 조각입니다. `attachRestFonts`가 페이지를 다 받고 1초 뒤 한가할 때 붙이고, 브라우저는 화면에 쓴 글자가 든 조각만 받습니다.
 - 새 카드나 이름 변경으로 글자가 늘면 `src/app/styles/fonts.test.js`가 실패합니다. 그때 다시 만듭니다.
 
@@ -128,7 +138,7 @@ Ark에 아직 없는 전설의 영웅·인물은 `scripts/legends/`에서 먼저
 | E2E              | `pnpm test:e2e`  | 프로덕션 빌드에서 한 판 흐름, 키보드 조작, 새로 고침 뒤 이어 하기, 모바일 가로 넘침, axe                                                                                                                                                                                               |
 | 스토리           | `pnpm storybook` | 카드 앞면, 무구, 유물, 머리글, 카드 상세, 그림(초점 자르기). addon-a11y로 접근성을 봅니다. `pnpm build`가 `dist/storybook`에 함께 빌드해 배포 주소의 `/storybook/index.html`로 열립니다. 이때 `public`은 복사하지 않고(`STORYBOOK_SHARED_PUBLIC`) 같은 주소에 있는 앱의 그림을 씁니다. |
 
-| 번들 크기 | `pnpm size` | 첫 화면 JS 115 kB, CSS 12 kB(gzip) 예산. `.size-limit.json` |
+| 번들 크기 | `pnpm size` | 첫 화면에서 받는 묶음 전체(진입 묶음과 함께 받는 묶음)의 JS 115 kB, CSS 12 kB(gzip) 예산. `.size-limit.js`가 빌드 매니페스트로 묶음을 고름 |
 | Lighthouse | `pnpm lhci` | 처음 화면·도감·도움말을 데스크톱 기준 3번씩 재서 성능 90, 접근성 100, 권장 사항 95, SEO 90점과 LCP 2.5초·TBT 200ms·CLS 0.1 이하인지. `lighthouserc.json` |
 | Lighthouse(휴대폰) | `pnpm lhci:mobile` | 처음 화면을 휴대폰 기준(느린 4G·CPU 4배)으로 3번 재서 성능 90, 접근성 100점과 LCP 2.5초·TBT 200ms·CLS 0.1 이하인지. 데스크톱만 재면 글꼴이 늦게 와서 생기는 밀림을 놓칩니다. `lighthouserc.mobile.json` |
 

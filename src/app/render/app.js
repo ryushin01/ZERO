@@ -1,16 +1,7 @@
-import { sortDeck } from "#features/run/index.js";
-import { announce, morphChildren } from "#shared/lib/index.js";
+import { afterLoadIdle, announce, morphChildren } from "#shared/lib/index.js";
 import { closeDialogs } from "#shared/ui/index.js";
-import { openCardDetail } from "#widgets/card-detail/index.js";
-import { openDeckView } from "#widgets/deck-view/index.js";
 import { siteHeader } from "#widgets/site-header/index.js";
 
-import { codexPage } from "#pages/codex/index.js";
-import { duelPage } from "#pages/duel/index.js";
-import { guidePage } from "#pages/guide/index.js";
-import { newRunPage } from "#pages/new-run/index.js";
-import { notFoundPage } from "#pages/not-found/index.js";
-import { runPage } from "#pages/run/index.js";
 import { titlePage } from "#pages/title/index.js";
 
 import { createStore } from "../model/store.js";
@@ -36,16 +27,52 @@ import { navigate, parseRoute } from "../routing/router.js";
  * stableUi: 화면(screen)이 바뀌어도 같은 ui 상태를 씁니다. 화면 이름을 ui 상태에서 정하는 page(2인 듀얼)에 씁니다.
  */
 
-/** @type {Record<string, Page>} */
-const PAGES = {
-  title: titlePage,
-  new: newRunPage,
-  run: runPage,
-  codex: codexPage,
-  guide: guidePage,
-  duel: duelPage,
-  "not-found": notFoundPage,
+/**
+ * 화면별 코드 분할: 처음 화면만 첫 화면 묶음에 넣고, 나머지 화면은 그 화면에 처음 들어갈 때 받습니다.
+ * 판 진행(전투 화면 등)·도감·도움말·듀얼은 각자 따로 받는 묶음이 됩니다.
+ * @type {Record<string, () => Promise<Page>>}
+ */
+const PAGE_LOADERS = {
+  new: () => import("#pages/new-run/index.js").then((m) => m.newRunPage),
+  run: () => import("#pages/run/index.js").then((m) => m.runPage),
+  codex: () => import("#pages/codex/index.js").then((m) => m.codexPage),
+  guide: () => import("#pages/guide/index.js").then((m) => m.guidePage),
+  duel: () => import("#pages/duel/index.js").then((m) => m.duelPage),
+  "not-found": () => import("#pages/not-found/index.js").then((m) => m.notFoundPage),
 };
+
+/** 받아 둔 화면 @type {Record<string, Page>} */
+const PAGES = { title: titlePage };
+
+/** 카드 상세·덱 보기는 처음 열 때 받습니다. */
+const loadCardDetail = () => import("#widgets/card-detail/index.js");
+
+/** @param {string} cardId */
+const openCard = (cardId) => void loadCardDetail().then(({ openCardDetail }) => openCardDetail(cardId));
+
+/** @param {string} title @param {{ uid: string, id: string, up: boolean }[]} cards @param {string} [empty] */
+const openDeck = (title, cards, empty) =>
+  void Promise.all([import("#widgets/deck-view/index.js"), loadCardDetail()]).then(
+    ([{ openDeckView }, { openCardDetail }]) => openDeckView({ title, cards, empty, onSelect: openCardDetail }),
+  );
+
+/**
+ * 따로 받는 묶음을 받지 못하면(새 배포로 옛 묶음이 사라진 탭 등) 한 번만 새로 고칩니다.
+ * 같은 탭에서 연달아 실패하면 새로 고치지 않고 알립니다.
+ */
+const RELOADED = "zero:chunk-reload";
+function recoverFromChunkError() {
+  if (sessionStorage.getItem(RELOADED)) {
+    announce("화면을 받지 못했습니다. 연결을 확인하고 새로 고쳐 주세요.");
+    return;
+  }
+  sessionStorage.setItem(RELOADED, "1");
+  window.location.reload();
+}
+window.addEventListener("vite:preloadError", (event) => {
+  event.preventDefault();
+  recoverFromChunkError();
+});
 
 /** @param {ReturnType<typeof createStore>} store @param {{ name: string, params: string[] }} route @param {string} uiKey */
 function makeContext(store, route, uiKey) {
@@ -66,10 +93,8 @@ function makeContext(store, route, uiKey) {
     resetRecords: store.resetRecords,
     navigate,
     announce,
-    /** @param {string} cardId */
-    openCard: (cardId) => openCardDetail(cardId),
-    /** @param {string} title @param {{ uid: string, id: string, up: boolean }[]} cards @param {string} [empty] */
-    openDeck: (title, cards, empty) => openDeckView({ title, cards, empty, onSelect: openCardDetail }),
+    openCard,
+    openDeck,
   };
 }
 
@@ -82,16 +107,44 @@ export function createApp({ header, main }) {
   /** @type {{ page: Page, ctx: PageContext } | null} */
   let current = null;
 
+  /** 받는 중인 화면 @type {Record<string, Promise<void>>} */
+  const loading = {};
+
+  /** @param {string} name */
+  function loadPage(name) {
+    loading[name] ??= PAGE_LOADERS[name]()
+      .then((page) => {
+        PAGES[name] = page;
+        sessionStorage.removeItem(RELOADED);
+        render();
+      })
+      .catch(() => {
+        delete loading[name];
+        recoverFromChunkError();
+      });
+  }
+
+  /** 지금 주소의 화면. 아직 받지 않은 화면이면 받기 시작하고 null을 돌려줍니다. */
   function resolve() {
     const route = parseRoute();
-    const page = PAGES[route.name] ?? notFoundPage;
+    const name = route.name in PAGES || route.name in PAGE_LOADERS ? route.name : "not-found";
+    const page = PAGES[name];
+    if (!page) {
+      loadPage(name);
+      return null;
+    }
     const probe = makeContext(store, route, route.name);
     const screen = page.screen ? page.screen(probe) : [route.name, ...route.params].join("/");
     return { route, page, screen, ctx: makeContext(store, route, page.stableUi ? route.name : screen) };
   }
 
   function render() {
-    const { page, screen, ctx } = resolve();
+    const resolved = resolve();
+    // 화면을 받는 동안에는 지금 화면을 그대로 두고(첫 진입이면 빈 본문), 받은 뒤 다시 그립니다.
+    if (resolved === null) main.setAttribute("aria-busy", "true");
+    else main.removeAttribute("aria-busy");
+    if (!resolved) return;
+    const { page, screen, ctx } = resolved;
     const redirect = page.redirect?.(ctx);
     if (redirect) {
       window.location.replace(redirect);
@@ -144,7 +197,8 @@ export function createApp({ header, main }) {
   /** @type {Record<string, (ctx: PageContext) => void>} */
   const globalActions = {
     "open-deck": (ctx) => {
-      if (ctx.run) ctx.openDeck("내 덱", sortDeck(ctx.run.deck));
+      const { run } = ctx;
+      if (run) void import("#features/run/index.js").then(({ sortDeck }) => ctx.openDeck("내 덱", sortDeck(run.deck)));
     },
   };
 
@@ -176,5 +230,12 @@ export function createApp({ header, main }) {
   store.subscribe(render);
   window.addEventListener("hashchange", render);
   render();
+  // 자주 가는 화면(새 기록·판·도감)은 첫 화면 뒤 한가할 때 미리 받아 두어, 처음 들어갈 때도 바로 그립니다.
+  afterLoadIdle(
+    () => {
+      for (const name of ["new", "run", "codex"]) void PAGE_LOADERS[name]().catch(() => undefined);
+    },
+    { delay: 3000 },
+  );
   return store;
 }
