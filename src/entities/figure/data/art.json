@@ -909,6 +909,32 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dresden_p_74_large.jpg"
     }
   },
+  "hero-twins": {
+    "src": "/art/hero-twins.jpg",
+    "title": "「포폴 부」 장면이 그려진 마야 그릇",
+    "alt": "붉은 테두리 안에 머리 장식을 한 인물들이 그려진 원통형 마야 토기",
+    "holder": "드 영 미술관 (샌프란시스코)",
+    "dateLabel": "600~850년",
+    "credit": {
+      "artist": "Daderot",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vessel_with_scene_from_the_Popol_Vuh,_600-850_AD,_Guatemala,_Maya,_earthenware,_stucco,_and_pigment_-_De_Young_Museum,_San_Francisco.jpg"
+    }
+  },
+  "vucub-caquix": {
+    "src": "/art/vucub-caquix.jpg",
+    "title": "마코앵무새",
+    "alt": "파란 날개와 노란 가슴을 한 마코앵무새가 나뭇가지에 앉아 있습니다.",
+    "holder": null,
+    "dateLabel": "2014년 사진",
+    "credit": {
+      "artist": "Christopher Kuszajewski",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macaw_parrot_sitting_on_a_tree_branch.jpg_.jpg"
+    }
+  },
   "dionysus": {
     "src": "/art/dionysus.jpg",
     "title": "바쿠스",
@@ -1156,6 +1182,45 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anatolian_Civilizations_Museum_slaying_of_the_serpent_Illuyanka_by_the_Storm_God_in_2011_03.jpg"
     }
   },
+  "kumarbi": {
+    "src": "/art/kumarbi.jpg",
+    "title": "히타이트 쐐기 문자 점토판",
+    "alt": "갈색 점토판에 쐐기 문자가 가로줄을 이루며 빼곡하게 새겨져 있습니다.",
+    "holder": "시카고 대학교 동양학연구소",
+    "dateLabel": "기원전 2천년기 후반",
+    "credit": {
+      "artist": "Mx. Granger",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hittite_Cuneiform_Tablet-_Cultic_Festival_Script.jpg"
+    }
+  },
+  "telipinu": {
+    "src": "/art/telipinu.jpg",
+    "title": "아이를 안은 히타이트 여신상",
+    "alt": "머리 뒤에 둥근 원반을 두른 여신이 무릎에 작은 아이를 안고 앉은 금 조각",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "기원전 14~13세기",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seated_goddess_with_a_child_MET_DT873.jpg"
+    }
+  },
+  "ullikummi": {
+    "src": "/art/ullikummi.jpg",
+    "title": "바다에서 본 카시오스산 (존 칸)",
+    "alt": "달빛 아래 바다 너머로 높은 산이 솟아 있고, 앞쪽에 돛단배들이 떠 있는 동판화",
+    "holder": null,
+    "dateLabel": "1836년",
+    "credit": {
+      "artist": "John Carne",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Casius_from_the_Sea_-_Carne_John_-_1836.jpg"
+    }
+  },
   "allat": {
     "src": "/art/allat.jpg",
     "title": "팔미라의 알라트 신전 터",
@@ -1232,6 +1297,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perkunas_of_Kernav%C4%97s.jpg"
+    }
+  },
+  "laima": {
+    "src": "/art/laima.jpg",
+    "title": "왕들의 동화 (추를료니스)",
+    "alt": "어두운 숲속에서 왕관 쓴 두 왕이 손바닥 위에 빛나는 작은 세상을 받쳐 든 그림",
+    "holder": "추를료니스 국립미술관 (카우나스)",
+    "dateLabel": "1909년",
+    "credit": {
+      "artist": "Mikalojus Konstantinas Čiurlionis",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mikalojus_Konstantinas_Ciurlionis_-_FAIRY_TALE_(FAIRY_TALE_OF_KINGS)_-_1909.jpg"
     }
   },
   "kalevipoeg": {
@@ -1338,6 +1416,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:T.E._Macklin_Aphrodite_bronze_mask.jpg"
     }
   },
+  "vahagn": {
+    "src": "/art/vahagn.jpg",
+    "title": "아르메니아의 용 돌 (비샤파카르)",
+    "alt": "풀밭에 물고기 모양으로 깎은 길쭉한 돌이 누워 있는 흑백 사진",
+    "holder": null,
+    "dateLabel": "옛 사진 (돌은 청동기 시대)",
+    "credit": {
+      "artist": null,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vishap06.jpg"
+    }
+  },
   "hayk": {
     "src": "/art/hayk.jpg",
     "title": "벨을 쓰러뜨리는 하이크",
@@ -1375,6 +1466,19 @@
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Turul_-_B%C3%A1nhida_(Tatab%C3%A1nya)_-_2.jpg"
+    }
+  },
+  "emese": {
+    "src": "/art/emese.jpg",
+    "title": "에메세의 꿈",
+    "alt": "구슬 장식 머리쓰개를 쓴 여인의 어깨 옆에 매 모양의 새가 앉아 있는 그림",
+    "holder": null,
+    "dateLabel": "1850년경",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emese_%C3%A1lma.jpg"
     }
   },
   "weland": {
@@ -1429,6 +1533,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Relief_of_a_Thracian_horseman,_Marble,_early_1st_Century_CE_Thessaloniki.jpg"
     }
   },
+  "zalmoxis": {
+    "src": "/art/zalmoxis.jpg",
+    "title": "사르미제게투사 레지아의 작은 석회암 성소",
+    "alt": "숲으로 둘러싸인 풀밭에 둥근 돌 받침들이 줄지어 놓인 성소 터",
+    "holder": "루마니아 오러슈티에산맥",
+    "dateLabel": "2009년 사진 (성소는 기원전 1세기~1세기)",
+    "credit": {
+      "artist": "Oroles",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuarul_mic_de_calcar.JPG"
+    }
+  },
   "shango": {
     "src": "/art/shango.jpg",
     "title": "오셰 샹고 (샹고의 춤 지팡이)",
@@ -1468,6 +1585,58 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brooklyn_Museum_75.147.1_Divination_Tray_Opon_Ifa.jpg"
     }
   },
+  "ogun": {
+    "src": "/art/ogun.jpg",
+    "title": "쇠를 벼리는 대장장이",
+    "alt": "땅바닥에 앉은 대장장이가 모루 위의 쇠를 망치로 두드리는 모습",
+    "holder": null,
+    "dateLabel": "2024년 사진",
+    "credit": {
+      "artist": "Cherif sidi",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cr%C3%A9ativit%C3%A9s_Africaines.jpg"
+    }
+  },
+  "obatala": {
+    "src": "/art/obatala.jpg",
+    "title": "이페 왕(오니)의 두상",
+    "alt": "구슬을 엮은 높은 관을 쓰고 얼굴에 가는 세로줄이 새겨진 금속 두상",
+    "holder": "영국 박물관",
+    "dateLabel": "14~15세기 초",
+    "credit": {
+      "artist": "Vassil",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:British_Museum_Room_25_Head_of_a_king_Ife_17022019_5147.jpg"
+    }
+  },
+  "oshun": {
+    "src": "/art/oshun.jpg",
+    "title": "그릇을 받쳐 든 여인 모양 상아 그릇 (요루바)",
+    "alt": "무릎을 꿇은 여인이 두 팔을 올려 머리 위의 둥근 그릇을 받쳐 든 상아 조각",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "17~19세기",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%80g%C3%A9r%C3%A9_If%C3%A1_(If%C3%A1_divination_vessel)_with_kneeling_woman_(MET_1991.17.127)_DP-31157-001.jpg"
+    }
+  },
+  "yemoja": {
+    "src": "/art/yemoja.jpg",
+    "title": "무릎 꿇은 어머니 모양 그릇",
+    "alt": "아이를 업은 여인이 무릎을 꿇고 머리 위로 둥근 그릇을 받쳐 든 나무 조각",
+    "holder": "클리블랜드 미술관",
+    "dateLabel": "1850년경",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clevelandart_1994.200.1.jpg"
+    }
+  },
   "nommo": {
     "src": "/art/nommo.jpg",
     "title": "도곤 인물 조각",
@@ -1481,6 +1650,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dogon_sculpture-73.1977.6.1-DSC00255-58-black.jpg"
     }
   },
+  "amma": {
+    "src": "/art/amma.jpg",
+    "title": "도곤족의 남녀 좌상",
+    "alt": "길쭉한 몸의 남녀가 둥근 의자에 나란히 앉아, 남자가 여자의 어깨에 팔을 두른 나무 조각",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "18~19세기 초",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Figure-_Seated_Couple_MET_DT1217.jpg"
+    }
+  },
   "gu": {
     "src": "/art/gu.jpg",
     "title": "구의 신상",
@@ -1492,6 +1674,19 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Benin,_fon,_il_dio_gou_protettore_del_ferro_battuto_e_della_guerra,_ante_1858,_artista_akati_ekpl%C3%A9kendo,_01.JPG"
+    }
+  },
+  "mawu-lisa": {
+    "src": "/art/mawu-lisa.jpg",
+    "title": "제단 지팡이 아센 (폰족)",
+    "alt": "가는 쇠막대 위에 둥근 받침을 얹고, 가장자리에 작은 장식을 늘어뜨린 채 그 위에 작은 형상들을 세운 지팡이",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "19세기",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altar_Staff_(Asen)_MET_DP-14818-003.jpg"
     }
   },
   "inti": {
@@ -1557,6 +1752,45 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mama_Ocllo,_artist_unknown,_Cuzco,_Peru,_c._1835-1845,_oil_on_canvas_-_Fogg_Art_Museum,_Harvard_University_-_DSC02018.jpg"
+    }
+  },
+  "mama-quilla": {
+    "src": "/art/mama-quilla.jpg",
+    "title": "보름달 (갈릴레오 탐사선)",
+    "alt": "검은 우주를 배경으로 밝고 어두운 무늬가 또렷한 둥근 보름달",
+    "holder": "미국 항공우주국(NASA)",
+    "dateLabel": "1990년대 사진",
+    "credit": {
+      "artist": "NASA/JPL/USGS",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Full_moon.jpeg"
+    }
+  },
+  "illapa": {
+    "src": "/art/illapa.jpg",
+    "title": "번개",
+    "alt": "어두운 밤하늘에서 여러 갈래의 번개가 땅으로 내리꽂히는 모습",
+    "holder": "미국 국립해양대기청(NOAA)",
+    "dateLabel": null,
+    "credit": {
+      "artist": "C. Clark",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lightning_NOAA.jpg"
+    }
+  },
+  "pachacamac": {
+    "src": "/art/pachacamac.jpg",
+    "title": "파차카막 나무 신상",
+    "alt": "어두운 진열장 안에 선, 위쪽에 사람 모양을 새기고 기둥 전체에 무늬를 깎은 높은 나무 기둥",
+    "holder": "파차카막 유적 박물관 (페루)",
+    "dateLabel": "8~9세기",
+    "credit": {
+      "artist": "Rodrigozu",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%8Ddolo_tallado_en_madera_del_Dios_Pachac%C3%A1mac.jpg"
     }
   },
   "raven": {
@@ -1676,6 +1910,32 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Te_Tohunga_-_p11.png"
     }
   },
+  "rangi-and-papa": {
+    "src": "/art/rangi-and-papa.jpg",
+    "title": "껴안은 남녀 (마오리 창고 조각)",
+    "alt": "문신을 새긴 남자와 여자의 얼굴이 맞닿고, 둘레에 소용돌이무늬를 새긴 나무 조각",
+    "holder": null,
+    "dateLabel": null,
+    "credit": {
+      "artist": "Kahuroa",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:WahineTane.jpg"
+    }
+  },
+  "pele": {
+    "src": "/art/pele.jpg",
+    "title": "펠레 (하워드 히치콕)",
+    "alt": "어두운 분화구에서 붉은 용암과 불길이 치솟는 유화",
+    "holder": null,
+    "dateLabel": "1927~1929년경",
+    "credit": {
+      "artist": "D. Howard Hitchcock",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pele_by_D._Howard_Hitchcock_(ca.1927-1929).png"
+    }
+  },
   "makemake": {
     "src": "/art/makemake.jpg",
     "title": "마케마케 바위그림",
@@ -1765,6 +2025,32 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ph%C3%B9_%C4%91i%C3%AAu_Qu%E1%BB%91c_t%E1%BB%95_L%E1%BA%A1c_Long_Qu%C3%A2n_t%E1%BA%A1i_%C4%90%E1%BB%81n_N%E1%BB%99i_B%C3%ACnh_%C4%90%C3%A0.jpg"
+    }
+  },
+  "an-duong-vuong": {
+    "src": "/art/an-duong-vuong.jpg",
+    "title": "꼬로아 청동북",
+    "alt": "넓적한 북면과 잘록한 몸통에 고리 손잡이가 달린 청동북이 받침 위에 놓여 있습니다.",
+    "holder": "하노이 박물관",
+    "dateLabel": "기원전 3세기경",
+    "credit": {
+      "artist": "Daaé",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Co_Loa_drums.JPG"
+    }
+  },
+  "kim-quy": {
+    "src": "/art/kim-quy.jpg",
+    "title": "호안끼엠 호수의 거북 탑",
+    "alt": "나무가 우거진 작은 섬 위에 선 3층 탑과 그 둘레의 호수",
+    "holder": "하노이 호안끼엠 호수",
+    "dateLabel": "2006년경 사진 (탑은 1886년)",
+    "credit": {
+      "artist": "Lilli Ann",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Turtle_Tower_c2006.jpg"
     }
   },
   "thotsakan": {
@@ -1871,6 +2157,32 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Masker_van_de_ponokawan_Semar,_AK-RAK-1998-3.jpg"
     }
   },
+  "gatotkaca": {
+    "src": "/art/gatotkaca.jpg",
+    "title": "가토트카차 앞에 무릎 꿇은 아비마뉴",
+    "alt": "화려한 관과 장식을 갖춘 가토트카차 앞에서 아비마뉴가 무릎을 꿇은 채색 그림",
+    "holder": "영국 도서관",
+    "dateLabel": "1870년대",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abimanyu_kneels_in_front_of_Gatotkaca,_Or._3390_152.tiff"
+    }
+  },
+  "hwanin": {
+    "src": "/art/hwanin.jpg",
+    "title": "만신도",
+    "alt": "여러 무속 신들이 층층이 앉아 있는 채색 그림. 가운데에 고깔을 쓴 세 신이 나란히 있고 오른쪽 아래에 호랑이가 있습니다.",
+    "holder": null,
+    "dateLabel": "19세기 초",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mansindo_(%E8%90%AC%E7%A5%9E%E5%9C%96),_early_19th-c._Korean_shamanic_painting.jpg"
+    }
+  },
   "hwanung": {
     "src": "/art/hwanung.jpg",
     "title": "한반도의 세형동검",
@@ -1882,6 +2194,32 @@
       "license": "CC0",
       "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Slender_bronze_dagger_in_Korea_in_1978.jpg"
+    }
+  },
+  "ungnyeo": {
+    "src": "/art/ungnyeo.jpg",
+    "title": "각저총 씨름 그림",
+    "alt": "큰 나무 옆에서 두 사람이 씨름하고, 나무 밑동에 짐승들이 그려진 고구려 무덤 벽화",
+    "holder": "중국 지린성 지안",
+    "dateLabel": "4~6세기",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goguryeo-Gakjeochong-Ssireumdo-01.jpg"
+    }
+  },
+  "haemosu": {
+    "src": "/art/haemosu.jpg",
+    "title": "오회분 4호묘의 해신",
+    "alt": "용의 꼬리를 한 날개 달린 신이 머리 위로 둥근 해를 받쳐 든 벽화",
+    "holder": "중국 지린성 지안",
+    "dateLabel": "6세기",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E9%AB%98%E5%8F%A5%E4%B8%BD%E5%A2%93%E8%91%AC%E5%A3%81%E7%94%BB03.jpg"
     }
   },
   "yuhwa": {
@@ -1934,6 +2272,58 @@
       "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Royal_Tomb_of_King_Suro.jpg"
+    }
+  },
+  "seolmundae": {
+    "src": "/art/seolmundae.jpg",
+    "title": "한라산 백록담",
+    "alt": "푸른 풀이 덮인 산꼭대기 분화구 안에 물이 고인 백록담과 둘레의 비탈",
+    "holder": "제주 한라산",
+    "dateLabel": null,
+    "credit": {
+      "artist": "AndiW",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hallasan_2.jpg"
+    }
+  },
+  "samsin": {
+    "src": "/art/samsin.jpg",
+    "title": "무녀신무 (신윤복)",
+    "alt": "붉은 옷을 입은 무당이 부채를 들고 춤추고, 마당에 둘러앉은 여인들이 지켜보는 풍속화",
+    "holder": "간송미술관",
+    "dateLabel": "19세기 초",
+    "credit": {
+      "artist": "Shin Yun-bok",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyewon-Munyeo.sinmu.jpg"
+    }
+  },
+  "jacheongbi": {
+    "src": "/art/jacheongbi.jpg",
+    "title": "내왓당 무신도 중전",
+    "alt": "붉은 저고리와 초록 치마를 입은 여신이 머리를 높이 올리고 앉아 있는 낡은 채색 그림",
+    "holder": "국립제주박물관",
+    "dateLabel": "조선 시대",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%EB%82%B4%EC%99%93%EB%8B%B9_%EB%AC%B4%EC%8B%A0%EB%8F%84_%EC%A4%91%EC%A0%84%EC%9C%84.jpg"
+    }
+  },
+  "gangnim": {
+    "src": "/art/gangnim.jpg",
+    "title": "지장보살과 시왕 (아홉 폭 가운데 한 폭)",
+    "alt": "붉은 관복에 관을 쓴 저승의 왕들이 홀을 들고 늘어서 있고, 옆에 시중드는 이들이 선 채색 불화",
+    "holder": "로스앤젤레스 카운티 미술관",
+    "dateLabel": "1841년경",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bodhisattva_Jijang_(Kshitigarbha)_and_the_Ten_Kings_of_Hell_LACMA_AC1994.49.1_(9_of_9).jpg"
     }
   },
   "siwang": {
@@ -2014,6 +2404,32 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chi_You.gif"
     }
   },
+  "poiyaunpe": {
+    "src": "/art/poiyaunpe.jpg",
+    "title": "아이누 남자 (히라사와 뵤잔)",
+    "alt": "수염이 덥수룩한 아이누 남자가 무늬 놓은 겉옷을 입고 활을 든 채 짐을 지고 선 그림",
+    "holder": "도쿄 국립박물관",
+    "dateLabel": "19세기 중반",
+    "credit": {
+      "artist": "Hirasawa Byōzan",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:HirasawaByozanHomme.png"
+    }
+  },
+  "shitonai": {
+    "src": "/art/shitonai.jpg",
+    "title": "아이누 아이의 겉옷",
+    "alt": "누런 천에 검은 무늬 천을 덧대고 끈을 맨 아이 겉옷이 진열대에 걸려 있습니다.",
+    "holder": "스톡홀름 민족지 박물관",
+    "dateLabel": null,
+    "credit": {
+      "artist": "Daderot",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coat_for_small_child,_Ainu_people,_Japan,_woven_from_inner_bark_of_elm_tree,_repaired_with_cotton_-_Etnografiska_museet_-_Stockholm,_Sweden_-_DSC01166.JPG"
+    }
+  },
   "paul-bunyan": {
     "src": "/art/paul-bunyan.jpg",
     "title": "베미지의 폴 버니언과 베이브 조각상",
@@ -2025,6 +2441,19 @@
       "license": "Copyrighted free use",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paul_Bunyan_and_Babe_statues_Bemidji_Minnesota_crop.JPG"
+    }
+  },
+  "john-henry": {
+    "src": "/art/john-henry.jpg",
+    "title": "체서피크 오하이오 철도의 메이슨 터널 (그림엽서)",
+    "alt": "꽃이 핀 산비탈을 따라 놓인 철길이 산속 터널로 들어가는 모습을 담은 채색 그림엽서",
+    "holder": "뉴욕 공립도서관",
+    "dateLabel": "1898년 이후",
+    "credit": {
+      "artist": "Detroit Publishing Company",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mason_Tunnel_on_the_C._%26_O._R._R.,_Virginia_(NYPL_b12647398-74287).tiff"
     }
   },
   "scheherazade": {
@@ -2313,6 +2742,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:CRANE_King_Arthur_asks_the_lady_of_the_lake_for_the_sword_Excalibur.jpg"
     }
   },
+  "kirta": {
+    "src": "/art/kirta.jpg",
+    "title": "바알 이야기가 적힌 우가리트 서판",
+    "alt": "세로 단으로 나뉜 면에 쐐기 문자가 빼곡하게 새겨진 길쭉한 점토판",
+    "holder": "루브르 박물관",
+    "dateLabel": "기원전 14~13세기",
+    "credit": {
+      "artist": "Shonagon",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tablette_avec_po%C3%A8me_mythologique_du_cycle_de_Ba%27al_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_orientales_AO_16636.jpg"
+    }
+  },
   "el": {
     "src": "/art/el.jpg",
     "title": "메기도의 금박 신상",
@@ -2324,6 +2766,19 @@
       "license": "CC0",
       "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:El,_the_Canaanite_creator_deity,_Megiddo,_Stratum_VII,_Late_Bronze_II,_1400-1200_BC,_bronze_with_gold_leaf_-_Oriental_Institute_Museum,_University_of_Chicago_-_DSC07734.JPG"
+    }
+  },
+  "anat": {
+    "src": "/art/anat.jpg",
+    "title": "람세스 2세와 아낫",
+    "alt": "높은 관을 쓴 아낫과 람세스 2세가 나란히 앉은 화강암 조각",
+    "holder": null,
+    "dateLabel": "기원전 13세기",
+    "credit": {
+      "artist": "A. Parrot",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anat_and_Ramesses_II.JPG"
     }
   },
   "charlemagne": {
@@ -2456,6 +2911,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orlando_Furioso_9.jpg"
     }
   },
+  "scathach": {
+    "src": "/art/scathach.jpg",
+    "title": "바다와 싸우는 쿠훌린 (베르나르트 에서르스)",
+    "alt": "높은 물결 속에서 창을 든 쿠훌린이 바다와 맞서는 흑백 목판화",
+    "holder": "레이크스 미술관",
+    "dateLabel": "1915년",
+    "credit": {
+      "artist": "Bernard Essers",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cuchulainn_vechtend_tegen_de_branding,_RP-P-2014-83-86.jpg"
+    }
+  },
   "diarmuid": {
     "src": "/art/diarmuid.jpg",
     "title": "샘가에서 뿔잔을 든 디어무드",
@@ -2506,6 +2974,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queen_Medb_(Se%C3%B3irse_Ua_F%C3%A1g%C3%A1in,_1904).jpg"
+    }
+  },
+  "manannan": {
+    "src": "/art/manannan.jpg",
+    "title": "마나난의 배 (스티븐 리드)",
+    "alt": "높은 물결 위를 미끄러지는 작은 배에 투구 쓴 사람들이 타고 있는 채색 삽화",
+    "holder": null,
+    "dateLabel": "1910년",
+    "credit": {
+      "artist": "Stephen Reid",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:4_Bear_us_swiftly,_Boat_of_Mananan,_to_the_Garden_of_the_Hesperides.jpg"
     }
   },
   "oisin": {
@@ -2586,6 +3067,58 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceridwen.jpg"
     }
   },
+  "dagda": {
+    "src": "/art/dagda.jpg",
+    "title": "선 애버스의 거인",
+    "alt": "풀이 덮인 언덕 비탈에 흰 선으로 몽둥이를 든 거인을 그린 모습",
+    "holder": "영국 도싯",
+    "dateLabel": "2006년 사진",
+    "credit": {
+      "artist": "Qz10",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cerne_Abbas_Giant_View.jpg"
+    }
+  },
+  "nuada": {
+    "src": "/art/nuada.jpg",
+    "title": "켈트족의 칼과 칼집",
+    "alt": "손잡이 끝이 둥글게 갈라진 청동 칼과 칼집이 푸른 녹으로 덮여 있습니다.",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "기원전 60년경",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sword_and_Scabbard_MET_DT107.jpg"
+    }
+  },
+  "taliesin": {
+    "src": "/art/taliesin.jpg",
+    "title": "탈리에신의 발견 (헨리 클래런스 웨이트)",
+    "alt": "강가의 굽은 나무들 아래에서 한 남자가 몸을 숙여 무언가를 들여다보는 풍경화",
+    "holder": "웨일스 국립도서관",
+    "dateLabel": "1876년",
+    "credit": {
+      "artist": "Henry Clarence Whaite",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Finding_of_Taliesin.jpg"
+    }
+  },
+  "balor": {
+    "src": "/art/balor.jpg",
+    "title": "포모르족 (존 덩컨)",
+    "alt": "흰 천을 두른 기괴한 형상들이 말을 타거나 걸어서 어두운 언덕을 넘어가는 행렬",
+    "holder": null,
+    "dateLabel": "1912년",
+    "credit": {
+      "artist": "John Duncan",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Fomors_-_Duncan_1912.png"
+    }
+  },
   "nezha": {
     "src": "/art/nezha.jpg",
     "title": "나타 (경극 인물 화첩)",
@@ -2610,6 +3143,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Soga_Sh%C5%8Dhaku_-_Taigong_Wang_(center_of_a_triptych_of_Taigong_Wang,_Dragon,_and_Carp)_-_2017.145.7.2_-_Minneapolis_Institute_of_Art.jpg"
+    }
+  },
+  "huang-feihu": {
+    "src": "/art/huang-feihu.jpg",
+    "title": "동악대제 (「삼교원류수신대전」)",
+    "alt": "면류관을 쓴 동악대제가 관복 입은 두 신하와 함께 구름 위에 선 흑백 목판화",
+    "holder": null,
+    "dateLabel": "명나라 때 책 (1906년 판)",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E5%B6%BD%EF%BC%88%E4%B8%89%E6%95%99%E6%BA%90%E6%B5%81%E6%90%9C%E7%A5%9E%E5%A4%A7%E5%85%A8%EF%BC%89.jpg"
     }
   },
   "huyan-zhuo": {
@@ -2805,6 +3351,32 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%B2%88%E5%8D%97%E8%98%8B_%E4%B8%B9%E9%B3%B3%E6%9C%9D%E9%99%BD%E5%9B%B3_%E9%9B%8D%E6%AD%A313(1735)_Shen_Nanpi_Pair_of_Phoenixes_in_the_Morning_Glow_A_Hanging_scroll_Color_on_sil_a_dynasty.jpg"
+    }
+  },
+  "gonggong": {
+    "src": "/art/gonggong.jpg",
+    "title": "강회가 난을 일으키다",
+    "alt": "두 인물이 맞서는 모습을 그린 흑백 목판화. 양옆에 '강회작란(康回作亂)'과 '흥병해민(興兵害民)'이라는 글이 있습니다.",
+    "holder": null,
+    "dateLabel": "17세기",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%BA%B7%E5%9B%98%E4%BD%9C%E4%BA%82%E8%88%88%E5%85%B5%E5%AE%B3%E6%B0%91.jpg"
+    }
+  },
+  "nitocris": {
+    "src": "/art/nitocris.jpg",
+    "title": "토리노 왕명표",
+    "alt": "누렇게 바랜 파피루스 조각들이 유리판 사이에 이어 붙여져 있습니다.",
+    "holder": "토리노 이집트 박물관",
+    "dateLabel": "기원전 13세기",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Turin_King_List,_papyrus_-_Museo_Egizio_Turin_C_1874_p03.jpg"
     }
   },
   "robin-hood": {
@@ -3392,6 +3964,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cadmus_fighting_the_Dragon_MET_DP102232.jpg"
     }
   },
+  "cyrene": {
+    "src": "/art/cyrene.jpg",
+    "title": "사자를 쓰다듬는 젊은 여인 (코르넬리스 블루마르트)",
+    "alt": "꽃 줄을 든 천사 아래에서 젊은 여인이 사자를 끌어안고 앉아 있는 동판화",
+    "holder": null,
+    "dateLabel": "17세기",
+    "credit": {
+      "artist": "Cornelis Bloemaert",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jeune_femme_caressant_un_lion_d%27apr%C3%A8s_Crescenti_(Dutuit_p._40),_GDUT708.jpg"
+    }
+  },
   "psyche": {
     "src": "/art/psyche.jpg",
     "title": "가족과 작별하는 프시케",
@@ -3561,6 +4146,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mace_fighting_between_Duryodhan_%26_bheema.jpg"
     }
   },
+  "vritra": {
+    "src": "/art/vritra.jpg",
+    "title": "브리트라를 죽인 인드라",
+    "alt": "숲속에서 활을 든 인드라가 땅에 쓰러진 거대한 아수라를 내려다보는 흑백 삽화",
+    "holder": null,
+    "dateLabel": "1916년 책에 실린 그림",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Indra_kills_Vrttirasura_(story_from_Rik_Veda,_featured_in_Bhagavatha).jpg"
+    }
+  },
   "parashurama": {
     "src": "/art/parashurama.jpg",
     "title": "파라슈라마",
@@ -3715,6 +4313,45 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Garuda_Vishnu_Laxmi.jpg"
+    }
+  },
+  "nandi": {
+    "src": "/art/nandi.jpg",
+    "title": "황소 난디 (촐라 청동상)",
+    "alt": "목에 방울 목걸이를 걸고 등에 덮개를 얹은 황소 난디가 받침 위에 엎드린 청동상",
+    "holder": "프리어 미술관 (워싱턴 D.C.)",
+    "dateLabel": "12세기",
+    "credit": {
+      "artist": "Daderot",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nandi_the_Bull,_Chola_dynasty,_12th_century_AD,_Tamil_Nadu,_India,_bronze_-_Freer_Gallery_of_Art_-_DSC04479.jpg"
+    }
+  },
+  "shesha": {
+    "src": "/art/shesha.jpg",
+    "title": "셰샤 위에 누운 비슈누와 마두·카이타바",
+    "alt": "머리가 여럿인 흰 뱀이 바다 위에 길게 누워 있고, 그 위의 비슈누가 두 악마와 맞붙은 그림",
+    "holder": null,
+    "dateLabel": "1800년경",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Unknown_(Indian)_-_Vishnu_on_Serpent_Shesha_and_Vishnu_Battling_Demons_Madhu_and_Kaitabha_-_69.424_-_Detroit_Institute_of_Arts.jpg"
+    }
+  },
+  "arash": {
+    "src": "/art/arash.jpg",
+    "title": "궁수 나슈미 (레자 압바시)",
+    "alt": "털모자를 쓰고 긴 겉옷을 입은 궁수가 활을 메고 병을 든 채 서 있는 그림",
+    "holder": "하버드 미술관",
+    "dateLabel": "1622년",
+    "credit": {
+      "artist": "Reza Abbasi",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aqa_Riza_(Riza_%E2%80%98Abbasi)_-_Nashmi_the_Archer_-_1960.197_-_Harvard_Art_Museums.jpg"
     }
   },
   "rostam": {
@@ -3938,6 +4575,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shibata_Zeshin_-_Ibaraki_-_1990.6_-_Cleveland_Museum_of_Art.tif"
     }
   },
+  "ibuki-doji": {
+    "src": "/art/ibuki-doji.jpg",
+    "title": "여인들에 둘러싸인 슈텐도지 (쓰키오카 요시토시)",
+    "alt": "붉은 얼굴의 슈텐도지가 술상 앞에 앉아 있고 여인들이 둘러싼 채색 목판화",
+    "holder": "로스앤젤레스 카운티 미술관",
+    "dateLabel": "1865년",
+    "credit": {
+      "artist": "Tsukioka Yoshitoshi",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shutendoji_Surrounded_by_Women_LACMA_M.84.31.53.jpg"
+    }
+  },
   "minamoto-no-raiko": {
     "src": "/art/minamoto-no-raiko.jpg",
     "title": "라이코와 사천왕, 슈텐도지의 목",
@@ -3988,6 +4638,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tawara_Toda_Protecting_the_Dragon%27s_Daughter_from_the_Giant_Millipede_LACMA_M.84.31.60.jpg"
+    }
+  },
+  "suzuka-gozen": {
+    "src": "/art/suzuka-gozen.jpg",
+    "title": "도카이도 53쌍: 쓰치야마 (우타가와 구니요시)",
+    "alt": "화살이 날아드는 가운데 갑옷 입은 장수들이 귀신과 맞서는 채색 목판화. 위쪽에 '도카이도 오십삼대'라는 제목이 있습니다.",
+    "holder": "영국 박물관",
+    "dateLabel": "1845년경",
+    "credit": {
+      "artist": "Utagawa Kuniyoshi",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsuchiyama_%E5%9C%9F%E5%B1%B1_(BM_2008,3037.04353).jpg"
     }
   },
   "benkei": {
@@ -4172,6 +4835,58 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Li_Hayata_Hironao_grappling_with_the_monstruos_nue.jpg"
     }
   },
+  "tsukuyomi": {
+    "src": "/art/tsukuyomi.jpg",
+    "title": "쓰쿠요미노미코토 (「신불도회」)",
+    "alt": "머리를 풀어 내린 쓰쿠요미가 옷자락을 늘어뜨리고 앉은 모습을 먹선으로 그리고 둘레에 글을 적은 그림",
+    "holder": null,
+    "dateLabel": "1868년 이전",
+    "credit": {
+      "artist": "Utagawa Sadahide",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsukuyomi_shinbutsu-zue.jpg"
+    }
+  },
+  "daebyeol-sobyeol": {
+    "src": "/art/daebyeol-sobyeol.jpg",
+    "title": "일월오봉도",
+    "alt": "파란 하늘에 흰 달과 붉은 해가 뜨고, 다섯 봉우리와 폭포, 붉은 소나무와 물결을 그린 그림",
+    "holder": null,
+    "dateLabel": "조선 시대",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Irworobongdo.jpg"
+    }
+  },
+  "geotaji": {
+    "src": "/art/geotaji.jpg",
+    "title": "활쏘기 (김홍도 「단원 풍속도첩」)",
+    "alt": "갓 쓴 사람이 젊은이에게 활 쥐는 법을 가르치고, 옆에서 다른 이들이 화살을 손질하는 담채화",
+    "holder": "국립중앙박물관",
+    "dateLabel": "18세기 후반",
+    "credit": {
+      "artist": "Kim Hong-do",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%ED%99%9C%EC%8F%98%EA%B8%B0.jpg"
+    }
+  },
+  "utturi": {
+    "src": "/art/utturi.jpg",
+    "title": "고구려 무덤 벽화의 주작 (「조선고적도보」)",
+    "alt": "어두운 벽면에 날개와 긴 꼬리깃을 활짝 펼친 붉은 새가 그려진 벽화를 찍은 사진",
+    "holder": null,
+    "dateLabel": "1915년 사진 (벽화는 7세기)",
+    "credit": {
+      "artist": "Government-General of Korea",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%EC%A3%BC%EC%9E%91_%EC%A1%B0%EC%84%A0%EA%B3%A0%EC%A0%81%EB%8F%84%EB%B3%B4.jpg"
+    }
+  },
   "jeon-u-chi": {
     "src": "/art/jeon-u-chi.jpg",
     "title": "「전우치전」",
@@ -4198,6 +4913,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honggildongjeon.jpg"
     }
   },
+  "seol-jukhwa": {
+    "src": "/art/seol-jukhwa.jpg",
+    "title": "조선의 면갑옷과 투구",
+    "alt": "두건 모양 투구와 함께 세워 둔 누런 천 갑옷. 가슴과 배에 불교·도교의 상징 무늬가 찍혀 있습니다.",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "18세기 무렵",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fabric_Armor_and_Helmet_with_Buddhist_and_Taoist_symbols_MET_DT11934.jpg"
+    }
+  },
   "hyeonmu": {
     "src": "/art/hyeonmu.jpg",
     "title": "강서대묘 현무도",
@@ -4209,6 +4937,45 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%ED%98%84%EB%AC%B4_%EC%A1%B0%EC%84%A0%EA%B3%A0%EC%A0%81%EB%8F%84%EB%B3%B4.jpg"
+    }
+  },
+  "munmu": {
+    "src": "/art/munmu.jpg",
+    "title": "통일신라의 금동 용머리",
+    "alt": "부릅뜬 눈과 말려 올라간 뿔을 한 금동 용머리가 받침 위에 놓여 있습니다.",
+    "holder": "국립중앙박물관",
+    "dateLabel": "통일신라 (7~10세기)",
+    "credit": {
+      "artist": "Gary Todd",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gilt_Bronze_Dragon_Head,_Unified_Silla_(17666153538).jpg"
+    }
+  },
+  "hodong": {
+    "src": "/art/hodong.jpg",
+    "title": "무용총 수렵도",
+    "alt": "말 위에서 몸을 돌려 활을 겨누는 사냥꾼 앞으로 호랑이가 달아나는 벽화",
+    "holder": "중국 지린성 지안",
+    "dateLabel": "5세기",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E9%AB%98%E5%8F%A5%E4%B8%BD%E5%A2%93%E8%91%AC%E5%A3%81%E7%94%BB04.jpg"
+    }
+  },
+  "nangnang-princess": {
+    "src": "/art/nangnang-princess.jpg",
+    "title": "채협총 칠기 바구니의 그림",
+    "alt": "칠기 바구니 둘레에 옛 옷차림의 인물들이 나란히 앉아 이야기하는 모습을 찍은 흑백 사진",
+    "holder": null,
+    "dateLabel": "1~2세기",
+    "credit": {
+      "artist": "Unknown artist",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Painted_figures_on_a_lacquer_basket,_Eastern_Han_Dynasty2.jpg"
     }
   },
   "enkidu": {
@@ -4313,6 +5080,58 @@
       "license": "CC0",
       "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:British_Museum_Middle_east_14022019_Panel_Imdugud_2500_BC_3640.jpg"
+    }
+  },
+  "enlil": {
+    "src": "/art/enlil.jpg",
+    "title": "에쿠르 신전의 봉헌 명문",
+    "alt": "네모난 검은 돌판에 쐐기 문자가 줄지어 새겨져 있습니다.",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "기원전 16~15세기",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_Sumerian_dedicatory(%3F)_inscription_from_Ekur,_the_temple_of_the_god_Enlil_MET_DP360669.jpg"
+    }
+  },
+  "nergal": {
+    "src": "/art/nergal.jpg",
+    "title": "화성 (허블 우주 망원경)",
+    "alt": "검은 우주를 배경으로 붉은 사막과 흰 극관이 보이는 둥근 화성",
+    "holder": "미국 항공우주국(NASA)",
+    "dateLabel": "2018년 사진",
+    "credit": {
+      "artist": "NASA, ESA, and STScI",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mars,_image_taken_by_NASA%27s_Hubble_Space_Telescope,_July_2018.png"
+    }
+  },
+  "ninurta": {
+    "src": "/art/ninurta.jpg",
+    "title": "괴물을 쫓는 닌우르타 (님루드 부조)",
+    "alt": "날개 달린 신이 두 손에 번개 모양 무기를 쥐고 앞으로 나아가는 석조 부조의 흑백 사진",
+    "holder": "영국 박물관",
+    "dateLabel": "기원전 9세기",
+    "credit": {
+      "artist": "Katolophyromai",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cropped_Image_of_Carving_Showing_the_Mesopotamian_God_Ninurta.png"
+    }
+  },
+  "utnapishtim": {
+    "src": "/art/utnapishtim.jpg",
+    "title": "아트라하시스 홍수 이야기 서판",
+    "alt": "쐐기 문자가 새겨진 깨진 점토판 조각",
+    "holder": "메트로폴리탄 미술관",
+    "dateLabel": "기원전 7~6세기",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_Atra-hasis,_Babylonian_flood_myth_MET_266810.jpg"
     }
   },
   "sigurd": {
@@ -4573,6 +5392,19 @@
       "license": "Public domain",
       "licenseUrl": null,
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vasnetsov_Sirin_Alkonost.jpg"
+    }
+  },
+  "erkhii-mergen": {
+    "src": "/art/erkhii-mergen.jpg",
+    "title": "말 탄 궁수",
+    "alt": "말을 달리며 활시위를 당기는 궁수를 가는 먹선으로 그린 그림",
+    "holder": null,
+    "dateLabel": "15세기",
+    "credit": {
+      "artist": "Muhammad ibn Mahmudshah al-Khayyam",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:IlkhanidHorseArcher.jpg"
     }
   },
   "alip-manash": {
@@ -4861,6 +5693,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_giant_with_the_flaming_sword_by_Dollman.jpg"
     }
   },
+  "sif": {
+    "src": "/art/sif.jpg",
+    "title": "시프 (존 찰스 돌먼)",
+    "alt": "땅에 닿을 만큼 긴 머리를 늘어뜨린 시프가 돌계단에 앉아 있고, 뒤쪽 담 위에서 한 남자가 내려다보는 그림",
+    "holder": null,
+    "dateLabel": "1909년",
+    "credit": {
+      "artist": "John Charles Dollman",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sif_by_Dollman.jpg"
+    }
+  },
   "ammit": {
     "src": "/art/ammit.jpg",
     "title": "후네페르의 「사자의 서」 심판 장면",
@@ -5028,6 +5873,32 @@
       "license": "CC0",
       "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statuette_of_the_goddess_Neith_MET_DP311635.jpg"
+    }
+  },
+  "khnum": {
+    "src": "/art/khnum.jpg",
+    "title": "크눔 소상",
+    "alt": "숫양 머리에 긴 가발을 쓴 크눔의 동석 흉상",
+    "holder": "토리노 이집트 박물관",
+    "dateLabel": "기원전 8~4세기",
+    "credit": {
+      "artist": null,
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statuette_of_the_god_Khnum,_steatite_-_Museo_Egizio_Turin_C_513_p02.jpg"
+    }
+  },
+  "khonsu": {
+    "src": "/art/khonsu.jpg",
+    "title": "콘수 청동상",
+    "alt": "머리 위에 초승달과 둥근 달을 얹고, 몸에 꼭 맞는 옷을 입은 채 홀을 쥐고 선 청동 입상",
+    "holder": "루브르 박물관",
+    "dateLabel": null,
+    "credit": {
+      "artist": "Shonagon",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khonsou_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_E_4109.jpg"
     }
   },
   "circe": {

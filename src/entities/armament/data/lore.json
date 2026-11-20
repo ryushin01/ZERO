@@ -311,7 +311,7 @@
     "power": "하늘의 여신이 지닌 권능을 나타냅니다.",
     "price": "저승의 일곱 문을 지날 때마다 하나씩 벗겨져, 이슈타르는 알몸으로 언니 에레쉬키갈 앞에 섰다가 죽임을 당했습니다.",
     "source": "「이슈타르의 저승 하강」, 수메르 「인안나의 저승 하강」",
-    "exhibitId": null,
+    "exhibitId": "ishtar-sumerian-headdress",
     "order": 35
   },
   "vajra": {
@@ -347,7 +347,7 @@
     "power": "어떤 무기로도 부서지지 않고, 마르지 않는 화살통과 함께 쿠루크셰트라 전쟁을 치렀습니다.",
     "price": "이 활을 얻은 날 숲의 생명들은 불길에 휩싸였고, 전쟁이 끝난 뒤 아르주나는 활을 바다의 신에게 돌려주었습니다.",
     "source": "「마하바라타」",
-    "exhibitId": null,
+    "exhibitId": "arjuna-gandiva-chariot",
     "order": 39
   },
   "kavacha-kundala": {
@@ -374,7 +374,7 @@
     "power": "세상을 태울 만큼 강해, 같은 브라마스트라로만 맞설 수 있습니다.",
     "price": "쿠루크셰트라 전쟁 끝에 아르주나는 무기를 거두었지만 아슈바타만은 거두지 못해 판다바 가문의 태아에게 돌렸고, 크리슈나의 저주로 3천 년 동안 떠돌게 되었습니다.",
     "source": "「마하바라타」",
-    "exhibitId": null,
+    "exhibitId": "ashwatthama-razmnama-battle",
     "order": 42
   },
   "pinaka": {
@@ -518,7 +518,7 @@
     "power": "해모수는 아침에 내려와 인간 세상을 다스리고 저녁이면 하늘로 올라갔습니다.",
     "price": "해모수는 유화를 데려가려다 그 아버지 하백과 재주를 겨루었고, 끝내 유화를 두고 홀로 하늘로 돌아갔습니다.",
     "source": "이규보 「동명왕편」",
-    "exhibitId": null,
+    "exhibitId": "haemosu-han-chariot-fitting",
     "order": 58
   },
   "gold-box-of-gujibong": {
@@ -527,7 +527,7 @@
     "power": "상자 안의 황금 알 여섯 개에서 수로왕과 다섯 가야의 왕이 태어났습니다.",
     "price": null,
     "source": "「삼국유사」 가락국기",
-    "exhibitId": null,
+    "exhibitId": "suro-gaya-pottery-stand",
     "order": 59
   },
   "gae-bulg": {
@@ -545,7 +545,7 @@
     "power": "겨누어진 이는 움직이지 못하고 진실만 말하게 되며, 어떤 갑옷도 벤다고 전합니다.",
     "price": null,
     "source": "후대 아일랜드 전승",
-    "exhibitId": null,
+    "exhibitId": "manannan-kirkburn-sword",
     "order": 61
   },
   "excalibur": {
@@ -590,7 +590,7 @@
     "power": "눈부시게 아름답지만, 곁에 누우면 닿은 쪽 몸이 얼어붙을 만큼 차갑습니다.",
     "price": "일마리넨이 신부를 베이네뫼이넨에게 주려 하자, 베이네뫼이넨은 금으로 만든 아내를 찾지 말라며 물리쳤습니다.",
     "source": "「칼레발라」",
-    "exhibitId": null,
+    "exhibitId": "ilmarinen-alanen-sampo",
     "order": 66
   },
   "needle-of-koschei": {
@@ -716,7 +716,7 @@
     "power": "투구와 갑옷을 쉽게 가르는 명검입니다.",
     "price": "지크프리트가 죽은 뒤 하겐이 이 칼을 차지했고, 마지막에 크림힐트는 이 칼로 하겐의 목을 베었습니다. 크림힐트도 곧 힐데브란트의 칼에 쓰러졌습니다.",
     "source": "「니벨룽의 노래」",
-    "exhibitId": null,
+    "exhibitId": "hagen-balmung-hundeshagen",
     "order": 80
   },
   "love-potion": {
@@ -1184,7 +1184,7 @@
     "power": "다그다와 루, 오그마가 포모르족의 연회장을 찾아가자 벽에 걸려 있던 하프가 다그다의 부름에 날아오며 그 자리의 아홉 사람을 쓰러뜨렸습니다. 다그다는 이 하프로 슬픔의 노래와 웃음의 노래, 잠의 노래를 차례로 연주해 포모르족을 잠재우고 빠져나왔습니다.",
     "price": null,
     "source": "「마그 투이레드의 둘째 전투」",
-    "exhibitId": null,
+    "exhibitId": "dagda-trinity-harp",
     "order": 132
   },
   "sword-of-nuada": {
@@ -1193,7 +1193,7 @@
     "power": "칼집에서 뽑히면 그 칼을 피해 달아난 이가 없었고, 맞서 견딜 수 있는 이도 없었다고 합니다.",
     "price": null,
     "source": "「마그 투이레드의 둘째 전투」",
-    "exhibitId": null,
+    "exhibitId": "nuada-celtic-sword",
     "order": 133
   },
   "lia-fail": {
@@ -1202,7 +1202,7 @@
     "power": "참된 왕이 위에 서면 돌이 소리를 질러 그를 알렸다고 합니다. 「환영의 예언」에서는 콘 왕이 이 돌을 밟자 돌이 외쳤고, 안개 속에서 나타난 루가 그 뒤를 이을 왕들을 일러 주었습니다.",
     "price": "한 전승에서는 쿠 훌린이 자신이 아끼던 루가이드가 위에 섰는데도 돌이 외치지 않자 화가 나 칼로 쪼개 버렸고, 그 뒤로 돌은 콘 왕 때 말고는 다시 외치지 않았다고 합니다.",
     "source": "「마그 투이레드의 둘째 전투」, 「환영의 예언」",
-    "exhibitId": null,
+    "exhibitId": "lugh-coronation-chair",
     "order": 134
   },
   "golden-hair-of-sif": {
@@ -1211,7 +1211,7 @@
     "power": "머리에 대기만 하면 뿌리를 내려 진짜 머리카락처럼 자랐다고 합니다.",
     "price": "이 일로 시작된 보물 내기에서 로키는 드베르그 브로크에게 자기 머리를 걸었다가 졌고, 목까지는 내줄 수 없다고 버틴 끝에 입술을 꿰매이고 말았습니다.",
     "source": "「스노리 에다」 시어법",
-    "exhibitId": null,
+    "exhibitId": "sif-dollman",
     "order": 135
   },
   "skidbladnir": {
@@ -1220,7 +1220,7 @@
     "power": "모든 신이 무기와 갑옷을 갖추고 타도 될 만큼 크지만, 쓰지 않을 때는 천처럼 접어 주머니에 넣을 수 있고, 돛을 올리면 어디로 가든 늘 순풍이 붑니다.",
     "price": null,
     "source": "「스노리 에다」 길피의 속임, 시어법",
-    "exhibitId": null,
+    "exhibitId": "freyr-gokstad-ship",
     "order": 136
   },
   "megingjord": {
@@ -1229,7 +1229,7 @@
     "power": "허리띠를 매면 신의 힘이 두 배가 되고, 쇠장갑을 껴야 손잡이가 짧은 묠니르를 쥘 수 있었다고 합니다.",
     "price": "거인 게이르뢰드에게 갈 때 토르는 망치도 허리띠도 없이 떠났다가, 여자 거인 그리드에게서 다른 힘의 허리띠와 쇠장갑, 지팡이를 빌려야 했습니다.",
     "source": "「스노리 에다」 길피의 속임, 시어법",
-    "exhibitId": null,
+    "exhibitId": "thor-sam66",
     "order": 137
   },
   "sharur": {
@@ -1238,7 +1238,7 @@
     "power": "스스로 말을 하고 날아다니며, 적의 동태를 살펴 닌우르타에게 알리고 싸울 방법을 일러 주었습니다. 「루갈에」에서는 돌 괴물 아사그가 일어났다는 소식을 닌우르타에게 전하고 맞서 싸우라고 부추깁니다.",
     "price": null,
     "source": "수메르 시 「루갈에」, 「안주 이야기」",
-    "exhibitId": null,
+    "exhibitId": "ninurta-bull-mace-head",
     "order": 138
   },
   "divine-crossbow": {
@@ -1247,7 +1247,7 @@
     "power": "한 번 쏘면 수많은 적군이 쓰러졌고, 남월의 조타는 이 쇠뇌 앞에서 번번이 물러났습니다.",
     "price": "조타의 아들 쫑투이가 왕의 딸 미쩌우와 혼인한 뒤 몰래 발톱을 바꿔치기해 쇠뇌는 힘을 잃었고, 어울락은 무너졌습니다. 안즈엉 왕은 딸을 벤 뒤 바다로 걸어 들어갔다고 합니다.",
     "source": "「영남척괴」, 「대월사기전서」",
-    "exhibitId": null,
+    "exhibitId": "an-duong-vuong-crossbow-trigger",
     "order": 139
   },
   "blowgun-of-the-hero-twins": {
@@ -1265,7 +1265,7 @@
     "power": "불면 적군이 물러가고 병이 나으며, 가뭄에는 비가 오고 장마에는 날이 개며, 바람이 자고 물결이 잔잔해졌다고 합니다. 그래서 '온갖 물결을 잠재우는 피리'라는 이름이 붙었습니다.",
     "price": null,
     "source": "「삼국유사」 만파식적 조",
-    "exhibitId": null,
+    "exhibitId": "munmu-danwon-mudong",
     "order": 141
   },
   "jamyeonggo": {
@@ -1274,7 +1274,7 @@
     "power": "적이 쳐들어오면 저절로 울려 나라에 알렸기에, 고구려는 낙랑을 쉽게 치지 못했습니다.",
     "price": "고구려 왕자 호동의 부탁으로 낙랑공주가 북을 찢고 나팔을 부수자 고구려 군대가 성 밑까지 들이닥쳤고, 낙랑의 왕 최리는 딸을 죽인 뒤 항복했습니다.",
     "source": "「삼국사기」 고구려본기 대무신왕 15년",
-    "exhibitId": null,
+    "exhibitId": "nangnang-buk-drum",
     "order": 142
   },
   "tizona-and-colada": {
@@ -1283,7 +1283,7 @@
     "power": "두 칼은 엘 시드의 손에서 수많은 적을 쓰러뜨려, 그 이름만으로도 적이 두려워했다고 합니다.",
     "price": "엘 시드는 두 칼을 사위가 된 카리온의 왕자들에게 주었지만, 그들은 겁쟁이라는 놀림을 받자 앙심을 품고 엘 시드의 딸들을 숲에 버렸습니다. 엘 시드는 왕의 재판에서 두 칼을 돌려받고 결투로 명예를 되찾았습니다.",
     "source": "「엘 시드의 노래」",
-    "exhibitId": null,
+    "exhibitId": "el-cid-sword-hilts",
     "order": 143
   },
   "was": {
