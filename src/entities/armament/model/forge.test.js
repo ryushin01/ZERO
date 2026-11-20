@@ -81,13 +81,13 @@ describe("생김새", () => {
 
 describe("수치", () => {
   it("전투의 신은 무기를 온전히 휘두르고, 다른 속성은 주 효과를 줄여 작은 효과를 덧붙입니다", () => {
-    expect(forgeEffects("blade", "war")).toEqual([{ op: "damage", value: 9 }]);
+    expect(forgeEffects("blade", "war")).toEqual([{ op: "damage", value: 10 }]);
     expect(forgeEffects("blade", "wisdom")).toEqual([
-      { op: "damage", value: 7 },
+      { op: "damage", value: 8 },
       { op: "draw", value: 1 },
     ]);
     expect(forgeEffects("blade", "doom")).toEqual([
-      { op: "damage", value: 7 },
+      { op: "damage", value: 8 },
       { op: "erosion", value: 3 },
     ]);
   });
@@ -98,10 +98,10 @@ describe("수치", () => {
       { op: "vulnerable", value: 1, all: true },
     ]);
     expect(forgeEffects("shield", "doom")).toEqual([
-      { op: "block", value: 9 },
+      { op: "block", value: 10 },
       { op: "weak", value: 2, all: true },
     ]);
-    expect(forgeEffects("armor", "guard")).toEqual([{ op: "block", value: 13 }]);
+    expect(forgeEffects("armor", "guard")).toEqual([{ op: "block", value: 14 }]);
   });
 
   it("도구와 보물은 주인의 속성과 상관없이 생김새의 효과를 씁니다", () => {

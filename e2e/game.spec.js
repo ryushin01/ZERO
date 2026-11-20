@@ -411,6 +411,22 @@ test.describe("도감", () => {
       "href",
       "https://ark-ryushin01.vercel.app/figures/zeus",
     );
+    // Ark의 계보(따로 받음)에서 부모·자녀를 채웁니다.
+    await expect(dialog.getByRole("definition").filter({ hasText: "크로노스" })).toBeVisible();
+    await expect(dialog.getByText("계보 출전")).toBeVisible();
+    await expectAccessible(page, "dialog");
+  });
+
+  test("계보 탭에서 계열을 펼쳐 보고, 이름을 눌러 그 인물의 카드를 봅니다 @mobile", async ({ page }) => {
+    await page.goto("/#/codex");
+    await page.getByRole("tab", { name: "계보", exact: true }).click();
+    const greek = page.locator("details.kin").filter({ has: page.locator("summary", { hasText: /^그리스 신화$/ }) });
+    await greek.locator("summary").click();
+    await expect(greek.getByText(/^출전: /)).toBeVisible();
+    await expectAccessible(page);
+    await greek.getByRole("button", { name: "아테나", exact: true }).first().click();
+    const dialog = page.getByRole("dialog", { name: "아테나" });
+    await expect(dialog.getByRole("definition").filter({ hasText: "제우스" }).first()).toBeVisible();
     await expectAccessible(page, "dialog");
   });
 
@@ -430,7 +446,7 @@ test.describe("도감", () => {
     await expect(page.getByRole("tabpanel", { name: "신과 영웅" })).toBeHidden();
     await expect(tablist.locator("[role='tab'][tabindex='0']")).toHaveCount(1);
     await page.keyboard.press("End");
-    await expect(tablist.getByRole("tab", { name: "유물" })).toBeFocused();
+    await expect(tablist.getByRole("tab", { name: "계보" })).toBeFocused();
     await page.keyboard.press("ArrowRight");
     await expect(cards).toBeFocused();
     await page.keyboard.press("ArrowLeft");

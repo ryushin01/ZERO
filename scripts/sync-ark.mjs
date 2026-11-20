@@ -1,5 +1,5 @@
 /**
- * Ark(세계 신화 도서관)의 목업 데이터를 그대로 가져옵니다: 신화 계열, 신·영웅·몬스터, 유물, 탈것·동반자 짝, 대표 자료 이미지.
+ * Ark(세계 신화 도서관)의 목업 데이터를 그대로 가져옵니다: 신화 계열, 신·영웅·몬스터, 유물, 탈것·동반자 짝, 계보, 신화를 빌려 쓴 현대 작품, 대표 자료 이미지.
  *
  *   ARK_DIR=../Ark pnpm sync:ark
  *   SYNC_SUMMARY=summary.md pnpm sync:ark  # 바뀐 내용을 마크다운으로도 씁니다 (자동 동기화 PR 본문)
@@ -8,7 +8,7 @@
  * - 신마다 첫 번째 자료 이미지를 Ark 소장 자료로 쓰며, macOS `sips`로 긴 변 420px JPEG로 줄입니다.
  * - 결과는 src/entities/{figure,armament,bond}/data/*.json 과 public/art/*.jpg 에 씁니다. 결과물을 커밋하므로
  *   Ark 저장소가 없어도 게임은 빌드됩니다.
- * - 첫 화면 묶음을 가볍게 두려고, 카드 상세·도감에서만 보는 긴 글(신 소개, 유물 이야기)은 따로 받는 파일에 씁니다.
+ * - 첫 화면 묶음을 가볍게 두려고, 카드 상세·도감에서만 보는 긴 글(신 소개, 유물 이야기, 계보, 작품)은 따로 받는 파일에 씁니다.
  * - 카드 그림이 아직 없는 신과 무구에는 Ark 자료의 Commons 그림을 scripts/illustrations/picks.json에 더합니다.
  *   그림 파일은 `pnpm illustrations`가 받습니다. (이미 고른 그림은 건드리지 않음)
  */
@@ -48,6 +48,8 @@ for (const [file, what] of [
 const { MOCK_PANTHEONS } = await load(join(entities, "pantheon/api/mock-data.ts"));
 const { MOCK_FIGURES } = await load(join(entities, "figure/api/mock-data.ts"));
 const { MOCK_RELICS } = await load(relicsFile);
+const { MOCK_GENEALOGIES } = await load(join(entities, "genealogy/api/mock-data.ts"));
+const { MOCK_WORKS } = await load(join(entities, "work/api/mock-data.ts"));
 
 // 자료 목업은 JSON을 속성 없이 가져오므로, 임시 사본에서 import 속성을 붙여 읽습니다.
 const exhibitFile = join(entities, "exhibit/api/mock-data.ts");
@@ -158,6 +160,24 @@ const lore = Object.fromEntries(
 writeJson("src/entities/armament/data/relics.json", relics);
 writeJson("src/entities/armament/data/lore.json", lore);
 
+// 계보(신화 계열마다 집안 내력)와 신화를 빌려 쓴 현대 작품. 카드 상세와 도감의 계보 탭에서만 쓰므로 따로 받습니다.
+// 작품은 Ark가 공개한 것(published)만 씁니다.
+const genealogies = MOCK_GENEALOGIES;
+const works = MOCK_WORKS.filter((work) => work.status === "published").map(
+  ({ slug, title, titleOriginal, medium, year, creator, summary, figureSlugs }) => ({
+    slug,
+    title,
+    titleOriginal,
+    medium,
+    year,
+    creator,
+    summary,
+    figureSlugs,
+  }),
+);
+writeJson("src/entities/figure/data/genealogy.json", genealogies);
+writeJson("src/entities/figure/data/works.json", works);
+
 // 탈것·동반자 짝. 효과는 ZERO의 게임 규칙(entities/bond)에 있고, 짝만 Ark에서 받습니다.
 const { BONDS } = await load(bondsFile);
 const bonds = BONDS.map(({ rider, partner, relation, note }) => ({
@@ -231,6 +251,7 @@ const lines = [
   `- 신·영웅·몬스터 ${figures.length}명${added.figures.length ? ` (새 ${added.figures.length}: ${names(added.figures)})` : ""}`,
   `- 유물 ${relics.length}점${added.relics.length ? ` (새 ${added.relics.length}: ${names(added.relics)})` : ""}`,
   `- 탈것·동반자 짝 ${bonds.length}쌍${added.bonds.length ? ` (새 ${added.bonds.length}: ${added.bonds.map((b) => `${b.rider}·${b.partner}`).join(", ")})` : ""}`,
+  `- 계보 ${genealogies.length}개 계열, 현대 작품 ${works.length}개`,
   `- Ark 소장 그림 ${Object.keys(art).length}점, 새로 고른 카드·무구 그림 ${newPicks}점`,
 ];
 // Ark에 자료 그림이 없어 카드 그림을 고르지 못한 인물은 서가 그림으로 나오므로, Commons에서 골라 picks.json에 더할 수 있게 알립니다.

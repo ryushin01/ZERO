@@ -85,9 +85,9 @@ export const TUNED_LORE = {
     sources: ["https://ko.wikipedia.org/wiki/갈라틴"],
   },
   arondight: {
-    lore: "호수의 여인이 랜슬롯에게 주었다는, 이가 빠지지 않는 검. 이 이름은 14세기 「햄턴의 베비스」에서 처음 나오는 후대의 이름입니다.",
-    look: "이가 빠지지 않는 기사의 검",
-    sources: ["https://ko.wikipedia.org/wiki/아론다이트"],
+    lore: "랜슬롯의 검. 이 이름은 14세기 영국 로맨스 「햄턴의 베비스」의 한 필사본에 덧붙은 대목에만 나오며, 기사 가이가 한때 호수의 기사 랜슬롯의 것이었다는 검 아라운다이트로 싸웁니다. 생김새나 힘은 전하지 않습니다.",
+    look: "호수의 기사가 쥐었던 검",
+    sources: ["https://ko.wikipedia.org/wiki/아론다이트", "https://en.wikipedia.org/wiki/Beves_of_Hamtoun_(poem)"],
   },
   gram: {
     lore: "오딘이 나무에 꽂은 검을 시그문드가 뽑았고, 부러진 조각을 레긴이 다시 벼렸습니다. 시구르드가 모루를 쪼개 보인 뒤 용 파프니르를 베었습니다. (볼숭 사가, 에다)",

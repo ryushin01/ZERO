@@ -228,3 +228,65 @@
   font-size: 1.5rem;
   text-align: center;
 }
+
+/* 계보: 계열마다 접고 펼치는 집안 내력 */
+.codex__kin {
+  display: grid;
+  gap: 12px;
+  max-width: 56em;
+  margin: 0 auto;
+}
+
+.kin {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+
+.kin summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.kin__source {
+  margin: 8px 0 12px;
+  font-size: var(--fs-s);
+}
+
+.kin__tree,
+.kin__unions,
+.kin__children {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.kin__tree {
+  padding-left: 0;
+  list-style: none;
+}
+
+.kin__unions {
+  list-style: none;
+}
+
+.kin__who,
+.kin__union {
+  margin: 4px 0;
+  font-size: var(--fs-s);
+}
+
+.kin__label {
+  font-size: var(--fs-xs);
+}
+
+.kin__name--card {
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}

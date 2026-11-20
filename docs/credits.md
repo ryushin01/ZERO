@@ -1109,7 +1109,7 @@ ZERO가 쓰는 외부 자료의 전체 목록입니다. 화면에는 출처를 �
 | 시우코아틀 | [영어 위키백과](https://en.wikipedia.org/wiki/Xiuhcoatl) |
 | 엑스칼리버 | [위키백과](https://ko.wikipedia.org/wiki/%EC%97%91%EC%8A%A4%EC%B9%BC%EB%A6%AC%EB%B2%84) |
 | 갈라틴 | [위키백과](https://ko.wikipedia.org/wiki/%EA%B0%88%EB%9D%BC%ED%8B%B4) |
-| 아론다이트 | [위키백과](https://ko.wikipedia.org/wiki/%EC%95%84%EB%A1%A0%EB%8B%A4%EC%9D%B4%ED%8A%B8) |
+| 아론다이트 | [위키백과](https://ko.wikipedia.org/wiki/%EC%95%84%EB%A1%A0%EB%8B%A4%EC%9D%B4%ED%8A%B8) · [영어 위키백과](https://en.wikipedia.org/wiki/Beves_of_Hamtoun_(poem)) |
 | 그람 | [위키백과](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C_(%EC%8B%A0%ED%99%94)) |
 | 발뭉 | [위키백과](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C_(%EC%8B%A0%ED%99%94)) |
 | 뒤랑달 | [위키백과](https://ko.wikipedia.org/wiki/%EB%92%A4%EB%9E%91%EB%8B%AC) |

@@ -58,17 +58,18 @@
 
 ZERO의 신화 데이터는 Ark를 그대로 따릅니다. `pnpm sync:ark`는 옆 폴더의 Ark 저장소(`ARK_DIR`, 기본 `../Ark`)에서 목업 데이터를 읽어, 손대지 않고 게임이 읽는 파일로 씁니다.
 
-| Ark                                   | ZERO                                                              | 쓰는 곳                                                |
-| ------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------ |
-| 신화 계열(`pantheon`)                 | `figure/data/pantheons.json`                                      | 세력, 길잡이, 도감                                     |
-| 신·영웅·몬스터·그 밖의 존재(`figure`) | `figure/data/figures.json`, 소개는 `figure/data/summaries.json`   | 모두 카드. 소개는 카드 상세에서만 따로 받음            |
-| 신마다 첫 번째 자료(`exhibit`)        | `figure/data/art.json`, `public/art/*.jpg`(sips로 긴 변 420px)    | 카드 상세의 Ark 소장 자료(따로 받음)                   |
-| 유물(`relic`)                         | `armament/data/relics.json`, 이야기는 `armament/data/lore.json`   | 무구. 이야기(유래·힘·대가·출전)는 도감에서만 따로 받음 |
-| 탈것·동반자 짝(`figure/model/bonds`)  | `bond/data/bonds.json`                                            | 장착의 결속                                            |
-| 자료 그림의 Commons 원본              | `scripts/illustrations/picks.json` (그림이 없는 신·무구에만 더함) | `pnpm illustrations`가 받아 카드·무구 그림으로         |
+| Ark                                               | ZERO                                                              | 쓰는 곳                                                |
+| ------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------ |
+| 신화 계열(`pantheon`)                             | `figure/data/pantheons.json`                                      | 세력, 길잡이, 도감                                     |
+| 신·영웅·몬스터·그 밖의 존재(`figure`)             | `figure/data/figures.json`, 소개는 `figure/data/summaries.json`   | 모두 카드. 소개는 카드 상세에서만 따로 받음            |
+| 신마다 첫 번째 자료(`exhibit`)                    | `figure/data/art.json`, `public/art/*.jpg`(sips로 긴 변 420px)    | 카드 상세의 Ark 소장 자료(따로 받음)                   |
+| 유물(`relic`)                                     | `armament/data/relics.json`, 이야기는 `armament/data/lore.json`   | 무구. 이야기(유래·힘·대가·출전)는 도감에서만 따로 받음 |
+| 탈것·동반자 짝(`figure/model/bonds`)              | `bond/data/bonds.json`                                            | 장착의 결속                                            |
+| 계보(`genealogy`), 현대 작품(`work`, 공개된 것만) | `figure/data/genealogy.json`, `figure/data/works.json`            | 도감의 계보 탭, 카드 상세의 가족·현대 작품(따로 받음)  |
+| 자료 그림의 Commons 원본                          | `scripts/illustrations/picks.json` (그림이 없는 신·무구에만 더함) | `pnpm illustrations`가 받아 카드·무구 그림으로         |
 
 - Ark의 TypeScript 목업을 Node의 타입 지우기로 그대로 가져옵니다. 결과물을 커밋하므로 Ark 저장소가 없어도 빌드됩니다.
-- 긴 글(신 소개 약 150 KB, 유물 이야기 약 100 KB)은 첫 화면 묶음에 넣지 않고 따로 받는 파일에 둡니다(`shared/lib/defer/lazy.js`). 첫 화면 뒤 한가할 때 신 소개를 미리 받고, 받기 전에 열면 빈 자리를 두었다가 채웁니다.
+- 긴 글(신 소개 약 150 KB, 유물 이야기 약 100 KB, 계보 약 60 KB)은 첫 화면 묶음에 넣지 않고 따로 받는 파일에 둡니다(`shared/lib/defer/lazy.js`). 첫 화면 뒤 한가할 때 신 소개를 미리 받고, 받기 전에 열면 빈 자리를 두었다가 채웁니다.
 - 게임 규칙은 ZERO에 둡니다. 카드 수치는 관장 영역(`card/model/aspects.js`), 무구 수치는 유물의 생김새와 주인의 관장 영역(`armament/model/forge.js`, [카드 규칙](card-rules.md#ark-유물에서-온-무구)), 짝의 효과는 `bond/model/bonds.js`의 `BOND_RULES`가 정합니다.
 - Ark 유물 가운데 ZERO가 먼저 만든 무구와 같은 것(`ARK_ALIASES`)은 ZERO의 무구를 쓰고, ZERO의 보물과 같은 것(`ARK_TREASURES`)은 무구로 넣지 않습니다(`armament/model/ark.js`).
 - 끝에서 전설 확장 실행 파일과 출처 목록(`docs/credits.md`)도 다시 만들고, 바뀐 내용(새 계열·인물·유물·짝, 새 그림 후보)을 요약해 출력합니다(`SYNC_SUMMARY`로 파일에도 씀).
