@@ -31,6 +31,9 @@ export const ARK_TREASURES = /** @type {Record<string, string>} */ ({
   "ariadnes-thread": "ariadne",
   "apples-of-idunn": "golden-apple",
   "golden-fleece": "fleece",
+  // ZERO에서 Ark로 옮긴 보물 (2026-11-20)
+  yeouiju: "yeouiju",
+  ankh: "ankh",
 });
 
 /**

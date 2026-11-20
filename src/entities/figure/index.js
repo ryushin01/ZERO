@@ -14,3 +14,4 @@ export {
   loadSummaries,
   PANTHEONS,
 } from "./model/figures.js";
+export { genealogies, isKinLoaded, kinOf, loadKin, WORK_MEDIUM_LABEL, worksOf } from "./model/kin.js";

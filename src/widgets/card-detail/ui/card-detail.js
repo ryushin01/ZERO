@@ -10,9 +10,14 @@ import {
   getPantheon,
   getSummary,
   isArkArtLoaded,
+  isKinLoaded,
   kindLabel,
+  kinOf,
   loadArkArt,
+  loadKin,
   loadSummaries,
+  WORK_MEDIUM_LABEL,
+  worksOf,
 } from "#entities/figure/index.js";
 import { arkFigureUrl, arkPantheonUrl, CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
@@ -83,6 +88,74 @@ function summarySlot(card) {
       slot.textContent = getSummary(slug) ?? "";
     })
     // 받지 못하면 소개 없이 둡니다. (카드 그림과 효과는 그대로)
+    .catch(() => slot.remove());
+  return slot;
+}
+
+/** @param {{ name: string }[]} people */
+const nameList = (people) => people.map((person) => person.name).join(", ");
+
+/**
+ * 신의 가족(Ark의 계보)과 그 신이 나오는 현대 작품. 둘 다 따로 받는 자료라, 아직이면 빈 자리를 두었다가 채웁니다.
+ * @param {string} slug
+ */
+function kinBlock(slug) {
+  const kin = kinOf(slug);
+  const works = worksOf(slug);
+  /** @type {[string, { name: string }[]][]} */
+  const rows = /** @type {[string, { name: string }[]][]} */ ([
+    ["부모", kin.parents],
+    ["형제자매", kin.siblings],
+    ["배우자", kin.partners],
+    ["자녀", kin.children],
+  ]).filter(([, people]) => people.length);
+  if (!rows.length && !works.length) return null;
+  return h(
+    "div",
+    { class: "card-detail__kin" },
+    rows.length
+      ? h(
+          "dl",
+          { class: "card-detail__facts", "aria-label": "계보" },
+          rows.map(([label, people]) => [h("dt", null, label), h("dd", null, nameList(people))]),
+          h("dt", null, "계보 출전"),
+          h("dd", { class: "muted" }, kin.source),
+        )
+      : null,
+    works.length
+      ? h(
+          "section",
+          { class: "card-detail__works", "aria-label": "이 신이 나오는 현대 작품" },
+          h("p", { class: "label muted" }, "현대 작품 속"),
+          h(
+            "ul",
+            null,
+            works.map((work) =>
+              h(
+                "li",
+                null,
+                h("strong", null, work.title),
+                ` (${[work.titleOriginal, work.year, WORK_MEDIUM_LABEL[work.medium] ?? work.medium, work.creator].filter(Boolean).join(" · ")})`,
+                h("span", { class: "muted" }, ` — ${work.summary}`),
+              ),
+            ),
+          ),
+        )
+      : null,
+  );
+}
+
+/** @param {string} slug */
+function kinSlot(slug) {
+  if (isKinLoaded()) return kinBlock(slug);
+  const slot = h("div", { class: "card-detail__kin-slot" });
+  loadKin()
+    .then(() => {
+      const block = kinBlock(slug);
+      if (block) slot.replaceWith(block);
+      else slot.remove();
+    })
+    // 받지 못하면 계보 없이 둡니다.
     .catch(() => slot.remove());
   return slot;
 }
@@ -204,6 +277,7 @@ export function cardDetail(cardId) {
               : null,
           )
         : null,
+      card.figureSlug && card.source !== "hidden" ? kinSlot(card.figureSlug) : null,
       h(
         "div",
         { class: "card-detail__faces" },

@@ -131,3 +131,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Ark의 계보와 이 신이 나오는 현대 작품 */
+.card-detail__kin {
+  display: grid;
+  gap: 12px;
+}
+
+.card-detail__works ul {
+  display: grid;
+  gap: 6px;
+  margin: 6px 0 0;
+  padding-left: 1.2em;
+  font-size: var(--fs-s);
+}

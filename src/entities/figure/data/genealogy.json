@@ -1,0 +1,2110 @@
+[
+  {
+    "pantheonSlug": "greek",
+    "source": "헤시오도스 「신들의 계보」, 아폴로도로스 「비블리오테케」, 「일리아스」",
+    "roots": [
+      {
+        "name": "가이아",
+        "nameEn": "Gaia",
+        "note": "카오스 다음에 생겨난 대지",
+        "unions": [
+          {
+            "partner": {
+              "name": "우라노스",
+              "nameEn": "Uranus"
+            },
+            "children": [
+              {
+                "name": "오케아노스",
+                "nameEn": "Oceanus"
+              },
+              {
+                "name": "히페리온",
+                "nameEn": "Hyperion",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "테이아",
+                      "nameEn": "Theia"
+                    },
+                    "children": [
+                      {
+                        "name": "헬리오스",
+                        "nameEn": "Helios",
+                        "slug": "helios",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "페르세",
+                              "nameEn": "Perse"
+                            },
+                            "children": [
+                              {
+                                "name": "키르케",
+                                "nameEn": "Circe",
+                                "slug": "circe"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "셀레네",
+                        "nameEn": "Selene"
+                      },
+                      {
+                        "name": "에오스",
+                        "nameEn": "Eos"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "코이오스",
+                "nameEn": "Coeus",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "포이베",
+                      "nameEn": "Phoebe"
+                    },
+                    "children": [
+                      {
+                        "name": "레토",
+                        "nameEn": "Leto",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "제우스",
+                              "nameEn": "Zeus",
+                              "slug": "zeus"
+                            },
+                            "children": [
+                              {
+                                "name": "아폴론",
+                                "nameEn": "Apollo",
+                                "slug": "apollo"
+                              },
+                              {
+                                "name": "아르테미스",
+                                "nameEn": "Artemis",
+                                "slug": "artemis"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "이아페토스",
+                "nameEn": "Iapetus",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "클리메네",
+                      "nameEn": "Clymene"
+                    },
+                    "children": [
+                      {
+                        "name": "아틀라스",
+                        "nameEn": "Atlas"
+                      },
+                      {
+                        "name": "프로메테우스",
+                        "nameEn": "Prometheus",
+                        "slug": "prometheus"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "크로노스",
+                "nameEn": "Cronus",
+                "slug": "cronus",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "레아",
+                      "nameEn": "Rhea"
+                    },
+                    "children": [
+                      {
+                        "name": "헤스티아",
+                        "nameEn": "Hestia",
+                        "slug": "hestia"
+                      },
+                      {
+                        "name": "데메테르",
+                        "nameEn": "Demeter",
+                        "slug": "demeter",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "제우스",
+                              "nameEn": "Zeus",
+                              "slug": "zeus"
+                            },
+                            "children": [
+                              {
+                                "name": "페르세포네",
+                                "nameEn": "Persephone",
+                                "slug": "persephone",
+                                "unions": [
+                                  {
+                                    "partner": {
+                                      "name": "하데스",
+                                      "nameEn": "Hades",
+                                      "slug": "hades"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "헤라",
+                        "nameEn": "Hera",
+                        "slug": "hera",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "제우스",
+                              "nameEn": "Zeus",
+                              "slug": "zeus"
+                            },
+                            "children": [
+                              {
+                                "name": "아레스",
+                                "nameEn": "Ares",
+                                "slug": "ares"
+                              },
+                              {
+                                "name": "헤베",
+                                "nameEn": "Hebe"
+                              },
+                              {
+                                "name": "헤파이스토스",
+                                "nameEn": "Hephaestus",
+                                "slug": "hephaestus",
+                                "note": "헤라 혼자 낳았다는 전승도 있습니다"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "하데스",
+                        "nameEn": "Hades",
+                        "slug": "hades"
+                      },
+                      {
+                        "name": "포세이돈",
+                        "nameEn": "Poseidon",
+                        "slug": "poseidon",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "메두사",
+                              "nameEn": "Medusa",
+                              "slug": "medusa"
+                            },
+                            "children": [
+                              {
+                                "name": "페가수스",
+                                "nameEn": "Pegasus",
+                                "slug": "pegasus"
+                              },
+                              {
+                                "name": "크리사오르",
+                                "nameEn": "Chrysaor"
+                              }
+                            ],
+                            "note": "메두사의 목이 베일 때 태어났습니다"
+                          },
+                          {
+                            "partner": {
+                              "name": "토오사",
+                              "nameEn": "Thoosa"
+                            },
+                            "children": [
+                              {
+                                "name": "폴리페모스",
+                                "nameEn": "Polyphemus",
+                                "slug": "polyphemus"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "제우스",
+                        "nameEn": "Zeus",
+                        "slug": "zeus",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "메티스",
+                              "nameEn": "Metis"
+                            },
+                            "children": [
+                              {
+                                "name": "아테나",
+                                "nameEn": "Athena",
+                                "slug": "athena",
+                                "note": "제우스의 머리에서 태어났습니다"
+                              }
+                            ]
+                          },
+                          {
+                            "partner": {
+                              "name": "마이아",
+                              "nameEn": "Maia"
+                            },
+                            "children": [
+                              {
+                                "name": "헤르메스",
+                                "nameEn": "Hermes",
+                                "slug": "hermes"
+                              }
+                            ]
+                          },
+                          {
+                            "partner": {
+                              "name": "세멜레",
+                              "nameEn": "Semele"
+                            },
+                            "children": [
+                              {
+                                "name": "디오니소스",
+                                "nameEn": "Dionysus",
+                                "slug": "dionysus"
+                              }
+                            ]
+                          },
+                          {
+                            "partner": {
+                              "name": "알크메네",
+                              "nameEn": "Alcmene"
+                            },
+                            "children": [
+                              {
+                                "name": "헤라클레스",
+                                "nameEn": "Heracles",
+                                "slug": "heracles"
+                              }
+                            ]
+                          },
+                          {
+                            "partner": {
+                              "name": "다나에",
+                              "nameEn": "Danaë"
+                            },
+                            "children": [
+                              {
+                                "name": "페르세우스",
+                                "nameEn": "Perseus",
+                                "slug": "perseus",
+                                "unions": [
+                                  {
+                                    "partner": {
+                                      "name": "안드로메다",
+                                      "nameEn": "Andromeda",
+                                      "slug": "andromeda"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "partner": {
+                              "name": "레다",
+                              "nameEn": "Leda"
+                            },
+                            "children": [
+                              {
+                                "name": "디오스쿠로이",
+                                "nameEn": "Dioscuri",
+                                "slug": "dioscuri",
+                                "note": "폴리데우케스는 제우스의, 카스토르는 틴다레오스의 아들이라는 전승도 있습니다"
+                              },
+                              {
+                                "name": "헬레네",
+                                "nameEn": "Helen",
+                                "slug": "helen"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "키클롭스 삼형제",
+                "nameEn": "Cyclopes"
+              }
+            ]
+          },
+          {
+            "partner": {
+              "name": "타르타로스",
+              "nameEn": "Tartarus"
+            },
+            "children": [
+              {
+                "name": "티폰",
+                "nameEn": "Typhon",
+                "slug": "typhon",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "에키드나",
+                      "nameEn": "Echidna"
+                    },
+                    "children": [
+                      {
+                        "name": "케르베로스",
+                        "nameEn": "Cerberus",
+                        "slug": "cerberus"
+                      },
+                      {
+                        "name": "히드라",
+                        "nameEn": "Hydra",
+                        "slug": "hydra"
+                      },
+                      {
+                        "name": "키마이라",
+                        "nameEn": "Chimera",
+                        "slug": "chimera"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "우라노스",
+        "nameEn": "Uranus",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "아프로디테",
+                "nameEn": "Aphrodite",
+                "slug": "aphrodite",
+                "note": "크로노스가 자른 우라노스의 몸에서 일어난 바다 거품에서 태어났습니다"
+              }
+            ],
+            "note": "「신들의 계보」의 전승"
+          }
+        ]
+      },
+      {
+        "name": "포르키스",
+        "nameEn": "Phorcys",
+        "unions": [
+          {
+            "partner": {
+              "name": "케토",
+              "nameEn": "Ceto"
+            },
+            "children": [
+              {
+                "name": "스텐노",
+                "nameEn": "Stheno"
+              },
+              {
+                "name": "에우리알레",
+                "nameEn": "Euryale",
+                "slug": "euryale"
+              },
+              {
+                "name": "메두사",
+                "nameEn": "Medusa",
+                "slug": "medusa"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "펠레우스",
+        "nameEn": "Peleus",
+        "unions": [
+          {
+            "partner": {
+              "name": "테티스",
+              "nameEn": "Thetis",
+              "note": "바다의 님프"
+            },
+            "children": [
+              {
+                "name": "아킬레우스",
+                "nameEn": "Achilles",
+                "slug": "achilles"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "프리아모스",
+        "nameEn": "Priam",
+        "note": "트로이의 왕",
+        "unions": [
+          {
+            "partner": {
+              "name": "헤카베",
+              "nameEn": "Hecuba"
+            },
+            "children": [
+              {
+                "name": "헥토르",
+                "nameEn": "Hector",
+                "slug": "hector"
+              },
+              {
+                "name": "파리스",
+                "nameEn": "Paris",
+                "slug": "paris"
+              },
+              {
+                "name": "카산드라",
+                "nameEn": "Cassandra"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "norse",
+    "source": "스노리 스투를루손 「산문 에다」",
+    "roots": [
+      {
+        "name": "부리",
+        "nameEn": "Búri",
+        "note": "암소 아우둠라가 핥은 소금 바위에서 나왔습니다",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "보르",
+                "nameEn": "Borr",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "베스틀라",
+                      "nameEn": "Bestla",
+                      "note": "거인의 딸"
+                    },
+                    "children": [
+                      {
+                        "name": "오딘",
+                        "nameEn": "Odin",
+                        "slug": "odin",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "프리그",
+                              "nameEn": "Frigg",
+                              "slug": "frigg"
+                            },
+                            "children": [
+                              {
+                                "name": "발드르",
+                                "nameEn": "Baldr",
+                                "slug": "baldr"
+                              },
+                              {
+                                "name": "회드",
+                                "nameEn": "Höðr"
+                              }
+                            ]
+                          },
+                          {
+                            "partner": {
+                              "name": "요르드",
+                              "nameEn": "Jörð",
+                              "note": "대지의 여신"
+                            },
+                            "children": [
+                              {
+                                "name": "토르",
+                                "nameEn": "Thor",
+                                "slug": "thor",
+                                "unions": [
+                                  {
+                                    "partner": {
+                                      "name": "시프",
+                                      "nameEn": "Sif",
+                                      "slug": "sif"
+                                    },
+                                    "children": [
+                                      {
+                                        "name": "스루드",
+                                        "nameEn": "Þrúðr"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "partner": {
+                              "name": "아홉 어머니",
+                              "nameEn": "Nine Mothers",
+                              "note": "바다의 파도 처녀들"
+                            },
+                            "children": [
+                              {
+                                "name": "헤임달",
+                                "nameEn": "Heimdall",
+                                "slug": "heimdall"
+                              }
+                            ]
+                          },
+                          {
+                            "partner": null,
+                            "children": [
+                              {
+                                "name": "티르",
+                                "nameEn": "Týr",
+                                "slug": "tyr",
+                                "note": "「산문 에다」의 전승. 「히미르의 노래」에서는 거인 히미르의 아들입니다"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "빌리",
+                        "nameEn": "Vili"
+                      },
+                      {
+                        "name": "베",
+                        "nameEn": "Vé"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "뇨르드",
+        "nameEn": "Njörðr",
+        "slug": "njord",
+        "note": "바다의 신. 바니르 신족",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "프레이르",
+                "nameEn": "Freyr",
+                "slug": "freyr"
+              },
+              {
+                "name": "프레이야",
+                "nameEn": "Freyja",
+                "slug": "freyja"
+              }
+            ],
+            "note": "어머니는 뇨르드의 누이라고 전합니다"
+          }
+        ]
+      },
+      {
+        "name": "로키",
+        "nameEn": "Loki",
+        "slug": "loki",
+        "note": "거인 파르바우티와 라우페이의 아들",
+        "unions": [
+          {
+            "partner": {
+              "name": "앙그르보다",
+              "nameEn": "Angrboða",
+              "note": "거인"
+            },
+            "children": [
+              {
+                "name": "펜리르",
+                "nameEn": "Fenrir",
+                "slug": "fenrir"
+              },
+              {
+                "name": "요르문간드",
+                "nameEn": "Jörmungandr",
+                "slug": "jormungandr"
+              },
+              {
+                "name": "헬",
+                "nameEn": "Hel",
+                "slug": "hel"
+              }
+            ]
+          },
+          {
+            "partner": {
+              "name": "스바딜파리",
+              "nameEn": "Svaðilfari",
+              "note": "거인의 말"
+            },
+            "children": [
+              {
+                "name": "슬레이프니르",
+                "nameEn": "Sleipnir",
+                "slug": "sleipnir"
+              }
+            ],
+            "note": "로키가 암말로 변해 낳았습니다"
+          },
+          {
+            "partner": {
+              "name": "시긴",
+              "nameEn": "Sigyn"
+            },
+            "children": [
+              {
+                "name": "발리",
+                "nameEn": "Váli"
+              },
+              {
+                "name": "나르피",
+                "nameEn": "Narfi"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "egyptian",
+    "source": "헬리오폴리스의 아홉 신(엔네아드) 전승, 플루타르코스 「이시스와 오시리스」",
+    "roots": [
+      {
+        "name": "아툼",
+        "nameEn": "Atum",
+        "note": "스스로 생겨난 창조신. 라와 합쳐 라-아툼으로도 섬겼습니다",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "슈",
+                "nameEn": "Shu",
+                "note": "공기",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "테프누트",
+                      "nameEn": "Tefnut",
+                      "note": "습기"
+                    },
+                    "children": [
+                      {
+                        "name": "게브",
+                        "nameEn": "Geb",
+                        "note": "땅",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "누트",
+                              "nameEn": "Nut",
+                              "slug": "nut",
+                              "note": "하늘"
+                            },
+                            "children": [
+                              {
+                                "name": "오시리스",
+                                "nameEn": "Osiris",
+                                "slug": "osiris",
+                                "unions": [
+                                  {
+                                    "partner": {
+                                      "name": "이시스",
+                                      "nameEn": "Isis",
+                                      "slug": "isis"
+                                    },
+                                    "children": [
+                                      {
+                                        "name": "호루스",
+                                        "nameEn": "Horus",
+                                        "slug": "horus"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "이시스",
+                                "nameEn": "Isis",
+                                "slug": "isis"
+                              },
+                              {
+                                "name": "세트",
+                                "nameEn": "Set",
+                                "slug": "set"
+                              },
+                              {
+                                "name": "네프티스",
+                                "nameEn": "Nephthys",
+                                "slug": "nephthys",
+                                "unions": [
+                                  {
+                                    "partner": {
+                                      "name": "오시리스",
+                                      "nameEn": "Osiris",
+                                      "slug": "osiris"
+                                    },
+                                    "children": [
+                                      {
+                                        "name": "아누비스",
+                                        "nameEn": "Anubis",
+                                        "slug": "anubis"
+                                      }
+                                    ],
+                                    "note": "플루타르코스의 전승"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "라",
+        "nameEn": "Ra",
+        "slug": "ra",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "하토르",
+                "nameEn": "Hathor",
+                "slug": "hathor",
+                "note": "‘라의 눈’"
+              },
+              {
+                "name": "바스테트",
+                "nameEn": "Bastet",
+                "slug": "bastet"
+              },
+              {
+                "name": "마아트",
+                "nameEn": "Maat"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "mesopotamian",
+    "source": "「에누마 엘리시」, 수메르 신화",
+    "roots": [
+      {
+        "name": "압주",
+        "nameEn": "Apsu",
+        "note": "민물",
+        "unions": [
+          {
+            "partner": {
+              "name": "티아마트",
+              "nameEn": "Tiamat",
+              "slug": "tiamat",
+              "note": "바닷물"
+            },
+            "children": [
+              {
+                "name": "라흐무",
+                "nameEn": "Lahmu",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "라하무",
+                      "nameEn": "Lahamu"
+                    },
+                    "children": [
+                      {
+                        "name": "안샤르",
+                        "nameEn": "Anshar",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "키샤르",
+                              "nameEn": "Kishar"
+                            },
+                            "children": [
+                              {
+                                "name": "아누",
+                                "nameEn": "Anu",
+                                "note": "하늘의 신",
+                                "unions": [
+                                  {
+                                    "partner": null,
+                                    "children": [
+                                      {
+                                        "name": "엔키(에아)",
+                                        "nameEn": "Enki (Ea)",
+                                        "slug": "enki",
+                                        "unions": [
+                                          {
+                                            "partner": {
+                                              "name": "담키나",
+                                              "nameEn": "Damkina"
+                                            },
+                                            "children": [
+                                              {
+                                                "name": "마르두크",
+                                                "nameEn": "Marduk",
+                                                "slug": "marduk"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "난나(신)",
+        "nameEn": "Nanna (Sin)",
+        "note": "달의 신",
+        "unions": [
+          {
+            "partner": {
+              "name": "닌갈",
+              "nameEn": "Ningal"
+            },
+            "children": [
+              {
+                "name": "이난나(이슈타르)",
+                "nameEn": "Inanna (Ishtar)",
+                "slug": "ishtar",
+                "note": "하늘의 신 아누의 딸이라는 전승도 있습니다"
+              },
+              {
+                "name": "우투(샤마시)",
+                "nameEn": "Utu (Shamash)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "루갈반다",
+        "nameEn": "Lugalbanda",
+        "note": "우루크의 왕",
+        "unions": [
+          {
+            "partner": {
+              "name": "닌순",
+              "nameEn": "Ninsun",
+              "note": "들소의 여신"
+            },
+            "children": [
+              {
+                "name": "길가메시",
+                "nameEn": "Gilgamesh",
+                "slug": "gilgamesh"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "hindu",
+    "source": "푸라나 문헌, 「라마야나」",
+    "roots": [
+      {
+        "name": "브라흐마",
+        "nameEn": "Brahma",
+        "slug": "brahma",
+        "unions": [
+          {
+            "partner": {
+              "name": "사라스바티",
+              "nameEn": "Saraswati",
+              "slug": "saraswati"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "비슈누",
+        "nameEn": "Vishnu",
+        "slug": "vishnu",
+        "unions": [
+          {
+            "partner": {
+              "name": "락슈미",
+              "nameEn": "Lakshmi",
+              "slug": "lakshmi"
+            },
+            "children": [],
+            "note": "크리슈나와 라마는 비슈누의 화신입니다"
+          }
+        ]
+      },
+      {
+        "name": "시바",
+        "nameEn": "Shiva",
+        "slug": "shiva",
+        "unions": [
+          {
+            "partner": {
+              "name": "파르바티",
+              "nameEn": "Parvati",
+              "note": "두르가는 파르바티의 무서운 모습으로도 섬깁니다"
+            },
+            "children": [
+              {
+                "name": "가네샤",
+                "nameEn": "Ganesha",
+                "slug": "ganesha"
+              },
+              {
+                "name": "카르티케야",
+                "nameEn": "Kartikeya",
+                "slug": "kartikeya"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "바유",
+        "nameEn": "Vayu",
+        "note": "바람의 신",
+        "unions": [
+          {
+            "partner": {
+              "name": "안자나",
+              "nameEn": "Anjana"
+            },
+            "children": [
+              {
+                "name": "하누만",
+                "nameEn": "Hanuman",
+                "slug": "hanuman"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "japanese",
+    "source": "「고사기」, 「일본서기」",
+    "roots": [
+      {
+        "name": "이자나기와 이자나미",
+        "nameEn": "Izanagi and Izanami",
+        "slug": "izanagi-izanami",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "일본의 섬들과 여러 신",
+                "nameEn": "the islands and many kami"
+              }
+            ],
+            "note": "부부가 함께 낳았습니다"
+          },
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "아마테라스",
+                "nameEn": "Amaterasu",
+                "slug": "amaterasu",
+                "unions": [
+                  {
+                    "partner": null,
+                    "children": [
+                      {
+                        "name": "아메노오시호미미",
+                        "nameEn": "Ame-no-Oshihomimi",
+                        "unions": [
+                          {
+                            "partner": null,
+                            "children": [
+                              {
+                                "name": "니니기",
+                                "nameEn": "Ninigi",
+                                "note": "증손이 첫 천황 진무라고 전합니다"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "쓰쿠요미",
+                "nameEn": "Tsukuyomi",
+                "slug": "tsukuyomi"
+              },
+              {
+                "name": "스사노오",
+                "nameEn": "Susanoo",
+                "slug": "susanoo",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "구시나다히메",
+                      "nameEn": "Kushinadahime"
+                    },
+                    "children": [],
+                    "note": "야마타노오로치에게서 구한 아내"
+                  },
+                  {
+                    "partner": {
+                      "name": "가무오이치히메",
+                      "nameEn": "Kamu-ōichi-hime"
+                    },
+                    "children": [
+                      {
+                        "name": "우카노미타마",
+                        "nameEn": "Ukanomitama",
+                        "note": "이나리와 같은 신으로 섬깁니다"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "note": "이자나기가 저승에서 돌아와 몸을 씻을 때 태어났습니다"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "korean",
+    "source": "「삼국유사」, 「동명왕편」, 서사 무가 「바리공주」",
+    "roots": [
+      {
+        "name": "환인",
+        "nameEn": "Hwanin",
+        "slug": "hwanin",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "환웅",
+                "nameEn": "Hwanung",
+                "slug": "hwanung",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "웅녀",
+                      "nameEn": "Ungnyeo",
+                      "slug": "ungnyeo"
+                    },
+                    "children": [
+                      {
+                        "name": "단군",
+                        "nameEn": "Dangun",
+                        "slug": "dangun"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "하백",
+        "nameEn": "Habaek",
+        "note": "물의 신",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "유화",
+                "nameEn": "Yuhwa",
+                "slug": "yuhwa",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "해모수",
+                      "nameEn": "Haemosu",
+                      "slug": "haemosu"
+                    },
+                    "children": [
+                      {
+                        "name": "동명성왕(주몽)",
+                        "nameEn": "Dongmyeong (Jumong)",
+                        "slug": "dongmyeong",
+                        "unions": [
+                          {
+                            "partner": {
+                              "name": "예씨 부인",
+                              "nameEn": "Lady Ye"
+                            },
+                            "children": [
+                              {
+                                "name": "유리왕",
+                                "nameEn": "King Yuri"
+                              }
+                            ]
+                          },
+                          {
+                            "partner": {
+                              "name": "소서노",
+                              "nameEn": "Soseono"
+                            },
+                            "children": [
+                              {
+                                "name": "비류",
+                                "nameEn": "Biryu"
+                              },
+                              {
+                                "name": "온조",
+                                "nameEn": "Onjo",
+                                "note": "백제를 세웠습니다"
+                              }
+                            ],
+                            "note": "「삼국사기」의 한 전승"
+                          }
+                        ]
+                      }
+                    ],
+                    "note": "「삼국사기」는 주몽이 햇빛을 받아 잉태되었다고도 적습니다"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "오구대왕",
+        "nameEn": "King Ogu",
+        "unions": [
+          {
+            "partner": {
+              "name": "길대부인",
+              "nameEn": "Lady Gildae"
+            },
+            "children": [
+              {
+                "name": "바리공주",
+                "nameEn": "Princess Bari",
+                "slug": "bari",
+                "note": "일곱째 딸"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "aztec",
+    "source": "「멕시코인의 역사」(16세기), 「피렌체 코덱스」",
+    "roots": [
+      {
+        "name": "오메테쿠틀리",
+        "nameEn": "Ometecuhtli",
+        "note": "두 겹의 주인",
+        "unions": [
+          {
+            "partner": {
+              "name": "오메시우아틀",
+              "nameEn": "Omecihuatl"
+            },
+            "children": [
+              {
+                "name": "붉은 테스카틀리포카(시페 토텍)",
+                "nameEn": "Red Tezcatlipoca (Xipe Totec)",
+                "slug": "xipe-totec"
+              },
+              {
+                "name": "검은 테스카틀리포카",
+                "nameEn": "Black Tezcatlipoca",
+                "slug": "tezcatlipoca"
+              },
+              {
+                "name": "케찰코아틀",
+                "nameEn": "Quetzalcoatl",
+                "slug": "quetzalcoatl"
+              },
+              {
+                "name": "우이칠로포치틀리",
+                "nameEn": "Huitzilopochtli",
+                "slug": "huitzilopochtli",
+                "note": "다른 전승에서는 대지의 여신 코아틀리쿠에의 아들입니다"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "inca",
+    "source": "에스파냐 연대기 작가들의 기록",
+    "roots": [
+      {
+        "name": "비라코차",
+        "nameEn": "Viracocha",
+        "slug": "viracocha",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "인티",
+                "nameEn": "Inti",
+                "slug": "inti",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "마마 킬랴",
+                      "nameEn": "Mama Quilla",
+                      "slug": "mama-quilla",
+                      "note": "달의 여신"
+                    },
+                    "children": [
+                      {
+                        "name": "망코 카팍",
+                        "nameEn": "Manco Cápac",
+                        "slug": "manco-capac",
+                        "note": "쿠스코를 세운 첫 잉카"
+                      },
+                      {
+                        "name": "마마 오클료",
+                        "nameEn": "Mama Ocllo",
+                        "slug": "mama-ocllo"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "polynesian",
+    "source": "마오리 전승",
+    "roots": [
+      {
+        "name": "랑기누이",
+        "nameEn": "Ranginui",
+        "slug": "rangi-and-papa",
+        "note": "하늘의 아버지",
+        "unions": [
+          {
+            "partner": {
+              "name": "파파투아누쿠",
+              "nameEn": "Papatūānuku",
+              "slug": "rangi-and-papa",
+              "note": "땅의 어머니"
+            },
+            "children": [
+              {
+                "name": "탕가로아",
+                "nameEn": "Tangaroa",
+                "slug": "tangaroa"
+              },
+              {
+                "name": "타네",
+                "nameEn": "Tāne",
+                "slug": "tane",
+                "note": "숲의 신. 부모를 떼어 놓았습니다"
+              },
+              {
+                "name": "투마타우엥가",
+                "nameEn": "Tūmatauenga",
+                "note": "전쟁의 신. 하와이의 쿠에 해당합니다"
+              },
+              {
+                "name": "롱고",
+                "nameEn": "Rongo"
+              },
+              {
+                "name": "타휘리마테아",
+                "nameEn": "Tāwhirimātea",
+                "note": "바람의 신"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "타랑가",
+        "nameEn": "Taranga",
+        "unions": [
+          {
+            "partner": {
+              "name": "마케아투타라",
+              "nameEn": "Makeatutara"
+            },
+            "children": [
+              {
+                "name": "마우이",
+                "nameEn": "Māui",
+                "slug": "maui",
+                "note": "막내로 태어나 바다에 버려졌다가 살아났습니다"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "maya",
+    "source": "「포폴 부」",
+    "roots": [
+      {
+        "name": "슈피야코크",
+        "nameEn": "Xpiyacoc",
+        "unions": [
+          {
+            "partner": {
+              "name": "슈무카네",
+              "nameEn": "Xmucane"
+            },
+            "children": [
+              {
+                "name": "훈 우나푸",
+                "nameEn": "Hun Hunahpu",
+                "slug": "maize-god",
+                "note": "옥수수 신으로 보는 해석이 있습니다",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "슈킥",
+                      "nameEn": "Xquic",
+                      "note": "저승 지배자의 딸"
+                    },
+                    "children": [
+                      {
+                        "name": "우나푸",
+                        "nameEn": "Hunahpu",
+                        "slug": "hero-twins"
+                      },
+                      {
+                        "name": "슈발랑케",
+                        "nameEn": "Xbalanque",
+                        "slug": "hero-twins"
+                      }
+                    ],
+                    "note": "영웅 쌍둥이"
+                  }
+                ]
+              },
+              {
+                "name": "부쿠브 우나푸",
+                "nameEn": "Vucub Hunahpu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "celtic",
+    "source": "아일랜드의 「침략의 책」과 얼스터·핀 이야기",
+    "roots": [
+      {
+        "name": "다그다",
+        "nameEn": "The Dagda",
+        "slug": "dagda",
+        "note": "투어허 데 다넌의 아버지 신",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "브리지트",
+                "nameEn": "Brigid",
+                "slug": "brigid"
+              }
+            ]
+          },
+          {
+            "partner": {
+              "name": "보안",
+              "nameEn": "Boann",
+              "note": "보인강의 여신"
+            },
+            "children": [
+              {
+                "name": "앵거스",
+                "nameEn": "Aengus",
+                "slug": "aengus"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "루",
+        "nameEn": "Lugh",
+        "slug": "lugh",
+        "unions": [
+          {
+            "partner": {
+              "name": "데크티네",
+              "nameEn": "Deichtine"
+            },
+            "children": [
+              {
+                "name": "쿠 훌린",
+                "nameEn": "Cú Chulainn",
+                "slug": "cuchulainn",
+                "note": "사람인 아버지 수알탐의 아들이라고도 합니다"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "리르",
+        "nameEn": "Lir",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "마나난 막 리르",
+                "nameEn": "Manannán mac Lir",
+                "slug": "manannan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "핀 막 쿨",
+        "nameEn": "Fionn mac Cumhaill",
+        "slug": "fionn",
+        "unions": [
+          {
+            "partner": {
+              "name": "사브",
+              "nameEn": "Sadhbh",
+              "note": "사슴으로 변한 여인"
+            },
+            "children": [
+              {
+                "name": "오신",
+                "nameEn": "Oisín",
+                "slug": "oisin"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "finnish",
+    "source": "「칼레발라」",
+    "roots": [
+      {
+        "name": "일마타르",
+        "nameEn": "Ilmatar",
+        "note": "공기의 여신",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "베이네뫼이넨",
+                "nameEn": "Väinämöinen",
+                "slug": "vainamoinen"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "로우히",
+        "nameEn": "Louhi",
+        "slug": "louhi",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "포흐욜라의 처녀",
+                "nameEn": "Maiden of Pohjola",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "일마리넨",
+                      "nameEn": "Ilmarinen",
+                      "slug": "ilmarinen"
+                    },
+                    "children": [],
+                    "note": "삼포를 벼려 바치고 맞은 아내"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "chinese",
+    "source": "「삼오역기」, 「회남자」 등",
+    "roots": [
+      {
+        "name": "반고",
+        "nameEn": "Pangu",
+        "slug": "pangu",
+        "note": "알 같은 혼돈에서 깨어나 하늘과 땅을 갈랐습니다"
+      },
+      {
+        "name": "복희",
+        "nameEn": "Fuxi",
+        "slug": "fuxi",
+        "note": "여와의 오빠",
+        "unions": [
+          {
+            "partner": {
+              "name": "여와",
+              "nameEn": "Nüwa",
+              "slug": "nuwa"
+            },
+            "children": [
+              {
+                "name": "사람들",
+                "nameEn": "humankind"
+              }
+            ],
+            "note": "남매가 부부가 되어 사람의 조상이 되었다는 전승"
+          }
+        ]
+      },
+      {
+        "name": "후예",
+        "nameEn": "Hou Yi",
+        "slug": "hou-yi",
+        "unions": [
+          {
+            "partner": {
+              "name": "항아",
+              "nameEn": "Chang'e",
+              "slug": "change"
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "canaanite",
+    "source": "우가리트 점토판",
+    "roots": [
+      {
+        "name": "엘",
+        "nameEn": "El",
+        "slug": "el",
+        "note": "신들의 아버지",
+        "unions": [
+          {
+            "partner": {
+              "name": "아세라",
+              "nameEn": "Asherah"
+            },
+            "children": [
+              {
+                "name": "얌",
+                "nameEn": "Yam",
+                "note": "바다의 신"
+              },
+              {
+                "name": "모트",
+                "nameEn": "Mot",
+                "note": "죽음의 신"
+              }
+            ],
+            "note": "‘엘의 일흔 아들’이라 불린 신들"
+          }
+        ]
+      },
+      {
+        "name": "다곤",
+        "nameEn": "Dagan",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "바알",
+                "nameEn": "Baal",
+                "slug": "baal",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "아낫",
+                      "nameEn": "Anat",
+                      "slug": "anat",
+                      "note": "바알의 누이이자 짝으로 그려집니다"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "hittite",
+    "source": "후르리·히타이트의 「쿠마르비 노래」",
+    "roots": [
+      {
+        "name": "알랄루",
+        "nameEn": "Alalu",
+        "note": "하늘의 첫 왕",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "쿠마르비",
+                "nameEn": "Kumarbi",
+                "slug": "kumarbi",
+                "note": "아누를 몰아낸 신들의 아버지"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "아누",
+        "nameEn": "Anu",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "테슈브",
+                "nameEn": "Teshub",
+                "slug": "teshub",
+                "note": "쿠마르비가 삼킨 아누의 정기에서 태어났습니다"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "vietnamese",
+    "source": "「영남척괴열전」",
+    "roots": [
+      {
+        "name": "락롱꾸언",
+        "nameEn": "Lạc Long Quân",
+        "slug": "lac-long-quan",
+        "unions": [
+          {
+            "partner": {
+              "name": "어우꺼",
+              "nameEn": "Âu Cơ",
+              "note": "산의 선녀"
+            },
+            "children": [
+              {
+                "name": "백 명의 아들",
+                "nameEn": "one hundred sons",
+                "note": "맏아들이 첫 훙왕이 되었습니다"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "arthurian",
+    "source": "몬머스의 제프리 「브리타니아 열왕사」, 맬러리 「아서 왕의 죽음」",
+    "roots": [
+      {
+        "name": "이그레인",
+        "nameEn": "Igraine",
+        "unions": [
+          {
+            "partner": {
+              "name": "우서 펜드래건",
+              "nameEn": "Uther Pendragon",
+              "slug": "uther-pendragon"
+            },
+            "children": [
+              {
+                "name": "아서 왕",
+                "nameEn": "King Arthur",
+                "slug": "king-arthur",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "귀네비어",
+                      "nameEn": "Guinevere",
+                      "slug": "guinevere"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "partner": {
+              "name": "콘월 공작 고를루아",
+              "nameEn": "Gorlois"
+            },
+            "children": [
+              {
+                "name": "모르간 르 페이",
+                "nameEn": "Morgan le Fay",
+                "slug": "morgan-le-fay"
+              },
+              {
+                "name": "모르고스",
+                "nameEn": "Morgause",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "로트 왕",
+                      "nameEn": "King Lot"
+                    },
+                    "children": [
+                      {
+                        "name": "가웨인",
+                        "nameEn": "Gawain",
+                        "slug": "gawain"
+                      },
+                      {
+                        "name": "가레스",
+                        "nameEn": "Gareth",
+                        "slug": "gareth"
+                      }
+                    ]
+                  },
+                  {
+                    "partner": {
+                      "name": "아서 왕",
+                      "nameEn": "King Arthur",
+                      "slug": "king-arthur"
+                    },
+                    "children": [
+                      {
+                        "name": "모드레드",
+                        "nameEn": "Mordred",
+                        "slug": "mordred"
+                      }
+                    ],
+                    "note": "맬러리의 전승"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "랜슬롯",
+        "nameEn": "Lancelot",
+        "slug": "lancelot",
+        "unions": [
+          {
+            "partner": {
+              "name": "일레인",
+              "nameEn": "Elaine of Corbenic"
+            },
+            "children": [
+              {
+                "name": "갤러해드",
+                "nameEn": "Galahad",
+                "slug": "galahad"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "퍼시벌",
+        "nameEn": "Percival",
+        "slug": "percival",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "로엔그린",
+                "nameEn": "Lohengrin",
+                "slug": "lohengrin",
+                "note": "볼프람의 「파르치팔」"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "germanic",
+    "source": "「니벨룽겐의 노래」",
+    "roots": [
+      {
+        "name": "지크문트",
+        "nameEn": "Siegmund",
+        "unions": [
+          {
+            "partner": {
+              "name": "지클린트",
+              "nameEn": "Sieglind"
+            },
+            "children": [
+              {
+                "name": "지크프리트",
+                "nameEn": "Siegfried",
+                "slug": "siegfried",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "크림힐트",
+                      "nameEn": "Kriemhild",
+                      "slug": "kriemhild"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "당크라트",
+        "nameEn": "Dankrat",
+        "note": "부르군트의 왕",
+        "unions": [
+          {
+            "partner": {
+              "name": "우테",
+              "nameEn": "Ute"
+            },
+            "children": [
+              {
+                "name": "군터",
+                "nameEn": "Gunther"
+              },
+              {
+                "name": "크림힐트",
+                "nameEn": "Kriemhild",
+                "slug": "kriemhild"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "roman",
+    "source": "베르길리우스 「아이네이스」, 리비우스 「로마사」",
+    "roots": [
+      {
+        "name": "베누스",
+        "nameEn": "Venus",
+        "note": "그리스의 아프로디테",
+        "unions": [
+          {
+            "partner": {
+              "name": "안키세스",
+              "nameEn": "Anchises"
+            },
+            "children": [
+              {
+                "name": "아이네이아스",
+                "nameEn": "Aeneas",
+                "slug": "aeneas",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "크레우사",
+                      "nameEn": "Creusa"
+                    },
+                    "children": [
+                      {
+                        "name": "아스카니우스",
+                        "nameEn": "Ascanius",
+                        "note": "알바롱가를 세웠습니다"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "마르스",
+        "nameEn": "Mars",
+        "unions": [
+          {
+            "partner": {
+              "name": "레아 실비아",
+              "nameEn": "Rhea Silvia",
+              "note": "알바롱가 왕의 딸"
+            },
+            "children": [
+              {
+                "name": "로물루스",
+                "nameEn": "Romulus",
+                "slug": "romulus"
+              },
+              {
+                "name": "레무스",
+                "nameEn": "Remus"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonSlug": "iranian",
+    "source": "페르도우시 「샤나메」",
+    "roots": [
+      {
+        "name": "페레이둔",
+        "nameEn": "Fereydun",
+        "slug": "fereydun",
+        "unions": [
+          {
+            "partner": null,
+            "children": [
+              {
+                "name": "살름",
+                "nameEn": "Salm"
+              },
+              {
+                "name": "투르",
+                "nameEn": "Tur"
+              },
+              {
+                "name": "이라지",
+                "nameEn": "Iraj"
+              }
+            ],
+            "note": "세상을 셋으로 나누어 준 세 아들"
+          }
+        ]
+      },
+      {
+        "name": "잘",
+        "nameEn": "Zal",
+        "slug": "zal",
+        "unions": [
+          {
+            "partner": {
+              "name": "루다베",
+              "nameEn": "Rudaba"
+            },
+            "children": [
+              {
+                "name": "루스탐",
+                "nameEn": "Rostam",
+                "slug": "rostam",
+                "unions": [
+                  {
+                    "partner": {
+                      "name": "타흐미네",
+                      "nameEn": "Tahmineh"
+                    },
+                    "children": [
+                      {
+                        "name": "소흐랍",
+                        "nameEn": "Sohrab",
+                        "slug": "sohrab",
+                        "note": "아버지인 줄 모른 채 루스탐과 싸워 죽었습니다"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

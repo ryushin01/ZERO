@@ -1,9 +1,19 @@
 import { ARMAMENTS, armamentCard, HIDDEN_ARMAMENTS } from "#entities/armament/index.js";
 import { battlefieldCard, battlefieldsOf, REALMS } from "#entities/battlefield/index.js";
-import { ASPECTS, cardFace, FIGURE_CARDS, HIDDEN_CARDS } from "#entities/card/index.js";
+import { ASPECTS, cardFace, FIGURE_CARDS, hasCard, HIDDEN_CARDS } from "#entities/card/index.js";
 import { describeAction, enemyArt, ENEMIES } from "#entities/enemy/index.js";
 import { describePerk, factionOf, TIERS } from "#entities/faction/index.js";
-import { CONTINENT_LABEL, CONTINENTS, figuresOf, getFigure, getPantheon, PANTHEONS } from "#entities/figure/index.js";
+import {
+  CONTINENT_LABEL,
+  CONTINENTS,
+  figuresOf,
+  genealogies,
+  getFigure,
+  getPantheon,
+  isKinLoaded,
+  loadKin,
+  PANTHEONS,
+} from "#entities/figure/index.js";
 import { relicCard, RELICS } from "#entities/relic/index.js";
 import { CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
@@ -25,6 +35,7 @@ const TABS = [
   { id: "battlefields", label: "전장" },
   { id: "factions", label: "세력" },
   { id: "relics", label: "유물" },
+  { id: "kin", label: "계보" },
 ];
 
 /** @param {string} action @param {string} value @param {boolean} pressed @param {string} label */
@@ -404,6 +415,94 @@ function relicsTab() {
   );
 }
 
+/**
+ * 계보의 이름 하나. ZERO에 카드가 있는 인물이면 눌러서 카드 상세를 엽니다.
+ * @param {import("#entities/figure/model/kin.js").Person} person
+ */
+const kinName = (person) =>
+  person.slug && hasCard(person.slug)
+    ? h(
+        "button",
+        { type: "button", class: "kin__name kin__name--card", "data-action": "open-card", "data-id": person.slug },
+        person.name,
+      )
+    : h("span", { class: "kin__name" }, person.name);
+
+/** @param {string | undefined} note */
+const kinNote = (note) => (note ? h("span", { class: "muted" }, ` — ${note}`) : null);
+
+/**
+ * 계보의 사람 하나와 그 결합(배우자와 자녀). 자녀는 같은 모양으로 한 단계 안쪽에 둡니다.
+ * @param {import("#entities/figure/model/kin.js").KinNode} node
+ * @returns {Node}
+ */
+function kinPerson(node) {
+  return h(
+    "li",
+    null,
+    h("p", { class: "kin__who" }, kinName(node), kinNote(node.note)),
+    node.unions?.length
+      ? h(
+          "ul",
+          { class: "kin__unions" },
+          node.unions.map((union) =>
+            h(
+              "li",
+              null,
+              h(
+                "p",
+                { class: "kin__union" },
+                union.partner
+                  ? [
+                      h("span", { class: "kin__label muted" }, "배우자 "),
+                      kinName(union.partner),
+                      kinNote(union.partner.note),
+                    ]
+                  : h("span", { class: "kin__label muted" }, "홀로 낳은 자녀"),
+                union.note ? h("span", { class: "muted" }, ` (${union.note})`) : null,
+              ),
+              union.children?.length ? h("ul", { class: "kin__children" }, union.children.map(kinPerson)) : null,
+            ),
+          ),
+        )
+      : null,
+  );
+}
+
+/**
+ * 계보: Ark에 기록된 신화 계열마다 집안 내력. 따로 받는 자료라 받은 뒤에 그립니다.
+ * 펼친 계열이 다시 그릴 때 접히지 않도록 목록은 직접 관리하는 영역(data-morph="skip")에 둡니다.
+ * @param {Ctx} ctx
+ */
+function kinTab(ctx) {
+  if (!isKinLoaded())
+    return h(
+      "p",
+      { class: "codex__intro muted", role: "status" },
+      ctx.ui.kinError ? "계보를 받지 못했습니다. 잠시 뒤 다시 열어 주세요." : "계보를 받는 중입니다.",
+    );
+  return [
+    h(
+      "p",
+      { class: "codex__intro muted" },
+      `Ark에 기록된 신화 계열 ${genealogies().length}곳의 집안 내력입니다. 계열을 펼쳐 보고, 이름을 누르면 그 인물의 카드를 봅니다.`,
+    ),
+    h(
+      "div",
+      { class: "codex__kin", "data-morph": "skip" },
+      genealogies().map((genealogy) =>
+        h(
+          "details",
+          { class: "kin" },
+          h("summary", null, getPantheon(genealogy.pantheonSlug)?.name ?? genealogy.pantheonSlug),
+          h("p", { class: "kin__source muted" }, `출전: ${genealogy.source}`),
+          h("ul", { class: "kin__tree" }, genealogy.roots.map(kinPerson)),
+        ),
+      ),
+    ),
+  ];
+}
+
 /** @param {Ctx} ctx */
 function view(ctx) {
   const tab = ctx.ui.tab ?? "cards";
@@ -472,6 +571,7 @@ const PANELS = {
   battlefields: battlefieldsTab,
   factions: factionsTab,
   relics: relicsTab,
+  kin: kinTab,
 };
 
 /**
@@ -498,7 +598,13 @@ export const codexPage = {
   context: () => "도감",
   view,
   afterRender: (ctx, main) => {
-    if ((ctx.ui.tab ?? "cards") === "cards") syncCardList(ctx, main);
+    const tab = ctx.ui.tab ?? "cards";
+    if (tab === "cards") syncCardList(ctx, main);
+    // 계보는 따로 받는 자료라, 처음 열 때 받은 뒤 다시 그립니다.
+    if (tab === "kin" && !isKinLoaded() && !ctx.ui.kinError)
+      loadKin()
+        .then(() => ctx.setUi({ kinError: false }))
+        .catch(() => ctx.setUi({ kinError: true }));
   },
   keydown: tabKeydown,
   actions: {

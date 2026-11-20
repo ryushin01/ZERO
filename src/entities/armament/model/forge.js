@@ -10,9 +10,8 @@ import { armamentIdOf, RELIC_FOES } from "./ark.js";
  * - 생김새(form)가 효과의 모양과 비용·대기시간을 정합니다. 칼은 한 적을 크게, 철퇴는 모두를, 활은 세 번 나눠 칩니다.
  * - 무기와 방어구는 주인의 주 속성이 작은 효과를 덧붙이고, 그만큼 주 효과가 줄어듭니다.
  *   지혜의 신이 쥔 칼은 카드를 1장 뽑게 하고, 죽음의 신이 쥔 칼은 침식을 남깁니다.
- * - 수치는 ZERO가 먼저 정한 무구(칼 = 갈라틴, 창 = 궁니르, 활 = 간디바, 방패 = 아이기스 등)를 본떠 10%쯤 낮췄고,
- *   비용 0인 도구는 쉬는 턴을 1씩 늘렸습니다. 무구가 39점에서 143점으로 늘며 비용 0인 도구도 7점에서 53점이 되어,
- *   그대로 두면 판이 쉬워지기 때문입니다(자동 플레이어 1,000판 승률: 늘리기 전 28.0%, 그대로 두면 33.2%).
+ * - 효과의 수치는 ZERO가 먼저 정한 무구와 같습니다(칼 = 갈라틴, 창 = 궁니르, 활 = 간디바, 방패 = 아이기스 등).
+ *   다만 쉬는 턴은 하나씩 깁니다. 무구가 39점에서 143점으로 늘며 거의 모든 계열이 제 무구를 들고 시작하게 되었기 때문입니다.
  *
  * @typedef {import("./ark.js").Form} Form
  * @typedef {import("./ark.js").ArkRelic} ArkRelic
@@ -22,21 +21,21 @@ import { armamentIdOf, RELIC_FOES } from "./ark.js";
 
 /** 생김새마다 비용, 대기시간, 효과 @type {Record<Form, { cost: number, cooldown: number, effects: ForgedEffect[] }>} */
 export const FORMS = {
-  blade: { cost: 1, cooldown: 2, effects: [{ op: "damage", value: 9 }] },
-  spear: { cost: 1, cooldown: 3, effects: [{ op: "damage", value: 10, pierce: true }] },
-  bow: { cost: 1, cooldown: 2, effects: [{ op: "damage", value: 3, times: 3 }] },
-  blunt: { cost: 1, cooldown: 2, effects: [{ op: "damage", value: 6, all: true }] },
-  bolt: { cost: 2, cooldown: 3, effects: [{ op: "damage", value: 11, all: true }] },
-  disc: { cost: 1, cooldown: 2, effects: [{ op: "damage", value: 5, times: 2 }] },
+  blade: { cost: 1, cooldown: 3, effects: [{ op: "damage", value: 10 }] },
+  spear: { cost: 1, cooldown: 4, effects: [{ op: "damage", value: 11, pierce: true }] },
+  bow: { cost: 1, cooldown: 3, effects: [{ op: "damage", value: 4, times: 3 }] },
+  blunt: { cost: 1, cooldown: 3, effects: [{ op: "damage", value: 7, all: true }] },
+  bolt: { cost: 2, cooldown: 4, effects: [{ op: "damage", value: 12, all: true }] },
+  disc: { cost: 1, cooldown: 3, effects: [{ op: "damage", value: 6, times: 2 }] },
   shield: {
     cost: 1,
-    cooldown: 3,
+    cooldown: 4,
     effects: [
-      { op: "block", value: 11 },
+      { op: "block", value: 12 },
       { op: "weak", value: 1, all: true },
     ],
   },
-  armor: { cost: 1, cooldown: 3, effects: [{ op: "block", value: 13 }] },
+  armor: { cost: 1, cooldown: 4, effects: [{ op: "block", value: 14 }] },
   veil: {
     cost: 0,
     cooldown: 4,
@@ -47,7 +46,7 @@ export const FORMS = {
   },
   bind: {
     cost: 1,
-    cooldown: 3,
+    cooldown: 4,
     effects: [
       { op: "weak", value: 2, all: true },
       { op: "vulnerable", value: 1, all: true },
@@ -55,17 +54,17 @@ export const FORMS = {
   },
   vessel: {
     cost: 1,
-    cooldown: 3,
+    cooldown: 4,
     effects: [
-      { op: "heal", value: 4 },
+      { op: "heal", value: 5 },
       { op: "block", value: 6 },
     ],
   },
   elixir: {
     cost: 1,
-    cooldown: 3,
+    cooldown: 4,
     effects: [
-      { op: "heal", value: 5 },
+      { op: "heal", value: 6 },
       { op: "cleanse", value: 1 },
     ],
   },
@@ -106,9 +105,9 @@ export const FORMS = {
   staff: { cost: 0, cooldown: 4, effects: [{ op: "energy", value: 2 }] },
   stone: {
     cost: 1,
-    cooldown: 3,
+    cooldown: 4,
     effects: [
-      { op: "block", value: 9 },
+      { op: "block", value: 10 },
       { op: "strength", value: 1 },
     ],
   },
