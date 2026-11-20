@@ -88,9 +88,9 @@ ZERO의 신화 데이터는 Ark를 그대로 따릅니다. `pnpm sync:ark`는 �
 
 `.github/workflows/sync-ark.yml`이 매일 한국 시각 새벽 4시에 Ark의 main을 받아 맞춥니다. 바로 돌리려면 `gh workflow run sync-ark.yml`을 씁니다.
 
-1. **가져오기**(macOS 러너): `pnpm sync:ark` 뒤 바뀐 것이 있으면 새 그림을 받고(`pnpm illustrations`, Vision 초점), 화면 글자가 늘었으면 글꼴을 다시 만들어 `sync/ark` 브랜치에 커밋합니다. 바뀐 내용은 커밋 메시지와 실행 요약에 남고, 새로 들어온 것은 CHANGELOG의 오늘 날짜 항목에 한 줄로 적습니다(`scripts/changelog-sync.mjs`).
+1. **가져오기**(macOS 러너): `pnpm sync:ark` 뒤 바뀐 것이 있으면 새 그림을 받고(`pnpm illustrations`, Vision 초점), 화면 글자가 늘었으면 글꼴을 다시 만들어 `sync/ark` 브랜치에 커밋하고 PR을 엽니다(이미 열려 있으면 고침). 바뀐 내용은 커밋 메시지와 실행 요약에 남고, 새로 들어온 것은 CHANGELOG의 오늘 날짜 항목에 한 줄로 적습니다(`scripts/changelog-sync.mjs`).
 2. **검사**: `ci.yml`을 그대로 불러 형식·린트·FSD·타입·단위(밸런스·짝마다 효과·무구마다 그림·글꼴 포함)·빌드·용량·E2E·Lighthouse를 모두 봅니다.
-3. **합치기**: 모두 통과하면 검사한 그 커밋으로 main을 빨리 감습니다(Vercel이 배포). 하나라도 실패하면 main은 그대로 두고 `sync/ark`를 남기며, GitHub가 실패 알림을 보냅니다. 새 짝에 효과가 없거나(`bonds.test.js`) 새 계열에 신화권이 없으면(`figures.test.js`) 여기서 멈추므로, 규칙을 더하는 PR을 따로 합치면 다음 동기화가 이어서 맞춥니다.
+3. **합치기**: 모두 통과하면 검사한 그 커밋 그대로인 PR을 스쿼시로 합칩니다(Vercel이 배포). 하나라도 실패하면 PR을 열어 두며, GitHub가 실패 알림을 보냅니다. 새 짝에 효과가 없거나(`bonds.test.js`) 새 계열에 신화권이 없으면(`figures.test.js`) 여기서 멈추므로, 규칙을 더하는 PR을 따로 합치면 다음 동기화가 이어서 맞춥니다.
 
 ## 출처
 

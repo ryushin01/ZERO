@@ -1,9 +1,9 @@
 name: Ark 동기화
 
 # Ark(세계 신화 도서관)의 신화 계열·신·영웅·몬스터·유물·탈것과 동반자 짝이 바뀌었는지 매일 확인해 ZERO에 그대로 가져옵니다.
-# 1. sync: Ark를 받아 `pnpm sync:ark` → 바뀌었으면 그림(`pnpm illustrations`)과 글꼴까지 만들어 sync/ark 브랜치에 커밋합니다.
+# 1. sync: Ark를 받아 `pnpm sync:ark` → 바뀌었으면 그림·글꼴까지 만들어 sync/ark에 커밋하고 PR을 엽니다.
 # 2. verify: CI 전체(ci.yml: 형식·린트·타입·단위·빌드·용량·E2E·Lighthouse)로 sync/ark를 검사합니다.
-# 3. merge: 검사를 통과한 그 커밋으로 main을 빨리 감습니다(Vercel이 배포). 실패하면 main은 그대로 두고 sync/ark를 남깁니다.
+# 3. merge: 검사를 통과하면 PR을 스쿼시로 합칩니다(Vercel이 배포). 실패하면 PR을 열어 둡니다.
 # 바로 돌리려면: gh workflow run sync-ark.yml
 
 on:
@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: sync-ark
@@ -84,6 +85,8 @@ jobs:
         id: commit
         if: steps.diff.outputs.changed == 'true'
         working-directory: zero
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           ark="$(git -C ../ark rev-parse --short HEAD)"
           git config user.name "github-actions[bot]"
@@ -94,6 +97,20 @@ jobs:
           git commit -m "chore: Ark 동기화 (ryushin01/Ark@${ark})" -m "$(cat "$RUNNER_TEMP/summary.md")"
           git push --force origin sync/ark
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          # 바뀐 내용을 PR로 남깁니다. 이미 열린 동기화 PR이 있으면 제목과 본문만 고칩니다.
+          {
+            echo "Ark [ryushin01/Ark@${ark}](https://github.com/ryushin01/Ark/commit/${ark})의 데이터를 그대로 가져왔습니다."
+            echo
+            cat "$RUNNER_TEMP/summary.md"
+            echo
+            echo "CI 전체 검사를 통과하면 자동으로 합쳐집니다. [동기화 실행 기록](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+          } > "$RUNNER_TEMP/body.md"
+          title="chore: Ark 동기화 (ryushin01/Ark@${ark})"
+          if [ "$(gh pr view sync/ark --json state -q .state 2>/dev/null)" = "OPEN" ]; then
+            gh pr edit sync/ark --title "$title" --body-file "$RUNNER_TEMP/body.md"
+          else
+            gh pr create --base main --head sync/ark --title "$title" --body-file "$RUNNER_TEMP/body.md"
+          fi
           {
             echo "## Ark 동기화 (ryushin01/Ark@${ark})"
             echo
@@ -109,19 +126,14 @@ jobs:
       ref: sync/ark
 
   merge:
-    name: main에 합치기
+    name: PR 합치기
     needs: [sync, verify]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-        with:
-          ref: main
-          fetch-depth: 0
-      - name: 검사한 커밋으로 main 빨리 감기
+      - name: 검사를 통과한 동기화 PR 합치기
         env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           SHA: ${{ needs.sync.outputs.sha }}
-        run: |
-          git fetch origin sync/ark
-          # 빨리 감기만 하므로, 검사하는 사이 main이 바뀌었으면 여기서 멈추고 다음 동기화가 다시 맞춥니다.
-          git push origin "${SHA}:refs/heads/main"
-          git push origin --delete sync/ark
+        # 검사한 커밋 그대로일 때만 합칩니다. (그 사이 브랜치가 바뀌었으면 멈춤)
+        run: gh pr merge sync/ark --squash --delete-branch --match-head-commit "$SHA"
