@@ -1388,5 +1388,91 @@
     "figureSlugs": [
       "el-cid"
     ]
+  },
+  {
+    "slug": "was",
+    "name": "와스 홀",
+    "kind": "treasure",
+    "form": "staff",
+    "figureSlugs": [
+      "set",
+      "anubis",
+      "khnum"
+    ]
+  },
+  {
+    "slug": "galatine",
+    "name": "갈라틴",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "gawain"
+    ]
+  },
+  {
+    "slug": "arondight",
+    "name": "아론다이트",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "lancelot"
+    ]
+  },
+  {
+    "slug": "gae-dearg",
+    "name": "게 데아그",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "diarmuid"
+    ]
+  },
+  {
+    "slug": "caladbolg",
+    "name": "칼라드볼그",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "fergus"
+    ]
+  },
+  {
+    "slug": "arash-arrow",
+    "name": "아라시의 화살",
+    "kind": "weapon",
+    "form": "bow",
+    "figureSlugs": [
+      "arash"
+    ]
+  },
+  {
+    "slug": "kinto-un",
+    "name": "근두운",
+    "kind": "tool",
+    "form": "ride",
+    "figureSlugs": [
+      "sun-wukong"
+    ]
+  },
+  {
+    "slug": "yeouiju",
+    "name": "여의주",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "munmu",
+      "cheoyong"
+    ]
+  },
+  {
+    "slug": "ankh",
+    "name": "앙크",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "horus",
+      "osiris",
+      "ptah"
+    ]
   }
 ]
