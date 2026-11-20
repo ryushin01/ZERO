@@ -11,6 +11,8 @@
  *   `scripts/illustrations/credits.json`에 모아 출처 목록(docs/credits.md)을 만듭니다.
  * - 큰 그림(긴 변 800px)은 카드 상세와 사건 화면에, 작은 그림(너비 480px)은 카드와 목록에 씁니다.
  * - 초점(`pos`)은 그림에서 얼굴이나 눈길이 모이는 곳으로, 카드처럼 잘라 보여 줄 때 object-position이 됩니다.
+ *   초점이 없는 그림(Ark 동기화로 새로 고른 그림 등)은 macOS에서 Vision으로 찾아 picks.json에 적습니다(focus.swift).
+ *   macOS가 아니면 기본 초점(50% 30%)을 씁니다.
  * - macOS의 `sips`(형식 변환·줄이기)와 `cwebp`(brew install webp)가 필요합니다.
  */
 import { execFileSync } from "node:child_process";
@@ -170,6 +172,31 @@ function encode(source, target, how, size, quality, work, cap = Infinity) {
   return sizeOf(target);
 }
 
+/**
+ * 그림의 초점을 macOS Vision으로 찾습니다. macOS가 아니거나 swift가 없으면 빈 Map입니다.
+ * @param {string[]} files
+ * @returns {Map<string, string>} 파일 → "x% y%"
+ */
+function findFocus(files) {
+  if (process.platform !== "darwin" || files.length === 0) return new Map();
+  try {
+    const out = execFileSync("swift", [join(root, "scripts/illustrations/focus.swift"), ...files], {
+      encoding: "utf8",
+      maxBuffer: 16 * 1024 * 1024,
+    });
+    return new Map(
+      out
+        .trim()
+        .split("\n")
+        .filter(Boolean)
+        .map((line) => /** @type {[string, string]} */ (line.split("\t"))),
+    );
+  } catch {
+    console.warn("Vision으로 초점을 찾지 못해 기본 초점을 씁니다.");
+    return new Map();
+  }
+}
+
 async function main() {
   const picks = JSON.parse(readFileSync(PICKS, "utf8"));
   // 카드 그림이 Ark 소장 그림과 같은 파일이면 카드 상세에서 Ark 자료를 또 보여 주지 않도록 표시합니다.
@@ -213,12 +240,29 @@ async function main() {
   } finally {
     rmSync(work, { recursive: true, force: true });
   }
+  // 초점이 없는 그림은 Vision으로 찾아 picks.json에도 적어 둡니다. (다음부터는 다시 찾지 않음)
+  const unfocused = Object.keys(picks).filter((key) => !picks[key].pos);
+  const focus = findFocus(unfocused.map((key) => join(OUT, "l", `${fileOf(key)}.webp`)));
+  let focused = 0;
+  for (const key of unfocused) {
+    const pos = focus.get(join(OUT, "l", `${fileOf(key)}.webp`));
+    if (!pos) continue;
+    picks[key].pos = pos;
+    manifest[key][2] = pos;
+    focused++;
+  }
+  if (focused) writeFileSync(PICKS, `${JSON.stringify(picks, null, 2)}\n`);
   mkdirSync(dirname(MANIFEST), { recursive: true });
-  writeFileSync(MANIFEST, `${JSON.stringify(manifest)}\n`);
+  // 저장소의 Prettier 형식(대상마다 한 줄)으로 씁니다. 자동 동기화가 만든 파일도 형식 검사를 통과하게 합니다.
+  const prettier = await import("prettier");
+  const format = { ...(await prettier.resolveConfig(MANIFEST)), filepath: MANIFEST };
+  writeFileSync(MANIFEST, await prettier.format(JSON.stringify(manifest), format));
   writeFileSync(CREDITS, `${JSON.stringify(credits, null, 2)}\n`);
   const { writeCredits } = await import("./credits.mjs");
   await writeCredits();
-  console.log(`그림 ${Object.keys(picks).length}점 가운데 ${fetched}점을 새로 받고 출처 목록을 다시 만들었습니다.`);
+  console.log(
+    `그림 ${Object.keys(picks).length}점 가운데 ${fetched}점을 새로 받고, ${focused}점의 초점을 찾고, 출처 목록을 다시 만들었습니다.`,
+  );
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

@@ -4,7 +4,7 @@
  *   pnpm credits
  *
  * 화면에는 출처를 적지 않고 README의 출처 표와 이 목록에 모읍니다.
- * 게임 그림(scripts/illustrations/credits.json), Ark 소장 그림(art.json), 무구의 고증 자료(sources),
+ * 게임 그림(scripts/illustrations/credits.json), Ark 소장 그림(art.json), 무구의 고증 자료(sources)와 Ark 유물의 출전(lore.json),
  * 전장의 소개 자료(source)가 바뀌면 다시 만들어야 하며, `pnpm illustrations`와 `pnpm sync:ark`도 끝에서 이 목록을 다시 씁니다.
  * 데이터와 목록이 어긋나면 credits.test.js가 실패합니다.
  */
@@ -59,8 +59,16 @@ export async function renderCredits() {
     ([slug, a]) =>
       `| ${cell(nameOf.get(slug) ?? slug)} | ${cell(a.title)} | ${artist(a.credit.artist)} | ${license(a.credit)} | [Wikimedia Commons](${a.credit.sourceUrl}) |`,
   );
-  const arms = [...ARMAMENTS, ...HIDDEN_ARMAMENTS].filter((arm) => arm.sources.length);
-  const armRows = arms.map((arm) => `| ${cell(arm.name)} | ${references(arm.sources)} |`);
+  const { TUNED_LORE } = await import("../src/entities/armament/model/tuned-lore.js");
+  const sourcesOf = (arm) => arm.sources ?? TUNED_LORE[arm.id]?.sources ?? [];
+  const arms = [...ARMAMENTS, ...HIDDEN_ARMAMENTS].filter((arm) => sourcesOf(arm).length);
+  const armRows = arms.map((arm) => `| ${cell(arm.name)} | ${references(sourcesOf(arm))} |`);
+  // Ark 유물에서 온 무구: 이야기는 Ark의 기록을 그대로 쓰고, Ark가 적은 출전을 함께 적습니다.
+  const relicLore = readJson("src/entities/armament/data/lore.json");
+  const arkArms = ARMAMENTS.filter((arm) => arm.ark && relicLore[arm.ark]);
+  const arkArmRows = arkArms.map(
+    (arm) => `| ${cell(arm.name)} | ${cell(relicLore[/** @type {string} */ (arm.ark)].source)} |`,
+  );
   const fieldRows = BATTLEFIELDS.map((field) => `| ${cell(field.name)} | ${references([field.source])} |`);
 
   // 카드·괴물·전장·무구 그림 (pnpm illustrations가 만든 credits.json)
@@ -111,6 +119,14 @@ export async function renderCredits() {
     "| 무구 | 참고 |",
     "| --- | --- |",
     ...armRows,
+    "",
+    `## Ark 유물에서 온 무구 (${arkArmRows.length}점)`,
+    "",
+    "이야기(유래·힘·대가)는 [Ark](https://ark-ryushin01.vercel.app)의 유물 기록을 그대로 받아 쓰고(`pnpm sync:ark`), 수치는 유물의 생김새와 주인의 관장 영역에서 계산합니다. 아래는 Ark가 밝힌 출전입니다.",
+    "",
+    "| 무구 | 출전 |",
+    "| --- | --- |",
+    ...arkArmRows,
     "",
     `## 전장 소개 자료 (${fieldRows.length}곳)`,
     "",

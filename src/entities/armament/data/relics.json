@@ -1,0 +1,1392 @@
+[
+  {
+    "slug": "mjolnir",
+    "name": "묠니르",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "thor",
+      "loki"
+    ]
+  },
+  {
+    "slug": "gungnir",
+    "name": "궁니르",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "odin",
+      "loki"
+    ]
+  },
+  {
+    "slug": "draupnir",
+    "name": "드라우프니르",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "odin",
+      "baldr"
+    ]
+  },
+  {
+    "slug": "brisingamen",
+    "name": "브리싱가멘",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "freyja",
+      "heimdall",
+      "loki"
+    ]
+  },
+  {
+    "slug": "gjallarhorn",
+    "name": "걀라르호른",
+    "kind": "tool",
+    "form": "horn",
+    "figureSlugs": [
+      "heimdall"
+    ]
+  },
+  {
+    "slug": "gleipnir",
+    "name": "글레이프니르",
+    "kind": "tool",
+    "form": "bind",
+    "figureSlugs": [
+      "tyr",
+      "fenrir"
+    ]
+  },
+  {
+    "slug": "gram",
+    "name": "그람",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "sigurd"
+    ]
+  },
+  {
+    "slug": "andvaranaut",
+    "name": "안드바라나우트",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "loki",
+      "sigurd"
+    ]
+  },
+  {
+    "slug": "sword-of-freyr",
+    "name": "프레이르의 칼",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "skirnir"
+    ]
+  },
+  {
+    "slug": "hringhorni",
+    "name": "흐링호르니",
+    "kind": "treasure",
+    "form": "ride",
+    "figureSlugs": [
+      "baldr",
+      "odin"
+    ]
+  },
+  {
+    "slug": "mead-of-poetry",
+    "name": "시의 꿀술",
+    "kind": "treasure",
+    "form": "scroll",
+    "figureSlugs": [
+      "odin"
+    ]
+  },
+  {
+    "slug": "aegis",
+    "name": "아이기스",
+    "kind": "armor",
+    "form": "shield",
+    "figureSlugs": [
+      "zeus",
+      "athena",
+      "perseus"
+    ]
+  },
+  {
+    "slug": "trident",
+    "name": "트리아이나",
+    "kind": "weapon",
+    "form": "spear",
+    "figureSlugs": [
+      "poseidon"
+    ]
+  },
+  {
+    "slug": "helm-of-darkness",
+    "name": "하데스의 투구",
+    "kind": "armor",
+    "form": "veil",
+    "figureSlugs": [
+      "hades",
+      "perseus",
+      "athena"
+    ]
+  },
+  {
+    "slug": "caduceus",
+    "name": "케리케이온",
+    "kind": "tool",
+    "form": null,
+    "figureSlugs": [
+      "hermes",
+      "apollo"
+    ]
+  },
+  {
+    "slug": "harpe",
+    "name": "하르페",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "perseus",
+      "hermes"
+    ]
+  },
+  {
+    "slug": "golden-fleece",
+    "name": "황금 양털",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "jason",
+      "medea"
+    ]
+  },
+  {
+    "slug": "shield-of-achilles",
+    "name": "아킬레우스의 방패",
+    "kind": "armor",
+    "form": "shield",
+    "figureSlugs": [
+      "achilles",
+      "hephaestus"
+    ]
+  },
+  {
+    "slug": "lyre",
+    "name": "리라",
+    "kind": "tool",
+    "form": "lyre",
+    "figureSlugs": [
+      "hermes",
+      "apollo",
+      "orpheus"
+    ]
+  },
+  {
+    "slug": "ariadnes-thread",
+    "name": "아리아드네의 실타래",
+    "kind": "tool",
+    "form": "bind",
+    "figureSlugs": [
+      "theseus"
+    ]
+  },
+  {
+    "slug": "nemean-lion-skin",
+    "name": "네메아 사자 가죽",
+    "kind": "armor",
+    "form": "armor",
+    "figureSlugs": [
+      "heracles"
+    ]
+  },
+  {
+    "slug": "apple-of-discord",
+    "name": "불화의 황금 사과",
+    "kind": "treasure",
+    "form": "bind",
+    "figureSlugs": [
+      "paris",
+      "aphrodite",
+      "hera",
+      "athena"
+    ]
+  },
+  {
+    "slug": "keraunos",
+    "name": "케라우노스",
+    "kind": "weapon",
+    "form": "bolt",
+    "figureSlugs": [
+      "zeus"
+    ]
+  },
+  {
+    "slug": "talaria",
+    "name": "날개 달린 샌들",
+    "kind": "tool",
+    "form": "ride",
+    "figureSlugs": [
+      "hermes",
+      "perseus"
+    ]
+  },
+  {
+    "slug": "girdle-of-hippolyta",
+    "name": "히폴리테의 허리띠",
+    "kind": "ornament",
+    "form": "horn",
+    "figureSlugs": [
+      "hippolyta",
+      "heracles"
+    ]
+  },
+  {
+    "slug": "necklace-of-harmonia",
+    "name": "하르모니아의 목걸이",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "cadmus",
+      "hephaestus"
+    ]
+  },
+  {
+    "slug": "bow-of-odysseus",
+    "name": "오디세우스의 활",
+    "kind": "weapon",
+    "form": "bow",
+    "figureSlugs": [
+      "odysseus"
+    ]
+  },
+  {
+    "slug": "cestus",
+    "name": "아프로디테의 띠",
+    "kind": "ornament",
+    "form": "lyre",
+    "figureSlugs": [
+      "aphrodite",
+      "hera"
+    ]
+  },
+  {
+    "slug": "net-of-hephaestus",
+    "name": "헤파이스토스의 그물",
+    "kind": "tool",
+    "form": "bind",
+    "figureSlugs": [
+      "hephaestus",
+      "aphrodite"
+    ]
+  },
+  {
+    "slug": "wedjat",
+    "name": "우제트(호루스의 눈)",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "horus",
+      "set",
+      "thoth"
+    ]
+  },
+  {
+    "slug": "feather-of-maat",
+    "name": "마아트의 깃털",
+    "kind": "tool",
+    "form": null,
+    "figureSlugs": [
+      "anubis",
+      "thoth",
+      "ammit"
+    ]
+  },
+  {
+    "slug": "book-of-thoth",
+    "name": "토트의 책",
+    "kind": "treasure",
+    "form": "scroll",
+    "figureSlugs": [
+      "thoth"
+    ]
+  },
+  {
+    "slug": "tablet-of-destinies",
+    "name": "운명의 서판",
+    "kind": "treasure",
+    "form": "scroll",
+    "figureSlugs": [
+      "marduk",
+      "tiamat"
+    ]
+  },
+  {
+    "slug": "plant-of-youth",
+    "name": "젊음의 풀",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "gilgamesh"
+    ]
+  },
+  {
+    "slug": "seven-ornaments-of-ishtar",
+    "name": "이슈타르의 일곱 장신구",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "ishtar",
+      "ereshkigal"
+    ]
+  },
+  {
+    "slug": "vajra",
+    "name": "바즈라",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "indra",
+      "vritra"
+    ]
+  },
+  {
+    "slug": "sudarshana-chakra",
+    "name": "수다르샤나 차크라",
+    "kind": "weapon",
+    "form": "disc",
+    "figureSlugs": [
+      "vishnu",
+      "krishna"
+    ]
+  },
+  {
+    "slug": "trishula",
+    "name": "트리슐라",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "shiva",
+      "ganesha"
+    ]
+  },
+  {
+    "slug": "gandiva",
+    "name": "간디바",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "arjuna",
+      "krishna"
+    ]
+  },
+  {
+    "slug": "kavacha-kundala",
+    "name": "카르나의 갑옷과 귀걸이",
+    "kind": "armor",
+    "form": "armor",
+    "figureSlugs": [
+      "karna",
+      "indra"
+    ]
+  },
+  {
+    "slug": "parashu",
+    "name": "파라슈",
+    "kind": "weapon",
+    "form": "blunt",
+    "figureSlugs": [
+      "parashurama",
+      "shiva"
+    ]
+  },
+  {
+    "slug": "brahmastra",
+    "name": "브라마스트라",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "ashwatthama",
+      "arjuna",
+      "krishna"
+    ]
+  },
+  {
+    "slug": "pinaka",
+    "name": "피나카",
+    "kind": "weapon",
+    "form": "bow",
+    "figureSlugs": [
+      "shiva",
+      "rama"
+    ]
+  },
+  {
+    "slug": "amrita",
+    "name": "암리타",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "vishnu",
+      "indra",
+      "shiva"
+    ]
+  },
+  {
+    "slug": "syamantaka",
+    "name": "시야만타카",
+    "kind": "ornament",
+    "form": "hoard",
+    "figureSlugs": [
+      "krishna"
+    ]
+  },
+  {
+    "slug": "kusanagi",
+    "name": "구사나기의 검",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "susanoo",
+      "amaterasu",
+      "yamato-takeru"
+    ]
+  },
+  {
+    "slug": "yata-no-kagami",
+    "name": "야타의 거울",
+    "kind": "treasure",
+    "form": "mirror",
+    "figureSlugs": [
+      "amaterasu"
+    ]
+  },
+  {
+    "slug": "yasakani-no-magatama",
+    "name": "야사카니의 곡옥",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "amaterasu"
+    ]
+  },
+  {
+    "slug": "ame-no-nuboko",
+    "name": "아메노누보코",
+    "kind": "weapon",
+    "form": "spear",
+    "figureSlugs": [
+      "izanagi-izanami"
+    ]
+  },
+  {
+    "slug": "ruyi-jingu-bang",
+    "name": "여의금고봉",
+    "kind": "weapon",
+    "form": "blunt",
+    "figureSlugs": [
+      "sun-wukong"
+    ]
+  },
+  {
+    "slug": "bow-of-hou-yi",
+    "name": "후예의 활",
+    "kind": "weapon",
+    "form": "bow",
+    "figureSlugs": [
+      "hou-yi"
+    ]
+  },
+  {
+    "slug": "elixir-of-immortality",
+    "name": "불사약",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "change",
+      "hou-yi"
+    ]
+  },
+  {
+    "slug": "five-colored-stones",
+    "name": "오색석",
+    "kind": "treasure",
+    "form": "stone",
+    "figureSlugs": [
+      "nuwa"
+    ]
+  },
+  {
+    "slug": "peaches-of-immortality",
+    "name": "반도",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "xiwangmu",
+      "sun-wukong"
+    ]
+  },
+  {
+    "slug": "qiankun-quan",
+    "name": "건곤권과 혼천릉",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "nezha"
+    ]
+  },
+  {
+    "slug": "cheonbuin",
+    "name": "천부인 세 개",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "hwanin",
+      "hwanung",
+      "dangun"
+    ]
+  },
+  {
+    "slug": "flowers-of-life",
+    "name": "바리공주의 약수와 꽃",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "bari"
+    ]
+  },
+  {
+    "slug": "oryongeo",
+    "name": "오룡거",
+    "kind": "treasure",
+    "form": "ride",
+    "figureSlugs": [
+      "haemosu",
+      "yuhwa"
+    ]
+  },
+  {
+    "slug": "gold-box-of-gujibong",
+    "name": "구지봉의 금합",
+    "kind": "treasure",
+    "form": "vessel",
+    "figureSlugs": [
+      "suro"
+    ]
+  },
+  {
+    "slug": "gae-bulg",
+    "name": "게 볼그",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "cuchulainn"
+    ]
+  },
+  {
+    "slug": "fragarach",
+    "name": "프라가라흐",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "manannan"
+    ]
+  },
+  {
+    "slug": "excalibur",
+    "name": "엑스칼리버",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "king-arthur",
+      "bedivere",
+      "merlin",
+      "morgan-le-fay"
+    ]
+  },
+  {
+    "slug": "holy-grail",
+    "name": "성배",
+    "kind": "treasure",
+    "form": "vessel",
+    "figureSlugs": [
+      "galahad",
+      "percival",
+      "lancelot",
+      "king-arthur"
+    ]
+  },
+  {
+    "slug": "sampo",
+    "name": "삼포",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "ilmarinen",
+      "vainamoinen",
+      "louhi"
+    ]
+  },
+  {
+    "slug": "kantele",
+    "name": "칸텔레",
+    "kind": "tool",
+    "form": "lyre",
+    "figureSlugs": [
+      "vainamoinen"
+    ]
+  },
+  {
+    "slug": "golden-bride",
+    "name": "황금 신부",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "ilmarinen",
+      "vainamoinen"
+    ]
+  },
+  {
+    "slug": "needle-of-koschei",
+    "name": "코셰이의 바늘",
+    "kind": "treasure",
+    "form": "mirror",
+    "figureSlugs": [
+      "koschei"
+    ]
+  },
+  {
+    "slug": "mortar-of-baba-yaga",
+    "name": "바바 야가의 절구",
+    "kind": "tool",
+    "form": "ride",
+    "figureSlugs": [
+      "baba-yaga"
+    ]
+  },
+  {
+    "slug": "jawbone-of-maui",
+    "name": "마우이의 턱뼈",
+    "kind": "weapon",
+    "form": "blunt",
+    "figureSlugs": [
+      "maui"
+    ]
+  },
+  {
+    "slug": "smoking-mirror",
+    "name": "연기 나는 거울",
+    "kind": "tool",
+    "form": "mirror",
+    "figureSlugs": [
+      "tezcatlipoca",
+      "quetzalcoatl"
+    ]
+  },
+  {
+    "slug": "xiuhcoatl",
+    "name": "시우코아틀",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "huitzilopochtli"
+    ]
+  },
+  {
+    "slug": "derafsh-kaviani",
+    "name": "카베의 깃발",
+    "kind": "treasure",
+    "form": "horn",
+    "figureSlugs": [
+      "kaveh",
+      "fereydun"
+    ]
+  },
+  {
+    "slug": "durendal",
+    "name": "뒤랑달",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "roland",
+      "charlemagne"
+    ]
+  },
+  {
+    "slug": "tarnkappe",
+    "name": "타른카페",
+    "kind": "armor",
+    "form": "armor",
+    "figureSlugs": [
+      "siegfried"
+    ]
+  },
+  {
+    "slug": "olifant",
+    "name": "올리판트",
+    "kind": "tool",
+    "form": "horn",
+    "figureSlugs": [
+      "roland",
+      "charlemagne"
+    ]
+  },
+  {
+    "slug": "joyeuse",
+    "name": "주아이외즈",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "charlemagne"
+    ]
+  },
+  {
+    "slug": "wits-of-orlando",
+    "name": "롤랑의 정신이 든 병",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "astolfo",
+      "roland"
+    ]
+  },
+  {
+    "slug": "hrunting-and-naegling",
+    "name": "흐룬팅과 내글링",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "beowulf"
+    ]
+  },
+  {
+    "slug": "nibelung-hoard",
+    "name": "니벨룽의 보물",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "siegfried",
+      "hagen",
+      "kriemhild"
+    ]
+  },
+  {
+    "slug": "balmung",
+    "name": "발뭉",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "siegfried",
+      "hagen",
+      "kriemhild"
+    ]
+  },
+  {
+    "slug": "love-potion",
+    "name": "사랑의 묘약",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "tristan",
+      "isolde"
+    ]
+  },
+  {
+    "slug": "green-girdle",
+    "name": "녹색 띠",
+    "kind": "ornament",
+    "form": "armor",
+    "figureSlugs": [
+      "gawain",
+      "green-knight"
+    ]
+  },
+  {
+    "slug": "round-table",
+    "name": "원탁",
+    "kind": "treasure",
+    "form": "horn",
+    "figureSlugs": [
+      "king-arthur",
+      "merlin",
+      "galahad",
+      "guinevere"
+    ]
+  },
+  {
+    "slug": "wings-of-daedalus",
+    "name": "다이달로스의 날개",
+    "kind": "tool",
+    "form": "ride",
+    "figureSlugs": [
+      "daedalus"
+    ]
+  },
+  {
+    "slug": "pandoras-jar",
+    "name": "판도라의 항아리",
+    "kind": "treasure",
+    "form": "bind",
+    "figureSlugs": [
+      "pandora",
+      "zeus"
+    ]
+  },
+  {
+    "slug": "psyches-box",
+    "name": "프시케의 상자",
+    "kind": "treasure",
+    "form": "lyre",
+    "figureSlugs": [
+      "psyche",
+      "aphrodite",
+      "persephone"
+    ]
+  },
+  {
+    "slug": "brand-of-meleager",
+    "name": "멜레아그로스의 장작",
+    "kind": "treasure",
+    "form": "vessel",
+    "figureSlugs": [
+      "meleager"
+    ]
+  },
+  {
+    "slug": "chariot-of-helios",
+    "name": "헬리오스의 태양 수레",
+    "kind": "tool",
+    "form": "ride",
+    "figureSlugs": [
+      "helios"
+    ]
+  },
+  {
+    "slug": "apples-of-idunn",
+    "name": "이둔의 사과",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "idun",
+      "loki"
+    ]
+  },
+  {
+    "slug": "spear-of-lugh",
+    "name": "루의 창",
+    "kind": "weapon",
+    "form": "spear",
+    "figureSlugs": [
+      "lugh"
+    ]
+  },
+  {
+    "slug": "rake-of-lemminkainens-mother",
+    "name": "레민케이넨 어머니의 갈퀴",
+    "kind": "tool",
+    "form": "elixir",
+    "figureSlugs": [
+      "lemminkainen",
+      "ilmarinen"
+    ]
+  },
+  {
+    "slug": "gusli-of-sadko",
+    "name": "사드코의 구슬리",
+    "kind": "tool",
+    "form": "lyre",
+    "figureSlugs": [
+      "sadko"
+    ]
+  },
+  {
+    "slug": "crossbow-of-william-tell",
+    "name": "빌헬름 텔의 석궁",
+    "kind": "weapon",
+    "form": "spear",
+    "figureSlugs": [
+      "william-tell"
+    ]
+  },
+  {
+    "slug": "crook-and-flail",
+    "name": "오시리스의 왕홀과 도리깨",
+    "kind": "treasure",
+    "form": "staff",
+    "figureSlugs": [
+      "osiris"
+    ]
+  },
+  {
+    "slug": "sistrum-of-hathor",
+    "name": "하토르의 시스트럼",
+    "kind": "tool",
+    "form": "lyre",
+    "figureSlugs": [
+      "hathor",
+      "bastet"
+    ]
+  },
+  {
+    "slug": "tyet",
+    "name": "티엣 (이시스의 매듭)",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "isis"
+    ]
+  },
+  {
+    "slug": "saw-of-shamash",
+    "name": "샤마시의 톱니 칼",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "shamash"
+    ]
+  },
+  {
+    "slug": "yagrush-and-ayamur",
+    "name": "야그루시와 아이아무르",
+    "kind": "weapon",
+    "form": "blunt",
+    "figureSlugs": [
+      "baal"
+    ]
+  },
+  {
+    "slug": "simurgh-feather",
+    "name": "시무르그의 깃털",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "simurgh",
+      "zal",
+      "rostam"
+    ]
+  },
+  {
+    "slug": "gavsar-mace",
+    "name": "페레이둔의 소머리 철퇴",
+    "kind": "weapon",
+    "form": "blunt",
+    "figureSlugs": [
+      "fereydun",
+      "zahhak"
+    ]
+  },
+  {
+    "slug": "babr-e-bayan",
+    "name": "바브레 바얀 (루스탐의 호피 갑옷)",
+    "kind": "armor",
+    "form": "armor",
+    "figureSlugs": [
+      "rostam"
+    ]
+  },
+  {
+    "slug": "kaumodaki",
+    "name": "카우모다키",
+    "kind": "weapon",
+    "form": "blunt",
+    "figureSlugs": [
+      "vishnu",
+      "krishna"
+    ]
+  },
+  {
+    "slug": "panchajanya",
+    "name": "판차잔야",
+    "kind": "tool",
+    "form": "horn",
+    "figureSlugs": [
+      "krishna",
+      "vishnu"
+    ]
+  },
+  {
+    "slug": "vasavi-shakti",
+    "name": "바사비 샤크티",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "karna",
+      "indra"
+    ]
+  },
+  {
+    "slug": "pushpaka-vimana",
+    "name": "푸시파카 비마나",
+    "kind": "tool",
+    "form": "ride",
+    "figureSlugs": [
+      "ravana",
+      "rama"
+    ]
+  },
+  {
+    "slug": "pashupatastra",
+    "name": "파슈파타스트라",
+    "kind": "weapon",
+    "form": "bolt",
+    "figureSlugs": [
+      "arjuna",
+      "shiva"
+    ]
+  },
+  {
+    "slug": "noose-of-yama",
+    "name": "야마의 올가미",
+    "kind": "tool",
+    "form": "bind",
+    "figureSlugs": [
+      "yama"
+    ]
+  },
+  {
+    "slug": "gada-of-hanuman",
+    "name": "하누만의 철퇴",
+    "kind": "weapon",
+    "form": "blunt",
+    "figureSlugs": [
+      "hanuman"
+    ]
+  },
+  {
+    "slug": "aladdin-lamp",
+    "name": "알라딘의 램프",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "aladdin"
+    ]
+  },
+  {
+    "slug": "forty-thieves-treasure",
+    "name": "도둑 소굴의 보물",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "ali-baba"
+    ]
+  },
+  {
+    "slug": "oshe-shango",
+    "name": "오셰 샹고",
+    "kind": "weapon",
+    "form": "bolt",
+    "figureSlugs": [
+      "shango"
+    ]
+  },
+  {
+    "slug": "opon-ifa",
+    "name": "오폰 이파 (이파 점판)",
+    "kind": "tool",
+    "form": "scroll",
+    "figureSlugs": [
+      "orunmila",
+      "eshu"
+    ]
+  },
+  {
+    "slug": "jingu-er",
+    "name": "긴고아",
+    "kind": "ornament",
+    "form": "bind",
+    "figureSlugs": [
+      "sun-wukong"
+    ]
+  },
+  {
+    "slug": "nine-toothed-rake",
+    "name": "구치정파",
+    "kind": "weapon",
+    "form": "bow",
+    "figureSlugs": [
+      "zhu-bajie"
+    ]
+  },
+  {
+    "slug": "south-pointing-chariot",
+    "name": "지남거",
+    "kind": "tool",
+    "form": "ride",
+    "figureSlugs": [
+      "yellow-emperor",
+      "chiyou"
+    ]
+  },
+  {
+    "slug": "xirang",
+    "name": "식양",
+    "kind": "treasure",
+    "form": "stone",
+    "figureSlugs": [
+      "yu-the-great"
+    ]
+  },
+  {
+    "slug": "nine-tripods",
+    "name": "구정",
+    "kind": "treasure",
+    "form": "mirror",
+    "figureSlugs": [
+      "yu-the-great"
+    ]
+  },
+  {
+    "slug": "three-pointed-blade",
+    "name": "삼첨양인도",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "erlang-shen"
+    ]
+  },
+  {
+    "slug": "ochre-whip",
+    "name": "자편",
+    "kind": "tool",
+    "form": "elixir",
+    "figureSlugs": [
+      "shennong"
+    ]
+  },
+  {
+    "slug": "dashen-bian",
+    "name": "타신편",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "jiang-ziya"
+    ]
+  },
+  {
+    "slug": "totsuka-no-tsurugi",
+    "name": "도쓰카노쓰루기",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "susanoo",
+      "yamata-no-orochi"
+    ]
+  },
+  {
+    "slug": "higekiri",
+    "name": "히게키리",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "watanabe-no-tsuna",
+      "minamoto-no-raiko",
+      "ibaraki-doji"
+    ]
+  },
+  {
+    "slug": "dojigiri-yasutsuna",
+    "name": "도지기리 야스쓰나",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "minamoto-no-raiko",
+      "shuten-doji"
+    ]
+  },
+  {
+    "slug": "ryugu-rice-bale-and-bell",
+    "name": "용궁의 쌀가마와 종",
+    "kind": "treasure",
+    "form": "hoard",
+    "figureSlugs": [
+      "tawara-toda"
+    ]
+  },
+  {
+    "slug": "tamatebako",
+    "name": "다마테바코",
+    "kind": "treasure",
+    "form": "bind",
+    "figureSlugs": [
+      "urashima-taro"
+    ]
+  },
+  {
+    "slug": "hanasaka-ashes",
+    "name": "꽃 피우는 재",
+    "kind": "treasure",
+    "form": "elixir",
+    "figureSlugs": [
+      "hanasaka-jiisan"
+    ]
+  },
+  {
+    "slug": "uchide-no-kozuchi",
+    "name": "우치데노코즈치",
+    "kind": "tool",
+    "form": "horn",
+    "figureSlugs": [
+      "daikokuten"
+    ]
+  },
+  {
+    "slug": "ikutachi-ikuyumiya",
+    "name": "이쿠타치와 이쿠유미야",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "okuninushi",
+      "susanoo"
+    ]
+  },
+  {
+    "slug": "golden-staff-of-manco-capac",
+    "name": "망코 카팍의 황금 지팡이",
+    "kind": "tool",
+    "form": "staff",
+    "figureSlugs": [
+      "manco-capac",
+      "mama-ocllo"
+    ]
+  },
+  {
+    "slug": "manaiakalani",
+    "name": "마나이아칼라니",
+    "kind": "tool",
+    "form": "bind",
+    "figureSlugs": [
+      "maui",
+      "hina"
+    ]
+  },
+  {
+    "slug": "cauldron-of-the-dagda",
+    "name": "다그다의 가마솥",
+    "kind": "treasure",
+    "form": "vessel",
+    "figureSlugs": [
+      "dagda"
+    ]
+  },
+  {
+    "slug": "harp-of-the-dagda",
+    "name": "다그다의 하프",
+    "kind": "tool",
+    "form": "lyre",
+    "figureSlugs": [
+      "dagda",
+      "lugh"
+    ]
+  },
+  {
+    "slug": "sword-of-nuada",
+    "name": "누아다의 칼",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "nuada"
+    ]
+  },
+  {
+    "slug": "lia-fail",
+    "name": "리아 팔 (운명의 돌)",
+    "kind": "treasure",
+    "form": "stone",
+    "figureSlugs": [
+      "lugh",
+      "cuchulainn"
+    ]
+  },
+  {
+    "slug": "golden-hair-of-sif",
+    "name": "시프의 황금 머리카락",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "sif",
+      "loki"
+    ]
+  },
+  {
+    "slug": "skidbladnir",
+    "name": "스키드블라드니르",
+    "kind": "tool",
+    "form": "ride",
+    "figureSlugs": [
+      "freyr",
+      "loki"
+    ]
+  },
+  {
+    "slug": "megingjord",
+    "name": "메긴교르드와 야른그레이프르",
+    "kind": "ornament",
+    "form": "jewel",
+    "figureSlugs": [
+      "thor"
+    ]
+  },
+  {
+    "slug": "sharur",
+    "name": "샤루르",
+    "kind": "weapon",
+    "form": "blunt",
+    "figureSlugs": [
+      "ninurta"
+    ]
+  },
+  {
+    "slug": "divine-crossbow",
+    "name": "신기 쇠뇌",
+    "kind": "weapon",
+    "form": "bolt",
+    "figureSlugs": [
+      "an-duong-vuong",
+      "kim-quy"
+    ]
+  },
+  {
+    "slug": "blowgun-of-the-hero-twins",
+    "name": "쌍둥이 영웅의 바람총",
+    "kind": "weapon",
+    "form": "spear",
+    "figureSlugs": [
+      "hero-twins",
+      "vucub-caquix"
+    ]
+  },
+  {
+    "slug": "manpasikjeok",
+    "name": "만파식적",
+    "kind": "tool",
+    "form": null,
+    "figureSlugs": [
+      "munmu"
+    ]
+  },
+  {
+    "slug": "jamyeonggo",
+    "name": "자명고",
+    "kind": "tool",
+    "form": "veil",
+    "figureSlugs": [
+      "nangnang-princess",
+      "hodong"
+    ]
+  },
+  {
+    "slug": "tizona-and-colada",
+    "name": "티소나와 콜라다",
+    "kind": "weapon",
+    "form": "blade",
+    "figureSlugs": [
+      "el-cid"
+    ]
+  }
+]

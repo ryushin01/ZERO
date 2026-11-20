@@ -4,9 +4,16 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Ark 동기화(sync-ark.yml)가 동기화 브랜치를 합치기 전에 같은 검사를 부릅니다.
+  workflow_call:
+    inputs:
+      ref:
+        description: 검사할 브랜치
+        type: string
+        required: true
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-${{ inputs.ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -15,6 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          # Ark 동기화에서 부를 때는 동기화 브랜치를, 그 밖에는 이벤트의 커밋을 검사합니다.
+          ref: ${{ inputs.ref }}
 
       # pnpm 버전은 package.json의 packageManager를 따릅니다.
       - uses: pnpm/action-setup@v6

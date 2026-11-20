@@ -9,4 +9,5 @@ export {
   isOncePerBattle,
 } from "./model/armaments.js";
 export { bonusText, describeArmament, describeArmEffect, describeArmEffectShort } from "./model/describe.js";
+export { armamentLore, loadArmamentLore } from "./model/lore.js";
 export { armamentCard } from "./ui/armament-card.js";

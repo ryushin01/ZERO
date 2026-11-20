@@ -1,6 +1,15 @@
 import { expect, test } from "@playwright/test";
 
+import { readFileSync } from "node:fs";
+
+import { armamentIdOf } from "../src/entities/armament/model/ark.js";
+import { TUNED_LORE } from "../src/entities/armament/model/tuned-lore.js";
 import { expectAccessible, fightToEnd, phaseOf, startRun } from "./helpers.js";
+
+/** 도감의 무구 수: ZERO가 만든 무구 + Ark 유물에서 온 무구(보물과 같은 유물은 뺌) + 히든 무구 하나. Ark 동기화로 늘어납니다. */
+const relics = JSON.parse(readFileSync(new URL("../src/entities/armament/data/relics.json", import.meta.url), "utf8"));
+const ARMAMENT_COUNT =
+  new Set([...Object.keys(TUNED_LORE), ...relics.map((relic) => armamentIdOf(relic.slug)).filter(Boolean)]).size + 1;
 
 test.describe("처음 화면", () => {
   test("제목과 시작 버튼이 있고 접근성 검사를 통과합니다 @mobile", async ({ page }) => {
@@ -138,7 +147,9 @@ test.describe("무구와 세력", () => {
     await page.goto("/#/codex");
     await page.getByRole("tab", { name: "무구", exact: true }).click();
     await expect(page.getByRole("heading", { name: "묠니르" })).toBeVisible();
-    await expect(page.locator(".codex__arms > li")).toHaveCount(40);
+    await expect(page.locator(".codex__arms > li")).toHaveCount(ARMAMENT_COUNT);
+    // Ark 유물의 이야기와 대가는 따로 받아 채웁니다.
+    await expect(page.locator(".codex__arms .armament__price").first()).toBeVisible();
     await expectAccessible(page);
     await page.getByRole("tab", { name: "세력", exact: true }).click();
     await expect(page.getByRole("table", { name: /세력/ })).toBeVisible();

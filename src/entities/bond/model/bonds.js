@@ -37,6 +37,13 @@ export const PARTNERS = [
   { slug: "sphinx", relation: "companion", keyword: "guard" },
   { slug: "barong", relation: "companion", keyword: "guard" },
   { slug: "chiron", relation: "companion", keyword: "agile" },
+  { slug: "hippogriff", relation: "mount", keyword: "flight" },
+  { slug: "garuda", relation: "mount", keyword: "flight" },
+  { slug: "rakhsh", relation: "mount", keyword: "vanguard" },
+  { slug: "nandi", relation: "mount", keyword: "guard" },
+  { slug: "simurgh", relation: "companion", keyword: "mend" },
+  { slug: "shesha", relation: "companion", keyword: "guard" },
+  { slug: "kim-quy", relation: "companion", keyword: "guard" },
 ];
 
 /** 신화 속 짝마다 붙는 효과. 키는 "rider:partner" @type {Record<string, BondRule>} */
@@ -86,6 +93,66 @@ const BOND_RULES = {
     effects: [
       { op: "heal", value: 6 },
       { op: "block", value: 4 },
+    ],
+  },
+  "ruggiero:hippogriff": {
+    title: "알치나의 섬으로 날아간 기사",
+    text: "받는 다음 공격 1회 피해 절반, 방어 5",
+    effects: [
+      { op: "evade", value: 1 },
+      { op: "block", value: 5 },
+    ],
+  },
+  "astolfo:hippogriff": {
+    title: "지상 낙원까지 날아오른 기사",
+    text: "받는 다음 공격 1회 피해 절반, 카드 2장 뽑기",
+    effects: [
+      { op: "evade", value: 1 },
+      { op: "draw", value: 2 },
+    ],
+  },
+  "vishnu:garuda": {
+    title: "뱀을 사냥하는 새의 등에서",
+    text: "전투 첫 턴에 손에 들어오고, 모든 적에게 취약 1",
+    effects: [{ op: "vulnerable", value: 1, all: true }],
+    innate: true,
+  },
+  "vishnu:shesha": {
+    title: "우주의 바다 위 침상",
+    text: "방어 6, 체력 4 회복",
+    effects: [
+      { op: "block", value: 6 },
+      { op: "heal", value: 4 },
+    ],
+  },
+  "rostam:rakhsh": {
+    title: "주인이 잠든 사이 사자를 물리친 말",
+    text: "전투 첫 턴에 손에 들어오고, 방어 6",
+    effects: [{ op: "block", value: 6 }],
+    innate: true,
+  },
+  "zal:simurgh": {
+    title: "깃털을 태우면 날아오는 새",
+    text: "체력 6 회복, 카드 1장 뽑기",
+    effects: [
+      { op: "heal", value: 6 },
+      { op: "draw", value: 1 },
+    ],
+  },
+  "shiva:nandi": {
+    title: "카일라스의 문지기",
+    text: "방어 8, 모든 적에게 약화 1",
+    effects: [
+      { op: "block", value: 8 },
+      { op: "weak", value: 1, all: true },
+    ],
+  },
+  "an-duong-vuong:kim-quy": {
+    title: "성을 쌓아 준 금거북",
+    text: "방어 8, 카드 1장 뽑기",
+    effects: [
+      { op: "block", value: 8 },
+      { op: "draw", value: 1 },
     ],
   },
 };

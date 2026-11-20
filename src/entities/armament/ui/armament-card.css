@@ -44,6 +44,12 @@
 }
 
 .armament__bonus,
-.armament__lore {
+.armament__story {
+  display: grid;
+  gap: 6px;
+}
+
+.armament__lore,
+.armament__price {
   font-size: var(--fs-s);
 }

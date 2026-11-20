@@ -7,8 +7,10 @@ export {
   getArt,
   getFigure,
   getPantheon,
+  getSummary,
   isArkArtLoaded,
   kindLabel,
   loadArkArt,
+  loadSummaries,
   PANTHEONS,
 } from "./model/figures.js";

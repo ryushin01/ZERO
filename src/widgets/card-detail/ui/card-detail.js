@@ -8,9 +8,11 @@ import {
   getArt,
   getFigure,
   getPantheon,
+  getSummary,
   isArkArtLoaded,
   kindLabel,
   loadArkArt,
+  loadSummaries,
 } from "#entities/figure/index.js";
 import { arkFigureUrl, arkPantheonUrl, CREDITS_URL } from "#shared/config/index.js";
 import { h } from "#shared/lib/index.js";
@@ -62,6 +64,25 @@ function arkSourceSlot(slug) {
       else slot.remove();
     })
     // 받지 못하면 소장 자료 없이 둡니다. (카드 그림과 소개는 그대로)
+    .catch(() => slot.remove());
+  return slot;
+}
+
+/**
+ * 신의 소개 자리. Ark 인물의 소개는 첫 화면 묶음에 넣지 않고 따로 받으므로(보통 첫 화면 뒤에 미리 받아 둠),
+ * 아직 받지 않았으면 빈 문단을 두었다가 받은 뒤 채웁니다.
+ * @param {import("#entities/card/index.js").CardDef} card
+ */
+function summarySlot(card) {
+  const known = card.summary || (card.figureSlug ? getSummary(card.figureSlug) : undefined);
+  if (known || !card.figureSlug) return h("p", { class: "card-detail__summary" }, known ?? "");
+  const slug = card.figureSlug;
+  const slot = h("p", { class: "card-detail__summary" });
+  loadSummaries()
+    .then(() => {
+      slot.textContent = getSummary(slug) ?? "";
+    })
+    // 받지 못하면 소개 없이 둡니다. (카드 그림과 효과는 그대로)
     .catch(() => slot.remove());
   return slot;
 }
@@ -128,7 +149,7 @@ export function cardDetail(cardId) {
       ),
       h("p", { class: "card-detail__en display fit", lang: "en", style: { "--len": card.nameEn.length } }, card.nameEn),
       h("p", { class: "card-detail__epithet serif" }, card.epithet),
-      h("p", { class: "card-detail__summary" }, card.summary),
+      summarySlot(card),
       // 전설 확장은 Ark의 소개 페이지가 없으므로 소개 문단을 여기서 보여 줍니다.
       card.source === "zero"
         ? (getFigure(/** @type {string} */ (card.figureSlug))?.description ?? []).map((text) =>

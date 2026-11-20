@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { ARMAMENTS } from "#entities/armament/index.js";
 import { getBattlefield } from "#entities/battlefield/index.js";
 import { ENCOUNTERS } from "#entities/enemy/index.js";
 import { createRng } from "#shared/lib/index.js";
@@ -187,7 +188,9 @@ describe("migrateRun", () => {
 
 describe("무구와 세력", () => {
   it("길잡이 신화의 무구 하나를 들고 시작합니다", () => {
-    expect(["mjolnir", "gungnir", "brisingamen"]).toContain(createRun({ seed: 1, guide: "norse" }).armaments[0]);
+    const norse = ARMAMENTS.filter((arm) => arm.pantheon === "norse").map((arm) => arm.id);
+    expect(norse).toEqual(expect.arrayContaining(["mjolnir", "gungnir", "gjallarhorn"]));
+    for (const seed of [1, 2, 3]) expect(norse).toContain(createRun({ seed, guide: "norse" }).armaments[0]);
     expect(createRun({ seed: 1, guide: "finnish" }).armaments).toHaveLength(1);
   });
 
