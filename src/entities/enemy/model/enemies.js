@@ -190,9 +190,9 @@ export const ENEMIES = [
       },
     ],
     nemesis: {
-      figures: ["theseus"],
+      figures: ["theseus", "ariadne"],
       pantheons: ["minoan"],
-      note: "테세우스는 아리아드네의 실을 따라 미궁에 들어가 미노타우로스를 쓰러뜨렸습니다.",
+      note: "테세우스는 아리아드네가 건넨 실을 따라 미궁에 들어가 미노타우로스를 쓰러뜨렸습니다.",
     },
   },
   {
@@ -293,8 +293,8 @@ export const ENEMIES = [
       },
     ],
     nemesis: {
-      figures: ["gilgamesh", "enkidu"],
-      note: "길가메시와 엔키두는 삼나무 숲에 들어가 훔바바를 쓰러뜨렸습니다.",
+      figures: ["gilgamesh", "enkidu", "shamash"],
+      note: "길가메시와 엔키두는 태양신 샤마시가 보낸 바람의 도움을 받아 삼나무 숲의 훔바바를 쓰러뜨렸습니다.",
     },
   },
 
@@ -321,9 +321,9 @@ export const ENEMIES = [
       { name: "연타", actions: [{ op: "attack", value: 6, times: 2 }] },
     ],
     nemesis: {
-      figures: ["susanoo", "minamoto-no-raiko", "sakata-kintoki", "watanabe-no-tsuna"],
+      figures: ["susanoo", "minamoto-no-raiko", "sakata-kintoki", "watanabe-no-tsuna", "momotaro"],
       domains: ["악귀 퇴치"],
-      note: "미나모토노 라이코와 사천왕은 오에산의 오니 슈텐도지를 쓰러뜨렸습니다.",
+      note: "미나모토노 라이코와 사천왕은 오에산의 오니 슈텐도지를 쓰러뜨렸고, 모모타로는 개·원숭이·꿩과 함께 오니섬을 쳤습니다.",
     },
   },
   {
@@ -607,7 +607,10 @@ export const ENEMIES = [
         ],
       },
     ],
-    nemesis: { figures: ["vishnu"], note: "비슈누가 원반으로 라후의 목을 베었습니다." },
+    nemesis: {
+      figures: ["vishnu", "surya"],
+      note: "수리야와 달이 몰래 감로를 마신 라후를 알렸고, 비슈누가 원반으로 그 목을 베었습니다.",
+    },
   },
   {
     id: "imugi",

@@ -150,6 +150,16 @@
     "summary": "늑대가 기른 쌍둥이 로물루스와 레무스, 트로이에서 건너온 아이네이아스의 후예가 로마를 세웠다는 전설입니다."
   },
   {
+    "slug": "moche",
+    "name": "모체 신화",
+    "nameEn": "Moche",
+    "region": "페루 북부 해안",
+    "continent": "americas",
+    "eraLabel": "1~8세기",
+    "eraYear": 100,
+    "summary": "잉카보다 천 년쯤 앞서 페루 북부 해안에서 번성한 모체 사람들의 신앙으로, 송곳니 난 신과 희생 제의 장면을 토기와 금속 공예에 남겼습니다."
+  },
+  {
     "slug": "maya",
     "name": "마야 신화",
     "nameEn": "Maya",
@@ -348,6 +358,16 @@
     "eraLabel": "15세기경",
     "eraYear": 1490,
     "summary": "용의 아들과 선녀가 낳은 백 개의 알에서 베트남 사람들이 나왔다는 건국 신화와 영웅 전설입니다."
+  },
+  {
+    "slug": "taino",
+    "name": "타이노 신화",
+    "nameEn": "Taíno",
+    "region": "카리브해 대앤틸리스 제도",
+    "continent": "americas",
+    "eraLabel": "1498년경",
+    "eraYear": 1498,
+    "summary": "콜럼버스 일행을 처음 맞은 카리브해 원주민 타이노 사람들의 신앙으로, 정령이 깃든 신상 제미를 섬겼습니다."
   },
   {
     "slug": "aztec",

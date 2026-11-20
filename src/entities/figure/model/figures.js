@@ -3,12 +3,14 @@ import figureData from "../data/figures.json" with { type: "json" };
 import legendData from "../data/legends.json" with { type: "json" };
 import pantheonData from "../data/pantheons.json" with { type: "json" };
 
+import { lazyModule } from "#shared/lib/index.js";
+
 /**
  * @typedef {"asia" | "europe" | "africa" | "americas" | "oceania"} Continent
  * @typedef {{ slug: string, name: string, nameEn: string, region: string, continent: Continent, eraLabel: string, eraYear: number, summary: string }} Pantheon
  * @typedef {"ark" | "zero"} Source Ark에서 가져온 기록인지, ZERO가 더한 전설 확장인지
  * @typedef {{
- *   slug: string, pantheonSlug: string, name: string, nameEn: string, epithet: string, domains: string[], summary: string, order: number,
+ *   slug: string, pantheonSlug: string, name: string, nameEn: string, epithet: string, domains: string[], summary?: string, order: number,
  *   source?: Source, rarity?: "common" | "rare" | "legend", description?: string[], wiki?: string,
  *   kind?: "god" | "hero" | "monster" | "other", grade?: "divine" | "spirit" | "common" | null,
  * }} Figure
@@ -51,25 +53,22 @@ export const FIGURES = [
 /** Ark에서 가져온 신과 영웅의 수 */
 export const ARK_FIGURE_COUNT = figureData.length;
 
-/** 받아 둔 Ark 소장 자료. 카드 상세에서만 쓰므로 첫 화면 묶음에서 빼고 따로 받습니다. @type {Record<string, Art> | null} */
-let arkArt = null;
-/** @type {Promise<Record<string, Art>> | null} */
-let arkArtLoading = null;
+/**
+ * 카드 상세에서만 쓰는 Ark의 긴 기록. 첫 화면 묶음에서 빼고 따로 받습니다(보통 첫 화면 뒤에 미리 받아 둠).
+ * - 소장 자료(약 160 KB): 신마다 대표 자료 그림의 설명과 출처
+ * - 소개(약 150 KB): 신마다 한두 문장의 소개
+ */
+const arkArt = lazyModule(() => import("../data/art.json", { with: { type: "json" } }));
+const arkSummaries = lazyModule(() => import("../data/summaries.json", { with: { type: "json" } }));
 
-/** Ark 소장 자료(약 120 KB)를 받습니다. 여러 번 불러도 한 번만 받습니다. @returns {Promise<Record<string, Art>>} */
-export function loadArkArt() {
-  arkArtLoading ??= import("../data/art.json", { with: { type: "json" } })
-    .then((module) => (arkArt = /** @type {Record<string, Art>} */ (module.default)))
-    .catch((error) => {
-      // 받지 못했으면 다음에 다시 받을 수 있게 합니다.
-      arkArtLoading = null;
-      throw error;
-    });
-  return arkArtLoading;
-}
+/** Ark 소장 자료를 받습니다. 여러 번 불러도 한 번만 받습니다. @returns {Promise<Record<string, Art>>} */
+export const loadArkArt = () => /** @type {Promise<Record<string, Art>>} */ (arkArt.load());
 
 /** Ark 소장 자료를 이미 받았는지 */
-export const isArkArtLoaded = () => arkArt !== null;
+export const isArkArtLoaded = () => arkArt.get() !== null;
+
+/** Ark의 신 소개를 받습니다. 여러 번 불러도 한 번만 받습니다. @returns {Promise<Record<string, string>>} */
+export const loadSummaries = () => /** @type {Promise<Record<string, string>>} */ (arkSummaries.load());
 
 export const CONTINENTS = /** @type {const} */ (["asia", "europe", "africa", "americas", "oceania"]);
 
@@ -90,7 +89,14 @@ export const getPantheon = (slug) => pantheonBySlug.get(slug);
 /** @param {string} slug */
 export const getFigure = (slug) => figureBySlug.get(slug);
 /** Ark 소장 자료. 자료가 없는 신이거나 아직 받지 않았으면 undefined (loadArkArt) @param {string} slug */
-export const getArt = (slug) => arkArt?.[slug];
+export const getArt = (slug) => /** @type {Record<string, Art> | null} */ (arkArt.get())?.[slug];
+/**
+ * 신의 소개. 전설 확장의 인물은 바로, Ark의 인물은 소개를 받은 뒤에 돌려줍니다. 아직 받지 않았으면 undefined (loadSummaries)
+ * @param {string} slug
+ * @returns {string | undefined}
+ */
+export const getSummary = (slug) =>
+  getFigure(slug)?.summary ?? /** @type {Record<string, string> | null} */ (arkSummaries.get())?.[slug];
 /** @param {string} pantheonSlug */
 export const figuresOf = (pantheonSlug) =>
   FIGURES.filter((f) => f.pantheonSlug === pantheonSlug).sort((a, b) => a.order - b.order);

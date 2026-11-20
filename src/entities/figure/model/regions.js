@@ -41,6 +41,8 @@ export const PANTHEON_REGION = {
   olmec: "americas",
   zapotec: "americas",
   mixtec: "americas",
+  moche: "americas",
+  taino: "americas",
   haida: "arctic",
   yoruba: "africa",
   fon: "africa",

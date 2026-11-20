@@ -9,7 +9,7 @@ import "../styles/base.css";
 import restFontsCss from "../styles/fonts/zero-serif-rest.css?url";
 import { attachRestFonts } from "../styles/rest-fonts.js";
 
-import { loadArkArt } from "#entities/figure/index.js";
+import { loadArkArt, loadSummaries } from "#entities/figure/index.js";
 import { afterLoadIdle } from "#shared/lib/index.js";
 
 import { initMonitoring } from "../monitoring/index.js";
@@ -25,5 +25,5 @@ createApp({
 // 나머지 한글(화면 글자 파일에 없는 글자)은 첫 화면 뒤에 붙임
 attachRestFonts(restFontsCss);
 
-// 카드 상세에서만 쓰는 Ark 소장 자료는 첫 화면 묶음에서 빼고, 첫 화면 뒤 한가할 때 미리 받아 둠
-afterLoadIdle(() => void loadArkArt().catch(() => undefined), { delay: 2000 });
+// 카드 상세에서만 쓰는 Ark 소장 자료와 신 소개는 첫 화면 묶음에서 빼고, 첫 화면 뒤 한가할 때 미리 받아 둠
+afterLoadIdle(() => void Promise.all([loadArkArt(), loadSummaries()]).catch(() => undefined), { delay: 2000 });

@@ -16,7 +16,7 @@
 
 화면이 바뀌면(주소나 판의 단계가 바뀌면) 새로 그리고 제목(`h1`)으로 초점을 옮깁니다. 같은 화면 안의 변화는 패치만 합니다. 화면은 `afterRender`로 그린 뒤의 일을 할 수 있습니다. 전투 화면은 이 자리에서 지난 체력과 비교해 떠오르는 숫자와 흔들림을 줍니다(`pages/run/ui/battle-fx.js`). 패치가 모르는 요소와 속성은 지워지므로, 숫자는 본문 밖의 효과 층에 그리고 흔들림은 Web Animations API로 줍니다.
 
-도감의 카드 목록(322장)은 `data-morph="skip"`인 빈 목록으로 그린 뒤 `afterRender`가 한 번 채우고, 검색어·거르기가 바뀌면 카드마다 `hidden`만 바꿉니다. 글자 하나마다 카드 DOM을 새로 만들면 느린 휴대폰에서 입력이 끊기기 때문입니다(CPU 4배 느리게 107 ms → 9 ms).
+도감의 카드 목록(475장)은 `data-morph="skip"`인 빈 목록으로 그린 뒤 `afterRender`가 한 번 채우고, 검색어·거르기가 바뀌면 카드마다 `hidden`만 바꿉니다. 글자 하나마다 카드 DOM을 새로 만들면 느린 휴대폰에서 입력이 끊기기 때문입니다(CPU 4배 느리게 107 ms → 9 ms).
 
 카드 상세에서만 쓰는 Ark 소장 자료(`art.json`)는 첫 화면 묶음에 넣지 않고 `loadArkArt()`로 따로 받습니다. `main.js`가 페이지를 다 받고 한가할 때 미리 받아 두고, 그 전에 상세를 열면 빈 자리를 두었다가 받은 뒤 채웁니다.
 
@@ -26,8 +26,9 @@
 
 - 고른 그림: `scripts/illustrations/picks.json`에 대상 키(`figure:<slug>`, `enemy:<id>`, `field:<id>`, `arm:<id>`, `card:<id>`)마다 Commons 파일 이름과 초점(`pos`)을 적습니다. 초점은 얼굴이나 눈길이 모이는 곳으로, 카드처럼 잘라 보여 줄 때 `object-position`이 됩니다.
 - 받기: `pnpm illustrations`가 그림을 받아 `public/illust/l/`(긴 변 800px)과 `public/illust/s/`(너비 480px)에 WebP로 줄이고(원본보다 늘리지 않음, 투명한 부분은 종이색으로 채움), 화면이 읽는 목록(`src/shared/ui/artwork/artworks.json`, 너비·높이·초점)과 출처(`scripts/illustrations/credits.json`, `docs/credits.md`)를 다시 씁니다. 이미 받은 그림은 건너뛰고, `--force`면 모두 다시 받습니다. macOS `sips`와 `cwebp`(brew install webp)가 필요합니다.
+- 초점: `pos`가 없는 그림은 `pnpm illustrations`가 macOS Vision(`scripts/illustrations/focus.swift`)으로 가장 큰 얼굴, 없으면 가장 두드러진 영역의 위쪽 1/3을 찾아 `picks.json`에 적습니다. 손으로 맞춘 기존 초점과 1~2%p 안쪽으로 같게 나옵니다. macOS가 아니면 기본 초점(50% 30%)을 씁니다.
 - 쓰기: 엔티티의 `cardArt`·`enemyArt`·`battlefieldArt`·`armamentArt`가 img 속성(`src`, `srcset`, `sizes`, 크기, 초점, 지연 받기)을 줍니다. 화면에서는 `h("img", { ...cardArt(card, { sizes: "220px" }), alt: "" })`처럼 펼쳐 씁니다. 첫 화면에 바로 보이는 그림은 `eager: true`로 받습니다.
-- 새 신: Ark 동기화로 신이 늘면 `picks.json`에 그림을 더하고 `pnpm illustrations`를 실행합니다. 그림이 없는 동안에는 서가 그림이 대신 나오고, `card/lib/illustration.test.js`가 빠진 대상을 알려 줍니다.
+- 새 신·무구: `pnpm sync:ark`가 그림이 아직 없는 신(첫 번째 자료)과 무구(유물의 자료)에 Ark 자료의 Commons 그림을 `picks.json`에 더하고, `pnpm illustrations`가 받아 초점까지 찾습니다. 이미 고른 그림은 건드리지 않으므로, 더 나은 그림을 찾으면 `picks.json`을 고치고 `--only`로 다시 받습니다. 그림이 없는 동안 카드는 서가 그림을, 무구는 첫 번째 주인의 카드 그림을 씁니다.
 - 히든 카드 유신의 그림은 그린 분의 허락을 받아 실은 파일(`public/art/hidden/`)을 그대로 씁니다.
 
 ## 기록과 오늘의 신화
@@ -40,36 +41,52 @@
 
 ## 계층 (Feature-Sliced Design v2.1)
 
-| 계층       | 슬라이스                                                 | 하는 일                                                                                 |
-| ---------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `app`      | `entrypoint`, `model`, `routing`, `render`, `styles`     | 글꼴과 전역 스타일, 상태 저장소, 라우터, 렌더 루프와 이벤트 위임                        |
-| `pages`    | `title`, `new-run`, `run`, `codex`, `guide`, `not-found` | 화면. `run`은 판의 단계(지도·전투·보상·쉼터·성소·사건·고르기·결과)마다 보기를 고릅니다. |
-| `widgets`  | `site-header`, `card-detail`, `deck-view`                | 여러 화면이 함께 쓰는 덩어리                                                            |
-| `features` | `run`                                                    | 전투 엔진과 한 판의 흐름. 모든 함수는 상태를 복사해 새 상태를 돌려주는 순수 함수입니다. |
-| `entities` | `figure`, `card`, `enemy`, `relic`, `map`                | Ark 데이터, 카드 생성 규칙과 카드 앞면, 괴물, 유물, 지도 생성                           |
-| `shared`   | `lib`, `ui`, `config`                                    | DOM 도구, 시드 난수, 조사 붙이기, 저장소, 대화상자, Ark 주소                            |
+| 계층       | 슬라이스                                                      | 하는 일                                                                                 |
+| ---------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `app`      | `entrypoint`, `model`, `routing`, `render`, `styles`          | 글꼴과 전역 스타일, 상태 저장소, 라우터, 렌더 루프와 이벤트 위임                        |
+| `pages`    | `title`, `new-run`, `run`, `codex`, `guide`, `not-found`      | 화면. `run`은 판의 단계(지도·전투·보상·쉼터·성소·사건·고르기·결과)마다 보기를 고릅니다. |
+| `widgets`  | `site-header`, `card-detail`, `deck-view`                     | 여러 화면이 함께 쓰는 덩어리                                                            |
+| `features` | `run`                                                         | 전투 엔진과 한 판의 흐름. 모든 함수는 상태를 복사해 새 상태를 돌려주는 순수 함수입니다. |
+| `entities` | `figure`, `card`, `armament`, `bond`, `enemy`, `relic`, `map` | Ark 데이터, 카드·무구 생성 규칙과 카드 앞면, 탈것·동반자, 괴물, 보물, 지도 생성         |
+| `shared`   | `lib`, `ui`, `config`                                         | DOM 도구, 시드 난수, 조사 붙이기, 저장소, 대화상자, Ark 주소                            |
 
-- 슬라이스는 공개 API(`index.js`)로만 가져옵니다. 카드가 신화 데이터를 읽는 것만 `entities/figure/@x/card.js`로 엽니다.
+- 슬라이스는 공개 API(`index.js`)로만 가져옵니다. 엔티티끼리는 교차 공개 API(`@x`)로만 읽습니다: 카드·무구가 신화 데이터를(`figure/@x/card.js`, `figure/@x/armament.js`), 무구가 카드의 속성과 효과 문장을(`card/@x/armament.js`) 읽습니다.
 - `package.json`의 `imports`(`#entities/*` 등)를 별칭으로 쓰고, Steiger가 같은 경로를 읽도록 `tsconfig.json`의 `paths`에도 적었습니다.
 - 타입은 JSDoc으로 적고 `pnpm check`(`tsc --checkJs`)로 검사합니다.
 
 ## Ark 데이터 동기화
 
-`pnpm sync:ark`는 옆 폴더의 Ark 저장소(`ARK_DIR`, 기본 `../Ark`)에서 목업 데이터를 읽습니다.
+ZERO의 신화 데이터는 Ark를 그대로 따릅니다. `pnpm sync:ark`는 옆 폴더의 Ark 저장소(`ARK_DIR`, 기본 `../Ark`)에서 목업 데이터를 읽어, 손대지 않고 게임이 읽는 파일로 씁니다.
 
-- Ark의 TypeScript 목업을 Node의 타입 지우기로 그대로 가져옵니다.
-- 신화 계열, 신과 영웅, 신마다 첫 번째 자료의 그림 정보(제목, 대체 텍스트, 소장처, 저작자, 라이선스, 원본 주소)를 `src/entities/figure/data/*.json`에 씁니다.
-- 그림은 macOS `sips`로 긴 변 420px JPEG로 줄여 `public/art/`에 둡니다. (290점, 약 10MB)
-- 탈것·동반자 짝(`figure/model/bonds.ts`)을 `src/entities/bond/data/bonds.json`에 씁니다. 짝마다 붙는 효과는 ZERO의 게임 규칙이라 `entities/bond/model/bonds.js`의 `BOND_RULES`에 둡니다.
-- 결과물을 커밋하므로 Ark 저장소가 없어도 빌드됩니다.
-- 끝에서 출처 목록(`docs/credits.md`)도 다시 만듭니다.
+| Ark                                   | ZERO                                                              | 쓰는 곳                                                |
+| ------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------ |
+| 신화 계열(`pantheon`)                 | `figure/data/pantheons.json`                                      | 세력, 길잡이, 도감                                     |
+| 신·영웅·몬스터·그 밖의 존재(`figure`) | `figure/data/figures.json`, 소개는 `figure/data/summaries.json`   | 모두 카드. 소개는 카드 상세에서만 따로 받음            |
+| 신마다 첫 번째 자료(`exhibit`)        | `figure/data/art.json`, `public/art/*.jpg`(sips로 긴 변 420px)    | 카드 상세의 Ark 소장 자료(따로 받음)                   |
+| 유물(`relic`)                         | `armament/data/relics.json`, 이야기는 `armament/data/lore.json`   | 무구. 이야기(유래·힘·대가·출전)는 도감에서만 따로 받음 |
+| 탈것·동반자 짝(`figure/model/bonds`)  | `bond/data/bonds.json`                                            | 장착의 결속                                            |
+| 자료 그림의 Commons 원본              | `scripts/illustrations/picks.json` (그림이 없는 신·무구에만 더함) | `pnpm illustrations`가 받아 카드·무구 그림으로         |
+
+- Ark의 TypeScript 목업을 Node의 타입 지우기로 그대로 가져옵니다. 결과물을 커밋하므로 Ark 저장소가 없어도 빌드됩니다.
+- 긴 글(신 소개 약 150 KB, 유물 이야기 약 100 KB)은 첫 화면 묶음에 넣지 않고 따로 받는 파일에 둡니다(`shared/lib/defer/lazy.js`). 첫 화면 뒤 한가할 때 신 소개를 미리 받고, 받기 전에 열면 빈 자리를 두었다가 채웁니다.
+- 게임 규칙은 ZERO에 둡니다. 카드 수치는 관장 영역(`card/model/aspects.js`), 무구 수치는 유물의 생김새와 주인의 관장 영역(`armament/model/forge.js`, [카드 규칙](card-rules.md#ark-유물에서-온-무구)), 짝의 효과는 `bond/model/bonds.js`의 `BOND_RULES`가 정합니다.
+- Ark 유물 가운데 ZERO가 먼저 만든 무구와 같은 것(`ARK_ALIASES`)은 ZERO의 무구를 쓰고, ZERO의 보물과 같은 것(`ARK_TREASURES`)은 무구로 넣지 않습니다(`armament/model/ark.js`).
+- 끝에서 전설 확장 실행 파일과 출처 목록(`docs/credits.md`)도 다시 만들고, 바뀐 내용(새 계열·인물·유물·짝, 새 그림 후보)을 요약해 출력합니다(`SYNC_SUMMARY`로 파일에도 씀).
+
+### 자동 동기화 (GitHub Actions)
+
+`.github/workflows/sync-ark.yml`이 매일 한국 시각 새벽 4시에 Ark의 main을 받아 맞춥니다. 바로 돌리려면 `gh workflow run sync-ark.yml`을 씁니다.
+
+1. **가져오기**(macOS 러너): `pnpm sync:ark` 뒤 바뀐 것이 있으면 새 그림을 받고(`pnpm illustrations`, Vision 초점), 화면 글자가 늘었으면 글꼴을 다시 만들어 `sync/ark` 브랜치에 커밋합니다. 바뀐 내용은 커밋 메시지와 실행 요약에 남습니다.
+2. **검사**: `ci.yml`을 그대로 불러 형식·린트·FSD·타입·단위(밸런스·짝마다 효과·무구마다 그림·글꼴 포함)·빌드·용량·E2E·Lighthouse를 모두 봅니다.
+3. **합치기**: 모두 통과하면 검사한 그 커밋으로 main을 빨리 감습니다(Vercel이 배포). 하나라도 실패하면 main은 그대로 두고 `sync/ark`를 남기며, GitHub가 실패 알림을 보냅니다. 새 짝에 효과가 없거나(`bonds.test.js`) 새 계열에 신화권이 없으면(`figures.test.js`) 여기서 멈추므로, 규칙을 더하는 PR을 따로 합치면 다음 동기화가 이어서 맞춥니다.
 
 ## 출처
 
 화면에는 그림·글꼴·참고 자료의 출처를 적지 않습니다. 카드 상세와 도감, 안내에는 README의 출처 표로 가는 링크(`CREDITS_URL`) 하나만 둡니다.
 
 - README의 `## 출처`: 글꼴, 자료 묶음별 저작자·사용 허락·원본을 한 표로 적습니다.
-- `docs/credits.md`: 그림 한 점, 참고한 글 하나까지 적은 전체 목록입니다. `pnpm credits`가 `art.json`, 무구의 `sources`, 전장의 `source`에서 만듭니다. 직접 고치지 않으며 Prettier에서도 뺍니다.
+- `docs/credits.md`: 그림 한 점, 참고한 글 하나까지 적은 전체 목록입니다. `pnpm credits`가 `art.json`, 무구의 `sources`, Ark 유물의 출전(`lore.json`), 전장의 `source`에서 만듭니다. 직접 고치지 않으며 Prettier에서도 뺍니다.
 - 데이터를 바꾸고 목록을 다시 만들지 않으면 `scripts/credits.test.js`가 실패합니다.
 
 ## 글꼴
@@ -80,7 +97,7 @@
 
 - 마루 부리는 저장소에 넣어 제공합니다. 원본(300·400·600·700)과 라이선스는 `scripts/fonts/maruburi/`, 설정은 `scripts/fonts/config.json`에 있습니다. 네이버 나눔글꼴 라이선스(OFL)의 예약 이름 때문에 줄인 파일은 글꼴 이름을 `ZeroSerif`로 바꿉니다(`scripts/fonts/rename-font.py`, fontTools 필요).
 - `pnpm fonts`가 `src/app/styles/fonts/`에 두 가지를 만듭니다.
-  - `zero-serif.css`, `zero-serif/zero-serif-<굵기>-ui.woff2`: 소스의 문자열(카드·무구·유물·전장 이름과 설명 포함)과 `index.html`에 쓰인 한글·기호만 담은 파일입니다. `main.js`가 불러와 첫 화면과 함께 받습니다. 이름 322개가 모인 도감에서도 조각을 따로 받지 않습니다.
+  - `zero-serif.css`, `zero-serif/zero-serif-<굵기>-ui.woff2`: 소스의 문자열(카드·무구·유물·전장 이름과 설명 포함)과 `index.html`에 쓰인 한글·기호만 담은 파일입니다. `main.js`가 불러와 첫 화면과 함께 받습니다. 이름 475개가 모인 도감에서도 조각을 따로 받지 않습니다.
   - `zero-serif-rest.css`, `zero-serif/zero-serif-<굵기>-<번호>.woff2`: 나머지 글자를 Google Fonts 한국어 글꼴과 같은 글자 묶음으로 나눈 조각입니다. `attachRestFonts`가 페이지를 다 받고 1초 뒤 한가할 때 붙이고, 브라우저는 화면에 쓴 글자가 든 조각만 받습니다.
 - 새 카드나 이름 변경으로 글자가 늘면 `src/app/styles/fonts.test.js`가 실패합니다. 그때 다시 만듭니다.
 

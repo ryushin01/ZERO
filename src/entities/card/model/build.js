@@ -168,7 +168,8 @@ function buildFigureCard(figure) {
     name: figure.name,
     nameEn: figure.nameEn,
     epithet: figure.epithet,
-    summary: figure.summary,
+    // Ark 인물의 소개는 첫 화면 묶음에 넣지 않으므로 카드 상세가 따로 받습니다(getSummary).
+    summary: figure.summary ?? "",
     domains,
     rarity,
     type: typeOf(effects, power),
