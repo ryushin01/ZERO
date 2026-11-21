@@ -5,7 +5,7 @@ AI 코딩 에이전트(Codex, Claude Code 등)가 이 저장소에서 일할 때
 ## 1. 프로젝트 개요
 
 - 세계 신화 도서관 Ark의 신·영웅·몬스터를 카드로 모으고 신화 무구를 휘둘러 괴물과 태초의 공허 '영(零)'에 맞서는 웹 덱빌딩 게임입니다. 프레임워크 없이 순수 자바스크립트로 만든 포트폴리오이며, 진행 상황은 브라우저에만 저장합니다.
-- 화면 축 1개: 웹 게임. 로그인 없음.
+- 화면 축: 웹 게임. 로그인 없음.
 - 운영: https://zero-ryushin01.vercel.app/ · Storybook https://zero-ryushin01.vercel.app/storybook/index.html
 
 ## 2. 기술 스택과 구조
