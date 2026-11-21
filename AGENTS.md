@@ -34,34 +34,33 @@ pnpm dev   # http://localhost:5173
 
 ## 4. 검사·테스트 명령
 
-| 명령                                | 내용                                                                          |
-| ----------------------------------- | ----------------------------------------------------------------------------- |
-| `pnpm format:check` / `pnpm format` | Prettier 검사 / 정리(Markdown 포함)                                           |
-| `pnpm lint`                         | ESLint                                                                        |
-| `pnpm lint:fsd`                     | Steiger(FSD)                                                                  |
-| `pnpm check`                        | `tsc` JSDoc 타입 검사                                                         |
-| `pnpm test`                         | 규칙·전투·화면 단위 테스트, 자동 플레이 100판 난이도(승률 3~40%)              |
-| `pnpm build`                        | 앱 + Storybook(`dist/storybook`)                                              |
-| `pnpm size`                         | 첫 화면 JS 115 kB, CSS 12 kB(gzip) 예산(`.size-limit.js`)                     |
-| `pnpm test:e2e`                     | 프로덕션 빌드 E2E(한 판 흐름·키보드·이어 하기·넘침·axe·CSP), 동작 줄이기 환경 |
-| `pnpm lhci` / `pnpm lhci:mobile`    | 데스크톱 / 휴대폰(느린 4G·CPU 4배) Lighthouse 기준                            |
+| 명령                                | 내용                                                                                   |
+| ----------------------------------- | -------------------------------------------------------------------------------------- |
+| `pnpm format:check` / `pnpm format` | Prettier 검사 / 정리(Markdown 포함)                                                    |
+| `pnpm lint`                         | ESLint                                                                                 |
+| `pnpm lint:fsd`                     | Steiger(FSD)                                                                           |
+| `pnpm check`                        | `tsc` JSDoc 타입 검사                                                                  |
+| `pnpm test`                         | 규칙·전투·화면 단위 테스트, 자동 플레이 100판 난이도(승률 3~40%)                       |
+| `pnpm build`                        | 앱 + Storybook(`dist/storybook`)                                                       |
+| `pnpm size`                         | 첫 화면 JS 115 kB, CSS 12 kB(gzip) 예산(`.size-limit.js`)                              |
+| `pnpm test:e2e`                     | 프로덕션 빌드 E2E(한 판 흐름·키보드·이어 하기·넘침·axe·CSP·오프라인), 동작 줄이기 환경 |
+| `pnpm lhci` / `pnpm lhci:mobile`    | 데스크톱 / 휴대폰(느린 4G·CPU 4배) Lighthouse 기준                                     |
 
 - CI(`.github/workflows/ci.yml`, PR·main 푸시, Ark 동기화에서도 호출) 순서: `format:check` → `lint` → `lint:fsd` → `check` → `test` → `build` → `size` → Chromium 설치 → `test:e2e` → `lhci` → `lhci:mobile`.
-- 커밋 훅(husky 등)은 없으므로 PR 전에 위 검사를 직접 돌립니다.
+- 오프라인 검사: `e2e/offline.spec.js`가 localhost 밖 요청을 모두 막은 채 처음 화면·도감·카드 상세·도움말·한 판이 내용과 함께 뜨고 axe 통과·바깥 요청 0건인지 봅니다. 실행 중 Ark·Commons 등 바깥 API를 부르지 않습니다(자료는 `sync:ark`·`illustrations`로 미리 받아 커밋).
+- 커밋 훅(husky 등)은 없으므로 PR 전에 위 검사를 직접 돌립니다. CI·배포·동기화 상태는 명령 결과(`gh pr checks`, `gh run list`, 주소 200 확인)로 확인한 뒤에만 말합니다.
 - **테스트 원칙: Testing Library.** 구현 세부가 아니라 사용자가 보는 동작을 검사하고, 요소는 역할·이름으로 찾습니다. 표준과 다른 점: 프레임워크가 없어 `@testing-library/*`를 쓰지 않고 Vitest + jsdom에서 직접 DOM을 다룹니다(카드 앞면의 접근 가능한 이름 등 사용자가 보는 결과를 검사). 화면 흐름은 Playwright E2E, 접근성은 axe(`@axe-core/playwright`, Storybook addon-a11y로 스토리 확인. CI는 Storybook을 빌드만 함).
 
 ## 5. 코드 스타일
 
-- Prettier: 한 줄 120자(나머지는 기본값: 큰따옴표, 세미콜론). Markdown도 Prettier 검사 대상입니다(표 정렬 포함). `docs/credits.md`, 데이터 폴더, 생성 글꼴은 Prettier에서 뺍니다.
+- 서식: Prettier(`.prettierrc.json`, Biome 없음) — 한 줄 120자(나머지는 기본값: 큰따옴표, 세미콜론). Markdown도 Prettier 검사 대상입니다(표 정렬 포함). `docs/credits.md`, 데이터 폴더, 생성 글꼴은 Prettier에서 뺍니다.
 - `docs/credits.md`는 직접 고치지 않고 `pnpm credits`로 만듭니다(어긋나면 `scripts/credits.test.js` 실패).
 - README·문서 속 수량은 `<!--count:figures-->475<!--/count-->`처럼 표시하고 `pnpm docs:counts`로 갱신합니다(어긋나면 `doc-counts.test.js` 실패).
 - 패치(morph)가 모르는 요소·속성은 지워지므로 효과는 본문 밖 층이나 Web Animations API로 줍니다. 목록 항목은 `data-key`로 짝짓습니다.
 - 난수는 `shared/lib/rng.js`의 `rollWith`, 동작 줄이기 감지는 `shared/lib/motion.js`의 `prefersReducedMotion`을 씁니다. 저장된 판·듀얼은 `migrateRun`·`isRunUsable`·`isDuelUsable`로 확인합니다.
 - 버그를 고치면 고치기 전에 실패하는 테스트를 함께 넣습니다.
-- 접근성(KWCAG 2.2, `docs/accessibility.md`): 네이티브 요소 우선(`<button type="button">`, `<dialog>`), 텍스트 대비 4.5:1 이상, 키보드로 한 판 전체, 초점 표시 유지(`outline: none` 단독 금지), 조작 크기 24px 이상, 입력 레이블과 오류 연결, 전투 기록 등 바뀌는 안내는 `shared/lib/announce.js`의 `role="status"`, 화면이 바뀌면 `h1`로 초점 이동, 카드 앞면의 접근 가능한 이름.
 - **타입: JSDoc + `tsc --checkJs`.** 표준과 다른 점: TypeScript 파일이 없는 순수 자바스크립트라 `tsconfig.json`이 `allowJs`·`checkJs`를 켜고 `strict`는 `false`입니다. `any`·`@ts-ignore`는 피하고, 외부 입력(저장된 판·듀얼, 기록 파일)은 `isRunUsable`·`isDuelUsable` 등으로 검사합니다.
-- **서식:** Prettier(`.prettierrc.json`)를 그대로 따릅니다(Biome 없음).
-- **접근성 기준: WCAG 2.2·KWCAG 2.2.** 자동 검사는 axe(Playwright E2E, Storybook addon-a11y)와 Lighthouse 접근성 100점(데스크톱·휴대폰)입니다. JSX가 없어 eslint-plugin-jsx-a11y는 쓰지 않습니다.
+- **접근성: WCAG 2.2·KWCAG 2.2**(`docs/accessibility.md`). 네이티브 요소 우선(`<button type="button">`, `<dialog>`), 텍스트 대비 4.5:1 이상, 키보드로 한 판 전체, 초점 표시 유지(`outline: none` 단독 금지), 조작 크기 24px 이상, 입력 레이블과 오류 연결, 전투 기록 등 바뀌는 안내는 `shared/lib/announce.js`의 `role="status"`, 화면이 바뀌면 `h1`로 초점 이동, 카드 앞면의 접근 가능한 이름. 자동 검사는 axe(Playwright E2E, Storybook addon-a11y)와 Lighthouse 접근성 100점(데스크톱·휴대폰)입니다(JSX가 없어 eslint-plugin-jsx-a11y는 쓰지 않음).
 
 ## 6. Git·PR
 
@@ -77,7 +76,7 @@ pnpm dev   # http://localhost:5173
   - 릴리스 태그·GitHub 릴리스를 새로 만들지 않습니다(마지막 릴리스 `v1.2.3`).
   - 프로필 저장소 `ryushin01/ryushin01`의 `scripts/versions.mjs`도 `FIXED`로 ZERO를 v1.2.3에 고정합니다. 이 값을 바꾸지 않습니다.
 - **변경 기록: Keep a Changelog를 따르되 날짜 제목.** `CHANGELOG.md`에 최신 항목을 위에 둡니다. 표준과 다른 점: 버전 고정 때문에 `## x.y.z - YYYY-MM-DD` 대신 날짜 제목(`## 2026-11-20`)으로 적고, 추가·변경·수정·제거 소제목 없이 목록으로 적으며, `[Unreleased]` 절은 쓰지 않습니다. Ark 동기화는 `scripts/changelog-sync.mjs`가 오늘 날짜 항목에 한 줄을 더합니다.
-- 병합은 squash(제목 끝 `(#번호)`). **CI가 통과하면 바로 병합**하고 CodeRabbit 리뷰는 기다리지 않습니다(이미 달린 맞는 지적은 반영). Dependabot PR은 아래 기여자 규칙대로 다시 만듭니다.
+- 병합은 squash(제목 끝 `(#번호)`). **CI가 통과하면 바로 병합**하고 CodeRabbit 리뷰는 기다리지 않습니다(이미 달린 맞는 지적은 반영).
 - 공개 저장소라 Actions가 돕니다. Actions가 막히면 CI와 같은 검사를 로컬에서 돌려 대신합니다.
 
 ## 7. 배포·릴리스
@@ -94,6 +93,8 @@ pnpm dev   # http://localhost:5173
 ## 8. 보안·주의사항
 
 - 비밀값·`.env`(`.env.local` 포함)를 커밋하지 않습니다. 유료 API 키를 쓰지 않습니다.
+- **먼저 묻기:** 새 런타임 의존성(프레임워크 포함) 추가, 빌드·배포 설정(`vite.config.js`, `vercel.json`, 워크플로) 변경.
+- **절대 금지:** 비밀값을 `VITE_*` 변수에 넣기(`VITE_SENTRY_DSN`처럼 공개돼도 되는 값만), `.env` 커밋, `eslint-disable`·`--no-verify`로 검사 우회, `main` 직접 푸시.
 - 보안 헤더와 앱 문서 CSP(`vercel.json`)를 유지합니다. CSP를 바꾸면 `e2e/security.spec.js`로 확인합니다.
 - Sentry에는 오류 내용만 보내고 사용자 정보·쿠키·쿼리·브레드크럼·콜백 인수는 모으지 않습니다.
 - **그림 저작권:** 카드·괴물·전장·무구 그림은 Wikimedia Commons의 퍼블릭 도메인·CC0·CC 자료만 씁니다. 저작권이 남은 그림(작가 사후 70년이 지나지 않은 것, Pinterest 등에 다시 올라온 것)은 쓰지 않습니다. 히든 카드 유신 그림(`public/art/hidden/`)은 그린 분의 허락을 받은 파일을 그대로 씁니다.
