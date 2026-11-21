@@ -91,6 +91,8 @@ pnpm install
 pnpm dev        # http://localhost:5173
 ```
 
+`.env` 없이 바로 실행됩니다(`.env.example`의 `VITE_SENTRY_DSN`은 오류 수집용 선택 값). 신·무구 자료, 그림, 글꼴은 모두 저장소에 들어 있고 Ark는 `pnpm sync:ark` 때만 읽으므로, 인터넷이 끊겨도 `pnpm dev`나 `pnpm build && pnpm preview`로 모든 화면을 그대로 볼 수 있습니다. 바깥 주소는 도움말·출처의 링크뿐입니다. `e2e/offline.spec.js`가 localhost 밖 요청을 모두 끊은 채 처음 화면·도감·카드 상세·도움말·한 판을 열어 내용과 axe를 확인하고, 바깥 요청이 하나도 없는지 봅니다.
+
 | 명령                                         | 설명                                                                           |
 | -------------------------------------------- | ------------------------------------------------------------------------------ |
 | `pnpm build` / `pnpm preview`                | 앱과 Storybook(`/storybook/`) 빌드 / 빌드 결과 실행 (`http://localhost:4173`)  |

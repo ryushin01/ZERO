@@ -4,6 +4,7 @@
 
 ## 2026-11-21
 
+- 오프라인 검증: localhost 밖 요청을 모두 끊은 채 처음 화면·도감·카드 상세(Ark 소장 자료 그림)·도움말·한 판이 내용과 함께 뜨고 axe를 통과하며 바깥 요청이 없는지 보는 E2E(`e2e/offline.spec.js`)를 더함. README에 `.env` 없이·인터넷 없이 실행되는 범위를 적음
 - Ark 자동 동기화(ryushin01/Ark@b56eb04): 기존 기록을 Ark에 맞춤
 - Ark 자동 동기화(ryushin01/Ark@d7edbcf): 기존 기록을 Ark에 맞춤
 
