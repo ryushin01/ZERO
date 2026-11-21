@@ -4,6 +4,7 @@
 
 ## 2026-11-21
 
+- Ark 자동 동기화(ryushin01/Ark@b56eb04): 기존 기록을 Ark에 맞춤
 - Ark 자동 동기화(ryushin01/Ark@d7edbcf): 기존 기록을 Ark에 맞춤
 
 ## 2026-11-20

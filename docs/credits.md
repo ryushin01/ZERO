@@ -732,7 +732,7 @@ ZERO가 쓰는 외부 자료의 전체 목록입니다. 화면에는 출처를 �
 | 여와 | 복희와 여와 | 작자 미상 | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Anonymous-Fuxi_and_N%C3%BCwa.jpg) |
 | 서왕모 | 서왕모 | Kano Osanobu | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E7%8E%8B%E6%AF%8D%E5%9B%B3-Queen_Mother_of_the_West_MET_DP333861.jpg) |
 | 항아 | 달의 여신 항아 | 작자 미상 | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Moon_Goddess_Chang_E_-_Unidentified_artist,_after_Tang_Yin.jpg) |
-| 케르눈노스 | 군데스트루프 솥의 뿔 달린 신 | Nationalmuseet, Roberto Fortuna og Kira Ursem | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gundestrupkedlen-_00054_(cropped).jpg) |
+| 케르눈노스 | 군데스트루프 솥의 뿔 달린 신 | Nationalmuseet, Roberto Fortuna og Kira Ursem | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gundestrupkedlen-_00054_(cropped).jpg) |
 | 쿠 훌린 | 전투하는 쿠 훌린 | Joseph Christian Leyendecker | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cuchulain_in_Battle.jpg) |
 | 브리지트 | 성녀 브리지다 | John Duncan | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:John_Duncan_(1913)_Saint_Bride.jpg) |
 | 모리안 | 까마귀 (「전투하는 쿠 훌린」 부분) | Joseph Christian Leyendecker | 퍼블릭 도메인 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Morrigan.jpg) |
