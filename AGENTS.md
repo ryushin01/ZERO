@@ -65,17 +65,19 @@ pnpm dev   # http://localhost:5173
 
 ## 6. Git·PR
 
-- **흐름: GitHub Flow.** `main`에 직접 커밋·푸시하지 않습니다. 최신 `main`에서 브랜치를 만들어 PR로만 병합합니다. PR은 목적 하나로 작게, 본문에 무엇·왜·검사 결과를 적습니다. `sync/ark`는 동기화 봇 전용입니다.
+- **흐름: GitHub Flow.** `main`에 직접 커밋·푸시하지 않습니다. 최신 `main`에서 브랜치를 만들어 PR로만 병합합니다. PR은 목적 하나로 작게, 본문에 무엇·왜·검사 결과를 적습니다. `sync/ark`는 동기화 워크플로 전용입니다.
 - **브랜치 이름:** `feat/…`, `fix/…`, `refactor/…`, `docs/…`, `test/…`, `chore/…`, `release/…`(예: `feat/code-split`, `chore/sync-pr`).
 - **커밋 메시지: Conventional Commits.** `<타입>: <한국어 요약>`, 타입은 `feat`, `fix`, `refactor`, `perf`, `docs`, `test`, `style`, `chore`, `ci`, `build`. 호환이 깨지면 본문에 `BREAKING CHANGE:`. 실제 예: `perf: 화면별 코드 분할(첫 화면 JS 113.5 → 89.7 kB), 문서 수량 자동 갱신, 자동 동기화의 변경 기록`, `ci: Ark 동기화를 PR로 남기고 검사 통과 뒤 합치기`.
   - 표준과 다른 점: 버전을 고정했으므로 제목에 `(x.y.z)`를 붙이지 않습니다. 예전에는 `security:`·`a11y:` 타입도 썼지만 새 커밋은 표준 타입을 씁니다.
-  - 커밋 끝에 `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`, PR 본문 끝에 `🤖 Generated with [Claude Code](https://claude.com/claude-code)`.
+- **기여자는 ryushin01만 남깁니다(2026-11-21 사용자 결정).** 커밋 작성자는 늘 `ryushin0 <141554987+ryushin01@users.noreply.github.com>`입니다. 이 저장소는 백엔드 코드가 없으므로 `Co-Authored-By` 줄을 넣지 않습니다(백엔드 저장소만 `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`). PR 본문 끝에는 `🤖 Generated with [Claude Code](https://claude.com/claude-code)`를 적습니다.
+  - GitHub Actions가 커밋하는 워크플로는 작성자를 ryushin01로 설정합니다(`github-actions[bot]` 금지): `sync-ark.yml`의 `git config user.name/user.email`.
+  - Dependabot PR은 그대로 병합하지 않고, 같은 변경을 ryushin01 커밋으로 다시 만들어 PR로 병합합니다.
 - **버전: v1.2.3으로 고정(2026-11-15부터, Semantic Versioning 예외).**
   - 기능을 바꿔도 `package.json`의 `version`과 README 배지(`version-1.2.3`)를 올리지 않습니다. `scripts/version.test.js`가 다른 값을 막습니다.
   - 릴리스 태그·GitHub 릴리스를 새로 만들지 않습니다(마지막 릴리스 `v1.2.3`).
   - 프로필 저장소 `ryushin01/ryushin01`의 `scripts/versions.mjs`도 `FIXED`로 ZERO를 v1.2.3에 고정합니다. 이 값을 바꾸지 않습니다.
 - **변경 기록: Keep a Changelog를 따르되 날짜 제목.** `CHANGELOG.md`에 최신 항목을 위에 둡니다. 표준과 다른 점: 버전 고정 때문에 `## x.y.z - YYYY-MM-DD` 대신 날짜 제목(`## 2026-11-20`)으로 적고, 추가·변경·수정·제거 소제목 없이 목록으로 적으며, `[Unreleased]` 절은 쓰지 않습니다. Ark 동기화는 `scripts/changelog-sync.mjs`가 오늘 날짜 항목에 한 줄을 더합니다.
-- 병합은 squash(제목 끝 `(#번호)`). **CI가 통과하면 바로 병합**하고 CodeRabbit 리뷰는 기다리지 않습니다(이미 달린 맞는 지적은 반영). Dependabot PR도 CI 통과 때만 병합합니다.
+- 병합은 squash(제목 끝 `(#번호)`). **CI가 통과하면 바로 병합**하고 CodeRabbit 리뷰는 기다리지 않습니다(이미 달린 맞는 지적은 반영). Dependabot PR은 아래 기여자 규칙대로 다시 만듭니다.
 - 공개 저장소라 Actions가 돕니다. Actions가 막히면 CI와 같은 검사를 로컬에서 돌려 대신합니다.
 
 ## 7. 배포·릴리스
